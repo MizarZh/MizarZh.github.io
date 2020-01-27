@@ -91,11 +91,12 @@
 <p>2、使用cnpm安装hexo<br>命令：<br>cnpm install -g hexo-cli</p>
 <p>3、新建一个文件夹，里面将存储blog所需文件<br>命令：<br>mkdir xxx<br>cd xxx</p>
 <p>4、初始化hexo<br>命令：<br>hexo init</p>
+<p>5、安装hexo部署至github的工具<br>命令：<br>cnpm install –save hexo-deployer-git<br>（若出现ERROR Deployer not found: git错误，则是这个工具未安装）</p>
 <p>其中文件_config.yml是配置文件<br>部署到github上需要配置deploy部分<br>type: ‘git’<br>添加两行：<br>repo: <em>path-to-github-blog</em><br>branch: master<br>可在theme中更换主题</p>
 <p>本地临时服务器：<br>hexo s<br>(start)</p>
 <p>新建文档：<br>hexo n “name”<br>(new)<br>文档存放在/source/_post/中</p>
 <p>生成文档：<br>hexo g<br>(generate)</p>
-<p>部署文档到github上：<br>hexo d<br>(deploy)<br>第一次配置可能需要输入github的账号密码<br>若是git bash内提示fail，返回第零步进行账号的配置</p>
+<p>部署文档到github上：<br>hexo d<br>(deploy)<br>第一次配置可能需要输入github的账号密码<br>若是git bash内提示账号相关的错误，返回第零步进行账号的配置</p>
 
       
     </div>

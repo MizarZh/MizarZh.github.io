@@ -15,7 +15,7 @@
 <meta property="og:description" content="0、准备：node.js官网下载node并安装安装git for windows，以后将使用git bash作为命令行操作配置git账号信息：git config –global user.name “Firstname Lastname”git config –global user.email “your-email@youremail.com“github新建repository的地址需明明">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-01-27T14:46:41.000Z">
-<meta property="article:modified_time" content="2020-01-27T15:07:11.216Z">
+<meta property="article:modified_time" content="2020-01-27T15:10:39.385Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -93,11 +93,12 @@
 <p>2、使用cnpm安装hexo<br>命令：<br>cnpm install -g hexo-cli</p>
 <p>3、新建一个文件夹，里面将存储blog所需文件<br>命令：<br>mkdir xxx<br>cd xxx</p>
 <p>4、初始化hexo<br>命令：<br>hexo init</p>
+<p>5、安装hexo部署至github的工具<br>命令：<br>cnpm install –save hexo-deployer-git<br>（若出现ERROR Deployer not found: git错误，则是这个工具未安装）</p>
 <p>其中文件_config.yml是配置文件<br>部署到github上需要配置deploy部分<br>type: ‘git’<br>添加两行：<br>repo: <em>path-to-github-blog</em><br>branch: master<br>可在theme中更换主题</p>
 <p>本地临时服务器：<br>hexo s<br>(start)</p>
 <p>新建文档：<br>hexo n “name”<br>(new)<br>文档存放在/source/_post/中</p>
 <p>生成文档：<br>hexo g<br>(generate)</p>
-<p>部署文档到github上：<br>hexo d<br>(deploy)<br>第一次配置可能需要输入github的账号密码<br>若是git bash内提示fail，返回第零步进行账号的配置</p>
+<p>部署文档到github上：<br>hexo d<br>(deploy)<br>第一次配置可能需要输入github的账号密码<br>若是git bash内提示账号相关的错误，返回第零步进行账号的配置</p>
 
       
     </div>
