@@ -64,6 +64,52 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-hexo博客win配置方法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/01/27/hexo%E5%8D%9A%E5%AE%A2win%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95/" class="article-date">
+  <time datetime="2020-01-27T14:46:41.000Z" itemprop="datePublished">2020-01-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/01/27/hexo%E5%8D%9A%E5%AE%A2win%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95/">hexo win10配置方法，并使用github</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>0、准备：<br>node.js官网下载node并安装<br>安装git for windows，以后将使用git bash作为命令行操作<br>配置git账号信息：<br>git config –global user.name “Firstname Lastname”<br>git config –global user.email “<a href="mailto:your-email@youremail.com">your-email@youremail.com</a>“</p>
+<p>1、npm命令在国内较慢，需要使用cnpm(taobao mirror)<br>命令：<br>npm install -g cnpm –registry=<a href="https://registry.npm.taobao.org" target="_blank" rel="noopener">https://registry.npm.taobao.org</a></p>
+<p>2、使用cnpm安装hexo<br>命令：<br>cnpm install -g hexo-cli</p>
+<p>3、新建一个文件夹，里面将存储blog所需文件<br>命令：<br>mkdir xxx<br>cd xxx</p>
+<p>4、初始化hexo<br>命令：<br>hexo init</p>
+<p>其中文件_config.yml是配置文件<br>部署到github上需要配置deploy部分<br>type: ‘git’<br>添加两行：<br>repo: <em>path-to-github-blog</em><br>branch: master</p>
+<p>本地临时服务器：<br>hexo s<br>(start)</p>
+<p>新建文档：<br>hexo n “name”<br>(new)<br>文档存放在/source/_post/中</p>
+<p>生成文档：<br>hexo g<br>(generate)</p>
+<p>部署文档到github上：<br>hexo d<br>(deploy)<br>第一次配置可能需要输入github的账号密码<br>若是git bash内提示fail，返回第零步进行账号的配置</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/01/27/hexo%E5%8D%9A%E5%AE%A2win%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95/" data-id="ck5wl0d8e00003studof3hpjt" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-first-test" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/01/27/first-test/" class="article-date">
@@ -219,6 +265,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2020/01/27/hexo%E5%8D%9A%E5%AE%A2win%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95/">hexo win10配置方法，并使用github</a>
+          </li>
         
           <li>
             <a href="/2020/01/27/first-test/">first test</a>
