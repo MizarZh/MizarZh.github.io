@@ -21,10 +21,10 @@
   var CONFIG = {
     hostname: new URL('http://yoursite.com').hostname,
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Gemini',
     version: '7.7.0',
     exturl: false,
-    sidebar: {"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},
+    sidebar: {"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},
     copycode: {"enable":false,"show_result":false,"style":null},
     back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
     bookmark: {"enable":false,"color":"#222","save":"auto"},
@@ -166,13 +166,33 @@
   <div class="post-block">
     <div class="posts-collapse">
       <div class="collection-title">
-        <span class="collection-header">Um..! 6 posts in total. Keep on posting.</span>
+        <span class="collection-header">Um..! 5 posts in total. Keep on posting.</span>
       </div>
 
       
     <div class="collection-year">
       <h1 class="collection-header">2020</h1>
     </div>
+
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <div class="post-meta">
+        <time itemprop="dateCreated"
+              datetime="2020-01-30T13:20:56+08:00"
+              content="2020-01-30">
+          01-30
+        </time>
+      </div>
+
+      <h2 class="post-title">
+          <a class="post-title-link" href="/2020/01/30/%E6%9C%89%E7%94%A8%E7%9A%84%E7%BD%91%E5%9D%80/" itemprop="url">
+            <span itemprop="name">有用的网址</span>
+          </a>
+      </h2>
+
+    </header>
+  </article>
 
   <article itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
@@ -239,26 +259,6 @@
 
       <div class="post-meta">
         <time itemprop="dateCreated"
-              datetime="2020-01-27T22:06:49+08:00"
-              content="2020-01-27">
-          01-27
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/01/27/first-test/" itemprop="url">
-            <span itemprop="name">first test</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
               datetime="2020-01-27T21:59:53+08:00"
               content="2020-01-27">
           01-27
@@ -268,26 +268,6 @@
       <h2 class="post-title">
           <a class="post-title-link" href="/2020/01/27/hello-world/" itemprop="url">
             <span itemprop="name">Hello World</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-01-27T00:00:00+08:00"
-              content="2020-01-27">
-          01-27
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/01/27/fist-test/" itemprop="url">
-            <span itemprop="name">hello world!</span>
           </a>
       </h2>
 
@@ -358,6 +338,8 @@
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="MizarZh"
+      src="/images/avatar_my.jpg">
   <p class="site-author-name" itemprop="name">MizarZh</p>
   <div class="site-description" itemprop="description"></div>
 </div>
@@ -366,7 +348,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -406,7 +388,7 @@
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.2.0
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.0
+  <div class="theme-info">Theme – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.7.0
   </div>
 
         
@@ -432,7 +414,7 @@
 <script src="/js/motion.js"></script>
 
 
-<script src="/js/schemes/muse.js"></script>
+<script src="/js/schemes/pisces.js"></script>
 
 
 <script src="/js/next-boot.js"></script>
