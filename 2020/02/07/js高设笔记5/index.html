@@ -21,10 +21,10 @@
   var CONFIG = {
     hostname: new URL('http://yoursite.com').hostname,
     root: '/',
-    scheme: 'Pisces',
+    scheme: 'Gemini',
     version: '7.7.0',
     exturl: false,
-    sidebar: {"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
     copycode: {"enable":false,"show_result":false,"style":null},
     back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
     bookmark: {"enable":false,"color":"#222","save":"auto"},
@@ -54,7 +54,7 @@
 <meta property="og:description" content="5 引用类型引用类型是一种结构。 5.1 Object类型创造实例的两种方法：1、new+构造函数2、对象字面量 12345678910var person &#x3D; new Object();person.name &#x3D; &quot;Nicholas&quot;;person.age &#x3D; 29;var person &#x3D; &amp;#123;    name : &quot;Nicholas&quot;,    age : 29&amp;#125;;var p">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-02-07T10:13:27.000Z">
-<meta property="article:modified_time" content="2020-02-07T10:56:41.913Z">
+<meta property="article:modified_time" content="2020-02-08T03:53:00.264Z">
 <meta property="article:author" content="MizarZh">
 <meta property="article:tag" content="javascript">
 <meta name="twitter:card" content="summary">
@@ -202,10 +202,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-02-07 18:13:27 / Modified: 18:56:41" itemprop="dateCreated datePublished" datetime="2020-02-07T18:13:27+08:00">2020-02-07</time>
+              <time title="Created: 2020-02-07 18:13:27" itemprop="dateCreated datePublished" datetime="2020-02-07T18:13:27+08:00">2020-02-07</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-02-08 11:53:00" itemprop="dateModified" datetime="2020-02-08T11:53:00+08:00">2020-02-08</time>
+              </span>
 
           
 
@@ -221,6 +227,7 @@
         <h1 id="5-引用类型"><a href="#5-引用类型" class="headerlink" title="5 引用类型"></a>5 引用类型</h1><p>引用类型是一种结构。</p>
 <h2 id="5-1-Object类型"><a href="#5-1-Object类型" class="headerlink" title="5.1 Object类型"></a>5.1 Object类型</h2><p>创造实例的两种方法：<br>1、new+构造函数<br>2、对象字面量</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">person.name = <span class="string">"Nicholas"</span>;</span><br><span class="line">person.age = <span class="number">29</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">    name : <span class="string">"Nicholas"</span>,</span><br><span class="line">    age : <span class="number">29</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> person = &#123;&#125;; <span class="comment">//相当于new Object()</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <p>属性名可以使用字符串（包括字符串数字）。<br>使用对象字面量定义对象不会调用Object()构造函数</p>
 <p>访问方法：person[“name”]或person.name<br>除非必须通过方括号法表示，否则用点表示法</p>
 <h2 id="5-2-Array"><a href="#5-2-Array" class="headerlink" title="5.2 Array"></a>5.2 Array</h2><p>每一项可保存不同的数据类型</p>
@@ -418,7 +425,7 @@
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.2.0
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">Theme – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.7.0
+  <div class="theme-info">Theme – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.7.0
   </div>
 
         

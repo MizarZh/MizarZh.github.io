@@ -21,10 +21,10 @@
   var CONFIG = {
     hostname: new URL('http://yoursite.com').hostname,
     root: '/',
-    scheme: 'Pisces',
+    scheme: 'Gemini',
     version: '7.7.0',
     exturl: false,
-    sidebar: {"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
     copycode: {"enable":false,"show_result":false,"style":null},
     back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
     bookmark: {"enable":false,"color":"#222","save":"auto"},
@@ -54,7 +54,7 @@
 <meta property="og:description" content="6 面向对象的程序设计（注意：js中的面向对象实现与C++中不同） 6.1 理解对象1234567891011121314151617var person &#x3D; new Object(); person.name &#x3D; &quot;Nicholas&quot;; person.age &#x3D; 29;  person.job &#x3D; &quot;Software Engineer&quot;;  person.sayName &#x3D; function()">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-02-07T10:14:42.000Z">
-<meta property="article:modified_time" content="2020-02-08T03:32:56.198Z">
+<meta property="article:modified_time" content="2020-02-08T03:53:01.340Z">
 <meta property="article:author" content="MizarZh">
 <meta property="article:tag" content="javascript">
 <meta name="twitter:card" content="summary">
@@ -210,7 +210,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-02-08 11:32:56" itemprop="dateModified" datetime="2020-02-08T11:32:56+08:00">2020-02-08</time>
+                <time title="Modified: 2020-02-08 11:53:01" itemprop="dateModified" datetime="2020-02-08T11:53:01+08:00">2020-02-08</time>
               </span>
 
           
@@ -231,9 +231,9 @@
 <li>[[Configurable]]：表示能否通过 delete 删除属性从而重新定义属性，能否修改属性的特性，或者能否把属性修改为访问器属性。像前面例子中那样直接在对象上定义的属性，它们的这个特性默认值为 true。</li>
 <li>[[Enumerable]]：表示能否通过 for-in 循环返回属性。像前面例子中那样直接在对象上定义的属性，它们的这个特性默认值为 true。</li>
 <li>[[Writable]]：表示能否修改属性的值。像前面例子中那样直接在对象上定义的属性，它们的这个特性默认值为 true。</li>
-<li>[[Value]]：包含这个属性的数据值。读取属性值的时候，从这个位置读；写入属性值的时候，把新值保存在这个位置。这个特性的默认值为 undefined。</li>
+<li>[[Value]]：包含这个属性的数据值。读取属性值的时候，从这个位置读；写入属性值的时候，把新值保存在这个位置。这个特性的默认值为 undefined。<a id="more"></a>
+要修改属性默认的特性，必须使用 ECMAScript 5的<strong>Object.defineProperty()</strong> 方法。这个方法接收三个参数：属性所在的对象、属性的名字和一个描述符对象。其中，描述符（descriptor）对象的属 性必须是：configurable、enumerable、writable 和 value。</li>
 </ol>
-<p>要修改属性默认的特性，必须使用 ECMAScript 5的<strong>Object.defineProperty()</strong> 方法。这个方法接收三个参数：属性所在的对象、属性的名字和一个描述符对象。其中，描述符（descriptor）对象的属 性必须是：configurable、enumerable、writable 和 value。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;&#125;; </span><br><span class="line"><span class="built_in">Object</span>.defineProperty(person, <span class="string">"name"</span>, &#123;     </span><br><span class="line">    writable: <span class="literal">false</span>,     </span><br><span class="line">    value: <span class="string">"Nicholas"</span>  </span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
 <p>这个属性的值是不可修改的，如果尝试为它指定新值，则在非严格模式下，赋值操作将被忽略；在严格模式下，赋值操作将会导致抛出错误。 </p>
 <p>把 configurable 设置为 false，表示不能从对象中删除属性。如果对这个属性调用 delete，则在非严格模式下什么也不会发生，而在严格模式下会导致错误。</p>
@@ -398,7 +398,7 @@
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.2.0
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">Theme – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.7.0
+  <div class="theme-info">Theme – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.7.0
   </div>
 
         
