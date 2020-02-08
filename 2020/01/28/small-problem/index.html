@@ -54,7 +54,7 @@
 <meta property="og:description" content="hexo相关1. vscode使用markdown相关preview：右上角点击preview即可可装插件Markdown Preview Enhanced使得preview更好看 2、hexo标签问题设置了hexo的tags或者是categories，一开始是没有对应的页面的。生成页面的做法： 1hexo n page tags #或categories等 然后在source&#x2F;tags目录中配置">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-01-28T03:38:56.000Z">
-<meta property="article:modified_time" content="2020-02-08T14:40:26.490Z">
+<meta property="article:modified_time" content="2020-02-08T16:24:08.835Z">
 <meta property="article:author" content="MizarZh">
 <meta name="twitter:card" content="summary">
 
@@ -209,7 +209,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-02-08 22:40:26" itemprop="dateModified" datetime="2020-02-08T22:40:26+08:00">2020-02-08</time>
+                <time title="Modified: 2020-02-09 00:24:08" itemprop="dateModified" datetime="2020-02-09T00:24:08+08:00">2020-02-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -243,6 +243,12 @@
 <figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">---</span><br><span class="line">title: 标签</span><br><span class="line">date:</span><br><span class="line">type: "tags" //或者"categories"</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
 <p>然后hexo g即可</p>
 <h2 id="3、hexo目录乱序"><a href="#3、hexo目录乱序" class="headerlink" title="3、hexo目录乱序"></a>3、hexo目录乱序</h2><p>需要按顺序一级一级使用#<br>如##后应该跟###而不是####</p>
+<h2 id="4、hexo插入图片"><a href="#4、hexo插入图片" class="headerlink" title="4、hexo插入图片"></a>4、hexo插入图片</h2><ol>
+<li>_config.yml里面的post_asset_folder设为true</li>
+<li>安装插件<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install hexo-asset-image --save</span><br></pre></td></tr></table></figure></li>
+<li>安装完成后后hexo n “xxx”就会生成xxx.md的同时生成一个同名文件夹，图片放在里面即可。</li>
+<li>调用图片的命令为![](xxx/文件名)</li>
+</ol>
 <h1 id="git相关"><a href="#git相关" class="headerlink" title="git相关"></a>git相关</h1><h2 id="1、git速度过慢"><a href="#1、git速度过慢" class="headerlink" title="1、git速度过慢"></a>1、git速度过慢</h2><p>需设置hosts文件，隔一段时间需重新设置</p>
 
     </div>
@@ -325,7 +331,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#hexo相关"><span class="nav-text">hexo相关</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-vscode使用markdown相关"><span class="nav-text">1. vscode使用markdown相关</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、hexo标签问题"><span class="nav-text">2、hexo标签问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、hexo目录乱序"><span class="nav-text">3、hexo目录乱序</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#git相关"><span class="nav-text">git相关</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、git速度过慢"><span class="nav-text">1、git速度过慢</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#hexo相关"><span class="nav-text">hexo相关</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-vscode使用markdown相关"><span class="nav-text">1. vscode使用markdown相关</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、hexo标签问题"><span class="nav-text">2、hexo标签问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、hexo目录乱序"><span class="nav-text">3、hexo目录乱序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、hexo插入图片"><span class="nav-text">4、hexo插入图片</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#git相关"><span class="nav-text">git相关</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、git速度过慢"><span class="nav-text">1、git速度过慢</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

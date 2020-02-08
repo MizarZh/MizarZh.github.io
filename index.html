@@ -206,7 +206,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-02-09 00:16:03" itemprop="dateModified" datetime="2020-02-09T00:16:03+08:00">2020-02-09</time>
+                <time title="Modified: 2020-02-09 00:18:02" itemprop="dateModified" datetime="2020-02-09T00:18:02+08:00">2020-02-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -233,12 +233,6 @@
       
           <h2 id="6-面向对象的程序设计"><a href="#6-面向对象的程序设计" class="headerlink" title="6 面向对象的程序设计"></a>6 面向对象的程序设计</h2><p>（注意：js中的面向对象实现与C++中不同）</p>
 <h2 id="6-1-理解对象"><a href="#6-1-理解对象" class="headerlink" title="6.1 理解对象"></a>6.1 理解对象</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> <span class="built_in">Object</span>(); </span><br><span class="line">person.name = <span class="string">"Nicholas"</span>; </span><br><span class="line">person.age = <span class="number">29</span>;  </span><br><span class="line">person.job = <span class="string">"Software Engineer"</span>; </span><br><span class="line"> </span><br><span class="line">person.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;     </span><br><span class="line">    alert(<span class="keyword">this</span>.name);  </span><br><span class="line">&#125;; </span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> person = &#123;     </span><br><span class="line">    name: <span class="string">"Nicholas"</span>,      </span><br><span class="line">    age: <span class="number">29</span>,     </span><br><span class="line">    job: <span class="string">"Software Engineer"</span>, </span><br><span class="line">    sayName: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;         </span><br><span class="line">        alert(<span class="keyword">this</span>.name);     </span><br><span class="line">    &#125; </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h3 id="6-1-1-属性类型"><a href="#6-1-1-属性类型" class="headerlink" title="6.1.1 属性类型"></a>6.1.1 属性类型</h3><p><strong>数据属性</strong><br>ECMA-262第 5版在定义只有内部才用的特性（attribute）时，描述了属性（property）的各种特征。 实现 JavaScript引擎用的，因此在 JavaScript中不能直接访问它们。<br>为了表示特性是内部值，该规范把它们放在了两对儿方括号中，例如[[Enumerable]]。</p>
-<ol>
-<li>[[Configurable]]：表示能否通过 delete 删除属性从而重新定义属性，能否修改属性的特性，或者能否把属性修改为访问器属性。像前面例子中那样直接在对象上定义的属性，它们的这个特性默认值为 true。</li>
-<li>[[Enumerable]]：表示能否通过 for-in 循环返回属性。像前面例子中那样直接在对象上定义的属性，它们的这个特性默认值为 true。</li>
-<li>[[Writable]]：表示能否修改属性的值。像前面例子中那样直接在对象上定义的属性，它们的这个特性默认值为 true。</li>
-<li>[[Value]]：包含这个属性的数据值。读取属性值的时候，从这个位置读；写入属性值的时候，把新值保存在这个位置。这个特性的默认值为 undefined。</li></ol>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/02/07/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B06/#more" rel="contents">
@@ -693,7 +687,7 @@
 </li>
 <li>mc相关：<blockquote>
 <p>中文论坛 <a href="https://www.mcbbs.net/" target="_blank" rel="noopener">https://www.mcbbs.net/</a><br>mod <a href="https://www.mcmod.cn/class/category/1-1.html" target="_blank" rel="noopener">https://www.mcmod.cn/class/category/1-1.html</a><br>cusreforge <a href="https://curseforge.com" target="_blank" rel="noopener">https://curseforge.com</a><br>HMCL <a href="https://hmcl.huangyuhui.net" target="_blank" rel="noopener">https://hmcl.huangyuhui.net</a><br>gamepedia <a href="https://minecraft-zh.gamepedia.com/Minecraft_Wiki" target="_blank" rel="noopener">https://minecraft-zh.gamepedia.com/Minecraft_Wiki</a><br>gamepedia英文版 <a href="https://minecraft.gamepedia.com/Minecraft_Wiki" target="_blank" rel="noopener">https://minecraft.gamepedia.com/Minecraft_Wiki</a></p>
-</blockquote>
+</blockquote></li></ol>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/01/30/%E6%9C%89%E7%94%A8%E7%9A%84%E7%BD%91%E5%9D%80/#more" rel="contents">
@@ -836,7 +830,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-02-08 22:40:26" itemprop="dateModified" datetime="2020-02-08T22:40:26+08:00">2020-02-08</time>
+                <time title="Modified: 2020-02-09 00:24:08" itemprop="dateModified" datetime="2020-02-09T00:24:08+08:00">2020-02-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
