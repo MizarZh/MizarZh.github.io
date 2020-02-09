@@ -54,7 +54,7 @@
 <meta property="og:description" content="5 引用类型引用类型是一种结构。 5.1 Object类型创造实例的两种方法：1、new+构造函数2、对象字面量 12345678910var person &#x3D; new Object();person.name &#x3D; &quot;Nicholas&quot;;person.age &#x3D; 29;var person &#x3D; &amp;#123;    name : &quot;Nicholas&quot;,    age : 29&amp;#125;;var p">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-02-07T10:13:27.000Z">
-<meta property="article:modified_time" content="2020-02-08T14:30:52.269Z">
+<meta property="article:modified_time" content="2020-02-09T14:05:19.957Z">
 <meta property="article:author" content="MizarZh">
 <meta property="article:tag" content="javascript">
 <meta name="twitter:card" content="summary">
@@ -183,7 +183,7 @@
     <link itemprop="mainEntityOfPage" href="https://mizarzh.github.io/2020/02/07/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B05/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar_my.jpg">
+      <meta itemprop="image" content="/images/%E8%8B%8D.png">
       <meta itemprop="name" content="MizarZh">
       <meta itemprop="description" content="">
     </span>
@@ -210,7 +210,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-02-08 22:30:52" itemprop="dateModified" datetime="2020-02-08T22:30:52+08:00">2020-02-08</time>
+                <time title="Modified: 2020-02-09 22:05:19" itemprop="dateModified" datetime="2020-02-09T22:05:19+08:00">2020-02-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -269,7 +269,7 @@
 <p>如同模仿 Date.parse()一样，Date 构造函数也会模仿 Date.UTC()，但有一点明显不同：日期和时间都基于本地时区而非GMT来创建。</p>
 <p>Date 构造函数接收的参数仍然与 Date.UTC()相同。</p>
 <p>valueOf()方法，则根本不返回字符串，而是返回日期的毫秒表示。<br>格式方法与组件方法见书P101-102</p>
-<h2 id="5-4-RegExp类型"><a href="#5-4-RegExp类型" class="headerlink" title="5.4 RegExp类型"></a>5.4 RegExp类型</h2><p>见另外的文档</p>
+<h2 id="5-4-RegExp类型"><a href="#5-4-RegExp类型" class="headerlink" title="5.4 RegExp类型"></a>5.4 RegExp类型</h2><p>见另外的文档<br><a href="https://mizarzh.github.io/2020/02/05/Regexp%E7%9B%B8%E5%85%B3/">RegExp</a></p>
 <h2 id="5-5-Function类型"><a href="#5-5-Function类型" class="headerlink" title="5.5 Function类型"></a>5.5 Function类型</h2><p>函数实际上是对象，每个函数都是 Function 类型的实例，而且都与其他引用类型一样具有属性和方法。函数名实际上也是一个指向函数对象的指针，不会与某个函数绑定。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span> (<span class="params">num1, num2</span>) </span>&#123;     </span><br><span class="line">    <span class="keyword">return</span> num1 + num2; </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> sum = <span class="function"><span class="keyword">function</span>(<span class="params">sum1, sum2</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> num1 + num2;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> sum = <span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">"sum1"</span>,<span class="string">"sum2"</span>,<span class="string">"return num1 + num2"</span>)<span class="comment">//不推荐</span></span><br></pre></td></tr></table></figure>
 
@@ -383,7 +383,7 @@
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="MizarZh"
-      src="/images/avatar_my.jpg">
+      src="/images/%E8%8B%8D.png">
   <p class="site-author-name" itemprop="name">MizarZh</p>
   <div class="site-description" itemprop="description"></div>
 </div>
