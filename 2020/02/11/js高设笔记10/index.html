@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://mizarzh.github.io').hostname,
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.7.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="10 DOMDOM（文档对象模型）是针对 HTML和 XML文档的一个 API 10.1 节点层次DOM可以将任何 HTML 或 XML文档描绘成一个由多层节点构成的结构。&lt;html&gt; 文档元素文档元素是文档的外层元素，文档中的其他所有元素都包含在文档元素中。每个文档只能有一个文档元素。在 HTML 页面中，文档元素始终都是元素。在 XML 中，没有预定义的元素，因此任何元素都可能成为">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js高设笔记10">
+<meta property="og:url" content="https://mizarzh.github.io/2020/02/11/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B010/index.html">
+<meta property="og:site_name" content="MizarZh&#39;s blog">
+<meta property="og:description" content="10 DOMDOM（文档对象模型）是针对 HTML和 XML文档的一个 API 10.1 节点层次DOM可以将任何 HTML 或 XML文档描绘成一个由多层节点构成的结构。&lt;html&gt; 文档元素文档元素是文档的外层元素，文档中的其他所有元素都包含在文档元素中。每个文档只能有一个文档元素。在 HTML 页面中，文档元素始终都是元素。在 XML 中，没有预定义的元素，因此任何元素都可能成为">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-02-11T08:11:37.000Z">
+<meta property="article:modified_time" content="2020-02-11T16:03:10.379Z">
+<meta property="article:author" content="MizarZh">
+<meta property="article:tag" content="javascript">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://mizarzh.github.io/2020/02/11/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B010/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>js高设笔记10 | MizarZh's blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">MizarZh's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-主页">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>主页</a>
+
+  </li>
+        <li class="menu-item menu-item-标签">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-分类">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-归档">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="https://mizarzh.github.io/2020/02/11/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B010/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/%E8%8B%8D.png">
+      <meta itemprop="name" content="MizarZh">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MizarZh's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          js高设笔记10
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-02-11 16:11:37" itemprop="dateCreated datePublished" datetime="2020-02-11T16:11:37+08:00">2020-02-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-02-12 00:03:10" itemprop="dateModified" datetime="2020-02-12T00:03:10+08:00">2020-02-12</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index">
+                    <span itemprop="name">编程</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="10-DOM"><a href="#10-DOM" class="headerlink" title="10 DOM"></a>10 DOM</h2><p>DOM（文档对象模型）是针对 HTML和 XML文档的一个 API</p>
+<h2 id="10-1-节点层次"><a href="#10-1-节点层次" class="headerlink" title="10.1 节点层次"></a>10.1 节点层次</h2><p>DOM可以将任何 HTML 或 XML文档描绘成一个由多层节点构成的结构。<br>&lt;html&gt; 文档元素<br>文档元素是文档的外层元素，文档中的其他所有元素都包含在文档元素中。每个文档只能有一个文档元素。<br>在 HTML 页面中，文档元素始终都是<html>元素。在 XML 中，没有预定义的元素，因此任何元素都可能成为文档元素。 </p>
+<p>每一段标记都可以通过树中的一个节点来表示：<br>HTML 元素通过元素节点表示，特性（attribute） 通过特性节点表示，文档类型通过文档类型节点表示，而注释则通过注释节点表示。总共有 12 种节点类型，这些类型都继承自一个基类型。 </p>
+<h3 id="10-1-1-Node类型"><a href="#10-1-1-Node类型" class="headerlink" title="10.1.1 Node类型"></a>10.1.1 Node类型</h3><p>DOM1 级定义了一个 Node 接口，该接口将由 DOM 中的所有节点类型实现，JavaScript中的所有节点类型都继承自 Node 类型。<br>每个节点都有一个 nodeType 属性，用于表明节点的类型。<br>节点类型由在 Node 类型中定义的下列12个数值常量来表示<br>Node.ELEMENT_NODE(1)；<br>Node.ATTRIBUTE_NODE(2)；<br>Node.TEXT_NODE(3)；<br>Node.CDATA_SECTION_NODE(4)；<br>Node.ENTITY_REFERENCE_NODE(5)；<br>Node.ENTITY_NODE(6)；<br>Node.PROCESSING_INSTRUCTION_NODE(7)；<br>Node.COMMENT_NODE(8)；<br>Node.DOCUMENT_NODE(9)；<br>Node.DOCUMENT_TYPE_NODE(10)；<br>Node.DOCUMENT_FRAGMENT_NODE(11)；<br>Node.NOTATION_NODE(12)。</p>
+<p><strong>nodeName 和 nodeValue</strong>：对于元素节点，nodeName 中保存的始终都是元素的标签名，而 nodeValue 的值则始终为 null。</p>
+<p>每个节点都有一个 <strong>childNodes</strong> 属性，其中保存着一个 NodeList 对象。<br>NodeList 是一种类数组对象（类似但不是Array），用于保存一组有序的节点，可以通过位置来访问这些节点。<br>访问NodeList可通过方括号，也可以使用 item()方法<br>转化为数组（或者手动循环）：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arrayOfNodes = <span class="built_in">Array</span>.prototype.slice.call(someNode.childNodes,<span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+
+<p>每个节点都有一个 <strong>parentNode</strong> 属性，该属性指向文档树中的父节点。<br>包含在 childNodes 列表中的每个节点相互之间都是同胞节点。通过使用列表中每个节点的 <strong>previousSibling 和 nextSibling</strong> 属性，可以访问同一列表中的其他节点。列表中第一个节点的 previousSibling 属性值为 null，而列表中后一个节点的 nextSibling 属性的值同样也为 null。<br>父节点的 firstChild 和 lastChild 属性分别指向其 childNodes 列表中的第一个和后一个节点。</p>
+<p>hasChildNodes()方法</p>
+<p>所有节点都有的后一个属性是 ownerDocument，该属性指向表示整个文档的文档节点。这种关系表示的是任何节点都属于它所在的文档，任何节点都不能同时存在于两个或更多个文档中。</p>
+<p><strong>appendChild()</strong>，用于向 childNodes 列表的末尾添加一个节点。添加节点后，childNodes 的新增节点、父节点及以前的后一个子节点的关系指针都会相应地得到更新。更新完成后，appendChild() 返回新增的节点。</p>
+<p><strong>insertBefore()</strong> 方法。这个方法接受两个参数：要插入的节点和作为参照的节点。插入节点后，被插入的节点会变成参照节点的前一个同胞节点（previousSibling），同时被方法返回。如果参照节点是 null，则 insertBefore()与 appendChild()执行相同的操作</p>
+<p><strong>replaceChild()</strong> 方法接受的两个参数是：要插入的节点和要替换的节点。要替换的节点将由这个方法返回并从文档树中被移除，同时由要插入的节点占据其位置。</p>
+<p><strong>removeChild()</strong> 方法。这个方法接受一个参数，即要移除的节点。被移除的节点将成为方法的返回值。</p>
+<p>并不是所有类型的节点都有子节点，如果在不支持子节点的节点上调用了这些方法，将会导致错误发生。 </p>
+<p><strong>cloneNode()</strong>，用于创建调用这个方法的节点的一个完全相同的副本。cloneNode()方法接受一个布尔值参数，表示是否执行深复制（复制节点及其整个子节点树，浅复制只复制节点本身）。副本没有指定父节点。</p>
+<p><strong>normalize()</strong>，这个方法唯一的作用就是处理文档树中的文本节点。如果找到了空文本节点，则删除它；如果找到相邻的文本节点，则将它们合并为一个文本节点。</p>
+<h3 id="10-1-2-Document类型"><a href="#10-1-2-Document类型" class="headerlink" title="10.1.2 Document类型"></a>10.1.2 Document类型</h3><p>JavaScript通过 Document 类型表示文档。在浏览器中，document 对象是 HTMLDocument（继承自 Document 类型）的一个实例，表示整个 HTML页面。而且，document 对象是 window 对象的一个属性，因此可以将其作为全局对象来访问。</p>
+<ol>
+<li>nodeType 的值为 9；</li>
+<li>nodeName 的值为”#document”；</li>
+<li>nodeValue 的值为 null；</li>
+<li>parentNode 的值为 null；</li>
+<li>ownerDocument 的值为 null；其子节点可能是一个 DocumentType（多一个）、Element（多一个）、ProcessingInstruction 或 Comment。 </li>
+</ol>
+<p>documentElement 属性，该属性始终指向HTML页面中的<html>元素。<br>document 对象还有一个 body 属性，直接指向<body>元素。<br>Document 另一个可能的子节点是 DocumentType。通常将&lt;!DOCTYPE&gt;标签看成一个与文档其他部分不同的实体，可以通过 doctype 属性（在浏览器中是 document.doctype）来访问它的信息。 不同浏览器支持情况不同<br>出现在<html>元素外部的注释的引用不同浏览器的支持程度不同。</p>
+<p>document.title：通过这个属性可以取得当前页面的标题，也可以修改当前页面的标题并反映在浏览器的标题栏中。修改 title 属性的值不会改变&lt;title&gt;元素<br>URL、domain 和 referrer。只有 domain 是可以设置的。但由于安全方面的限制，也并非可以给 domain 设置任何值。</p>
+<p><strong>getElementById()和getElementsByTagName()</strong>。<br>前者id不存在返回null，id特性（attribute）严格匹配，包括大小写。<br>后者返回的是包含零或多个元素的 NodeList。在 HTML文档中，这个方法会返回一个 HTMLCollection 对象，作为一个“动态”集合，该对象与 NodeList 非常类似。<br>HTMLCollection 对象还有一个方法，叫做 namedItem()，使用这个方法可以通过元素的 name 特性取得集合中的项。（方括号访问亦可）<br>后者可传入*，代表全部</p>
+<p>虽然标准规定标签名需要区分大小写，但为了最大限度地与既有 HTML 页面兼容，传给 getElementsByTagName()的标签名是不需要区分大小写的。但对于 XML 页面而言（包括 XHTML），getElementsByTagName()方法就会区分大小写。 </p>
+<p>只有 HTMLDocument 类型才有的方法，是 getElementsByName()。顾名思义，这个方法会返回带有给定 name 特性的所有元素。</p>
+<p>特殊集合：anchors(&lt;a name=”xxx”&gt;),forms(&lt;form&gt;),images(&lt;img&gt;),links(&lt;a href=”xxx”&gt;)</p>
+<p>document.implementation 属性为浏览器实现了DOM的哪些部分提供相应信息和功能的对象，其中的方法hasFeature()接受两个参数：要检测的 DOM功能的名称及版本号。若支持返回true。</p>
+<p>write()、writeln()、open()和 close()</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.write(<span class="string">"&lt;strong&gt;"</span> + (<span class="keyword">new</span> <span class="built_in">Date</span>()).toString() + <span class="string">"&lt;/strong&gt;"</span>);</span><br><span class="line"><span class="comment">//载入外部脚本</span></span><br><span class="line"><span class="built_in">document</span>.write(<span class="string">"&lt;script type=\"text/javascript\" src=\"file.js\"&gt;"</span> +                </span><br><span class="line">    <span class="string">"&lt;\/script&gt;"</span>);</span><br></pre></td></tr></table></figure>
+
+<p>如果在文档加载结束后再调用 document.write()，那么输出的内容将会重写整个页面</p>
+<h3 id="10-1-3-Element类型"><a href="#10-1-3-Element类型" class="headerlink" title="10.1.3 Element类型"></a>10.1.3 Element类型</h3><ol>
+<li>nodeType 的值为 1；</li>
+<li>nodeName 的值为元素的标签名；</li>
+<li>nodeValue 的值为 null；</li>
+<li>parentNode 可能是 Document 或 Element；</li>
+<li>其子节点可能是 Element、Text、Comment、ProcessingInstruction、CDATASection 或 EntityReference。</li>
+</ol>
+<p>要访问元素的标签名，可以使用 nodeName 属性，也可以使用 tagName 属性<br>在HTML中，标签名始终都以全部大写表示；而在 XML（有时候也包括 XHTML）中，标签名则始终会与源代码中的保持一致。</p>
+<p>HTML元素</p>
+<ol>
+<li>id，元素在文档中的唯一标识符。</li>
+<li>title，有关元素的附加说明信息，一般通过工具提示条显示出来。</li>
+<li>lang，元素内容的语言代码，很少使用。</li>
+<li>dir，语言的方向，值为”ltr”（left-to-right，从左至右）或”rtl”（right-to-left，从右至左），也很少使用。</li>
+<li>className，与元素的class特性对应，即为元素指定的CSS类。没有将这个属性命名为class，是因为 class 是 ECMAScript的保留字</li>
+</ol>
+<p><strong>getAttribute()、setAttribute()和 removeAttribute()</strong></p>
+<p>根据 HTML5规范，自定义特性应该加上 data-前缀以便验证。 </p>
+<p>（待续）</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/javascript/" rel="tag"># javascript</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/02/10/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B08/" rel="prev" title="js高设笔记8">
+      <i class="fa fa-chevron-left"></i> js高设笔记8
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#10-DOM"><span class="nav-text">10 DOM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-1-节点层次"><span class="nav-text">10.1 节点层次</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#10-1-1-Node类型"><span class="nav-text">10.1.1 Node类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-1-2-Document类型"><span class="nav-text">10.1.2 Document类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-1-3-Element类型"><span class="nav-text">10.1.3 Element类型</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="MizarZh"
+      src="/images/%E8%8B%8D.png">
+  <p class="site-author-name" itemprop="name">MizarZh</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/MizarZh" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;MizarZh" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">MizarZh</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.7.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
