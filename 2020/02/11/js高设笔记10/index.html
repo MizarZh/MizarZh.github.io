@@ -54,7 +54,7 @@
 <meta property="og:description" content="10 DOMDOM（文档对象模型）是针对 HTML和 XML文档的一个 API 10.1 节点层次DOM可以将任何 HTML 或 XML文档描绘成一个由多层节点构成的结构。&lt;html&gt; 文档元素文档元素是文档的外层元素，文档中的其他所有元素都包含在文档元素中。每个文档只能有一个文档元素。在 HTML 页面中，文档元素始终都是元素。在 XML 中，没有预定义的元素，因此任何元素都可能成为">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-02-11T08:11:37.000Z">
-<meta property="article:modified_time" content="2020-02-11T16:03:10.379Z">
+<meta property="article:modified_time" content="2020-02-12T10:27:58.671Z">
 <meta property="article:author" content="MizarZh">
 <meta property="article:tag" content="javascript">
 <meta name="twitter:card" content="summary">
@@ -210,7 +210,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-02-12 00:03:10" itemprop="dateModified" datetime="2020-02-12T00:03:10+08:00">2020-02-12</time>
+                <time title="Modified: 2020-02-12 18:27:58" itemprop="dateModified" datetime="2020-02-12T18:27:58+08:00">2020-02-12</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -288,9 +288,48 @@
 <li>dir，语言的方向，值为”ltr”（left-to-right，从左至右）或”rtl”（right-to-left，从右至左），也很少使用。</li>
 <li>className，与元素的class特性对应，即为元素指定的CSS类。没有将这个属性命名为class，是因为 class 是 ECMAScript的保留字</li>
 </ol>
-<p><strong>getAttribute()、setAttribute()和 removeAttribute()</strong></p>
+<p>所有 HTML元素都是由 HTMLElement 或者其更具体的子类型来表示的。<br><strong>getAttribute()、setAttribute()和 removeAttribute()</strong>三个方法。<br>最前者的返回可能会有差异<br>1 返回的 style 特性值中包含的是 CSS文本，直接访问则是对象，<br>2 事件处理程序。当在元素上使用时，onclick 特性中包含的是 JavaScript 代码，如果通过 getAttribute()访问，则会返回相应代码的字符串。<br>通常不使用getAttribute()</p>
+<p>setAttribute()<br>通过这个方法设置的特性名会被统一转换为小写形式，即”ID”终会变成”id”</p>
 <p>根据 HTML5规范，自定义特性应该加上 data-前缀以便验证。 </p>
-<p>（待续）</p>
+<p>Element 的attributes 属性中包含一个 NamedNodeMap，与 NodeList 类似，也是一个“动态”的集合。元素的每一个特性都由一个 Attr 节点表示，每个节点都保存在 NamedNodeMap 对象中。NamedNodeMap 对象拥有下列方法。 </p>
+<ol>
+<li>getNamedItem(name)：返回 nodeName 属性等于 name 的节点； </li>
+<li>removeNamedItem(name)：从列表中移除 nodeName 属性等于 name 的节点； </li>
+<li>setNamedItem(node)：向列表中添加节点，以节点的 nodeName 属性为索引； </li>
+<li>item(pos)：返回位于数字 pos 位置处的节点。 </li>
+</ol>
+<p>attributes 属性中包含一系列节点，每个节点的 nodeName 就是特性的名称。节点的 nodeValue 就是特性的值。<br>removeNamedItem()返回表示被删除特性的 Attr 节点，removeAttribute()不返回<br>attributes属性一般用于遍历元素属性<br>返回属性的顺序不一定相同</p>
+<p>每个特性节点都有一个名为 specified 的属性，这个属性的值如果为 true，则意味着要么是在 HTML中指定了相应特性，要么是通过 setAttribute()方法设置了该特性。</p>
+<p>document.createElement()方法可以创建新元素。这个方法只接受一个参数，即要创建元素的标签名。返回一个 DOM元素的引用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul id=<span class="string">"myList"</span>&gt;     </span><br><span class="line">    &lt;li&gt;Item <span class="number">1</span>&lt;<span class="regexp">/li&gt;     </span></span><br><span class="line"><span class="regexp">    &lt;li&gt;Item 2&lt;/</span>li&gt;     </span><br><span class="line">    &lt;li&gt;Item <span class="number">3</span>&lt;<span class="regexp">/li&gt; </span></span><br><span class="line"><span class="regexp">&lt;/u</span>l&gt;</span><br></pre></td></tr></table></figure>
+<p>返回后会有7个元素，包括3个li元素和4个空白符（li之间）<br>可以通过nodeType的判断消除空白符</p>
+<h3 id="10-1-4-Text类型"><a href="#10-1-4-Text类型" class="headerlink" title="10.1.4 Text类型"></a>10.1.4 Text类型</h3><ol>
+<li>nodeType 的值为 3； </li>
+<li>nodeName 的值为”#text”； </li>
+<li>nodeValue 的值为节点所包含的文本； </li>
+<li>parentNode 是一个 Element； </li>
+<li>不支持（没有）子节点。 </li>
+</ol>
+<p>操作文本的方法：</p>
+<ol>
+<li>appendData(text)：将 text 添加到节点的末尾。 </li>
+<li>deleteData(offset, count)：从 offset 指定的位置开始删除 count 个字符。 </li>
+<li>insertData(offset, text)：在 offset 指定的位置插入 text。 </li>
+<li>replaceData(offset, count, text)：用 text 替换从 offset 指定的位置开始到 offset+ count 为止处的文本。 </li>
+<li>splitText(offset)：从 offset 指定的位置将当前文本节点分成两个文本节点。 </li>
+<li>substringData(offset, count)：提取从 offset 指定的位置开始到 offset+count 为止处的字符串。<br>文本节点还有一个 length 属性，保存着节点中字符的数目。<br>每个可以包含内容的元素多只能有一个文本节点，而且必须确实有内容存在。</li>
+</ol>
+<p>document.createTextNode()创建新文本节点</p>
+<p>normalize()<br>浏览器在解析文档时永远不会创建相邻的文本节点。这种情况只会作为执行 DOM操作的结果出现。<br>splitText()。这个方法会将一个文本节点分成两个文本节点，即按照指定的位置分割 nodeValue 值。原来的文本节点将包含从开始到指定位置之前的内容，新文本节点将包含剩下的文本。这个方法会返回一个新文本节点，该节点与原节点的 parentNode 相同。</p>
+<h3 id="10-1-5-Comment类型"><a href="#10-1-5-Comment类型" class="headerlink" title="10.1.5 Comment类型"></a>10.1.5 Comment类型</h3><ol>
+<li>nodeType 的值为 8； </li>
+<li>nodeName 的值为”#comment”； </li>
+<li>nodeValue 的值是注释的内容； </li>
+<li>parentNode 可能是 Document 或 Element； </li>
+<li>不支持（没有）子节点。 </li>
+</ol>
+<p>其他有CDATASection类型，DocumentType类型 ，DocumentFragment类型 ，Attr类型 </p>
+<h2 id="DOM操作技术"><a href="#DOM操作技术" class="headerlink" title="DOM操作技术"></a>DOM操作技术</h2><p>（待续）</p>
 
     </div>
 
@@ -312,7 +351,10 @@
     <a href="/2020/02/10/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B08/" rel="prev" title="js高设笔记8">
       <i class="fa fa-chevron-left"></i> js高设笔记8
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/02/12/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B013/" rel="next" title="js高设笔记13">
+      js高设笔记13 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -372,7 +414,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#10-DOM"><span class="nav-text">10 DOM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-1-节点层次"><span class="nav-text">10.1 节点层次</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#10-1-1-Node类型"><span class="nav-text">10.1.1 Node类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-1-2-Document类型"><span class="nav-text">10.1.2 Document类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-1-3-Element类型"><span class="nav-text">10.1.3 Element类型</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#10-DOM"><span class="nav-text">10 DOM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-1-节点层次"><span class="nav-text">10.1 节点层次</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#10-1-1-Node类型"><span class="nav-text">10.1.1 Node类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-1-2-Document类型"><span class="nav-text">10.1.2 Document类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-1-3-Element类型"><span class="nav-text">10.1.3 Element类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-1-4-Text类型"><span class="nav-text">10.1.4 Text类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-1-5-Comment类型"><span class="nav-text">10.1.5 Comment类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DOM操作技术"><span class="nav-text">DOM操作技术</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -387,7 +429,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">14</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
