@@ -206,8 +206,19 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-02-13 00:20:45" itemprop="dateModified" datetime="2020-02-13T00:20:45+08:00">2020-02-13</time>
+                <time title="Modified: 2020-02-14 17:54:07" itemprop="dateModified" datetime="2020-02-14T17:54:07+08:00">2020-02-14</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index">
+                    <span itemprop="name">编程</span>
+                  </a>
+                </span>
+            </span>
 
           
 
@@ -220,58 +231,18 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <hr>
-<p>title:js高设笔记13<br>date:2020-02-1218:28:18<br>tags:javascript<br>categories:编程</p>
-<hr>
-<h2 id="13事件"><a href="#13事件" class="headerlink" title="13事件"></a>13事件</h2><p>js与HTML之间的交互是通过事件实现的<br>可以使用侦听器（或处理程序）来预订事件</p>
+          <h2 id="13事件"><a href="#13事件" class="headerlink" title="13事件"></a>13事件</h2><p>js与HTML之间的交互是通过事件实现的<br>可以使用侦听器（或处理程序）来预订事件</p>
 <h2 id="13-1事件流"><a href="#13-1事件流" class="headerlink" title="13.1事件流"></a>13.1事件流</h2><h3 id="13-1-1事件冒泡"><a href="#13-1-1事件冒泡" class="headerlink" title="13.1.1事件冒泡"></a>13.1.1事件冒泡</h3><p>即事件开始时由具体的元素（文档中嵌套层次深的那个节点）接收，然后逐级向上传播到较为不具体的节点（文档）</p>
 <h3 id="13-1-2事件捕获"><a href="#13-1-2事件捕获" class="headerlink" title="13.1.2事件捕获"></a>13.1.2事件捕获</h3><p>事件捕获的思想是不太具体的节点应该更早接收到事件，而具体的节点应该后接收到事件。事件捕获的用意在于在事件到达预定目标之前捕获它。</p>
 <h3 id="13-1-3DOM事件流"><a href="#13-1-3DOM事件流" class="headerlink" title="13.1.3DOM事件流"></a>13.1.3DOM事件流</h3><p>“DOM2级事件”规定的事件流包括三个阶段：事件捕获阶段、处于目标阶段和事件冒泡阶段。</p>
-<h2 id="13-2事件处理程序"><a href="#13-2事件处理程序" class="headerlink" title="13.2事件处理程序"></a>13.2事件处理程序</h2><p>而响应某个事件的函数就叫做事件处理程序（或事件侦听器）。事件处理程序的名字以”on”开头</p>
-<h3 id="13-2-1HTML事件处理程序"><a href="#13-2-1HTML事件处理程序" class="headerlink" title="13.2.1HTML事件处理程序"></a>13.2.1HTML事件处理程序</h3><p>属性onclick=”javascript代码”</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//前面定义了showMessage()</span></span><br><span class="line">&lt;input type=<span class="string">"button"</span> value=<span class="string">"ClickMe"</span> onclick=<span class="string">"showMessage()"</span>/&gt;</span><br></pre></td></tr></table></figure>
-<p>事件处理程序中的代码在执行时，有权访问全局作用域中的任何代码。<br>这样会创建一个封装着元素属性值的函数。这个函数中有一个局部变量event，也就是事件对象<br>在这个函数内部，this值等于事件的目标元素<br>在这个函数内部，可以像访问局部变量一样访问document及该元素本身的成员。</p>
-<p>很多HTML事件处理程序都会被封装在一个try-catch块中，以便错误不会浮出水面</p>
-<h3 id="13-2-2DOM0级事件处理程序"><a href="#13-2-2DOM0级事件处理程序" class="headerlink" title="13.2.2DOM0级事件处理程序"></a>13.2.2DOM0级事件处理程序</h3><p>每个元素（包括window和document）都有自己的事件处理程序属性，这些属性通常全部小写，例如onclick。将这种属性的值设置为一个函数，就可以指定事件处理程序。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">varbtn=<span class="built_in">document</span>.getElementById(<span class="string">"myBtn"</span>);</span><br><span class="line">btn.onclick=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">alert(<span class="string">"Clicked"</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>使用DOM0级方法指定的事件处理程序被认为是元素的方法。因此，这时候的事件处理程序是在元素的作用域中运行<br>也可以删除通过DOM0级方法指定的事件处理程序，将onclick属性设为null即可。</p>
-<h3 id="13-2-3DOM2级事件处理程序"><a href="#13-2-3DOM2级事件处理程序" class="headerlink" title="13.2.3DOM2级事件处理程序"></a>13.2.3DOM2级事件处理程序</h3><p><strong>addEventListener()和removeEventListener()</strong>。所有DOM节点中都包含这两个方法。<br>它们都接受3个参数：要处理的事件名（意味着没有on前缀）、作为事件处理程序的函数和一个布尔值。这个布尔值参数如果是true，表示在捕获阶段调用事件处理程序；如果是false，表示在冒泡阶段调用事件处理程序。<br>通过addEventListener()添加的事件处理程序只能使用removeEventListener()来移除；移除时传入的参数与添加处理程序时使用的参数相同。这也意味着通过addEventListener()添加的匿名函数将无法移除。</p>
-<p>大多数情况下，都是将事件处理程序添加到事件流的冒泡阶段，这样可以大限度地兼容各种浏览器。最好只在需要在事件到达目标之前截获它的时候将事件处理程序添加到捕获阶段。</p>
-<h3 id="13-2-4IE事件处理程序"><a href="#13-2-4IE事件处理程序" class="headerlink" title="13.2.4IE事件处理程序"></a>13.2.4IE事件处理程序</h3><p>过时了吧emm</p>
-<h3 id="13-2-5跨浏览器的事件处理程序"><a href="#13-2-5跨浏览器的事件处理程序" class="headerlink" title="13.2.5跨浏览器的事件处理程序"></a>13.2.5跨浏览器的事件处理程序</h3><p>IE、DOM2、DOM0三种方法创建，创建为一个EventUtil的对象。</p>
-<h2 id="13-3事件对象"><a href="#13-3事件对象" class="headerlink" title="13.3事件对象"></a>13.3事件对象</h2><p>在触发DOM上的某个事件时，会产生一个事件对象event，这个对象中包含着所有与事件有关的信息。</p>
-<h3 id="13-3-1DOM中的事件对象"><a href="#13-3-1DOM中的事件对象" class="headerlink" title="13.3.1DOM中的事件对象"></a>13.3.1DOM中的事件对象</h3><p>兼容DOM的浏览器会将一个event对象传入到事件处理程序中。无论指定事件处理程序时使用什么方法（DOM0级或DOM2级），都会传入event对象。</p>
-<p>event属性：见书355页<br>其中两个属性：<br>currentTarget：其事件处理程序当前正在处理事件的那个元素<br>target：事件的目标<br>this始终等于currentTarget的值<br>要阻止特定事件的默认行为，可以使用preventDefault()方法。<br>只有cancelable属性设置为true的事件，才可以使用preventDefault()来取消其默认行为<br>stopPropagation()方法用于立即停止事件在DOM层次中的传播，即取消进一步的事件捕获或冒泡。<br>事件对象的eventPhase属性，可以用来确定事件当前正位于事件流的哪个阶段。如果是在捕获阶段调用的事件处理程序，那么eventPhase等于1；如果事件处理程序处于目标对象上，则event-Phase等于2；如果是在冒泡阶段调用的事件处理程序，eventPhase等于3。<br>只有在事件处理程序执行期间，event对象才会存在；一旦事件处理程序执行完成，event对象就会被销毁。</p>
-<h3 id="13-3-2IE中的事件对象"><a href="#13-3-2IE中的事件对象" class="headerlink" title="13.3.2IE中的事件对象"></a>13.3.2IE中的事件对象</h3><p>过时了吧</p>
-<h3 id="13-3-3跨浏览器的事件对象"><a href="#13-3-3跨浏览器的事件对象" class="headerlink" title="13.3.3跨浏览器的事件对象"></a>13.3.3跨浏览器的事件对象</h3><h2 id="13-4事件类型"><a href="#13-4事件类型" class="headerlink" title="13.4事件类型"></a>13.4事件类型</h2><ol>
-<li>UI（UserInterface，用户界面）事件，当用户与页面上的元素交互时触发；</li>
-<li>焦点事件，当元素获得或失去焦点时触发；</li>
-<li>鼠标事件，当用户通过鼠标在页面上执行操作时触发；</li>
-<li>滚轮事件，当使用鼠标滚轮（或类似设备）时触发；</li>
-<li>文本事件，当在文档中输入文本时触发；</li>
-<li>键盘事件，当用户通过键盘在页面上执行操作时触发；</li>
-<li>合成事件，当为IME（InputMethodEditor，输入法编辑器）输入字符时触发；</li>
-<li>变动（mutation）事件，当底层DOM结构发生变化时触发。</li>
-</ol>
-<h3 id="13-4-1UI事件"><a href="#13-4-1UI事件" class="headerlink" title="13.4.1UI事件"></a>13.4.1UI事件</h3><p>详细见书362<br>DOMActivate,(un)load,abort,error,select,resize,scroll<br>除了DOMActivate之外，其他事件在DOM2级事件中都归为HTML事件</p>
-<h3 id="13-4-2焦点事件"><a href="#13-4-2焦点事件" class="headerlink" title="13.4.2焦点事件"></a>13.4.2焦点事件</h3><p>blur,focus,focusin,focusout</p>
-<h3 id="13-4-3鼠标与滚轮事件"><a href="#13-4-3鼠标与滚轮事件" class="headerlink" title="13.4.3鼠标与滚轮事件"></a>13.4.3鼠标与滚轮事件</h3><p>click,dblclick,mousedown,mouseenter,mouseleave,mousemove,mouseout,mouseover,mouseup</p>
-<p>鼠标事件都是在浏览器视口中的特定位置上发生的。这个位置信息保存在事件对象的clientX和clientY属性中，它们的值表示事件发生时鼠标指针在视口中的水平和垂直坐标。<br>通过客户区坐标能够知道鼠标是在视口中什么位置发生的，而页面坐标通过事件对象的pageX和pageY属性，坐标是从页面本身而非视口的左边和顶边计算的。<br>在页面没有滚动的情况下，pageX和pageY的值与clientX和clientY的值相等。<br>screenX和screenY属性就可以确定鼠标事件发生时鼠标指针相对于整个屏幕的坐标信息。</p>
-<p>DOM规定了4个属性，表示这些修改键的状态：shiftKey、ctrlKey、altKey和metaKey。这些属性中包含的都是布尔值，如果相应的键被按下了，则值为true，否则值为false。</p>
-<p>对mouseover事件而言，事件的主目标是获得光标的元素，而相关元素就是那个失去光标的元素。类似地，对mouseout事件而言，事件的主目标是失去光标的元素，而相关元素则是获得光标的元素。DOM通过event对象的relatedTarget属性提供了相关元素的信息。这个属性只对于mouseover和mouseout事件才包含值；对于其他事件，这个属性的值是null。<br>但对于mousedown和mouseup事件来说，则在其event对象存在一个button属性，表示按下或释放的按钮。DOM的button属性可能有如下3个值：0表示主鼠标按钮，1表示中间的鼠标按钮（鼠标滚轮按钮），2表示次鼠标按钮。在常规的设置中，主鼠标按钮就是鼠标左键，而次鼠标按钮就是鼠标右键。</p>
-<p>“DOM2级事件”规范在 event 对象中还提供了 detail 属性，用于给出有关事件的更多信息。对于鼠标事件来说，detail 中包含了一个数值，表示在给定位置上发生了多少次单击。在同一个元素上相继地发生一次 mousedown 和一次 mouseup 事件算作一次单击。</p>
-<p>当用户通过鼠标滚轮与页面交互、在垂直方向上滚动页面时（无论向上还是向下），就会触发 mousewheel 事件。<br>与 mousewheel 事件对应的 event 对象除包含鼠标事件的所有标准信息外，还包含一个特殊的 wheelDelta 属性。当用户向前滚动鼠标滚轮时，wheelDelta是120的倍数；当用户向后滚动鼠标滚轮时，wheelDelta是-120的倍数。<br>Firefox支持一个名为 DOMMouseScroll 的类似事件，也是在鼠标滚轮滚动时触发。与 mousewheel 事件一样，DOMMouseScroll 也被视为鼠标事件，因而包含与鼠标事件有关的所有属性。而有关鼠标滚轮的信息则保存在 detail 属性中，当向前滚动鼠标滚轮时，这个属性的值是-3 的倍数，当向后滚动鼠标滚轮时，这个属性的值是 3 的倍数</p>
-<p>触摸设备：</p>
-<ol>
-<li>不支持 dblclick 事件。双击浏览器窗口会放大画面，而且没有办法改变该行为。 </li>
-<li>轻击可单击元素会触发 mousemove 事件。如果此操作会导致内容变化，将不再有其他事件发生； 如果屏幕没有因此变化，那么会依次发生 mousedown、mouseup 和 click 事件。</li>
-<li>轻击不可单击的元素不会触发任何事件。可单击的元素是指那些单击可产生默认操作的元素（如链接），或者那些已经被指定了 onclick 事件处理程序的元素。 mousemove 事件也会触发 mouseover 和 mouseout 事件。 </li>
-<li>两个手指放在屏幕上且页面随手指移动而滚动时会触发 mousewheel 和 scroll 事件。 </li>
-</ol>
-<h3 id="13-4-4-键盘与文本事件"><a href="#13-4-4-键盘与文本事件" class="headerlink" title="13.4.4 键盘与文本事件"></a>13.4.4 键盘与文本事件</h3><p>keydown,keypress,keyup<br>前两者如果按住不放的话，会重复触发此事件。<br>只有一个文本事件：textInput。这个事件是对 keypress 的补充，用意是在将文本显示给用户之前更容易拦截文本。</p>
-<p>在发生 keydown 和 keyup 事件时，event 对象的 keyCode 属性中会包含一个代码，与键盘上一个特定的键对应。对数字字母字符键，keyCode 属性的值与 ASCII 码中对应小写字母或数字的编码相同。</p>
-<p>（待续）</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/02/12/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B013/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -321,7 +292,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-02-12 18:27:58" itemprop="dateModified" datetime="2020-02-12T18:27:58+08:00">2020-02-12</time>
+                <time title="Modified: 2020-02-14 17:54:23" itemprop="dateModified" datetime="2020-02-14T17:54:23+08:00">2020-02-14</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -349,99 +320,14 @@
           <h2 id="10-DOM"><a href="#10-DOM" class="headerlink" title="10 DOM"></a>10 DOM</h2><p>DOM（文档对象模型）是针对 HTML和 XML文档的一个 API</p>
 <h2 id="10-1-节点层次"><a href="#10-1-节点层次" class="headerlink" title="10.1 节点层次"></a>10.1 节点层次</h2><p>DOM可以将任何 HTML 或 XML文档描绘成一个由多层节点构成的结构。<br>&lt;html&gt; 文档元素<br>文档元素是文档的外层元素，文档中的其他所有元素都包含在文档元素中。每个文档只能有一个文档元素。<br>在 HTML 页面中，文档元素始终都是<html>元素。在 XML 中，没有预定义的元素，因此任何元素都可能成为文档元素。 </p>
 <p>每一段标记都可以通过树中的一个节点来表示：<br>HTML 元素通过元素节点表示，特性（attribute） 通过特性节点表示，文档类型通过文档类型节点表示，而注释则通过注释节点表示。总共有 12 种节点类型，这些类型都继承自一个基类型。 </p>
-<h3 id="10-1-1-Node类型"><a href="#10-1-1-Node类型" class="headerlink" title="10.1.1 Node类型"></a>10.1.1 Node类型</h3><p>DOM1 级定义了一个 Node 接口，该接口将由 DOM 中的所有节点类型实现，JavaScript中的所有节点类型都继承自 Node 类型。<br>每个节点都有一个 nodeType 属性，用于表明节点的类型。<br>节点类型由在 Node 类型中定义的下列12个数值常量来表示<br>Node.ELEMENT_NODE(1)；<br>Node.ATTRIBUTE_NODE(2)；<br>Node.TEXT_NODE(3)；<br>Node.CDATA_SECTION_NODE(4)；<br>Node.ENTITY_REFERENCE_NODE(5)；<br>Node.ENTITY_NODE(6)；<br>Node.PROCESSING_INSTRUCTION_NODE(7)；<br>Node.COMMENT_NODE(8)；<br>Node.DOCUMENT_NODE(9)；<br>Node.DOCUMENT_TYPE_NODE(10)；<br>Node.DOCUMENT_FRAGMENT_NODE(11)；<br>Node.NOTATION_NODE(12)。</p>
-<p><strong>nodeName 和 nodeValue</strong>：对于元素节点，nodeName 中保存的始终都是元素的标签名，而 nodeValue 的值则始终为 null。</p>
-<p>每个节点都有一个 <strong>childNodes</strong> 属性，其中保存着一个 NodeList 对象。<br>NodeList 是一种类数组对象（类似但不是Array），用于保存一组有序的节点，可以通过位置来访问这些节点。<br>访问NodeList可通过方括号，也可以使用 item()方法<br>转化为数组（或者手动循环）：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arrayOfNodes = <span class="built_in">Array</span>.prototype.slice.call(someNode.childNodes,<span class="number">0</span>);</span><br></pre></td></tr></table></figure>
-
-<p>每个节点都有一个 <strong>parentNode</strong> 属性，该属性指向文档树中的父节点。<br>包含在 childNodes 列表中的每个节点相互之间都是同胞节点。通过使用列表中每个节点的 <strong>previousSibling 和 nextSibling</strong> 属性，可以访问同一列表中的其他节点。列表中第一个节点的 previousSibling 属性值为 null，而列表中后一个节点的 nextSibling 属性的值同样也为 null。<br>父节点的 firstChild 和 lastChild 属性分别指向其 childNodes 列表中的第一个和后一个节点。</p>
-<p>hasChildNodes()方法</p>
-<p>所有节点都有的后一个属性是 ownerDocument，该属性指向表示整个文档的文档节点。这种关系表示的是任何节点都属于它所在的文档，任何节点都不能同时存在于两个或更多个文档中。</p>
-<p><strong>appendChild()</strong>，用于向 childNodes 列表的末尾添加一个节点。添加节点后，childNodes 的新增节点、父节点及以前的后一个子节点的关系指针都会相应地得到更新。更新完成后，appendChild() 返回新增的节点。</p>
-<p><strong>insertBefore()</strong> 方法。这个方法接受两个参数：要插入的节点和作为参照的节点。插入节点后，被插入的节点会变成参照节点的前一个同胞节点（previousSibling），同时被方法返回。如果参照节点是 null，则 insertBefore()与 appendChild()执行相同的操作</p>
-<p><strong>replaceChild()</strong> 方法接受的两个参数是：要插入的节点和要替换的节点。要替换的节点将由这个方法返回并从文档树中被移除，同时由要插入的节点占据其位置。</p>
-<p><strong>removeChild()</strong> 方法。这个方法接受一个参数，即要移除的节点。被移除的节点将成为方法的返回值。</p>
-<p>并不是所有类型的节点都有子节点，如果在不支持子节点的节点上调用了这些方法，将会导致错误发生。 </p>
-<p><strong>cloneNode()</strong>，用于创建调用这个方法的节点的一个完全相同的副本。cloneNode()方法接受一个布尔值参数，表示是否执行深复制（复制节点及其整个子节点树，浅复制只复制节点本身）。副本没有指定父节点。</p>
-<p><strong>normalize()</strong>，这个方法唯一的作用就是处理文档树中的文本节点。如果找到了空文本节点，则删除它；如果找到相邻的文本节点，则将它们合并为一个文本节点。</p>
-<h3 id="10-1-2-Document类型"><a href="#10-1-2-Document类型" class="headerlink" title="10.1.2 Document类型"></a>10.1.2 Document类型</h3><p>JavaScript通过 Document 类型表示文档。在浏览器中，document 对象是 HTMLDocument（继承自 Document 类型）的一个实例，表示整个 HTML页面。而且，document 对象是 window 对象的一个属性，因此可以将其作为全局对象来访问。</p>
-<ol>
-<li>nodeType 的值为 9；</li>
-<li>nodeName 的值为”#document”；</li>
-<li>nodeValue 的值为 null；</li>
-<li>parentNode 的值为 null；</li>
-<li>ownerDocument 的值为 null；其子节点可能是一个 DocumentType（多一个）、Element（多一个）、ProcessingInstruction 或 Comment。 </li>
-</ol>
-<p>documentElement 属性，该属性始终指向HTML页面中的<html>元素。<br>document 对象还有一个 body 属性，直接指向<body>元素。<br>Document 另一个可能的子节点是 DocumentType。通常将&lt;!DOCTYPE&gt;标签看成一个与文档其他部分不同的实体，可以通过 doctype 属性（在浏览器中是 document.doctype）来访问它的信息。 不同浏览器支持情况不同<br>出现在<html>元素外部的注释的引用不同浏览器的支持程度不同。</p>
-<p>document.title：通过这个属性可以取得当前页面的标题，也可以修改当前页面的标题并反映在浏览器的标题栏中。修改 title 属性的值不会改变&lt;title&gt;元素<br>URL、domain 和 referrer。只有 domain 是可以设置的。但由于安全方面的限制，也并非可以给 domain 设置任何值。</p>
-<p><strong>getElementById()和getElementsByTagName()</strong>。<br>前者id不存在返回null，id特性（attribute）严格匹配，包括大小写。<br>后者返回的是包含零或多个元素的 NodeList。在 HTML文档中，这个方法会返回一个 HTMLCollection 对象，作为一个“动态”集合，该对象与 NodeList 非常类似。<br>HTMLCollection 对象还有一个方法，叫做 namedItem()，使用这个方法可以通过元素的 name 特性取得集合中的项。（方括号访问亦可）<br>后者可传入*，代表全部</p>
-<p>虽然标准规定标签名需要区分大小写，但为了最大限度地与既有 HTML 页面兼容，传给 getElementsByTagName()的标签名是不需要区分大小写的。但对于 XML 页面而言（包括 XHTML），getElementsByTagName()方法就会区分大小写。 </p>
-<p>只有 HTMLDocument 类型才有的方法，是 getElementsByName()。顾名思义，这个方法会返回带有给定 name 特性的所有元素。</p>
-<p>特殊集合：anchors(&lt;a name=”xxx”&gt;),forms(&lt;form&gt;),images(&lt;img&gt;),links(&lt;a href=”xxx”&gt;)</p>
-<p>document.implementation 属性为浏览器实现了DOM的哪些部分提供相应信息和功能的对象，其中的方法hasFeature()接受两个参数：要检测的 DOM功能的名称及版本号。若支持返回true。</p>
-<p>write()、writeln()、open()和 close()</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.write(<span class="string">"&lt;strong&gt;"</span> + (<span class="keyword">new</span> <span class="built_in">Date</span>()).toString() + <span class="string">"&lt;/strong&gt;"</span>);</span><br><span class="line"><span class="comment">//载入外部脚本</span></span><br><span class="line"><span class="built_in">document</span>.write(<span class="string">"&lt;script type=\"text/javascript\" src=\"file.js\"&gt;"</span> +                </span><br><span class="line">    <span class="string">"&lt;\/script&gt;"</span>);</span><br></pre></td></tr></table></figure>
-
-<p>如果在文档加载结束后再调用 document.write()，那么输出的内容将会重写整个页面</p>
-<h3 id="10-1-3-Element类型"><a href="#10-1-3-Element类型" class="headerlink" title="10.1.3 Element类型"></a>10.1.3 Element类型</h3><ol>
-<li>nodeType 的值为 1；</li>
-<li>nodeName 的值为元素的标签名；</li>
-<li>nodeValue 的值为 null；</li>
-<li>parentNode 可能是 Document 或 Element；</li>
-<li>其子节点可能是 Element、Text、Comment、ProcessingInstruction、CDATASection 或 EntityReference。</li>
-</ol>
-<p>要访问元素的标签名，可以使用 nodeName 属性，也可以使用 tagName 属性<br>在HTML中，标签名始终都以全部大写表示；而在 XML（有时候也包括 XHTML）中，标签名则始终会与源代码中的保持一致。</p>
-<p>HTML元素</p>
-<ol>
-<li>id，元素在文档中的唯一标识符。</li>
-<li>title，有关元素的附加说明信息，一般通过工具提示条显示出来。</li>
-<li>lang，元素内容的语言代码，很少使用。</li>
-<li>dir，语言的方向，值为”ltr”（left-to-right，从左至右）或”rtl”（right-to-left，从右至左），也很少使用。</li>
-<li>className，与元素的class特性对应，即为元素指定的CSS类。没有将这个属性命名为class，是因为 class 是 ECMAScript的保留字</li>
-</ol>
-<p>所有 HTML元素都是由 HTMLElement 或者其更具体的子类型来表示的。<br><strong>getAttribute()、setAttribute()和 removeAttribute()</strong>三个方法。<br>最前者的返回可能会有差异<br>1 返回的 style 特性值中包含的是 CSS文本，直接访问则是对象，<br>2 事件处理程序。当在元素上使用时，onclick 特性中包含的是 JavaScript 代码，如果通过 getAttribute()访问，则会返回相应代码的字符串。<br>通常不使用getAttribute()</p>
-<p>setAttribute()<br>通过这个方法设置的特性名会被统一转换为小写形式，即”ID”终会变成”id”</p>
-<p>根据 HTML5规范，自定义特性应该加上 data-前缀以便验证。 </p>
-<p>Element 的attributes 属性中包含一个 NamedNodeMap，与 NodeList 类似，也是一个“动态”的集合。元素的每一个特性都由一个 Attr 节点表示，每个节点都保存在 NamedNodeMap 对象中。NamedNodeMap 对象拥有下列方法。 </p>
-<ol>
-<li>getNamedItem(name)：返回 nodeName 属性等于 name 的节点； </li>
-<li>removeNamedItem(name)：从列表中移除 nodeName 属性等于 name 的节点； </li>
-<li>setNamedItem(node)：向列表中添加节点，以节点的 nodeName 属性为索引； </li>
-<li>item(pos)：返回位于数字 pos 位置处的节点。 </li>
-</ol>
-<p>attributes 属性中包含一系列节点，每个节点的 nodeName 就是特性的名称。节点的 nodeValue 就是特性的值。<br>removeNamedItem()返回表示被删除特性的 Attr 节点，removeAttribute()不返回<br>attributes属性一般用于遍历元素属性<br>返回属性的顺序不一定相同</p>
-<p>每个特性节点都有一个名为 specified 的属性，这个属性的值如果为 true，则意味着要么是在 HTML中指定了相应特性，要么是通过 setAttribute()方法设置了该特性。</p>
-<p>document.createElement()方法可以创建新元素。这个方法只接受一个参数，即要创建元素的标签名。返回一个 DOM元素的引用</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul id=<span class="string">"myList"</span>&gt;     </span><br><span class="line">    &lt;li&gt;Item <span class="number">1</span>&lt;<span class="regexp">/li&gt;     </span></span><br><span class="line"><span class="regexp">    &lt;li&gt;Item 2&lt;/</span>li&gt;     </span><br><span class="line">    &lt;li&gt;Item <span class="number">3</span>&lt;<span class="regexp">/li&gt; </span></span><br><span class="line"><span class="regexp">&lt;/u</span>l&gt;</span><br></pre></td></tr></table></figure>
-<p>返回后会有7个元素，包括3个li元素和4个空白符（li之间）<br>可以通过nodeType的判断消除空白符</p>
-<h3 id="10-1-4-Text类型"><a href="#10-1-4-Text类型" class="headerlink" title="10.1.4 Text类型"></a>10.1.4 Text类型</h3><ol>
-<li>nodeType 的值为 3； </li>
-<li>nodeName 的值为”#text”； </li>
-<li>nodeValue 的值为节点所包含的文本； </li>
-<li>parentNode 是一个 Element； </li>
-<li>不支持（没有）子节点。 </li>
-</ol>
-<p>操作文本的方法：</p>
-<ol>
-<li>appendData(text)：将 text 添加到节点的末尾。 </li>
-<li>deleteData(offset, count)：从 offset 指定的位置开始删除 count 个字符。 </li>
-<li>insertData(offset, text)：在 offset 指定的位置插入 text。 </li>
-<li>replaceData(offset, count, text)：用 text 替换从 offset 指定的位置开始到 offset+ count 为止处的文本。 </li>
-<li>splitText(offset)：从 offset 指定的位置将当前文本节点分成两个文本节点。 </li>
-<li>substringData(offset, count)：提取从 offset 指定的位置开始到 offset+count 为止处的字符串。<br>文本节点还有一个 length 属性，保存着节点中字符的数目。<br>每个可以包含内容的元素多只能有一个文本节点，而且必须确实有内容存在。</li>
-</ol>
-<p>document.createTextNode()创建新文本节点</p>
-<p>normalize()<br>浏览器在解析文档时永远不会创建相邻的文本节点。这种情况只会作为执行 DOM操作的结果出现。<br>splitText()。这个方法会将一个文本节点分成两个文本节点，即按照指定的位置分割 nodeValue 值。原来的文本节点将包含从开始到指定位置之前的内容，新文本节点将包含剩下的文本。这个方法会返回一个新文本节点，该节点与原节点的 parentNode 相同。</p>
-<h3 id="10-1-5-Comment类型"><a href="#10-1-5-Comment类型" class="headerlink" title="10.1.5 Comment类型"></a>10.1.5 Comment类型</h3><ol>
-<li>nodeType 的值为 8； </li>
-<li>nodeName 的值为”#comment”； </li>
-<li>nodeValue 的值是注释的内容； </li>
-<li>parentNode 可能是 Document 或 Element； </li>
-<li>不支持（没有）子节点。 </li>
-</ol>
-<p>其他有CDATASection类型，DocumentType类型 ，DocumentFragment类型 ，Attr类型 </p>
-<h2 id="DOM操作技术"><a href="#DOM操作技术" class="headerlink" title="DOM操作技术"></a>DOM操作技术</h2><p>（待续）</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/02/11/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B010/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 

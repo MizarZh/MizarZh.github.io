@@ -54,7 +54,7 @@
 <meta property="og:description" content="10 DOMDOM（文档对象模型）是针对 HTML和 XML文档的一个 API 10.1 节点层次DOM可以将任何 HTML 或 XML文档描绘成一个由多层节点构成的结构。&lt;html&gt; 文档元素文档元素是文档的外层元素，文档中的其他所有元素都包含在文档元素中。每个文档只能有一个文档元素。在 HTML 页面中，文档元素始终都是元素。在 XML 中，没有预定义的元素，因此任何元素都可能成为">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-02-11T08:11:37.000Z">
-<meta property="article:modified_time" content="2020-02-12T10:27:58.671Z">
+<meta property="article:modified_time" content="2020-02-14T09:54:23.724Z">
 <meta property="article:author" content="MizarZh">
 <meta property="article:tag" content="javascript">
 <meta name="twitter:card" content="summary">
@@ -210,7 +210,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-02-12 18:27:58" itemprop="dateModified" datetime="2020-02-12T18:27:58+08:00">2020-02-12</time>
+                <time title="Modified: 2020-02-14 17:54:23" itemprop="dateModified" datetime="2020-02-14T17:54:23+08:00">2020-02-14</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -238,6 +238,8 @@
         <h2 id="10-DOM"><a href="#10-DOM" class="headerlink" title="10 DOM"></a>10 DOM</h2><p>DOM（文档对象模型）是针对 HTML和 XML文档的一个 API</p>
 <h2 id="10-1-节点层次"><a href="#10-1-节点层次" class="headerlink" title="10.1 节点层次"></a>10.1 节点层次</h2><p>DOM可以将任何 HTML 或 XML文档描绘成一个由多层节点构成的结构。<br>&lt;html&gt; 文档元素<br>文档元素是文档的外层元素，文档中的其他所有元素都包含在文档元素中。每个文档只能有一个文档元素。<br>在 HTML 页面中，文档元素始终都是<html>元素。在 XML 中，没有预定义的元素，因此任何元素都可能成为文档元素。 </p>
 <p>每一段标记都可以通过树中的一个节点来表示：<br>HTML 元素通过元素节点表示，特性（attribute） 通过特性节点表示，文档类型通过文档类型节点表示，而注释则通过注释节点表示。总共有 12 种节点类型，这些类型都继承自一个基类型。 </p>
+<a id="more"></a>
+
 <h3 id="10-1-1-Node类型"><a href="#10-1-1-Node类型" class="headerlink" title="10.1.1 Node类型"></a>10.1.1 Node类型</h3><p>DOM1 级定义了一个 Node 接口，该接口将由 DOM 中的所有节点类型实现，JavaScript中的所有节点类型都继承自 Node 类型。<br>每个节点都有一个 nodeType 属性，用于表明节点的类型。<br>节点类型由在 Node 类型中定义的下列12个数值常量来表示<br>Node.ELEMENT_NODE(1)；<br>Node.ATTRIBUTE_NODE(2)；<br>Node.TEXT_NODE(3)；<br>Node.CDATA_SECTION_NODE(4)；<br>Node.ENTITY_REFERENCE_NODE(5)；<br>Node.ENTITY_NODE(6)；<br>Node.PROCESSING_INSTRUCTION_NODE(7)；<br>Node.COMMENT_NODE(8)；<br>Node.DOCUMENT_NODE(9)；<br>Node.DOCUMENT_TYPE_NODE(10)；<br>Node.DOCUMENT_FRAGMENT_NODE(11)；<br>Node.NOTATION_NODE(12)。</p>
 <p><strong>nodeName 和 nodeValue</strong>：对于元素节点，nodeName 中保存的始终都是元素的标签名，而 nodeValue 的值则始终为 null。</p>
 <p>每个节点都有一个 <strong>childNodes</strong> 属性，其中保存着一个 NodeList 对象。<br>NodeList 是一种类数组对象（类似但不是Array），用于保存一组有序的节点，可以通过位置来访问这些节点。<br>访问NodeList可通过方括号，也可以使用 item()方法<br>转化为数组（或者手动循环）：</p>
