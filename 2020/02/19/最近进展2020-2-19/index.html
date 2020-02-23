@@ -55,7 +55,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://mizarzh.github.io/2020/02/19/%E6%9C%80%E8%BF%91%E8%BF%9B%E5%B1%952020-2-19/principle.jpg">
 <meta property="article:published_time" content="2020-02-19T04:42:14.000Z">
-<meta property="article:modified_time" content="2020-02-20T09:32:46.774Z">
+<meta property="article:modified_time" content="2020-02-22T15:50:51.443Z">
 <meta property="article:author" content="MizarZh">
 <meta property="article:tag" content="javascript">
 <meta name="twitter:card" content="summary">
@@ -212,7 +212,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-02-20 17:32:46" itemprop="dateModified" datetime="2020-02-20T17:32:46+08:00">2020-02-20</time>
+                <time title="Modified: 2020-02-22 23:50:51" itemprop="dateModified" datetime="2020-02-22T23:50:51+08:00">2020-02-22</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -251,6 +251,16 @@
 <li>或许可以换种架构，不需要每次移动都更新全部的DOM</li>
 <li>全局变量和局部变量纠缠不清</li>
 </ol>
+<hr>
+<h2 id="贪吃蛇"><a href="#贪吃蛇" class="headerlink" title="贪吃蛇"></a>贪吃蛇</h2><p><a href="https://github.com/MizarZh/Greedy-Snake-js" target="_blank" rel="noopener">Greedy-Snake-js</a></p>
+<h3 id="随机数"><a href="#随机数" class="headerlink" title="随机数"></a>随机数</h3><p>使用Math.random()生成[0-1)的一个数，配合Math.floor()食用更佳</p>
+<h3 id="数组判断相等"><a href="#数组判断相等" class="headerlink" title="数组判断相等"></a>数组判断相等</h3><p>数组的判断无法直接使用===号<br>如果是较简单的数组可以使用Array.toString()方法比较。<br>嵌套且长短不一的数组可能就需要单独比较了</p>
+<h3 id="深复制"><a href="#深复制" class="headerlink" title="深复制"></a>深复制</h3><p>假设一个对象/数组a需要深复制，可使用JSON进行转化</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">copy = <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(a));</span><br></pre></td></tr></table></figure>
+
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><p>对于数组与对象的方法不熟悉（例如迭代等）</p>
+<h3 id="全局变量-1"><a href="#全局变量-1" class="headerlink" title="全局变量"></a>全局变量</h3><p>这次使用了对象包裹的方法定义全局变量，应该是稍微科学一点了<br>也使用了ES6的let及const，更好的控制变量范围</p>
+<h3 id="throw"><a href="#throw" class="headerlink" title="throw"></a>throw</h3><p>throw错误之后程序将停止运行</p>
 
     </div>
 
@@ -332,7 +342,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#推箱子"><span class="nav-text">推箱子</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML与CSS知识相关"><span class="nav-text">HTML与CSS知识相关</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#js文件过程"><span class="nav-text">js文件过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事件监听"><span class="nav-text">事件监听</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#全局变量"><span class="nav-text">全局变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组嵌套对象"><span class="nav-text">数组嵌套对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#混乱不堪的代码"><span class="nav-text">混乱不堪的代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#推箱子"><span class="nav-text">推箱子</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML与CSS知识相关"><span class="nav-text">HTML与CSS知识相关</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#js文件过程"><span class="nav-text">js文件过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事件监听"><span class="nav-text">事件监听</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#全局变量"><span class="nav-text">全局变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组嵌套对象"><span class="nav-text">数组嵌套对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#混乱不堪的代码"><span class="nav-text">混乱不堪的代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#贪吃蛇"><span class="nav-text">贪吃蛇</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#随机数"><span class="nav-text">随机数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组判断相等"><span class="nav-text">数组判断相等</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#深复制"><span class="nav-text">深复制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法"><span class="nav-text">方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#全局变量-1"><span class="nav-text">全局变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#throw"><span class="nav-text">throw</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
