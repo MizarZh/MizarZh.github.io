@@ -54,7 +54,7 @@
 <meta property="og:description" content="1.mc版本mc（pc端）分为java版与基岩版（C++编写）java版可自行下载，基岩版必须购买 java版购买与自行下载的唯一区别在于购买的游戏可以登录正版的公开服务器，自行下载只能进行离线模式（或者与自建服务器连接） 以下讨论只针对java版">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-01-30T03:50:14.000Z">
-<meta property="article:modified_time" content="2020-02-08T14:31:11.917Z">
+<meta property="article:modified_time" content="2020-02-26T07:05:40.372Z">
 <meta property="article:author" content="MizarZh">
 <meta property="article:tag" content="mc">
 <meta name="twitter:card" content="summary">
@@ -210,7 +210,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-02-08 22:31:11" itemprop="dateModified" datetime="2020-02-08T22:31:11+08:00">2020-02-08</time>
+                <time title="Modified: 2020-02-26 15:05:40" itemprop="dateModified" datetime="2020-02-26T15:05:40+08:00">2020-02-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -246,8 +246,12 @@
 <li>启动器用于启动游戏，常见的有HMCL等</li>
 </ul>
 <h2 id="3、mod相关"><a href="#3、mod相关" class="headerlink" title="3、mod相关"></a>3、mod相关</h2><p>安装mod需要下载forge（然鹅官网好像访问很慢）<br>安装后会出现mods文件夹，直接将mod的jar包拖入其中即可</p>
-<h2 id="4、自建服务器"><a href="#4、自建服务器" class="headerlink" title="4、自建服务器"></a>4、自建服务器</h2><p>需下载server.jar<br>再服务器端运行命令并制作启动脚本（待补充）</p>
-
+<h2 id="4、自建服务器"><a href="#4、自建服务器" class="headerlink" title="4、自建服务器"></a>4、自建服务器</h2><p>以ubuntu为例<br>首先需下载server.jar<br><a href="https://www.minecraft.net/zh-hans/download/server" target="_blank" rel="noopener">mc_server</a><br>ubuntu需要使用wget获得服务器<br>再安装jdk：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install openjdk-11-jre-headless</span><br></pre></td></tr></table></figure>
+<p>安装完成后再在bash输入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo java -Xms512m -Xmx1024m -jar /path/to/server.jar nogui</span><br></pre></td></tr></table></figure>
+<p>就可生成文件<br>使用文本编辑器在生成的eula.txt文件中修改为true，在server.properties文件中修改online-mode=false<br>制作启动脚本：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"></span><br><span class="line">java -Xms512m -Xmx1024m -jar /path/to/server.jar nogui;</span><br></pre></td></tr></table></figure>
     </div>
 
     
