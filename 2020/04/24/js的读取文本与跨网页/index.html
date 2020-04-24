@@ -46,15 +46,20 @@
   };
 </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="MizarZh&#39;s blog">
-<meta property="og:url" content="https://mizarzh.github.io/categories/%E6%9D%82%E7%89%A9/index.html">
+  <meta name="description" content="这两天闲来无事，写了两个和展示文字相关的页面，其中遇到了读取文本与跨网页通信的问题。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js的读取文本与跨网页">
+<meta property="og:url" content="https://mizarzh.github.io/2020/04/24/js%E7%9A%84%E8%AF%BB%E5%8F%96%E6%96%87%E6%9C%AC%E4%B8%8E%E8%B7%A8%E7%BD%91%E9%A1%B5/index.html">
 <meta property="og:site_name" content="MizarZh&#39;s blog">
+<meta property="og:description" content="这两天闲来无事，写了两个和展示文字相关的页面，其中遇到了读取文本与跨网页通信的问题。">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-04-24T15:23:20.000Z">
+<meta property="article:modified_time" content="2020-04-24T15:40:00.927Z">
 <meta property="article:author" content="MizarZh">
+<meta property="article:tag" content="javascript">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://mizarzh.github.io/categories/%E6%9D%82%E7%89%A9/">
+<link rel="canonical" href="https://mizarzh.github.io/2020/04/24/js%E7%9A%84%E8%AF%BB%E5%8F%96%E6%96%87%E6%9C%AC%E4%B8%8E%E8%B7%A8%E7%BD%91%E9%A1%B5/">
 
 
 <script id="page-configurations">
@@ -62,11 +67,11 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false
+    isPost: true
   };
 </script>
 
-  <title>Category: 杂物 | MizarZh's blog</title>
+  <title>js的读取文本与跨网页 | MizarZh's blog</title>
   
 
 
@@ -170,50 +175,96 @@
           <div class="content">
             
 
+  <div class="posts-expand">
+      
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h1 class="collection-header">杂物
-          <small>Category</small>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="https://mizarzh.github.io/2020/04/24/js%E7%9A%84%E8%AF%BB%E5%8F%96%E6%96%87%E6%9C%AC%E4%B8%8E%E8%B7%A8%E7%BD%91%E9%A1%B5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/%E8%8B%8D.png">
+      <meta itemprop="name" content="MizarZh">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MizarZh's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          js的读取文本与跨网页
         </h1>
-      </div>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-04-24 23:23:20 / Modified: 23:40:00" itemprop="dateCreated datePublished" datetime="2020-04-24T23:23:20+08:00">2020-04-24</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index">
+                    <span itemprop="name">编程</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <h1 class="collection-header">2020</h1>
+        <p>这两天闲来无事，写了两个和展示文字相关的页面，其中遇到了读取文本与跨网页通信的问题。</p>
+<a id="more"></a>
+<h2 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h2><p>js中直接读取和处理本地的文件是很困难的（除非nodejs），这种事情还是交给python比较好<br>但是可以手动上传文件从而达到读取的目的。使用HTML5的新功能。<br>首先使用\<input type="file"> 从而获得文件。</p>
+<p>选择文件后可以通过inputDOM.files获取文件的FileList，再通过数组访问则可以得到文件（但是不能直接显示内容）<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">inputDOM = <span class="built_in">document</span>.querySelector(input[type=file])</span><br><span class="line">inputDOM.files <span class="comment">// FileList</span></span><br><span class="line">file = inputDOM.files[<span class="number">0</span>]</span><br><span class="line">file.name <span class="comment">//文件名</span></span><br><span class="line">file.size <span class="comment">//文件大小</span></span><br><span class="line">file.webkitRelativePath <span class="comment">//路径</span></span><br><span class="line">file.type <span class="comment">//文件类型</span></span><br></pre></td></tr></table></figure><br>使用FileReader来读取文件中的内容。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fReader = <span class="keyword">new</span> FileReader()</span><br><span class="line">fReader.readAsText(file) <span class="comment">//读取文件</span></span><br><span class="line">fReader.result <span class="comment">//显示文本内容</span></span><br></pre></td></tr></table></figure><br>FileReader有四种打开方式，我们这里只用到了readAsText。</p>
+<h2 id="跨网页通信"><a href="#跨网页通信" class="headerlink" title="跨网页通信"></a>跨网页通信</h2><p>跨域通信可以直接使用XHR，不在这里的讨论范围。<br>使用H5的新功能localStorage：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">localStorage.setItem(<span class="string">'name'</span>,<span class="string">'value'</span>) <span class="comment">//设置本地储存值</span></span><br><span class="line">localStorage.removeItem(<span class="string">'name'</span>)      <span class="comment">//移除本地储存值</span></span><br></pre></td></tr></table></figure><br>这样在两个不同的网页也可以读取相同的本地存储<br>另一种方法（H5之前）是使用Cookie。</p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-01-30T13:20:56+08:00"
-              content="2020-01-30">
-          01-30
-        </time>
-      </div>
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/javascript/" rel="tag"># javascript</a>
+          </div>
 
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/01/30/%E6%9C%89%E7%94%A8%E7%9A%84%E7%BD%91%E5%9D%80/" itemprop="url">
-            <span itemprop="name">有用的网址</span>
-          </a>
-      </h2>
+        
 
-    </header>
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/04/09/%E6%9C%80%E8%BF%91%E8%BF%9B%E5%B1%952020-4-9/" rel="prev" title="最近进展2020-4-9">
+      <i class="fa fa-chevron-left"></i> 最近进展2020-4-9
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
   </article>
+  
+  
+  
 
-    </div>
   </div>
-  
-  
-  
-
-  
-
 
 
           </div>
@@ -264,6 +315,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#文件操作"><span class="nav-text">文件操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#跨网页通信"><span class="nav-text">跨网页通信</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
