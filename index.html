@@ -175,6 +175,121 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://mizarzh.github.io/2020/05/19/nodejs%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/%E8%8B%8D.png">
+      <meta itemprop="name" content="MizarZh">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MizarZh's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/19/nodejs%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">nodejs入门笔记</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-05-19 22:54:13 / Modified: 23:26:46" itemprop="dateCreated datePublished" datetime="2020-05-19T22:54:13+08:00">2020-05-19</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index">
+                    <span itemprop="name">编程</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="nodejs入门笔记"><a href="#nodejs入门笔记" class="headerlink" title="nodejs入门笔记"></a>nodejs入门笔记</h1><h2 id="全局对象-global"><a href="#全局对象-global" class="headerlink" title="全局对象 global"></a>全局对象 global</h2><h3 id="process属性"><a href="#process属性" class="headerlink" title="process属性"></a>process属性</h3><p>提供了一个与操作系统的简单接口</p>
+<ol>
+<li>process.argv是命令行参数数组</li>
+<li>process.stdout是标准输出流。stdout.write()更加底层</li>
+<li>process.stdin是标准输入流。初始被暂停，要读取必须恢复流：<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">process.stdin.resume();</span><br></pre></td></tr></table></figure></li>
+<li>process.nextTick(callback)的功能是为事件循环设置一项任务，Node.js 会在下次事件循环调响应时调用 callback。</li>
+</ol>
+<h3 id="console"><a href="#console" class="headerlink" title="console"></a>console</h3><p>用于向标准输出流（stdout）或标准错误流（stderr）输出字符</p>
+<ol>
+<li>log()</li>
+<li>error()</li>
+<li>trace(),向标准错误流输出当前的调用栈。 </li>
+</ol>
+<h3 id="常用工具-util"><a href="#常用工具-util" class="headerlink" title="常用工具 util"></a>常用工具 util</h3><ol>
+<li>inherits(constructor, superConstructor)是一个实现对象间原型继承的函数。</li>
+<li>inspect(object,[showHidden],[depth],[colors])是一个将任意对象转换为字符串的方法，通常用于调试和错误输出。</li>
+</ol>
+<p>还有isArray(),isRegExp(),isDate(),isError(),format(),debug()</p>
+<h3 id="事件驱动-events"><a href="#事件驱动-events" class="headerlink" title="事件驱动 events"></a>事件驱动 events</h3><ol>
+<li>EventEmitter事件发射器。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> events = <span class="built_in">require</span>(<span class="string">'events'</span>);</span><br><span class="line"><span class="keyword">var</span> emitter = <span class="keyword">new</span> events.EventEmitter();</span><br><span class="line">emitter.on(<span class="string">'aEvent'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">arg1,arg2</span>)</span>&#123;</span><br><span class="line">  <span class="comment">//dosomething();</span></span><br><span class="line">&#125;)</span><br><span class="line">emitter.emit(<span class="string">'aEvent'</span>,arg1,arg2)</span><br></pre></td></tr></table></figure>
+EventEmitter.on(event, listener) 为指定事件注册一个监听器<br>EventEmitter.emit(event, [arg1], [arg2], […]) 发射 event 事件<br>EventEmitter.once(event, listener) 为指定事件注册一个单次监听器<br>EventEmitter.removeListener(event, listener) 移除指定事件的某个监听器，listener 必须是该事件已经注册过的监听器。<br>EventEmitter.removeAllListeners([event]) 移除所有事件的所有监听器，如果指定 event，则移除指定事件的所有监听器。</li>
+<li>error事件<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">emitter.emit(<span class="string">'error'</span>);</span><br></pre></td></tr></table></figure></li>
+<li>大多数时候我们不会直接使用 EventEmitter，而是在对象中继承它<h3 id="fs"><a href="#fs" class="headerlink" title="fs"></a>fs</h3></li>
+<li>readFile(filename,[encoding],[callback(err,data)])<br>或readFile(filename,[callback(err,data)])<br>同步版本readFileSync(filename, [encoding])</li>
+<li>open(path, flags, [mode], [callback(err, fd)])<br>flags:r r+ w w+ a a+<br>mode:用于创建文件时给文件指定权限<br>fd:文件描述符。是一个非负整数，表示操作系统内核为当前进程所维护的打开文件的记录表索引</li>
+<li>read(fd, buffer, offset, length, position, [callback(err, bytesRead, buffer)])<br>write同理</li>
+</ol>
+<h3 id="http"><a href="#http" class="headerlink" title="http"></a>http</h3><h4 id="HTTP-服务器"><a href="#HTTP-服务器" class="headerlink" title="HTTP 服务器"></a>HTTP 服务器</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line">http.createServer(<span class="function"><span class="keyword">function</span> (<span class="params">req,res</span>)</span>&#123;</span><br><span class="line">  res.writeHead(<span class="string">'200'</span>,&#123;<span class="string">'Content-Type'</span>:<span class="string">'text/html'</span>&#125;);</span><br><span class="line">  res.write(<span class="string">'&lt;h1&gt;Node.js&lt;/h1&gt;'</span>);</span><br><span class="line">  res.end(<span class="string">'&lt;p&gt;test&lt;/p&gt;'</span>);</span><br><span class="line">&#125;).listen(<span class="number">3000</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'http server is listening at port 3000'</span>);</span><br></pre></td></tr></table></figure>
+
+<p>http.createServer 创建了一个 http.Server 的实例</p>
+<p><strong>http.Server 的事件</strong></p>
+<ol>
+<li>request:当客户端请求到来时，该事件被触发，提供两个参数 req 和res，分别是 http.ServerRequest 和 http.ServerResponse 的实例，表示请求和响应信息。</li>
+<li>connection:当 TCP 连接建立时，该事件被触发，提供一个参数 socket，为 net.Socket 的实例。</li>
+<li>close:当服务器关闭时，该事件被触发。<br>除此之外还有 checkContinue、upgrade、clientError 事件<br>createServer（创建一个 HTTP 服务器并将requestListener 作为 request 事件的监听函数）拆开写法：<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> server = <span class="keyword">new</span> http.Server(); <span class="comment">// 新建http.Server实例</span></span><br><span class="line"><span class="comment">// 在服务器收到请求时的事件响应</span></span><br><span class="line">server.on(<span class="string">'request'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">  res.writeHead(<span class="number">200</span>, &#123; <span class="string">'Content-Type'</span>: <span class="string">'text/html'</span> &#125;);</span><br><span class="line">  res.write(<span class="string">'&lt;h1&gt;Node.js&lt;/h1&gt;'</span>);</span><br><span class="line">  res.end(<span class="string">'&lt;p&gt;Hello World&lt;/p&gt;'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 指定服务器监听端口</span></span><br><span class="line">server.listen(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h4 id="http-ServerRequest"><a href="#http-ServerRequest" class="headerlink" title="http.ServerRequest"></a>http.ServerRequest</h4><p><strong>事件</strong></p>
+<ol>
+<li>data:当请求体数据到来时，该事件被触发。该事件提供一个参数 chunk，表示接收到的数据。如果该事件没有被监听，那么请求体将会被抛弃。</li>
+<li>end:当请求体数据传输完成时，该事件被触发</li>
+<li>close： 用户当前请求结束时，该事件被触发。不同于 end，如果用户强制终止了传输，也还是调用close。 </li>
+</ol>
+<p><strong>属性</strong><br>complete 客户端请求是否已经发送完成<br>httpVersion,method,url,headers,trailers,connection,socket,client</p>
+<p><strong>获取GET内容</strong><br>使用url模块中的parse解析url参数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
     <link itemprop="mainEntityOfPage" href="https://mizarzh.github.io/2020/05/10/%E6%9C%80%E8%BF%91%E8%BF%9B%E5%B1%952020-5-10/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -918,91 +1033,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://mizarzh.github.io/2020/02/11/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B010/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/%E8%8B%8D.png">
-      <meta itemprop="name" content="MizarZh">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MizarZh's blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/02/11/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B010/" class="post-title-link" itemprop="url">js高设笔记10</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-02-11 16:11:37" itemprop="dateCreated datePublished" datetime="2020-02-11T16:11:37+08:00">2020-02-11</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-02-16 22:49:02" itemprop="dateModified" datetime="2020-02-16T22:49:02+08:00">2020-02-16</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index">
-                    <span itemprop="name">编程</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="10-DOM"><a href="#10-DOM" class="headerlink" title="10 DOM"></a>10 DOM</h2><p>DOM（文档对象模型）是针对 HTML和 XML文档的一个 API</p>
-<h2 id="10-1-节点层次"><a href="#10-1-节点层次" class="headerlink" title="10.1 节点层次"></a>10.1 节点层次</h2><p>DOM可以将任何 HTML 或 XML文档描绘成一个由多层节点构成的结构。<br>&lt;html&gt; 文档元素<br>文档元素是文档的外层元素，文档中的其他所有元素都包含在文档元素中。每个文档只能有一个文档元素。<br>在 HTML 页面中，文档元素始终都是<html>元素。在 XML 中，没有预定义的元素，因此任何元素都可能成为文档元素。 </p>
-<p>每一段标记都可以通过树中的一个节点来表示：<br>HTML 元素通过元素节点表示，特性（attribute） 通过特性节点表示，文档类型通过文档类型节点表示，而注释则通过注释节点表示。总共有 12 种节点类型，这些类型都继承自一个基类型。 </p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/02/11/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B010/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1074,7 +1104,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-count">23</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1085,7 +1115,7 @@
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
