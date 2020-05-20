@@ -46,13 +46,15 @@
   };
 </script>
 
-  <meta property="og:type" content="article">
+  <meta name="description" content="众所周之frp是一款内网穿透工具，可以用来干很多神奇的事情。我使用frp也有很多种目的，接下来就慢慢细说。">
+<meta property="og:type" content="article">
 <meta property="og:title" content="瞎折腾之frp">
 <meta property="og:url" content="https://mizarzh.github.io/2020/05/19/%E7%9E%8E%E6%8A%98%E8%85%BE%E4%B9%8Bfrp/index.html">
 <meta property="og:site_name" content="MizarZh&#39;s blog">
+<meta property="og:description" content="众所周之frp是一款内网穿透工具，可以用来干很多神奇的事情。我使用frp也有很多种目的，接下来就慢慢细说。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-05-19T15:36:19.000Z">
-<meta property="article:modified_time" content="2020-05-19T15:36:19.417Z">
+<meta property="article:modified_time" content="2020-05-20T15:48:48.653Z">
 <meta property="article:author" content="MizarZh">
 <meta name="twitter:card" content="summary">
 
@@ -202,6 +204,24 @@
 
               <time title="Created: 2020-05-19 23:36:19" itemprop="dateCreated datePublished" datetime="2020-05-19T23:36:19+08:00">2020-05-19</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-05-20 23:48:48" itemprop="dateModified" datetime="2020-05-20T23:48:48+08:00">2020-05-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%97%A5%E5%B8%B8/" itemprop="url" rel="index">
+                    <span itemprop="name">日常</span>
+                  </a>
+                </span>
+            </span>
 
           
 
@@ -214,7 +234,23 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <p>众所周之frp是一款内网穿透工具，可以用来干很多神奇的事情。我使用frp也有很多种目的，接下来就慢慢细说。</p>
+<a id="more"></a>
+
+<h2 id="MC服务器"><a href="#MC服务器" class="headerlink" title="MC服务器"></a>MC服务器</h2><p>在某个ddl成堆的晚上，某损友找上了我说要帮他整个MC服务器，并向我吹嘘它家的电脑多么强劲。我想着回头再帮他看看吧，最终碍于爱搞事情的本性愉快的放弃了一堆没做的东西开始折腾起怎么搭建mc服务器的事情。</p>
+<p>其实搭建mc服务器本身并不难，在有一台云主机（没有公网ip也想整frp就别想了→_→）的情况下，第一反应就是在云主机上搭建mc服务器。我在之前的blog中已经写过mc服务器应该如何搭建了，但是这孱弱的性能怕撑不起这么多人，加上他吹嘘他家的电脑，我决定使用本地主机搭建服务器+内网穿透的方法搭建多人mc服务器。</p>
+<p>首先先下载<a href="https://github.com/fatedier/frp/releases" target="_blank" rel="noopener">frp</a>。<br>frps是frp的服务器，应放置在有公网ip的服务器上（这里指的是孱弱服务器）。<br>使用scp传文件到服务器上<br>frpc是frp的客户端，应放置在要暴露服务的机器上（这里指的是损友电脑）。</p>
+<p>接下来在服务端配置frps.ini：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[common]</span><br><span class="line">bind_port = <span class="comment">// 其他机器访问的端口</span></span><br></pre></td></tr></table></figure>
+
+<p>客户端frpc.ini的配置:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[common]</span><br><span class="line">server_addr = <span class="comment">// 服务器的地址</span></span><br><span class="line">server_port = <span class="comment">// frps.ini中的bind_port</span></span><br><span class="line">[minecraft]</span><br><span class="line">type = tcp</span><br><span class="line">local_ip = <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span> <span class="comment">// 本地</span></span><br><span class="line">local_port = <span class="number">25565</span> <span class="comment">// mc开启的端口</span></span><br><span class="line">remote_port = <span class="number">25565</span></span><br></pre></td></tr></table></figure>
+
+<p>都配置好之后就在命令行中分别运行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./frps</span><br><span class="line">./frpc</span><br></pre></td></tr></table></figure>
+
+<p>同时开启mc服务器，在其他机器上输入连接frpc.ini中的server_addr:server_port即可开始游戏。</p>
+
     </div>
 
     
@@ -292,6 +328,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MC服务器"><span class="nav-text">MC服务器</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
