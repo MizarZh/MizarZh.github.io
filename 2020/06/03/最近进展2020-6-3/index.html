@@ -46,15 +46,19 @@
   };
 </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="MizarZh&#39;s blog">
-<meta property="og:url" content="https://mizarzh.github.io/categories/%E7%BC%96%E7%A8%8B/page/2/index.html">
+  <meta name="description" content="Nodejs服务器写了一个Tool-box，其中有下载视频的功能。原理是使用服务端的you-get识别下载网址的url从而得到下载地址，但却冒出一堆奇妙的bug。emm 起初的想法是用户端发送get&#x2F;post到服务端，然后服务端调用you-get识别URL并将其返回，再由客户端开启下载。 首先解决要解决的问题是python的运行环境问题。对于我这种python渣渣来说，用了好一会才搞明白pytho">
+<meta property="og:type" content="article">
+<meta property="og:title" content="最近进展2020-6-3">
+<meta property="og:url" content="https://mizarzh.github.io/2020/06/03/%E6%9C%80%E8%BF%91%E8%BF%9B%E5%B1%952020-6-3/index.html">
 <meta property="og:site_name" content="MizarZh&#39;s blog">
+<meta property="og:description" content="Nodejs服务器写了一个Tool-box，其中有下载视频的功能。原理是使用服务端的you-get识别下载网址的url从而得到下载地址，但却冒出一堆奇妙的bug。emm 起初的想法是用户端发送get&#x2F;post到服务端，然后服务端调用you-get识别URL并将其返回，再由客户端开启下载。 首先解决要解决的问题是python的运行环境问题。对于我这种python渣渣来说，用了好一会才搞明白pytho">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-06-03T15:40:33.000Z">
+<meta property="article:modified_time" content="2020-06-03T15:53:16.977Z">
 <meta property="article:author" content="MizarZh">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://mizarzh.github.io/categories/%E7%BC%96%E7%A8%8B/page/2/">
+<link rel="canonical" href="https://mizarzh.github.io/2020/06/03/%E6%9C%80%E8%BF%91%E8%BF%9B%E5%B1%952020-6-3/">
 
 
 <script id="page-configurations">
@@ -62,11 +66,11 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false
+    isPost: true
   };
 </script>
 
-  <title>Category: 编程 | MizarZh's blog</title>
+  <title>最近进展2020-6-3 | MizarZh's blog</title>
   
 
 
@@ -170,193 +174,96 @@
           <div class="content">
             
 
+  <div class="posts-expand">
+      
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h1 class="collection-header">编程
-          <small>Category</small>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="https://mizarzh.github.io/2020/06/03/%E6%9C%80%E8%BF%91%E8%BF%9B%E5%B1%952020-6-3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/%E8%8B%8D.png">
+      <meta itemprop="name" content="MizarZh">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MizarZh's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          最近进展2020-6-3
         </h1>
-      </div>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-06-03 23:40:33 / Modified: 23:53:16" itemprop="dateCreated datePublished" datetime="2020-06-03T23:40:33+08:00">2020-06-03</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index">
+                    <span itemprop="name">编程</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <h1 class="collection-header">2020</h1>
-    </div>
+        <h2 id="Nodejs服务器"><a href="#Nodejs服务器" class="headerlink" title="Nodejs服务器"></a>Nodejs服务器</h2><p>写了一个Tool-box，其中有下载视频的功能。<br>原理是使用服务端的you-get识别下载网址的url从而得到下载地址，但却冒出一堆奇妙的bug。emm</p>
+<p>起初的想法是用户端发送get/post到服务端，然后服务端调用you-get识别URL并将其返回，再由客户端开启下载。</p>
+<p>首先解决要解决的问题是python的运行环境问题。对于我这种python渣渣来说，用了好一会才搞明白python（或者是anaconda吧）除了REPL还有命令行的直接运行环境（就是有一个base前面的）。使用you-get必须激活这个环境。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda activate base</span><br><span class="line">you-get -u URL</span><br></pre></td></tr></table></figure>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-02-10T12:17:39+08:00"
-              content="2020-02-10">
-          02-10
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/02/10/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B07/" itemprop="url">
-            <span itemprop="name">js高设笔记7</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-02-07T18:14:42+08:00"
-              content="2020-02-07">
-          02-07
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/02/07/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B06/" itemprop="url">
-            <span itemprop="name">js高设笔记6</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-02-07T18:13:27+08:00"
-              content="2020-02-07">
-          02-07
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/02/07/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B05/" itemprop="url">
-            <span itemprop="name">js高设笔记5</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-02-05T00:57:40+08:00"
-              content="2020-02-05">
-          02-05
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/02/05/Regexp%E7%9B%B8%E5%85%B3/" itemprop="url">
-            <span itemprop="name">Regexp相关</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-02-05T00:56:57+08:00"
-              content="2020-02-05">
-          02-05
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/02/05/JSON%E7%9B%B8%E5%85%B3/" itemprop="url">
-            <span itemprop="name">JSON相关</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-02-05T00:35:24+08:00"
-              content="2020-02-05">
-          02-05
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/02/05/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B04/" itemprop="url">
-            <span itemprop="name">js高级设计笔记（第四章）</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-01-28T11:38:56+08:00"
-              content="2020-01-28">
-          01-28
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/01/28/small-problem/" itemprop="url">
-            <span itemprop="name">杂项问题</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-01-27T22:46:41+08:00"
-              content="2020-01-27">
-          01-27
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/01/27/hexo-blog-in-windows/" itemprop="url">
-            <span itemprop="name">hexo win10配置方法，并使用github作为博客地址</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
+<p>然后是服务器的routing。用express并不难解决，但是后端功力仍需锻炼。</p>
+<p>最后发现在下载bilibili时遇到了CORS不能跨域的问题（客户端无法调节referer，似乎使用xhr.setRequestHeader也无法设定access-control-allow-origin不过我觉得是我不会用），可能需要改用服务端下载并传输。然后发现无法调用下载的界面emmm。总之慢慢改善好了。</p>
+<h2 id="计算机组成原理"><a href="#计算机组成原理" class="headerlink" title="计算机组成原理"></a>计算机组成原理</h2><p>开始啃四大了233，6/3到230页，继续加油。</p>
 
     </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/05/19/%E7%9E%8E%E6%8A%98%E8%85%BE%E4%B9%8Bfrp/" rel="prev" title="瞎折腾之frp">
+      <i class="fa fa-chevron-left"></i> 瞎折腾之frp
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
   </div>
-  
-  
-  
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/categories/%E7%BC%96%E7%A8%8B/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/categories/%E7%BC%96%E7%A8%8B/">1</a><span class="page-number current">2</span>
-  </nav>
-
 
 
           </div>
@@ -407,6 +314,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Nodejs服务器"><span class="nav-text">Nodejs服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#计算机组成原理"><span class="nav-text">计算机组成原理</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
