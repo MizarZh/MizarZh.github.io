@@ -54,7 +54,7 @@
 <meta property="og:description" content="最近工作（moon-3d，2021-9-4）概括目的：模拟月球天平动和月相，即模拟月球在某个时间点的样子。 科学方向：月球天平动、NASA 科学程序（jpleph, de440, stellarium(st)源码） 技术栈：three.js, webGL, webpack 为主的一众打包工具, web 模块化 未来工作：canvas 视频渲染、科学视频、三维引擎学习 过程中遇到的具体阻碍：403">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-09-08T15:05:27.000Z">
-<meta property="article:modified_time" content="2021-09-10T16:59:59.832Z">
+<meta property="article:modified_time" content="2021-09-10T17:05:56.360Z">
 <meta property="article:author" content="MizarZh">
 <meta property="article:tag" content="javascript">
 <meta name="twitter:card" content="summary">
@@ -210,7 +210,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-11 00:59:59" itemprop="dateModified" datetime="2021-09-11T00:59:59+08:00">2021-09-11</time>
+                <time title="Modified: 2021-09-11 01:05:56" itemprop="dateModified" datetime="2021-09-11T01:05:56+08:00">2021-09-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -240,6 +240,8 @@
 <p>技术栈：three.js, webGL, webpack 为主的一众打包工具, web 模块化</p>
 <p>未来工作：canvas 视频渲染、科学视频、三维引擎学习</p>
 <p>过程中遇到的具体阻碍：403 Forbidden</p>
+<a id="more"></a>
+
 <h2 id="1、数据获取"><a href="#1、数据获取" class="headerlink" title="1、数据获取"></a>1、数据获取</h2><h3 id="天平动及月相数据获取"><a href="#天平动及月相数据获取" class="headerlink" title="天平动及月相数据获取"></a>天平动及月相数据获取</h3><p>首先有两种方法：力学模拟及直接使用数据。</p>
 <p>前者显然是不可能的，力学模拟天平动考虑的因素和运算量远超个人的能力。因此接下来的工作都在致力于获取天平动的数据集。</p>
 <p>在完全没有任何线索的情况下，我第一时间想到的就是 st 的源代码，因为 st 的模拟不可能没考虑天平动的影响，通过挖掘 st 源代码发现底层数据来源是 NASA 的<a href="https://ssd.jpl.NASA.gov/?planet_eph_export" target="_blank" rel="noopener">jpleph 程序及 de441(de440)</a>数据集。</p>
