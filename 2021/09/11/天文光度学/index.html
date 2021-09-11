@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://mizarzh.github.io').hostname,
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.7.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="天文光度学几个重要参数和概念衡量光的强度使用的是能量$E$，衡量光单位时间内的强度用的是功率$P$。由于光不断在运动，恒星不断在产能，因此使用后者是较为合理的。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="天文光度学">
+<meta property="og:url" content="https://mizarzh.github.io/2021/09/11/%E5%A4%A9%E6%96%87%E5%85%89%E5%BA%A6%E5%AD%A6/index.html">
+<meta property="og:site_name" content="MizarZh&#39;s blog">
+<meta property="og:description" content="天文光度学几个重要参数和概念衡量光的强度使用的是能量$E$，衡量光单位时间内的强度用的是功率$P$。由于光不断在运动，恒星不断在产能，因此使用后者是较为合理的。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://mizarzh.github.io/2021/09/11/%E5%A4%A9%E6%96%87%E5%85%89%E5%BA%A6%E5%AD%A6/%E5%B9%B3%E6%96%B9%E5%8F%8D%E6%AF%94.jpg">
+<meta property="og:image" content="https://mizarzh.github.io/2021/09/11/%E5%A4%A9%E6%96%87%E5%85%89%E5%BA%A6%E5%AD%A6/UBVRI.jpg">
+<meta property="og:image" content="https://mizarzh.github.io/2021/09/11/%E5%A4%A9%E6%96%87%E5%85%89%E5%BA%A6%E5%AD%A6/UBVRI_diagram.jpg">
+<meta property="og:image" content="https://mizarzh.github.io/2021/09/11/%E5%A4%A9%E6%96%87%E5%85%89%E5%BA%A6%E5%AD%A6/%E5%A4%A7%E6%B0%94%E6%B6%88%E5%85%89.jpg">
+<meta property="article:published_time" content="2021-09-11T07:34:01.000Z">
+<meta property="article:modified_time" content="2021-09-11T08:43:36.481Z">
+<meta property="article:author" content="MizarZh">
+<meta property="article:tag" content="天文">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://mizarzh.github.io/2021/09/11/%E5%A4%A9%E6%96%87%E5%85%89%E5%BA%A6%E5%AD%A6/%E5%B9%B3%E6%96%B9%E5%8F%8D%E6%AF%94.jpg">
+
+<link rel="canonical" href="https://mizarzh.github.io/2021/09/11/%E5%A4%A9%E6%96%87%E5%85%89%E5%BA%A6%E5%AD%A6/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>天文光度学 | MizarZh's blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">MizarZh's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-主页">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>主页</a>
+
+  </li>
+        <li class="menu-item menu-item-标签">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-分类">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-归档">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="https://mizarzh.github.io/2021/09/11/%E5%A4%A9%E6%96%87%E5%85%89%E5%BA%A6%E5%AD%A6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/%E8%8B%8D.png">
+      <meta itemprop="name" content="MizarZh">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MizarZh's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          天文光度学
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-09-11 15:34:01 / Modified: 16:43:36" itemprop="dateCreated datePublished" datetime="2021-09-11T15:34:01+08:00">2021-09-11</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%A4%A9%E6%96%87/" itemprop="url" rel="index">
+                    <span itemprop="name">天文</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="天文光度学"><a href="#天文光度学" class="headerlink" title="天文光度学"></a>天文光度学</h1><h2 id="几个重要参数和概念"><a href="#几个重要参数和概念" class="headerlink" title="几个重要参数和概念"></a>几个重要参数和概念</h2><p>衡量光的强度使用的是能量$E$，衡量光单位时间内的强度用的是功率$P$。由于光不断在运动，恒星不断在产能，因此使用后者是较为合理的。</p>
+<a id="more"></a>
+
+<p>定义以下参数：</p>
+<p>流量(flux): 单位$\text W$，指单位时间内某个面积流过的总能量。</p>
+<p>流量密度(flux density) $F$: 单位$\text{W/m}^2$，即单位面积单位时间上流过的总能量。</p>
+<p>光度(luminosity) $L$：即天文学上对恒星使用的流量，某些情境中可交替使用。</p>
+<p>有时候单位中会有$\text{Hz}^{-1}$，这种情况指的是在某个不同频率的波段上的相应参数。</p>
+<h2 id="导出参数及关系"><a href="#导出参数及关系" class="headerlink" title="导出参数及关系"></a>导出参数及关系</h2><p>如果源是各向同性发射的，那么有一条关系式：<br>$$<br>L=4\pi r^2 F<br>$$<br>即众所周知的平方反比定律：</p>
+<p><img src="%E5%B9%B3%E6%96%B9%E5%8F%8D%E6%AF%94.jpg" alt=""></p>
+<h2 id="星等"><a href="#星等" class="headerlink" title="星等"></a>星等</h2><h3 id="历史"><a href="#历史" class="headerlink" title="历史"></a>历史</h3><p>公元前二世纪，Hipparchos定义了一套星等系统：将天上所有可见的星分为六等，最明亮的为一等星，勉强可见的最暗星为六等星。</p>
+<p>这个定义十分的不准确，因此到了1856年，Norman R. Pogson定义了一套全新的系统，这就是现在的星等系统。</p>
+<h3 id="原理及推导"><a href="#原理及推导" class="headerlink" title="原理及推导"></a>原理及推导</h3><p>人眼对光的响应是对数的。假如有三颗星，它们的流量密度之比为1:10:100，人眼就会感觉一二颗星及二三颗星之间的差别是相等的。即每降一个星等，星的流量密度就要乘一个倍数，这是一个对数运算。</p>
+<p>利用这个特性，我们可以定义一等星与六等星的流量密度之比为100。那么对于人眼来说，n比n+1等要亮$\sqrt[5]{100}=2.512$等。那么：<br>$$<br>\frac{F_n}{F_{n+1}}=\sqrt[5]{100}\Rightarrow\lg\frac{F_n}{F_{n+1}}=2/5\Rightarrow-2.5\lg\frac{F_n}{F_{n+1}}=-1=n-(n+1)<br>$$</p>
+<p>即假设星等和对应流量密度$m_1,F_1,m_2,F_2$，则有普森（Pogson）公式：<br>$$<br>m_1-m_2=-2.5\lg\frac{F_1}{F_2}<br>$$</p>
+<p>有时候为便运算，可定义零等星对应的流量密度为$F_0$，则任意星等$m$及对应流量密度$F$的定义式为：<br>$$<br>m=-2.5\lg \frac{F}{F_0}<br>$$</p>
+<h3 id="星等系统"><a href="#星等系统" class="headerlink" title="星等系统"></a>星等系统</h3><p>星等可以代表不同波段上的光的强度。如我们可以定义眼睛看到的星等为$m_V$，摄像机拍到的星等为$m_{\text{pg}}$等。</p>
+<p>如果可以测量所有波长的光，那么我们得到的星等就是热星等$m_{\text{bol}}$，这是一个十分有用的参数，但难以测量，因此天文学家定义了一个参数热改正$\text{BC}$(bolometric correction)来快速计算热星等：<br>$$<br>m_{\text{bol}}=m_{V}-\text{BC}<br>$$<br>当然也有可能是正号，看具体情况。</p>
+<p>$m_V$，$m_{\text{pg}}$定义的星等并不准确，因此在1950年早期Harold L. Johnson 和 William W. Morgan定义了一套星等系统叫做UBV系统，即加入不同波段的透镜让望远镜接收不同波段的光从而判断颜色。后续发展出了UBVRI和ubvy系统：</p>
+<p><img src="UBVRI.jpg" alt=""></p>
+<p><img src="UBVRI_diagram.jpg" alt=""></p>
+<p>我们常用色指数(color index)这个参数来判断星的颜色，常用的如$U-B,B-V$，对于A0型星，这两个指数都为0。</p>
+<h3 id="绝对星等"><a href="#绝对星等" class="headerlink" title="绝对星等"></a>绝对星等</h3><p>之前的星等都是一个相对的概念，为了绝对地衡量一颗星的亮度，需要使用绝对星等。</p>
+<p>绝对星等$M$的定义即为一颗星放在10pc处的星等。根据定义：<br>$$<br>m-M=-2.5\lg\frac{F(r)}{F(10\mathrm{pc})}=-2.5\lg\frac{\frac{L}{4\pi r^2}}{\frac{L}{4\pi (10\mathrm{pc})^2}}\<br>=5\lg\frac{r}{10\mathrm{pc}}\<br>=5\lg r-5\ (r单位为\mathrm{pc})<br>$$<br>可以定义绝对星等之间的比较。如，假设有一颗星对应的参数为$M_{\text{bol}},F,L$，太阳对应的参数为$M_{\text{bol}\odot},F_\odot,L_\odot$，则：<br>$$<br>M_{\text{bol}}-M_{\text{bol}\odot}=-2.5\lg\frac{F}{F_\odot}=-2.5\lg\frac{L/4\pi r^2}{L_\odot/4\pi r^2}=-2.5\lg\frac{L}{L_\odot}<br>$$</p>
+<h2 id="消光-extinction-和光深-optical-thickness"><a href="#消光-extinction-和光深-optical-thickness" class="headerlink" title="消光(extinction)和光深(optical thickness)"></a>消光(extinction)和光深(optical thickness)</h2><p>解说待补充<br>$$<br>dL=−\alpha Ldr<br>$$<br>$\alpha$ opacity</p>
+<p>optical thickness:<br>$$<br>d\tau = \alpha dr<br>$$<br>thus:<br>$$<br>dL=-Ld\tau\Rightarrow L=L_0e^{-\tau}<br>$$<br>对星等系统的影响：<br>$$<br>m-M=5\lg\frac{r}{10\mathrm{pc}}+(2.5 \lg e)\tau=5\lg\frac{r}{10\mathrm{pc}}+A<br>$$<br>若均匀，则：<br>$$<br>\tau=\alpha\int^r_0dr=\alpha r\<br>m-M=5\lg\frac{r}{10\mathrm{pc}}+ar, a=2.5\alpha<br>$$</p>
+<h3 id="色余-color-excess"><a href="#色余-color-excess" class="headerlink" title="色余(color excess)"></a>色余(color excess)</h3><p>色指数：<br>$$<br>B-V=M_B-M_V+A_B-A_V=(B-V)<em>0+E</em>{B-V}<br>$$<br>$(B-V)<em>0$被称为intrinsic color，$E</em>{B-V}=(B-V)-(B-V)_0$被称为色余(color excess)。星际介质导致：</p>
+<p>$$<br>R=\frac{A_V}{E_{B-V}}\approx 3.0<br>$$<br>几乎一致。这个现象被称为星际红化。</p>
+<h3 id="大气消光"><a href="#大气消光" class="headerlink" title="大气消光"></a>大气消光</h3><p><img src="%E5%A4%A7%E6%B0%94%E6%B6%88%E5%85%89.jpg" alt=""><br>$$<br>X=\sec z \<br>m=m_0+kX<br>$$<br>$X$被称为空气质量(air mass)，$k$被称为消光系数。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%A4%A9%E6%96%87/" rel="tag"># 天文</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/09/09/%E5%A4%A9%E6%96%87%E6%9C%9B%E8%BF%9C%E9%95%9C%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" rel="prev" title="天文望远镜基础知识">
+      <i class="fa fa-chevron-left"></i> 天文望远镜基础知识
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#天文光度学"><span class="nav-text">天文光度学</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#几个重要参数和概念"><span class="nav-text">几个重要参数和概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#导出参数及关系"><span class="nav-text">导出参数及关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#星等"><span class="nav-text">星等</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#历史"><span class="nav-text">历史</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原理及推导"><span class="nav-text">原理及推导</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#星等系统"><span class="nav-text">星等系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#绝对星等"><span class="nav-text">绝对星等</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#消光-extinction-和光深-optical-thickness"><span class="nav-text">消光(extinction)和光深(optical thickness)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#色余-color-excess"><span class="nav-text">色余(color excess)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#大气消光"><span class="nav-text">大气消光</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="MizarZh"
+      src="/images/%E8%8B%8D.png">
+  <p class="site-author-name" itemprop="name">MizarZh</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/MizarZh" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;MizarZh" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">MizarZh</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.2.1
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.7.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
+
+  
+
+</body>
+</html>
