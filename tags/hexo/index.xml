@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>hexo on MizarZ&#39;s Blog</title>
+    <link>https://example.com/tags/hexo/</link>
+    <description>Recent content in hexo on MizarZ&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 27 Jan 2020 22:46:41 +0800</lastBuildDate><atom:link href="https://example.com/tags/hexo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>hexo win10配置方法，并使用github作为博客地址</title>
+      <link>https://example.com/p/2020/01/hexo-win10%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95%E5%B9%B6%E4%BD%BF%E7%94%A8github%E4%BD%9C%E4%B8%BA%E5%8D%9A%E5%AE%A2%E5%9C%B0%E5%9D%80/</link>
+      <pubDate>Mon, 27 Jan 2020 22:46:41 +0800</pubDate>
+      
+      <guid>https://example.com/p/2020/01/hexo-win10%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95%E5%B9%B6%E4%BD%BF%E7%94%A8github%E4%BD%9C%E4%B8%BA%E5%8D%9A%E5%AE%A2%E5%9C%B0%E5%9D%80/</guid>
+      <description>0、准备： node.js官网下载node并安装 安装git for windows，以后将使用git bash作为命令行操4作 配置git账号信息： git config --global</description>
+    </item>
+    
+  </channel>
+</rss>

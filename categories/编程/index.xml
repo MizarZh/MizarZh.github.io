@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>编程 on MizarZ&#39;s Blog</title>
+    <link>https://example.com/categories/%E7%BC%96%E7%A8%8B/</link>
+    <description>Recent content in 编程 on MizarZ&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 05 Feb 2020 00:35:24 +0800</lastBuildDate><atom:link href="https://example.com/categories/%E7%BC%96%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>js高级设计笔记（第四章）</title>
+      <link>https://example.com/p/2020/02/js%E9%AB%98%E7%BA%A7%E8%AE%BE%E8%AE%A1%E7%AC%94%E8%AE%B0%E7%AC%AC%E5%9B%9B%E7%AB%A0/</link>
+      <pubDate>Wed, 05 Feb 2020 00:35:24 +0800</pubDate>
+      
+      <guid>https://example.com/p/2020/02/js%E9%AB%98%E7%BA%A7%E8%AE%BE%E8%AE%A1%E7%AC%94%E8%AE%B0%E7%AC%AC%E5%9B%9B%E7%AB%A0/</guid>
+      <description>第四章 4.1 基本类型值指的是简单的数据段，而引用类型值指那些可能由多个值构成的对象。 五种基本数据类型：Undifined,Null,Boolea</description>
+    </item>
+    
+    <item>
+      <title>hexo win10配置方法，并使用github作为博客地址</title>
+      <link>https://example.com/p/2020/01/hexo-win10%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95%E5%B9%B6%E4%BD%BF%E7%94%A8github%E4%BD%9C%E4%B8%BA%E5%8D%9A%E5%AE%A2%E5%9C%B0%E5%9D%80/</link>
+      <pubDate>Mon, 27 Jan 2020 22:46:41 +0800</pubDate>
+      
+      <guid>https://example.com/p/2020/01/hexo-win10%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95%E5%B9%B6%E4%BD%BF%E7%94%A8github%E4%BD%9C%E4%B8%BA%E5%8D%9A%E5%AE%A2%E5%9C%B0%E5%9D%80/</guid>
+      <description>0、准备： node.js官网下载node并安装 安装git for windows，以后将使用git bash作为命令行操4作 配置git账号信息： git config --global</description>
+    </item>
+    
+  </channel>
+</rss>

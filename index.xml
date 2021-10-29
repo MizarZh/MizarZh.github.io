@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>MizarZ&#39;s Blog</title>
+        <link>https://example.com/</link>
+        <description>Recent content on MizarZ&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <lastBuildDate>Wed, 27 Oct 2021 16:21:58 +0800</lastBuildDate><atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>My First Post &amp; Mathjax Problem</title>
+        <link>https://example.com/p/2021/10/my-first-post-mathjax-problem/</link>
+        <pubDate>Wed, 27 Oct 2021 16:21:58 +0800</pubDate>
+        
+        <guid>https://example.com/p/2021/10/my-first-post-mathjax-problem/</guid>
+        <description>&lt;img src="https://example.com/p/2021/10/my-first-post-mathjax-problem/%E5%B0%81%E9%9D%A2%E6%B5%8B%E8%AF%95.jpg" alt="Featured image of post My First Post &amp; Mathjax Problem" /&gt;&lt;p&gt;mathjax/katex test:
+$$
+abc+edf
+$$&lt;/p&gt;
+&lt;p&gt;picture test:&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	
+		class=&#34;gallery-image&#34; 
+		style=&#34;
+			flex-grow: 70; 
+			flex-basis: 169px&#34;
+	&gt;
+	&lt;a href=&#34;https://example.com/p/2021/10/my-first-post-mathjax-problem/KerbinDeltaVMap.webp&#34; data-size=&#34;2480x3508&#34;&gt;
+		&lt;img src=&#34;https://example.com/p/2021/10/my-first-post-mathjax-problem/KerbinDeltaVMap.webp&#34;
+			width=&#34;2480&#34;
+			height=&#34;3508&#34;
+			srcset=&#34;https://example.com/p/2021/10/my-first-post-mathjax-problem/KerbinDeltaVMap_hu2f0622c84beee96707782fb666d5a6cd_448914_480x0_resize_q75_h2_box_2.webp 480w, https://example.com/p/2021/10/my-first-post-mathjax-problem/KerbinDeltaVMap_hu2f0622c84beee96707782fb666d5a6cd_448914_1024x0_resize_q75_h2_box_2.webp 1024w&#34;
+			loading=&#34;lazy&#34;
+			&gt;
+	&lt;/a&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;本来是想要留个纪念（转hugo了），但是一上来就出现了大问题：hugo的运作机制和hexo大为不同，是没有mathjax的插件的，需要自己手动添加代码。&lt;/p&gt;
+&lt;p&gt;目测有两种方法：一是在theme中插入mathjax代码从而渲染，二是安装hugo默认markdown渲染引擎goldmark的mathjax插件，或者使用pandoc之类的支持mathjax的渲染引擎。&lt;/p&gt;
+&lt;p&gt;因为第一种方法较简单就直接使用第一种。解决方法：在&lt;code&gt;themes/some-theme/layouts/partials/footer/footer.html&lt;/code&gt;的&lt;code&gt;&amp;lt;footer&amp;gt;&lt;/code&gt;中添加语句：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;{{ if .Params.mathjax}} &lt;span class=&#34;c&#34;&gt;&amp;lt;!-- 判断文件中是否设置mathjax: true --&amp;gt;&lt;/span&gt;
+	&lt;span class=&#34;c&#34;&gt;&amp;lt;!-- 引入mathjax3 --&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;script&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;src&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;https://polyfill.io/v3/polyfill.min.js?features=es6&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;script&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;script&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;id&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;MathJax-script&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;async&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;src&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;script&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+{{ end }}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;文件头开启mathjax：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span class=&#34;nx&#34;&gt;title&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;balabala&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;...&lt;/span&gt;
+&lt;span class=&#34;nx&#34;&gt;mathjax&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;...&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;​&lt;/p&gt;
+&lt;p&gt;不得不说，hugo和hexo的运转机制十分不同，hugo的速度快，自由度也高许多，期望以后会有更好的使用体验。&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>js高级设计笔记（第四章）</title>
+        <link>https://example.com/p/2020/02/js%E9%AB%98%E7%BA%A7%E8%AE%BE%E8%AE%A1%E7%AC%94%E8%AE%B0%E7%AC%AC%E5%9B%9B%E7%AB%A0/</link>
+        <pubDate>Wed, 05 Feb 2020 00:35:24 +0800</pubDate>
+        
+        <guid>https://example.com/p/2020/02/js%E9%AB%98%E7%BA%A7%E8%AE%BE%E8%AE%A1%E7%AC%94%E8%AE%B0%E7%AC%AC%E5%9B%9B%E7%AB%A0/</guid>
+        <description>&lt;h2 id=&#34;第四章&#34;&gt;第四章&lt;/h2&gt;
+&lt;h2 id=&#34;41&#34;&gt;4.1&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;基本类型值&lt;/strong&gt;指的是简单的数据段，而&lt;strong&gt;引用类型值&lt;/strong&gt;指那些可能由多个值构成的对象。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;五种基本数据类型：Undifined,Null,Boolean,Number,String，按值访问。
+引用类型值（Object？）&lt;/p&gt;
+&lt;p&gt;js不允许直接访问内存&lt;/p&gt;
+&lt;h3 id=&#34;411-属性&#34;&gt;4.1.1 属性&lt;/h3&gt;
+&lt;p&gt;对于引用类型的值，我们可以为其添加属性和方法，也可以改变和删除其属性和方法。
+不能给基本类型值添加属性。&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;h3 id=&#34;412-复制&#34;&gt;4.1.2 复制&lt;/h3&gt;
+&lt;p&gt;基本类型值&amp;quot;=&amp;ldquo;将进行值的复制，两个值之间不相关
+而引用类型值的&amp;rdquo;=&amp;ldquo;将指向同一个对象&lt;/p&gt;
+&lt;h3 id=&#34;413-传递参数&#34;&gt;4.1.3 传递参数&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ECMAScript 中所有函数的参数都是按值传递的。
+把函数外部的值复制给函数内部的参数，就和把值从一个变量复制到另一个变量一样。
+在向参数传递基本类型的值时，被传递的值会被复制给一个局部变量（即命名参数，或者用ECMAScript的概念来说，就是 arguments 对象中的一个元素）。
+在向参数传递引用类型的值时，会把这个值在内存中的地址复制给一个局部变量，因此这个局部变量的变化会反映在函数的外部。
+可以把 ECMAScript函数的参数想象成局部变量。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;my comprehension:不管什么值进入函数都会复制一遍，并在函数内部赋值到一个临时变量上。
+基本类型值基本没问题，但引用类型值的引用也被复制了，当在内部改变临时变量的属性时，随着引用外部的对象也会随着改变。&lt;/p&gt;
+&lt;h3 id=&#34;414-检测类型&#34;&gt;4.1.4 检测类型&lt;/h3&gt;
+&lt;p&gt;typeof方法和instanceof方法&lt;/p&gt;
+&lt;h2 id=&#34;42-执行环境及作用域&#34;&gt;4.2 执行环境及作用域&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;执行环境&lt;/strong&gt;（execution context，为简单起见，有时也称为“环境”）是JavaScript中最为重要的一个概念。执行环境定义了变量或函数有权访问的其他数据，决定了它们各自的行为。每个执行环境都有一个与之关联的变量对象（variable object），环境中定义的所有变量和函数都保存在这个对象中。虽然我们编写的代码无法访问这个对象，但解析器在处理数据时会在后台使用它。
+全局变量与每个函数的执行环境
+每个函数都有自己的执行环境。当执行流进入一个函数时，函数的环境就会被推入一个环境栈中。而在函数执行之后，栈将其环境弹出，把控制权返回给之前的执行环境。
+当代码在一个环境中执行时，会创建变量对象的一个&lt;strong&gt;作用域链&lt;/strong&gt;（scope chain）。作用域链的用途，是保证对执行环境有权访问的所有变量和函数的有序访问。作用域链的前端，始终都是当前执行的代码所在环境的变量对象。如果这个环境是函数，则将其活动对象（activation object）作为变量对象。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;421-延长作用域链&#34;&gt;4.2.1 延长作用域链&lt;/h3&gt;
+&lt;p&gt;try-catch语句的catch块：
+with语句：不解释&lt;/p&gt;
+&lt;h3 id=&#34;422-没有块级作用域&#34;&gt;4.2.2 没有块级作用域&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;变量 sum 在被初始化赋值时没有使用 var 关键字。于是，当调用完add()之后，添加到全局环境中的变量 sum 将继续存在；即使函数已经执行完毕，后面的代码依旧可以访问它。
+不声明而直接初始化变量是一个常见的错误做法，因为这样可能会导致意外。我们建议在初始化变量之前，一定要先声明，这样就可以避免类似问题。在严格模式下，初始化未经声明的变量会导致错误。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;当在某个环境中为了读取或写入而引用一个标识符时，必须通过搜索来确定该标识符实际代表什么。搜索过程从作用域链的前端开始，向上逐级查询与给定名字匹配的标识符。如果在局部环境中找到了该标识符，搜索过程停止，变量就绪。如果在局部环境中没有找到该变量名，则继续沿作用域链向上搜索。搜索过程将一直追溯到全局环境的变量对象。如果在全局环境中也没有找到这个标识符，则意味着该变量尚未声明。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;43-垃圾收集&#34;&gt;4.3 垃圾收集&lt;/h2&gt;
+&lt;p&gt;自动垃圾手机机制&lt;/p&gt;
+&lt;h3 id=&#34;431-标记清除&#34;&gt;4.3.1 标记清除&lt;/h3&gt;
+&lt;p&gt;变量进入环境时，将变量标记为“进入环境”。离开时标记为“离开环境”。&lt;/p&gt;
+&lt;h3 id=&#34;432-引用清除&#34;&gt;4.3.2 引用清除&lt;/h3&gt;
+&lt;p&gt;用得不多。跟踪记录每个值使用的次数。
+问题：循环引用。
+需手动切断链接。（设置引用为null）&lt;/p&gt;
+&lt;h3 id=&#34;433-性能问题&#34;&gt;4.3.3 性能问题&lt;/h3&gt;
+&lt;p&gt;注意性能相关问题。&lt;/p&gt;
+&lt;h3 id=&#34;434-管理内存&#34;&gt;4.3.4 管理内存&lt;/h3&gt;
+&lt;p&gt;不需要时手动解除引用。&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>hexo win10配置方法，并使用github作为博客地址</title>
+        <link>https://example.com/p/2020/01/hexo-win10%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95%E5%B9%B6%E4%BD%BF%E7%94%A8github%E4%BD%9C%E4%B8%BA%E5%8D%9A%E5%AE%A2%E5%9C%B0%E5%9D%80/</link>
+        <pubDate>Mon, 27 Jan 2020 22:46:41 +0800</pubDate>
+        
+        <guid>https://example.com/p/2020/01/hexo-win10%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95%E5%B9%B6%E4%BD%BF%E7%94%A8github%E4%BD%9C%E4%B8%BA%E5%8D%9A%E5%AE%A2%E5%9C%B0%E5%9D%80/</guid>
+        <description>&lt;h2 id=&#34;0准备&#34;&gt;0、准备：&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://nodejs.org/en/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;node.js&lt;/a&gt;官网下载node并安装&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;安装&lt;a class=&#34;link&#34; href=&#34;https://git-scm.com/download/win&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;git for windows&lt;/a&gt;，以后将使用git bash作为命令行操4作
+配置git账号信息：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git config --global user.name &lt;span class=&#34;s2&#34;&gt;&amp;#34;Firstname Lastname&amp;#34;&lt;/span&gt;
+git config --global user.email &lt;span class=&#34;s2&#34;&gt;&amp;#34;your-email@youremail.com&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;github新建repository的地址需命名为&lt;em&gt;your-github-name.github.io&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;1使用cnpm&#34;&gt;1、使用cnpm&lt;/h2&gt;
+&lt;p&gt;npm命令在国内较慢，需要安装cnpm(淘宝镜像)&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;npm install -g cnpm --registry&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;https://registry.npm.taobao.org
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;!-- raw HTML omitted --&gt;
+&lt;h2 id=&#34;2安装hexo&#34;&gt;2、安装hexo&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;cnpm install -g hexo-cli
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;3新建文件夹&#34;&gt;3、新建文件夹&lt;/h2&gt;
+&lt;p&gt;新建一个文件夹，里面将存储blog所需文件&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;mkdir my_blog
+&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; my_blog
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;4初始化hexo&#34;&gt;4、初始化hexo&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;hexo init
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;5安装hexo部署至github的工具&#34;&gt;5、安装hexo部署至github的工具&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;cnpm install --save hexo-deployer-git
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;（若出现ERROR Deployer not found: git错误，则是这个工具未安装）&lt;/p&gt;
+&lt;h2 id=&#34;6其他配置&#34;&gt;6、其他配置&lt;/h2&gt;
+&lt;p&gt;其中文件_config.yml是配置文件
+部署到github上需要配置deploy部分&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-makefile&#34; data-lang=&#34;makefile&#34;&gt;&lt;span class=&#34;nf&#34;&gt;type&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &amp;#39;&lt;span class=&#34;n&#34;&gt;git&lt;/span&gt;&amp;#39;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;添加两行：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-makefile&#34; data-lang=&#34;makefile&#34;&gt;&lt;span class=&#34;nf&#34;&gt;repo&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;_path&lt;/span&gt;-&lt;span class=&#34;n&#34;&gt;to&lt;/span&gt;-&lt;span class=&#34;n&#34;&gt;github&lt;/span&gt;-&lt;span class=&#34;n&#34;&gt;blog_&lt;/span&gt;
+&lt;span class=&#34;nf&#34;&gt;branch&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;master&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;可在theme中更换主题&lt;/p&gt;
+&lt;h3 id=&#34;本地临时服务器&#34;&gt;本地临时服务器：&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;hexo s 
+s 代表 start
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;默认地址为localhost:4000&lt;/p&gt;
+&lt;h3 id=&#34;新建文档&#34;&gt;新建文档：&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;hexo n &lt;span class=&#34;s2&#34;&gt;&amp;#34;name&amp;#34;&lt;/span&gt; 
+n 代表 new
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;文档存放在/source/_post/中&lt;/p&gt;
+&lt;h3 id=&#34;生成文档&#34;&gt;生成文档：&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;hexo g 
+g 代表 generate
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;部署文档到github上：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;hexo d 
+d 代表 deploy
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;第一次配置可能需要输入github的账号密码
+若是git bash内提示账号相关的错误，返回第零步进行账号的配置&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
