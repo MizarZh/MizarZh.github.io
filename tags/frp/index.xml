@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>frp on MizarZ&#39;s Blog</title>
+    <link>https://mizarzh.github.io/tags/frp/</link>
+    <description>Recent content in frp on MizarZ&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 19 May 2020 23:36:19 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/tags/frp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>瞎折腾之frp</title>
+      <link>https://mizarzh.github.io/p/2020/05/%E7%9E%8E%E6%8A%98%E8%85%BE%E4%B9%8Bfrp/</link>
+      <pubDate>Tue, 19 May 2020 23:36:19 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2020/05/%E7%9E%8E%E6%8A%98%E8%85%BE%E4%B9%8Bfrp/</guid>
+      <description>众所周之frp是一款内网穿透工具，可以用来干很多神奇的事情。我使用frp也有很多种目的，接下来就慢慢细说。 MC服务器 在某个ddl成堆的晚上，</description>
+    </item>
+    
+  </channel>
+</rss>

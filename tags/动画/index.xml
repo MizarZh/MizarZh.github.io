@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>动画 on MizarZ&#39;s Blog</title>
+    <link>https://mizarzh.github.io/tags/%E5%8A%A8%E7%94%BB/</link>
+    <description>Recent content in 动画 on MizarZ&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 10 May 2020 23:17:07 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/tags/%E5%8A%A8%E7%94%BB/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>最近进展2020-5-10</title>
+      <link>https://mizarzh.github.io/p/2020/05/%E6%9C%80%E8%BF%91%E8%BF%9B%E5%B1%952020-5-10/</link>
+      <pubDate>Sun, 10 May 2020 23:17:07 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2020/05/%E6%9C%80%E8%BF%91%E8%BF%9B%E5%B1%952020-5-10/</guid>
+      <description>科学动画 5-10 有两种类型的图片： 1、类似于js中canvas和python中matplotlib的位图 2、类似于svg或操作html DOM元素的</description>
+    </item>
+    
+  </channel>
+</rss>

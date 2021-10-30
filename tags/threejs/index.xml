@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>threejs on MizarZ&#39;s Blog</title>
+    <link>https://mizarzh.github.io/tags/threejs/</link>
+    <description>Recent content in threejs on MizarZ&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 08 Sep 2021 23:05:27 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/tags/threejs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>最近进展2021-9-4 moon3d</title>
+      <link>https://mizarzh.github.io/p/2021/09/%E6%9C%80%E8%BF%91%E8%BF%9B%E5%B1%952021-9-4-moon3d/</link>
+      <pubDate>Wed, 08 Sep 2021 23:05:27 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2021/09/%E6%9C%80%E8%BF%91%E8%BF%9B%E5%B1%952021-9-4-moon3d/</guid>
+      <description>最近工作（moon-3d，2021-9-4） 概括 目的：模拟月球天平动和月相，即模拟月球在某个时间点的样子。 科学方向：月球天平动、NASA 科学</description>
+    </item>
+    
+  </channel>
+</rss>

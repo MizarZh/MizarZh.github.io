@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>日常 on MizarZ&#39;s Blog</title>
+    <link>https://mizarzh.github.io/categories/%E6%97%A5%E5%B8%B8/</link>
+    <description>Recent content in 日常 on MizarZ&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 10 Jan 2021 20:54:39 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/categories/%E6%97%A5%E5%B8%B8/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>wordpress初始配置及ip迁移</title>
+      <link>https://mizarzh.github.io/p/2021/01/wordpress%E5%88%9D%E5%A7%8B%E9%85%8D%E7%BD%AE%E5%8F%8Aip%E8%BF%81%E7%A7%BB/</link>
+      <pubDate>Sun, 10 Jan 2021 20:54:39 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2021/01/wordpress%E5%88%9D%E5%A7%8B%E9%85%8D%E7%BD%AE%E5%8F%8Aip%E8%BF%81%E7%A7%BB/</guid>
+      <description>&lt;h1 id=&#34;初始配置&#34;&gt;初始配置&lt;/h1&gt;
+&lt;p&gt;2020-12-23
+这真的是大工程……
+简单说来，由于学生机服务器带宽过于拉跨，因此想使用学生机frp做内网穿透，使用raspberry作为wordpress服务器。
+&lt;a class=&#34;link&#34; href=&#34;https://cn.wordpress.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;wordpress中文官网&lt;/a&gt;
+此文章主要参考&lt;a class=&#34;link&#34; href=&#34;https://zhuanlan.zhihu.com/p/37614954&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;这个教程&lt;/a&gt;以及&lt;a class=&#34;link&#34; href=&#34;https://zhuanlan.zhihu.com/p/37593436&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;这个配置&lt;/a&gt;来操作。
+以下内容默认开启su&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>瞎折腾之frp</title>
+      <link>https://mizarzh.github.io/p/2020/05/%E7%9E%8E%E6%8A%98%E8%85%BE%E4%B9%8Bfrp/</link>
+      <pubDate>Tue, 19 May 2020 23:36:19 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2020/05/%E7%9E%8E%E6%8A%98%E8%85%BE%E4%B9%8Bfrp/</guid>
+      <description>众所周之frp是一款内网穿透工具，可以用来干很多神奇的事情。我使用frp也有很多种目的，接下来就慢慢细说。 MC服务器 在某个ddl成堆的晚上，</description>
+    </item>
+    
+    <item>
+      <title>瞎折腾之家庭服务器</title>
+      <link>https://mizarzh.github.io/p/2020/05/%E7%9E%8E%E6%8A%98%E8%85%BE%E4%B9%8B%E5%AE%B6%E5%BA%AD%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
+      <pubDate>Tue, 19 May 2020 23:36:02 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2020/05/%E7%9E%8E%E6%8A%98%E8%85%BE%E4%B9%8B%E5%AE%B6%E5%BA%AD%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
+      <description>自从上大学换了新电脑以后，家里的这台没啥电脑知识的我爸在电脑城买的联想傻大黑粗配置还不怎么样的旧笔记本就闲置在家多月。前几个月疫情肆虐，待在</description>
+    </item>
+    
+  </channel>
+</rss>

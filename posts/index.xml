@@ -2,35 +2,326 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on MizarZ&#39;s Blog</title>
-    <link>https://example.com/posts/</link>
+    <link>https://mizarzh.github.io/posts/</link>
     <description>Recent content in Posts on MizarZ&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 27 Oct 2021 16:21:58 +0800</lastBuildDate><atom:link href="https://example.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 27 Oct 2021 16:21:58 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>My First Post &amp; Mathjax Problem</title>
-      <link>https://example.com/p/2021/10/my-first-post-mathjax-problem/</link>
+      <link>https://mizarzh.github.io/p/2021/10/my-first-post-mathjax-problem/</link>
       <pubDate>Wed, 27 Oct 2021 16:21:58 +0800</pubDate>
       
-      <guid>https://example.com/p/2021/10/my-first-post-mathjax-problem/</guid>
+      <guid>https://mizarzh.github.io/p/2021/10/my-first-post-mathjax-problem/</guid>
       <description>mathjax/katex test: $$ abc+edf $$ picture test: 本来是想要留个纪念（转hugo了），但是一上来就出现了大问题：hugo的运作机制和hexo大为不同，是没有mathjax的插件</description>
     </item>
     
     <item>
+      <title>各类“TeX”</title>
+      <link>https://mizarzh.github.io/p/2021/10/%E5%90%84%E7%B1%BBtex/</link>
+      <pubDate>Wed, 06 Oct 2021 20:44:39 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2021/10/%E5%90%84%E7%B1%BBtex/</guid>
+      <description>1 TeX TeX是Donald E. Knuth开发的一个排版系统。用户可以使用一系列的低级控制指令指导系统排版，同时支持变量、作用域、控制流和函数定义</description>
+    </item>
+    
+    <item>
+      <title>硬盘/储存介质笔记</title>
+      <link>https://mizarzh.github.io/p/2021/09/%E7%A1%AC%E7%9B%98/%E5%82%A8%E5%AD%98%E4%BB%8B%E8%B4%A8%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Mon, 27 Sep 2021 19:44:52 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2021/09/%E7%A1%AC%E7%9B%98/%E5%82%A8%E5%AD%98%E4%BB%8B%E8%B4%A8%E7%AC%94%E8%AE%B0/</guid>
+      <description>&lt;h2 id=&#34;0-整体参数&#34;&gt;0 整体参数&lt;/h2&gt;
+&lt;p&gt;参数：速度、尺寸、容量/成本、耐用性/寿命&lt;/p&gt;
+&lt;h2 id=&#34;1-机械硬盘hard-disk-drive-hdd&#34;&gt;1 机械硬盘（&lt;strong&gt;H&lt;/strong&gt;ard &lt;strong&gt;D&lt;/strong&gt;isk &lt;strong&gt;D&lt;/strong&gt;rive, HDD）&lt;/h2&gt;
+&lt;p&gt;大牌：西数，东芝，希捷&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>天文光度学</title>
+      <link>https://mizarzh.github.io/p/2021/09/%E5%A4%A9%E6%96%87%E5%85%89%E5%BA%A6%E5%AD%A6/</link>
+      <pubDate>Sat, 11 Sep 2021 15:34:01 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2021/09/%E5%A4%A9%E6%96%87%E5%85%89%E5%BA%A6%E5%AD%A6/</guid>
+      <description>天文光度学 几个重要参数和概念 衡量光的强度使用的是能量$E$，衡量光单位时间内的强度用的是功率$P$。由于光不断在运动，恒星不断在产能，因此使</description>
+    </item>
+    
+    <item>
+      <title>天文望远镜基础知识</title>
+      <link>https://mizarzh.github.io/p/2021/09/%E5%A4%A9%E6%96%87%E6%9C%9B%E8%BF%9C%E9%95%9C%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</link>
+      <pubDate>Thu, 09 Sep 2021 23:27:17 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2021/09/%E5%A4%A9%E6%96%87%E6%9C%9B%E8%BF%9C%E9%95%9C%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</guid>
+      <description>天文望远镜基本知识 天文望远镜类型 折射望远镜 反射望远镜 折反式望远镜 折射与反射望远镜示意图： reflect-and-refract 折射望远镜 最老的是伽利略式望远镜，使用的是一凸一凹</description>
+    </item>
+    
+    <item>
+      <title>webpack学习</title>
+      <link>https://mizarzh.github.io/p/2021/09/webpack%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Wed, 08 Sep 2021 23:10:32 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2021/09/webpack%E5%AD%A6%E4%B9%A0/</guid>
+      <description>webpack 学习 介绍 webpack 不用多介绍，一个大名鼎鼎的前端打包工具。 官网上是这么介绍的： 本质上，webpack 是一个现代 JavaScript 应用程序的静态模块打包器(modu</description>
+    </item>
+    
+    <item>
+      <title>最近进展2021-9-4 moon3d</title>
+      <link>https://mizarzh.github.io/p/2021/09/%E6%9C%80%E8%BF%91%E8%BF%9B%E5%B1%952021-9-4-moon3d/</link>
+      <pubDate>Wed, 08 Sep 2021 23:05:27 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2021/09/%E6%9C%80%E8%BF%91%E8%BF%9B%E5%B1%952021-9-4-moon3d/</guid>
+      <description>最近工作（moon-3d，2021-9-4） 概括 目的：模拟月球天平动和月相，即模拟月球在某个时间点的样子。 科学方向：月球天平动、NASA 科学</description>
+    </item>
+    
+    <item>
+      <title>wordpress初始配置及ip迁移</title>
+      <link>https://mizarzh.github.io/p/2021/01/wordpress%E5%88%9D%E5%A7%8B%E9%85%8D%E7%BD%AE%E5%8F%8Aip%E8%BF%81%E7%A7%BB/</link>
+      <pubDate>Sun, 10 Jan 2021 20:54:39 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2021/01/wordpress%E5%88%9D%E5%A7%8B%E9%85%8D%E7%BD%AE%E5%8F%8Aip%E8%BF%81%E7%A7%BB/</guid>
+      <description>&lt;h1 id=&#34;初始配置&#34;&gt;初始配置&lt;/h1&gt;
+&lt;p&gt;2020-12-23
+这真的是大工程……
+简单说来，由于学生机服务器带宽过于拉跨，因此想使用学生机frp做内网穿透，使用raspberry作为wordpress服务器。
+&lt;a class=&#34;link&#34; href=&#34;https://cn.wordpress.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;wordpress中文官网&lt;/a&gt;
+此文章主要参考&lt;a class=&#34;link&#34; href=&#34;https://zhuanlan.zhihu.com/p/37614954&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;这个教程&lt;/a&gt;以及&lt;a class=&#34;link&#34; href=&#34;https://zhuanlan.zhihu.com/p/37593436&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;这个配置&lt;/a&gt;来操作。
+以下内容默认开启su&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>华工自动报平安脚本</title>
+      <link>https://mizarzh.github.io/p/2020/07/%E5%8D%8E%E5%B7%A5%E8%87%AA%E5%8A%A8%E6%8A%A5%E5%B9%B3%E5%AE%89%E8%84%9A%E6%9C%AC/</link>
+      <pubDate>Sat, 04 Jul 2020 16:49:29 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2020/07/%E5%8D%8E%E5%B7%A5%E8%87%AA%E5%8A%A8%E6%8A%A5%E5%B9%B3%E5%AE%89%E8%84%9A%E6%9C%AC/</guid>
+      <description>github网址 虽然离开学只有一个月了这个脚本估计也没什么用了233，但是研究这套系统对以后的自动化也是有帮助的。 研究历程： 其实在五六月份的</description>
+    </item>
+    
+    <item>
+      <title>最近进展2020-6-3</title>
+      <link>https://mizarzh.github.io/p/2020/06/%E6%9C%80%E8%BF%91%E8%BF%9B%E5%B1%952020-6-3/</link>
+      <pubDate>Wed, 03 Jun 2020 23:40:33 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2020/06/%E6%9C%80%E8%BF%91%E8%BF%9B%E5%B1%952020-6-3/</guid>
+      <description>Nodejs服务器 写了一个Tool-box，其中有下载视频的功能。 原理是使用服务端的you-get识别下载网址的url从而得到下载地址，但却</description>
+    </item>
+    
+    <item>
+      <title>瞎折腾之frp</title>
+      <link>https://mizarzh.github.io/p/2020/05/%E7%9E%8E%E6%8A%98%E8%85%BE%E4%B9%8Bfrp/</link>
+      <pubDate>Tue, 19 May 2020 23:36:19 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2020/05/%E7%9E%8E%E6%8A%98%E8%85%BE%E4%B9%8Bfrp/</guid>
+      <description>众所周之frp是一款内网穿透工具，可以用来干很多神奇的事情。我使用frp也有很多种目的，接下来就慢慢细说。 MC服务器 在某个ddl成堆的晚上，</description>
+    </item>
+    
+    <item>
+      <title>瞎折腾之家庭服务器</title>
+      <link>https://mizarzh.github.io/p/2020/05/%E7%9E%8E%E6%8A%98%E8%85%BE%E4%B9%8B%E5%AE%B6%E5%BA%AD%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
+      <pubDate>Tue, 19 May 2020 23:36:02 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2020/05/%E7%9E%8E%E6%8A%98%E8%85%BE%E4%B9%8B%E5%AE%B6%E5%BA%AD%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
+      <description>自从上大学换了新电脑以后，家里的这台没啥电脑知识的我爸在电脑城买的联想傻大黑粗配置还不怎么样的旧笔记本就闲置在家多月。前几个月疫情肆虐，待在</description>
+    </item>
+    
+    <item>
+      <title>nodejs入门笔记</title>
+      <link>https://mizarzh.github.io/p/2020/05/nodejs%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Tue, 19 May 2020 22:54:13 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2020/05/nodejs%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/</guid>
+      <description>nodejs入门笔记 全局对象 global process属性 提供了一个与操作系统的简单接口 process.argv是命令行参数数组 process.std</description>
+    </item>
+    
+    <item>
+      <title>最近进展2020-5-10</title>
+      <link>https://mizarzh.github.io/p/2020/05/%E6%9C%80%E8%BF%91%E8%BF%9B%E5%B1%952020-5-10/</link>
+      <pubDate>Sun, 10 May 2020 23:17:07 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2020/05/%E6%9C%80%E8%BF%91%E8%BF%9B%E5%B1%952020-5-10/</guid>
+      <description>科学动画 5-10 有两种类型的图片： 1、类似于js中canvas和python中matplotlib的位图 2、类似于svg或操作html DOM元素的</description>
+    </item>
+    
+    <item>
+      <title>js的读取文本与跨网页</title>
+      <link>https://mizarzh.github.io/p/2020/04/js%E7%9A%84%E8%AF%BB%E5%8F%96%E6%96%87%E6%9C%AC%E4%B8%8E%E8%B7%A8%E7%BD%91%E9%A1%B5/</link>
+      <pubDate>Fri, 24 Apr 2020 23:23:20 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2020/04/js%E7%9A%84%E8%AF%BB%E5%8F%96%E6%96%87%E6%9C%AC%E4%B8%8E%E8%B7%A8%E7%BD%91%E9%A1%B5/</guid>
+      <description>这两天闲来无事，写了两个和展示文字相关的页面，其中遇到了读取文本与跨网页通信的问题。 文件操作 js中直接读取和处理本地的文件是很困难的（除非n</description>
+    </item>
+    
+    <item>
+      <title>最近进展2020-4-9</title>
+      <link>https://mizarzh.github.io/p/2020/04/%E6%9C%80%E8%BF%91%E8%BF%9B%E5%B1%952020-4-9/</link>
+      <pubDate>Thu, 09 Apr 2020 11:50:15 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2020/04/%E6%9C%80%E8%BF%91%E8%BF%9B%E5%B1%952020-4-9/</guid>
+      <description>wincmd脚本 ffmpeg ffmpeg -ss 00:00:00 -t 00:00:03.000 -i &amp;#34;x.wav&amp;#34; -filter_complex afade=t=out:st=1:d=2 &amp;#34;y.wav&amp;#34; -filter_complex afade=t=out:st=1:d=2 代表从1s开始淡出，持续2s js 文件读取 界面 机理 html &amp;lt;audio&amp;gt; 的使用 python 月球项目 首先调用astropy的sola</description>
+    </item>
+    
+    <item>
+      <title>最近进展2020-4-2</title>
+      <link>https://mizarzh.github.io/p/2020/04/%E6%9C%80%E8%BF%91%E8%BF%9B%E5%B1%952020-4-2/</link>
+      <pubDate>Thu, 02 Apr 2020 23:39:38 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2020/04/%E6%9C%80%E8%BF%91%E8%BF%9B%E5%B1%952020-4-2/</guid>
+      <description>1、写了一个网页 前端练习 website 2、配置服务器 Jupyter notebook 3、学习爬虫 4、事件相关 某同学的一个网页，写一个js脚本，重复点击四（五）个按钮。 首先找出每个按</description>
+    </item>
+    
+    <item>
+      <title>jupyter notebook配置</title>
+      <link>https://mizarzh.github.io/p/2020/03/jupyter-notebook%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Wed, 25 Mar 2020 17:01:13 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2020/03/jupyter-notebook%E9%85%8D%E7%BD%AE/</guid>
+      <description>远端jupyter notebook的配置 python下载 这里使用anaconda wget https://repo.anaconda.com/archive/Anaconda3-2020.02-Linux-x86_64.sh ./Anaconda3-2020.02-Linux-x86_64.sh 并一直yes，安装anaconda jupyter notebook配</description>
+    </item>
+    
+    <item>
+      <title>名著短评</title>
+      <link>https://mizarzh.github.io/p/2020/03/%E5%90%8D%E8%91%97%E7%9F%AD%E8%AF%84/</link>
+      <pubDate>Mon, 16 Mar 2020 23:12:57 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2020/03/%E5%90%8D%E8%91%97%E7%9F%AD%E8%AF%84/</guid>
+      <description>一个文学渣的瞎唠嗑 《雪国》[日]川端康成 创作于1935-1948年 自己的想法： 这的确是一本非常晦涩难懂的书。驹子对岛村的感情表达地十分晦涩（</description>
+    </item>
+    
+    <item>
+      <title>工作日志(C 2019 Y4 comet)</title>
+      <link>https://mizarzh.github.io/p/2020/02/%E5%B7%A5%E4%BD%9C%E6%97%A5%E5%BF%97c-2019-y4-comet/</link>
+      <pubDate>Fri, 28 Feb 2020 17:57:43 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2020/02/%E5%B7%A5%E4%BD%9C%E6%97%A5%E5%BF%97c-2019-y4-comet/</guid>
+      <description>思路： 模型： $$m=V(1,0)+5\lg{\frac{r\Delta}{a^2}}-2.5\lg{\Phi(\alpha)}$$ 其中m为视星等，V(1,0)为绝对星等，r为该星体距离太阳的距离，$\Delta$为该星体距离地球的距离 轨道计算：先计算出椭圆</description>
+    </item>
+    
+    <item>
+      <title>最近进展2020-2-19</title>
+      <link>https://mizarzh.github.io/p/2020/02/%E6%9C%80%E8%BF%91%E8%BF%9B%E5%B1%952020-2-19/</link>
+      <pubDate>Wed, 19 Feb 2020 12:42:14 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2020/02/%E6%9C%80%E8%BF%91%E8%BF%9B%E5%B1%952020-2-19/</guid>
+      <description>推箱子 pushbox 过于羞耻.jpg principle HTML与CSS知识相关 这次使用的是外层创建div并限定长度、窗口居中（margin : auto），内部嵌套floa</description>
+    </item>
+    
+    <item>
+      <title>js高设笔记13</title>
+      <link>https://mizarzh.github.io/p/2020/02/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B013/</link>
+      <pubDate>Wed, 12 Feb 2020 18:28:18 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2020/02/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B013/</guid>
+      <description>13事件 js与HTML之间的交互是通过事件实现的 可以使用侦听器（或处理程序）来预订事件 13.1事件流 13.1.1事件冒泡 即事件开始时由具体的</description>
+    </item>
+    
+    <item>
+      <title>js高设笔记10</title>
+      <link>https://mizarzh.github.io/p/2020/02/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B010/</link>
+      <pubDate>Tue, 11 Feb 2020 16:11:37 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2020/02/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B010/</guid>
+      <description>10 DOM DOM（文档对象模型）是针对 HTML和 XML文档的一个 API 10.1 节点层次 DOM可以将任何 HTML 或 XML文档描绘成一个由多层节点构成的结构。 &amp;lt;html&amp;gt; 文档元</description>
+    </item>
+    
+    <item>
+      <title>js高设笔记8</title>
+      <link>https://mizarzh.github.io/p/2020/02/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B08/</link>
+      <pubDate>Mon, 10 Feb 2020 13:24:43 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2020/02/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B08/</guid>
+      <description>BOM BOM（浏览器对象模型） 8.1 window 对象 BOM的核心对象是 window，它表示浏览器的一个实例。在浏览器中，window 对象有双重角色，它既是通过</description>
+    </item>
+    
+    <item>
+      <title>js高设笔记7</title>
+      <link>https://mizarzh.github.io/p/2020/02/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B07/</link>
+      <pubDate>Mon, 10 Feb 2020 12:17:39 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2020/02/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B07/</guid>
+      <description>7 函数表达式 7.1 递归 使用argument.callee 严格模式下，可使用命名函数表达式来达成相同的结果 var factorial = (function f(num){ if (num &amp;lt;= 1){ return 1; } else { return num * f(num-1); } });</description>
+    </item>
+    
+    <item>
+      <title>js高设笔记6</title>
+      <link>https://mizarzh.github.io/p/2020/02/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B06/</link>
+      <pubDate>Fri, 07 Feb 2020 18:14:42 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2020/02/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B06/</guid>
+      <description>6 面向对象的程序设计 （注意：js中的面向对象实现与C++中不同） 6.1 理解对象 var person = new Object(); person.name = &amp;#34;Nicholas&amp;#34;; person.age = 29; person.job = &amp;#34;Software Engineer&amp;#34;; person.sayName = function(){ alert(this.name); }; var person = { name: &amp;#34;Nicholas&amp;#34;, age: 29, job: &amp;#34;Software Engineer&amp;#34;, sayName: function(){</description>
+    </item>
+    
+    <item>
+      <title>js高设笔记5</title>
+      <link>https://mizarzh.github.io/p/2020/02/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B05/</link>
+      <pubDate>Fri, 07 Feb 2020 18:13:27 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2020/02/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B05/</guid>
+      <description>5 引用类型 引用类型是一种结构。 5.1 Object类型 创造实例的两种方法： 1、new+构造函数 2、对象字面量 var person = new Object(); person.name = &amp;#34;Nicholas&amp;#34;; person.age = 29; var person = { name : &amp;#34;Nicholas&amp;#34;, age</description>
+    </item>
+    
+    <item>
+      <title>Regexp相关</title>
+      <link>https://mizarzh.github.io/p/2020/02/regexp%E7%9B%B8%E5%85%B3/</link>
+      <pubDate>Wed, 05 Feb 2020 00:57:40 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2020/02/regexp%E7%9B%B8%E5%85%B3/</guid>
+      <description>正则表达式的表示方法 来自：regexlab 1、直接写内容 直接匹配内容 2、转义字符 1 字符 含义 \n \r 换行符 \t 制表符 \\ \的字符 \$ $的字符 \^ ^的字符 \.</description>
+    </item>
+    
+    <item>
+      <title>JSON相关</title>
+      <link>https://mizarzh.github.io/p/2020/02/json%E7%9B%B8%E5%85%B3/</link>
+      <pubDate>Wed, 05 Feb 2020 00:56:57 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2020/02/json%E7%9B%B8%E5%85%B3/</guid>
+      <description>JSON组成 简单值：使用与 JavaScript 相同的语法，可以在 JSON 中表示字符串、数值、布尔值和 null。但 JSON不支持 JavaScript中的特殊值 unde</description>
+    </item>
+    
+    <item>
       <title>js高级设计笔记（第四章）</title>
-      <link>https://example.com/p/2020/02/js%E9%AB%98%E7%BA%A7%E8%AE%BE%E8%AE%A1%E7%AC%94%E8%AE%B0%E7%AC%AC%E5%9B%9B%E7%AB%A0/</link>
+      <link>https://mizarzh.github.io/p/2020/02/js%E9%AB%98%E7%BA%A7%E8%AE%BE%E8%AE%A1%E7%AC%94%E8%AE%B0%E7%AC%AC%E5%9B%9B%E7%AB%A0/</link>
       <pubDate>Wed, 05 Feb 2020 00:35:24 +0800</pubDate>
       
-      <guid>https://example.com/p/2020/02/js%E9%AB%98%E7%BA%A7%E8%AE%BE%E8%AE%A1%E7%AC%94%E8%AE%B0%E7%AC%AC%E5%9B%9B%E7%AB%A0/</guid>
+      <guid>https://mizarzh.github.io/p/2020/02/js%E9%AB%98%E7%BA%A7%E8%AE%BE%E8%AE%A1%E7%AC%94%E8%AE%B0%E7%AC%AC%E5%9B%9B%E7%AB%A0/</guid>
       <description>第四章 4.1 基本类型值指的是简单的数据段，而引用类型值指那些可能由多个值构成的对象。 五种基本数据类型：Undifined,Null,Boolea</description>
     </item>
     
     <item>
+      <title>有用的网址</title>
+      <link>https://mizarzh.github.io/p/2020/01/%E6%9C%89%E7%94%A8%E7%9A%84%E7%BD%91%E5%9D%80/</link>
+      <pubDate>Thu, 30 Jan 2020 13:20:56 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2020/01/%E6%9C%89%E7%94%A8%E7%9A%84%E7%BD%91%E5%9D%80/</guid>
+      <description>NexT文档 https://theme-next.org/docs/ http://theme-next.iissnan.com/ 网上搜索很方便（hexo文档和blog很多） mc相关： 中文论坛 https://www.mcbbs.net/ mod https://www.mcmod.cn/class/category/1-1.html cusreforge https://curseforge.com HMCL https://hmcl.huangyuhui.net gamepedia https://minecraft-zh.gamepedia.com/Minecraft_Wiki gamepedia英文版 https://minecraft.gamepedia.com/Minecraft_Wiki</description>
+    </item>
+    
+    <item>
+      <title>mc相关配置解释</title>
+      <link>https://mizarzh.github.io/p/2020/01/mc%E7%9B%B8%E5%85%B3%E9%85%8D%E7%BD%AE%E8%A7%A3%E9%87%8A/</link>
+      <pubDate>Thu, 30 Jan 2020 11:50:14 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2020/01/mc%E7%9B%B8%E5%85%B3%E9%85%8D%E7%BD%AE%E8%A7%A3%E9%87%8A/</guid>
+      <description>1.mc版本 mc（pc端）分为java版与基岩版（C++编写） java版可自行下载，基岩版必须购买 java版购买与自行下载的唯一区别在于购买</description>
+    </item>
+    
+    <item>
+      <title>杂项问题</title>
+      <link>https://mizarzh.github.io/p/2020/01/%E6%9D%82%E9%A1%B9%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Tue, 28 Jan 2020 11:38:56 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2020/01/%E6%9D%82%E9%A1%B9%E9%97%AE%E9%A2%98/</guid>
+      <description>hexo相关 1. vscode使用markdown相关 preview：右上角点击preview即可 可装插件Markdown Preview Enhanced使得</description>
+    </item>
+    
+    <item>
       <title>hexo win10配置方法，并使用github作为博客地址</title>
-      <link>https://example.com/p/2020/01/hexo-win10%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95%E5%B9%B6%E4%BD%BF%E7%94%A8github%E4%BD%9C%E4%B8%BA%E5%8D%9A%E5%AE%A2%E5%9C%B0%E5%9D%80/</link>
+      <link>https://mizarzh.github.io/p/2020/01/hexo-win10%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95%E5%B9%B6%E4%BD%BF%E7%94%A8github%E4%BD%9C%E4%B8%BA%E5%8D%9A%E5%AE%A2%E5%9C%B0%E5%9D%80/</link>
       <pubDate>Mon, 27 Jan 2020 22:46:41 +0800</pubDate>
       
-      <guid>https://example.com/p/2020/01/hexo-win10%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95%E5%B9%B6%E4%BD%BF%E7%94%A8github%E4%BD%9C%E4%B8%BA%E5%8D%9A%E5%AE%A2%E5%9C%B0%E5%9D%80/</guid>
+      <guid>https://mizarzh.github.io/p/2020/01/hexo-win10%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95%E5%B9%B6%E4%BD%BF%E7%94%A8github%E4%BD%9C%E4%B8%BA%E5%8D%9A%E5%AE%A2%E5%9C%B0%E5%9D%80/</guid>
       <description>0、准备： node.js官网下载node并安装 安装git for windows，以后将使用git bash作为命令行操4作 配置git账号信息： git config --global</description>
     </item>
     

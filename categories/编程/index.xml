@@ -2,26 +2,179 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>编程 on MizarZ&#39;s Blog</title>
-    <link>https://example.com/categories/%E7%BC%96%E7%A8%8B/</link>
+    <link>https://mizarzh.github.io/categories/%E7%BC%96%E7%A8%8B/</link>
     <description>Recent content in 编程 on MizarZ&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 05 Feb 2020 00:35:24 +0800</lastBuildDate><atom:link href="https://example.com/categories/%E7%BC%96%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 04 Jul 2020 16:49:29 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/categories/%E7%BC%96%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>华工自动报平安脚本</title>
+      <link>https://mizarzh.github.io/p/2020/07/%E5%8D%8E%E5%B7%A5%E8%87%AA%E5%8A%A8%E6%8A%A5%E5%B9%B3%E5%AE%89%E8%84%9A%E6%9C%AC/</link>
+      <pubDate>Sat, 04 Jul 2020 16:49:29 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2020/07/%E5%8D%8E%E5%B7%A5%E8%87%AA%E5%8A%A8%E6%8A%A5%E5%B9%B3%E5%AE%89%E8%84%9A%E6%9C%AC/</guid>
+      <description>github网址 虽然离开学只有一个月了这个脚本估计也没什么用了233，但是研究这套系统对以后的自动化也是有帮助的。 研究历程： 其实在五六月份的</description>
+    </item>
+    
+    <item>
+      <title>最近进展2020-6-3</title>
+      <link>https://mizarzh.github.io/p/2020/06/%E6%9C%80%E8%BF%91%E8%BF%9B%E5%B1%952020-6-3/</link>
+      <pubDate>Wed, 03 Jun 2020 23:40:33 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2020/06/%E6%9C%80%E8%BF%91%E8%BF%9B%E5%B1%952020-6-3/</guid>
+      <description>Nodejs服务器 写了一个Tool-box，其中有下载视频的功能。 原理是使用服务端的you-get识别下载网址的url从而得到下载地址，但却</description>
+    </item>
+    
+    <item>
+      <title>nodejs入门笔记</title>
+      <link>https://mizarzh.github.io/p/2020/05/nodejs%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Tue, 19 May 2020 22:54:13 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2020/05/nodejs%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/</guid>
+      <description>nodejs入门笔记 全局对象 global process属性 提供了一个与操作系统的简单接口 process.argv是命令行参数数组 process.std</description>
+    </item>
+    
+    <item>
+      <title>最近进展2020-5-10</title>
+      <link>https://mizarzh.github.io/p/2020/05/%E6%9C%80%E8%BF%91%E8%BF%9B%E5%B1%952020-5-10/</link>
+      <pubDate>Sun, 10 May 2020 23:17:07 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2020/05/%E6%9C%80%E8%BF%91%E8%BF%9B%E5%B1%952020-5-10/</guid>
+      <description>科学动画 5-10 有两种类型的图片： 1、类似于js中canvas和python中matplotlib的位图 2、类似于svg或操作html DOM元素的</description>
+    </item>
+    
+    <item>
+      <title>js的读取文本与跨网页</title>
+      <link>https://mizarzh.github.io/p/2020/04/js%E7%9A%84%E8%AF%BB%E5%8F%96%E6%96%87%E6%9C%AC%E4%B8%8E%E8%B7%A8%E7%BD%91%E9%A1%B5/</link>
+      <pubDate>Fri, 24 Apr 2020 23:23:20 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2020/04/js%E7%9A%84%E8%AF%BB%E5%8F%96%E6%96%87%E6%9C%AC%E4%B8%8E%E8%B7%A8%E7%BD%91%E9%A1%B5/</guid>
+      <description>这两天闲来无事，写了两个和展示文字相关的页面，其中遇到了读取文本与跨网页通信的问题。 文件操作 js中直接读取和处理本地的文件是很困难的（除非n</description>
+    </item>
+    
+    <item>
+      <title>最近进展2020-4-9</title>
+      <link>https://mizarzh.github.io/p/2020/04/%E6%9C%80%E8%BF%91%E8%BF%9B%E5%B1%952020-4-9/</link>
+      <pubDate>Thu, 09 Apr 2020 11:50:15 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2020/04/%E6%9C%80%E8%BF%91%E8%BF%9B%E5%B1%952020-4-9/</guid>
+      <description>wincmd脚本 ffmpeg ffmpeg -ss 00:00:00 -t 00:00:03.000 -i &amp;#34;x.wav&amp;#34; -filter_complex afade=t=out:st=1:d=2 &amp;#34;y.wav&amp;#34; -filter_complex afade=t=out:st=1:d=2 代表从1s开始淡出，持续2s js 文件读取 界面 机理 html &amp;lt;audio&amp;gt; 的使用 python 月球项目 首先调用astropy的sola</description>
+    </item>
+    
+    <item>
+      <title>最近进展2020-4-2</title>
+      <link>https://mizarzh.github.io/p/2020/04/%E6%9C%80%E8%BF%91%E8%BF%9B%E5%B1%952020-4-2/</link>
+      <pubDate>Thu, 02 Apr 2020 23:39:38 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2020/04/%E6%9C%80%E8%BF%91%E8%BF%9B%E5%B1%952020-4-2/</guid>
+      <description>1、写了一个网页 前端练习 website 2、配置服务器 Jupyter notebook 3、学习爬虫 4、事件相关 某同学的一个网页，写一个js脚本，重复点击四（五）个按钮。 首先找出每个按</description>
+    </item>
+    
+    <item>
+      <title>jupyter notebook配置</title>
+      <link>https://mizarzh.github.io/p/2020/03/jupyter-notebook%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Wed, 25 Mar 2020 17:01:13 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2020/03/jupyter-notebook%E9%85%8D%E7%BD%AE/</guid>
+      <description>远端jupyter notebook的配置 python下载 这里使用anaconda wget https://repo.anaconda.com/archive/Anaconda3-2020.02-Linux-x86_64.sh ./Anaconda3-2020.02-Linux-x86_64.sh 并一直yes，安装anaconda jupyter notebook配</description>
+    </item>
+    
+    <item>
+      <title>最近进展2020-2-19</title>
+      <link>https://mizarzh.github.io/p/2020/02/%E6%9C%80%E8%BF%91%E8%BF%9B%E5%B1%952020-2-19/</link>
+      <pubDate>Wed, 19 Feb 2020 12:42:14 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2020/02/%E6%9C%80%E8%BF%91%E8%BF%9B%E5%B1%952020-2-19/</guid>
+      <description>推箱子 pushbox 过于羞耻.jpg principle HTML与CSS知识相关 这次使用的是外层创建div并限定长度、窗口居中（margin : auto），内部嵌套floa</description>
+    </item>
+    
+    <item>
+      <title>js高设笔记13</title>
+      <link>https://mizarzh.github.io/p/2020/02/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B013/</link>
+      <pubDate>Wed, 12 Feb 2020 18:28:18 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2020/02/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B013/</guid>
+      <description>13事件 js与HTML之间的交互是通过事件实现的 可以使用侦听器（或处理程序）来预订事件 13.1事件流 13.1.1事件冒泡 即事件开始时由具体的</description>
+    </item>
+    
+    <item>
+      <title>js高设笔记10</title>
+      <link>https://mizarzh.github.io/p/2020/02/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B010/</link>
+      <pubDate>Tue, 11 Feb 2020 16:11:37 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2020/02/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B010/</guid>
+      <description>10 DOM DOM（文档对象模型）是针对 HTML和 XML文档的一个 API 10.1 节点层次 DOM可以将任何 HTML 或 XML文档描绘成一个由多层节点构成的结构。 &amp;lt;html&amp;gt; 文档元</description>
+    </item>
+    
+    <item>
+      <title>js高设笔记8</title>
+      <link>https://mizarzh.github.io/p/2020/02/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B08/</link>
+      <pubDate>Mon, 10 Feb 2020 13:24:43 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2020/02/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B08/</guid>
+      <description>BOM BOM（浏览器对象模型） 8.1 window 对象 BOM的核心对象是 window，它表示浏览器的一个实例。在浏览器中，window 对象有双重角色，它既是通过</description>
+    </item>
+    
+    <item>
+      <title>js高设笔记7</title>
+      <link>https://mizarzh.github.io/p/2020/02/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B07/</link>
+      <pubDate>Mon, 10 Feb 2020 12:17:39 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2020/02/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B07/</guid>
+      <description>7 函数表达式 7.1 递归 使用argument.callee 严格模式下，可使用命名函数表达式来达成相同的结果 var factorial = (function f(num){ if (num &amp;lt;= 1){ return 1; } else { return num * f(num-1); } });</description>
+    </item>
+    
+    <item>
+      <title>js高设笔记6</title>
+      <link>https://mizarzh.github.io/p/2020/02/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B06/</link>
+      <pubDate>Fri, 07 Feb 2020 18:14:42 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2020/02/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B06/</guid>
+      <description>6 面向对象的程序设计 （注意：js中的面向对象实现与C++中不同） 6.1 理解对象 var person = new Object(); person.name = &amp;#34;Nicholas&amp;#34;; person.age = 29; person.job = &amp;#34;Software Engineer&amp;#34;; person.sayName = function(){ alert(this.name); }; var person = { name: &amp;#34;Nicholas&amp;#34;, age: 29, job: &amp;#34;Software Engineer&amp;#34;, sayName: function(){</description>
+    </item>
+    
+    <item>
+      <title>js高设笔记5</title>
+      <link>https://mizarzh.github.io/p/2020/02/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B05/</link>
+      <pubDate>Fri, 07 Feb 2020 18:13:27 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2020/02/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B05/</guid>
+      <description>5 引用类型 引用类型是一种结构。 5.1 Object类型 创造实例的两种方法： 1、new+构造函数 2、对象字面量 var person = new Object(); person.name = &amp;#34;Nicholas&amp;#34;; person.age = 29; var person = { name : &amp;#34;Nicholas&amp;#34;, age</description>
+    </item>
+    
+    <item>
+      <title>Regexp相关</title>
+      <link>https://mizarzh.github.io/p/2020/02/regexp%E7%9B%B8%E5%85%B3/</link>
+      <pubDate>Wed, 05 Feb 2020 00:57:40 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2020/02/regexp%E7%9B%B8%E5%85%B3/</guid>
+      <description>正则表达式的表示方法 来自：regexlab 1、直接写内容 直接匹配内容 2、转义字符 1 字符 含义 \n \r 换行符 \t 制表符 \\ \的字符 \$ $的字符 \^ ^的字符 \.</description>
+    </item>
+    
+    <item>
+      <title>JSON相关</title>
+      <link>https://mizarzh.github.io/p/2020/02/json%E7%9B%B8%E5%85%B3/</link>
+      <pubDate>Wed, 05 Feb 2020 00:56:57 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2020/02/json%E7%9B%B8%E5%85%B3/</guid>
+      <description>JSON组成 简单值：使用与 JavaScript 相同的语法，可以在 JSON 中表示字符串、数值、布尔值和 null。但 JSON不支持 JavaScript中的特殊值 unde</description>
+    </item>
+    
     <item>
       <title>js高级设计笔记（第四章）</title>
-      <link>https://example.com/p/2020/02/js%E9%AB%98%E7%BA%A7%E8%AE%BE%E8%AE%A1%E7%AC%94%E8%AE%B0%E7%AC%AC%E5%9B%9B%E7%AB%A0/</link>
+      <link>https://mizarzh.github.io/p/2020/02/js%E9%AB%98%E7%BA%A7%E8%AE%BE%E8%AE%A1%E7%AC%94%E8%AE%B0%E7%AC%AC%E5%9B%9B%E7%AB%A0/</link>
       <pubDate>Wed, 05 Feb 2020 00:35:24 +0800</pubDate>
       
-      <guid>https://example.com/p/2020/02/js%E9%AB%98%E7%BA%A7%E8%AE%BE%E8%AE%A1%E7%AC%94%E8%AE%B0%E7%AC%AC%E5%9B%9B%E7%AB%A0/</guid>
+      <guid>https://mizarzh.github.io/p/2020/02/js%E9%AB%98%E7%BA%A7%E8%AE%BE%E8%AE%A1%E7%AC%94%E8%AE%B0%E7%AC%AC%E5%9B%9B%E7%AB%A0/</guid>
       <description>第四章 4.1 基本类型值指的是简单的数据段，而引用类型值指那些可能由多个值构成的对象。 五种基本数据类型：Undifined,Null,Boolea</description>
     </item>
     
     <item>
       <title>hexo win10配置方法，并使用github作为博客地址</title>
-      <link>https://example.com/p/2020/01/hexo-win10%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95%E5%B9%B6%E4%BD%BF%E7%94%A8github%E4%BD%9C%E4%B8%BA%E5%8D%9A%E5%AE%A2%E5%9C%B0%E5%9D%80/</link>
+      <link>https://mizarzh.github.io/p/2020/01/hexo-win10%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95%E5%B9%B6%E4%BD%BF%E7%94%A8github%E4%BD%9C%E4%B8%BA%E5%8D%9A%E5%AE%A2%E5%9C%B0%E5%9D%80/</link>
       <pubDate>Mon, 27 Jan 2020 22:46:41 +0800</pubDate>
       
-      <guid>https://example.com/p/2020/01/hexo-win10%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95%E5%B9%B6%E4%BD%BF%E7%94%A8github%E4%BD%9C%E4%B8%BA%E5%8D%9A%E5%AE%A2%E5%9C%B0%E5%9D%80/</guid>
+      <guid>https://mizarzh.github.io/p/2020/01/hexo-win10%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95%E5%B9%B6%E4%BD%BF%E7%94%A8github%E4%BD%9C%E4%B8%BA%E5%8D%9A%E5%AE%A2%E5%9C%B0%E5%9D%80/</guid>
       <description>0、准备： node.js官网下载node并安装 安装git for windows，以后将使用git bash作为命令行操4作 配置git账号信息： git config --global</description>
     </item>
     

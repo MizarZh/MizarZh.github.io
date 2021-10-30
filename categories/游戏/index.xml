@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>游戏 on MizarZ&#39;s Blog</title>
+    <link>https://mizarzh.github.io/categories/%E6%B8%B8%E6%88%8F/</link>
+    <description>Recent content in 游戏 on MizarZ&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 30 Jan 2020 11:50:14 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/categories/%E6%B8%B8%E6%88%8F/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>mc相关配置解释</title>
+      <link>https://mizarzh.github.io/p/2020/01/mc%E7%9B%B8%E5%85%B3%E9%85%8D%E7%BD%AE%E8%A7%A3%E9%87%8A/</link>
+      <pubDate>Thu, 30 Jan 2020 11:50:14 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2020/01/mc%E7%9B%B8%E5%85%B3%E9%85%8D%E7%BD%AE%E8%A7%A3%E9%87%8A/</guid>
+      <description>1.mc版本 mc（pc端）分为java版与基岩版（C++编写） java版可自行下载，基岩版必须购买 java版购买与自行下载的唯一区别在于购买</description>
+    </item>
+    
+  </channel>
+</rss>

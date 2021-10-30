@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>python on MizarZ&#39;s Blog</title>
+    <link>https://mizarzh.github.io/tags/python/</link>
+    <description>Recent content in python on MizarZ&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 04 Jul 2020 16:49:29 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>华工自动报平安脚本</title>
+      <link>https://mizarzh.github.io/p/2020/07/%E5%8D%8E%E5%B7%A5%E8%87%AA%E5%8A%A8%E6%8A%A5%E5%B9%B3%E5%AE%89%E8%84%9A%E6%9C%AC/</link>
+      <pubDate>Sat, 04 Jul 2020 16:49:29 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2020/07/%E5%8D%8E%E5%B7%A5%E8%87%AA%E5%8A%A8%E6%8A%A5%E5%B9%B3%E5%AE%89%E8%84%9A%E6%9C%AC/</guid>
+      <description>github网址 虽然离开学只有一个月了这个脚本估计也没什么用了233，但是研究这套系统对以后的自动化也是有帮助的。 研究历程： 其实在五六月份的</description>
+    </item>
+    
+    <item>
+      <title>jupyter notebook配置</title>
+      <link>https://mizarzh.github.io/p/2020/03/jupyter-notebook%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Wed, 25 Mar 2020 17:01:13 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2020/03/jupyter-notebook%E9%85%8D%E7%BD%AE/</guid>
+      <description>远端jupyter notebook的配置 python下载 这里使用anaconda wget https://repo.anaconda.com/archive/Anaconda3-2020.02-Linux-x86_64.sh ./Anaconda3-2020.02-Linux-x86_64.sh 并一直yes，安装anaconda jupyter notebook配</description>
+    </item>
+    
+  </channel>
+</rss>

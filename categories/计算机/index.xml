@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>计算机 on MizarZ&#39;s Blog</title>
+    <link>https://mizarzh.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/</link>
+    <description>Recent content in 计算机 on MizarZ&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 06 Oct 2021 20:44:39 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>各类“TeX”</title>
+      <link>https://mizarzh.github.io/p/2021/10/%E5%90%84%E7%B1%BBtex/</link>
+      <pubDate>Wed, 06 Oct 2021 20:44:39 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2021/10/%E5%90%84%E7%B1%BBtex/</guid>
+      <description>1 TeX TeX是Donald E. Knuth开发的一个排版系统。用户可以使用一系列的低级控制指令指导系统排版，同时支持变量、作用域、控制流和函数定义</description>
+    </item>
+    
+    <item>
+      <title>硬盘/储存介质笔记</title>
+      <link>https://mizarzh.github.io/p/2021/09/%E7%A1%AC%E7%9B%98/%E5%82%A8%E5%AD%98%E4%BB%8B%E8%B4%A8%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Mon, 27 Sep 2021 19:44:52 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2021/09/%E7%A1%AC%E7%9B%98/%E5%82%A8%E5%AD%98%E4%BB%8B%E8%B4%A8%E7%AC%94%E8%AE%B0/</guid>
+      <description>&lt;h2 id=&#34;0-整体参数&#34;&gt;0 整体参数&lt;/h2&gt;
+&lt;p&gt;参数：速度、尺寸、容量/成本、耐用性/寿命&lt;/p&gt;
+&lt;h2 id=&#34;1-机械硬盘hard-disk-drive-hdd&#34;&gt;1 机械硬盘（&lt;strong&gt;H&lt;/strong&gt;ard &lt;strong&gt;D&lt;/strong&gt;isk &lt;strong&gt;D&lt;/strong&gt;rive, HDD）&lt;/h2&gt;
+&lt;p&gt;大牌：西数，东芝，希捷&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

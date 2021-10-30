@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='13事件 js与HTML之间的交互是通过事件实现的 可以使用侦听器（或处理程序）来预订事件 13.1事件流 13.1.1事件冒泡 即事件开始时由具体的'><title>js高设笔记13</title>
+
+<link rel='canonical' href='https://mizarzh.github.io/p/2020/02/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B013/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='js高设笔记13'>
+<meta property='og:description' content='13事件 js与HTML之间的交互是通过事件实现的 可以使用侦听器（或处理程序）来预订事件 13.1事件流 13.1.1事件冒泡 即事件开始时由具体的'>
+<meta property='og:url' content='https://mizarzh.github.io/p/2020/02/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B013/'>
+<meta property='og:site_name' content='MizarZ&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='javascript' /><meta property='article:published_time' content='2020-02-12T18:28:18&#43;08:00'/><meta property='article:modified_time' content='2020-02-12T18:28:18&#43;08:00'/>
+<meta name="twitter:title" content="js高设笔记13">
+<meta name="twitter:description" content="13事件 js与HTML之间的交互是通过事件实现的 可以使用侦听器（或处理程序）来预订事件 13.1事件流 13.1.1事件冒泡 即事件开始时由具体的">
+    </head>
+    <body class="
+    article-page has-toc
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        extended
+    
+">
+    
+        <div id="article-toolbar">
+            <a href="/" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>返回</span>
+            </a>
+        </div>
+    
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E7%BC%96%E7%A8%8B/" style="background-color: #0177b8; color: ;">
+                编程
+            </a>
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/p/2020/02/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B013/">js高设笔记13</a>
+    </h2>
+
+    
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2020-02-12</time>
+            </div>
+        
+
+        
+    </footer>
+    
+</div>
+</header>
+
+    <section class="article-content">
+    <h2 id="13事件">13事件</h2>
+<p>js与HTML之间的交互是通过事件实现的
+可以使用侦听器（或处理程序）来预订事件</p>
+<h2 id="131事件流">13.1事件流</h2>
+<h3 id="1311事件冒泡">13.1.1事件冒泡</h3>
+<p>即事件开始时由具体的元素（文档中嵌套层次深的那个节点）接收，然后逐级向上传播到较为不具体的节点（文档）</p>
+<h3 id="1312事件捕获">13.1.2事件捕获</h3>
+<p>事件捕获的思想是不太具体的节点应该更早接收到事件，而具体的节点应该后接收到事件。事件捕获的用意在于在事件到达预定目标之前捕获它。</p>
+<h3 id="1313dom事件流">13.1.3DOM事件流</h3>
+<p>“DOM2级事件”规定的事件流包括三个阶段：事件捕获阶段、处于目标阶段和事件冒泡阶段。</p>
+<!-- raw HTML omitted -->
+<h2 id="132事件处理程序">13.2事件处理程序</h2>
+<p>而响应某个事件的函数就叫做事件处理程序（或事件侦听器）。事件处理程序的名字以&quot;on&quot;开头</p>
+<h3 id="1321html事件处理程序">13.2.1HTML事件处理程序</h3>
+<p>属性onclick=&ldquo;javascript代码&rdquo;</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="c1">//前面定义了showMessage()
+</span><span class="c1"></span><span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&#34;button&#34;</span> <span class="nx">value</span><span class="o">=</span><span class="s2">&#34;ClickMe&#34;</span> <span class="nx">onclick</span><span class="o">=</span><span class="s2">&#34;showMessage()&#34;</span><span class="o">/&gt;</span>
+</code></pre></div><p>事件处理程序中的代码在执行时，有权访问全局作用域中的任何代码。
+这样会创建一个封装着元素属性值的函数。这个函数中有一个局部变量event，也就是事件对象
+在这个函数内部，this值等于事件的目标元素
+在这个函数内部，可以像访问局部变量一样访问document及该元素本身的成员。</p>
+<p>很多HTML事件处理程序都会被封装在一个try-catch块中，以便错误不会浮出水面</p>
+<h3 id="1322dom0级事件处理程序">13.2.2DOM0级事件处理程序</h3>
+<p>每个元素（包括window和document）都有自己的事件处理程序属性，这些属性通常全部小写，例如onclick。将这种属性的值设置为一个函数，就可以指定事件处理程序。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nx">varbtn</span><span class="o">=</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&#34;myBtn&#34;</span><span class="p">);</span>
+<span class="nx">btn</span><span class="p">.</span><span class="nx">onclick</span><span class="o">=</span><span class="kd">function</span><span class="p">(){</span>
+<span class="nx">alert</span><span class="p">(</span><span class="s2">&#34;Clicked&#34;</span><span class="p">);</span>
+<span class="p">};</span>
+</code></pre></div><p>使用DOM0级方法指定的事件处理程序被认为是元素的方法。因此，这时候的事件处理程序是在元素的作用域中运行
+也可以删除通过DOM0级方法指定的事件处理程序，将onclick属性设为null即可。</p>
+<h3 id="1323dom2级事件处理程序">13.2.3DOM2级事件处理程序</h3>
+<p><strong>addEventListener()和removeEventListener()</strong>。所有DOM节点中都包含这两个方法。
+它们都接受3个参数：要处理的事件名（意味着没有on前缀）、作为事件处理程序的函数和一个布尔值。这个布尔值参数如果是true，表示在捕获阶段调用事件处理程序；如果是false，表示在冒泡阶段调用事件处理程序。
+通过addEventListener()添加的事件处理程序只能使用removeEventListener()来移除；移除时传入的参数与添加处理程序时使用的参数相同。这也意味着通过addEventListener()添加的匿名函数将无法移除。</p>
+<p>大多数情况下，都是将事件处理程序添加到事件流的冒泡阶段，这样可以大限度地兼容各种浏览器。最好只在需要在事件到达目标之前截获它的时候将事件处理程序添加到捕获阶段。</p>
+<h3 id="1324ie事件处理程序">13.2.4IE事件处理程序</h3>
+<p>过时了吧emm</p>
+<h3 id="1325跨浏览器的事件处理程序">13.2.5跨浏览器的事件处理程序</h3>
+<p>IE、DOM2、DOM0三种方法创建，创建为一个EventUtil的对象。</p>
+<h2 id="133事件对象">13.3事件对象</h2>
+<p>在触发DOM上的某个事件时，会产生一个事件对象event，这个对象中包含着所有与事件有关的信息。</p>
+<h3 id="1331dom中的事件对象">13.3.1DOM中的事件对象</h3>
+<p>兼容DOM的浏览器会将一个event对象传入到事件处理程序中。无论指定事件处理程序时使用什么方法（DOM0级或DOM2级），都会传入event对象。</p>
+<p>event属性：见书355页
+其中两个属性：
+currentTarget：其事件处理程序当前正在处理事件的那个元素
+target：事件的目标
+this始终等于currentTarget的值
+要阻止特定事件的默认行为，可以使用preventDefault()方法。
+只有cancelable属性设置为true的事件，才可以使用preventDefault()来取消其默认行为
+stopPropagation()方法用于立即停止事件在DOM层次中的传播，即取消进一步的事件捕获或冒泡。
+事件对象的eventPhase属性，可以用来确定事件当前正位于事件流的哪个阶段。如果是在捕获阶段调用的事件处理程序，那么eventPhase等于1；如果事件处理程序处于目标对象上，则event-Phase等于2；如果是在冒泡阶段调用的事件处理程序，eventPhase等于3。
+只有在事件处理程序执行期间，event对象才会存在；一旦事件处理程序执行完成，event对象就会被销毁。</p>
+<h3 id="1332ie中的事件对象">13.3.2IE中的事件对象</h3>
+<p>过时了吧</p>
+<h3 id="1333跨浏览器的事件对象">13.3.3跨浏览器的事件对象</h3>
+<h2 id="134事件类型">13.4事件类型</h2>
+<ol>
+<li>UI（UserInterface，用户界面）事件，当用户与页面上的元素交互时触发；</li>
+<li>焦点事件，当元素获得或失去焦点时触发；</li>
+<li>鼠标事件，当用户通过鼠标在页面上执行操作时触发；</li>
+<li>滚轮事件，当使用鼠标滚轮（或类似设备）时触发；</li>
+<li>文本事件，当在文档中输入文本时触发；</li>
+<li>键盘事件，当用户通过键盘在页面上执行操作时触发；</li>
+<li>合成事件，当为IME（InputMethodEditor，输入法编辑器）输入字符时触发；</li>
+<li>变动（mutation）事件，当底层DOM结构发生变化时触发。</li>
+</ol>
+<h3 id="1341ui事件">13.4.1UI事件</h3>
+<p>详细见书362
+DOMActivate,(un)load,abort,error,select,resize,scroll
+除了DOMActivate之外，其他事件在DOM2级事件中都归为HTML事件</p>
+<h3 id="1342焦点事件">13.4.2焦点事件</h3>
+<p>blur,focus,focusin,focusout</p>
+<h3 id="1343鼠标与滚轮事件">13.4.3鼠标与滚轮事件</h3>
+<p>click,dblclick,mousedown,mouseenter,mouseleave,mousemove,mouseout,mouseover,mouseup</p>
+<p>鼠标事件都是在浏览器视口中的特定位置上发生的。这个位置信息保存在事件对象的clientX和clientY属性中，它们的值表示事件发生时鼠标指针在视口中的水平和垂直坐标。
+通过客户区坐标能够知道鼠标是在视口中什么位置发生的，而页面坐标通过事件对象的pageX和pageY属性，坐标是从页面本身而非视口的左边和顶边计算的。
+在页面没有滚动的情况下，pageX和pageY的值与clientX和clientY的值相等。
+screenX和screenY属性就可以确定鼠标事件发生时鼠标指针相对于整个屏幕的坐标信息。</p>
+<p>DOM规定了4个属性，表示这些修改键的状态：shiftKey、ctrlKey、altKey和metaKey。这些属性中包含的都是布尔值，如果相应的键被按下了，则值为true，否则值为false。</p>
+<p>对mouseover事件而言，事件的主目标是获得光标的元素，而相关元素就是那个失去光标的元素。类似地，对mouseout事件而言，事件的主目标是失去光标的元素，而相关元素则是获得光标的元素。DOM通过event对象的relatedTarget属性提供了相关元素的信息。这个属性只对于mouseover和mouseout事件才包含值；对于其他事件，这个属性的值是null。
+但对于mousedown和mouseup事件来说，则在其event对象存在一个button属性，表示按下或释放的按钮。DOM的button属性可能有如下3个值：0表示主鼠标按钮，1表示中间的鼠标按钮（鼠标滚轮按钮），2表示次鼠标按钮。在常规的设置中，主鼠标按钮就是鼠标左键，而次鼠标按钮就是鼠标右键。</p>
+<p>“DOM2级事件”规范在 event 对象中还提供了 detail 属性，用于给出有关事件的更多信息。对于鼠标事件来说，detail 中包含了一个数值，表示在给定位置上发生了多少次单击。在同一个元素上相继地发生一次 mousedown 和一次 mouseup 事件算作一次单击。</p>
+<p>当用户通过鼠标滚轮与页面交互、在垂直方向上滚动页面时（无论向上还是向下），就会触发 mousewheel 事件。
+与 mousewheel 事件对应的 event 对象除包含鼠标事件的所有标准信息外，还包含一个特殊的 wheelDelta 属性。当用户向前滚动鼠标滚轮时，wheelDelta是120的倍数；当用户向后滚动鼠标滚轮时，wheelDelta是-120的倍数。
+Firefox支持一个名为 DOMMouseScroll 的类似事件，也是在鼠标滚轮滚动时触发。与 mousewheel 事件一样，DOMMouseScroll 也被视为鼠标事件，因而包含与鼠标事件有关的所有属性。而有关鼠标滚轮的信息则保存在 detail 属性中，当向前滚动鼠标滚轮时，这个属性的值是-3 的倍数，当向后滚动鼠标滚轮时，这个属性的值是 3 的倍数</p>
+<p>触摸设备：</p>
+<ol>
+<li>不支持 dblclick 事件。双击浏览器窗口会放大画面，而且没有办法改变该行为。</li>
+<li>轻击可单击元素会触发 mousemove 事件。如果此操作会导致内容变化，将不再有其他事件发生； 如果屏幕没有因此变化，那么会依次发生 mousedown、mouseup 和 click 事件。</li>
+<li>轻击不可单击的元素不会触发任何事件。可单击的元素是指那些单击可产生默认操作的元素（如链接），或者那些已经被指定了 onclick 事件处理程序的元素。 mousemove 事件也会触发 mouseover 和 mouseout 事件。</li>
+<li>两个手指放在屏幕上且页面随手指移动而滚动时会触发 mousewheel 和 scroll 事件。</li>
+</ol>
+<h3 id="1344-键盘与文本事件">13.4.4 键盘与文本事件</h3>
+<p>keydown,keypress,keyup
+前两者如果按住不放的话，会重复触发此事件。 
+只有一个文本事件：textInput。这个事件是对 keypress 的补充，用意是在将文本显示给用户之前更容易拦截文本。</p>
+<p>在发生 keydown 和 keyup 事件时，event 对象的 keyCode 属性中会包含一个代码，与键盘上一个特定的键对应。对数字字母字符键，keyCode 属性的值与 ASCII 码中对应小写字母或数字的编码相同。
+表见P380</p>
+<p>IE9、Firefox、Chrome 和 Safari的 event 对象都支持一个 charCode 属性，这个属性只有在发生 keypress 事件时才包含值，而且这个值是按下的那个键所代表字符的 ASCII 编码。此时的 keyCode 通常等于0或者也可能等于所按键的键码</p>
+<p>DOM3级变化：不再包含 charCode 属性，而是包含两个新属性：key 和 char。 key 属性是为了取代 keyCode 而新增的，它的值是一个字符串。在按下某个字符键时，key 的值就是相应的文本字符（如“k”或“M”）；在按下非字符键时， key 的值是相应键的名（如“Shift” 或“Down”）。而 char 属性在按下字符键时的行为与 key 相同，但在按下非字符键时值为 null。 
+不同浏览器有不同实现</p>
+<p>DOM3级事件还添加了一个名为 location 的属性，这是一个数值，表示按下了什么位置上的键： 0表示默认键盘，1表示左侧位置（例如左位的 Alt键），2表示右侧位置（例如右侧的 Shift键），3表示 数字小键盘，4表示移动设备键盘（也就是虚拟键盘），5表示手柄（如任天堂 Wii控制器）。</p>
+<p>后是给 event 对象添加了 getModifierState()方法。这个方法接收一个参数，即等于 Shift、Control、AltGraph 或 Meta 的字符串，表示要检测的修改键。</p>
+<p>“DOM3级事件”规范中引入了一个新事件，名叫 textInput。根据规范，当用户在可编辑区域中输入字符时，就会触发这个事件。
+由于 textInput 事件主要考虑的是字符，因此它的 event 对象中还包含一个 data 属性，这个属性的值就是用户输入的字符（而非字符编码）。
+event 对象上还有一个属性，叫 inputMethod，表示把文本输入到文本框中的方式。 （值见P383）</p>
+<h3 id="1345-复合事件">13.4.5 复合事件</h3>
+<p>复合事件（composition event）是DOM3级事件中新添加的一类事件，用于处理 IME 的输入序列。 IME（Input Method Editor，输入法编辑器）可以让用户输入在物理键盘上找不到的字符。
+compositionstart,compositionupdate,compositionend</p>
+<h3 id="1346-变动事件">13.4.6 变动事件</h3>
+<p>DOM2级的变动（mutation）事件能在 DOM中的某一部分发生变化时给出提示。
+DOMSubtreeModified,DOMNodeInserted,DOMNodeRemoved,DOMNodeInsertedIntoDocument,DOMNodeRemovedFromDocument,DOMAttrModified,DOMCharacterDataModified</p>
+<h3 id="1347-html5事件">13.4.7 HTML5事件</h3>
+<ol>
+<li>contextmenu 事件：上下文菜单的概念，即通过单击鼠标右键可以调出上下文菜单</li>
+<li>beforeunload 事件：是为了让开发人员有可能在页面卸载前阻止这一操作。这个事件的意图是将离开页面的控制权交给用户。</li>
+<li>DOMContentLoaded 事件：在形成完整的 DOM树之后就会触发，不理会图像、JavaScript 文件、CSS文件或其他资源是否已经下载完毕。</li>
+<li>readystatechange 事件：这个事件的目的是提供与文档或元素的加载状态有关的信息，但这个事件的行为有时候也很难预料。</li>
+<li>pageshow 和 pagehide 事件：这个事件在页面显示时触发，无论该页面是否来自 bfcache（来自bfcache的页面不会有load事件）。</li>
+<li>hashchange 事件：在 URL的参数列表（及 URL中“#”号后面的所有字符串）发生变化时通知开发人员。</li>
+</ol>
+<h3 id="1348-设备事件">13.4.8 设备事件</h3>
+<ol>
+<li>orientationchange 事件</li>
+<li>MozOrientation 事件</li>
+<li>deviceorientation 事件</li>
+<li>devicemotion 事件</li>
+</ol>
+<h3 id="1349-触摸与手势事件">13.4.9 触摸与手势事件</h3>
+<ol>
+<li>触摸事件</li>
+<li>手势事件</li>
+</ol>
+<h2 id="135-内存和性能">13.5 内存和性能</h2>
+<p>在 JavaScript中，添加到页面上的事件处理程序数量将直接关系到页面的整体运行性能。</p>
+<h3 id="1351-事件委托">13.5.1 事件委托</h3>
+<p>事件委托利用了事件冒泡，只指定一个事件处理程序，就可以管理某一类型的所有事件。例如，click 事件会一直冒泡到 document 层次。也就是说，我们可以为整个页面指定一个 onclick 事件处理程序，而不必给每个可单击的元素分别添加事件处理程序。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">list</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&#34;myLinks&#34;</span><span class="p">);</span> 
+<span class="nx">EventUtil</span><span class="p">.</span><span class="nx">addHandler</span><span class="p">(</span><span class="nx">list</span><span class="p">,</span> <span class="s2">&#34;click&#34;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">){</span>     
+    <span class="nx">event</span> <span class="o">=</span> <span class="nx">EventUtil</span><span class="p">.</span><span class="nx">getEvent</span><span class="p">(</span><span class="nx">event</span><span class="p">);</span>     
+    <span class="kd">var</span> <span class="nx">target</span> <span class="o">=</span> <span class="nx">EventUtil</span><span class="p">.</span><span class="nx">getTarget</span><span class="p">(</span><span class="nx">event</span><span class="p">);</span> 
+    <span class="k">switch</span><span class="p">(</span><span class="nx">target</span><span class="p">.</span><span class="nx">id</span><span class="p">){</span>         
+        <span class="k">case</span> <span class="s2">&#34;doSomething&#34;</span><span class="o">:</span>             
+            <span class="nb">document</span><span class="p">.</span><span class="nx">title</span> <span class="o">=</span> <span class="s2">&#34;I changed the document&#39;s title&#34;</span><span class="p">;</span>             
+            <span class="k">break</span><span class="p">;</span> 
+        <span class="k">case</span> <span class="s2">&#34;goSomewhere&#34;</span><span class="o">:</span>             
+            <span class="nx">location</span><span class="p">.</span><span class="nx">href</span> <span class="o">=</span> <span class="s2">&#34;http://www.wrox.com&#34;</span><span class="p">;</span>             
+            <span class="k">break</span><span class="p">;</span> 
+        <span class="k">case</span> <span class="s2">&#34;sayHi&#34;</span><span class="o">:</span>             
+            <span class="nx">alert</span><span class="p">(</span><span class="s2">&#34;hi&#34;</span><span class="p">);</span>             
+            <span class="k">break</span><span class="p">;</span>     
+    <span class="p">}</span> 
+<span class="p">});</span> 
+<span class="c1">//而不是三个对象分别设置不同的方法
+</span></code></pre></div><p>这种技术需要占用的内存更少。所有用到按钮的事件（多数鼠标事件和键盘事件）都适合采用事件委托技术。
+适合采用事件委托技术的事件包括click、mousedown、mouseup、keydown、keyup 和keypress</p>
+<h3 id="1352-移除事件处理程序">13.5.2 移除事件处理程序</h3>
+<p>内存中留有那些过时不用的“空事件处理程序”（dangling event handler），也是造成 Web 应用程序内存与性能问题的主要原因。 
+直接移除元素（removeChild())
+好的做法是在页面卸载之前，先通过 onunload 事件处理程序移除所有事件处理程序。</p>
+<h2 id="136-模拟事件">13.6 模拟事件</h2>
+<h3 id="1361-dom中的事件模拟">13.6.1 DOM中的事件模拟</h3>
+<p>document 对象上使用 createEvent()方法创建 event 对象。这个方法接收一个参数，即表示要创建的事件类型的字符串。
+在 DOM2 级中，所有这些字符串都使用英文复数形式，而在 DOM3级中都变成了单数。</p>
+<ol>
+<li>UIEvents：一般化的 UI事件。鼠标事件和键盘事件都继承自 UI事件。DOM3级中是 UIEvent。</li>
+<li>MouseEvents：一般化的鼠标事件。DOM3级中是 MouseEvent。</li>
+<li>MutationEvents：一般化的 DOM变动事件。DOM3级中是 MutationEvent。</li>
+<li>HTMLEvents：一般化的 HTML事件。没有对应的 DOM3级事件（HTML事件被分散到其他类别中）。</li>
+</ol>
+<p>传入参数见书</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/javascript/">javascript</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css"integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js"integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8"crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js"integrity="sha384-vZTG03m&#43;2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl"crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });})
+</script>
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">相关文章</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="">
+    <a href="/p/2020/04/js%E7%9A%84%E8%AF%BB%E5%8F%96%E6%96%87%E6%9C%AC%E4%B8%8E%E8%B7%A8%E7%BD%91%E9%A1%B5/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">js的读取文本与跨网页</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/2020/04/%E6%9C%80%E8%BF%91%E8%BF%9B%E5%B1%952020-4-2/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">最近进展2020-4-2</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/2020/02/%E6%9C%80%E8%BF%91%E8%BF%9B%E5%B1%952020-2-19/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">最近进展2020-2-19</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/2020/02/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B010/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">js高设笔记10</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/2020/02/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B08/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">js高设笔记8</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy;
+        
+        2021 MizarZ&#39;s Blog
+    </section>
+
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener"
+                data-version="3.4.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+    
+</footer>
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+        <aside class="sidebar right-sidebar sticky">
+            <section class="widget archives">
+                <div class="widget-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                </div>
+                <h2 class="widget-title section-title">目录</h2>
+                
+                <div class="widget--toc">
+                    <nav id="TableOfContents">
+  <ol>
+    <li><a href="#13事件">13事件</a></li>
+    <li><a href="#131事件流">13.1事件流</a>
+      <ol>
+        <li><a href="#1311事件冒泡">13.1.1事件冒泡</a></li>
+        <li><a href="#1312事件捕获">13.1.2事件捕获</a></li>
+        <li><a href="#1313dom事件流">13.1.3DOM事件流</a></li>
+      </ol>
+    </li>
+    <li><a href="#132事件处理程序">13.2事件处理程序</a>
+      <ol>
+        <li><a href="#1321html事件处理程序">13.2.1HTML事件处理程序</a></li>
+        <li><a href="#1322dom0级事件处理程序">13.2.2DOM0级事件处理程序</a></li>
+        <li><a href="#1323dom2级事件处理程序">13.2.3DOM2级事件处理程序</a></li>
+        <li><a href="#1324ie事件处理程序">13.2.4IE事件处理程序</a></li>
+        <li><a href="#1325跨浏览器的事件处理程序">13.2.5跨浏览器的事件处理程序</a></li>
+      </ol>
+    </li>
+    <li><a href="#133事件对象">13.3事件对象</a>
+      <ol>
+        <li><a href="#1331dom中的事件对象">13.3.1DOM中的事件对象</a></li>
+        <li><a href="#1332ie中的事件对象">13.3.2IE中的事件对象</a></li>
+        <li><a href="#1333跨浏览器的事件对象">13.3.3跨浏览器的事件对象</a></li>
+      </ol>
+    </li>
+    <li><a href="#134事件类型">13.4事件类型</a>
+      <ol>
+        <li><a href="#1341ui事件">13.4.1UI事件</a></li>
+        <li><a href="#1342焦点事件">13.4.2焦点事件</a></li>
+        <li><a href="#1343鼠标与滚轮事件">13.4.3鼠标与滚轮事件</a></li>
+        <li><a href="#1344-键盘与文本事件">13.4.4 键盘与文本事件</a></li>
+        <li><a href="#1345-复合事件">13.4.5 复合事件</a></li>
+        <li><a href="#1346-变动事件">13.4.6 变动事件</a></li>
+        <li><a href="#1347-html5事件">13.4.7 HTML5事件</a></li>
+        <li><a href="#1348-设备事件">13.4.8 设备事件</a></li>
+        <li><a href="#1349-触摸与手势事件">13.4.9 触摸与手势事件</a></li>
+      </ol>
+    </li>
+    <li><a href="#135-内存和性能">13.5 内存和性能</a>
+      <ol>
+        <li><a href="#1351-事件委托">13.5.1 事件委托</a></li>
+        <li><a href="#1352-移除事件处理程序">13.5.2 移除事件处理程序</a></li>
+      </ol>
+    </li>
+    <li><a href="#136-模拟事件">13.6 模拟事件</a>
+      <ol>
+        <li><a href="#1361-dom中的事件模拟">13.6.1 DOM中的事件模拟</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+                </div>
+            </section>
+        </aside>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

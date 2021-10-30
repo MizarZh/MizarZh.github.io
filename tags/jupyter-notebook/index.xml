@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>jupyter notebook on MizarZ&#39;s Blog</title>
+    <link>https://mizarzh.github.io/tags/jupyter-notebook/</link>
+    <description>Recent content in jupyter notebook on MizarZ&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 25 Mar 2020 17:01:13 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/tags/jupyter-notebook/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>jupyter notebook配置</title>
+      <link>https://mizarzh.github.io/p/2020/03/jupyter-notebook%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Wed, 25 Mar 2020 17:01:13 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2020/03/jupyter-notebook%E9%85%8D%E7%BD%AE/</guid>
+      <description>远端jupyter notebook的配置 python下载 这里使用anaconda wget https://repo.anaconda.com/archive/Anaconda3-2020.02-Linux-x86_64.sh ./Anaconda3-2020.02-Linux-x86_64.sh 并一直yes，安装anaconda jupyter notebook配</description>
+    </item>
+    
+  </channel>
+</rss>

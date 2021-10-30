@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>hugo on MizarZ&#39;s Blog</title>
-    <link>https://example.com/categories/hugo/</link>
+    <link>https://mizarzh.github.io/categories/hugo/</link>
     <description>Recent content in hugo on MizarZ&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 27 Oct 2021 16:21:58 +0800</lastBuildDate><atom:link href="https://example.com/categories/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 27 Oct 2021 16:21:58 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/categories/hugo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>My First Post &amp; Mathjax Problem</title>
-      <link>https://example.com/p/2021/10/my-first-post-mathjax-problem/</link>
+      <link>https://mizarzh.github.io/p/2021/10/my-first-post-mathjax-problem/</link>
       <pubDate>Wed, 27 Oct 2021 16:21:58 +0800</pubDate>
       
-      <guid>https://example.com/p/2021/10/my-first-post-mathjax-problem/</guid>
+      <guid>https://mizarzh.github.io/p/2021/10/my-first-post-mathjax-problem/</guid>
       <description>mathjax/katex test: $$ abc+edf $$ picture test: 本来是想要留个纪念（转hugo了），但是一上来就出现了大问题：hugo的运作机制和hexo大为不同，是没有mathjax的插件</description>
     </item>
     

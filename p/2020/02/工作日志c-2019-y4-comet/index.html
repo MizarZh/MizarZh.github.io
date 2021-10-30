@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='思路： 模型： $$m=V(1,0)&#43;5\lg{\frac{r\Delta}{a^2}}-2.5\lg{\Phi(\alpha)}$$ 其中m为视星等，V(1,0)为绝对星等，r为该星体距离太阳的距离，$\Delta$为该星体距离地球的距离 轨道计算：先计算出椭圆'><title>工作日志(C 2019 Y4 comet)</title>
+
+<link rel='canonical' href='https://mizarzh.github.io/p/2020/02/%E5%B7%A5%E4%BD%9C%E6%97%A5%E5%BF%97c-2019-y4-comet/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='工作日志(C 2019 Y4 comet)'>
+<meta property='og:description' content='思路： 模型： $$m=V(1,0)&#43;5\lg{\frac{r\Delta}{a^2}}-2.5\lg{\Phi(\alpha)}$$ 其中m为视星等，V(1,0)为绝对星等，r为该星体距离太阳的距离，$\Delta$为该星体距离地球的距离 轨道计算：先计算出椭圆'>
+<meta property='og:url' content='https://mizarzh.github.io/p/2020/02/%E5%B7%A5%E4%BD%9C%E6%97%A5%E5%BF%97c-2019-y4-comet/'>
+<meta property='og:site_name' content='MizarZ&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='天文' /><meta property='article:published_time' content='2020-02-28T17:57:43&#43;08:00'/><meta property='article:modified_time' content='2020-02-28T17:57:43&#43;08:00'/>
+<meta name="twitter:title" content="工作日志(C 2019 Y4 comet)">
+<meta name="twitter:description" content="思路： 模型： $$m=V(1,0)&#43;5\lg{\frac{r\Delta}{a^2}}-2.5\lg{\Phi(\alpha)}$$ 其中m为视星等，V(1,0)为绝对星等，r为该星体距离太阳的距离，$\Delta$为该星体距离地球的距离 轨道计算：先计算出椭圆">
+    </head>
+    <body class="
+    article-page has-toc
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        extended
+    
+">
+    
+        <div id="article-toolbar">
+            <a href="/" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>返回</span>
+            </a>
+        </div>
+    
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E5%A4%A9%E6%96%87/" style="background-color: #71b7f2; color: ;">
+                天文
+            </a>
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/p/2020/02/%E5%B7%A5%E4%BD%9C%E6%97%A5%E5%BF%97c-2019-y4-comet/">工作日志(C 2019 Y4 comet)</a>
+    </h2>
+
+    
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2020-02-28</time>
+            </div>
+        
+
+        
+    </footer>
+    
+</div>
+</header>
+
+    <section class="article-content">
+    <h2 id="思路">思路：</h2>
+<h3 id="模型">模型：</h3>
+<p>$$m=V(1,0)+5\lg{\frac{r\Delta}{a^2}}-2.5\lg{\Phi(\alpha)}$$</p>
+<p>其中m为视星等，V(1,0)为绝对星等，r为该星体距离太阳的距离，$\Delta$为该星体距离地球的距离</p>
+<!-- raw HTML omitted -->
+<p>轨道计算：先计算出椭圆轨道的参数，再映射到实际轨道当中</p>
+<h3 id="数据">数据</h3>
+<p>Orbital elements:
+C/2019 Y4 (ATLAS)                                                        <br>
+Epoch 2020 May 31.0 TT = JDT 2459000.5                                       <br>
+T 2020 May 30.99149 TT                                  Bell                 <br>
+q   0.2522871            (2000.0)            P               Q               <br>
+z  +0.0052736      Peri.  177.54315     +0.48067371     +0.62763038          <br>
++/-0.0005749      Node   120.47328     -0.81617007     +0.57558163          <br>
+e   0.9986695      Incl.   45.27974     -0.32065433     -0.52420025          <br>
+From 171 observations 2019 Dec. 28-2020 Jan. 9, mean residual 0&quot;.4.</p>
+<p>e (eccentricity)                : 0.9991890
+q (perihelion distance)         : 0.2529910
+i (inclination)                 : 45.39050
+Ω (Longitude of ascending node) : 120.57800
+ω (Argument of perihelion)      : 177.39850
+L (Longitude of perihelion)     : 118.75041
+B (Latitude of perihelion)      : 1.85172
+T (Time of perihelion passage)  : 2459000.54440
+P (Orbital period in years)     : 5509.68
+Epoch                           : 2020 Feb 27
+Family/Group:                   : Nearly isotropic</p>
+<p>02 January 2020 00:00 UTC</p>
+<!-- raw HTML omitted -->
+<h3 id="轨道根数">轨道根数：</h3>
+<p>– semimajor axis a, 
+– eccentricity e, 
+– inclination i (or ι), 
+– longitude of the ascending node Ω, 
+– argument of the perihelion ω, 
+– time of the perihelion τ.
+(或者true anomaly或者mean anomaly)</p>
+<h3 id="作图">作图</h3>
+<p>三维图：
+<a class="link" href="https://matplotlib.org/tutorials/toolkits/mplot3d.html"  target="_blank" rel="noopener"
+    >mplot3d</a></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s2">&#34;3d&#34;</span><span class="p">)</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlim3d</span><span class="p">(</span><span class="o">-</span><span class="n">lim</span><span class="p">,</span><span class="n">lim</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylim3d</span><span class="p">(</span><span class="o">-</span><span class="n">lim</span><span class="p">,</span><span class="n">lim</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_zlim3d</span><span class="p">(</span><span class="o">-</span><span class="n">lim</span><span class="p">,</span><span class="n">lim</span><span class="p">)</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot3D</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div><p>在jupyter notebook上：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="o">%</span><span class="n">matplotlib</span> <span class="n">notebook</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">mouse_init</span><span class="p">()</span> <span class="c1">#使用鼠标操控</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">view_init</span><span class="p">(</span><span class="n">elev</span><span class="o">=</span><span class="n">number</span><span class="p">,</span> <span class="n">azim</span><span class="o">=</span><span class="n">number</span><span class="p">)</span> <span class="c1">#调整视角</span>
+
+</code></pre></div><p>交互式plotly</p>
+<h3 id="天文相关">天文相关</h3>
+<p>poliastro
+问题：使用Orbit.from_classical时的ecc过大，导致数据精度不足（或者是使得运行时间过长），但是使用直接绘图就没有这个问题
+<a class="link" href="https://poliastro.readthedocs.io/en/latest"  target="_blank" rel="noopener"
+    >poliastro</a></p>
+<p>astropy</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">astropy</span> <span class="kn">import</span> <span class="n">units</span> <span class="k">as</span> <span class="n">u</span>
+<span class="kn">from</span> <span class="nn">astropy.coordinates</span> <span class="kn">import</span> <span class="n">CartesianRepresentation</span>
+<span class="n">u</span><span class="o">.</span><span class="n">deg</span> <span class="n">u</span><span class="o">.</span><span class="n">one</span> <span class="n">u</span><span class="o">.</span><span class="n">km</span> <span class="n">u</span><span class="o">.</span><span class="n">AU</span> <span class="c1">#单位</span>
+<span class="n">CartesianRepresentation</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">value</span> <span class="c1">#带单位转化为值</span>
+</code></pre></div><p><a class="link" href="https://www.astropy.org/"  target="_blank" rel="noopener"
+    >astropy</a></p>
+<h2 id="目前状况2020-03-16">目前状况（2020-03-16）</h2>
+<p>爆肝到两点emm
+之前某个时间也强行写了很久</p>
+<p>结构：轨道运算、画图、Mk计算
+轨道运算：poliastro库
+导入轨道后再导出数据
+使用近日点的true anomaly和mean anomaly都为0的方法规避这个库只能输入true anomaly的缺点（使用t代替，然后再使用propagation()确定相应的时间）</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">time2</span> <span class="o">=</span> <span class="s2">&#34;2020-05-31T00:51:39&#34;</span>
+<span class="n">t2</span> <span class="o">=</span> <span class="n">Time</span><span class="p">(</span><span class="n">time2</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;isot&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="s1">&#39;tdb&#39;</span><span class="p">)</span>
+<span class="n">se</span> <span class="o">=</span> <span class="n">Orbit</span><span class="o">.</span><span class="n">from_body_ephem</span><span class="p">(</span><span class="n">Earth</span><span class="p">,</span><span class="n">t2</span><span class="p">)</span>
+<span class="n">sc</span> <span class="o">=</span> <span class="n">Orbit</span><span class="o">.</span><span class="n">from_classical</span><span class="p">(</span><span class="n">Sun</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">ecc</span><span class="p">,</span><span class="n">inc</span><span class="p">,</span><span class="n">raan</span><span class="p">,</span><span class="n">argp</span><span class="p">,</span><span class="mi">0</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">deg</span><span class="p">,</span><span class="n">t2</span><span class="p">)</span>
+<span class="n">setemp</span> <span class="o">=</span> <span class="n">Orbit</span><span class="o">.</span><span class="n">from_classical</span><span class="p">(</span><span class="n">Sun</span><span class="p">,</span><span class="n">se</span><span class="o">.</span><span class="n">a</span><span class="p">,</span><span class="n">se</span><span class="o">.</span><span class="n">ecc</span><span class="p">,</span><span class="n">se</span><span class="o">.</span><span class="n">inc</span><span class="p">,</span><span class="n">se</span><span class="o">.</span><span class="n">raan</span><span class="p">,</span><span class="n">se</span><span class="o">.</span><span class="n">argp</span><span class="p">,</span><span class="n">se</span><span class="o">.</span><span class="n">nu</span><span class="p">,</span><span class="n">t2</span><span class="p">)</span> <span class="c1">#鬼知道我遇到了什么，必须再导入时间才能正常</span>
+
+<span class="n">orbnc</span> <span class="o">=</span> <span class="p">[[],[],[]]</span> <span class="c1">#comet[[xs],[ys],[zs]]</span>
+<span class="n">orbne</span> <span class="o">=</span> <span class="p">[[],[],[]]</span> <span class="c1">#earth</span>
+
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">60</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">day</span><span class="p">,</span><span class="mi">60</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">day</span><span class="p">,</span><span class="mi">120</span><span class="p">):</span> <span class="c1">#-60 - 60 天</span>
+    <span class="n">orbnctemp</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">propagate</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="c1">#x为astropy.unit的时间，用来计算经过某段时间后的轨道</span>
+    <span class="n">pn1</span> <span class="o">=</span> <span class="n">orbnctemp</span><span class="o">.</span><span class="n">represent_as</span><span class="p">(</span><span class="n">CartesianRepresentation</span><span class="p">)</span> <span class="c1">#表示为xyz轴</span>
+    <span class="n">orbnc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pn1</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+    <span class="n">orbnc</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="o">-</span><span class="n">pn1</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+    <span class="n">orbnc</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="o">-</span><span class="n">pn1</span><span class="o">.</span><span class="n">z</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+    <span class="n">xc</span> <span class="o">=</span> <span class="n">pn1</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">value</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1.5</span> <span class="o">*</span> <span class="mi">10</span><span class="o">**</span><span class="mi">8</span><span class="p">)</span> <span class="c1">#转化为AU</span>
+    <span class="n">yc</span> <span class="o">=</span> <span class="n">pn1</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">value</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1.5</span> <span class="o">*</span> <span class="mi">10</span><span class="o">**</span><span class="mi">8</span><span class="p">)</span>
+    <span class="n">zc</span> <span class="o">=</span> <span class="n">pn1</span><span class="o">.</span><span class="n">z</span><span class="o">.</span><span class="n">value</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1.5</span> <span class="o">*</span> <span class="mi">10</span><span class="o">**</span><span class="mi">8</span><span class="p">)</span>
+    <span class="n">orbnetemp</span> <span class="o">=</span> <span class="n">setemp</span><span class="o">.</span><span class="n">propagate</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">pn2</span> <span class="o">=</span> <span class="n">orbnetemp</span><span class="o">.</span><span class="n">represent_as</span><span class="p">(</span><span class="n">CartesianRepresentation</span><span class="p">)</span>
+    <span class="n">orbne</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pn2</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+    <span class="n">orbne</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="o">-</span><span class="n">pn2</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+    <span class="n">orbne</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="o">-</span><span class="n">pn2</span><span class="o">.</span><span class="n">z</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+    <span class="n">xe</span> <span class="o">=</span> <span class="n">pn2</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">value</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1.5</span> <span class="o">*</span> <span class="mi">10</span><span class="o">**</span><span class="mi">8</span><span class="p">)</span>
+    <span class="n">ye</span> <span class="o">=</span> <span class="n">pn2</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">value</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1.5</span> <span class="o">*</span> <span class="mi">10</span><span class="o">**</span><span class="mi">8</span><span class="p">)</span>
+    <span class="n">ze</span> <span class="o">=</span> <span class="n">pn2</span><span class="o">.</span><span class="n">z</span><span class="o">.</span><span class="n">value</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1.5</span> <span class="o">*</span> <span class="mi">10</span><span class="o">**</span><span class="mi">8</span><span class="p">)</span>
+    <span class="n">r</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">xc</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">yc</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">zc</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+    <span class="n">d</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">xe</span><span class="o">-</span><span class="n">xc</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="p">(</span><span class="n">ye</span><span class="o">-</span><span class="n">yc</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="p">(</span><span class="n">ze</span><span class="o">-</span><span class="n">zc</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+	<span class="c1">#计算 m = M + 5lgd + klgr 的参数r,d</span>
+</code></pre></div><p>最小二乘：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1">#此处lgr lgd m已输入数据</span>
+
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">lgr</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">lgr</span><span class="p">))])</span><span class="o">.</span><span class="n">T</span>
+<span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">lstsq</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">m</span> <span class="o">-</span> <span class="mi">5</span> <span class="o">*</span> <span class="n">lgd</span><span class="p">,</span><span class="n">rcond</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="c1">#输出[[斜率，截距],[方差],xx,xx]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">lgr</span><span class="p">,</span><span class="n">m</span> <span class="o">-</span> <span class="mi">5</span> <span class="o">*</span> <span class="n">lgd</span><span class="p">)</span> <span class="c1">#观察离散程度</span>
+
+<span class="n">M</span> <span class="o">=</span> <span class="mf">3.94</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mi">25</span>
+<span class="n">y1</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">y2</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">119</span><span class="p">,</span><span class="mi">120</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+	<span class="c1">#此处使用 m - 5lgd = klgr + M 进行最小二乘拟合</span>
+    <span class="n">y1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">M</span> <span class="o">+</span> <span class="mi">5</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="n">x</span><span class="p">])</span> <span class="o">+</span> <span class="n">k</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="n">x</span><span class="p">]))</span>
+    <span class="n">y2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">12</span> <span class="o">+</span> <span class="mi">5</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="n">x</span><span class="p">])</span> <span class="o">+</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="n">x</span><span class="p">]))</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">60</span><span class="p">,</span><span class="mi">61</span><span class="p">,</span><span class="mi">120</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span><span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span> <span class="c1">#设置图的大小</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;days from perihelion&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;magnitude&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;picutre&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y1</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&#34;blue&#34;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y2</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&#34;red&#34;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="nb">max</span><span class="p">([</span><span class="nb">max</span><span class="p">(</span><span class="n">y1</span><span class="p">),</span><span class="nb">max</span><span class="p">(</span><span class="n">y2</span><span class="p">)])</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="nb">min</span><span class="p">([</span><span class="nb">min</span><span class="p">(</span><span class="n">y1</span><span class="p">),</span><span class="nb">min</span><span class="p">(</span><span class="n">y2</span><span class="p">)])</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> 
+<span class="c1">#奇妙的做法，为了翻转y轴，想使用plt.gca().invert_yaxis()但不起作用，于是使用ylim反转上下限</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&#34;figure.jpg&#34;</span><span class="p">)</span> <span class="c1">#保存图片</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div><h2 id="目前状况2020-03-17">目前状况（2020-03-17）</h2>
+<p>解决plt绘图重复的问题（前面分开，后面合并，连着直接绘制会出现问题）（可能是和figure()相关的问题）
+plt.grid()
+plt.legend()的配置
+plt.subplot
+linewidth
+matplotlib的documentation:<a class="link" href="https://matplotlib.org/contents.html"  target="_blank" rel="noopener"
+    >matplotlib</a></p>
+<p>重构了代码，更多地使用数组储存数据</p>
+<p>双曲线a为负数
+Time(2439054.6837, format=&lsquo;jd&rsquo;,scale=&lsquo;tdb&rsquo;) #JD时间</p>
+<p>poliastro.twobody.propagation.propagate相关：
+可以由orbit.propagate()调用，其中第一个参数为经过的时间，第二个参数为求解的方法（mean_motion,kepler,cowell），返回经过时间后的轨道</p>
+<p>下一步：研究python的封装（函数、库、class之类）
+下一步：自写轨道库</p>
+<p>matplotlib颜色映射（默认颜色）
+np.arange([start,],stop,[step])</p>
+<h2 id="目前状况2020-03-19">目前状况（2020-03-19）</h2>
+<p>plt.xticks([array])
+x轴的刻度标记（如[1,2,3,4,5]，则刻度显示出来的就是12345）
+xticks系列大概都是用来设置轴的刻度标记的吧
+plt.xtickslabel([array])
+使用string设置x轴刻度</p>
+<p>plt.axis([xlim,-xlim,ylim,-ylim])
+相当于设置plt.xlim和plt.ylim</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/%E5%A4%A9%E6%96%87/">天文</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css"integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js"integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8"crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js"integrity="sha384-vZTG03m&#43;2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl"crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });})
+</script>
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">相关文章</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="">
+    <a href="/p/2021/09/%E5%A4%A9%E6%96%87%E5%85%89%E5%BA%A6%E5%AD%A6/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">天文光度学</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/2021/09/%E5%A4%A9%E6%96%87%E6%9C%9B%E8%BF%9C%E9%95%9C%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">天文望远镜基础知识</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/2021/09/%E6%9C%80%E8%BF%91%E8%BF%9B%E5%B1%952021-9-4-moon3d/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">最近进展2021-9-4 moon3d</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy;
+        
+        2021 MizarZ&#39;s Blog
+    </section>
+
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener"
+                data-version="3.4.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+    
+</footer>
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+        <aside class="sidebar right-sidebar sticky">
+            <section class="widget archives">
+                <div class="widget-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                </div>
+                <h2 class="widget-title section-title">目录</h2>
+                
+                <div class="widget--toc">
+                    <nav id="TableOfContents">
+  <ol>
+    <li><a href="#思路">思路：</a>
+      <ol>
+        <li><a href="#模型">模型：</a></li>
+        <li><a href="#数据">数据</a></li>
+        <li><a href="#轨道根数">轨道根数：</a></li>
+        <li><a href="#作图">作图</a></li>
+        <li><a href="#天文相关">天文相关</a></li>
+      </ol>
+    </li>
+    <li><a href="#目前状况2020-03-16">目前状况（2020-03-16）</a></li>
+    <li><a href="#目前状况2020-03-17">目前状况（2020-03-17）</a></li>
+    <li><a href="#目前状况2020-03-19">目前状况（2020-03-19）</a></li>
+  </ol>
+</nav>
+                </div>
+            </section>
+        </aside>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

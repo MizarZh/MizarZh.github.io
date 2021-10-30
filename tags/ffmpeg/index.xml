@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ffmpeg on MizarZ&#39;s Blog</title>
+    <link>https://mizarzh.github.io/tags/ffmpeg/</link>
+    <description>Recent content in ffmpeg on MizarZ&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 09 Apr 2020 11:50:15 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/tags/ffmpeg/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>最近进展2020-4-9</title>
+      <link>https://mizarzh.github.io/p/2020/04/%E6%9C%80%E8%BF%91%E8%BF%9B%E5%B1%952020-4-9/</link>
+      <pubDate>Thu, 09 Apr 2020 11:50:15 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2020/04/%E6%9C%80%E8%BF%91%E8%BF%9B%E5%B1%952020-4-9/</guid>
+      <description>wincmd脚本 ffmpeg ffmpeg -ss 00:00:00 -t 00:00:03.000 -i &amp;#34;x.wav&amp;#34; -filter_complex afade=t=out:st=1:d=2 &amp;#34;y.wav&amp;#34; -filter_complex afade=t=out:st=1:d=2 代表从1s开始淡出，持续2s js 文件读取 界面 机理 html &amp;lt;audio&amp;gt; 的使用 python 月球项目 首先调用astropy的sola</description>
+    </item>
+    
+  </channel>
+</rss>

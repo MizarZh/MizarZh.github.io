@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>nodejs on MizarZ&#39;s Blog</title>
+    <link>https://mizarzh.github.io/tags/nodejs/</link>
+    <description>Recent content in nodejs on MizarZ&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 19 May 2020 22:54:13 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/tags/nodejs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>nodejs入门笔记</title>
+      <link>https://mizarzh.github.io/p/2020/05/nodejs%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Tue, 19 May 2020 22:54:13 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2020/05/nodejs%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/</guid>
+      <description>nodejs入门笔记 全局对象 global process属性 提供了一个与操作系统的简单接口 process.argv是命令行参数数组 process.std</description>
+    </item>
+    
+  </channel>
+</rss>

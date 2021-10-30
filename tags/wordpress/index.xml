@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>wordpress on MizarZ&#39;s Blog</title>
+    <link>https://mizarzh.github.io/tags/wordpress/</link>
+    <description>Recent content in wordpress on MizarZ&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 10 Jan 2021 20:54:39 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/tags/wordpress/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>wordpress初始配置及ip迁移</title>
+      <link>https://mizarzh.github.io/p/2021/01/wordpress%E5%88%9D%E5%A7%8B%E9%85%8D%E7%BD%AE%E5%8F%8Aip%E8%BF%81%E7%A7%BB/</link>
+      <pubDate>Sun, 10 Jan 2021 20:54:39 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2021/01/wordpress%E5%88%9D%E5%A7%8B%E9%85%8D%E7%BD%AE%E5%8F%8Aip%E8%BF%81%E7%A7%BB/</guid>
+      <description>&lt;h1 id=&#34;初始配置&#34;&gt;初始配置&lt;/h1&gt;
+&lt;p&gt;2020-12-23
+这真的是大工程……
+简单说来，由于学生机服务器带宽过于拉跨，因此想使用学生机frp做内网穿透，使用raspberry作为wordpress服务器。
+&lt;a class=&#34;link&#34; href=&#34;https://cn.wordpress.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;wordpress中文官网&lt;/a&gt;
+此文章主要参考&lt;a class=&#34;link&#34; href=&#34;https://zhuanlan.zhihu.com/p/37614954&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;这个教程&lt;/a&gt;以及&lt;a class=&#34;link&#34; href=&#34;https://zhuanlan.zhihu.com/p/37593436&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;这个配置&lt;/a&gt;来操作。
+以下内容默认开启su&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
