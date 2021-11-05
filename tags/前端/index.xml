@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>前端 on MizarZ&#39;s Blog</title>
+    <link>https://mizarzh.github.io/tags/%E5%89%8D%E7%AB%AF/</link>
+    <description>Recent content in 前端 on MizarZ&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 05 Nov 2021 19:37:44 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/tags/%E5%89%8D%E7%AB%AF/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>css中background相关属性</title>
+      <link>https://mizarzh.github.io/p/2021/11/css%E4%B8%ADbackground%E7%9B%B8%E5%85%B3%E5%B1%9E%E6%80%A7/</link>
+      <pubDate>Fri, 05 Nov 2021 19:37:44 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2021/11/css%E4%B8%ADbackground%E7%9B%B8%E5%85%B3%E5%B1%9E%E6%80%A7/</guid>
+      <description>background是css属性中经常会遇到的属性，接下来将详解这个属性的各个参数的含义。 intro background 是一个复合属性，由： &amp;lt;attachment&amp;gt; &amp;lt;box&amp;gt; &amp;lt;background-color&amp;gt; &amp;lt;bg-image&amp;gt; &amp;lt;position&amp;gt; &amp;lt;repeat-style&amp;gt; &amp;lt;bg-size&amp;gt; 组成。 后面是</description>
+    </item>
+    
+  </channel>
+</rss>

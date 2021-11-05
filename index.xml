@@ -6,7 +6,143 @@
         <description>Recent content on MizarZ&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Wed, 27 Oct 2021 16:21:58 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 05 Nov 2021 19:37:44 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>css中background相关属性</title>
+        <link>https://mizarzh.github.io/p/2021/11/css%E4%B8%ADbackground%E7%9B%B8%E5%85%B3%E5%B1%9E%E6%80%A7/</link>
+        <pubDate>Fri, 05 Nov 2021 19:37:44 +0800</pubDate>
+        
+        <guid>https://mizarzh.github.io/p/2021/11/css%E4%B8%ADbackground%E7%9B%B8%E5%85%B3%E5%B1%9E%E6%80%A7/</guid>
+        <description>&lt;p&gt;&lt;code&gt;background&lt;/code&gt;是css属性中经常会遇到的属性，接下来将详解这个属性的各个参数的含义。&lt;/p&gt;
+&lt;h2 id=&#34;intro&#34;&gt;intro&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;background&lt;/code&gt; 是一个复合属性，由：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&amp;lt;attachment&amp;gt;
+&amp;lt;box&amp;gt;
+&amp;lt;background-color&amp;gt;
+&amp;lt;bg-image&amp;gt;
+&amp;lt;position&amp;gt;
+&amp;lt;repeat-style&amp;gt;
+&amp;lt;bg-size&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;组成。&lt;/p&gt;
+&lt;p&gt;后面是这些值的详解：&lt;/p&gt;
+&lt;h2 id=&#34;bg-image&#34;&gt;bg-image&lt;/h2&gt;
+&lt;p&gt;决定它的属性是&lt;code&gt;background-image&lt;/code&gt;，作用是为一个元素设置一个或者多个背景图像。&lt;/p&gt;
+&lt;p&gt;指定的背景可以是none，url()函数指定的图片，gradient()函数指定的梯度颜色。&lt;/p&gt;
+&lt;h2 id=&#34;background-color&#34;&gt;background-color&lt;/h2&gt;
+&lt;p&gt;顾名思义，就是背景颜色&lt;/p&gt;
+&lt;p&gt;可以使用#, rgb(), rgba()等指定颜色，也可以使用transparent（透明）。&lt;/p&gt;
+&lt;h2 id=&#34;attachment&#34;&gt;attachment&lt;/h2&gt;
+&lt;p&gt;决定它的属性是&lt;code&gt;background-attachment&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;主要区分点是假设有一个元素，这个元素内部有一个滚动条，而外部（如整个窗口）也有一个滚动条。&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	&gt;
+	&lt;a href=&#34;https://mizarzh.github.io/D:%5c%e4%b8%aa%e4%ba%ba%5cblogHugo%5cmyBlog%5ccontent%5cposts%5ccss%e4%b8%adbackground%e7%9b%b8%e5%85%b3%e5%b1%9e%e6%80%a7%5cimage-20211105194635375.png&#34; &gt;
+		&lt;img src=&#34;https://mizarzh.github.io/D:%5c%e4%b8%aa%e4%ba%ba%5cblogHugo%5cmyBlog%5ccontent%5cposts%5ccss%e4%b8%adbackground%e7%9b%b8%e5%85%b3%e5%b1%9e%e6%80%a7%5cimage-20211105194635375.png&#34;
+			
+			
+			
+			loading=&#34;lazy&#34;
+			alt=&#34;image-20211105194635375&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;image-20211105194635375&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;fixed&lt;/code&gt;：外部和内部滑动都不动&lt;/p&gt;
+&lt;p&gt;此关键属性值表示背景相对于视口固定。即使一个元素拥有滚动机制，背景也不会随着元素的内容滚动。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;local&lt;/code&gt;：外部和内部滑动都随之而动&lt;/p&gt;
+&lt;p&gt;此关键属性值表示背景相对于元素的内容固定。如果一个元素拥有滚动机制，背景将会随着元素的内容滚动， 并且背景的绘制区域和定位区域是相对于可滚动的区域而不是包含他们的边框。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;scroll&lt;/code&gt;：内部滑动不动，而外部滑动随之动&lt;/p&gt;
+&lt;p&gt;此关键属性值表示背景相对于元素本身固定， 而不是随着它的内容滚动（对元素边框是有效的）。&lt;/p&gt;
+&lt;p&gt;可以使用逗号分隔，指定多个不同背景的attachment。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-css&#34; data-lang=&#34;css&#34;&gt;&lt;span class=&#34;nt&#34;&gt;p&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;background-image&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;url&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;picture1.png&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;url&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;picture2.png&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;background-attachment&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;fixed&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;scroll&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;position&#34;&gt;position&lt;/h2&gt;
+&lt;p&gt;决定它的属性是&lt;code&gt;background-position&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;语法：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;关键字 &lt;code&gt;center&lt;/code&gt;，用来居中背景图片。关键字 &lt;code&gt;top&lt;/code&gt;, &lt;code&gt;left&lt;/code&gt;, &lt;code&gt;bottom&lt;/code&gt;, &lt;code&gt;right&lt;/code&gt; 中的一个，用来指定放在某个方向边缘的中间位置。&lt;/li&gt;
+&lt;li&gt;两个长度或百分比，指定相对于&lt;code&gt;top&lt;/code&gt;和&lt;code&gt;left&lt;/code&gt;的距离。&lt;/li&gt;
+&lt;li&gt;关键字&lt;code&gt;top&lt;/code&gt;, &lt;code&gt;left&lt;/code&gt;, &lt;code&gt;bottom&lt;/code&gt;, &lt;code&gt;right&lt;/code&gt; + 长度或百分比 x2。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;例子：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-css&#34; data-lang=&#34;css&#34;&gt;&lt;span class=&#34;nt&#34;&gt;background-position&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;top&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;background-position&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;center&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+
+&lt;span class=&#34;nt&#34;&gt;background-position&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;25&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;%&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;75&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;%;&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;background-position&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;100px&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;200px&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+
+&lt;span class=&#34;nt&#34;&gt;background-position&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;bottom&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;10px&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;right&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;20px&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;background-position&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;right&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;3em&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;bottom&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;10px&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;background-position&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;top&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;right&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;10px&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;c&#34;&gt;/*  距离top 0，距离right 10px */&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;可以使用负值，即背景在框外。&lt;/p&gt;
+&lt;p&gt;可以用逗号隔开，指定多个不同背景的position。&lt;/p&gt;
+&lt;h2 id=&#34;repeat-style&#34;&gt;repeat-style&lt;/h2&gt;
+&lt;p&gt;定义背景图像的重复方式。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-css&#34; data-lang=&#34;css&#34;&gt;&lt;span class=&#34;c&#34;&gt;/* 单值语法 */&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;background-repeat&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;repeat-x&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;c&#34;&gt;/* 相当于 repeat no-repeat，以下同理 */&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;background-repeat&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;repeat-y&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;background-repeat&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;repeat&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;background-repeat&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;space&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;background-repeat&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;round&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;background-repeat&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;no-repeat&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+
+&lt;span class=&#34;c&#34;&gt;/* 双值语法: 水平horizontal | 垂直vertical */&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;background-repeat&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;repeat&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;space&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;background-repeat&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;repeat&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;repeat&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;background-repeat&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;round&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;space&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;background-repeat&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;no-repeat&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;round&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;repeat&lt;/code&gt;：重复，边缘图像会裁剪。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;space&lt;/code&gt;：图像会尽可能得重复，中间会有空隙，最边缘的图像会贴在边缘上, 不会裁剪。&lt;code&gt;background-position&lt;/code&gt;会被无视除非只有一张图像。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;round&lt;/code&gt;：图像会被拉伸，直到有足够的空间来添加一个图像。当下一个图像被添加后, 所有的当前的图像会被压缩来腾出空间。什么时候添加下一个图像由浏览器决定。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;no-repeat&lt;/code&gt;：无重复。&lt;/p&gt;
+&lt;p&gt;可以用逗号隔开，指定多个不同背景的&lt;code&gt;background-repeat&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;background-size&#34;&gt;background-size&lt;/h2&gt;
+&lt;p&gt;设置背景图片大小。图片可以保有其原有的尺寸，或者拉伸到新的尺寸，或者在保持其原有比例的同时缩放到元素的可用空间的尺寸。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-css&#34; data-lang=&#34;css&#34;&gt;&lt;span class=&#34;c&#34;&gt;/* 关键字 */&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;background-size&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;cover&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;background-size&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;contain&lt;/span&gt;
+
+&lt;span class=&#34;c&#34;&gt;/* 一个值: 这个值指定图片的宽度，图片的高度隐式的为auto */&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;background-size&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;50&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;%&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;background-size&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;3em&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;background-size&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;12px&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;background-size&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;auto&lt;/span&gt;
+
+&lt;span class=&#34;c&#34;&gt;/* 两个值 */&lt;/span&gt;
+&lt;span class=&#34;c&#34;&gt;/* 第一个值指定图片的宽度，第二个值指定图片的高度 */&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;background-size&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;50&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;%&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;auto&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;background-size&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;3em&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;25&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;%&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;background-size&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;auto&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;6px&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;background-size&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;auto&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;auto&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;没有被背景图片覆盖的背景区域仍然会显示用&lt;code&gt;background-color&lt;/code&gt;属性设置的背景颜色。&lt;/p&gt;
+&lt;p&gt;关键字：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;contain&lt;/code&gt;：缩放背景图片以完全覆盖背景区，可能背景图片部分看不见，会尽可能保持图像的比例。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;cover&lt;/code&gt;：缩放背景图片以完全装入背景区，可能背景区部分空白，会尽可能保持图像的比例。&lt;/p&gt;
+&lt;h2 id=&#34;box&#34;&gt;box&lt;/h2&gt;
+&lt;p&gt;由两个属性决定： &lt;code&gt;background-clip&lt;/code&gt; 和 &lt;code&gt;background-origin&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;background-clip&lt;/code&gt;：决定背景图片覆盖盒模型中的哪些部分。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-css&#34; data-lang=&#34;css&#34;&gt;&lt;span class=&#34;nt&#34;&gt;background-clip&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;border-box&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;background-clip&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;padding-box&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;background-clip&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;content-box&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;background-clip&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;text&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;background-origin&lt;/code&gt;：规定了指定背景图片&lt;code&gt;background-image&lt;/code&gt; 属性的原点位置的背景相对区域。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-css&#34; data-lang=&#34;css&#34;&gt;&lt;span class=&#34;nt&#34;&gt;background-origin&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;border-box&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;background-origin&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;padding-box&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;background-origin&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;content-box&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;当使用 &lt;code&gt;background-attachment&lt;/code&gt;为fixed时，该属性将被忽略不起作用。&lt;/p&gt;
+&lt;h2 id=&#34;综合&#34;&gt;综合&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;&amp;lt;box&amp;gt;&lt;/code&gt; 可能出现 0 次、1 次或 2 次。如果出现 1 次，它同时设定 &lt;code&gt;background-origin&lt;/code&gt;和 &lt;code&gt;background-clip&lt;/code&gt;。如果出现 2 次，第一次的出现设置 &lt;code&gt;background-origin&lt;/code&gt;，第二次的出现设置 &lt;code&gt;background-clip&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;其他的能出现0次或1次。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;&amp;lt;bg-size&amp;gt;&lt;/code&gt; 只能紧接着 &lt;code&gt;&amp;lt;position&amp;gt;&lt;/code&gt; 出现，以&amp;quot;/&amp;ldquo;分割，如： &amp;ldquo;&lt;code&gt;center/80%&lt;/code&gt;&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;&amp;lt;background-color&amp;gt;&lt;/code&gt; 只能被包含在最后一层。&lt;/p&gt;
+&lt;p&gt;例子：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-css&#34; data-lang=&#34;css&#34;&gt;&lt;span class=&#34;nt&#34;&gt;background&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;center&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;/&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;contain&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;no-repeat&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;url&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;logo.svg&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;),&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;nn&#34;&gt;eee&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;35&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;%&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;url&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;logo2.svg&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;background&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;left&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;%&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;/&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;15&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;%&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;60&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;%&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;repeat-x&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;url&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;star.png&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+        </item>
+        <item>
         <title>My First Post &amp; Mathjax Problem</title>
         <link>https://mizarzh.github.io/p/2021/10/my-first-post-mathjax-problem/</link>
         <pubDate>Wed, 27 Oct 2021 16:21:58 +0800</pubDate>
