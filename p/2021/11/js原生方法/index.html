@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='正则表达式的表示方法 来自：regexlab 1、直接写内容 直接匹配内容 2、转义字符 1 字符 含义 \n \r 换行符 \t 制表符 \\ \的字符 \$ $的字符 \^ ^的字符 \.'><title>Regexp相关</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='You Dont Konw JS 类型部分的一个笔记。'><title>Js原生方法</title>
 
-<link rel='canonical' href='https://mizarzh.github.io/p/2020/02/regexp%E7%9B%B8%E5%85%B3/'>
+<link rel='canonical' href='https://mizarzh.github.io/p/2021/11/js%E5%8E%9F%E7%94%9F%E6%96%B9%E6%B3%95/'>
 
-<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='Regexp相关'>
-<meta property='og:description' content='正则表达式的表示方法 来自：regexlab 1、直接写内容 直接匹配内容 2、转义字符 1 字符 含义 \n \r 换行符 \t 制表符 \\ \的字符 \$ $的字符 \^ ^的字符 \.'>
-<meta property='og:url' content='https://mizarzh.github.io/p/2020/02/regexp%E7%9B%B8%E5%85%B3/'>
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='Js原生方法'>
+<meta property='og:description' content='You Dont Konw JS 类型部分的一个笔记。'>
+<meta property='og:url' content='https://mizarzh.github.io/p/2021/11/js%E5%8E%9F%E7%94%9F%E6%96%B9%E6%B3%95/'>
 <meta property='og:site_name' content='MizarZ&#39;s Blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='regexp' /><meta property='article:published_time' content='2020-02-05T00:57:40&#43;08:00'/><meta property='article:modified_time' content='2020-02-05T00:57:40&#43;08:00'/>
-<meta name="twitter:title" content="Regexp相关">
-<meta name="twitter:description" content="正则表达式的表示方法 来自：regexlab 1、直接写内容 直接匹配内容 2、转义字符 1 字符 含义 \n \r 换行符 \t 制表符 \\ \的字符 \$ $的字符 \^ ^的字符 \.">
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='js' /><meta property='article:tag' content='前端' /><meta property='article:published_time' content='2021-11-10T19:49:42&#43;08:00'/><meta property='article:modified_time' content='2021-11-10T19:49:42&#43;08:00'/>
+<meta name="twitter:title" content="Js原生方法">
+<meta name="twitter:description" content="You Dont Konw JS 类型部分的一个笔记。">
     <link rel="shortcut icon" href="img/favicon-32x32.png" />
 
     </head>
@@ -75,9 +75,13 @@
     
 
     <h2 class="article-title">
-        <a href="/p/2020/02/regexp%E7%9B%B8%E5%85%B3/">Regexp相关</a>
+        <a href="/p/2021/11/js%E5%8E%9F%E7%94%9F%E6%96%B9%E6%B3%95/">Js原生方法</a>
     </h2>
 
+    
+    <h3 class="article-subtitle">
+        You Dont Konw JS 类型部分的一个笔记。
+    </h3>
     
 
     
@@ -93,7 +97,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">2020-02-05</time>
+                <time class="article-time--published">2021-11-10</time>
             </div>
         
 
@@ -104,161 +108,81 @@
 </header>
 
     <section class="article-content">
-    <h1 id="正则表达式的表示方法">正则表达式的表示方法</h1>
-<p>来自：<a class="link" href="http://www.regexlab.com/zh/regref.htm"  target="_blank" rel="noopener"
-    >regexlab</a></p>
-<h2 id="1直接写内容">1、直接写内容</h2>
-<p>直接匹配内容</p>
-<h2 id="2转义字符">2、转义字符</h2>
-<h3 id="1">1</h3>
-<table>
-<thead>
-<tr>
-<th>字符</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>\n \r</td>
-<td>换行符</td>
-</tr>
-<tr>
-<td>\t</td>
-<td>制表符</td>
-</tr>
-<tr>
-<td>\\</td>
-<td>\的字符</td>
-</tr>
-<tr>
-<td>\$</td>
-<td>$的字符</td>
-</tr>
-<tr>
-<td>\^</td>
-<td>^的字符</td>
-</tr>
-<tr>
-<td>\.</td>
-<td>.的字符</td>
-</tr>
-</tbody>
-</table>
-<!-- raw HTML omitted -->
-<h3 id="2">2</h3>
-<table>
-<thead>
-<tr>
-<th>字符</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>\d</td>
-<td>任意数字</td>
-</tr>
-<tr>
-<td>\w</td>
-<td>任意数字、字母及下划线_</td>
-</tr>
-<tr>
-<td>\s</td>
-<td>空白或制表符或换页符</td>
-</tr>
-<tr>
-<td>.</td>
-<td>任意字符（除换行符）</td>
-</tr>
-</tbody>
-</table>
-<h2 id="3方括号">3、方括号</h2>
-<p>使用方括号 [ ] 包含一系列字符，能够匹配其中任意一个字符。用 [^ ] 包含一系列字符，则能够匹配其中字符之外的任意一个字符。
-如：[abc] (a,b,c中任意一个)、[^ f-k] (不是f-k的任意一个字母)、[A-F0-9] (A-F和0-9中任意一个)</p>
-<h2 id="4数量匹配">4、数量匹配</h2>
-<p>{n}重复n次
-{m,n}重复至少m次至多n次
-{m,}至少重复m次
-? 相当于 {0,1}
-+ 相当于 {1,}
-* 相当于 {0,}</p>
-<h2 id="5位置匹配">5、位置匹配？</h2>
-<p>^ 与字符串开始的地方匹配，不匹配任何字符（若匹配到的字符不是开始则错误）
-$ 与字符串结束的地方匹配，不匹配任何字符
-\b 匹配一个单词边界，也就是单词和空格之间的位置，不匹配任何字符</p>
-<h2 id="6其他">6、其他</h2>
-<p>|  	左右两边表达式之间 &ldquo;或&rdquo; 关系，匹配左边或者右边
-( ) 
-(1). 在被修饰匹配次数的时候，括号中的表达式可以作为整体被修饰
-(2). 取匹配结果的时候，括号中的表达式匹配到的内容可以被单独得到</p>
-<h2 id="7高级技巧">7、高级技巧</h2>
-<h3 id="贪婪与非贪婪">贪婪与非贪婪</h3>
-<p>默认是贪婪（匹配得越多越好）
-在数量符号后面加上?（如w+?）则为非贪婪模式，匹配越少越好</p>
-<h3 id="引用">引用</h3>
-<p>\1、\2等符号获取在( )中匹配的字符</p>
-<h3 id="预搜索不匹配反向预搜索不匹配">预搜索，不匹配；反向预搜索，不匹配</h3>
-<p>(?=xxxx)</p>
-<h2 id="8其他">8、其他</h2>
-<p>\xXX  \uXXXX 表示字符（编码相关？）
-\S \D \W \B 代表相反意义（非数字等）</p>
-<h2 id="注意事项">注意事项</h2>
-<ol>
-<li>表达式不要匹配空字符串。否则会一直得到匹配成功，而结果什么都没有匹配到。</li>
-<li>能匹配空字符串的子匹配不要循环无限次。如果括号内的子表达式中的每一部分都可以匹配 0 次，而这个括号整体又可以匹配无限次，那么情况可能比上一条所说的更严重，匹配过程中可能死循环。</li>
-<li>需注意贪婪与非贪婪模式</li>
-<li>或 &ldquo;|&rdquo; 的左右两边，对某个字符最好只有一边可以匹配，这样，不会因为 &ldquo;|&rdquo; 两边的表达式因为交换位置而有所不同。</li>
-</ol>
-<h1 id="js里面的正则表达式形式">js里面的正则表达式形式：</h1>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">exp</span> <span class="o">=</span> <span class="sr">/ pattern /</span> <span class="nx">flags</span><span class="p">;</span><span class="c1">//字面量类型
-</span><span class="c1"></span><span class="kd">var</span> <span class="nx">exp2</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">RegExp</span><span class="p">(</span><span class="s2">&#34;[bc]at&#34;</span><span class="p">,</span> <span class="s2">&#34;i&#34;</span><span class="p">);</span> <span class="c1">//构造函数
-</span></code></pre></div><p>模式（pattern）为表达式。
-flags:
-g表示全局（global）模式，即模式将被应用于所有字符串，而非在发现第一个匹配项时立即停止； 
-i：表示不区分大小写（case-insensitive）模式，即在确定匹配项时忽略模式与字符串的大小写
-m：表示多行（multiline）模式，即在到达一行文本末尾时还会继续查找下一行中是否存在与模式匹配的项。
-传入构造函数的字符串需双重转义
-如匹配\：</p>
-<table>
-<thead>
-<tr>
-<th>字符串</th>
-<th>字面量</th>
-<th>匹配</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>\\\\|\\|\</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>（嗯其实这里打的markdown已经是四重转义了）</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h2 id="实例的属性">实例的属性</h2>
-<ol>
-<li>global：布尔值，表示是否设置了 g 标志。</li>
-<li>ignoreCase：布尔值，表示是否设置了 i 标志。</li>
-<li>lastIndex：整数，表示开始搜索下一个匹配项的字符位置，从0算起。</li>
-<li>multiline：布尔值，表示是否设置了 m 标志。</li>
-<li>source：正则表达式的字符串表示，按照字面量形式而非传入构造函数中的字符串模式返回。</li>
-</ol>
-<h2 id="实例的方法">实例的方法</h2>
-<p><strong>exec()</strong>：接受一个参数，即要应用模式的字符串，然后返回包含第一个匹配项信息的数组；或者在没有匹配项的情况下返回 null。</p>
-<p>返回的数组虽然是 Array 的实例，但包含两个额外的属性：index 和 input。其中，index表示匹配项在字符串中的位置，而 input 表示应用正则表达式的字符串。</p>
-<p>在数组中，第一项是与整个模式匹配 的字符串，其他项是与模式中的捕获组匹配的字符串（如果模式中没有捕获组，则该数组只包含一项）。</p>
-<p>对于exec()方法而言，即使在模式中设置了全局标志（g），它每次也只会返回一个匹配项。在不设置全局标志的情况下，在同一个字符串上多次调用exec()将始终返回第一个匹配项的信息。而在设置全局标志的情况下，每次调用exec()则都会在字符串中继续查找新匹配项，常与for函数一起使用用于找出所有匹配项。</p>
-<p><strong>test()</strong>:它接受一个字符串参数。在模式与该参数匹配的情况下返回 true；否则，返回 false。</p>
-<p><strong>toLocaleString()和toString()</strong> 方法都会返回正则表达式的字面量。
-valueOf()方法返回正则表达式本身。</p>
-<h2 id="regexp构造函数属性">RegExp构造函数属性</h2>
-<h1 id="原理nfa">原理（NFA）</h1>
+    <p>本文章是 <em>You Dont Konw JS</em> 类型部分的一个笔记。</p>
+<h2 id="原生函数">原生函数</h2>
+<p>常用的原生函数有：</p>
+<ul>
+<li>
+<p>String()</p>
+</li>
+<li>
+<p>Number()</p>
+</li>
+<li>
+<p>Boolean()</p>
+</li>
+<li>
+<p>Array()</p>
+</li>
+<li>
+<p>Object()</p>
+</li>
+<li>
+<p>Function()</p>
+</li>
+<li>
+<p>RegExp()</p>
+</li>
+<li>
+<p>Date()</p>
+</li>
+<li>
+<p>Error()</p>
+</li>
+<li>
+<p>Symbol()——ES6 中新加入的</p>
+</li>
+</ul>
+<p>实际上，它们就是内建函数。</p>
+<p>原生函数可以被当作构造函数来使用，但其构造出来的对象可能会和我们设想的有所出入：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">String</span><span class="p">(</span> <span class="s2">&#34;abc&#34;</span> <span class="p">);</span> 
+<span class="k">typeof</span> <span class="nx">a</span><span class="p">;</span> <span class="c1">// 是&#34;object&#34;，不是&#34;String&#34;
+</span><span class="c1"></span><span class="nx">a</span> <span class="k">instanceof</span> <span class="nb">String</span><span class="p">;</span>  <span class="c1">// true
+</span><span class="c1"></span><span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span> <span class="nx">a</span> <span class="p">);</span> <span class="c1">// &#34;[object String]&#34;
+</span></code></pre></div><p>typeof 在这里返回的是对象类型的子类型。</p>
+<p>补充：instanceof（用class太多，该回去复习原型链了……）</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nx">object</span> <span class="k">instanceof</span> <span class="nx">constructor</span>
+<span class="c1">// object 某个实例对象, constructor 某个构造函数 
+</span></code></pre></div><h2 id="内部属性class">内部属性[[Class]]</h2>
+<p>所有 typeof 返回值为 &ldquo;object&rdquo; 的对象（如数组）都包含一个内部属性 [[Class]]（我们可 以把它看作一个内部的分类，而非传统的面向对象意义上的类）。</p>
+<p>可以使用Object.prototype.toString(..)来查看：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="p">);</span> <span class="c1">// &#34;[object Array]&#34;
+</span><span class="c1"></span><span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span> <span class="kc">null</span> <span class="p">);</span> <span class="c1">// &#34;[object Null]&#34;
+</span><span class="c1"></span><span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span> <span class="s2">&#34;abc&#34;</span> <span class="p">);</span> <span class="c1">// &#34;[object String]&#34;
+</span></code></pre></div><p>虽然null和undefined的原生构造函数并不存在，但仍然具有内部类型。</p>
+<p>String等类型是包装类型。</p>
+<h2 id="封装对象包装">封装对象包装</h2>
+<p>基本类型是不存在.length 和 .toString() 这样的属性和方法，因此需要通过封装对象才能访问。</p>
+<p>如果想要自行封装基本类型值，可以使用 Object(..) 函数（不带 new 关键字）</p>
+<h2 id="拆封">拆封</h2>
+<p>如果想要得到封装对象中的基本类型值，可以使用 valueOf() 函数。</p>
+<h2 id="原生函数作为构造函数">原生函数作为构造函数</h2>
+<p>数组（array）、对象（object）、函数（function）和正则表达式，我们通常喜欢以常 量的形式来创建它们。实际上，使用常量和使用构造函数的效果是一样的。应该尽量避免使用构造函数，除非十分必要，因为它们经常会产生意想不到的结果。</p>
+<h3 id="array">Array</h3>
+<p>Array(1,2,3) 和 new Array(1,2,3) 是一样的</p>
+<h3 id="objectfunction-和-regexp">Object(..)、Function(..) 和 RegExp(..)</h3>
+<p>除非万不得已，否则尽量不要使用 Object(..)/Function(..)/RegExp(..)。</p>
+<p>Object可以使用常量值的方法解决。</p>
+<p>构造函数 Function 只在极少数情况下很有用，比如动态定义函数参数和函数体的时候。</p>
+<p>强烈建议使用常量形式（如 /^a*b+/g）来定义正则表达式。</p>
+<h3 id="date-和-error">Date(..) 和 Error(..)</h3>
+<p>Date(..) 和 Error(..) 的用处要大很多，因为没有对应的常量 形式来作为它们的替代。</p>
+<p>创建日期对象必须使用 new Date()。Date(..) 可以带参数，用来指定日期和时间，而不带 参数的话则使用当前的日期和时间。</p>
+<p>构造函数 Error(..)带不带 new 关键字都可。错误对象通常与 throw 一起使用。</p>
+<h3 id="symbol">Symbol(..)</h3>
+<p>Symbol()函数会返回symbol类型的值，该类型具有静态属性和静态方法。但它不支持语法：&ldquo;new Symbol()&quot;。</p>
+<h3 id="原生原型">原生原型</h3>
+<p>Function.prototype 是一个空函数，RegExp.prototype 是一个“空”的正则表达式（无 任何匹配），而 Array.prototype 是一个空数组。对未赋值的变量来说，它们是很好的默认值。这种方法的一个好处是 .prototypes 已被创建并且仅创建一次。需要注意的一点是，如果默认值随后会被更改，那就不要使用 Array.prototype。</p>
 
 </section>
 
@@ -267,7 +191,9 @@ valueOf()方法返回正则表达式本身。</p>
     
     <section class="article-tags">
         
-            <a href="/tags/regexp/">regexp</a>
+            <a href="/tags/js/">js</a>
+        
+            <a href="/tags/%E5%89%8D%E7%AB%AF/">前端</a>
         
     </section>
 
@@ -322,18 +248,6 @@ valueOf()方法返回正则表达式本身。</p>
                 
                     
 <article class="">
-    <a href="/p/2021/11/js%E5%8E%9F%E7%94%9F%E6%96%B9%E6%B3%95/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">Js原生方法</h2>
-        </div>
-    </a>
-</article>
-                
-                    
-<article class="">
     <a href="/p/2021/11/js%E7%B1%BB%E5%9E%8B/">
         
         
@@ -376,6 +290,18 @@ valueOf()方法返回正则表达式本身。</p>
 
         <div class="article-details">
             <h2 class="article-title">最近进展2020-6-3</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/2020/05/nodejs%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">nodejs入门笔记</h2>
         </div>
     </a>
 </article>
@@ -504,32 +430,19 @@ valueOf()方法返回正则表达式本身。</p>
                 <div class="widget--toc">
                     <nav id="TableOfContents">
   <ol>
-    <li><a href="#1直接写内容">1、直接写内容</a></li>
-    <li><a href="#2转义字符">2、转义字符</a>
+    <li><a href="#原生函数">原生函数</a></li>
+    <li><a href="#内部属性class">内部属性[[Class]]</a></li>
+    <li><a href="#封装对象包装">封装对象包装</a></li>
+    <li><a href="#拆封">拆封</a></li>
+    <li><a href="#原生函数作为构造函数">原生函数作为构造函数</a>
       <ol>
-        <li><a href="#1">1</a></li>
-        <li><a href="#2">2</a></li>
+        <li><a href="#array">Array</a></li>
+        <li><a href="#objectfunction-和-regexp">Object(..)、Function(..) 和 RegExp(..)</a></li>
+        <li><a href="#date-和-error">Date(..) 和 Error(..)</a></li>
+        <li><a href="#symbol">Symbol(..)</a></li>
+        <li><a href="#原生原型">原生原型</a></li>
       </ol>
     </li>
-    <li><a href="#3方括号">3、方括号</a></li>
-    <li><a href="#4数量匹配">4、数量匹配</a></li>
-    <li><a href="#5位置匹配">5、位置匹配？</a></li>
-    <li><a href="#6其他">6、其他</a></li>
-    <li><a href="#7高级技巧">7、高级技巧</a>
-      <ol>
-        <li><a href="#贪婪与非贪婪">贪婪与非贪婪</a></li>
-        <li><a href="#引用">引用</a></li>
-        <li><a href="#预搜索不匹配反向预搜索不匹配">预搜索，不匹配；反向预搜索，不匹配</a></li>
-      </ol>
-    </li>
-    <li><a href="#8其他">8、其他</a></li>
-    <li><a href="#注意事项">注意事项</a></li>
-  </ol>
-
-  <ol>
-    <li><a href="#实例的属性">实例的属性</a></li>
-    <li><a href="#实例的方法">实例的方法</a></li>
-    <li><a href="#regexp构造函数属性">RegExp构造函数属性</a></li>
   </ol>
 </nav>
                 </div>

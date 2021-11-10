@@ -6,7 +6,25 @@
     <description>Recent content in Posts on MizarZ&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 05 Nov 2021 19:37:44 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 10 Nov 2021 19:49:42 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Js原生方法</title>
+      <link>https://mizarzh.github.io/p/2021/11/js%E5%8E%9F%E7%94%9F%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Wed, 10 Nov 2021 19:49:42 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2021/11/js%E5%8E%9F%E7%94%9F%E6%96%B9%E6%B3%95/</guid>
+      <description>本文章是 You Dont Konw JS 类型部分的一个笔记。 原生函数 常用的原生函数有： String() Number() Boolean() Array() Object() Function() RegExp() Date() Error() Symbol()——ES6 中新加入的 实际上，它们就是内建函数</description>
+    </item>
+    
+    <item>
+      <title>Js类型</title>
+      <link>https://mizarzh.github.io/p/2021/11/js%E7%B1%BB%E5%9E%8B/</link>
+      <pubDate>Tue, 09 Nov 2021 20:16:46 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2021/11/js%E7%B1%BB%E5%9E%8B/</guid>
+      <description>本文章是 You Dont Konw JS 类型部分的一个笔记。 1 js类型 js有七种内置类型： 空值（null） 未定义（undefined） 布尔值（boolean） 数字（</description>
+    </item>
+    
     <item>
       <title>css中background相关属性</title>
       <link>https://mizarzh.github.io/p/2021/11/css%E4%B8%ADbackground%E7%9B%B8%E5%85%B3%E5%B1%9E%E6%80%A7/</link>
