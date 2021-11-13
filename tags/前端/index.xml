@@ -6,7 +6,16 @@
     <description>Recent content in 前端 on MizarZ&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 10 Nov 2021 19:49:42 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/tags/%E5%89%8D%E7%AB%AF/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 10 Nov 2021 22:10:09 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/tags/%E5%89%8D%E7%AB%AF/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Array方法</title>
+      <link>https://mizarzh.github.io/p/2021/11/array%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Wed, 10 Nov 2021 22:10:09 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2021/11/array%E6%96%B9%E6%B3%95/</guid>
+      <description>1 通用提示 1、Array#someMethod()的含义是Array.prototype.someMethod()。 2、通常，callbac</description>
+    </item>
+    
     <item>
       <title>Js原生方法</title>
       <link>https://mizarzh.github.io/p/2021/11/js%E5%8E%9F%E7%94%9F%E6%96%B9%E6%B3%95/</link>

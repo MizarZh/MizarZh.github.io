@@ -6,7 +6,379 @@
         <description>Recent content on MizarZ&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Wed, 10 Nov 2021 19:49:42 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 10 Nov 2021 22:10:09 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Array方法</title>
+        <link>https://mizarzh.github.io/p/2021/11/array%E6%96%B9%E6%B3%95/</link>
+        <pubDate>Wed, 10 Nov 2021 22:10:09 +0800</pubDate>
+        
+        <guid>https://mizarzh.github.io/p/2021/11/array%E6%96%B9%E6%B3%95/</guid>
+        <description>&lt;h2 id=&#34;1-通用提示&#34;&gt;1 通用提示&lt;/h2&gt;
+&lt;p&gt;1、&lt;code&gt;Array#someMethod()&lt;/code&gt;的含义是&lt;code&gt;Array.prototype.someMethod()&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;2、通常，&lt;code&gt;callback&lt;/code&gt;即测试每个元素的函数，接收&lt;code&gt;element&lt;/code&gt;：当前值、&lt;code&gt;index&lt;/code&gt;：当前索引、&lt;code&gt;array&lt;/code&gt;：当前数组三个值。若不解释，则默认为此格式。&lt;/p&gt;
+&lt;p&gt;3、&lt;code&gt;thisArg&lt;/code&gt;是传入执行&lt;code&gt;callback&lt;/code&gt;时作为&lt;code&gt;this&lt;/code&gt;对象的值。&lt;/p&gt;
+&lt;p&gt;4、修改数组的许多操作都是浅复制的。浅复制对于原生类型来说就是直接复制，新值与旧值没有关系，而对于引用类型来说类似于复制指向他们的指针，修改其中一个，其余被复制的都会改变。&lt;/p&gt;
+&lt;h2 id=&#34;2-构造&#34;&gt;2 构造&lt;/h2&gt;
+&lt;h3 id=&#34;array&#34;&gt;Array()&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;Array(3)&lt;/code&gt;：构造出&lt;code&gt;[ , , ]&lt;/code&gt;，其中是空槽（与undefined不同）。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Array(1,2,3)&lt;/code&gt;：构造出&lt;code&gt;[1,2,3]&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;与&lt;code&gt;new Array()&lt;/code&gt;相同。&lt;/p&gt;
+&lt;h2 id=&#34;3-静态方法&#34;&gt;3 静态方法&lt;/h2&gt;
+&lt;h3 id=&#34;arrayfrom&#34;&gt;Array.from()&lt;/h3&gt;
+&lt;p&gt;语法：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;nb&#34;&gt;Array&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;from&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;arrayLike&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;mapFn&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;thisArg&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]])&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;从类数组对象或者可迭代对象（&lt;code&gt;arrayLike&lt;/code&gt;参数）中创建一个新的数组实例。能转换的类型有：&lt;/p&gt;
+&lt;p&gt;1、伪数组对象（拥有一个 &lt;code&gt;length&lt;/code&gt; 属性和若干索引属性的任意对象）&lt;/p&gt;
+&lt;p&gt;2、可迭代对象（可以获取对象中的元素,如 Map和 Set 等）&lt;/p&gt;
+&lt;p&gt;有一个可选参数&lt;code&gt;mapFn&lt;/code&gt;：如果指定了该参数，新数组中的每个元素会执行该回调函数（使用map方法）。&lt;/p&gt;
+&lt;h3 id=&#34;arrayisarray&#34;&gt;Array.isArray()&lt;/h3&gt;
+&lt;p&gt;用来判断某个变量是否是一个数组对象&lt;/p&gt;
+&lt;p&gt;语法：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;nb&#34;&gt;Array&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;isArray&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;返回：bool&lt;/p&gt;
+&lt;h3 id=&#34;arrayof&#34;&gt;Array.of()&lt;/h3&gt;
+&lt;p&gt;创建一个具有可变数量参数的新数组实例，而不考虑参数的数量或类型。&lt;/p&gt;
+&lt;p&gt;语法：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;nb&#34;&gt;Array&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;of&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;element0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;element1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[,&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;...[,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;elementN&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]]])&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;返回：Array&lt;/p&gt;
+&lt;p&gt;同样也是创建数组，但与&lt;code&gt;Array()&lt;/code&gt;的不同点是&lt;code&gt;Array.of(3)&lt;/code&gt;构造出&lt;code&gt;[3]&lt;/code&gt;，而&lt;code&gt;Array(3)&lt;/code&gt;构造出&lt;code&gt;[ , , ]&lt;/code&gt;。&lt;/p&gt;
+&lt;h2 id=&#34;4-实例方法&#34;&gt;4 实例方法&lt;/h2&gt;
+&lt;h3 id=&#34;i-查找&#34;&gt;I 查找&lt;/h3&gt;
+&lt;p&gt;以下方法都不会修改原数组。&lt;/p&gt;
+&lt;h3 id=&#34;arrayincludes&#34;&gt;Array#includes()&lt;/h3&gt;
+&lt;p&gt;方法用来判断一个数组是否包含一个指定的值&lt;/p&gt;
+&lt;p&gt;语法：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;nx&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;includes&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;valueToFind&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;fromIndex&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;fromIndex&lt;/code&gt;参数指的是从某个索引开始搜索，负数索引即从尾部某个元素开始。&lt;/p&gt;
+&lt;p&gt;输出：bool&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;注意点&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;如果 &lt;code&gt;fromIndex&lt;/code&gt; 大于等于数组的长度，则将直接返回 &lt;code&gt;false&lt;/code&gt;，且不搜索该数组。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;includes()&lt;/code&gt; 方法有意设计为通用方法。它不要求&lt;code&gt;this&lt;/code&gt;值是数组对象，所以它可以被用于其他类型的对象 (比如类数组对象)。&lt;/p&gt;
+&lt;h3 id=&#34;arrayindexof&#34;&gt;Array#indexOf()&lt;/h3&gt;
+&lt;p&gt;返回在数组中可以找到一个给定元素的第一个索引，如果不存在，则返回-1。&lt;/p&gt;
+&lt;p&gt;语法：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;nx&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;indexOf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;searchElement&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;fromIndex&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;输出：number&lt;/p&gt;
+&lt;h3 id=&#34;arraylastindexof&#34;&gt;Array#LastIndexOf()&lt;/h3&gt;
+&lt;p&gt;方法返回指定元素（也即有效的 JavaScript 值或变量）在数组中的最后一个的索引，如果不存在则返回 -1。从数组的后面向前查找，从 &lt;code&gt;fromIndex&lt;/code&gt; 处开始。&lt;/p&gt;
+&lt;p&gt;语法：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;nx&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;lastIndexOf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;searchElement&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;fromIndex&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;输出：number&lt;/p&gt;
+&lt;h3 id=&#34;arrayfind&#34;&gt;Array#find()&lt;/h3&gt;
+&lt;p&gt;返回数组中满足提供的测试函数的第一个元素的值。&lt;/p&gt;
+&lt;p&gt;语法：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;nx&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;find&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;callback&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;thisArg&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;返回：找到的元素，失败则返回&lt;code&gt;undefined&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;find&lt;/code&gt;方法对数组中的每一项元素执行一次 &lt;code&gt;callback&lt;/code&gt; 函数，直至有一个 callback 返回 &lt;code&gt;true&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;当找到了这样一个元素后，该方法会立即返回这个元素的值，否则返回 &lt;code&gt;undefined&lt;/code&gt;。注意 &lt;code&gt;callback &lt;/code&gt;函数会为数组中的每个索引调用即从 &lt;code&gt;0 &lt;/code&gt;到 &lt;code&gt;length - 1&lt;/code&gt;，而不仅仅是那些被赋值的索引，这意味着对于稀疏数组来说，该方法的效率要低于那些只遍历有值的索引的方法。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;注意点&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;在第一次调用 &lt;code&gt;callback&lt;/code&gt;函数时会确定元素的索引范围，因此在 &lt;code&gt;find&lt;/code&gt;方法开始执行之后添加到数组的新元素将不会被 &lt;code&gt;callback&lt;/code&gt;函数访问到。如果数组中一个尚未被&lt;code&gt;callback&lt;/code&gt;函数访问到的元素的值被&lt;code&gt;callback&lt;/code&gt;函数所改变，那么当&lt;code&gt;callback&lt;/code&gt;函数访问到它时，它的值是将是根据它在数组中的索引所访问到的当前值。被删除的元素仍旧会被访问到，但是其值已经是undefined了。&lt;/p&gt;
+&lt;h3 id=&#34;arrayfindindex&#34;&gt;Array#findIndex()&lt;/h3&gt;
+&lt;p&gt;返回数组中满足提供的测试函数的第一个元素的索引。若没有找到对应元素则返回-1。&lt;/p&gt;
+&lt;p&gt;语法：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;nx&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;findIndex&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;callback&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;thisArg&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;返回：number&lt;/p&gt;
+&lt;p&gt;与&lt;code&gt;Array#find()&lt;/code&gt;原理相同，只是返回的是元素的索引。&lt;/p&gt;
+&lt;h3 id=&#34;ii-遍历&#34;&gt;II 遍历&lt;/h3&gt;
+&lt;p&gt;以下方法都不会修改原数组。&lt;/p&gt;
+&lt;h3 id=&#34;arrayevery&#34;&gt;Array#every()&lt;/h3&gt;
+&lt;p&gt;测试一个数组内的所有元素是否都能通过某个指定函数的测试。它返回一个布尔值。&lt;/p&gt;
+&lt;p&gt;语法：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;nx&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;every&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;callback&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;thisArg&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;输出：bool&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;every&lt;/code&gt; 方法为数组中的每个元素执行一次 &lt;code&gt;callback&lt;/code&gt; 函数，直到它找到一个会使 &lt;code&gt;callback&lt;/code&gt; 返回 falsy 的元素。如果发现了一个这样的元素，&lt;code&gt;every&lt;/code&gt; 方法将会立即返回 &lt;code&gt;false&lt;/code&gt;。否则，&lt;code&gt;callback&lt;/code&gt; 为每一个元素返回 &lt;code&gt;true&lt;/code&gt;，&lt;code&gt;every&lt;/code&gt; 就会返回 &lt;code&gt;true&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;注意点&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;every&lt;/code&gt; 不会改变原数组。&lt;/p&gt;
+&lt;p&gt;若传入一个空数组，无论如何都会返回 &lt;code&gt;true&lt;/code&gt;。&lt;/p&gt;
+&lt;h3 id=&#34;arraysome&#34;&gt;Array#some()&lt;/h3&gt;
+&lt;p&gt;方法测试数组中是不是至少有1个元素通过了被提供的函数测试。&lt;/p&gt;
+&lt;p&gt;语法：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;nx&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;every&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;callback&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;element&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;index&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;array&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]])[,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;thisArg&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;输出：bool&lt;/p&gt;
+&lt;p&gt;与&lt;code&gt;Array#every()&lt;/code&gt;类似。&lt;code&gt;some()&lt;/code&gt; 为数组中的每一个元素执行一次 &lt;code&gt;callback&lt;/code&gt; 函数，直到找到一个使得 callback 返回一个“真值”（即可转换为布尔值 true 的值）。如果找到了这样一个值，&lt;code&gt;some()&lt;/code&gt; 将会立即返回 &lt;code&gt;true&lt;/code&gt;。否则，&lt;code&gt;some()&lt;/code&gt; 返回 &lt;code&gt;false&lt;/code&gt;。&lt;/p&gt;
+&lt;h3 id=&#34;arraymap&#34;&gt;Array#map()&lt;/h3&gt;
+&lt;p&gt;创建一个新数组，其结果是该数组中的每个元素是调用一次提供的函数后的返回值。&lt;/p&gt;
+&lt;p&gt;语法：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;nx&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;map&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;callback&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;thisArg&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;map&lt;/code&gt; 方法会给原数组中的每个元素都按顺序调用一次  &lt;code&gt;callback&lt;/code&gt; 函数。&lt;code&gt;callback&lt;/code&gt; 每次执行后的返回值（包括 &lt;code&gt;undefined&lt;/code&gt;）组合起来形成一个新数组。 &lt;code&gt;callback&lt;/code&gt; 函数只会在有值的索引上被调用；那些从来没被赋过值或者使用 &lt;code&gt;delete&lt;/code&gt; 删除的索引则不会被调用。&lt;/p&gt;
+&lt;h3 id=&#34;arrayfilter&#34;&gt;Array#filter()&lt;/h3&gt;
+&lt;p&gt;创建一个新数组, 其包含通过所提供函数实现的测试的所有元素。&lt;/p&gt;
+&lt;p&gt;语法：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;nx&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;filter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;callback&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;thisArg&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;返回： Array&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;filter&lt;/code&gt; 为数组中的每个元素调用一次 &lt;code&gt;callback&lt;/code&gt; 函数，并利用所有使得 &lt;code&gt;callback&lt;/code&gt; 返回 true 或等价于 true 的值的元素创建一个新数组。&lt;code&gt;callback&lt;/code&gt; 只会在已经赋值的索引上被调用，对于那些已经被删除或者从未被赋值的索引不会被调用。那些没有通过 &lt;code&gt;callback&lt;/code&gt; 测试的元素会被跳过，不会被包含在新数组中。&lt;/p&gt;
+&lt;h3 id=&#34;arrayforeach&#34;&gt;Array#forEach()&lt;/h3&gt;
+&lt;p&gt;对数组的每个元素执行一次给定的函数。&lt;/p&gt;
+&lt;p&gt;语法：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;nx&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;forEach&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;callback&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;thisArg&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;返回：无输出&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;forEach()&lt;/code&gt; 方法按升序为数组中含有效值的每一项执行一次 &lt;code&gt;callback&lt;/code&gt; 函数，那些已删除或者未初始化的项将被跳过（例如在稀疏数组上）。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;forEach()&lt;/code&gt; 被调用时，&lt;strong&gt;不会改变原数组&lt;/strong&gt;，也就是调用它的数组（尽管 &lt;code&gt;callback&lt;/code&gt; 函数在被调用时可能会改变原数组）。&lt;/p&gt;
+&lt;h3 id=&#34;arrayflat&#34;&gt;Array#flat()&lt;/h3&gt;
+&lt;p&gt;会按照一个可指定的深度递归遍历数组，并将所有元素与遍历到的子数组中的元素合并为一个新数组返回。&lt;/p&gt;
+&lt;p&gt;语法：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;nx&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;flat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;depth&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;depth&lt;/code&gt;指提取嵌套数组的结构深度，默认值为 1。&lt;/p&gt;
+&lt;p&gt;返回：Array&lt;/p&gt;
+&lt;p&gt;例子：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;kd&#34;&gt;var&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;arr1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]];&lt;/span&gt;
+&lt;span class=&#34;nx&#34;&gt;arr1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;flat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;// [1, 2, 3, 4]
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;arrayflatmap&#34;&gt;Array#flatMap()&lt;/h3&gt;
+&lt;p&gt;首先使用映射函数映射每个元素，然后将结果压缩成一个新数组。&lt;/p&gt;
+&lt;p&gt;语法：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;nx&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;flatMap&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;callback&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;thisArg&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;翻译：先使用&lt;code&gt;map()&lt;/code&gt;，再使用&lt;code&gt;flat(1)&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;返回： 一个新的数组，其中每个元素都是回调函数的结果，并且结构深度 &lt;code&gt;depth&lt;/code&gt; 值为1。&lt;/p&gt;
+&lt;p&gt;例子：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;kd&#34;&gt;var&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;arr1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;];&lt;/span&gt;
+
+&lt;span class=&#34;nx&#34;&gt;arr1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;map&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]);&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;// 这里的map对每个数操作之后会返回一个数组，意思就是每个元素都是数组
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// [[2], [4], [6], [8]]
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;nx&#34;&gt;arr1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;flatMap&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]);&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;// 先使用map()，再使用flat(1)，就会把返回的数组flat掉
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// [2, 4, 6, 8]
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;// only one level is flattened
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;arr1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;flatMap&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[[&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]]);&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;// [[2], [4], [6], [8]]
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;注意点&lt;/strong&gt;：&lt;/p&gt;
+&lt;p&gt;使用&lt;code&gt;flatMap()&lt;/code&gt;比先使用&lt;code&gt;map()&lt;/code&gt;，再使用&lt;code&gt;flat(1)&lt;/code&gt;的效率更高一些。&lt;/p&gt;
+&lt;h3 id=&#34;iii-遍历累加&#34;&gt;III 遍历（累加）&lt;/h3&gt;
+&lt;h3 id=&#34;arrayreduce&#34;&gt;Array#reduce()&lt;/h3&gt;
+&lt;p&gt;对数组中的每个元素执行一个由您提供的&lt;strong&gt;reducer&lt;/strong&gt;函数(升序执行)，将其结果汇总为单个返回值。&lt;/p&gt;
+&lt;p&gt;语法：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;nx&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;reduce&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;callback&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;accumulator&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;currentValue&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;index&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;array&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]])[,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;initialValue&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;callback&lt;/code&gt;（其实就是祖传的callback+第一个参数为累加器而已）&lt;/p&gt;
+&lt;p&gt;执行数组中每个值 (如果没有提供 &lt;code&gt;initialValue则第一个值除外&lt;/code&gt;)的函数，包含四个参数：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;accumulator&lt;/code&gt;    ：累计器累计回调的返回值; 它是上一次调用回调时返回的累积值，或&lt;code&gt;initialValue&lt;/code&gt;（见于下方）。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;currentValue&lt;/code&gt;  ：数组中正在处理的元素。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;index&lt;/code&gt; 可选  ：数组中正在处理的当前元素的索引。 如果提供了&lt;code&gt;initialValue&lt;/code&gt;，则起始索引号为0，否则从索引1起始。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;array&lt;/code&gt;可选  ：调用&lt;code&gt;reduce()&lt;/code&gt;的数组。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;initialValue&lt;/code&gt;可选&lt;/p&gt;
+&lt;p&gt;作为第一次调用 &lt;code&gt;callback&lt;/code&gt;函数时的第一个参数的值。 如果没有提供初始值，则将使用数组中的第一个元素。 在没有初始值的空数组上调用 reduce 将报错。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;翻译：初始值取为&lt;code&gt;initialValue&lt;/code&gt;或者数组第一个值（&lt;code&gt;initialValue&lt;/code&gt;未指定），然后每次进行callback的函数运算，回调函数的return值就是下一次的&lt;code&gt;accumulator&lt;/code&gt;值（意味着第一个&lt;code&gt;accumulator&lt;/code&gt;值就是&lt;code&gt;initialValue&lt;/code&gt;或第一个数）。&lt;/p&gt;
+&lt;p&gt;返回：函数累计处理的结果。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;reduce&lt;/code&gt;为数组中的每一个元素依次执行&lt;code&gt;callback&lt;/code&gt;函数，返回最后的&lt;code&gt;accumulator&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;注意点&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;在空数组上调用 &lt;code&gt;reduce&lt;/code&gt; 或 &lt;code&gt;reduceRight&lt;/code&gt; 且未提供初始值（例如 &lt;code&gt;[].reduce( (acc, cur, idx, arr) =&amp;gt; {} )&lt;/code&gt; ）的话，会导致类型错误。&lt;/p&gt;
+&lt;h3 id=&#34;arrayreduceright&#34;&gt;Array#reduceRight()&lt;/h3&gt;
+&lt;p&gt;法接受一个函数作为累加器（accumulator）和数组的每个值（从右到左）将其减少为单个值。&lt;/p&gt;
+&lt;p&gt;与&lt;code&gt;Array#reduce()&lt;/code&gt;类似，只不过方向是从右到左。&lt;/p&gt;
+&lt;h3 id=&#34;iv-修改&#34;&gt;IV 修改&lt;/h3&gt;
+&lt;p&gt;以下方法&lt;strong&gt;会&lt;/strong&gt;修改原数组。&lt;/p&gt;
+&lt;h3 id=&#34;arraypop&#34;&gt;Array#pop()&lt;/h3&gt;
+&lt;p&gt;从数组中删除最后一个元素，并返回该元素的值。此方法更改数组的长度。&lt;/p&gt;
+&lt;p&gt;语法：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;nx&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;pop&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;返回：最后一个元素的值&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;注意点&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;pop&lt;/code&gt; 方法有意具有通用性。&lt;/p&gt;
+&lt;p&gt;如果在一个空数组上调用 pop()，它返回  &lt;code&gt;undefined&lt;/code&gt;。&lt;/p&gt;
+&lt;h3 id=&#34;arraypush&#34;&gt;Array#push()&lt;/h3&gt;
+&lt;p&gt;方法将一个或多个元素添加到数组的末尾，并返回该数组的新长度。&lt;/p&gt;
+&lt;p&gt;语法：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;nx&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;push&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;element1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;...,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;elementN&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;返回：新的length，类型为number。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;注意点&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;pop&lt;/code&gt; 方法有意具有通用性。&lt;/p&gt;
+&lt;h3 id=&#34;arrayshift&#34;&gt;Array#shift()&lt;/h3&gt;
+&lt;p&gt;从数组中删除&lt;strong&gt;第一个&lt;/strong&gt;元素，并返回该元素的值。此方法更改数组的长度。&lt;/p&gt;
+&lt;p&gt;语法：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;nx&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;shift&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;返回：第一个元素的值&lt;/p&gt;
+&lt;p&gt;与&lt;code&gt;Array#pop()&lt;/code&gt;类似。&lt;/p&gt;
+&lt;h3 id=&#34;arrayunshift&#34;&gt;Array#unshift()&lt;/h3&gt;
+&lt;p&gt;将一个或多个元素添加到数组的&lt;strong&gt;开头&lt;/strong&gt;，并返回该数组的&lt;strong&gt;新长度&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;语法：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;nx&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;unshift&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;element1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;...,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;elementN&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;返回：新的length，类型为number。&lt;/p&gt;
+&lt;p&gt;与&lt;code&gt;Array#push()&lt;/code&gt;类似。&lt;/p&gt;
+&lt;h3 id=&#34;arraysort&#34;&gt;Array#sort()&lt;/h3&gt;
+&lt;p&gt;用原地算法对数组的元素进行排序，并返回数组。&lt;/p&gt;
+&lt;p&gt;语法：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;nx&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;sort&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;compareFunction&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;firstEl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;secondEl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)])&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;compareFunction&lt;/code&gt; 可选&lt;/p&gt;
+&lt;p&gt;用来指定按某种顺序进行排列的函数。如果省略，元素按照转换为的字符串的各个字符的Unicode位点进行排序。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;firstEl&lt;/code&gt;  第一个用于比较的元素。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;secondEl&lt;/code&gt;  第二个用于比较的元素。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;返回：排序后的数组。请注意，数组已原地排序，并且不进行复制。&lt;/p&gt;
+&lt;p&gt;如果指明了 &lt;code&gt;compareFunction&lt;/code&gt; ，那么数组会按照调用该函数的返回值排序。即 a 和 b 是两个将要被比较的元素：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;如果 &lt;code&gt;compareFunction(a, b)&lt;/code&gt; 小于 0 ，那么 a 会被排列到 b 之前；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;如果 &lt;code&gt;compareFunction(a, b)&lt;/code&gt; 等于 0 ， a 和 b 的相对位置不变。备注： ECMAScript 标准并不保证这一行为，而且也不是所有浏览器都会遵守（例如 Mozilla 在 2003 年之前的版本）；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;如果 &lt;code&gt;compareFunction(a, b)&lt;/code&gt; 大于 0 ， b 会被排列到 a 之前。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;compareFunction(a, b)&lt;/code&gt; 必须总是对相同的输入返回相同的比较结果，否则排序的结果将是不确定的。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;arrayfill&#34;&gt;Array#fill()&lt;/h3&gt;
+&lt;p&gt;语法：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;nx&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;fill&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;start&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;end&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]])&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;value&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;用来填充数组元素的值。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;start&lt;/code&gt; 可选&lt;/p&gt;
+&lt;p&gt;起始索引，默认值为0。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;end&lt;/code&gt; 可选&lt;/p&gt;
+&lt;p&gt;终止索引，默认值为 &lt;code&gt;this.length&lt;/code&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;返回：Array&lt;/p&gt;
+&lt;p&gt;例子：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;kd&#34;&gt;var&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;arr&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;span class=&#34;nx&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;fill&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// [4,4,4]
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;console&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;log&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// [4,4,4]
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;fill&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// [2,4,4]
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;console&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;log&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// [2,4,4]
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;kd&#34;&gt;var&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;arr&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;Array&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;fill&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;({})&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// [{}, {}, {}];
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// 需要注意如果fill的参数为引用类型，会导致都执行都一个引用类型
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;].&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;hi&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;hi&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// [{ hi: &amp;#34;hi&amp;#34; }, { hi: &amp;#34;hi&amp;#34; }, { hi: &amp;#34;hi&amp;#34; }]
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;注意点&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;会修改原数组。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;fill&lt;/code&gt; 方法故意被设计成通用方法, 该方法不要求 &lt;code&gt;this&lt;/code&gt; 是数组对象。&lt;/p&gt;
+&lt;p&gt;如果使用&lt;code&gt;arr.fill({})&lt;/code&gt;，传入的是引用类型。&lt;/p&gt;
+&lt;h3 id=&#34;arraycopywithin&#34;&gt;Array#copyWithin()&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;浅复制&lt;/strong&gt;数组的一部分到同一数组中的另一个位置，并返回它，不会改变原数组的长度。&lt;/p&gt;
+&lt;p&gt;语法：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;nx&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;copyWithin&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;target&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;start&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;end&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]])&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;target&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;0 为基底的索引，复制序列到该位置。如果是负数，&lt;code&gt;target&lt;/code&gt; 将从末尾开始计算。&lt;/p&gt;
+&lt;p&gt;如果 &lt;code&gt;target&lt;/code&gt; 大于等于 &lt;code&gt;arr.length&lt;/code&gt;，将会不发生拷贝。如果 &lt;code&gt;target&lt;/code&gt; 在 &lt;code&gt;start&lt;/code&gt; 之后，复制的序列将被修改以符合 &lt;code&gt;arr.length&lt;/code&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;start&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;0 为基底的索引，开始复制元素的起始位置。如果是负数，&lt;code&gt;start&lt;/code&gt; 将从末尾开始计算。&lt;/p&gt;
+&lt;p&gt;如果 &lt;code&gt;start&lt;/code&gt; 被忽略，&lt;code&gt;copyWithin&lt;/code&gt; 将会从0开始复制。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;end&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;0 为基底的索引，开始复制元素的结束位置。&lt;code&gt;copyWithin&lt;/code&gt; 将会拷贝到该位置，但不包括 &lt;code&gt;end&lt;/code&gt; 这个位置的元素。如果是负数， &lt;code&gt;end&lt;/code&gt; 将从末尾开始计算。&lt;/p&gt;
+&lt;p&gt;如果 &lt;code&gt;end&lt;/code&gt; 被忽略，&lt;code&gt;copyWithin&lt;/code&gt; 方法将会一直复制至数组结尾（默认为 &lt;code&gt;arr.length&lt;/code&gt;）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;返回：Array，改变后的数组。&lt;/p&gt;
+&lt;p&gt;若超过长度而复制未完成，就会截止（不改变原数组长度）。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;copyWithin&lt;/code&gt; 函数被设计为通用式的，其不要求其 &lt;code&gt;this&lt;/code&gt; 值必须是一个Array对象。&lt;/p&gt;
+&lt;h3 id=&#34;arraysplice&#34;&gt;Array#splice()&lt;/h3&gt;
+&lt;p&gt;通过删除或替换现有元素或者原地添加新的元素来修改数组,并以数组形式返回被修改的内容。此方法会改变原数组。&lt;/p&gt;
+&lt;p&gt;语法：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;nx&#34;&gt;array&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;splice&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;start&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;deleteCount&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;item1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;item2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[,&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;...]]]])&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;start&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;指定修改的开始位置（从0计数）。如果超出了数组的长度，则从数组末尾开始添加内容；如果是负值，则表示从数组末位开始的第几位（从-1计数，这意味着-n是倒数第n个元素并且等价于&lt;code&gt;array.length-n&lt;/code&gt;）；如果负数的绝对值大于数组的长度，则表示开始位置为第0位。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;deleteCount&lt;/code&gt; 可选&lt;/p&gt;
+&lt;p&gt;整数，表示要移除的数组元素的个数。&lt;/p&gt;
+&lt;p&gt;如果 &lt;code&gt;deleteCount&lt;/code&gt; 大于 &lt;code&gt;start&lt;/code&gt; 之后的元素的总数，则从 &lt;code&gt;start&lt;/code&gt; 后面的元素都将被删除（含第 &lt;code&gt;start&lt;/code&gt; 位）。&lt;/p&gt;
+&lt;p&gt;如果 &lt;code&gt;deleteCount&lt;/code&gt; 被省略了，或者它的值大于等于&lt;code&gt;array.length - start&lt;/code&gt;(也就是说，如果它大于或者等于&lt;code&gt;start&lt;/code&gt;之后的所有元素的数量)，那么&lt;code&gt;start&lt;/code&gt;之后数组的所有元素都会被删除。&lt;/p&gt;
+&lt;p&gt;如果 &lt;code&gt;deleteCount&lt;/code&gt; 是 0 或者负数，则不移除元素。这种情况下，至少应添加一个新元素。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;item1, item2, ...&lt;/code&gt; 可选&lt;/p&gt;
+&lt;p&gt;要添加进数组的元素,从&lt;code&gt;start&lt;/code&gt; 位置开始。如果不指定，则 &lt;code&gt;splice()&lt;/code&gt; 将只删除数组元素。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;翻译：从&lt;code&gt;start&lt;/code&gt;位置往后数&lt;code&gt;deleteCount&lt;/code&gt;个元素都会被删除，并填入&lt;code&gt;item1, item2, ...&lt;/code&gt;元素。&lt;/p&gt;
+&lt;p&gt;返回：由被删除的元素组成的一个数组。如果只删除了一个元素，则返回只包含一个元素的数组。如果没有删除元素，则返回空数组。&lt;/p&gt;
+&lt;h3 id=&#34;v-打印输出&#34;&gt;V 打印/输出&lt;/h3&gt;
+&lt;p&gt;以下方法都不会修改原数组。&lt;/p&gt;
+&lt;h3 id=&#34;arrayjoin&#34;&gt;Array#join()&lt;/h3&gt;
+&lt;p&gt;将一个数组（或一个类数组对象）的所有元素连接成一个字符串并返回这个字符串。&lt;/p&gt;
+&lt;p&gt;语法：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;nx&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;join&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;separator&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;separator&lt;/code&gt;：若不选此参数，则分隔符为&lt;code&gt;,&lt;/code&gt;，常用的如空字符串&lt;code&gt;&amp;quot;&amp;quot;&lt;/code&gt;，则所有元素之间都没有任何字符。&lt;/p&gt;
+&lt;p&gt;返回：String&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;注意点&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;如果一个元素为 &lt;code&gt;undefined&lt;/code&gt; 或 &lt;code&gt;null&lt;/code&gt;，它会被转换为空字符串。&lt;/p&gt;
+&lt;h3 id=&#34;arrayslice&#34;&gt;Array#slice()&lt;/h3&gt;
+&lt;p&gt;返回一个新的数组对象，这一对象是一个由 &lt;code&gt;begin&lt;/code&gt; 和 &lt;code&gt;end&lt;/code&gt; 决定的原数组的&lt;strong&gt;浅拷贝&lt;/strong&gt;（包括 &lt;code&gt;begin&lt;/code&gt;，不包括&lt;code&gt;end&lt;/code&gt;）。原始数组不会被改变。&lt;/p&gt;
+&lt;p&gt;语法：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;nx&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;slice&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;begin&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;end&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]])&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;返回：Array, 原数组一部分的浅拷贝&lt;/p&gt;
+&lt;p&gt;对于引用元素是浅拷贝，对于原生类型是复制。&lt;/p&gt;
+&lt;h3 id=&#34;arrayreverse&#34;&gt;Array#reverse()&lt;/h3&gt;
+&lt;p&gt;将数组中元素的位置颠倒，并返回该数组。&lt;/p&gt;
+&lt;p&gt;语法：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt; &lt;span class=&#34;nx&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;reverse&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;返回：Array, 颠倒的数组&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;注意点&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;reverse方法是特意类化的；此方法可被应用于类似数组对象。对象如果不包含反映一系列连续的、基于零的数值属性中的最后一个长度的属性，则该对象可能不会以任何有意义的方式运行。&lt;/p&gt;
+&lt;h3 id=&#34;arrayconcat&#34;&gt;Array#concat()&lt;/h3&gt;
+&lt;p&gt;用于合并两个或多个数组。此方法&lt;strong&gt;不会&lt;/strong&gt;更改现有数组，而是返回一个新数组。&lt;/p&gt;
+&lt;p&gt;语法：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;nx&#34;&gt;old_array&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;concat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;value1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;value2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[,&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;...[,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;valueN&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]]])&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;valueN&lt;/code&gt;：数组和/或值。&lt;/p&gt;
+&lt;p&gt;如果省略了所有 &lt;code&gt;valueN&lt;/code&gt; 参数，则 &lt;code&gt;concat&lt;/code&gt; 会返回调用此方法的现存数组的一个浅拷贝。&lt;/p&gt;
+&lt;p&gt;返回：Array, 合并的新数组&lt;/p&gt;
+&lt;h3 id=&#34;arraytostring&#34;&gt;Array#toString()&lt;/h3&gt;
+&lt;h3 id=&#34;arraytolocalestring&#34;&gt;Array#toLocaleString()&lt;/h3&gt;
+&lt;p&gt;返回一个字符串，表示指定的数组及其元素。&lt;/p&gt;
+&lt;p&gt;数组中的对象将使用各自的&lt;code&gt;Object#toString()&lt;/code&gt;和&lt;code&gt;Object#toLocaleString()&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;vi-迭代器&#34;&gt;VI 迭代器&lt;/h3&gt;
+&lt;p&gt;可以用于es6中新的迭代器语法。如&lt;code&gt;for of&lt;/code&gt;、&lt;code&gt;.next()&lt;/code&gt;方法等。&lt;/p&gt;
+&lt;h3 id=&#34;arrayentries&#34;&gt;Array#entries()&lt;/h3&gt;
+&lt;p&gt;返回一个新的&lt;strong&gt;Array Iterator&lt;/strong&gt;对象，该对象包含数组中每个索引的键/值对。&lt;/p&gt;
+&lt;p&gt;例子：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;array1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;a&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;b&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;c&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;];&lt;/span&gt;
+
+&lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;iterator1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;array1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;entries&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+
+&lt;span class=&#34;nx&#34;&gt;console&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;log&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;iterator1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;next&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;().&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;// expected output: Array [0, &amp;#34;a&amp;#34;]
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;nx&#34;&gt;console&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;log&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;iterator1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;next&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;().&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;// expected output: Array [1, &amp;#34;b&amp;#34;]
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;arraykeys&#34;&gt;Array#keys()&lt;/h3&gt;
+&lt;p&gt;返回一个包含数组中每个索引键的Array Iterator对象。&lt;/p&gt;
+&lt;h3 id=&#34;arrayvalues&#34;&gt;Array#values()&lt;/h3&gt;
+&lt;p&gt;返回一个包含数组中每个值的Array Iterator对象。&lt;/p&gt;
+&lt;h3 id=&#34;arrayiterator&#34;&gt;Array#[@@iterator]()&lt;/h3&gt;
+&lt;p&gt;数组的 iterator 方法，默认情况下，与 &lt;code&gt;values()&lt;/code&gt;返回值相同&lt;/p&gt;
+&lt;p&gt;语法：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;nx&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;Symbol&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;iterator&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;vii-实验性功能&#34;&gt;VII 实验性功能&lt;/h3&gt;
+&lt;h3 id=&#34;arrayat&#34;&gt;Array#at()&lt;/h3&gt;
+&lt;p&gt;支持正数和&lt;strong&gt;负数&lt;/strong&gt;的索引取值。
+语法：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;nx&#34;&gt;at&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;index&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;返回：相对应的值。
+例子：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;kd&#34;&gt;var&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;arr&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;span class=&#34;nx&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// undefined, js不支持负数索引
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;length&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// 4
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;slice&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// 4
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;at&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// 4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+        </item>
+        <item>
         <title>Js原生方法</title>
         <link>https://mizarzh.github.io/p/2021/11/js%E5%8E%9F%E7%94%9F%E6%96%B9%E6%B3%95/</link>
         <pubDate>Wed, 10 Nov 2021 19:49:42 +0800</pubDate>
@@ -328,6 +700,9 @@
 &lt;p&gt;简单值（即标量基本类型值，scalar primitive）总是通过值复制的方式来赋值 / 传递，包括 null、undefined、字符串、数字、布尔和 ES6 中的 symbol。标量基本类型值是不可更改的（字符串和布尔也是如此）。&lt;/p&gt;
 &lt;p&gt;而复合值（compound value）——对象（包括数组和封装对象，参见第 3 章）和函数，则总是通过引用复制的方式来赋值 / 传递。&lt;/p&gt;
 &lt;p&gt;即简单值表现为值，复合值表现为引用。&lt;/p&gt;
+&lt;h2 id=&#34;4-更多的内置对象&#34;&gt;4 更多的内置对象&lt;/h2&gt;
+&lt;p&gt;见&lt;a class=&#34;link&#34; href=&#34;https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;JavaScript 标准内置对象&lt;/a&gt;。&lt;/p&gt;
 </description>
         </item>
         <item>
