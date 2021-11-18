@@ -6,7 +6,16 @@
     <description>Recent content in 前端 on MizarZ&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 10 Nov 2021 22:10:09 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/tags/%E5%89%8D%E7%AB%AF/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 13 Nov 2021 18:14:10 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/tags/%E5%89%8D%E7%AB%AF/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Object方法</title>
+      <link>https://mizarzh.github.io/p/2021/11/object%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Sat, 13 Nov 2021 18:14:10 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2021/11/object%E6%96%B9%E6%B3%95/</guid>
+      <description>通用 1、对于属性描述符的介绍见MDN 属性描述符 构造函数 // 对象初始化器（Object initialiser）或对象字面量（literal） { [</description>
+    </item>
+    
     <item>
       <title>Array方法</title>
       <link>https://mizarzh.github.io/p/2021/11/array%E6%96%B9%E6%B3%95/</link>
