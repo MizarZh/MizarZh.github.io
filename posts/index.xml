@@ -6,7 +6,16 @@
     <description>Recent content in Posts on MizarZ&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 13 Nov 2021 18:14:10 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 21 Nov 2021 00:19:05 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rust杂碎笔记</title>
+      <link>https://mizarzh.github.io/p/2021/11/rust%E6%9D%82%E7%A2%8E%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Sun, 21 Nov 2021 00:19:05 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2021/11/rust%E6%9D%82%E7%A2%8E%E7%AC%94%E8%AE%B0/</guid>
+      <description>rust初体验&amp;amp;一些易忘原则/语句 1、函数不用生命周期注解的条件： 第一条规则是每一个是引用的参数都有它自己的生命周期参数。换句话说就</description>
+    </item>
+    
     <item>
       <title>Object方法</title>
       <link>https://mizarzh.github.io/p/2021/11/object%E6%96%B9%E6%B3%95/</link>
