@@ -108,7 +108,17 @@
 </header>
 
     <section class="article-content">
-    <p>这一节可能有点复杂，只要了解上一节各种量可以对应这一节的量，以及了解数学结构即可。</p>
+    <p>$$
+\def\un{\mathrm}
+\def\dd{\mathrm d}
+\def\par{\partial}
+\def\bl{\boldsymbol}
+\def\mbf{\mathbf}
+\newcommand{\bk}[2]{\left \langle #1  | #2  \right \rangle}
+\newcommand{\bok}[3]{\bra{#1}#2\ket{#3}}
+\def\nl{\newline}
+$$</p>
+<p>这一节可能有点复杂，只要了解上一节各种量可以对应这一节的量，以及了解数学结构即可。</p>
 <h1 id="b-态空间dirac-符号">B 态空间；Dirac 符号</h1>
 <h2 id="1-引言">1 引言</h2>
 <p>通过上一节的讨论，我们发现有许多量的结构是类似的。</p>
@@ -190,7 +200,7 @@ $$</p>
 <h4 id="i-对于每一个右矢ketvarphi都存在一个左矢bravarphi对应">I 对于每一个右矢$\ket{\varphi}$，都存在一个左矢$\bra\varphi$对应。</h4>
 <p>两个矢量的标量积：</p>
 <p>$$
-\bra\varphi\ket{\psi}=(\ket\varphi,\ket\psi)
+\bk{\varphi}{\psi}=(\ket\varphi,\ket\psi)
 $$</p>
 <h4 id="ii-标量积对于第一个矢量是反线性的内积的定义">II 标量积对于第一个矢量是反线性的（内积的定义）。</h4>
 <p>而映射也相应的是反线性的：</p>
@@ -199,8 +209,10 @@ $$</p>
 $$</p>
 <p>简单来说：</p>
 <p>$$
-\ket{\lambda\psi}=\lambda\ket{\psi}\<br>
-\bra{\lambda\psi}=\lambda^*\bra{\psi}\<br>
+\begin{eqnarray}
+&amp;\ket{\lambda\psi}=\lambda\ket{\psi}\nl
+&amp;\bra{\lambda\psi}=\lambda^*\bra{\psi}\nl
+\end{eqnarray}
 $$</p>
 <h4 id="iii-标量积的狄拉克符号">III 标量积的狄拉克符号</h4>
 <p>以后以后只用$\bra\varphi\ket{\psi}$着一种符号</p>
@@ -244,7 +256,7 @@ $$</p>
 $$</p>
 <p>若取任意一个右矢，使用投影算符进行运算：</p>
 <p>$$
-\ket\psi \bra\varphi\ket{\chi}
+\bk{\psi}{\varphi}\ket{\chi}
 $$</p>
 <p>可以得到一个右矢，因此证明这是一个算符。</p>
 <p>我们可以见到，<strong>符号的先后顺序是十分有意义的</strong>。一个数可以随意移动，但算符和左右矢的位置不能移动。</p>
@@ -254,7 +266,7 @@ P_\psi=\ket\psi \bra\psi
 $$</p>
 <p>将其作用到任意一个右矢上：</p>
 <p>$$
-P_\psi=\ket\psi \bra\psi\ket{\varphi}
+P_\psi=\ket\psi \bk{\psi}{\varphi}
 $$</p>
 <p>可以清晰的知道他的几何意义：在右矢$\ket\psi$上进行垂直投影。</p>
 <p>一些性质：</p>
@@ -268,7 +280,7 @@ $$</p>
 <h2 id="4hermite-共轭">4、Hermite 共轭</h2>
 <h3 id="a-线性算符也能对左矢进行作用">a. 线性算符也能对左矢进行作用</h3>
 <p>$$
-\bra\varphi(A\ket\psi)=(\bra\varphi A)\ket\psi=\bra\varphi A\ket\psi
+\bra\varphi(A\ket\psi)=(\bra\varphi A)\ket\psi=\bok{\varphi}{A}{\psi}
 $$</p>
 <p>因此$\bra\varphi A$是一个左矢。易验证也符合线性组合。</p>
 <p><strong>顺序十分重要</strong>。$\bra\varphi A$是一个左矢，而$A \bra\varphi$是一个算符。</p>
@@ -304,12 +316,12 @@ $$</p>
 <p><strong>一些符号标注的问题</strong>：$\ket{A\psi}=A\ket\psi$，而$\bra{A\psi}=\bra\psi A^\dagger$</p>
 <h3 id="c-伴随算符易证性质">c. 伴随算符易证性质</h3>
 <p>$$
-\begin{array}{c}
-\left(A^{\dagger}\right)^{\dagger}=A \<br>
-(\lambda A)^{\dagger}=\lambda^{*} A^{\dagger}(\lambda \text { 是一个数 }) \<br>
-(A+B)^{\dagger}=A^{\dagger}+B^{\dagger}\<br>
-(AB)^\dagger=B^\dagger A^\dagger
-\end{array}
+\begin{eqnarray}
+&amp;\left(A^{\dagger}\right)^{\dagger}=A \nl
+&amp;(\lambda A)^{\dagger}=\lambda^{*} A^{\dagger}(\lambda \text { 是一个数 }) \nl
+&amp;(A+B)^{\dagger}=A^{\dagger}+B^{\dagger}\nl
+&amp;(AB)^\dagger=B^\dagger A^\dagger
+\end{eqnarray}
 $$</p>
 <h3 id="d-dirac-符号的-hermite-共轭">d. Dirac 符号的 Hermite 共轭</h3>
 <p>简单的例子：</p>
@@ -344,9 +356,11 @@ $$</p>
 <p>那么这个算符就是 Hermite 算符。</p>
 <p>一些性质：</p>
 <p>$$
-\bra\psi A \ket\varphi=\bra\varphi A \ket \psi^*\<br>
-P_\psi^\dagger=P_\psi\<br>
-[A,B] = 0 \Rightarrow\text{(AB)为厄米算符}
+\begin{eqnarray}
+&amp;\bra\psi A \ket\varphi=\bra\varphi A \ket \psi^*\nl
+&amp;P_\psi^\dagger=P_\psi\nl
+&amp;[A,B] = 0 \Rightarrow\text{(AB)为厄米算符}
+\end{eqnarray}
 $$</p>
 <h2 id="comment">Comment</h2>
 <p>这一节将上一节的运算更加抽象了一层，但适用的范围也更加广泛了。这张主要是定义了态空间的数学结构（希尔伯特空间的子集）和一些运算。下一节将找到$\scr F$空间和$\scr E$空间两个之间的关系。</p>
@@ -435,9 +449,11 @@ $$</p>
         Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
         Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener"
                 data-version="3.4.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+
         
+
     </section>
-    
+
 </footer>
 
     

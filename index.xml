@@ -12,7 +12,17 @@
         <pubDate>Wed, 24 Nov 2021 12:19:32 +0800</pubDate>
         
         <guid>https://mizarzh.github.io/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-b-part/</guid>
-        <description>&lt;p&gt;这一节可能有点复杂，只要了解上一节各种量可以对应这一节的量，以及了解数学结构即可。&lt;/p&gt;
+        <description>&lt;p&gt;$$
+\def\un{\mathrm}
+\def\dd{\mathrm d}
+\def\par{\partial}
+\def\bl{\boldsymbol}
+\def\mbf{\mathbf}
+\newcommand{\bk}[2]{\left \langle #1  | #2  \right \rangle}
+\newcommand{\bok}[3]{\bra{#1}#2\ket{#3}}
+\def\nl{\newline}
+$$&lt;/p&gt;
+&lt;p&gt;这一节可能有点复杂，只要了解上一节各种量可以对应这一节的量，以及了解数学结构即可。&lt;/p&gt;
 &lt;h1 id=&#34;b-态空间dirac-符号&#34;&gt;B 态空间；Dirac 符号&lt;/h1&gt;
 &lt;h2 id=&#34;1-引言&#34;&gt;1 引言&lt;/h2&gt;
 &lt;p&gt;通过上一节的讨论，我们发现有许多量的结构是类似的。&lt;/p&gt;
@@ -94,7 +104,7 @@ $$&lt;/p&gt;
 &lt;h4 id=&#34;i-对于每一个右矢ketvarphi都存在一个左矢bravarphi对应&#34;&gt;I 对于每一个右矢$\ket{\varphi}$，都存在一个左矢$\bra\varphi$对应。&lt;/h4&gt;
 &lt;p&gt;两个矢量的标量积：&lt;/p&gt;
 &lt;p&gt;$$
-\bra\varphi\ket{\psi}=(\ket\varphi,\ket\psi)
+\bk{\varphi}{\psi}=(\ket\varphi,\ket\psi)
 $$&lt;/p&gt;
 &lt;h4 id=&#34;ii-标量积对于第一个矢量是反线性的内积的定义&#34;&gt;II 标量积对于第一个矢量是反线性的（内积的定义）。&lt;/h4&gt;
 &lt;p&gt;而映射也相应的是反线性的：&lt;/p&gt;
@@ -103,8 +113,10 @@ $$&lt;/p&gt;
 $$&lt;/p&gt;
 &lt;p&gt;简单来说：&lt;/p&gt;
 &lt;p&gt;$$
-\ket{\lambda\psi}=\lambda\ket{\psi}\&lt;br&gt;
-\bra{\lambda\psi}=\lambda^*\bra{\psi}\&lt;br&gt;
+\begin{eqnarray}
+&amp;amp;\ket{\lambda\psi}=\lambda\ket{\psi}\nl
+&amp;amp;\bra{\lambda\psi}=\lambda^*\bra{\psi}\nl
+\end{eqnarray}
 $$&lt;/p&gt;
 &lt;h4 id=&#34;iii-标量积的狄拉克符号&#34;&gt;III 标量积的狄拉克符号&lt;/h4&gt;
 &lt;p&gt;以后以后只用$\bra\varphi\ket{\psi}$着一种符号&lt;/p&gt;
@@ -148,7 +160,7 @@ $$&lt;/p&gt;
 $$&lt;/p&gt;
 &lt;p&gt;若取任意一个右矢，使用投影算符进行运算：&lt;/p&gt;
 &lt;p&gt;$$
-\ket\psi \bra\varphi\ket{\chi}
+\bk{\psi}{\varphi}\ket{\chi}
 $$&lt;/p&gt;
 &lt;p&gt;可以得到一个右矢，因此证明这是一个算符。&lt;/p&gt;
 &lt;p&gt;我们可以见到，&lt;strong&gt;符号的先后顺序是十分有意义的&lt;/strong&gt;。一个数可以随意移动，但算符和左右矢的位置不能移动。&lt;/p&gt;
@@ -158,7 +170,7 @@ P_\psi=\ket\psi \bra\psi
 $$&lt;/p&gt;
 &lt;p&gt;将其作用到任意一个右矢上：&lt;/p&gt;
 &lt;p&gt;$$
-P_\psi=\ket\psi \bra\psi\ket{\varphi}
+P_\psi=\ket\psi \bk{\psi}{\varphi}
 $$&lt;/p&gt;
 &lt;p&gt;可以清晰的知道他的几何意义：在右矢$\ket\psi$上进行垂直投影。&lt;/p&gt;
 &lt;p&gt;一些性质：&lt;/p&gt;
@@ -172,7 +184,7 @@ $$&lt;/p&gt;
 &lt;h2 id=&#34;4hermite-共轭&#34;&gt;4、Hermite 共轭&lt;/h2&gt;
 &lt;h3 id=&#34;a-线性算符也能对左矢进行作用&#34;&gt;a. 线性算符也能对左矢进行作用&lt;/h3&gt;
 &lt;p&gt;$$
-\bra\varphi(A\ket\psi)=(\bra\varphi A)\ket\psi=\bra\varphi A\ket\psi
+\bra\varphi(A\ket\psi)=(\bra\varphi A)\ket\psi=\bok{\varphi}{A}{\psi}
 $$&lt;/p&gt;
 &lt;p&gt;因此$\bra\varphi A$是一个左矢。易验证也符合线性组合。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;顺序十分重要&lt;/strong&gt;。$\bra\varphi A$是一个左矢，而$A \bra\varphi$是一个算符。&lt;/p&gt;
@@ -208,12 +220,12 @@ $$&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;一些符号标注的问题&lt;/strong&gt;：$\ket{A\psi}=A\ket\psi$，而$\bra{A\psi}=\bra\psi A^\dagger$&lt;/p&gt;
 &lt;h3 id=&#34;c-伴随算符易证性质&#34;&gt;c. 伴随算符易证性质&lt;/h3&gt;
 &lt;p&gt;$$
-\begin{array}{c}
-\left(A^{\dagger}\right)^{\dagger}=A \&lt;br&gt;
-(\lambda A)^{\dagger}=\lambda^{*} A^{\dagger}(\lambda \text { 是一个数 }) \&lt;br&gt;
-(A+B)^{\dagger}=A^{\dagger}+B^{\dagger}\&lt;br&gt;
-(AB)^\dagger=B^\dagger A^\dagger
-\end{array}
+\begin{eqnarray}
+&amp;amp;\left(A^{\dagger}\right)^{\dagger}=A \nl
+&amp;amp;(\lambda A)^{\dagger}=\lambda^{*} A^{\dagger}(\lambda \text { 是一个数 }) \nl
+&amp;amp;(A+B)^{\dagger}=A^{\dagger}+B^{\dagger}\nl
+&amp;amp;(AB)^\dagger=B^\dagger A^\dagger
+\end{eqnarray}
 $$&lt;/p&gt;
 &lt;h3 id=&#34;d-dirac-符号的-hermite-共轭&#34;&gt;d. Dirac 符号的 Hermite 共轭&lt;/h3&gt;
 &lt;p&gt;简单的例子：&lt;/p&gt;
@@ -248,9 +260,11 @@ $$&lt;/p&gt;
 &lt;p&gt;那么这个算符就是 Hermite 算符。&lt;/p&gt;
 &lt;p&gt;一些性质：&lt;/p&gt;
 &lt;p&gt;$$
-\bra\psi A \ket\varphi=\bra\varphi A \ket \psi^*\&lt;br&gt;
-P_\psi^\dagger=P_\psi\&lt;br&gt;
-[A,B] = 0 \Rightarrow\text{(AB)为厄米算符}
+\begin{eqnarray}
+&amp;amp;\bra\psi A \ket\varphi=\bra\varphi A \ket \psi^*\nl
+&amp;amp;P_\psi^\dagger=P_\psi\nl
+&amp;amp;[A,B] = 0 \Rightarrow\text{(AB)为厄米算符}
+\end{eqnarray}
 $$&lt;/p&gt;
 &lt;h2 id=&#34;comment&#34;&gt;Comment&lt;/h2&gt;
 &lt;p&gt;这一节将上一节的运算更加抽象了一层，但适用的范围也更加广泛了。这张主要是定义了态空间的数学结构（希尔伯特空间的子集）和一些运算。下一节将找到$\scr F$空间和$\scr E$空间两个之间的关系。&lt;/p&gt;
@@ -263,19 +277,20 @@ $$&lt;/p&gt;
         
         <guid>https://mizarzh.github.io/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-a-part/</guid>
         <description>&lt;p&gt;$$
-\def\bf{\mathbf}
 \def\un{\mathrm}
 \def\dd{\mathrm d}
-\def\cal{\mathcal}
 \def\par{\partial}
 \def\bl{\boldsymbol}
-\def\scr{\mathscr}
+\def\mbf{\mathbf}
+\newcommand{\bk}[2]{\left \langle #1  | #2  \right \rangle}
+\newcommand{\bok}[3]{\bra{#1}#2\ket{#3}}
+\def\nl{\newline}
 $$&lt;/p&gt;
 &lt;p&gt;本篇非常重要！为后面的所有运算都打下了基础。&lt;/p&gt;
 &lt;h1 id=&#34;a-一个粒子的波函数空间&#34;&gt;A 一个粒子的波函数空间&lt;/h1&gt;
 &lt;p&gt;在整个空间中找到粒子的概率是 1，因此：&lt;/p&gt;
 &lt;p&gt;$$
-\int\dd^3 r|\psi(\bf r,t^2)| = 1
+\int\dd^3 r|\psi(\mbf r,t^2)| = 1
 $$&lt;/p&gt;
 &lt;p&gt;我们必须研究平方可积函数。&lt;/p&gt;
 &lt;h2 id=&#34;1波函数空间scr-f的结构&#34;&gt;1、波函数空间$\scr F$的结构&lt;/h2&gt;
@@ -293,21 +308,21 @@ $$&lt;/p&gt;
 &lt;h3 id=&#34;b-标量积&#34;&gt;b. 标量积&lt;/h3&gt;
 &lt;p&gt;I 定义：&lt;/p&gt;
 &lt;p&gt;$$
-(\varphi, \psi)=\int\dd^3 r \varphi^*(\bf r)\psi(\bf r)
+(\varphi, \psi)=\int\dd^3 r \varphi^*(\mbf r)\psi(\mbf r)
 $$&lt;/p&gt;
 &lt;p&gt;II 性质：&lt;/p&gt;
 &lt;p&gt;$$
-\begin{array}{l}
-(\varphi, \psi)=(\psi, \varphi)^{*} \&lt;br&gt;
-\left(\varphi, \lambda_{1} \psi_{1}+\lambda_{2} \psi_{2}\right)=\lambda_{1}\left(\varphi, \psi_{1}\right)+\lambda_{2}\left(\varphi, \psi_{2}\right) \&lt;br&gt;
-\left(\lambda_{1} \varphi_{1}+\lambda_{2} \varphi_{2}, \psi\right)=\lambda_{1}^{*}\left(\varphi_{1}, \psi\right)+\lambda_{2}^{*}\left(\varphi_{2}, \psi\right)
-\end{array}
+\begin{eqnarray}
+&amp;amp;(\varphi, \psi)=(\psi, \varphi)^{*} \nl
+&amp;amp;\left(\varphi, \lambda_{1} \psi_{1}+\lambda_{2} \psi_{2}\right)=\lambda_{1}\left(\varphi, \psi_{1}\right)+\lambda_{2}\left(\varphi, \psi_{2}\right) \nl
+&amp;amp;\left(\lambda_{1} \varphi_{1}+\lambda_{2} \varphi_{2}, \psi\right)=\lambda_{1}^{*}\left(\varphi_{1}, \psi\right)+\lambda_{2}^{*}\left(\varphi_{2}, \psi\right)
+\end{eqnarray}
 $$&lt;/p&gt;
 &lt;p&gt;第二个因子的关系是线性的，第一个因子的关系是反线性的。$(\varphi, \psi)=0$，就说明这两个波函数是正交的。&lt;/p&gt;
 &lt;p&gt;$$
 (\psi, \psi)=\int \mathrm{d}^{3} r|\psi(\boldsymbol{r})|^{2}
 $$&lt;/p&gt;
-&lt;p&gt;为正实数，当且仅当$\psi(\bf r)=0$时，它才为 0.&lt;/p&gt;
+&lt;p&gt;为正实数，当且仅当$\psi(\mbf r)=0$时，它才为 0.&lt;/p&gt;
 &lt;p&gt;$\sqrt{(\psi,\psi)}$叫做$\psi$的模。&lt;/p&gt;
 &lt;p&gt;Schwartz 不等式：&lt;/p&gt;
 &lt;p&gt;$$
@@ -316,82 +331,97 @@ $$&lt;/p&gt;
 &lt;h3 id=&#34;c-线性算符&#34;&gt;c. 线性算符&lt;/h3&gt;
 &lt;p&gt;I 定义：&lt;/p&gt;
 &lt;p&gt;$$
-\begin{array}{l}
-\psi^{\prime}(\boldsymbol{r})=A \psi(\boldsymbol{r}) \&lt;br&gt;
-A\left[\lambda_{1} \psi_{1}(\boldsymbol{r})+\lambda_{2} \psi_{2}(\boldsymbol{r})\right]=\lambda_{1} A \psi_{1}(\boldsymbol{r})+\lambda_{2} A \psi_{2}(\boldsymbol{r})
-\end{array}
+\begin{eqnarray}
+&amp;amp;\psi^{\prime}(\boldsymbol{r})=A \psi(\boldsymbol{r}) \nl
+&amp;amp;A\left[\lambda_{1} \psi_{1}(\boldsymbol{r})+\lambda_{2} \psi_{2}(\boldsymbol{r})\right]=\lambda_{1} A \psi_{1}(\boldsymbol{r})+\lambda_{2} A \psi_{2}(\boldsymbol{r})
+\end{eqnarray}
 $$&lt;/p&gt;
 &lt;p&gt;一些有意思的算符：&lt;/p&gt;
 &lt;p&gt;$$
-\Pi\psi(x,y,z) = \psi(-x,-y,-z) \qquad\text{宇称算符}\&lt;br&gt;
-X\psi(x,y,z) = x\psi(x,y,z)\qquad\text{倍乘算符}\&lt;br&gt;
-D_x\psi(x,y,z)=\frac{\par \psi(x,y,z)}{\par x}\qquad\text{对x求导数的算符}
+\begin{eqnarray}
+&amp;amp;\Pi\psi(x,y,z) = \psi(-x,-y,-z) \qquad\text{宇称算符}\nl
+&amp;amp;X\psi(x,y,z) = x\psi(x,y,z)\qquad\text{倍乘算符}\nl
+&amp;amp;D_x\psi(x,y,z)=\frac{\par \psi(x,y,z)}{\par x}\qquad\text{对x求导数的算符}
+\end{eqnarray}
 $$&lt;/p&gt;
 &lt;p&gt;II 乘积：&lt;/p&gt;
 &lt;p&gt;$$
-(AB)\psi(\bf r)=A[B\psi(\bf r)]
+(AB)\psi(\mbf r)=A[B\psi(\mbf r)]
 $$&lt;/p&gt;
 &lt;p&gt;III 对易子定义：&lt;/p&gt;
 &lt;p&gt;$$
 [A,B]=AB-BA
 $$&lt;/p&gt;
-&lt;h2 id=&#34;2scr-f中离散的正交归一基u_ibf-r&#34;&gt;2、$\scr F$中离散的正交归一基：${u_i(\bf r)}$&lt;/h2&gt;
+&lt;h2 id=&#34;2scr-f中离散的正交归一基u_imbf-r&#34;&gt;2、$\scr F$中离散的正交归一基：${u_i(\mbf r)}$&lt;/h2&gt;
 &lt;h3 id=&#34;i-定义&#34;&gt;I 定义：&lt;/h3&gt;
 &lt;p&gt;设$\scr F$空间中的一个可列的函数集合，其中的函数可以用离散的指标$i=1,2,\cdots,n,\cdots$标记：&lt;/p&gt;
 &lt;p&gt;$$
-u_i(\bf r)\in\scr F,
+u_i(\mbf r)\in\scr F,
 $$&lt;/p&gt;
 &lt;p&gt;若符合以下条件：&lt;/p&gt;
 &lt;p&gt;1、正交归一条件：&lt;/p&gt;
 &lt;p&gt;$$
-(u_i,u_j)=\int\dd^3 ru_i^*(\bf r) u_j(\bf r)=\delta_{ij}
+(u_i,u_j)=\int\dd^3 ru_i^*(\mbf r) u_j(\mbf r)=\delta_{ij}
 $$&lt;/p&gt;
-&lt;p&gt;2、完备性：（每一个波函数都能按唯一全体的$u_i(\bf r)$展开）：&lt;/p&gt;
+&lt;p&gt;2、完备性：（每一个波函数都能按唯一全体的$u_i(\mbf r)$展开）：&lt;/p&gt;
 &lt;p&gt;$$
-\psi(\bf r)=\sum_ic_iu_i(\bf r)
+\psi(\mbf r)=\sum_ic_iu_i(\mbf r)
 $$&lt;/p&gt;
-&lt;p&gt;则${u_i(\bf r)}$构成一个基。&lt;/p&gt;
+&lt;p&gt;则${u_i(\mbf r)}$构成一个基。&lt;/p&gt;
 &lt;h3 id=&#34;ii-求波函数在基上的分量&#34;&gt;II 求波函数在基上的分量：&lt;/h3&gt;
 &lt;p&gt;$$
-c_i=(u_i,\psi)=\int\dd^3 r u_i^*(\bf r) \psi(\bf r)
+c_i=(u_i,\psi)=\int\dd^3 r u_i^*(\mbf r) \psi(\mbf r)
 $$&lt;/p&gt;
 &lt;h3 id=&#34;iii-标量积表示为分量的函数&#34;&gt;III 标量积表示为分量的函数：&lt;/h3&gt;
 &lt;p&gt;$$
-\varphi(\bf r)=\sum_ib_iu_i(\bf r)\&lt;br&gt;
-\psi(\bf r)=\sum_jc_ju_j(\bf r)
+\begin{eqnarray}
+&amp;amp;\varphi(\mbf r)=\sum_ib_iu_i(\mbf r) \nl
+&amp;amp;\psi(\mbf r)=\sum_jc_ju_j(\mbf r)
+\end{eqnarray}
 $$&lt;/p&gt;
 &lt;p&gt;那么：&lt;/p&gt;
 &lt;p&gt;$$
-(\varphi,\psi)=\sum_ib_i^*c_i\&lt;br&gt;
-(\psi,\psi)=\sum_i|c_i|^2
+\begin{eqnarray}
+&amp;amp;(\varphi,\psi)=\sum_ib_i^*c_i \nl
+&amp;amp;(\psi,\psi)=\sum_i|c_i|^2
+\end{eqnarray}
 $$&lt;/p&gt;
 &lt;h3 id=&#34;iv-封闭性关系式&#34;&gt;IV 封闭性关系式：&lt;/h3&gt;
 &lt;p&gt;$$
-\psi(\bf r)=\sum_ic_iu_i(\bf r)=\sum_i[\int\dd^3 r&amp;quot; u_i^&lt;em&gt;(\bf r&amp;quot;)\psi(\bf r&amp;quot;)]u_i(\bf r)=\int\dd^3 r&amp;quot;\psi(\bf r&amp;quot;)[\sum_i u_i^&lt;/em&gt;(\bf r&amp;quot;)u_i(\bf r)]=\int\dd^3 r&amp;quot;\psi(\bf r&amp;quot;)F(\bf r,\bf r&amp;quot;)
+\begin{align}
+\psi(\mbf r)=\sum_i c_i u_i(\mbf r) &amp;amp;=\sum_i[\int\dd^3 r&#39; u_i^* (\mbf r&#39;) \psi(\mbf r&#39;)] u_i(\mbf r) \nl
+&amp;amp;= \int \dd^3 r&#39;\psi(\mbf r&#39;)[\sum_i u_i^*(\mbf r&#39;)u_i(\mbf r)] \nl
+&amp;amp;= \int \dd^3 r&#39;\psi(\mbf r&#39;)F(\mbf r,\mbf r&#39;)
+\end{align}
 $$&lt;/p&gt;
-&lt;p&gt;这正是$\delta(\bf r-\bf r&amp;quot;)$的性质，因此（封闭性关系式）：&lt;/p&gt;
+&lt;p&gt;这正是$\delta(\mbf r-\mbf r&#39;)$的性质，因此（封闭性关系式）：&lt;/p&gt;
 &lt;p&gt;$$
-\sum_i u_i^*(\bf r&amp;quot;)u_i(\bf r)=\delta(\bf r-\bf r&amp;quot;)
+\sum_i u_i^*(\mbf r&#39;)u_i(\mbf r)=\delta(\mbf r-\mbf r&#39;)
 $$&lt;/p&gt;
 &lt;h2 id=&#34;3-引入不属于scr-f的基&#34;&gt;3 引入不属于$\scr F$的基&lt;/h2&gt;
-&lt;p&gt;两个例子：$v_p=\frac{1}{\sqrt{2\pi\hbar}}e^{ipx/\hbar}$和$\xi_{\bf r_0}(\bf r)=\delta(\bf r - \bf r_0)$&lt;/p&gt;
+&lt;p&gt;两个例子：$v_p=\frac{1}{\sqrt{2\pi\hbar}}e^{ipx/\hbar}$和$\xi_{\mbf r_0}(\mbf r)=\delta(\mbf r - \mbf r_0)$&lt;/p&gt;
 &lt;h3 id=&#34;c-连续的正交归一基&#34;&gt;c 连续的正交归一基&lt;/h3&gt;
-&lt;p&gt;与离散的基相似，只不过它是连续的，$\sum\rightarrow\int, \delta_{ij}\rightarrow\delta(\bf r-\bf r&amp;quot;)$&lt;/p&gt;
+&lt;p&gt;与离散的基相似，只不过它是连续的，$\sum\rightarrow\int, \delta_{ij}\rightarrow\delta(\mbf r-\mbf r&#39;)$&lt;/p&gt;
 &lt;p&gt;正交归一及封闭性关系式：&lt;/p&gt;
 &lt;p&gt;$$
-\begin{array}{l}
-\left(w_{\alpha}, w_{\alpha^{\prime}}\right)=\int \mathrm{d}^{3} r w_{\alpha}^{*}(\boldsymbol{r}) w_{\alpha^{\prime}}(\boldsymbol{r})=\delta\left(\alpha-\alpha^{\prime}\right) \&lt;br&gt;
-\int \mathrm{d} \alpha w_{\alpha}(\boldsymbol{r}) w_{\alpha}^{*}\left(\boldsymbol{r}^{\prime}\right)=\delta\left(\boldsymbol{r}-\boldsymbol{r}^{\prime}\right)
-\end{array}
+\begin{eqnarray}
+&amp;amp;\left(w_{\alpha}, w_{\alpha^{\prime}}\right)=\int \mathrm{d}^{3} r w_{\alpha}^{*}(\boldsymbol{r}) w_{\alpha^{\prime}}(\boldsymbol{r})=\delta\left(\alpha-\alpha^{\prime}\right) \nl
+&amp;amp;\int \mathrm{d} \alpha w_{\alpha}(\boldsymbol{r}) w_{\alpha}^{*}\left(\boldsymbol{r}^{\prime}\right)=\delta\left(\boldsymbol{r}-\boldsymbol{r}^{\prime}\right)
+\end{eqnarray}
 $$&lt;/p&gt;
 &lt;p&gt;综合的表格：&lt;/p&gt;
 &lt;p&gt;&lt;figure 
+	
+		class=&#34;gallery-image&#34; 
+		style=&#34;
+			flex-grow: 185; 
+			flex-basis: 445px&#34;
 	&gt;
-	&lt;a href=&#34;https://mizarzh.github.io/D:%5c%e4%b8%aa%e4%ba%ba%5cblogHugo%5cmyBlog%5ccontent%5cposts%5c%e9%87%8f%e5%ad%90%e5%8a%9b%e5%ad%a6cohen-2%5cimage-20211124121120236.png&#34; &gt;
-		&lt;img src=&#34;https://mizarzh.github.io/D:%5c%e4%b8%aa%e4%ba%ba%5cblogHugo%5cmyBlog%5ccontent%5cposts%5c%e9%87%8f%e5%ad%90%e5%8a%9b%e5%ad%a6cohen-2%5cimage-20211124121120236.png&#34;
-			
-			
-			
+	&lt;a href=&#34;https://mizarzh.github.io/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-a-part/image-20211124121120236.png&#34; data-size=&#34;1230x662&#34;&gt;
+		&lt;img src=&#34;https://mizarzh.github.io/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-a-part/image-20211124121120236.png&#34;
+			width=&#34;1230&#34;
+			height=&#34;662&#34;
+			srcset=&#34;https://mizarzh.github.io/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-a-part/image-20211124121120236_hu4c83ed94f5f82bbae0ad6f83c3b64f85_251236_480x0_resize_box_3.png 480w, https://mizarzh.github.io/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-a-part/image-20211124121120236_hu4c83ed94f5f82bbae0ad6f83c3b64f85_251236_1024x0_resize_box_3.png 1024w&#34;
 			loading=&#34;lazy&#34;
 			alt=&#34;image-20211124121120236&#34;&gt;
 	&lt;/a&gt;
@@ -400,7 +430,7 @@ $$&lt;/p&gt;
 	
 &lt;/figure&gt;&lt;/p&gt;
 &lt;h2 id=&#34;comment&#34;&gt;Comment&lt;/h2&gt;
-&lt;p&gt;整个推导类似于矢量运算。$\psi(\bf r)$为所求的矢量，$u_i(\bf r)$为基矢量（类似于$\hat{\imath},\hat{\jmath},\hat{k}$），内积相当于矢量运算中的点乘。基具有正交归一和封闭性关系式（类似于$\hat{\imath},\hat{\jmath},\hat{k}$正交及）。&lt;/p&gt;
+&lt;p&gt;整个推导类似于矢量运算。$\psi(\mbf r)$为所求的矢量，$u_i(\mbf r)$为基矢量（类似于$\hat{\imath},\hat{\jmath},\hat{k}$），内积相当于矢量运算中的点乘。基具有正交归一和封闭性关系式（类似于$\hat{\imath},\hat{\jmath},\hat{k}$正交及）。&lt;/p&gt;
 &lt;p&gt;展开式会出现分量$c_i$，即$\psi$在某个基$u_i$上的分解。求分量$c_i$则类似于矢量求点乘（在某个方向上分解）。&lt;/p&gt;
 </description>
         </item>
@@ -410,23 +440,31 @@ $$&lt;/p&gt;
         <pubDate>Tue, 23 Nov 2021 17:37:48 +0800</pubDate>
         
         <guid>https://mizarzh.github.io/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-1-%E6%B3%A2%E5%92%8C%E7%B2%92%E5%AD%90%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/</guid>
-        <description>&lt;p&gt;$$
-\def\bf{\mathbf}
+        <description>&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;$$
 \def\un{\mathrm}
 \def\dd{\mathrm d}
+\def\par{\partial}
+\def\bl{\boldsymbol}
+\def\mbf{\mathbf}
+\newcommand{\bk}[2]{\left \langle #1  | #2  \right \rangle}
+\def\nl{\newline}
 $$&lt;/p&gt;
 &lt;p&gt;本篇未完善。&lt;/p&gt;
 &lt;h2 id=&#34;a-电磁波与光子&#34;&gt;A 电磁波与光子&lt;/h2&gt;
 &lt;h3 id=&#34;1光量子与普朗克-爱因斯坦关系&#34;&gt;1、光量子与普朗克-爱因斯坦关系&lt;/h3&gt;
 &lt;p&gt;对黑体辐射的研究提出了能量量子化（Planck）&lt;/p&gt;
-&lt;p&gt;普朗克-爱因斯坦关系（粒子性参量$E, \bf p$和波动性参量$\omega, \bf k$之间的关系）：&lt;/p&gt;
+&lt;p&gt;普朗克-爱因斯坦关系（粒子性参量$E, \mbf p$和波动性参量$\omega, \mbf k$之间的关系）：&lt;/p&gt;
 &lt;p&gt;$$
-E=h\nu=\hbar \omega \&lt;br&gt;
-\bf{p}=\hbar \bf{k}
+\begin{eqnarray}
+E=h\nu=\hbar \omega \nl
+\mbf{p}=\hbar \mbf{k}
+\end{eqnarray}
 $$&lt;/p&gt;
 &lt;p&gt;普朗克常数$h$:&lt;/p&gt;
 &lt;p&gt;$$
-h = 6.62\times 10^{-34} \un{J\cdot s}
+h = 6.62\times 10^{-34} \rm{J\cdot s}
 $$&lt;/p&gt;
 &lt;h3 id=&#34;2波粒二象性&#34;&gt;2、波粒二象性&lt;/h3&gt;
 &lt;p&gt;证据：杨氏双缝干涉——能通过双缝形成分布图（并不是完全的粒子性），强度分布并不是直接相加的（并不是完全的波动性）。&lt;/p&gt;
@@ -434,7 +472,7 @@ $$&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;光的粒子性和波动性是不可分割的。&lt;/li&gt;
 &lt;li&gt;对光子行为的预言只能是概率性的。&lt;/li&gt;
-&lt;li&gt;波$E(\bf r, t)$提供一个光子在$t$时刻的信息。其为概率幅，概率正比为$|E(\bf{r},t )|^2$&lt;/li&gt;
+&lt;li&gt;波$E(\mbf r, t)$提供一个光子在$t$时刻的信息。其为概率幅，概率正比为$|E(\mbf{r},t )|^2$&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id=&#34;3谱分解原理&#34;&gt;3、谱分解原理&lt;/h3&gt;
 &lt;p&gt;对光的偏振的一种解释。&lt;/p&gt;
@@ -443,7 +481,7 @@ $$&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;测量仪器只能给出特殊的结果，被称为本征结果。&lt;/li&gt;
 &lt;li&gt;每一个本征结果都有一个对应的本征态。&lt;/li&gt;
-&lt;li&gt;对于$\bf{e}_p$我们可以写出：$\bf e_p=\bf e_x\cos\theta+\bf e_y\sin\theta$。这被叫做谱分解原理。&lt;/li&gt;
+&lt;li&gt;对于 $\mbf{e}_p$ 我们可以写出： $\mbf e_p=\mbf e_x\cos\theta+\mbf e_y\sin\theta$ 。这被叫做谱分解原理。&lt;/li&gt;
 &lt;li&gt;测量后态改变了，因此测量从根本上干扰了微观体系。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;b-物质粒子与物质波&#34;&gt;B 物质粒子与物质波&lt;/h2&gt;
@@ -451,25 +489,27 @@ $$&lt;/p&gt;
 &lt;p&gt;de Brogile 假说：其他粒子与光子完全一样，是波粒二象性的。&lt;/p&gt;
 &lt;p&gt;德布罗意关系式：&lt;/p&gt;
 &lt;p&gt;$$
-\lambda=\frac{2\pi}{|\bf k|}=\frac{h}{|\bf p|}
+\lambda=\frac{2\pi}{|\mbf k|}=\frac{h}{|\mbf p|}
 $$&lt;/p&gt;
 &lt;h3 id=&#34;2波函数schrödinger-方程&#34;&gt;2、波函数，Schrödinger 方程&lt;/h3&gt;
-&lt;p&gt;1、一个粒子是由一个波函数$\psi(\bf r, t)$描述的，一个波函数包含了所有关于这个粒子的信息。&lt;/p&gt;
-&lt;p&gt;2、$\psi(\bf r, t)$为粒子的概率幅，则$|\psi(\bf r, t)|^2$为概率密度。在时间$t$，某个体积元$\dd^3 r=\dd x\dd y\dd z$中，概率密度为：&lt;/p&gt;
+&lt;p&gt;1、一个粒子是由一个波函数$\psi(\mbf r, t)$描述的，一个波函数包含了所有关于这个粒子的信息。&lt;/p&gt;
+&lt;p&gt;2、$\psi(\mbf r, t)$为粒子的概率幅，则$|\psi(\mbf r, t)|^2$为概率密度。在时间$t$，某个体积元$\dd^3 r=\dd x\dd y\dd z$中，概率密度为：&lt;/p&gt;
 &lt;p&gt;$$
-\dd \cal{P(\bf r, t)} = C|\psi(\bf r, t)|^2\dd^3 r
+\dd \scr{P(\mbf r, t)} = C|\psi(\mbf r, t)|^2\dd^3 r
 $$&lt;/p&gt;
-&lt;p&gt;3、谱分解原理适用于任意物理量$\cal A$的测量：&lt;/p&gt;
+&lt;p&gt;3、谱分解原理适用于任意物理量$\scr A$的测量：&lt;/p&gt;
 &lt;p&gt;(a) 所属结果一定为本征值的集合${a}$&lt;/p&gt;
 &lt;p&gt;(b) 每一个本征值 a 都有一个本征态和它联系。&lt;/p&gt;
 &lt;p&gt;(c)&lt;/p&gt;
 &lt;p&gt;$$
-\psi(\bf r, t_0)=\sum_a c_a\psi_a(\bf r) \&lt;br&gt;
-\cal P_a = \frac{|c_a|^2}{\sum_1 |c_a|^2}
+\begin{eqnarray}
+&amp;amp;\psi(\mbf r, t_0)=\sum_a c_a\psi_a(\mbf r) \nl
+&amp;amp;\scr P_a = \frac{|c_a|^2}{\sum_1 |c_a|^2}
+\end{eqnarray}
 $$&lt;/p&gt;
 &lt;p&gt;粒子波函数随时间变化的方程（Schrödinger 方程）&lt;/p&gt;
 &lt;p&gt;$$
-i \hbar\frac{\par}{\par t}\psi(\bf r,t)=-\frac{\hbar^2}{2m}\triangle\psi(\bf r,t)+V(\bf r,t)\psi(\bf r,t)
+i \hbar\frac{\par}{\par t}\psi(\mbf r,t)=-\frac{\hbar^2}{2m}\triangle\psi(\mbf r,t)+V(\mbf r,t)\psi(\mbf r,t)
 $$&lt;/p&gt;
 &lt;p&gt;其中$\triangle=\nabla^2=\frac{\par^2}{\par x^2}+\frac{\par^2}{\par y^2}+\frac{\par^2}{\par z^2}$为拉普拉斯算符。这个方程是线性齐次的。&lt;/p&gt;
 &lt;h2 id=&#34;c-对一个粒子的量子描述波包&#34;&gt;C 对一个粒子的量子描述，波包&lt;/h2&gt;
@@ -477,18 +517,20 @@ $$&lt;/p&gt;
 &lt;p&gt;若一个粒子在空间各点的势能都为 0（常数），则这个粒子未受力作用，即自由粒子。&lt;/p&gt;
 &lt;p&gt;此时的 Schrodinger 方程：&lt;/p&gt;
 &lt;p&gt;$$
-i \hbar\frac{\par}{\par t}\psi(\bf r,t)=-\frac{\hbar^2}{2m}\triangle\psi(\bf r,t)
+i \hbar\frac{\par}{\par t}\psi(\mbf r,t)=-\frac{\hbar^2}{2m}\triangle\psi(\mbf r,t)
 $$&lt;/p&gt;
 &lt;p&gt;这个微分方程的解为横向波：&lt;/p&gt;
 &lt;p&gt;$$
-\psi(\bf r,t)=Ae^{i(\bf k\cdot\bf r-\omega t)}
+\psi(\mbf r,t)=Ae^{i(\mbf k\cdot\mbf r-\omega t)}
 $$&lt;/p&gt;
-&lt;p&gt;量纲为 0，则$\bf k$与$\omega$之间的关系为：&lt;/p&gt;
+&lt;p&gt;量纲为 0，则$\mbf k$与$\omega$之间的关系为：&lt;/p&gt;
 &lt;p&gt;$$
-\omega = \frac{\hbar \bf k^2}{2m} \&lt;br&gt;
-E=\frac{\bf p^2}{2m} (\text{de Brogile})
+\begin{eqnarray}
+&amp;amp;\omega = \frac{\hbar \mbf k^2}{2m} \nl
+&amp;amp;E=\frac{\mbf p^2}{2m} (\text{de Brogile})
+\end{eqnarray}
 $$&lt;/p&gt;
-&lt;p&gt;由于$|\psi(\bf r,t)|^2=|A|^2$，因此它在空间中各点出现的概率都一样。&lt;/p&gt;
+&lt;p&gt;由于$|\psi(\mbf r,t)|^2=|A|^2$，因此它在空间中各点出现的概率都一样。&lt;/p&gt;
 &lt;p&gt;叠加原理：各平面波的一切线性组合，都是该方程的解：&lt;/p&gt;
 &lt;p&gt;$$
 \psi(\boldsymbol{r}, t)=\frac{1}{(2 \pi)^{3 / 2}} \int g(\boldsymbol{k}) \mathrm{e}^{\mathrm{i}[\boldsymbol{k} \cdot \boldsymbol{r}-\omega(k) t]} \mathrm{d}^{3} k
@@ -504,31 +546,37 @@ $$&lt;/p&gt;
 &lt;h2 id=&#34;d-与时间无关标量式场中的粒子&#34;&gt;D 与时间无关标量式场中的粒子&lt;/h2&gt;
 &lt;h3 id=&#34;1定态解&#34;&gt;1、定态解&lt;/h3&gt;
 &lt;p&gt;$$
-i \hbar\frac{\par}{\par t}\psi(\bf r,t)=-\frac{\hbar^2}{2m}\triangle\psi(\bf r)+V(\bf r,t)\psi(\bf r,t)
+i \hbar\frac{\par}{\par t}\psi(\mbf r,t)=-\frac{\hbar^2}{2m}\triangle\psi(\mbf r)+V(\mbf r,t)\psi(\mbf r,t)
 $$&lt;/p&gt;
 &lt;p&gt;分离变量：&lt;/p&gt;
 &lt;p&gt;$$
-\psi(\bf r,t) = \varphi(\bf r)\chi(t)
+\psi(\mbf r,t) = \varphi(\mbf r)\chi(t)
 $$&lt;/p&gt;
 &lt;p&gt;代入 Schrodinger 方程并令两边等于一个常数$E=\hbar\omega$（数理方法常用分离变量操作），可得：&lt;/p&gt;
 &lt;p&gt;$$
-\chi(t)=Ae^{-i \omega t}\&lt;br&gt;
--\frac{\hbar^{2}}{2 m} \Delta \varphi(\boldsymbol{r})+V(\boldsymbol{r}) \varphi(\boldsymbol{r})=\hbar \omega \varphi(\boldsymbol{r})\&lt;br&gt;
-\psi(\bf r, t) = \varphi(\bf r)e^{-i\omega t}
+\begin{eqnarray}
+&amp;amp;\chi(t)=Ae^{-i \omega t}\nl
+&amp;amp;-\frac{\hbar^{2}}{2 m} \Delta \varphi(\boldsymbol{r})+V(\boldsymbol{r}) \varphi(\boldsymbol{r})=\hbar \omega \varphi(\boldsymbol{r})\nl
+&amp;amp;\psi(\mbf r, t) = \varphi(\mbf r)e^{-i\omega t}
+\end{eqnarray}
 $$&lt;/p&gt;
 &lt;p&gt;称为 Schrodinger 方程的定态解。定态指的是$E=\hbar \omega$的解&lt;/p&gt;
 &lt;p&gt;可以重新组合成：&lt;/p&gt;
 &lt;p&gt;$$
-[-\frac{\hbar^2}{2m}\triangle+V]\varphi=E\varphi \Rightarrow H\varphi=E\varphi \&lt;br&gt;
-\text{where}\quad H = -\frac{\hbar^2}{2m}\triangle+V
+\begin{eqnarray}
+&amp;amp;[-\frac{\hbar^2}{2m}\triangle+V]\varphi=E\varphi \Rightarrow H\varphi=E\varphi \nl
+&amp;amp;\text{where}\quad H = -\frac{\hbar^2}{2m}\triangle+V
+\end{eqnarray}
 $$&lt;/p&gt;
 &lt;p&gt;则意味着$H$式一个测量量，作用到$\varphi$上得到能量作为本征值。（能量量子化的起因）&lt;/p&gt;
 &lt;p&gt;定态叠加：&lt;/p&gt;
 &lt;p&gt;$$
-H\varphi_n(\bf r) = E_n\varphi_n(\bf r)\&lt;br&gt;
-\psi(\bf r,t)=\varphi_n(\bf r)e^{-iE_n/t}\&lt;br&gt;
-\psi(\bf r,t)=\sum_nc_n\varphi_n(\bf r)e^{-iE_n/t}\&lt;br&gt;
-\psi(\bf r,0)=\sum_nc_n\varphi_n(\bf r)
+\begin{eqnarray}
+&amp;amp;H\varphi_n(\mbf r) = E_n\varphi_n(\mbf r)\nl
+&amp;amp;\psi(\mbf r,t)=\varphi_n(\mbf r)e^{-iE_n/t}\nl
+&amp;amp;\psi(\mbf r,t)=\sum_nc_n\varphi_n(\mbf r)e^{-iE_n/t}\nl
+&amp;amp;\psi(\mbf r,0)=\sum_nc_n\varphi_n(\mbf r)
+\end{eqnarray}
 $$&lt;/p&gt;
 &lt;h3 id=&#34;2各种情况的求解&#34;&gt;2、各种情况的求解&lt;/h3&gt;
 &lt;p&gt;见附属材料以及隔壁 Griffiths&lt;/p&gt;

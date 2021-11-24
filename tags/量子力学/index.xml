@@ -13,7 +13,7 @@
       <pubDate>Wed, 24 Nov 2021 12:19:32 +0800</pubDate>
       
       <guid>https://mizarzh.github.io/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-b-part/</guid>
-      <description>这一节可能有点复杂，只要了解上一节各种量可以对应这一节的量，以及了解数学结构即可。 B 态空间；Dirac 符号 1 引言 通过上一节的讨论，我们发现有</description>
+      <description>$$ \def\un{\mathrm} \def\dd{\mathrm d} \def\par{\partial} \def\bl{\boldsymbol} \def\mbf{\mathbf} \newcommand{\bk}[2]{\left \langle #1 | #2 \right \rangle} \newcommand{\bok}[3]{\bra{#1}#2\ket{#3}} \def\nl{\newline} $$ 这一节可能有点复杂，只要了解上一节各种量可以对应这一节的量，以及了解数学结构即可。 B 态空间；Dirac 符号</description>
     </item>
     
     <item>
@@ -22,7 +22,7 @@
       <pubDate>Tue, 23 Nov 2021 20:09:10 +0800</pubDate>
       
       <guid>https://mizarzh.github.io/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-a-part/</guid>
-      <description>$$ \def\bf{\mathbf} \def\un{\mathrm} \def\dd{\mathrm d} \def\cal{\mathcal} \def\par{\partial} \def\bl{\boldsymbol} \def\scr{\mathscr} $$ 本篇非常重要！为后面的所有运算都打下了基础。 A 一个粒子的波函数空间 在整个空间中找到粒子的概率是 1，因此： $$ \int\dd^3 r|\psi(\bf r,t^2)| = 1 $$ 我</description>
+      <description>$$ \def\un{\mathrm} \def\dd{\mathrm d} \def\par{\partial} \def\bl{\boldsymbol} \def\mbf{\mathbf} \newcommand{\bk}[2]{\left \langle #1 | #2 \right \rangle} \newcommand{\bok}[3]{\bra{#1}#2\ket{#3}} \def\nl{\newline} $$ 本篇非常重要！为后面的所有运算都打下了基础。 A 一个粒子的波函数空间 在整个空间中找到粒子的概率是 1，因此： $$</description>
     </item>
     
     <item>
@@ -31,7 +31,7 @@
       <pubDate>Tue, 23 Nov 2021 17:37:48 +0800</pubDate>
       
       <guid>https://mizarzh.github.io/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-1-%E6%B3%A2%E5%92%8C%E7%B2%92%E5%AD%90%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/</guid>
-      <description>$$ \def\bf{\mathbf} \def\un{\mathrm} \def\dd{\mathrm d} $$ 本篇未完善。 A 电磁波与光子 1、光量子与普朗克-爱因斯坦关系 对黑体辐射的研究提出了能量量子化（Planck） 普朗克-爱因斯坦关系（</description>
+      <description>$$ \def\un{\mathrm} \def\dd{\mathrm d} \def\par{\partial} \def\bl{\boldsymbol} \def\mbf{\mathbf} \newcommand{\bk}[2]{\left \langle #1 | #2 \right \rangle} \def\nl{\newline} $$ 本篇未完善。 A 电磁波与光子 1、光量子与普朗克-爱因斯坦关系 对黑体辐射的研究提出了能量量子化（Planck） 普</description>
     </item>
     
   </channel>

@@ -108,23 +108,31 @@
 </header>
 
     <section class="article-content">
-    <p>$$
-\def\bf{\mathbf}
+    <!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>$$
 \def\un{\mathrm}
 \def\dd{\mathrm d}
+\def\par{\partial}
+\def\bl{\boldsymbol}
+\def\mbf{\mathbf}
+\newcommand{\bk}[2]{\left \langle #1  | #2  \right \rangle}
+\def\nl{\newline}
 $$</p>
 <p>本篇未完善。</p>
 <h2 id="a-电磁波与光子">A 电磁波与光子</h2>
 <h3 id="1光量子与普朗克-爱因斯坦关系">1、光量子与普朗克-爱因斯坦关系</h3>
 <p>对黑体辐射的研究提出了能量量子化（Planck）</p>
-<p>普朗克-爱因斯坦关系（粒子性参量$E, \bf p$和波动性参量$\omega, \bf k$之间的关系）：</p>
+<p>普朗克-爱因斯坦关系（粒子性参量$E, \mbf p$和波动性参量$\omega, \mbf k$之间的关系）：</p>
 <p>$$
-E=h\nu=\hbar \omega \<br>
-\bf{p}=\hbar \bf{k}
+\begin{eqnarray}
+E=h\nu=\hbar \omega \nl
+\mbf{p}=\hbar \mbf{k}
+\end{eqnarray}
 $$</p>
 <p>普朗克常数$h$:</p>
 <p>$$
-h = 6.62\times 10^{-34} \un{J\cdot s}
+h = 6.62\times 10^{-34} \rm{J\cdot s}
 $$</p>
 <h3 id="2波粒二象性">2、波粒二象性</h3>
 <p>证据：杨氏双缝干涉——能通过双缝形成分布图（并不是完全的粒子性），强度分布并不是直接相加的（并不是完全的波动性）。</p>
@@ -132,7 +140,7 @@ $$</p>
 <ol>
 <li>光的粒子性和波动性是不可分割的。</li>
 <li>对光子行为的预言只能是概率性的。</li>
-<li>波$E(\bf r, t)$提供一个光子在$t$时刻的信息。其为概率幅，概率正比为$|E(\bf{r},t )|^2$</li>
+<li>波$E(\mbf r, t)$提供一个光子在$t$时刻的信息。其为概率幅，概率正比为$|E(\mbf{r},t )|^2$</li>
 </ol>
 <h3 id="3谱分解原理">3、谱分解原理</h3>
 <p>对光的偏振的一种解释。</p>
@@ -141,7 +149,7 @@ $$</p>
 <ol>
 <li>测量仪器只能给出特殊的结果，被称为本征结果。</li>
 <li>每一个本征结果都有一个对应的本征态。</li>
-<li>对于$\bf{e}_p$我们可以写出：$\bf e_p=\bf e_x\cos\theta+\bf e_y\sin\theta$。这被叫做谱分解原理。</li>
+<li>对于 $\mbf{e}_p$ 我们可以写出： $\mbf e_p=\mbf e_x\cos\theta+\mbf e_y\sin\theta$ 。这被叫做谱分解原理。</li>
 <li>测量后态改变了，因此测量从根本上干扰了微观体系。</li>
 </ol>
 <h2 id="b-物质粒子与物质波">B 物质粒子与物质波</h2>
@@ -149,25 +157,27 @@ $$</p>
 <p>de Brogile 假说：其他粒子与光子完全一样，是波粒二象性的。</p>
 <p>德布罗意关系式：</p>
 <p>$$
-\lambda=\frac{2\pi}{|\bf k|}=\frac{h}{|\bf p|}
+\lambda=\frac{2\pi}{|\mbf k|}=\frac{h}{|\mbf p|}
 $$</p>
 <h3 id="2波函数schrödinger-方程">2、波函数，Schrödinger 方程</h3>
-<p>1、一个粒子是由一个波函数$\psi(\bf r, t)$描述的，一个波函数包含了所有关于这个粒子的信息。</p>
-<p>2、$\psi(\bf r, t)$为粒子的概率幅，则$|\psi(\bf r, t)|^2$为概率密度。在时间$t$，某个体积元$\dd^3 r=\dd x\dd y\dd z$中，概率密度为：</p>
+<p>1、一个粒子是由一个波函数$\psi(\mbf r, t)$描述的，一个波函数包含了所有关于这个粒子的信息。</p>
+<p>2、$\psi(\mbf r, t)$为粒子的概率幅，则$|\psi(\mbf r, t)|^2$为概率密度。在时间$t$，某个体积元$\dd^3 r=\dd x\dd y\dd z$中，概率密度为：</p>
 <p>$$
-\dd \cal{P(\bf r, t)} = C|\psi(\bf r, t)|^2\dd^3 r
+\dd \scr{P(\mbf r, t)} = C|\psi(\mbf r, t)|^2\dd^3 r
 $$</p>
-<p>3、谱分解原理适用于任意物理量$\cal A$的测量：</p>
+<p>3、谱分解原理适用于任意物理量$\scr A$的测量：</p>
 <p>(a) 所属结果一定为本征值的集合${a}$</p>
 <p>(b) 每一个本征值 a 都有一个本征态和它联系。</p>
 <p>(c)</p>
 <p>$$
-\psi(\bf r, t_0)=\sum_a c_a\psi_a(\bf r) \<br>
-\cal P_a = \frac{|c_a|^2}{\sum_1 |c_a|^2}
+\begin{eqnarray}
+&amp;\psi(\mbf r, t_0)=\sum_a c_a\psi_a(\mbf r) \nl
+&amp;\scr P_a = \frac{|c_a|^2}{\sum_1 |c_a|^2}
+\end{eqnarray}
 $$</p>
 <p>粒子波函数随时间变化的方程（Schrödinger 方程）</p>
 <p>$$
-i \hbar\frac{\par}{\par t}\psi(\bf r,t)=-\frac{\hbar^2}{2m}\triangle\psi(\bf r,t)+V(\bf r,t)\psi(\bf r,t)
+i \hbar\frac{\par}{\par t}\psi(\mbf r,t)=-\frac{\hbar^2}{2m}\triangle\psi(\mbf r,t)+V(\mbf r,t)\psi(\mbf r,t)
 $$</p>
 <p>其中$\triangle=\nabla^2=\frac{\par^2}{\par x^2}+\frac{\par^2}{\par y^2}+\frac{\par^2}{\par z^2}$为拉普拉斯算符。这个方程是线性齐次的。</p>
 <h2 id="c-对一个粒子的量子描述波包">C 对一个粒子的量子描述，波包</h2>
@@ -175,18 +185,20 @@ $$</p>
 <p>若一个粒子在空间各点的势能都为 0（常数），则这个粒子未受力作用，即自由粒子。</p>
 <p>此时的 Schrodinger 方程：</p>
 <p>$$
-i \hbar\frac{\par}{\par t}\psi(\bf r,t)=-\frac{\hbar^2}{2m}\triangle\psi(\bf r,t)
+i \hbar\frac{\par}{\par t}\psi(\mbf r,t)=-\frac{\hbar^2}{2m}\triangle\psi(\mbf r,t)
 $$</p>
 <p>这个微分方程的解为横向波：</p>
 <p>$$
-\psi(\bf r,t)=Ae^{i(\bf k\cdot\bf r-\omega t)}
+\psi(\mbf r,t)=Ae^{i(\mbf k\cdot\mbf r-\omega t)}
 $$</p>
-<p>量纲为 0，则$\bf k$与$\omega$之间的关系为：</p>
+<p>量纲为 0，则$\mbf k$与$\omega$之间的关系为：</p>
 <p>$$
-\omega = \frac{\hbar \bf k^2}{2m} \<br>
-E=\frac{\bf p^2}{2m} (\text{de Brogile})
+\begin{eqnarray}
+&amp;\omega = \frac{\hbar \mbf k^2}{2m} \nl
+&amp;E=\frac{\mbf p^2}{2m} (\text{de Brogile})
+\end{eqnarray}
 $$</p>
-<p>由于$|\psi(\bf r,t)|^2=|A|^2$，因此它在空间中各点出现的概率都一样。</p>
+<p>由于$|\psi(\mbf r,t)|^2=|A|^2$，因此它在空间中各点出现的概率都一样。</p>
 <p>叠加原理：各平面波的一切线性组合，都是该方程的解：</p>
 <p>$$
 \psi(\boldsymbol{r}, t)=\frac{1}{(2 \pi)^{3 / 2}} \int g(\boldsymbol{k}) \mathrm{e}^{\mathrm{i}[\boldsymbol{k} \cdot \boldsymbol{r}-\omega(k) t]} \mathrm{d}^{3} k
@@ -202,31 +214,37 @@ $$</p>
 <h2 id="d-与时间无关标量式场中的粒子">D 与时间无关标量式场中的粒子</h2>
 <h3 id="1定态解">1、定态解</h3>
 <p>$$
-i \hbar\frac{\par}{\par t}\psi(\bf r,t)=-\frac{\hbar^2}{2m}\triangle\psi(\bf r)+V(\bf r,t)\psi(\bf r,t)
+i \hbar\frac{\par}{\par t}\psi(\mbf r,t)=-\frac{\hbar^2}{2m}\triangle\psi(\mbf r)+V(\mbf r,t)\psi(\mbf r,t)
 $$</p>
 <p>分离变量：</p>
 <p>$$
-\psi(\bf r,t) = \varphi(\bf r)\chi(t)
+\psi(\mbf r,t) = \varphi(\mbf r)\chi(t)
 $$</p>
 <p>代入 Schrodinger 方程并令两边等于一个常数$E=\hbar\omega$（数理方法常用分离变量操作），可得：</p>
 <p>$$
-\chi(t)=Ae^{-i \omega t}\<br>
--\frac{\hbar^{2}}{2 m} \Delta \varphi(\boldsymbol{r})+V(\boldsymbol{r}) \varphi(\boldsymbol{r})=\hbar \omega \varphi(\boldsymbol{r})\<br>
-\psi(\bf r, t) = \varphi(\bf r)e^{-i\omega t}
+\begin{eqnarray}
+&amp;\chi(t)=Ae^{-i \omega t}\nl
+&amp;-\frac{\hbar^{2}}{2 m} \Delta \varphi(\boldsymbol{r})+V(\boldsymbol{r}) \varphi(\boldsymbol{r})=\hbar \omega \varphi(\boldsymbol{r})\nl
+&amp;\psi(\mbf r, t) = \varphi(\mbf r)e^{-i\omega t}
+\end{eqnarray}
 $$</p>
 <p>称为 Schrodinger 方程的定态解。定态指的是$E=\hbar \omega$的解</p>
 <p>可以重新组合成：</p>
 <p>$$
-[-\frac{\hbar^2}{2m}\triangle+V]\varphi=E\varphi \Rightarrow H\varphi=E\varphi \<br>
-\text{where}\quad H = -\frac{\hbar^2}{2m}\triangle+V
+\begin{eqnarray}
+&amp;[-\frac{\hbar^2}{2m}\triangle+V]\varphi=E\varphi \Rightarrow H\varphi=E\varphi \nl
+&amp;\text{where}\quad H = -\frac{\hbar^2}{2m}\triangle+V
+\end{eqnarray}
 $$</p>
 <p>则意味着$H$式一个测量量，作用到$\varphi$上得到能量作为本征值。（能量量子化的起因）</p>
 <p>定态叠加：</p>
 <p>$$
-H\varphi_n(\bf r) = E_n\varphi_n(\bf r)\<br>
-\psi(\bf r,t)=\varphi_n(\bf r)e^{-iE_n/t}\<br>
-\psi(\bf r,t)=\sum_nc_n\varphi_n(\bf r)e^{-iE_n/t}\<br>
-\psi(\bf r,0)=\sum_nc_n\varphi_n(\bf r)
+\begin{eqnarray}
+&amp;H\varphi_n(\mbf r) = E_n\varphi_n(\mbf r)\nl
+&amp;\psi(\mbf r,t)=\varphi_n(\mbf r)e^{-iE_n/t}\nl
+&amp;\psi(\mbf r,t)=\sum_nc_n\varphi_n(\mbf r)e^{-iE_n/t}\nl
+&amp;\psi(\mbf r,0)=\sum_nc_n\varphi_n(\mbf r)
+\end{eqnarray}
 $$</p>
 <h3 id="2各种情况的求解">2、各种情况的求解</h3>
 <p>见附属材料以及隔壁 Griffiths</p>
@@ -315,9 +333,11 @@ $$</p>
         Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
         Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener"
                 data-version="3.4.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+
         
+
     </section>
-    
+
 </footer>
 
     
