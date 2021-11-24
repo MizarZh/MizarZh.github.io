@@ -108,26 +108,22 @@
 </header>
 
     <section class="article-content">
-    <p>$$
-\def\bf{\mathbf}
-\def\un{\mathrm}
-\def\dd{\mathrm d}
-\def\cal{\mathcal}
-\def\par{\partial}
-\def\bl{\boldsymbol}
-\def\scr{\mathscr}
-$$</p>
-<p>这一节可能有点复杂，只要了解上一节各种量可以对应这一节的量，以及了解数学结构即可。</p>
-<h1 id="b-态空间dirac符号">B 态空间；Dirac符号</h1>
+    <p>这一节可能有点复杂，只要了解上一节各种量可以对应这一节的量，以及了解数学结构即可。</p>
+<h1 id="b-态空间dirac-符号">B 态空间；Dirac 符号</h1>
 <h2 id="1-引言">1 引言</h2>
 <p>通过上一节的讨论，我们发现有许多量的结构是类似的。</p>
 <p><figure 
+	
+		class="gallery-image" 
+		style="
+			flex-grow: 187; 
+			flex-basis: 450px"
 	>
-	<a href="/D:%5c%e4%b8%aa%e4%ba%ba%5cblogHugo%5cmyBlog%5ccontent%5cposts%5c%e9%87%8f%e5%ad%90%e5%8a%9b%e5%ad%a6cohen-3%5cimage-20211124122238702.png" >
-		<img src="/D:%5c%e4%b8%aa%e4%ba%ba%5cblogHugo%5cmyBlog%5ccontent%5cposts%5c%e9%87%8f%e5%ad%90%e5%8a%9b%e5%ad%a6cohen-3%5cimage-20211124122238702.png"
-			
-			
-			
+	<a href="/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-b-part/image-20211124122238702.png" data-size="434x231">
+		<img src="/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-b-part/image-20211124122238702.png"
+			width="434"
+			height="231"
+			srcset="/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-b-part/image-20211124122238702_hu0891f9a4d5cb07b2c4f711cb526e857d_34749_480x0_resize_box_3.png 480w, /p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-b-part/image-20211124122238702_hu0891f9a4d5cb07b2c4f711cb526e857d_34749_1024x0_resize_box_3.png 1024w"
 			loading="lazy"
 			alt="image-20211124122238702">
 	</a>
@@ -137,12 +133,17 @@ $$</p>
 </figure></p>
 <p>那么我们就可以引入态空间/态矢量的方法来描述这些量。书中是这么讨论的：</p>
 <p><figure 
+	
+		class="gallery-image" 
+		style="
+			flex-grow: 578; 
+			flex-basis: 1387px"
 	>
-	<a href="/D:%5c%e4%b8%aa%e4%ba%ba%5cblogHugo%5cmyBlog%5ccontent%5cposts%5c%e9%87%8f%e5%ad%90%e5%8a%9b%e5%ad%a6cohen-3%5cimage-20211124122403356.png" >
-		<img src="/D:%5c%e4%b8%aa%e4%ba%ba%5cblogHugo%5cmyBlog%5ccontent%5cposts%5c%e9%87%8f%e5%ad%90%e5%8a%9b%e5%ad%a6cohen-3%5cimage-20211124122403356.png"
-			
-			
-			
+	<a href="/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-b-part/image-20211124122403356.png" data-size="1237x214">
+		<img src="/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-b-part/image-20211124122403356.png"
+			width="1237"
+			height="214"
+			srcset="/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-b-part/image-20211124122403356_hu991be1315ff6988d32f752945c5a7b78_179245_480x0_resize_box_3.png 480w, /p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-b-part/image-20211124122403356_hu991be1315ff6988d32f752945c5a7b78_179245_1024x0_resize_box_3.png 1024w"
 			loading="lazy"
 			alt="image-20211124122403356">
 	</a>
@@ -156,17 +157,22 @@ $$</p>
 <h3 id="a-scr-e空间的元素右矢ket">a. $\scr E$空间的元素：右矢（ket）</h3>
 <h4 id="i-定义">I 定义</h4>
 <p>标记法：$\ket{\psi}$</p>
-<p>我们定义一个一一对应的映射：
-$$
+<p>我们定义一个一一对应的映射：</p>
+<p>$$
 \psi(\boldsymbol{r}) \in \mathscr{F} \Longleftrightarrow|\psi\rangle \in \mathscr{E}_{\boldsymbol{r}}
-$$
-<figure 
+$$</p>
+<p><figure 
+	
+		class="gallery-image" 
+		style="
+			flex-grow: 394; 
+			flex-basis: 947px"
 	>
-	<a href="/D:%5c%e4%b8%aa%e4%ba%ba%5cblogHugo%5cmyBlog%5ccontent%5cposts%5c%e9%87%8f%e5%ad%90%e5%8a%9b%e5%ad%a6cohen-3%5cimage-20211124123336256.png" >
-		<img src="/D:%5c%e4%b8%aa%e4%ba%ba%5cblogHugo%5cmyBlog%5ccontent%5cposts%5c%e9%87%8f%e5%ad%90%e5%8a%9b%e5%ad%a6cohen-3%5cimage-20211124123336256.png"
-			
-			
-			
+	<a href="/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-b-part/image-20211124123336256.png" data-size="1216x308">
+		<img src="/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-b-part/image-20211124123336256.png"
+			width="1216"
+			height="308"
+			srcset="/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-b-part/image-20211124123336256_hue2ac7ff677cfc468dfb2c7f79cff20a6_239792_480x0_resize_box_3.png 480w, /p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-b-part/image-20211124123336256_hue2ac7ff677cfc468dfb2c7f79cff20a6_239792_1024x0_resize_box_3.png 1024w"
 			loading="lazy"
 			alt="image-20211124123336256">
 	</a>
@@ -177,22 +183,22 @@ $$
 <h4 id="ii-标量积">II 标量积</h4>
 <p>$(\ket\varphi,\ket\psi)$</p>
 <h3 id="b-scr-e的对偶空间scr-e左矢bra">b. $\scr E$的对偶空间$\scr E^*$：左矢（bra）</h3>
-<p>线性泛函balabala。这里不是数学课，要详细了解是什么去看线性代数。</p>
+<p>线性泛函 balabala。这里不是数学课，要详细了解是什么去看线性代数。</p>
 <p>符号标记：$\bra{\psi}$</p>
 <p>总之，左矢也构成一个矢量空间，也符合线性运算。</p>
 <h3 id="c-左矢与右矢的对应关系">c. 左矢与右矢的对应关系</h3>
 <h4 id="i-对于每一个右矢ketvarphi都存在一个左矢bravarphi对应">I 对于每一个右矢$\ket{\varphi}$，都存在一个左矢$\bra\varphi$对应。</h4>
-<p>两个矢量的标量积：
-$$
+<p>两个矢量的标量积：</p>
+<p>$$
 \bra\varphi\ket{\psi}=(\ket\varphi,\ket\psi)
 $$</p>
 <h4 id="ii-标量积对于第一个矢量是反线性的内积的定义">II 标量积对于第一个矢量是反线性的（内积的定义）。</h4>
-<p>而映射也相应的是反线性的：
-$$
+<p>而映射也相应的是反线性的：</p>
+<p>$$
 \lambda_{1}\left|\varphi_{1}\right\rangle+\lambda_{2}\left|\varphi_{2}\right\rangle \Longrightarrow \lambda_{1}^{*}\left\langle\varphi_{1}\right|+\lambda_{2}^{*}\left\langle\varphi_{2}\right|
-$$
-简单来说：
-$$
+$$</p>
+<p>简单来说：</p>
+<p>$$
 \ket{\lambda\psi}=\lambda\ket{\psi}\<br>
 \bra{\lambda\psi}=\lambda^*\bra{\psi}\<br>
 $$</p>
@@ -200,12 +206,17 @@ $$</p>
 <p>以后以后只用$\bra\varphi\ket{\psi}$着一种符号</p>
 <p>一些性质：</p>
 <p><figure 
+	
+		class="gallery-image" 
+		style="
+			flex-grow: 362; 
+			flex-basis: 869px"
 	>
-	<a href="/D:%5c%e4%b8%aa%e4%ba%ba%5cblogHugo%5cmyBlog%5ccontent%5cposts%5c%e9%87%8f%e5%ad%90%e5%8a%9b%e5%ad%a6cohen-3%5cimage-20211124144504505.png" >
-		<img src="/D:%5c%e4%b8%aa%e4%ba%ba%5cblogHugo%5cmyBlog%5ccontent%5cposts%5c%e9%87%8f%e5%ad%90%e5%8a%9b%e5%ad%a6cohen-3%5cimage-20211124144504505.png"
-			
-			
-			
+	<a href="/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-b-part/image-20211124144504505.png" data-size="717x198">
+		<img src="/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-b-part/image-20211124144504505.png"
+			width="717"
+			height="198"
+			srcset="/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-b-part/image-20211124144504505_hu0f7ac01a4ce4e38198ad9f3ae1a6235c_67410_480x0_resize_box_3.png 480w, /p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-b-part/image-20211124144504505_hu0f7ac01a4ce4e38198ad9f3ae1a6235c_67410_1024x0_resize_box_3.png 1024w"
 			loading="lazy"
 			alt="image-20211124144504505">
 	</a>
@@ -217,44 +228,44 @@ $$</p>
 <p>但这并不影响我们对量子力学的讨论。</p>
 <h2 id="3线性算符">3、线性算符</h2>
 <h3 id="a-定义">a. 定义</h3>
-<p>线性算符使得每一个右矢$\ket\psi\in\scr E$都有一个对应的右矢$\ket\psi'\in\scr E$，且对应关系是线性的：
-$$
+<p>线性算符使得每一个右矢$\ket\psi\in\scr E$都有一个对应的右矢$\ket\psi'\in\scr E$，且对应关系是线性的：</p>
+<p>$$
 \ket{\psi'}=A\ket\psi
-$$
-对于算符乘法与对易子定义与上一节相同。</p>
-<p>矩阵元：
-$$
+$$</p>
+<p>对于算符乘法与对易子定义与上一节相同。</p>
+<p>矩阵元：</p>
+<p>$$
 \bra\varphi (A\ket{\psi})
-$$
-这是一个数。</p>
+$$</p>
+<p>这是一个数。</p>
 <h3 id="b-重要例子投影算符">b. 重要例子：投影算符</h3>
 <p>$$
 \ket\psi \bra\varphi
-$$
-若取任意一个右矢，使用投影算符进行运算：
-$$
+$$</p>
+<p>若取任意一个右矢，使用投影算符进行运算：</p>
+<p>$$
 \ket\psi \bra\varphi\ket{\chi}
-$$
-可以得到一个右矢，因此证明这是一个算符。</p>
+$$</p>
+<p>可以得到一个右矢，因此证明这是一个算符。</p>
 <p>我们可以见到，<strong>符号的先后顺序是十分有意义的</strong>。一个数可以随意移动，但算符和左右矢的位置不能移动。</p>
-<p>假设$\ket\psi$是归一化的（内积为一），那么定义以下算符：
-$$
+<p>假设$\ket\psi$是归一化的（内积为一），那么定义以下算符：</p>
+<p>$$
 P_\psi=\ket\psi \bra\psi
-$$
-将其作用到任意一个右矢上：
-$$
+$$</p>
+<p>将其作用到任意一个右矢上：</p>
+<p>$$
 P_\psi=\ket\psi \bra\psi\ket{\varphi}
-$$
-可以清晰的知道他的几何意义：在右矢$\ket\psi$上进行垂直投影。</p>
-<p>一些性质：
-$$
+$$</p>
+<p>可以清晰的知道他的几何意义：在右矢$\ket\psi$上进行垂直投影。</p>
+<p>一些性质：</p>
+<p>$$
 P_\psi^2=P_\psi
-$$
-子空间上的投影算符：
-$$
+$$</p>
+<p>子空间上的投影算符：</p>
+<p>$$
 P_q=\sum_{i=1}^q\ket{\varphi_i}\bra{\varphi_i}
 $$</p>
-<h2 id="4hermite共轭">4、Hermite共轭</h2>
+<h2 id="4hermite-共轭">4、Hermite 共轭</h2>
 <h3 id="a-线性算符也能对左矢进行作用">a. 线性算符也能对左矢进行作用</h3>
 <p>$$
 \bra\varphi(A\ket\psi)=(\bra\varphi A)\ket\psi=\bra\varphi A\ket\psi
@@ -264,12 +275,17 @@ $$</p>
 <h3 id="b-伴随算符adagger">b. 伴随算符$A^\dagger$</h3>
 <p>左矢和右矢之间的关系作用到一个线性算符上，就能得到它的伴随算符$A^\dagger$</p>
 <p><figure 
+	
+		class="gallery-image" 
+		style="
+			flex-grow: 250; 
+			flex-basis: 600px"
 	>
-	<a href="/D:%5c%e4%b8%aa%e4%ba%ba%5cblogHugo%5cmyBlog%5ccontent%5cposts%5c%e9%87%8f%e5%ad%90%e5%8a%9b%e5%ad%a6cohen-3%5cimage-20211124150647362.png" >
-		<img src="/D:%5c%e4%b8%aa%e4%ba%ba%5cblogHugo%5cmyBlog%5ccontent%5cposts%5c%e9%87%8f%e5%ad%90%e5%8a%9b%e5%ad%a6cohen-3%5cimage-20211124150647362.png"
-			
-			
-			
+	<a href="/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-b-part/image-20211124150647362.png" data-size="651x260">
+		<img src="/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-b-part/image-20211124150647362.png"
+			width="651"
+			height="260"
+			srcset="/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-b-part/image-20211124150647362_huc7aa7ab02dc93ba7034149aa60c9ec66_35023_480x0_resize_box_3.png 480w, /p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-b-part/image-20211124150647362_huc7aa7ab02dc93ba7034149aa60c9ec66_35023_1024x0_resize_box_3.png 1024w"
 			loading="lazy"
 			alt="image-20211124150647362">
 	</a>
@@ -277,15 +293,15 @@ $$</p>
 	<figcaption>image-20211124150647362</figcaption>
 	
 </figure></p>
-<p>根据内积定义：
-$$
-\left\langle\psi^{\prime} \mid \varphi\right\rangle=\left\langle\varphi \mid \psi^{\prime}\right\rangle^{<em>}
-$$
-可得：
-$$
-\bra\psi A^\dagger \ket\varphi=\bra\varphi A \ket \psi^</em>
-$$
-<strong>一些符号标注的问题</strong>：$\ket{A\psi}=A\ket\psi$，而$\bra{A\psi}=\bra\psi A^\dagger$</p>
+<p>根据内积定义：</p>
+<p>$$
+\left\langle\psi^{\prime} \mid \varphi\right\rangle=\left\langle\varphi \mid \psi^{\prime}\right\rangle^{*}
+$$</p>
+<p>可得：</p>
+<p>$$
+\bra\psi A^\dagger \ket\varphi=\bra\varphi A \ket \psi^*
+$$</p>
+<p><strong>一些符号标注的问题</strong>：$\ket{A\psi}=A\ket\psi$，而$\bra{A\psi}=\bra\psi A^\dagger$</p>
 <h3 id="c-伴随算符易证性质">c. 伴随算符易证性质</h3>
 <p>$$
 \begin{array}{c}
@@ -295,19 +311,24 @@ $$
 (AB)^\dagger=B^\dagger A^\dagger
 \end{array}
 $$</p>
-<h3 id="d-dirac符号的hermite共轭">d. Dirac符号的Hermite共轭</h3>
-<p>简单的例子：
-$$
+<h3 id="d-dirac-符号的-hermite-共轭">d. Dirac 符号的 Hermite 共轭</h3>
+<p>简单的例子：</p>
+<p>$$
 (\ket\psi \bra\varphi)^\dagger=\ket\varphi \bra\psi
-$$
-统合成的规则：</p>
+$$</p>
+<p>统合成的规则：</p>
 <p><figure 
+	
+		class="gallery-image" 
+		style="
+			flex-grow: 251; 
+			flex-basis: 604px"
 	>
-	<a href="/D:%5c%e4%b8%aa%e4%ba%ba%5cblogHugo%5cmyBlog%5ccontent%5cposts%5c%e9%87%8f%e5%ad%90%e5%8a%9b%e5%ad%a6cohen-3%5cimage-20211124151800734.png" >
-		<img src="/D:%5c%e4%b8%aa%e4%ba%ba%5cblogHugo%5cmyBlog%5ccontent%5cposts%5c%e9%87%8f%e5%ad%90%e5%8a%9b%e5%ad%a6cohen-3%5cimage-20211124151800734.png"
-			
-			
-			
+	<a href="/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-b-part/image-20211124151800734.png" data-size="1179x468">
+		<img src="/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-b-part/image-20211124151800734.png"
+			width="1179"
+			height="468"
+			srcset="/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-b-part/image-20211124151800734_hu2cdebf88482f63f48caecfa30aec96e0_188750_480x0_resize_box_3.png 480w, /p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-b-part/image-20211124151800734_hu2cdebf88482f63f48caecfa30aec96e0_188750_1024x0_resize_box_3.png 1024w"
 			loading="lazy"
 			alt="image-20211124151800734">
 	</a>
@@ -315,14 +336,14 @@ $$
 	<figcaption>image-20211124151800734</figcaption>
 	
 </figure></p>
-<h3 id="e-hermite算符">e. Hermite算符</h3>
-<p>如果：
-$$
+<h3 id="e-hermite-算符">e. Hermite 算符</h3>
+<p>如果：</p>
+<p>$$
 A=A^\dagger
-$$
-那么这个算符就是Hermite算符。</p>
-<p>一些性质：
-$$
+$$</p>
+<p>那么这个算符就是 Hermite 算符。</p>
+<p>一些性质：</p>
+<p>$$
 \bra\psi A \ket\varphi=\bra\varphi A \ket \psi^*\<br>
 P_\psi^\dagger=P_\psi\<br>
 [A,B] = 0 \Rightarrow\text{(AB)为厄米算符}
@@ -359,29 +380,6 @@ $$</p>
     </footer>
 
 
-    
-        <link 
-                rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css"integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn"crossorigin="anonymous"
-            ><script 
-                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js"integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8"crossorigin="anonymous"
-                defer="true"
-                >
-            </script><script 
-                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js"integrity="sha384-vZTG03m&#43;2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl"crossorigin="anonymous"
-                defer="true"
-                >
-            </script><script>
-    window.addEventListener("DOMContentLoaded", () => {
-        renderMathInElement(document.querySelector(`.article-content`), {
-            delimiters: [
-                { left: "$$", right: "$$", display: true },
-                { left: "$", right: "$", display: false },
-                { left: "\\(", right: "\\)", display: false },
-                { left: "\\[", right: "\\]", display: true }
-            ]
-        });})
-</script>
     
 </article>
 
@@ -437,6 +435,7 @@ $$</p>
         Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
         Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener"
                 data-version="3.4.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+        
     </section>
     
 </footer>
@@ -566,13 +565,13 @@ $$</p>
         <li><a href="#b-重要例子投影算符">b. 重要例子：投影算符</a></li>
       </ol>
     </li>
-    <li><a href="#4hermite共轭">4、Hermite共轭</a>
+    <li><a href="#4hermite-共轭">4、Hermite 共轭</a>
       <ol>
         <li><a href="#a-线性算符也能对左矢进行作用">a. 线性算符也能对左矢进行作用</a></li>
         <li><a href="#b-伴随算符adagger">b. 伴随算符$A^\dagger$</a></li>
         <li><a href="#c-伴随算符易证性质">c. 伴随算符易证性质</a></li>
-        <li><a href="#d-dirac符号的hermite共轭">d. Dirac符号的Hermite共轭</a></li>
-        <li><a href="#e-hermite算符">e. Hermite算符</a></li>
+        <li><a href="#d-dirac-符号的-hermite-共轭">d. Dirac 符号的 Hermite 共轭</a></li>
+        <li><a href="#e-hermite-算符">e. Hermite 算符</a></li>
       </ol>
     </li>
     <li><a href="#comment">Comment</a></li>

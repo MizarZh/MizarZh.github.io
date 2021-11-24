@@ -119,84 +119,84 @@
 $$</p>
 <p>本篇非常重要！为后面的所有运算都打下了基础。</p>
 <h1 id="a-一个粒子的波函数空间">A 一个粒子的波函数空间</h1>
-<p>在整个空间中找到粒子的概率是1，因此：
-$$
+<p>在整个空间中找到粒子的概率是 1，因此：</p>
+<p>$$
 \int\dd^3 r|\psi(\bf r,t^2)| = 1
-$$
-我们必须研究平方可积函数。</p>
+$$</p>
+<p>我们必须研究平方可积函数。</p>
 <h2 id="1波函数空间scr-f的结构">1、波函数空间$\scr F$的结构</h2>
 <h3 id="a-scr-f是一个矢量空间">a. $\scr F$是一个矢量空间</h3>
 <p>易证明。线性叠加。</p>
-<p>重要的是平方可积的证明：
-$$
+<p>重要的是平方可积的证明：</p>
+<p>$$
 |\psi(\boldsymbol{r})|^{2}=\left|\lambda_{1}\right|^{2}\left|\psi_{1}(\boldsymbol{r})\right|^{2}+\left|\lambda_{2}\right|^{2}\left|\psi_{2}(\boldsymbol{r})\right|^{2}+\lambda_{1}^{*} \lambda_{2} \psi_{1}^{*}(\boldsymbol{r}) \psi_{2}(\boldsymbol{r})+\lambda_{1} \lambda_{2}^{*} \psi_{1}(\boldsymbol{r}) \psi_{2}^{*}(\boldsymbol{r})
-$$
-最后两项的和不大于：
-$$
+$$</p>
+<p>最后两项的和不大于：</p>
+<p>$$
 \left|\lambda_{1} | \lambda_{2}\right|\left[\left|\psi_{1}(\boldsymbol{r})\right|^{2}+\left|\psi_{2}(\boldsymbol{r})\right|^{2}\right]
-$$
-平方可积性质证明完成。</p>
+$$</p>
+<p>平方可积性质证明完成。</p>
 <h3 id="b-标量积">b. 标量积</h3>
-<p>I 定义：
-$$
-(\varphi, \psi)=\int\dd^3 r \varphi^<em>(\bf r)\psi(\bf r)
-$$
-II 性质：
-$$
+<p>I 定义：</p>
+<p>$$
+(\varphi, \psi)=\int\dd^3 r \varphi^*(\bf r)\psi(\bf r)
+$$</p>
+<p>II 性质：</p>
+<p>$$
 \begin{array}{l}
-(\varphi, \psi)=(\psi, \varphi)^{</em>} \<br>
+(\varphi, \psi)=(\psi, \varphi)^{*} \<br>
 \left(\varphi, \lambda_{1} \psi_{1}+\lambda_{2} \psi_{2}\right)=\lambda_{1}\left(\varphi, \psi_{1}\right)+\lambda_{2}\left(\varphi, \psi_{2}\right) \<br>
 \left(\lambda_{1} \varphi_{1}+\lambda_{2} \varphi_{2}, \psi\right)=\lambda_{1}^{*}\left(\varphi_{1}, \psi\right)+\lambda_{2}^{*}\left(\varphi_{2}, \psi\right)
 \end{array}
-$$
-第二个因子的关系是线性的，第一个因子的关系是反线性的。$(\varphi, \psi)=0$，就说明这两个波函数是正交的。
-$$
+$$</p>
+<p>第二个因子的关系是线性的，第一个因子的关系是反线性的。$(\varphi, \psi)=0$，就说明这两个波函数是正交的。</p>
+<p>$$
 (\psi, \psi)=\int \mathrm{d}^{3} r|\psi(\boldsymbol{r})|^{2}
-$$
-为正实数，当且仅当$\psi(\bf r)=0$时，它才为0.</p>
+$$</p>
+<p>为正实数，当且仅当$\psi(\bf r)=0$时，它才为 0.</p>
 <p>$\sqrt{(\psi,\psi)}$叫做$\psi$的模。</p>
-<p>Schwartz不等式：
-$$
+<p>Schwartz 不等式：</p>
+<p>$$
 |(\psi_1,\psi_2)|\le\sqrt{(\psi_1,\psi_1)}\cdot\sqrt{(\psi_2,\psi_2)}
 $$</p>
 <h3 id="c-线性算符">c. 线性算符</h3>
-<p>I 定义：
-$$
+<p>I 定义：</p>
+<p>$$
 \begin{array}{l}
 \psi^{\prime}(\boldsymbol{r})=A \psi(\boldsymbol{r}) \<br>
 A\left[\lambda_{1} \psi_{1}(\boldsymbol{r})+\lambda_{2} \psi_{2}(\boldsymbol{r})\right]=\lambda_{1} A \psi_{1}(\boldsymbol{r})+\lambda_{2} A \psi_{2}(\boldsymbol{r})
 \end{array}
-$$
-一些有意思的算符：
-$$
+$$</p>
+<p>一些有意思的算符：</p>
+<p>$$
 \Pi\psi(x,y,z) = \psi(-x,-y,-z) \qquad\text{宇称算符}\<br>
 X\psi(x,y,z) = x\psi(x,y,z)\qquad\text{倍乘算符}\<br>
 D_x\psi(x,y,z)=\frac{\par \psi(x,y,z)}{\par x}\qquad\text{对x求导数的算符}
-$$
-II 乘积：
-$$
+$$</p>
+<p>II 乘积：</p>
+<p>$$
 (AB)\psi(\bf r)=A[B\psi(\bf r)]
 $$</p>
-<p>III 对易子定义：
-$$
+<p>III 对易子定义：</p>
+<p>$$
 [A,B]=AB-BA
 $$</p>
 <h2 id="2scr-f中离散的正交归一基u_ibf-r">2、$\scr F$中离散的正交归一基：${u_i(\bf r)}$</h2>
 <h3 id="i-定义">I 定义：</h3>
-<p>设$\scr F$空间中的一个可列的函数集合，其中的函数可以用离散的指标$i=1,2,\cdots,n,\cdots$标记：
-$$
+<p>设$\scr F$空间中的一个可列的函数集合，其中的函数可以用离散的指标$i=1,2,\cdots,n,\cdots$标记：</p>
+<p>$$
 u_i(\bf r)\in\scr F,
-$$
-若符合以下条件：</p>
-<p>1、正交归一条件：
-$$
+$$</p>
+<p>若符合以下条件：</p>
+<p>1、正交归一条件：</p>
+<p>$$
 (u_i,u_j)=\int\dd^3 ru_i^*(\bf r) u_j(\bf r)=\delta_{ij}
-$$
-2、完备性：（每一个波函数都能按唯一全体的$u_i(\bf r)$展开）：
-$$
+$$</p>
+<p>2、完备性：（每一个波函数都能按唯一全体的$u_i(\bf r)$展开）：</p>
+<p>$$
 \psi(\bf r)=\sum_ic_iu_i(\bf r)
-$$
-则${u_i(\bf r)}$构成一个基。</p>
+$$</p>
+<p>则${u_i(\bf r)}$构成一个基。</p>
 <h3 id="ii-求波函数在基上的分量">II 求波函数在基上的分量：</h3>
 <p>$$
 c_i=(u_i,\psi)=\int\dd^3 r u_i^*(\bf r) \psi(\bf r)
@@ -205,32 +205,32 @@ $$</p>
 <p>$$
 \varphi(\bf r)=\sum_ib_iu_i(\bf r)\<br>
 \psi(\bf r)=\sum_jc_ju_j(\bf r)
-$$
-那么：
-$$
+$$</p>
+<p>那么：</p>
+<p>$$
 (\varphi,\psi)=\sum_ib_i^*c_i\<br>
 (\psi,\psi)=\sum_i|c_i|^2
 $$</p>
 <h3 id="iv-封闭性关系式">IV 封闭性关系式：</h3>
 <p>$$
-\psi(\bf r)=\sum_ic_iu_i(\bf r)=\sum_i[\int\dd^3 r' u_i^<em>(\bf r')\psi(\bf r')]u_i(\bf r)=\int\dd^3 r'\psi(\bf r')[\sum_i u_i^</em>(\bf r')u_i(\bf r)]=\int\dd^3 r'\psi(\bf r')F(\bf r,\bf r')
-$$
-这正是$\delta(\bf r-\bf r')$的性质，因此（封闭性关系式）：
-$$
-\sum_i u_i^*(\bf r')u_i(\bf r)=\delta(\bf r-\bf r')
+\psi(\bf r)=\sum_ic_iu_i(\bf r)=\sum_i[\int\dd^3 r&quot; u_i^<em>(\bf r&quot;)\psi(\bf r&quot;)]u_i(\bf r)=\int\dd^3 r&quot;\psi(\bf r&quot;)[\sum_i u_i^</em>(\bf r&quot;)u_i(\bf r)]=\int\dd^3 r&quot;\psi(\bf r&quot;)F(\bf r,\bf r&quot;)
+$$</p>
+<p>这正是$\delta(\bf r-\bf r&quot;)$的性质，因此（封闭性关系式）：</p>
+<p>$$
+\sum_i u_i^*(\bf r&quot;)u_i(\bf r)=\delta(\bf r-\bf r&quot;)
 $$</p>
 <h2 id="3-引入不属于scr-f的基">3 引入不属于$\scr F$的基</h2>
 <p>两个例子：$v_p=\frac{1}{\sqrt{2\pi\hbar}}e^{ipx/\hbar}$和$\xi_{\bf r_0}(\bf r)=\delta(\bf r - \bf r_0)$</p>
 <h3 id="c-连续的正交归一基">c 连续的正交归一基</h3>
-<p>与离散的基相似，只不过它是连续的，$\sum\rightarrow\int, \delta_{ij}\rightarrow\delta(\bf r-\bf r')$</p>
-<p>正交归一及封闭性关系式：
-$$
+<p>与离散的基相似，只不过它是连续的，$\sum\rightarrow\int, \delta_{ij}\rightarrow\delta(\bf r-\bf r&quot;)$</p>
+<p>正交归一及封闭性关系式：</p>
+<p>$$
 \begin{array}{l}
 \left(w_{\alpha}, w_{\alpha^{\prime}}\right)=\int \mathrm{d}^{3} r w_{\alpha}^{*}(\boldsymbol{r}) w_{\alpha^{\prime}}(\boldsymbol{r})=\delta\left(\alpha-\alpha^{\prime}\right) \<br>
 \int \mathrm{d} \alpha w_{\alpha}(\boldsymbol{r}) w_{\alpha}^{*}\left(\boldsymbol{r}^{\prime}\right)=\delta\left(\boldsymbol{r}-\boldsymbol{r}^{\prime}\right)
 \end{array}
-$$
-综合的表格：</p>
+$$</p>
+<p>综合的表格：</p>
 <p><figure 
 	>
 	<a href="/D:%5c%e4%b8%aa%e4%ba%ba%5cblogHugo%5cmyBlog%5ccontent%5cposts%5c%e9%87%8f%e5%ad%90%e5%8a%9b%e5%ad%a6cohen-2%5cimage-20211124121120236.png" >
@@ -278,29 +278,6 @@ $$
     </footer>
 
 
-    
-        <link 
-                rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css"integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn"crossorigin="anonymous"
-            ><script 
-                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js"integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8"crossorigin="anonymous"
-                defer="true"
-                >
-            </script><script 
-                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js"integrity="sha384-vZTG03m&#43;2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl"crossorigin="anonymous"
-                defer="true"
-                >
-            </script><script>
-    window.addEventListener("DOMContentLoaded", () => {
-        renderMathInElement(document.querySelector(`.article-content`), {
-            delimiters: [
-                { left: "$$", right: "$$", display: true },
-                { left: "$", right: "$", display: false },
-                { left: "\\(", right: "\\)", display: false },
-                { left: "\\[", right: "\\]", display: true }
-            ]
-        });})
-</script>
     
 </article>
 
@@ -356,6 +333,7 @@ $$
         Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
         Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener"
                 data-version="3.4.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+        
     </section>
     
 </footer>
