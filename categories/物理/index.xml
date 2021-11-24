@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>物理 on MizarZ&#39;s Blog</title>
+    <link>https://mizarzh.github.io/categories/%E7%89%A9%E7%90%86/</link>
+    <description>Recent content in 物理 on MizarZ&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 24 Nov 2021 12:19:32 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/categories/%E7%89%A9%E7%90%86/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[量子力学] 2 量子力学的数学工具 B part</title>
+      <link>https://mizarzh.github.io/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-b-part/</link>
+      <pubDate>Wed, 24 Nov 2021 12:19:32 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-b-part/</guid>
+      <description>$$ \def\bf{\mathbf} \def\un{\mathrm} \def\dd{\mathrm d} \def\cal{\mathcal} \def\par{\partial} \def\bl{\boldsymbol} \def\scr{\mathscr} $$ 这一节可能有点复杂，只要了解上一节各种量可以对应这一节的量，以及了解数学结构即可。 B 态空间；Dirac符号 1 引言 通过上一</description>
+    </item>
+    
+    <item>
+      <title>[量子力学] 2 量子力学的数学工具 A part</title>
+      <link>https://mizarzh.github.io/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-a-part/</link>
+      <pubDate>Tue, 23 Nov 2021 20:09:10 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-a-part/</guid>
+      <description>$$ \def\bf{\mathbf} \def\un{\mathrm} \def\dd{\mathrm d} \def\cal{\mathcal} \def\par{\partial} \def\bl{\boldsymbol} \def\scr{\mathscr} $$ 本篇非常重要！为后面的所有运算都打下了基础。 A 一个粒子的波函数空间 在整个空间中找到粒子的概率是1，因此： $$ \int\dd^3 r|\psi(\bf r,t^2)| = 1 $$ 我</description>
+    </item>
+    
+    <item>
+      <title>[量子力学] 1 波和粒子；量子力学的基本概念</title>
+      <link>https://mizarzh.github.io/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-1-%E6%B3%A2%E5%92%8C%E7%B2%92%E5%AD%90%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/</link>
+      <pubDate>Tue, 23 Nov 2021 17:37:48 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-1-%E6%B3%A2%E5%92%8C%E7%B2%92%E5%AD%90%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/</guid>
+      <description>$$ \def\bf{\mathbf} \def\un{\mathrm} \def\dd{\mathrm d} \def\cal{\mathcal} \def\par{\partial} $$ 本篇未完善。 A 电磁波与光子 1、光量子与普朗克-爱因斯坦关系 对黑体辐射的研究提出了能量量子化（Planck） 普朗克-爱因斯坦关</description>
+    </item>
+    
+  </channel>
+</rss>
