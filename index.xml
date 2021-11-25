@@ -6,7 +6,405 @@
         <description>Recent content on MizarZ&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Wed, 24 Nov 2021 12:19:32 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 25 Nov 2021 15:14:33 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Rust模块系统</title>
+        <link>https://mizarzh.github.io/p/2021/11/rust%E6%A8%A1%E5%9D%97%E7%B3%BB%E7%BB%9F/</link>
+        <pubDate>Thu, 25 Nov 2021 15:14:33 +0800</pubDate>
+        
+        <guid>https://mizarzh.github.io/p/2021/11/rust%E6%A8%A1%E5%9D%97%E7%B3%BB%E7%BB%9F/</guid>
+        <description>&lt;h2 id=&#34;1-一些概念&#34;&gt;1 一些概念&lt;/h2&gt;
+&lt;p&gt;crate：是一个二进制项或者库。一个 crate 会将一个作用域内的相关功能分组到一起，能很方便的在多个项目间共享。&lt;/p&gt;
+&lt;p&gt;包 Package：是提供一系列功能的一个或者多个 crate。一个包会含有一个 &lt;em&gt;Cargo.toml&lt;/em&gt; 文件，阐述如何去构建这些 crate。一个包中至多 &lt;strong&gt;只能&lt;/strong&gt; 包含一个库 crate(library crate)；包中可以包含任意多个二进制 crate(binary crate)；包中至少包含一个 crate，无论是库的还是二进制的。&lt;/p&gt;
+&lt;p&gt;库 crate 和二进制 crate：库 crate 是编译过程中的上游，一般来说是被别人使用的。二进制 crate 则是自己要使用的程序代码。库 crate 一般不包含 &lt;em&gt;Cargo.lock&lt;/em&gt; 文件。&lt;/p&gt;
+&lt;h2 id=&#34;2-新建-package-及文件结构&#34;&gt;2 新建 package 及文件结构&lt;/h2&gt;
+&lt;p&gt;新建 package:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;cargo new my-project
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;生成了 &lt;em&gt;src&lt;/em&gt; 文件夹， &lt;em&gt;src/main.rs&lt;/em&gt; 文件， &lt;em&gt;Cargo.toml&lt;/em&gt; 配置文件及进行了 git 初始化。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;src/main.rs&lt;/em&gt; 就是一个与包同名的二进制 crate 的 crate 根。如果含有 &lt;em&gt;src/lib.rs&lt;/em&gt;， 则包带有与其同名的库 crate，且 &lt;em&gt;src/lib.rs&lt;/em&gt; 是 crate 根。crate 根文件将由 Cargo 传递给 &lt;code&gt;rustc&lt;/code&gt; 来实际构建库或者二进制项目。&lt;/p&gt;
+&lt;p&gt;一个只包含 &lt;em&gt;src/main.rs&lt;/em&gt; 的包，意味着它只含有一个名为 &lt;code&gt;my-project&lt;/code&gt; 的二进制 crate。如果一个包同时含有 &lt;em&gt;src/main.rs&lt;/em&gt; 和 &lt;em&gt;src/lib.rs&lt;/em&gt;，则它有两个 crate：一个库和一个二进制项，且名字都与包相同。&lt;/p&gt;
+&lt;p&gt;通过将文件放在 &lt;em&gt;src/bin&lt;/em&gt; 目录下，一个包可以拥有多个二进制 crate：每个 &lt;em&gt;src/bin&lt;/em&gt; 下的文件都会被编译成一个独立的二进制 crate。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;lib&lt;/em&gt; 也可以写成文件结构的方式。&lt;/p&gt;
+&lt;p&gt;完整的 package 的结构，可以看到还含有例子、测试和性能测试的模块：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;.
+├── Cargo.lock
+├── Cargo.toml
+├── src/
+│   ├── lib.rs
+│   ├── main.rs
+│   └── bin/
+│       ├── named-executable.rs
+│       ├── another-executable.rs
+│       └── multi-file-executable/
+│           ├── main.rs
+│           └── some_module.rs
+├── benches/
+│   ├── large-input.rs
+│   └── multi-file-bench/
+│       ├── main.rs
+│       └── bench_module.rs
+├── examples/
+│   ├── simple.rs
+│   └── multi-file-example/
+│       ├── main.rs
+│       └── ex_module.rs
+└── tests/
+    ├── some-integration-tests.rs
+    └── multi-file-test/
+        ├── main.rs
+        └── test_module.rs
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;heading&#34;&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;3-关键词私有性&#34;&gt;3 关键词；私有性&lt;/h2&gt;
+&lt;p&gt;模块的关键词是 &lt;code&gt;mod&lt;/code&gt;：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-rust&#34; data-lang=&#34;rust&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// src/lib.rs
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;mod&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;mod1&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;mod&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;small_mod1&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;fn&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;func_1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;fn&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;func_2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;mod&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;small_mod2&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;fn&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;func_3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;建立的结构：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;crate
+ └── mod1
+     ├── small_mod1
+     │   ├── func_1
+     │   └── func_2
+     └── small_mod2
+         └── func_3
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;默认的属性是私有(private)的，加上 &lt;code&gt;pub&lt;/code&gt; 关键字就能使得其被其他模块引用：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-rust&#34; data-lang=&#34;rust&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// src/lib.rs
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;mod&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;mod1&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;pub&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;mod&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;small_mod1&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;pub&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;fn&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;func_1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// 最底层的也要加上pub
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;fn&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;func_2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// 这个函数就无法被外部访问
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;pub&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;mod&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;small_mod2&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;pub&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;fn&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;func_3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;4-路径&#34;&gt;4 路径&lt;/h2&gt;
+&lt;p&gt;要在其他模块中引用库，则需要使用路径指定它所在的地方。用的路径有两种：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;绝对路径&lt;/strong&gt;（&lt;em&gt;absolute path&lt;/em&gt;）从 crate 根开始，以 crate 名或者字面值 &lt;code&gt;crate&lt;/code&gt; 开头。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;相对路径&lt;/strong&gt;（&lt;em&gt;relative path&lt;/em&gt;）从当前模块开始，以 &lt;code&gt;self&lt;/code&gt;、&lt;code&gt;super&lt;/code&gt; 或当前模块的标识符开头。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;绝对路径和相对路径都后跟一个或多个由双冒号（&lt;code&gt;::&lt;/code&gt;）分割的标识符。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-rust&#34; data-lang=&#34;rust&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// src/lib.rs
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;mod&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;mod1&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;	&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;pub&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;fn&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;func_1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;pub&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;fn&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;run&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;crate&lt;/span&gt;::&lt;span class=&#34;n&#34;&gt;mod1&lt;/span&gt;::&lt;span class=&#34;n&#34;&gt;func_1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// 绝对路径
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;mod1&lt;/span&gt;::&lt;span class=&#34;n&#34;&gt;func_1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// 相对路径
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;super&lt;/code&gt; 关键字的使用：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-rust&#34; data-lang=&#34;rust&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// src/lib.rs
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;fn&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;serve_order&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;mod&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;back_of_house&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;fn&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;fix_incorrect_order&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cook_order&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;super&lt;/span&gt;::&lt;span class=&#34;n&#34;&gt;serve_order&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// 这里的super即指向本模块的上一级（即crate）
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;fn&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;cook_order&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;5-use-关键字as-关键字&#34;&gt;5 &lt;code&gt;use&lt;/code&gt; 关键字；&lt;code&gt;as&lt;/code&gt; 关键字&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;use&lt;/code&gt; 的作用是将指定模块下的东西引入到本作用域中（可以理解为缩写，python 中的 &lt;code&gt;import&lt;/code&gt;）。&lt;/p&gt;
+&lt;p&gt;可以使用相对路径和绝对路径。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-rust&#34; data-lang=&#34;rust&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// src/lib
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;mod&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;front_of_house&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;pub&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;mod&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;hosting&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;pub&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;fn&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;add_to_waitlist&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;use&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;front_of_house&lt;/span&gt;::&lt;span class=&#34;n&#34;&gt;hosting&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;pub&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;fn&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;eat_at_restaurant&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;hosting&lt;/span&gt;::&lt;span class=&#34;n&#34;&gt;add_to_waitlist&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;hosting&lt;/span&gt;::&lt;span class=&#34;n&#34;&gt;add_to_waitlist&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;hosting&lt;/span&gt;::&lt;span class=&#34;n&#34;&gt;add_to_waitlist&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;不允许引入相同名称的类型到同一作用域中。但可以使用 &lt;code&gt;as&lt;/code&gt; 关键字修改引入的名称。还有嵌套语句的使用：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-rust&#34; data-lang=&#34;rust&#34;&gt;&lt;span class=&#34;k&#34;&gt;use&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;std&lt;/span&gt;::&lt;span class=&#34;n&#34;&gt;fmt&lt;/span&gt;::&lt;span class=&#34;nb&#34;&gt;Result&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;use&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;std&lt;/span&gt;::&lt;span class=&#34;n&#34;&gt;io&lt;/span&gt;::&lt;span class=&#34;nb&#34;&gt;Result&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;as&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;IoResult&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;use&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;std&lt;/span&gt;::&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cmp&lt;/span&gt;::&lt;span class=&#34;n&#34;&gt;Ordering&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;io&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;};&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;use&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;std&lt;/span&gt;::&lt;span class=&#34;n&#34;&gt;io&lt;/span&gt;::&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Write&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;};&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// 如果想要引入 std::io 自己，就加上 self
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;use&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;std&lt;/span&gt;::&lt;span class=&#34;n&#34;&gt;collections&lt;/span&gt;::&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// 避免使用
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;重导出技巧：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-rust&#34; data-lang=&#34;rust&#34;&gt;&lt;span class=&#34;k&#34;&gt;mod&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;front_of_house&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;pub&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;mod&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;hosting&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;pub&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;fn&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;add_to_waitlist&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;pub&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;use&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;crate&lt;/span&gt;::&lt;span class=&#34;n&#34;&gt;front_of_house&lt;/span&gt;::&lt;span class=&#34;n&#34;&gt;hosting&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;使用外部的包：&lt;/p&gt;
+&lt;p&gt;在 &lt;em&gt;Cargo.toml&lt;/em&gt; 中添加：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;dependencies&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;span class=&#34;nx&#34;&gt;rand&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;0.5.5&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后就引入了 &lt;code&gt;rand&lt;/code&gt; 包，接下来可以使用 &lt;code&gt;use&lt;/code&gt; 使用其内部的类型了。&lt;/p&gt;
+&lt;h2 id=&#34;6-lib-的文件分割&#34;&gt;6 lib 的文件分割&lt;/h2&gt;
+&lt;p&gt;假设创建一个新文件： &lt;em&gt;src/math.rs&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-rust&#34; data-lang=&#34;rust&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// src/math.rs
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;pub&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;fn&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;add&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;: &lt;span class=&#34;kt&#34;&gt;i32&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;y&lt;/span&gt;: &lt;span class=&#34;kt&#34;&gt;i32&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;-&amp;gt; &lt;span class=&#34;kt&#34;&gt;i32&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;y&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;直接在 &lt;em&gt;main.rs&lt;/em&gt; 文件中使用 &lt;code&gt;use math::add&lt;/code&gt; 语句是行不通的，因为 rust 默认以 &lt;em&gt;lib.rs&lt;/em&gt; 文件为库的入口。若想使用这个模库，需要在主文件中添加：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-rust&#34; data-lang=&#34;rust&#34;&gt;&lt;span class=&#34;k&#34;&gt;mod&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;math&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// 相当于将 math 导入到了 main.rs 中
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;use&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;math&lt;/span&gt;::&lt;span class=&#34;n&#34;&gt;add&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// 导入 add 到此作用域
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;fn&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;let&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;result&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;add&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;!&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;1 + 2 = {}&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;result&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Rust 会在与模块同名的文件中查找模块的代码。&lt;/p&gt;
+&lt;p&gt;如果想要以一个文件夹为单位创建一个库，那么文件夹内部文件 &lt;em&gt;mod.rs&lt;/em&gt; 就是描述以文件夹名为模块名的文件。&lt;/p&gt;
+&lt;p&gt;例如 &lt;em&gt;math.rs&lt;/em&gt; 和 &lt;em&gt;math/mod.rs&lt;/em&gt;，如果 &lt;em&gt;math.rs&lt;/em&gt; 和 &lt;em&gt;math/mod.rs&lt;/em&gt; 中的内容完全一致，那么这两个模块没有什么区别，除了 &lt;em&gt;math/mod.rs&lt;/em&gt; 中可以定义更加复杂的结构。&lt;/p&gt;
+&lt;p&gt;文件结构：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;src/
+    main.rs
+    math/
+        mod.rs
+        add.rs
+        sub.rs
+&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-rust&#34; data-lang=&#34;rust&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// mod.rs
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;mod&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;add&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;mod&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;sub&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; 
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// 只有这两条语句是不够的。这两条语句只将 add 和 sub 引入了 math 模块，但对外是不公开的。
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// 如果写成 pub mod add，那么将会将整个 add 模块导出（即外部调用为 add::add），这与我们的初衷（隐藏 add 和 sub）不符合。
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// 因此还需要重导出需要的函数：
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;pub&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;use&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;add&lt;/span&gt;::&lt;span class=&#34;n&#34;&gt;add&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;pub&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;use&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sub&lt;/span&gt;::&lt;span class=&#34;n&#34;&gt;sub&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// add.rs
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;pub&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;fn&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;add&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;: &lt;span class=&#34;kt&#34;&gt;i32&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;y&lt;/span&gt;: &lt;span class=&#34;kt&#34;&gt;i32&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;-&amp;gt; &lt;span class=&#34;kt&#34;&gt;i32&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;y&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// sub.rs
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;pub&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;fn&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;sub&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;: &lt;span class=&#34;kt&#34;&gt;i32&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;y&lt;/span&gt;: &lt;span class=&#34;kt&#34;&gt;i32&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;-&amp;gt; &lt;span class=&#34;kt&#34;&gt;i32&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;y&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;总之，lib 文件的可能结构是这样的：&lt;/p&gt;
+&lt;p&gt;总模块文件：&lt;em&gt;lib.rs&lt;/em&gt;，rust 会默认使用这个文件。&lt;/p&gt;
+&lt;p&gt;普通的模块文件： &lt;em&gt;xxx.rs&lt;/em&gt; ，由于 rust 不默认导入这些模块，因此需要使用加入 &lt;code&gt;mod xxx;&lt;/code&gt; 语句。&lt;/p&gt;
+&lt;p&gt;文件夹模块文件： &lt;em&gt;xxx/mod.rs&lt;/em&gt; ，相比上一项的好处是 &lt;em&gt;xxx/&lt;/em&gt; 下能定义更多的私有方法。&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>[量子力学] 2 量子力学的数学工具 C part</title>
+        <link>https://mizarzh.github.io/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-c-part/</link>
+        <pubDate>Wed, 24 Nov 2021 19:19:07 +0800</pubDate>
+        
+        <guid>https://mizarzh.github.io/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-c-part/</guid>
+        <description>&lt;p&gt;$$
+\def\un{\mathrm}
+\def\dd{\mathrm d}
+\def\par{\partial}
+\def\bl{\boldsymbol}
+\def\mbf{\mathbf}
+\newcommand{\bk}[2]{\left \langle #1  | #2  \right \rangle}
+\newcommand{\bok}[3]{\bra{#1}#2\ket{#3}}
+\def\nl{\newline}
+$$&lt;/p&gt;
+&lt;h1 id=&#34;c-态空间中的表象&#34;&gt;C 态空间中的表象&lt;/h1&gt;
+&lt;h2 id=&#34;1引言&#34;&gt;1、引言&lt;/h2&gt;
+&lt;h3 id=&#34;a表象的定义&#34;&gt;a.表象的定义&lt;/h3&gt;
+&lt;p&gt;选择一种表象就是在态空间 $\scr E$ 中选择一个离散或连续的正交归一基。&lt;/p&gt;
+&lt;p&gt;在选定的基中，矢量和算符都是用数表示的：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;对于矢量，这些数就是它的分量&lt;/li&gt;
+&lt;li&gt;对于算符，这些数就是它的矩阵元&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;上一节中的运算就变成了矩阵运算。&lt;/p&gt;
+&lt;p&gt;原则上来说，表象的选择是任意的，但如果具体问题具体选择那会更好。&lt;/p&gt;
+&lt;h2 id=&#34;2一个正交归一基的特征关系式&#34;&gt;2、一个正交归一基的特征关系式&lt;/h2&gt;
+&lt;h3 id=&#34;a-正交归一关系式&#34;&gt;a. 正交归一关系式&lt;/h3&gt;
+&lt;p&gt;满足以下关系式的称为正交归一关系式：&lt;/p&gt;
+&lt;p&gt;$$
+\bk{u_i}{u_j}=\delta_{ij}\quad \text{or} \quad \bk{w_\alpha}{w_{\alpha&#39;}}=\delta(\alpha-\alpha&#39;)
+$$&lt;/p&gt;
+&lt;h3 id=&#34;b-封闭性关系式&#34;&gt;b. 封闭性关系式&lt;/h3&gt;
+&lt;p&gt;一个右矢能唯一地展开，通过以下推导：&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+|\psi\rangle &amp;amp;=\sum_{i} c_{i}\left|u_{i}\right\rangle=\sum_{i}\left\langle u_{i} \mid \psi\right\rangle\left|u_{i}\right\rangle \&lt;br&gt;
+&amp;amp;=\sum_{i}\left|u_{i}\right\rangle\left\langle u_{i} \mid \psi\right\rangle=\left(\sum_{i}\left|u_{i}\right\rangle\left\langle u_{i}\right|\right)|\psi\rangle \&lt;br&gt;
+|\psi\rangle &amp;amp;=\int \mathrm{d} \alpha c(\alpha)\left|w_{\alpha}\right\rangle=\int \mathrm{d} \alpha\left\langle w_{\alpha} \mid \psi\right\rangle\left|w_{\alpha}\right\rangle \&lt;br&gt;
+&amp;amp;=\int \mathrm{d} \alpha\left|w_{\alpha}\right\rangle\left\langle w_{\alpha} \mid \psi\right\rangle=\left(\int \mathrm{d} \alpha\left|w_{\alpha}\right\rangle\left\langle w_{\alpha}\right|\right)|\psi\rangle
+\end{aligned}
+$$&lt;/p&gt;
+&lt;p&gt;可以得出：&lt;/p&gt;
+&lt;p&gt;$$
+\begin{eqnarray}
+&amp;amp;P_{{u_i}}=\sum_i \ket{u_i} \bra{u_i} = \mathbb{1} \&lt;br&gt;
+&amp;amp;P_{{w_\alpha}}=\int \dd \alpha \ket{w_\alpha} \bra{w_\alpha} = \mathbb{1}
+\end{eqnarray}
+$$&lt;/p&gt;
+&lt;p&gt;这两条式子称为封闭性关系式。&lt;/p&gt;
+&lt;p&gt;同理，这个推导可以反向进行操作。&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	
+		class=&#34;gallery-image&#34; 
+		style=&#34;
+			flex-grow: 443; 
+			flex-basis: 1064px&#34;
+	&gt;
+	&lt;a href=&#34;https://mizarzh.github.io/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-c-part/image-20211124194640763.png&#34; data-size=&#34;1224x276&#34;&gt;
+		&lt;img src=&#34;https://mizarzh.github.io/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-c-part/image-20211124194640763.png&#34;
+			width=&#34;1224&#34;
+			height=&#34;276&#34;
+			srcset=&#34;https://mizarzh.github.io/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-c-part/image-20211124194640763_hua44ecb7d530b27a48c5593a0b333ca52_74720_480x0_resize_box_3.png 480w, https://mizarzh.github.io/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-c-part/image-20211124194640763_hua44ecb7d530b27a48c5593a0b333ca52_74720_1024x0_resize_box_3.png 1024w&#34;
+			loading=&#34;lazy&#34;
+			alt=&#34;image-20211124194640763&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;image-20211124194640763&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;h2 id=&#34;3左矢右矢表示法&#34;&gt;3、左矢右矢表示法&lt;/h2&gt;
+&lt;h3 id=&#34;a右矢的表示法&#34;&gt;a.右矢的表示法&lt;/h3&gt;
+&lt;p&gt;右矢$\ket{\psi}$是由&lt;strong&gt;其分量&lt;/strong&gt;的集合来表示的。含有一列和无穷多行：&lt;/p&gt;
+&lt;p&gt;$$
+\begin{pmatrix}
+\bk{u_1}{\psi} \nl
+\bk{u_2}{\psi} \nl
+\vdots \nl
+\bk{u_i}{\psi} \nl
+\vdots
+\end{pmatrix}
+$$&lt;/p&gt;
+&lt;p&gt;连续基则是由无穷多个数（$c(\alpha)$函数）表示的。函数的任意一个值都代表$\ket\psi$的一个分量：&lt;/p&gt;
+&lt;p&gt;$$
+\begin{pmatrix}
+\vdots \nl
+\bk{w_\alpha}{\psi} \nl
+\vdots
+\end{pmatrix}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;b左矢的表示法&#34;&gt;b.左矢的表示法&lt;/h3&gt;
+&lt;p&gt;$$
+(\bk{\psi}{u_1}\ \bk{\psi}{u_2}\ \cdots \bk{\psi}{u_i} \ \cdots)
+$$&lt;/p&gt;
+&lt;p&gt;$$
+(\cdots \bk{\psi}{w_\alpha} \ \cdots)
+$$&lt;/p&gt;
+&lt;h2 id=&#34;4算符的表示法&#34;&gt;4、算符的表示法&lt;/h2&gt;
+&lt;h3 id=&#34;a-方阵表示-a&#34;&gt;a. 方阵表示 A&lt;/h3&gt;
+&lt;p&gt;线性算符的值依赖于两个指标：&lt;/p&gt;
+&lt;p&gt;$$
+A_{ij}=\bok{u_i}{A}{u_j} \quad \text{or} \quad A(\alpha, \alpha&#39;)=\bok{w_\alpha}{A}{w_{\alpha&#39;}}
+$$&lt;/p&gt;
+&lt;p&gt;因此可以排列成一个方阵，展开后：&lt;/p&gt;
+&lt;p&gt;$$
+\left(\begin{array}{ccccc}
+A_{11} &amp;amp; A_{12} &amp;amp; \cdots &amp;amp; A_{1 j} &amp;amp; \cdots \&lt;br&gt;
+A_{21} &amp;amp; A_{22} &amp;amp; \cdots &amp;amp; A_{2 j} &amp;amp; \cdots \&lt;br&gt;
+\vdots &amp;amp; \vdots &amp;amp; &amp;amp; \vdots &amp;amp; \&lt;br&gt;
+A_{i 1} &amp;amp; A_{i 2} &amp;amp; \cdots &amp;amp; A_{i j} &amp;amp; \cdots \&lt;br&gt;
+\vdots &amp;amp; \vdots &amp;amp; &amp;amp; \vdots &amp;amp;
+\end{array}\right)
+$$&lt;/p&gt;
+&lt;p&gt;连续情况的类似。&lt;/p&gt;
+&lt;p&gt;线性算符的乘法：&lt;/p&gt;
+&lt;p&gt;$$
+\bok{u_i}{AB}{u_j}=\bok{u_i}{A \mathbb{1} B}{u_j}=\bok{u_i}{A P_{{u_k}} B}{u_j}=\sum_k\bok{u_i}{A}{u_k}\bok{u_k}{B}{u_j}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;b右矢ketpsiaketpsi的表示&#34;&gt;b.右矢$\ket{\psi&#39;}=A\ket\psi$的表示：&lt;/h3&gt;
+&lt;p&gt;易得：&lt;/p&gt;
+&lt;p&gt;$$
+c&#39;&lt;em&gt;i=\sum_jA&lt;/em&gt;{ij}c_j
+$$&lt;/p&gt;
+&lt;p&gt;可以写出矩阵形式：&lt;/p&gt;
+&lt;p&gt;$$
+\left(\begin{array}{c}
+c_{1}^{\prime} \&lt;br&gt;
+c_{2}^{\prime} \&lt;br&gt;
+\vdots \&lt;br&gt;
+c_{i}^{\prime} \&lt;br&gt;
+\vdots \&lt;br&gt;
+\vdots
+\end{array}\right)=\left(\begin{array}{ccccc}
+A_{11} &amp;amp; A_{12} &amp;amp; \cdots &amp;amp; A_{1 j} &amp;amp; \cdots \&lt;br&gt;
+A_{21} &amp;amp; A_{22} &amp;amp; \cdots &amp;amp; A_{2 j} &amp;amp; \cdots \&lt;br&gt;
+\vdots &amp;amp; \vdots &amp;amp; &amp;amp; \vdots &amp;amp; \&lt;br&gt;
+A_{i 1} &amp;amp; A_{i 2} &amp;amp; \cdots &amp;amp; A_{i j} &amp;amp; \cdots \&lt;br&gt;
+\vdots &amp;amp; \vdots &amp;amp; &amp;amp; \vdots &amp;amp; \&lt;br&gt;
+\vdots &amp;amp; \vdots &amp;amp; &amp;amp; \vdots &amp;amp;
+\end{array}\right)\left(\begin{array}{c}
+c_{1} \&lt;br&gt;
+c_{2} \&lt;br&gt;
+\vdots \&lt;br&gt;
+\vdots \&lt;br&gt;
+c_{j} \&lt;br&gt;
+\vdots
+\end{array}\right)
+$$&lt;/p&gt;
+&lt;h3 id=&#34;c数bokvarphiapsi的矩阵表示&#34;&gt;c.数$\bok{\varphi}{A}{\psi}$的矩阵表示&lt;/h3&gt;
+&lt;p&gt;$$
+\bok{\varphi}{A}{\psi}=\sum_{i,j}b^*_iA_{ij}c_j
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\langle\varphi|A| \psi\rangle=\left(b_{1}^{*} b_{2}^{*} \cdots b_{i}^{*} \cdots\right)\left(\begin{array}{ccccc}
+A_{11} &amp;amp; A_{12} &amp;amp; \cdots &amp;amp; A_{1 j} &amp;amp; \cdots \&lt;br&gt;
+A_{21} &amp;amp; A_{22} &amp;amp; \cdots &amp;amp; A_{2 j} &amp;amp; \cdots \&lt;br&gt;
+\vdots &amp;amp; \vdots &amp;amp; &amp;amp; \vdots &amp;amp; \&lt;br&gt;
+\vdots &amp;amp; \vdots &amp;amp; &amp;amp; \vdots &amp;amp; \&lt;br&gt;
+A_{i 1} &amp;amp; A_{i 2} &amp;amp; &amp;amp; A_{i j} &amp;amp; \cdots \&lt;br&gt;
+\vdots &amp;amp; \vdots &amp;amp; &amp;amp; \vdots &amp;amp;
+\end{array}\right)\left(\begin{array}{c}
+c_{1} \&lt;br&gt;
+c_{2} \&lt;br&gt;
+\vdots \&lt;br&gt;
+c_{j} \&lt;br&gt;
+\vdots \&lt;br&gt;
+\vdots
+\end{array}\right)
+$$&lt;/p&gt;
+&lt;h3 id=&#34;d-adagger的矩阵表示&#34;&gt;d. $A^\dagger$的矩阵表示&lt;/h3&gt;
+&lt;p&gt;$$
+(A^\dagger)&lt;em&gt;{ij}=A^*&lt;/em&gt;{ji}
+$$&lt;/p&gt;
+&lt;p&gt;转置+复数操作。&lt;/p&gt;
+&lt;p&gt;若一个算符是 Hermite 的，易知对角元素必为实数（$(A^\dagger)&lt;em&gt;{ij}=A^*&lt;/em&gt;{ji}=A_{ij}$）&lt;/p&gt;
+&lt;h2 id=&#34;5表象的变换&#34;&gt;5、表象的变换&lt;/h2&gt;
+&lt;h3 id=&#34;a梗概&#34;&gt;a.梗概&lt;/h3&gt;
+&lt;p&gt;在一种指定的表象中，右矢等等由一个矩阵表示。换一种表象，那么将由另一个矩阵表示。求这两个矩阵的联系。&lt;/p&gt;
+&lt;p&gt;设从${\ket{u_i}}$变换到${\ket{t_k}}$。那么定义：&lt;/p&gt;
+&lt;p&gt;$$
+S_{ik}=\bk{u_i}{t_k}
+$$&lt;/p&gt;
+&lt;p&gt;那么$S$称为基的变换矩阵。&lt;/p&gt;
+&lt;p&gt;（S 是一个幺正矩阵）&lt;/p&gt;
+&lt;h3 id=&#34;b右矢分量的变换&#34;&gt;b.右矢分量的变换&lt;/h3&gt;
+&lt;p&gt;$$
+\bk{t_k}{\psi}=\sum_i\bk{t_k}{u_i}\bk{u_i}{\psi}=\sum_iS^\dagger_{ki}\bk{u_i}{\psi}
+$$&lt;/p&gt;
+&lt;p&gt;反向公式：&lt;/p&gt;
+&lt;p&gt;$$
+\bk{u_i}{\psi}=\sum_iS_{ik}\bk{t_k}{\psi}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;c左矢&#34;&gt;c.左矢&lt;/h3&gt;
+&lt;p&gt;类似&lt;/p&gt;
+&lt;h3 id=&#34;d矩阵元的变换&#34;&gt;d.矩阵元的变换&lt;/h3&gt;
+&lt;p&gt;$$
+A_{kl}=\bok{t_k}{A}{t_l}=\sum_{i,j}\bk{t_k}{u_i}\bok{u_i}{A}{u_j}\bk{u_j}{t_l}=\sum_{i,j}S^\dagger_{ki}A_{ij}S_{jl}
+$$&lt;/p&gt;
+&lt;p&gt;同理：&lt;/p&gt;
+&lt;p&gt;$$
+A_{ij}=\sum_{k,l}S_{ik}A_{kl}S^\dagger_{lj}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;comment&#34;&gt;Comment&lt;/h2&gt;
+&lt;p&gt;这一节介绍了如何在某个表象下表示一个态矢量（分量组成的矩阵），终于使得态矢量脱离了高高在上无法计算的问题~。最后还探讨了表象之间的变换。&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>[量子力学] 2 量子力学的数学工具 B part</title>
         <link>https://mizarzh.github.io/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-b-part/</link>
         <pubDate>Wed, 24 Nov 2021 12:19:32 +0800</pubDate>
@@ -160,7 +558,7 @@ $$&lt;/p&gt;
 $$&lt;/p&gt;
 &lt;p&gt;若取任意一个右矢，使用投影算符进行运算：&lt;/p&gt;
 &lt;p&gt;$$
-\bk{\psi}{\varphi}\ket{\chi}
+\ket\psi \bk{\varphi}{\chi}
 $$&lt;/p&gt;
 &lt;p&gt;可以得到一个右矢，因此证明这是一个算符。&lt;/p&gt;
 &lt;p&gt;我们可以见到，&lt;strong&gt;符号的先后顺序是十分有意义的&lt;/strong&gt;。一个数可以随意移动，但算符和左右矢的位置不能移动。&lt;/p&gt;

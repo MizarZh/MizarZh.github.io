@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='1 一些概念 crate：是一个二进制项或者库。一个 crate 会将一个作用域内的相关功能分组到一起，能很方便的在多个项目间共享。 包 Package：是提供'><title>Rust模块系统</title>
+
+<link rel='canonical' href='https://mizarzh.github.io/p/2021/11/rust%E6%A8%A1%E5%9D%97%E7%B3%BB%E7%BB%9F/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='Rust模块系统'>
+<meta property='og:description' content='1 一些概念 crate：是一个二进制项或者库。一个 crate 会将一个作用域内的相关功能分组到一起，能很方便的在多个项目间共享。 包 Package：是提供'>
+<meta property='og:url' content='https://mizarzh.github.io/p/2021/11/rust%E6%A8%A1%E5%9D%97%E7%B3%BB%E7%BB%9F/'>
+<meta property='og:site_name' content='MizarZ&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='rust' /><meta property='article:published_time' content='2021-11-25T15:14:33&#43;08:00'/><meta property='article:modified_time' content='2021-11-25T15:14:33&#43;08:00'/>
+<meta name="twitter:title" content="Rust模块系统">
+<meta name="twitter:description" content="1 一些概念 crate：是一个二进制项或者库。一个 crate 会将一个作用域内的相关功能分组到一起，能很方便的在多个项目间共享。 包 Package：是提供">
+    <link rel="shortcut icon" href="img/favicon-32x32.png" />
+
+    </head>
+    <body class="
+    article-page has-toc
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        extended
+    
+">
+    
+        <div id="article-toolbar">
+            <a href="/" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>返回</span>
+            </a>
+        </div>
+    
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E7%BC%96%E7%A8%8B/" style="background-color: #0177b8; color: ;">
+                编程
+            </a>
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/p/2021/11/rust%E6%A8%A1%E5%9D%97%E7%B3%BB%E7%BB%9F/">Rust模块系统</a>
+    </h2>
+
+    
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2021-11-25</time>
+            </div>
+        
+
+        
+    </footer>
+    
+</div>
+</header>
+
+    <section class="article-content">
+    <h2 id="1-一些概念">1 一些概念</h2>
+<p>crate：是一个二进制项或者库。一个 crate 会将一个作用域内的相关功能分组到一起，能很方便的在多个项目间共享。</p>
+<p>包 Package：是提供一系列功能的一个或者多个 crate。一个包会含有一个 <em>Cargo.toml</em> 文件，阐述如何去构建这些 crate。一个包中至多 <strong>只能</strong> 包含一个库 crate(library crate)；包中可以包含任意多个二进制 crate(binary crate)；包中至少包含一个 crate，无论是库的还是二进制的。</p>
+<p>库 crate 和二进制 crate：库 crate 是编译过程中的上游，一般来说是被别人使用的。二进制 crate 则是自己要使用的程序代码。库 crate 一般不包含 <em>Cargo.lock</em> 文件。</p>
+<h2 id="2-新建-package-及文件结构">2 新建 package 及文件结构</h2>
+<p>新建 package:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">cargo new my-project
+</code></pre></div><p>生成了 <em>src</em> 文件夹， <em>src/main.rs</em> 文件， <em>Cargo.toml</em> 配置文件及进行了 git 初始化。</p>
+<p><em>src/main.rs</em> 就是一个与包同名的二进制 crate 的 crate 根。如果含有 <em>src/lib.rs</em>， 则包带有与其同名的库 crate，且 <em>src/lib.rs</em> 是 crate 根。crate 根文件将由 Cargo 传递给 <code>rustc</code> 来实际构建库或者二进制项目。</p>
+<p>一个只包含 <em>src/main.rs</em> 的包，意味着它只含有一个名为 <code>my-project</code> 的二进制 crate。如果一个包同时含有 <em>src/main.rs</em> 和 <em>src/lib.rs</em>，则它有两个 crate：一个库和一个二进制项，且名字都与包相同。</p>
+<p>通过将文件放在 <em>src/bin</em> 目录下，一个包可以拥有多个二进制 crate：每个 <em>src/bin</em> 下的文件都会被编译成一个独立的二进制 crate。</p>
+<p><em>lib</em> 也可以写成文件结构的方式。</p>
+<p>完整的 package 的结构，可以看到还含有例子、测试和性能测试的模块：</p>
+<pre tabindex="0"><code>.
+├── Cargo.lock
+├── Cargo.toml
+├── src/
+│   ├── lib.rs
+│   ├── main.rs
+│   └── bin/
+│       ├── named-executable.rs
+│       ├── another-executable.rs
+│       └── multi-file-executable/
+│           ├── main.rs
+│           └── some_module.rs
+├── benches/
+│   ├── large-input.rs
+│   └── multi-file-bench/
+│       ├── main.rs
+│       └── bench_module.rs
+├── examples/
+│   ├── simple.rs
+│   └── multi-file-example/
+│       ├── main.rs
+│       └── ex_module.rs
+└── tests/
+    ├── some-integration-tests.rs
+    └── multi-file-test/
+        ├── main.rs
+        └── test_module.rs
+</code></pre><h2 id="heading"></h2>
+<h2 id="3-关键词私有性">3 关键词；私有性</h2>
+<p>模块的关键词是 <code>mod</code>：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="c1">// src/lib.rs
+</span><span class="c1"></span><span class="k">mod</span> <span class="nn">mod1</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">    </span><span class="k">mod</span> <span class="nn">small_mod1</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">        </span><span class="k">fn</span> <span class="nf">func_1</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span><span class="w">        </span><span class="k">fn</span> <span class="nf">func_2</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span><span class="w">    </span><span class="p">}</span><span class="w">
+</span><span class="w">    </span><span class="k">mod</span> <span class="nn">small_mod2</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">        </span><span class="k">fn</span> <span class="nf">func_3</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span><span class="w">    </span><span class="p">}</span><span class="w">
+</span><span class="w"></span><span class="p">}</span><span class="w">
+</span></code></pre></div><p>建立的结构：</p>
+<pre tabindex="0"><code>crate
+ └── mod1
+     ├── small_mod1
+     │   ├── func_1
+     │   └── func_2
+     └── small_mod2
+         └── func_3
+</code></pre><p>默认的属性是私有(private)的，加上 <code>pub</code> 关键字就能使得其被其他模块引用：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="c1">// src/lib.rs
+</span><span class="c1"></span><span class="k">mod</span> <span class="nn">mod1</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">mod</span> <span class="nn">small_mod1</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">        </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">func_1</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="c1">// 最底层的也要加上pub
+</span><span class="c1"></span><span class="w">        </span><span class="k">fn</span> <span class="nf">func_2</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="c1">// 这个函数就无法被外部访问
+</span><span class="c1"></span><span class="w">    </span><span class="p">}</span><span class="w">
+</span><span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">mod</span> <span class="nn">small_mod2</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">        </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">func_3</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span><span class="w">    </span><span class="p">}</span><span class="w">
+</span><span class="w"></span><span class="p">}</span><span class="w">
+</span></code></pre></div><h2 id="4-路径">4 路径</h2>
+<p>要在其他模块中引用库，则需要使用路径指定它所在的地方。用的路径有两种：</p>
+<ul>
+<li><strong>绝对路径</strong>（<em>absolute path</em>）从 crate 根开始，以 crate 名或者字面值 <code>crate</code> 开头。</li>
+<li><strong>相对路径</strong>（<em>relative path</em>）从当前模块开始，以 <code>self</code>、<code>super</code> 或当前模块的标识符开头。</li>
+</ul>
+<p>绝对路径和相对路径都后跟一个或多个由双冒号（<code>::</code>）分割的标识符。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="c1">// src/lib.rs
+</span><span class="c1"></span><span class="k">mod</span> <span class="nn">mod1</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">	</span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">func_1</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span><span class="w"></span><span class="p">}</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">run</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">    </span><span class="k">crate</span>::<span class="n">mod1</span>::<span class="n">func_1</span><span class="p">()</span><span class="w"> </span><span class="c1">// 绝对路径
+</span><span class="c1"></span><span class="w">    </span><span class="n">mod1</span>::<span class="n">func_1</span><span class="p">()</span><span class="w"> </span><span class="c1">// 相对路径
+</span><span class="c1"></span><span class="p">}</span><span class="w">
+</span></code></pre></div><p><code>super</code> 关键字的使用：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="c1">// src/lib.rs
+</span><span class="c1"></span><span class="k">fn</span> <span class="nf">serve_order</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">mod</span> <span class="nn">back_of_house</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">    </span><span class="k">fn</span> <span class="nf">fix_incorrect_order</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">        </span><span class="n">cook_order</span><span class="p">();</span><span class="w">
+</span><span class="w">        </span><span class="k">super</span>::<span class="n">serve_order</span><span class="p">();</span><span class="w"> </span><span class="c1">// 这里的super即指向本模块的上一级（即crate）
+</span><span class="c1"></span><span class="w">    </span><span class="p">}</span><span class="w">
+</span><span class="w">
+</span><span class="w">    </span><span class="k">fn</span> <span class="nf">cook_order</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span><span class="w"></span><span class="p">}</span><span class="w">
+</span></code></pre></div><h2 id="5-use-关键字as-关键字">5 <code>use</code> 关键字；<code>as</code> 关键字</h2>
+<p><code>use</code> 的作用是将指定模块下的东西引入到本作用域中（可以理解为缩写，python 中的 <code>import</code>）。</p>
+<p>可以使用相对路径和绝对路径。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="c1">// src/lib
+</span><span class="c1"></span><span class="k">mod</span> <span class="nn">front_of_house</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">mod</span> <span class="nn">hosting</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">        </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">add_to_waitlist</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span><span class="w">    </span><span class="p">}</span><span class="w">
+</span><span class="w"></span><span class="p">}</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">use</span><span class="w"> </span><span class="n">front_of_house</span>::<span class="n">hosting</span><span class="p">;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">eat_at_restaurant</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">    </span><span class="n">hosting</span>::<span class="n">add_to_waitlist</span><span class="p">();</span><span class="w">
+</span><span class="w">    </span><span class="n">hosting</span>::<span class="n">add_to_waitlist</span><span class="p">();</span><span class="w">
+</span><span class="w">    </span><span class="n">hosting</span>::<span class="n">add_to_waitlist</span><span class="p">();</span><span class="w">
+</span><span class="w"></span><span class="p">}</span><span class="w">
+</span></code></pre></div><p>不允许引入相同名称的类型到同一作用域中。但可以使用 <code>as</code> 关键字修改引入的名称。还有嵌套语句的使用：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">fmt</span>::<span class="nb">Result</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">io</span>::<span class="nb">Result</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">IoResult</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="p">{</span><span class="n">cmp</span>::<span class="n">Ordering</span><span class="p">,</span><span class="w"> </span><span class="n">io</span><span class="p">};</span><span class="w">
+</span><span class="w"></span><span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">io</span>::<span class="p">{</span><span class="bp">self</span><span class="p">,</span><span class="w"> </span><span class="n">Write</span><span class="p">};</span><span class="w"> </span><span class="c1">// 如果想要引入 std::io 自己，就加上 self
+</span><span class="c1"></span><span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">collections</span>::<span class="o">*</span><span class="p">;</span><span class="w"> </span><span class="c1">// 避免使用
+</span></code></pre></div><p>重导出技巧：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="k">mod</span> <span class="nn">front_of_house</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">mod</span> <span class="nn">hosting</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">        </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">add_to_waitlist</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span><span class="w">    </span><span class="p">}</span><span class="w">
+</span><span class="w"></span><span class="p">}</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">pub</span><span class="w"> </span><span class="k">use</span><span class="w"> </span><span class="k">crate</span>::<span class="n">front_of_house</span>::<span class="n">hosting</span><span class="p">;</span><span class="w">
+</span></code></pre></div><p>使用外部的包：</p>
+<p>在 <em>Cargo.toml</em> 中添加：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="p">[</span><span class="nx">dependencies</span><span class="p">]</span>
+<span class="nx">rand</span> <span class="p">=</span> <span class="s2">&#34;0.5.5&#34;</span>
+</code></pre></div><p>然后就引入了 <code>rand</code> 包，接下来可以使用 <code>use</code> 使用其内部的类型了。</p>
+<h2 id="6-lib-的文件分割">6 lib 的文件分割</h2>
+<p>假设创建一个新文件： <em>src/math.rs</em></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="c1">// src/math.rs
+</span><span class="c1"></span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">add</span><span class="p">(</span><span class="n">x</span>: <span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="n">y</span>: <span class="kt">i32</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kt">i32</span> <span class="p">{</span><span class="w">
+</span><span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="w">
+</span><span class="w"></span><span class="p">}</span><span class="w">
+</span></code></pre></div><p>直接在 <em>main.rs</em> 文件中使用 <code>use math::add</code> 语句是行不通的，因为 rust 默认以 <em>lib.rs</em> 文件为库的入口。若想使用这个模库，需要在主文件中添加：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="k">mod</span> <span class="nn">math</span><span class="p">;</span><span class="w"> </span><span class="c1">// 相当于将 math 导入到了 main.rs 中
+</span><span class="c1"></span><span class="k">use</span><span class="w"> </span><span class="n">math</span>::<span class="n">add</span><span class="p">;</span><span class="w"> </span><span class="c1">// 导入 add 到此作用域
+</span><span class="c1"></span><span class="w">
+</span><span class="w"></span><span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span><span class="w">
+</span><span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&#34;1 + 2 = {}&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="p">);</span><span class="w">
+</span><span class="w"></span><span class="p">}</span><span class="w">
+</span></code></pre></div><p>Rust 会在与模块同名的文件中查找模块的代码。</p>
+<p>如果想要以一个文件夹为单位创建一个库，那么文件夹内部文件 <em>mod.rs</em> 就是描述以文件夹名为模块名的文件。</p>
+<p>例如 <em>math.rs</em> 和 <em>math/mod.rs</em>，如果 <em>math.rs</em> 和 <em>math/mod.rs</em> 中的内容完全一致，那么这两个模块没有什么区别，除了 <em>math/mod.rs</em> 中可以定义更加复杂的结构。</p>
+<p>文件结构：</p>
+<pre tabindex="0"><code>src/
+    main.rs
+    math/
+        mod.rs
+        add.rs
+        sub.rs
+</code></pre><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="c1">// mod.rs
+</span><span class="c1"></span><span class="k">mod</span> <span class="nn">add</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="k">mod</span> <span class="nn">sub</span><span class="p">;</span><span class="w"> 
+</span><span class="w"></span><span class="c1">// 只有这两条语句是不够的。这两条语句只将 add 和 sub 引入了 math 模块，但对外是不公开的。
+</span><span class="c1">// 如果写成 pub mod add，那么将会将整个 add 模块导出（即外部调用为 add::add），这与我们的初衷（隐藏 add 和 sub）不符合。
+</span><span class="c1">// 因此还需要重导出需要的函数：
+</span><span class="c1"></span><span class="k">pub</span><span class="w"> </span><span class="k">use</span><span class="w"> </span><span class="n">add</span>::<span class="n">add</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="k">pub</span><span class="w"> </span><span class="k">use</span><span class="w"> </span><span class="n">sub</span>::<span class="n">sub</span><span class="p">;</span><span class="w">
+</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c1">// add.rs
+</span><span class="c1"></span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">add</span><span class="p">(</span><span class="n">x</span>: <span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="n">y</span>: <span class="kt">i32</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kt">i32</span> <span class="p">{</span><span class="w">
+</span><span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="w">
+</span><span class="w"></span><span class="p">}</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c1">// sub.rs
+</span><span class="c1"></span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">sub</span><span class="p">(</span><span class="n">x</span>: <span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="n">y</span>: <span class="kt">i32</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kt">i32</span> <span class="p">{</span><span class="w">
+</span><span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">y</span><span class="w">
+</span><span class="w"></span><span class="p">}</span><span class="w">
+</span></code></pre></div><p>总之，lib 文件的可能结构是这样的：</p>
+<p>总模块文件：<em>lib.rs</em>，rust 会默认使用这个文件。</p>
+<p>普通的模块文件： <em>xxx.rs</em> ，由于 rust 不默认导入这些模块，因此需要使用加入 <code>mod xxx;</code> 语句。</p>
+<p>文件夹模块文件： <em>xxx/mod.rs</em> ，相比上一项的好处是 <em>xxx/</em> 下能定义更多的私有方法。</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/rust/">rust</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">相关文章</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="">
+    <a href="/p/2021/11/rust%E6%9D%82%E7%A2%8E%E7%AC%94%E8%AE%B0/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Rust杂碎笔记</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/2021/11/object%E6%96%B9%E6%B3%95/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Object方法</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/2021/11/array%E6%96%B9%E6%B3%95/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Array方法</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/2021/11/js%E5%8E%9F%E7%94%9F%E6%96%B9%E6%B3%95/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Js原生方法</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/2021/11/js%E7%B1%BB%E5%9E%8B/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Js类型</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy;
+        
+        2021 MizarZ&#39;s Blog
+    </section>
+
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener"
+                data-version="3.4.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+
+        
+
+    </section>
+
+</footer>
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+        <aside class="sidebar right-sidebar sticky">
+            <section class="widget archives">
+                <div class="widget-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                </div>
+                <h2 class="widget-title section-title">目录</h2>
+                
+                <div class="widget--toc">
+                    <nav id="TableOfContents">
+  <ol>
+    <li><a href="#1-一些概念">1 一些概念</a></li>
+    <li><a href="#2-新建-package-及文件结构">2 新建 package 及文件结构</a></li>
+    <li><a href="#heading"></a></li>
+    <li><a href="#3-关键词私有性">3 关键词；私有性</a></li>
+    <li><a href="#4-路径">4 路径</a></li>
+    <li><a href="#5-use-关键字as-关键字">5 <code>use</code> 关键字；<code>as</code> 关键字</a></li>
+    <li><a href="#6-lib-的文件分割">6 lib 的文件分割</a></li>
+  </ol>
+</nav>
+                </div>
+            </section>
+        </aside>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

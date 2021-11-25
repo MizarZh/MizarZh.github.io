@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='A 一个粒子的波函数空间'><title>[量子力学] 2 量子力学的数学工具 A part</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='C 态空间中的表象'><title>[量子力学] 2 量子力学的数学工具 C part</title>
 
-<link rel='canonical' href='https://mizarzh.github.io/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-a-part/'>
+<link rel='canonical' href='https://mizarzh.github.io/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-c-part/'>
 
-<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='[量子力学] 2 量子力学的数学工具 A part'>
-<meta property='og:description' content='A 一个粒子的波函数空间'>
-<meta property='og:url' content='https://mizarzh.github.io/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-a-part/'>
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='[量子力学] 2 量子力学的数学工具 C part'>
+<meta property='og:description' content='C 态空间中的表象'>
+<meta property='og:url' content='https://mizarzh.github.io/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-c-part/'>
 <meta property='og:site_name' content='MizarZ&#39;s Blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='量子力学' /><meta property='article:tag' content='quantum mechanics' /><meta property='article:published_time' content='2021-11-23T20:09:10&#43;08:00'/><meta property='article:modified_time' content='2021-11-23T20:09:10&#43;08:00'/>
-<meta name="twitter:title" content="[量子力学] 2 量子力学的数学工具 A part">
-<meta name="twitter:description" content="A 一个粒子的波函数空间">
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='量子力学' /><meta property='article:tag' content='quantum mechanics' /><meta property='article:published_time' content='2021-11-24T19:19:07&#43;08:00'/><meta property='article:modified_time' content='2021-11-24T19:19:07&#43;08:00'/>
+<meta name="twitter:title" content="[量子力学] 2 量子力学的数学工具 C part">
+<meta name="twitter:description" content="C 态空间中的表象">
     <link rel="shortcut icon" href="img/favicon-32x32.png" />
 
     </head>
@@ -75,12 +75,12 @@
     
 
     <h2 class="article-title">
-        <a href="/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-a-part/">[量子力学] 2 量子力学的数学工具 A part</a>
+        <a href="/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-c-part/">[量子力学] 2 量子力学的数学工具 C part</a>
     </h2>
 
     
     <h3 class="article-subtitle">
-        A 一个粒子的波函数空间
+        C 态空间中的表象
     </h3>
     
 
@@ -97,7 +97,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">2021-11-23</time>
+                <time class="article-time--published">2021-11-24</time>
             </div>
         
 
@@ -118,152 +118,195 @@
 \newcommand{\bok}[3]{\bra{#1}#2\ket{#3}}
 \def\nl{\newline}
 $$</p>
-<p>本篇非常重要！为后面的所有运算都打下了基础。</p>
-<h1 id="a-一个粒子的波函数空间">A 一个粒子的波函数空间</h1>
-<p>在整个空间中找到粒子的概率是 1，因此：</p>
+<h1 id="c-态空间中的表象">C 态空间中的表象</h1>
+<h2 id="1引言">1、引言</h2>
+<h3 id="a表象的定义">a.表象的定义</h3>
+<p>选择一种表象就是在态空间 $\scr E$ 中选择一个离散或连续的正交归一基。</p>
+<p>在选定的基中，矢量和算符都是用数表示的：</p>
+<ul>
+<li>对于矢量，这些数就是它的分量</li>
+<li>对于算符，这些数就是它的矩阵元</li>
+</ul>
+<p>上一节中的运算就变成了矩阵运算。</p>
+<p>原则上来说，表象的选择是任意的，但如果具体问题具体选择那会更好。</p>
+<h2 id="2一个正交归一基的特征关系式">2、一个正交归一基的特征关系式</h2>
+<h3 id="a-正交归一关系式">a. 正交归一关系式</h3>
+<p>满足以下关系式的称为正交归一关系式：</p>
 <p>$$
-\int\dd^3 r|\psi(\mbf r,t^2)| = 1
+\bk{u_i}{u_j}=\delta_{ij}\quad \text{or} \quad \bk{w_\alpha}{w_{\alpha'}}=\delta(\alpha-\alpha')
 $$</p>
-<p>我们必须研究平方可积函数。</p>
-<h2 id="1波函数空间scr-f的结构">1、波函数空间$\scr F$的结构</h2>
-<h3 id="a-scr-f是一个矢量空间">a. $\scr F$是一个矢量空间</h3>
-<p>易证明。线性叠加。</p>
-<p>重要的是平方可积的证明：</p>
+<h3 id="b-封闭性关系式">b. 封闭性关系式</h3>
+<p>一个右矢能唯一地展开，通过以下推导：</p>
 <p>$$
-|\psi(\boldsymbol{r})|^{2}=\left|\lambda_{1}\right|^{2}\left|\psi_{1}(\boldsymbol{r})\right|^{2}+\left|\lambda_{2}\right|^{2}\left|\psi_{2}(\boldsymbol{r})\right|^{2}+\lambda_{1}^{*} \lambda_{2} \psi_{1}^{*}(\boldsymbol{r}) \psi_{2}(\boldsymbol{r})+\lambda_{1} \lambda_{2}^{*} \psi_{1}(\boldsymbol{r}) \psi_{2}^{*}(\boldsymbol{r})
+\begin{aligned}
+|\psi\rangle &amp;=\sum_{i} c_{i}\left|u_{i}\right\rangle=\sum_{i}\left\langle u_{i} \mid \psi\right\rangle\left|u_{i}\right\rangle \<br>
+&amp;=\sum_{i}\left|u_{i}\right\rangle\left\langle u_{i} \mid \psi\right\rangle=\left(\sum_{i}\left|u_{i}\right\rangle\left\langle u_{i}\right|\right)|\psi\rangle \<br>
+|\psi\rangle &amp;=\int \mathrm{d} \alpha c(\alpha)\left|w_{\alpha}\right\rangle=\int \mathrm{d} \alpha\left\langle w_{\alpha} \mid \psi\right\rangle\left|w_{\alpha}\right\rangle \<br>
+&amp;=\int \mathrm{d} \alpha\left|w_{\alpha}\right\rangle\left\langle w_{\alpha} \mid \psi\right\rangle=\left(\int \mathrm{d} \alpha\left|w_{\alpha}\right\rangle\left\langle w_{\alpha}\right|\right)|\psi\rangle
+\end{aligned}
 $$</p>
-<p>最后两项的和不大于：</p>
-<p>$$
-\left|\lambda_{1} | \lambda_{2}\right|\left[\left|\psi_{1}(\boldsymbol{r})\right|^{2}+\left|\psi_{2}(\boldsymbol{r})\right|^{2}\right]
-$$</p>
-<p>平方可积性质证明完成。</p>
-<h3 id="b-标量积">b. 标量积</h3>
-<p>I 定义：</p>
-<p>$$
-(\varphi, \psi)=\int\dd^3 r \varphi^*(\mbf r)\psi(\mbf r)
-$$</p>
-<p>II 性质：</p>
-<p>$$
-\begin{eqnarray}
-&amp;(\varphi, \psi)=(\psi, \varphi)^{*} \nl
-&amp;\left(\varphi, \lambda_{1} \psi_{1}+\lambda_{2} \psi_{2}\right)=\lambda_{1}\left(\varphi, \psi_{1}\right)+\lambda_{2}\left(\varphi, \psi_{2}\right) \nl
-&amp;\left(\lambda_{1} \varphi_{1}+\lambda_{2} \varphi_{2}, \psi\right)=\lambda_{1}^{*}\left(\varphi_{1}, \psi\right)+\lambda_{2}^{*}\left(\varphi_{2}, \psi\right)
-\end{eqnarray}
-$$</p>
-<p>第二个因子的关系是线性的，第一个因子的关系是反线性的。$(\varphi, \psi)=0$，就说明这两个波函数是正交的。</p>
-<p>$$
-(\psi, \psi)=\int \mathrm{d}^{3} r|\psi(\boldsymbol{r})|^{2}
-$$</p>
-<p>为正实数，当且仅当$\psi(\mbf r)=0$时，它才为 0.</p>
-<p>$\sqrt{(\psi,\psi)}$叫做$\psi$的模。</p>
-<p>Schwartz 不等式：</p>
-<p>$$
-|(\psi_1,\psi_2)|\le\sqrt{(\psi_1,\psi_1)}\cdot\sqrt{(\psi_2,\psi_2)}
-$$</p>
-<h3 id="c-线性算符">c. 线性算符</h3>
-<p>I 定义：</p>
+<p>可以得出：</p>
 <p>$$
 \begin{eqnarray}
-&amp;\psi^{\prime}(\boldsymbol{r})=A \psi(\boldsymbol{r}) \nl
-&amp;A\left[\lambda_{1} \psi_{1}(\boldsymbol{r})+\lambda_{2} \psi_{2}(\boldsymbol{r})\right]=\lambda_{1} A \psi_{1}(\boldsymbol{r})+\lambda_{2} A \psi_{2}(\boldsymbol{r})
+&amp;P_{{u_i}}=\sum_i \ket{u_i} \bra{u_i} = \mathbb{1} \<br>
+&amp;P_{{w_\alpha}}=\int \dd \alpha \ket{w_\alpha} \bra{w_\alpha} = \mathbb{1}
 \end{eqnarray}
 $$</p>
-<p>一些有意思的算符：</p>
-<p>$$
-\begin{eqnarray}
-&amp;\Pi\psi(x,y,z) = \psi(-x,-y,-z) \qquad\text{宇称算符}\nl
-&amp;X\psi(x,y,z) = x\psi(x,y,z)\qquad\text{倍乘算符}\nl
-&amp;D_x\psi(x,y,z)=\frac{\par \psi(x,y,z)}{\par x}\qquad\text{对x求导数的算符}
-\end{eqnarray}
-$$</p>
-<p>II 乘积：</p>
-<p>$$
-(AB)\psi(\mbf r)=A[B\psi(\mbf r)]
-$$</p>
-<p>III 对易子定义：</p>
-<p>$$
-[A,B]=AB-BA
-$$</p>
-<h2 id="2scr-f中离散的正交归一基u_imbf-r">2、$\scr F$中离散的正交归一基：${u_i(\mbf r)}$</h2>
-<h3 id="i-定义">I 定义：</h3>
-<p>设$\scr F$空间中的一个可列的函数集合，其中的函数可以用离散的指标$i=1,2,\cdots,n,\cdots$标记：</p>
-<p>$$
-u_i(\mbf r)\in\scr F,
-$$</p>
-<p>若符合以下条件：</p>
-<p>1、正交归一条件：</p>
-<p>$$
-(u_i,u_j)=\int\dd^3 ru_i^*(\mbf r) u_j(\mbf r)=\delta_{ij}
-$$</p>
-<p>2、完备性：（每一个波函数都能按唯一全体的$u_i(\mbf r)$展开）：</p>
-<p>$$
-\psi(\mbf r)=\sum_ic_iu_i(\mbf r)
-$$</p>
-<p>则${u_i(\mbf r)}$构成一个基。</p>
-<h3 id="ii-求波函数在基上的分量">II 求波函数在基上的分量：</h3>
-<p>$$
-c_i=(u_i,\psi)=\int\dd^3 r u_i^*(\mbf r) \psi(\mbf r)
-$$</p>
-<h3 id="iii-标量积表示为分量的函数">III 标量积表示为分量的函数：</h3>
-<p>$$
-\begin{eqnarray}
-&amp;\varphi(\mbf r)=\sum_ib_iu_i(\mbf r) \nl
-&amp;\psi(\mbf r)=\sum_jc_ju_j(\mbf r)
-\end{eqnarray}
-$$</p>
-<p>那么：</p>
-<p>$$
-\begin{eqnarray}
-&amp;(\varphi,\psi)=\sum_ib_i^*c_i \nl
-&amp;(\psi,\psi)=\sum_i|c_i|^2
-\end{eqnarray}
-$$</p>
-<h3 id="iv-封闭性关系式">IV 封闭性关系式：</h3>
-<p>$$
-\begin{align}
-\psi(\mbf r)=\sum_i c_i u_i(\mbf r) &amp;=\sum_i[\int\dd^3 r' u_i^* (\mbf r') \psi(\mbf r')] u_i(\mbf r) \nl
-&amp;= \int \dd^3 r'\psi(\mbf r')[\sum_i u_i^*(\mbf r')u_i(\mbf r)] \nl
-&amp;= \int \dd^3 r'\psi(\mbf r')F(\mbf r,\mbf r')
-\end{align}
-$$</p>
-<p>这正是$\delta(\mbf r-\mbf r')$的性质，因此（封闭性关系式）：</p>
-<p>$$
-\sum_i u_i^*(\mbf r')u_i(\mbf r)=\delta(\mbf r-\mbf r')
-$$</p>
-<h2 id="3-引入不属于scr-f的基">3 引入不属于$\scr F$的基</h2>
-<p>两个例子：$v_p=\frac{1}{\sqrt{2\pi\hbar}}e^{ipx/\hbar}$和$\xi_{\mbf r_0}(\mbf r)=\delta(\mbf r - \mbf r_0)$</p>
-<h3 id="c-连续的正交归一基">c 连续的正交归一基</h3>
-<p>与离散的基相似，只不过它是连续的，$\sum\rightarrow\int, \delta_{ij}\rightarrow\delta(\mbf r-\mbf r')$</p>
-<p>正交归一及封闭性关系式：</p>
-<p>$$
-\begin{eqnarray}
-&amp;\left(w_{\alpha}, w_{\alpha^{\prime}}\right)=\int \mathrm{d}^{3} r w_{\alpha}^{*}(\boldsymbol{r}) w_{\alpha^{\prime}}(\boldsymbol{r})=\delta\left(\alpha-\alpha^{\prime}\right) \nl
-&amp;\int \mathrm{d} \alpha w_{\alpha}(\boldsymbol{r}) w_{\alpha}^{*}\left(\boldsymbol{r}^{\prime}\right)=\delta\left(\boldsymbol{r}-\boldsymbol{r}^{\prime}\right)
-\end{eqnarray}
-$$</p>
-<p>综合的表格：</p>
+<p>这两条式子称为封闭性关系式。</p>
+<p>同理，这个推导可以反向进行操作。</p>
 <p><figure 
 	
 		class="gallery-image" 
 		style="
-			flex-grow: 185; 
-			flex-basis: 445px"
+			flex-grow: 443; 
+			flex-basis: 1064px"
 	>
-	<a href="/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-a-part/image-20211124121120236.png" data-size="1230x662">
-		<img src="/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-a-part/image-20211124121120236.png"
-			width="1230"
-			height="662"
-			srcset="/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-a-part/image-20211124121120236_hu4c83ed94f5f82bbae0ad6f83c3b64f85_251236_480x0_resize_box_3.png 480w, /p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-a-part/image-20211124121120236_hu4c83ed94f5f82bbae0ad6f83c3b64f85_251236_1024x0_resize_box_3.png 1024w"
+	<a href="/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-c-part/image-20211124194640763.png" data-size="1224x276">
+		<img src="/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-c-part/image-20211124194640763.png"
+			width="1224"
+			height="276"
+			srcset="/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-c-part/image-20211124194640763_hua44ecb7d530b27a48c5593a0b333ca52_74720_480x0_resize_box_3.png 480w, /p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-c-part/image-20211124194640763_hua44ecb7d530b27a48c5593a0b333ca52_74720_1024x0_resize_box_3.png 1024w"
 			loading="lazy"
-			alt="image-20211124121120236">
+			alt="image-20211124194640763">
 	</a>
 	
-	<figcaption>image-20211124121120236</figcaption>
+	<figcaption>image-20211124194640763</figcaption>
 	
 </figure></p>
+<h2 id="3左矢右矢表示法">3、左矢右矢表示法</h2>
+<h3 id="a右矢的表示法">a.右矢的表示法</h3>
+<p>右矢$\ket{\psi}$是由<strong>其分量</strong>的集合来表示的。含有一列和无穷多行：</p>
+<p>$$
+\begin{pmatrix}
+\bk{u_1}{\psi} \nl
+\bk{u_2}{\psi} \nl
+\vdots \nl
+\bk{u_i}{\psi} \nl
+\vdots
+\end{pmatrix}
+$$</p>
+<p>连续基则是由无穷多个数（$c(\alpha)$函数）表示的。函数的任意一个值都代表$\ket\psi$的一个分量：</p>
+<p>$$
+\begin{pmatrix}
+\vdots \nl
+\bk{w_\alpha}{\psi} \nl
+\vdots
+\end{pmatrix}
+$$</p>
+<h3 id="b左矢的表示法">b.左矢的表示法</h3>
+<p>$$
+(\bk{\psi}{u_1}\ \bk{\psi}{u_2}\ \cdots \bk{\psi}{u_i} \ \cdots)
+$$</p>
+<p>$$
+(\cdots \bk{\psi}{w_\alpha} \ \cdots)
+$$</p>
+<h2 id="4算符的表示法">4、算符的表示法</h2>
+<h3 id="a-方阵表示-a">a. 方阵表示 A</h3>
+<p>线性算符的值依赖于两个指标：</p>
+<p>$$
+A_{ij}=\bok{u_i}{A}{u_j} \quad \text{or} \quad A(\alpha, \alpha')=\bok{w_\alpha}{A}{w_{\alpha'}}
+$$</p>
+<p>因此可以排列成一个方阵，展开后：</p>
+<p>$$
+\left(\begin{array}{ccccc}
+A_{11} &amp; A_{12} &amp; \cdots &amp; A_{1 j} &amp; \cdots \<br>
+A_{21} &amp; A_{22} &amp; \cdots &amp; A_{2 j} &amp; \cdots \<br>
+\vdots &amp; \vdots &amp; &amp; \vdots &amp; \<br>
+A_{i 1} &amp; A_{i 2} &amp; \cdots &amp; A_{i j} &amp; \cdots \<br>
+\vdots &amp; \vdots &amp; &amp; \vdots &amp;
+\end{array}\right)
+$$</p>
+<p>连续情况的类似。</p>
+<p>线性算符的乘法：</p>
+<p>$$
+\bok{u_i}{AB}{u_j}=\bok{u_i}{A \mathbb{1} B}{u_j}=\bok{u_i}{A P_{{u_k}} B}{u_j}=\sum_k\bok{u_i}{A}{u_k}\bok{u_k}{B}{u_j}
+$$</p>
+<h3 id="b右矢ketpsiaketpsi的表示">b.右矢$\ket{\psi'}=A\ket\psi$的表示：</h3>
+<p>易得：</p>
+<p>$$
+c'<em>i=\sum_jA</em>{ij}c_j
+$$</p>
+<p>可以写出矩阵形式：</p>
+<p>$$
+\left(\begin{array}{c}
+c_{1}^{\prime} \<br>
+c_{2}^{\prime} \<br>
+\vdots \<br>
+c_{i}^{\prime} \<br>
+\vdots \<br>
+\vdots
+\end{array}\right)=\left(\begin{array}{ccccc}
+A_{11} &amp; A_{12} &amp; \cdots &amp; A_{1 j} &amp; \cdots \<br>
+A_{21} &amp; A_{22} &amp; \cdots &amp; A_{2 j} &amp; \cdots \<br>
+\vdots &amp; \vdots &amp; &amp; \vdots &amp; \<br>
+A_{i 1} &amp; A_{i 2} &amp; \cdots &amp; A_{i j} &amp; \cdots \<br>
+\vdots &amp; \vdots &amp; &amp; \vdots &amp; \<br>
+\vdots &amp; \vdots &amp; &amp; \vdots &amp;
+\end{array}\right)\left(\begin{array}{c}
+c_{1} \<br>
+c_{2} \<br>
+\vdots \<br>
+\vdots \<br>
+c_{j} \<br>
+\vdots
+\end{array}\right)
+$$</p>
+<h3 id="c数bokvarphiapsi的矩阵表示">c.数$\bok{\varphi}{A}{\psi}$的矩阵表示</h3>
+<p>$$
+\bok{\varphi}{A}{\psi}=\sum_{i,j}b^*_iA_{ij}c_j
+$$</p>
+<p>$$
+\langle\varphi|A| \psi\rangle=\left(b_{1}^{*} b_{2}^{*} \cdots b_{i}^{*} \cdots\right)\left(\begin{array}{ccccc}
+A_{11} &amp; A_{12} &amp; \cdots &amp; A_{1 j} &amp; \cdots \<br>
+A_{21} &amp; A_{22} &amp; \cdots &amp; A_{2 j} &amp; \cdots \<br>
+\vdots &amp; \vdots &amp; &amp; \vdots &amp; \<br>
+\vdots &amp; \vdots &amp; &amp; \vdots &amp; \<br>
+A_{i 1} &amp; A_{i 2} &amp; &amp; A_{i j} &amp; \cdots \<br>
+\vdots &amp; \vdots &amp; &amp; \vdots &amp;
+\end{array}\right)\left(\begin{array}{c}
+c_{1} \<br>
+c_{2} \<br>
+\vdots \<br>
+c_{j} \<br>
+\vdots \<br>
+\vdots
+\end{array}\right)
+$$</p>
+<h3 id="d-adagger的矩阵表示">d. $A^\dagger$的矩阵表示</h3>
+<p>$$
+(A^\dagger)<em>{ij}=A^*</em>{ji}
+$$</p>
+<p>转置+复数操作。</p>
+<p>若一个算符是 Hermite 的，易知对角元素必为实数（$(A^\dagger)<em>{ij}=A^*</em>{ji}=A_{ij}$）</p>
+<h2 id="5表象的变换">5、表象的变换</h2>
+<h3 id="a梗概">a.梗概</h3>
+<p>在一种指定的表象中，右矢等等由一个矩阵表示。换一种表象，那么将由另一个矩阵表示。求这两个矩阵的联系。</p>
+<p>设从${\ket{u_i}}$变换到${\ket{t_k}}$。那么定义：</p>
+<p>$$
+S_{ik}=\bk{u_i}{t_k}
+$$</p>
+<p>那么$S$称为基的变换矩阵。</p>
+<p>（S 是一个幺正矩阵）</p>
+<h3 id="b右矢分量的变换">b.右矢分量的变换</h3>
+<p>$$
+\bk{t_k}{\psi}=\sum_i\bk{t_k}{u_i}\bk{u_i}{\psi}=\sum_iS^\dagger_{ki}\bk{u_i}{\psi}
+$$</p>
+<p>反向公式：</p>
+<p>$$
+\bk{u_i}{\psi}=\sum_iS_{ik}\bk{t_k}{\psi}
+$$</p>
+<h3 id="c左矢">c.左矢</h3>
+<p>类似</p>
+<h3 id="d矩阵元的变换">d.矩阵元的变换</h3>
+<p>$$
+A_{kl}=\bok{t_k}{A}{t_l}=\sum_{i,j}\bk{t_k}{u_i}\bok{u_i}{A}{u_j}\bk{u_j}{t_l}=\sum_{i,j}S^\dagger_{ki}A_{ij}S_{jl}
+$$</p>
+<p>同理：</p>
+<p>$$
+A_{ij}=\sum_{k,l}S_{ik}A_{kl}S^\dagger_{lj}
+$$</p>
 <h2 id="comment">Comment</h2>
-<p>整个推导类似于矢量运算。$\psi(\mbf r)$为所求的矢量，$u_i(\mbf r)$为基矢量（类似于$\hat{\imath},\hat{\jmath},\hat{k}$），内积相当于矢量运算中的点乘。基具有正交归一和封闭性关系式（类似于$\hat{\imath},\hat{\jmath},\hat{k}$正交及）。</p>
-<p>展开式会出现分量$c_i$，即$\psi$在某个基$u_i$上的分解。求分量$c_i$则类似于矢量求点乘（在某个方向上分解）。</p>
+<p>这一节介绍了如何在某个表象下表示一个态矢量（分量组成的矩阵），终于使得态矢量脱离了高高在上无法计算的问题~。最后还探讨了表象之间的变换。</p>
 
 </section>
 
@@ -335,24 +378,24 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
                 
                     
 <article class="">
-    <a href="/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-c-part/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">[量子力学] 2 量子力学的数学工具 C part</h2>
-        </div>
-    </a>
-</article>
-                
-                    
-<article class="">
     <a href="/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-b-part/">
         
         
 
         <div class="article-details">
             <h2 class="article-title">[量子力学] 2 量子力学的数学工具 B part</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-a-part/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">[量子力学] 2 量子力学的数学工具 A part</h2>
         </div>
     </a>
 </article>
@@ -496,24 +539,37 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
                 <div class="widget--toc">
                     <nav id="TableOfContents">
   <ol>
-    <li><a href="#1波函数空间scr-f的结构">1、波函数空间$\scr F$的结构</a>
+    <li><a href="#1引言">1、引言</a>
       <ol>
-        <li><a href="#a-scr-f是一个矢量空间">a. $\scr F$是一个矢量空间</a></li>
-        <li><a href="#b-标量积">b. 标量积</a></li>
-        <li><a href="#c-线性算符">c. 线性算符</a></li>
+        <li><a href="#a表象的定义">a.表象的定义</a></li>
       </ol>
     </li>
-    <li><a href="#2scr-f中离散的正交归一基u_imbf-r">2、$\scr F$中离散的正交归一基：${u_i(\mbf r)}$</a>
+    <li><a href="#2一个正交归一基的特征关系式">2、一个正交归一基的特征关系式</a>
       <ol>
-        <li><a href="#i-定义">I 定义：</a></li>
-        <li><a href="#ii-求波函数在基上的分量">II 求波函数在基上的分量：</a></li>
-        <li><a href="#iii-标量积表示为分量的函数">III 标量积表示为分量的函数：</a></li>
-        <li><a href="#iv-封闭性关系式">IV 封闭性关系式：</a></li>
+        <li><a href="#a-正交归一关系式">a. 正交归一关系式</a></li>
+        <li><a href="#b-封闭性关系式">b. 封闭性关系式</a></li>
       </ol>
     </li>
-    <li><a href="#3-引入不属于scr-f的基">3 引入不属于$\scr F$的基</a>
+    <li><a href="#3左矢右矢表示法">3、左矢右矢表示法</a>
       <ol>
-        <li><a href="#c-连续的正交归一基">c 连续的正交归一基</a></li>
+        <li><a href="#a右矢的表示法">a.右矢的表示法</a></li>
+        <li><a href="#b左矢的表示法">b.左矢的表示法</a></li>
+      </ol>
+    </li>
+    <li><a href="#4算符的表示法">4、算符的表示法</a>
+      <ol>
+        <li><a href="#a-方阵表示-a">a. 方阵表示 A</a></li>
+        <li><a href="#b右矢ketpsiaketpsi的表示">b.右矢$\ket{\psi'}=A\ket\psi$的表示：</a></li>
+        <li><a href="#c数bokvarphiapsi的矩阵表示">c.数$\bok{\varphi}{A}{\psi}$的矩阵表示</a></li>
+        <li><a href="#d-adagger的矩阵表示">d. $A^\dagger$的矩阵表示</a></li>
+      </ol>
+    </li>
+    <li><a href="#5表象的变换">5、表象的变换</a>
+      <ol>
+        <li><a href="#a梗概">a.梗概</a></li>
+        <li><a href="#b右矢分量的变换">b.右矢分量的变换</a></li>
+        <li><a href="#c左矢">c.左矢</a></li>
+        <li><a href="#d矩阵元的变换">d.矩阵元的变换</a></li>
       </ol>
     </li>
     <li><a href="#comment">Comment</a></li>

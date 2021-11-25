@@ -6,11 +6,20 @@
     <description>Recent content in Tags on MizarZ&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 24 Nov 2021 12:19:32 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 25 Nov 2021 15:14:33 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>rust</title>
+      <link>https://mizarzh.github.io/tags/rust/</link>
+      <pubDate>Thu, 25 Nov 2021 15:14:33 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/tags/rust/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>quantum mechanics</title>
       <link>https://mizarzh.github.io/tags/quantum-mechanics/</link>
-      <pubDate>Wed, 24 Nov 2021 12:19:32 +0800</pubDate>
+      <pubDate>Wed, 24 Nov 2021 19:19:07 +0800</pubDate>
       
       <guid>https://mizarzh.github.io/tags/quantum-mechanics/</guid>
       <description></description>
@@ -19,18 +28,9 @@
     <item>
       <title>量子力学</title>
       <link>https://mizarzh.github.io/tags/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/</link>
-      <pubDate>Wed, 24 Nov 2021 12:19:32 +0800</pubDate>
+      <pubDate>Wed, 24 Nov 2021 19:19:07 +0800</pubDate>
       
       <guid>https://mizarzh.github.io/tags/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>rust</title>
-      <link>https://mizarzh.github.io/tags/rust/</link>
-      <pubDate>Sun, 21 Nov 2021 00:19:05 +0800</pubDate>
-      
-      <guid>https://mizarzh.github.io/tags/rust/</guid>
       <description></description>
     </item>
     

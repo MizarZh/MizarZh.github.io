@@ -6,7 +6,25 @@
     <description>Recent content in Posts on MizarZ&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 24 Nov 2021 12:19:32 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 25 Nov 2021 15:14:33 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rust模块系统</title>
+      <link>https://mizarzh.github.io/p/2021/11/rust%E6%A8%A1%E5%9D%97%E7%B3%BB%E7%BB%9F/</link>
+      <pubDate>Thu, 25 Nov 2021 15:14:33 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2021/11/rust%E6%A8%A1%E5%9D%97%E7%B3%BB%E7%BB%9F/</guid>
+      <description>1 一些概念 crate：是一个二进制项或者库。一个 crate 会将一个作用域内的相关功能分组到一起，能很方便的在多个项目间共享。 包 Package：是提供</description>
+    </item>
+    
+    <item>
+      <title>[量子力学] 2 量子力学的数学工具 C part</title>
+      <link>https://mizarzh.github.io/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-c-part/</link>
+      <pubDate>Wed, 24 Nov 2021 19:19:07 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-c-part/</guid>
+      <description>$$ \def\un{\mathrm} \def\dd{\mathrm d} \def\par{\partial} \def\bl{\boldsymbol} \def\mbf{\mathbf} \newcommand{\bk}[2]{\left \langle #1 | #2 \right \rangle} \newcommand{\bok}[3]{\bra{#1}#2\ket{#3}} \def\nl{\newline} $$ C 态空间中的表象 1、引言 a.表象的定义 选择一种表象就是在态空间 $\scr E$ 中选择一个离散或连续的正交归一基。 在选定</description>
+    </item>
+    
     <item>
       <title>[量子力学] 2 量子力学的数学工具 B part</title>
       <link>https://mizarzh.github.io/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-b-part/</link>
