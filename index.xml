@@ -6,7 +6,124 @@
         <description>Recent content on MizarZ&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Thu, 25 Nov 2021 15:14:33 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 27 Nov 2021 20:24:46 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Terminal查看远程图片</title>
+        <link>https://mizarzh.github.io/p/2021/11/terminal%E6%9F%A5%E7%9C%8B%E8%BF%9C%E7%A8%8B%E5%9B%BE%E7%89%87/</link>
+        <pubDate>Sat, 27 Nov 2021 20:24:46 +0800</pubDate>
+        
+        <guid>https://mizarzh.github.io/p/2021/11/terminal%E6%9F%A5%E7%9C%8B%E8%BF%9C%E7%A8%8B%E5%9B%BE%E7%89%87/</guid>
+        <description>&lt;h2 id=&#34;问题描述&#34;&gt;问题描述&lt;/h2&gt;
+&lt;p&gt;为了查看远程服务器的图片，通常需要使用 scp 命令将图片传到本地查看，然后就要切换标签、输入特别长的路径 etc 一系列麻烦的东西，因此如果能直接输入查看图片的命令就能自动弹出图片就更好了。&lt;/p&gt;
+&lt;h2 id=&#34;原理解决方案&#34;&gt;原理&amp;amp;解决方案&lt;/h2&gt;
+&lt;p&gt;通过命令行查看图片的原理是通过 Linux 系统内置的 X11 forwarding 功能传输图片，而平常无法做到的问题是 windows 和 mac 不存在这个东西。解决方法就是在 windows 和 mac 上安装有 X11 forwarding 功能的辅助软件即可。&lt;/p&gt;
+&lt;p&gt;解决方法：&lt;/p&gt;
+&lt;p&gt;1、确定服务器 Linux 是否开启了 X11 forwarding 功能。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo vi /etc/ssh/sshd_config
+&lt;span class=&#34;c1&#34;&gt;# X11Forwarding Yes 其中的这一行改成这样子&lt;/span&gt;
+sudo service sshd restart
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;2、客户端系统，windows 安装 &lt;a class=&#34;link&#34; href=&#34;https://sourceforge.net/projects/xming/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Xming&lt;/a&gt; ，mac 安装 &lt;a class=&#34;link&#34; href=&#34;https://www.xquartz.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;XQuartz&lt;/a&gt;， Linux 像上面一样打开即可。&lt;/p&gt;
+&lt;p&gt;以 windows 为例：&lt;/p&gt;
+&lt;p&gt;安装后打开 XLaunch，配置如下：&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	
+		class=&#34;gallery-image&#34; 
+		style=&#34;
+			flex-grow: 132; 
+			flex-basis: 316px&#34;
+	&gt;
+	&lt;a href=&#34;https://mizarzh.github.io/p/2021/11/terminal%E6%9F%A5%E7%9C%8B%E8%BF%9C%E7%A8%8B%E5%9B%BE%E7%89%87/image-20211127211655852.png&#34; data-size=&#34;635x481&#34;&gt;
+		&lt;img src=&#34;https://mizarzh.github.io/p/2021/11/terminal%E6%9F%A5%E7%9C%8B%E8%BF%9C%E7%A8%8B%E5%9B%BE%E7%89%87/image-20211127211655852.png&#34;
+			width=&#34;635&#34;
+			height=&#34;481&#34;
+			srcset=&#34;https://mizarzh.github.io/p/2021/11/terminal%E6%9F%A5%E7%9C%8B%E8%BF%9C%E7%A8%8B%E5%9B%BE%E7%89%87/image-20211127211655852_hub239f86ea83e0bc489f7783ba7e585be_76204_480x0_resize_box_3.png 480w, https://mizarzh.github.io/p/2021/11/terminal%E6%9F%A5%E7%9C%8B%E8%BF%9C%E7%A8%8B%E5%9B%BE%E7%89%87/image-20211127211655852_hub239f86ea83e0bc489f7783ba7e585be_76204_1024x0_resize_box_3.png 1024w&#34;
+			loading=&#34;lazy&#34;
+			alt=&#34;第一页配置&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;第一页配置&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	
+		class=&#34;gallery-image&#34; 
+		style=&#34;
+			flex-grow: 132; 
+			flex-basis: 316px&#34;
+	&gt;
+	&lt;a href=&#34;https://mizarzh.github.io/p/2021/11/terminal%E6%9F%A5%E7%9C%8B%E8%BF%9C%E7%A8%8B%E5%9B%BE%E7%89%87/image-20211127211814274.png&#34; data-size=&#34;635x481&#34;&gt;
+		&lt;img src=&#34;https://mizarzh.github.io/p/2021/11/terminal%E6%9F%A5%E7%9C%8B%E8%BF%9C%E7%A8%8B%E5%9B%BE%E7%89%87/image-20211127211814274.png&#34;
+			width=&#34;635&#34;
+			height=&#34;481&#34;
+			srcset=&#34;https://mizarzh.github.io/p/2021/11/terminal%E6%9F%A5%E7%9C%8B%E8%BF%9C%E7%A8%8B%E5%9B%BE%E7%89%87/image-20211127211814274_huca90b04983ecad01d314ccabd072df73_56348_480x0_resize_box_3.png 480w, https://mizarzh.github.io/p/2021/11/terminal%E6%9F%A5%E7%9C%8B%E8%BF%9C%E7%A8%8B%E5%9B%BE%E7%89%87/image-20211127211814274_huca90b04983ecad01d314ccabd072df73_56348_1024x0_resize_box_3.png 1024w&#34;
+			loading=&#34;lazy&#34;
+			alt=&#34;第三页配置&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;第三页配置&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;（记得勾上 No Access Control）&lt;/p&gt;
+&lt;p&gt;并确保其在右下角后台运行。&lt;/p&gt;
+&lt;p&gt;3、ssh 连接时开启 X11 连接。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;ssh -Y xxx@xxx.xxx
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;接下来使用任何带 GUI 功能都会弹出一个窗口了。&lt;/p&gt;
+&lt;p&gt;4、测试：使用&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo apt install x11-apps
+
+xclock
+xeyes
+...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果不出问题，输入测试样例之后就能弹出图形化窗口。&lt;/p&gt;
+&lt;h2 id=&#34;x11介绍&#34;&gt;X11介绍&lt;/h2&gt;
+&lt;h3 id=&#34;x&#34;&gt;X&lt;/h3&gt;
+&lt;p&gt;X 就是 X WIndows System，是为 Linux 系统提供 GUI 功能（Linux 内核是没有 GUI 的）。&lt;/p&gt;
+&lt;h3 id=&#34;x11&#34;&gt;X11&lt;/h3&gt;
+&lt;p&gt;X11 就是第十一个版本。这个版本在1987年就已经是第11版了。&lt;/p&gt;
+&lt;h3 id=&#34;x-client--server&#34;&gt;X Client &amp;amp; Server&lt;/h3&gt;
+&lt;p&gt;X11 协议的客户端和服务端。Client 主要是告知 Server 要绘制什么。Server 的功能主要是管理主机的硬件设备。&lt;/p&gt;
+&lt;h2 id=&#34;python-的问题&#34;&gt;python 的问题&lt;/h2&gt;
+&lt;p&gt;当然，找到这么一个解决方案，那当然是要试试 python 画图啦，但是却有错误（python 未配置 tkinter）。&lt;/p&gt;
+&lt;p&gt;原因是需要设置 matplotlib 的画图环境：&lt;/p&gt;
+&lt;p&gt;合法的画图环境：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;ValueError: &#39;&#39; is not a valid value for backend; supported values are [&#39;GTK3Agg&#39;, &#39;GTK3Cairo&#39;, &#39;MacOSX&#39;, &#39;nbAgg&#39;, &#39;Qt4Agg&#39;, &#39;Qt4Cairo&#39;, &#39;Qt5Agg&#39;, &#39;Qt5Cairo&#39;, &#39;TkAgg&#39;, &#39;TkCairo&#39;, &#39;WebAgg&#39;, &#39;WX&#39;, &#39;WXAgg&#39;, &#39;WXCairo&#39;, &#39;agg&#39;, &#39;cairo&#39;, &#39;pdf&#39;, &#39;pgf&#39;, &#39;ps&#39;, &#39;svg&#39;, &#39;template&#39;]
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;若要使用 tkinter，需要输入以下命令：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo apt-get install python3-tk
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;测试代码：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;matplotlib&lt;/span&gt;
+&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;plt&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;matplotlib&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;use&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;tkinker&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;plt&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;plot&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;plt&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;show&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;测试结果：&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	
+		class=&#34;gallery-image&#34; 
+		style=&#34;
+			flex-grow: 135; 
+			flex-basis: 325px&#34;
+	&gt;
+	&lt;a href=&#34;https://mizarzh.github.io/p/2021/11/terminal%E6%9F%A5%E7%9C%8B%E8%BF%9C%E7%A8%8B%E5%9B%BE%E7%89%87/image-20211127222951974.png&#34; data-size=&#34;1045x771&#34;&gt;
+		&lt;img src=&#34;https://mizarzh.github.io/p/2021/11/terminal%E6%9F%A5%E7%9C%8B%E8%BF%9C%E7%A8%8B%E5%9B%BE%E7%89%87/image-20211127222951974.png&#34;
+			width=&#34;1045&#34;
+			height=&#34;771&#34;
+			srcset=&#34;https://mizarzh.github.io/p/2021/11/terminal%E6%9F%A5%E7%9C%8B%E8%BF%9C%E7%A8%8B%E5%9B%BE%E7%89%87/image-20211127222951974_hue40bf828d262ac41d9e48593c45e4d07_59124_480x0_resize_box_3.png 480w, https://mizarzh.github.io/p/2021/11/terminal%E6%9F%A5%E7%9C%8B%E8%BF%9C%E7%A8%8B%E5%9B%BE%E7%89%87/image-20211127222951974_hue40bf828d262ac41d9e48593c45e4d07_59124_1024x0_resize_box_3.png 1024w&#34;
+			loading=&#34;lazy&#34;
+			alt=&#34;测试结果&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;测试结果&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;h2 id=&#34;feh命令&#34;&gt;feh命令&lt;/h2&gt;
+&lt;p&gt;在 Linux 中查看图片的命令有很多，如 &lt;code&gt;eog, display, gimp&lt;/code&gt; 等等。这里使用 &lt;code&gt;feh&lt;/code&gt; 是因为其有一定的图片编辑能力且轻量级。&lt;/p&gt;
+&lt;p&gt;安装及测试：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo apt install feh
+feh somePicture
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+        </item>
+        <item>
         <title>Rust模块系统</title>
         <link>https://mizarzh.github.io/p/2021/11/rust%E6%A8%A1%E5%9D%97%E7%B3%BB%E7%BB%9F/</link>
         <pubDate>Thu, 25 Nov 2021 15:14:33 +0800</pubDate>
@@ -216,24 +333,24 @@ $$&lt;/p&gt;
 &lt;h1 id=&#34;d-本征值方程观察算符&#34;&gt;D 本征值方程；观察算符&lt;/h1&gt;
 &lt;h2 id=&#34;1算符的本征值和本征矢&#34;&gt;1、算符的本征值和本征矢&lt;/h2&gt;
 &lt;h3 id=&#34;a定义&#34;&gt;a.定义&lt;/h3&gt;
-&lt;p&gt;如果：
-$$
+&lt;p&gt;如果：&lt;/p&gt;
+&lt;p&gt;$$
 A\ket\psi=\lambda\ket\psi
-$$
-称为$A$的本征值方程。$\lambda$称为本征值，本征值的集合称为谱。本征值相对应的$\ket\psi$称为本征矢。&lt;/p&gt;
+$$&lt;/p&gt;
+&lt;p&gt;称为$A$的本征值方程。$\lambda$称为本征值，本征值的集合称为谱。本征值相对应的$\ket\psi$称为本征矢。&lt;/p&gt;
 &lt;p&gt;如果$\ket\psi$是$A$属于本征值$\lambda$的本征矢，那么$\alpha\ket\psi$也是属于相同本征值的本征矢。为了消除这种不确定性，我们要将本征矢&lt;strong&gt;归一化&lt;/strong&gt;：$\bk{\psi}{\psi}=1$。&lt;/p&gt;
-&lt;p&gt;如果本征值$\lambda$只对应一个本征矢，那么这个本征值就是非简并的。如果对应多个本征矢，则是简并的，线性无关的本征矢的数目叫做该本征值的简并度（可以是无限的）。如果：
-$$
+&lt;p&gt;如果本征值$\lambda$只对应一个本征矢，那么这个本征值就是非简并的。如果对应多个本征矢，则是简并的，线性无关的本征矢的数目叫做该本征值的简并度（可以是无限的）。如果：&lt;/p&gt;
+&lt;p&gt;$$
 A\ket{\psi^i}=\lambda\ket{\psi^i}
-$$
-那么具有以下形式的右矢：
-$$
+$$&lt;/p&gt;
+&lt;p&gt;那么具有以下形式的右矢：&lt;/p&gt;
+&lt;p&gt;$$
 \ket{\psi}=\sum_{i=1}^g c_i\ket{\psi^i}
-$$
-也符合这个本征式。&lt;/p&gt;
+$$&lt;/p&gt;
+&lt;p&gt;也符合这个本征式。&lt;/p&gt;
 &lt;h3 id=&#34;b-求算符的本征值和本征矢&#34;&gt;b. 求算符的本征值和本征矢&lt;/h3&gt;
-&lt;p&gt;和线性代数的本征值求法相同：
-$$
+&lt;p&gt;和线性代数的本征值求法相同：&lt;/p&gt;
+&lt;p&gt;$$
 |\mathscr{A}-\lambda I|=0
 $$&lt;/p&gt;
 &lt;h3 id=&#34;c-求本征矢&#34;&gt;c. 求本征矢&lt;/h3&gt;
@@ -242,46 +359,46 @@ $$&lt;/p&gt;
 &lt;h3 id=&#34;a-hermite-算符的本征值和本征矢的性质&#34;&gt;a. Hermite 算符的本征值和本征矢的性质&lt;/h3&gt;
 &lt;p&gt;Hermite 算符的定义：$A^\dagger=A$&lt;/p&gt;
 &lt;p&gt;性质：&lt;/p&gt;
-&lt;p&gt;(i) Hermite算符的本征值是实数&lt;/p&gt;
-&lt;p&gt;(ii) Hermite算符的两个不同本征值的本征矢互相正交&lt;/p&gt;
+&lt;p&gt;(i) Hermite 算符的本征值是实数&lt;/p&gt;
+&lt;p&gt;(ii) Hermite 算符的两个不同本征值的本征矢互相正交&lt;/p&gt;
 &lt;h3 id=&#34;b-观察算符的定义&#34;&gt;b. 观察算符的定义&lt;/h3&gt;
 &lt;p&gt;如果$\scr E$是有限多维空间，则可以用一个 Hermite 算符的全体本征矢构成一个基。但遇到无限维就有问题了，因此需要引入一个观察算符的概念。&lt;/p&gt;
-&lt;p&gt;设有一个 Hermite 算符 $A$。假设其本征值构成一个离散谱 ${a_n}$，$a_n$ 对应的简并度为 $g_n$ ，再设 $\ket{\psi^i_n}\ (i=1,2,\dots,g_n)$ 表示从 $a_n$ 本征子空间 $\mathscr{E}&lt;em&gt;n$ 中选出 $g_n$ 个线性无关的矢量：
-$$
+&lt;p&gt;设有一个 Hermite 算符 $A$。假设其本征值构成一个离散谱 ${a_n}$，$a_n$ 对应的简并度为 $g_n$ ，再设 $\ket{\psi^i_n}\ (i=1,2,\dots,g_n)$ 表示从 $a_n$ 本征子空间 $\mathscr{E}_n$ 中选出 $g_n$ 个线性无关的矢量：&lt;/p&gt;
+&lt;p&gt;$$
 A\ket{\psi^i_n}=a_n\ket{\psi^i_n}
-$$
-对于另外的本征子空间，原本征子空间的每一个矢量都是与之正交的。而每个本征子空间的内部都可以选择一系列的矢量使得它们正交归一。因此得到了算符 $A$ 的本征矢的正交归一：
-$$
-\bk{\psi^i_n}{\psi^{i&#39;}&lt;/em&gt;{n&#39;}}=\delta_{nn&#39;}\delta_{ii&#39;}
-$$
-再加上如果这个正交归一系可以在态空间中构成一个基，那么算符 $A$ 就是一个**观察算符**。当然，构成基的条件可以用封闭性关系式：
-$$
+$$&lt;/p&gt;
+&lt;p&gt;对于另外的本征子空间，原本征子空间的每一个矢量都是与之正交的。而每个本征子空间的内部都可以选择一系列的矢量使得它们正交归一。因此得到了算符 $A$ 的本征矢的正交归一：&lt;/p&gt;
+&lt;p&gt;$$
+\bk{\psi^i_n}{\psi^{i&#39;}&lt;em&gt;{n&#39;}}=\delta&lt;/em&gt;{nn&#39;}\delta_{ii&#39;}
+$$&lt;/p&gt;
+&lt;p&gt;再加上如果这个正交归一系可以在态空间中构成一个基，那么算符 $A$ 就是一个&lt;strong&gt;观察算符&lt;/strong&gt;。当然，构成基的条件可以用封闭性关系式：&lt;/p&gt;
+&lt;p&gt;$$
 \sum^\infty_{n=1}\sum^{g_n}_{i=1}\ket{\psi_n^i}\bra{\psi_n^i}=\mathscr{1}
-$$
-本征子空间 $\mathscr{E}_n$ 上的投影算符 $P_n$ 可以写作：
-$$
+$$&lt;/p&gt;
+&lt;p&gt;本征子空间 $\mathscr{E}_n$ 上的投影算符 $P_n$ 可以写作：&lt;/p&gt;
+&lt;p&gt;$$
 P_n=\sum^{g_n}_{i=1}\ket{\psi_n^i}\bra{\psi_n^i}
-$$
-对于连续谱（非简并情况）， $\psi^i_n \rightarrow \psi_\nu,\ a_n\rightarrow a(\nu),\ \delta_{nn&#39;}\delta_{ii&#39;}\rightarrow \delta(\nu-\nu&#39;)$，封闭性方程式换为积分。&lt;/p&gt;
+$$&lt;/p&gt;
+&lt;p&gt;对于连续谱（非简并情况）， $\psi^i_n \rightarrow \psi_\nu,\ a_n\rightarrow a(\nu),\ \delta_{nn&#39;}\delta_{ii&#39;}\rightarrow \delta(\nu-\nu&#39;)$，封闭性方程式换为积分。&lt;/p&gt;
 &lt;h2 id=&#34;3可对易观察算符的集合&#34;&gt;3、可对易观察算符的集合&lt;/h2&gt;
 &lt;h3 id=&#34;a-重要定理&#34;&gt;a. 重要定理&lt;/h3&gt;
 &lt;p&gt;(i) 如果两个算符 $A,B$ 可对易，且 $\ket{\psi}$ 是 $A$ 的一个本征矢，则 $B\ket{\psi}$ 也是 $A$ 的本征矢，且属于同一对本征值。&lt;/p&gt;
-&lt;p&gt;数学形式：
-$$
+&lt;p&gt;数学形式：&lt;/p&gt;
+&lt;p&gt;$$
 [A,B]=0,\ A\ket\psi=a\ket\psi  \Rightarrow A(B\ket\psi)=a(B\ket\psi)
-$$
-另一种表述：如果两个算符 $A,B$ 可对易，那么 $A$ 的所有本征子空间在 $B$ 的作用下都是整体不变的&lt;/p&gt;
+$$&lt;/p&gt;
+&lt;p&gt;另一种表述：如果两个算符 $A,B$ 可对易，那么 $A$ 的所有本征子空间在 $B$ 的作用下都是整体不变的&lt;/p&gt;
 &lt;p&gt;(ii) 如果两个算符 $A,B$ 可对易，又若 $\ket{\psi_1},\ket{\psi_2}$ 是 $A$ 的两个本征矢，属于不同的本征值，则 $\bok{\psi_1}{B}{\psi_2}=0$&lt;/p&gt;
-&lt;p&gt;数学形式：
-$$
+&lt;p&gt;数学形式：&lt;/p&gt;
+&lt;p&gt;$$
 [A,B]=0,\ A\ket{\psi_1}=a_1\ket{\psi_1},A\ket{\psi_2}=a_2\ket{\psi_2}  \Rightarrow \bok{\psi_1}{B}{\psi_2}=0
-$$
-(iii) （基本定理）如果两个算符 $A,B$ 可对易，则 $A,B$ 的共同本征矢构成态空间的一个正交归一基。&lt;/p&gt;
+$$&lt;/p&gt;
+&lt;p&gt;(iii) （基本定理）如果两个算符 $A,B$ 可对易，则 $A,B$ 的共同本征矢构成态空间的一个正交归一基。&lt;/p&gt;
 &lt;p&gt;可以用记号 $\ket{u_{n,p}^i}$ 来标记 $A,B$ 的共同本征矢（本征值为 $a_n, b_p$）。&lt;/p&gt;
 &lt;p&gt;该定理可以逆向使用。&lt;/p&gt;
 &lt;h3 id=&#34;b-可对易观察算符的完全集合法文-ecoc英文-csco&#34;&gt;b. 可对易观察算符的完全集合（法文 ECOC,英文 CSCO）&lt;/h3&gt;
 &lt;p&gt;假如一个本征值不简并，那么本征值 $a_n$ 就可以表述一个基矢 $\ket{u_n}$。但如果本征值是简并的，就需要额外的一个指标 $i$ 来确定各基矢了。&lt;/p&gt;
-&lt;p&gt;可取另一个与 $A$ 对易观察算符 $B$ ，使用它们的共同本征矢构成一个正交归一基。如果这个基是唯一的，那么 $A,B$ 构成一个ECOC。（相当于 $a_n$ 区分不出来的基矢加上一个额外的指标 $b_p$ 就能区分出来了）。&lt;/p&gt;
+&lt;p&gt;可取另一个与 $A$ 对易观察算符 $B$ ，使用它们的共同本征矢构成一个正交归一基。如果这个基是唯一的，那么 $A,B$ 构成一个 ECOC。（相当于 $a_n$ 区分不出来的基矢加上一个额外的指标 $b_p$ 就能区分出来了）。&lt;/p&gt;
 &lt;p&gt;一系列观察算符 $A,B,C,\cdots$ 的集合叫做可对易观察算符的完全集合的条件是：&lt;/p&gt;
 &lt;p&gt;(i) 这些观察算符是&lt;strong&gt;两两对易&lt;/strong&gt;的&lt;/p&gt;
 &lt;p&gt;(ii) 给出了全体算符的本征值的一个数组，便足以决定唯一一个共同本征矢。（倍乘因子除外）&lt;/p&gt;

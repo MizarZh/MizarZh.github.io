@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ssh on MizarZ&#39;s Blog</title>
+    <link>https://mizarzh.github.io/tags/ssh/</link>
+    <description>Recent content in ssh on MizarZ&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 27 Nov 2021 20:24:46 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/tags/ssh/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Terminal查看远程图片</title>
+      <link>https://mizarzh.github.io/p/2021/11/terminal%E6%9F%A5%E7%9C%8B%E8%BF%9C%E7%A8%8B%E5%9B%BE%E7%89%87/</link>
+      <pubDate>Sat, 27 Nov 2021 20:24:46 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2021/11/terminal%E6%9F%A5%E7%9C%8B%E8%BF%9C%E7%A8%8B%E5%9B%BE%E7%89%87/</guid>
+      <description>问题描述 为了查看远程服务器的图片，通常需要使用 scp 命令将图片传到本地查看，然后就要切换标签、输入特别长的路径 etc 一系列麻烦的东西，因此如果能直接</description>
+    </item>
+    
+  </channel>
+</rss>
