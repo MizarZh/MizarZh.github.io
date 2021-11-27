@@ -17,6 +17,15 @@
     </item>
     
     <item>
+      <title>[量子力学] 2 量子力学的数学工具 D part</title>
+      <link>https://mizarzh.github.io/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-d-part/</link>
+      <pubDate>Wed, 24 Nov 2021 20:24:24 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-d-part/</guid>
+      <description>$$ \def\un{\mathrm} \def\dd{\mathrm d} \def\par{\partial} \def\bl{\boldsymbol} \def\mbf{\mathbf} \newcommand{\bk}[2]{\left \langle #1 | #2 \right \rangle} \newcommand{\bok}[3]{\bra{#1}#2\ket{#3}} \def\nl{\newline} $$ D 本征值方程；观察算符 1、算符的本征值和本征矢 a.定义 如果： $$ A\ket\psi=\lambda\ket\psi $$ 称为$A$的本征值方程。$\lambda</description>
+    </item>
+    
+    <item>
       <title>[量子力学] 2 量子力学的数学工具 C part</title>
       <link>https://mizarzh.github.io/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-c-part/</link>
       <pubDate>Wed, 24 Nov 2021 19:19:07 +0800</pubDate>

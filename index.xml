@@ -198,6 +198,101 @@
 </description>
         </item>
         <item>
+        <title>[量子力学] 2 量子力学的数学工具 D part</title>
+        <link>https://mizarzh.github.io/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-d-part/</link>
+        <pubDate>Wed, 24 Nov 2021 20:24:24 +0800</pubDate>
+        
+        <guid>https://mizarzh.github.io/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-d-part/</guid>
+        <description>&lt;p&gt;$$
+\def\un{\mathrm}
+\def\dd{\mathrm d}
+\def\par{\partial}
+\def\bl{\boldsymbol}
+\def\mbf{\mathbf}
+\newcommand{\bk}[2]{\left \langle #1  | #2  \right \rangle}
+\newcommand{\bok}[3]{\bra{#1}#2\ket{#3}}
+\def\nl{\newline}
+$$&lt;/p&gt;
+&lt;h1 id=&#34;d-本征值方程观察算符&#34;&gt;D 本征值方程；观察算符&lt;/h1&gt;
+&lt;h2 id=&#34;1算符的本征值和本征矢&#34;&gt;1、算符的本征值和本征矢&lt;/h2&gt;
+&lt;h3 id=&#34;a定义&#34;&gt;a.定义&lt;/h3&gt;
+&lt;p&gt;如果：
+$$
+A\ket\psi=\lambda\ket\psi
+$$
+称为$A$的本征值方程。$\lambda$称为本征值，本征值的集合称为谱。本征值相对应的$\ket\psi$称为本征矢。&lt;/p&gt;
+&lt;p&gt;如果$\ket\psi$是$A$属于本征值$\lambda$的本征矢，那么$\alpha\ket\psi$也是属于相同本征值的本征矢。为了消除这种不确定性，我们要将本征矢&lt;strong&gt;归一化&lt;/strong&gt;：$\bk{\psi}{\psi}=1$。&lt;/p&gt;
+&lt;p&gt;如果本征值$\lambda$只对应一个本征矢，那么这个本征值就是非简并的。如果对应多个本征矢，则是简并的，线性无关的本征矢的数目叫做该本征值的简并度（可以是无限的）。如果：
+$$
+A\ket{\psi^i}=\lambda\ket{\psi^i}
+$$
+那么具有以下形式的右矢：
+$$
+\ket{\psi}=\sum_{i=1}^g c_i\ket{\psi^i}
+$$
+也符合这个本征式。&lt;/p&gt;
+&lt;h3 id=&#34;b-求算符的本征值和本征矢&#34;&gt;b. 求算符的本征值和本征矢&lt;/h3&gt;
+&lt;p&gt;和线性代数的本征值求法相同：
+$$
+|\mathscr{A}-\lambda I|=0
+$$&lt;/p&gt;
+&lt;h3 id=&#34;c-求本征矢&#34;&gt;c. 求本征矢&lt;/h3&gt;
+&lt;p&gt;线性代数！&lt;/p&gt;
+&lt;h2 id=&#34;2观察算符&#34;&gt;2、观察算符&lt;/h2&gt;
+&lt;h3 id=&#34;a-hermite-算符的本征值和本征矢的性质&#34;&gt;a. Hermite 算符的本征值和本征矢的性质&lt;/h3&gt;
+&lt;p&gt;Hermite 算符的定义：$A^\dagger=A$&lt;/p&gt;
+&lt;p&gt;性质：&lt;/p&gt;
+&lt;p&gt;(i) Hermite算符的本征值是实数&lt;/p&gt;
+&lt;p&gt;(ii) Hermite算符的两个不同本征值的本征矢互相正交&lt;/p&gt;
+&lt;h3 id=&#34;b-观察算符的定义&#34;&gt;b. 观察算符的定义&lt;/h3&gt;
+&lt;p&gt;如果$\scr E$是有限多维空间，则可以用一个 Hermite 算符的全体本征矢构成一个基。但遇到无限维就有问题了，因此需要引入一个观察算符的概念。&lt;/p&gt;
+&lt;p&gt;设有一个 Hermite 算符 $A$。假设其本征值构成一个离散谱 ${a_n}$，$a_n$ 对应的简并度为 $g_n$ ，再设 $\ket{\psi^i_n}\ (i=1,2,\dots,g_n)$ 表示从 $a_n$ 本征子空间 $\mathscr{E}&lt;em&gt;n$ 中选出 $g_n$ 个线性无关的矢量：
+$$
+A\ket{\psi^i_n}=a_n\ket{\psi^i_n}
+$$
+对于另外的本征子空间，原本征子空间的每一个矢量都是与之正交的。而每个本征子空间的内部都可以选择一系列的矢量使得它们正交归一。因此得到了算符 $A$ 的本征矢的正交归一：
+$$
+\bk{\psi^i_n}{\psi^{i&#39;}&lt;/em&gt;{n&#39;}}=\delta_{nn&#39;}\delta_{ii&#39;}
+$$
+再加上如果这个正交归一系可以在态空间中构成一个基，那么算符 $A$ 就是一个**观察算符**。当然，构成基的条件可以用封闭性关系式：
+$$
+\sum^\infty_{n=1}\sum^{g_n}_{i=1}\ket{\psi_n^i}\bra{\psi_n^i}=\mathscr{1}
+$$
+本征子空间 $\mathscr{E}_n$ 上的投影算符 $P_n$ 可以写作：
+$$
+P_n=\sum^{g_n}_{i=1}\ket{\psi_n^i}\bra{\psi_n^i}
+$$
+对于连续谱（非简并情况）， $\psi^i_n \rightarrow \psi_\nu,\ a_n\rightarrow a(\nu),\ \delta_{nn&#39;}\delta_{ii&#39;}\rightarrow \delta(\nu-\nu&#39;)$，封闭性方程式换为积分。&lt;/p&gt;
+&lt;h2 id=&#34;3可对易观察算符的集合&#34;&gt;3、可对易观察算符的集合&lt;/h2&gt;
+&lt;h3 id=&#34;a-重要定理&#34;&gt;a. 重要定理&lt;/h3&gt;
+&lt;p&gt;(i) 如果两个算符 $A,B$ 可对易，且 $\ket{\psi}$ 是 $A$ 的一个本征矢，则 $B\ket{\psi}$ 也是 $A$ 的本征矢，且属于同一对本征值。&lt;/p&gt;
+&lt;p&gt;数学形式：
+$$
+[A,B]=0,\ A\ket\psi=a\ket\psi  \Rightarrow A(B\ket\psi)=a(B\ket\psi)
+$$
+另一种表述：如果两个算符 $A,B$ 可对易，那么 $A$ 的所有本征子空间在 $B$ 的作用下都是整体不变的&lt;/p&gt;
+&lt;p&gt;(ii) 如果两个算符 $A,B$ 可对易，又若 $\ket{\psi_1},\ket{\psi_2}$ 是 $A$ 的两个本征矢，属于不同的本征值，则 $\bok{\psi_1}{B}{\psi_2}=0$&lt;/p&gt;
+&lt;p&gt;数学形式：
+$$
+[A,B]=0,\ A\ket{\psi_1}=a_1\ket{\psi_1},A\ket{\psi_2}=a_2\ket{\psi_2}  \Rightarrow \bok{\psi_1}{B}{\psi_2}=0
+$$
+(iii) （基本定理）如果两个算符 $A,B$ 可对易，则 $A,B$ 的共同本征矢构成态空间的一个正交归一基。&lt;/p&gt;
+&lt;p&gt;可以用记号 $\ket{u_{n,p}^i}$ 来标记 $A,B$ 的共同本征矢（本征值为 $a_n, b_p$）。&lt;/p&gt;
+&lt;p&gt;该定理可以逆向使用。&lt;/p&gt;
+&lt;h3 id=&#34;b-可对易观察算符的完全集合法文-ecoc英文-csco&#34;&gt;b. 可对易观察算符的完全集合（法文 ECOC,英文 CSCO）&lt;/h3&gt;
+&lt;p&gt;假如一个本征值不简并，那么本征值 $a_n$ 就可以表述一个基矢 $\ket{u_n}$。但如果本征值是简并的，就需要额外的一个指标 $i$ 来确定各基矢了。&lt;/p&gt;
+&lt;p&gt;可取另一个与 $A$ 对易观察算符 $B$ ，使用它们的共同本征矢构成一个正交归一基。如果这个基是唯一的，那么 $A,B$ 构成一个ECOC。（相当于 $a_n$ 区分不出来的基矢加上一个额外的指标 $b_p$ 就能区分出来了）。&lt;/p&gt;
+&lt;p&gt;一系列观察算符 $A,B,C,\cdots$ 的集合叫做可对易观察算符的完全集合的条件是：&lt;/p&gt;
+&lt;p&gt;(i) 这些观察算符是&lt;strong&gt;两两对易&lt;/strong&gt;的&lt;/p&gt;
+&lt;p&gt;(ii) 给出了全体算符的本征值的一个数组，便足以决定唯一一个共同本征矢。（倍乘因子除外）&lt;/p&gt;
+&lt;p&gt;等价说法：&lt;/p&gt;
+&lt;p&gt;存在着由共同本征矢构成的一个正交归一基，而且这个基是唯一的。（相位因子除外）&lt;/p&gt;
+&lt;p&gt;我们通常考虑的是它的最小集合。&lt;/p&gt;
+&lt;h2 id=&#34;comment&#34;&gt;Comment&lt;/h2&gt;
+&lt;p&gt;这一节讲述了非常重要的本征值/矢的概念，这些方法在量子力学中相当于经典力学中的求值&amp;amp;求它们出现的概率&amp;amp;求此时矢量的状态，只不过是本征值以概率形式出现而不是期望值。同时还讲述了 ECOC 的性质，是量子力学中十分重要的一个概念。&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>[量子力学] 2 量子力学的数学工具 C part</title>
         <link>https://mizarzh.github.io/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-c-part/</link>
         <pubDate>Wed, 24 Nov 2021 19:19:07 +0800</pubDate>
@@ -234,16 +329,16 @@ $$&lt;/p&gt;
 &lt;p&gt;一个右矢能唯一地展开，通过以下推导：&lt;/p&gt;
 &lt;p&gt;$$
 \begin{aligned}
-|\psi\rangle &amp;amp;=\sum_{i} c_{i}\left|u_{i}\right\rangle=\sum_{i}\left\langle u_{i} \mid \psi\right\rangle\left|u_{i}\right\rangle \&lt;br&gt;
-&amp;amp;=\sum_{i}\left|u_{i}\right\rangle\left\langle u_{i} \mid \psi\right\rangle=\left(\sum_{i}\left|u_{i}\right\rangle\left\langle u_{i}\right|\right)|\psi\rangle \&lt;br&gt;
-|\psi\rangle &amp;amp;=\int \mathrm{d} \alpha c(\alpha)\left|w_{\alpha}\right\rangle=\int \mathrm{d} \alpha\left\langle w_{\alpha} \mid \psi\right\rangle\left|w_{\alpha}\right\rangle \&lt;br&gt;
+|\psi\rangle &amp;amp;=\sum_{i} c_{i}\left|u_{i}\right\rangle=\sum_{i}\left\langle u_{i} \mid \psi\right\rangle\left|u_{i}\right\rangle \nl
+&amp;amp;=\sum_{i}\left|u_{i}\right\rangle\left\langle u_{i} \mid \psi\right\rangle=\left(\sum_{i}\left|u_{i}\right\rangle\left\langle u_{i}\right|\right)|\psi\rangle \nl
+|\psi\rangle &amp;amp;=\int \mathrm{d} \alpha c(\alpha)\left|w_{\alpha}\right\rangle=\int \mathrm{d} \alpha\left\langle w_{\alpha} \mid \psi\right\rangle\left|w_{\alpha}\right\rangle \nl
 &amp;amp;=\int \mathrm{d} \alpha\left|w_{\alpha}\right\rangle\left\langle w_{\alpha} \mid \psi\right\rangle=\left(\int \mathrm{d} \alpha\left|w_{\alpha}\right\rangle\left\langle w_{\alpha}\right|\right)|\psi\rangle
 \end{aligned}
 $$&lt;/p&gt;
 &lt;p&gt;可以得出：&lt;/p&gt;
 &lt;p&gt;$$
 \begin{eqnarray}
-&amp;amp;P_{{u_i}}=\sum_i \ket{u_i} \bra{u_i} = \mathbb{1} \&lt;br&gt;
+&amp;amp;P_{{u_i}}=\sum_i \ket{u_i} \bra{u_i} = \mathbb{1} \nl
 &amp;amp;P_{{w_\alpha}}=\int \dd \alpha \ket{w_\alpha} \bra{w_\alpha} = \mathbb{1}
 \end{eqnarray}
 $$&lt;/p&gt;
@@ -304,10 +399,10 @@ $$&lt;/p&gt;
 &lt;p&gt;因此可以排列成一个方阵，展开后：&lt;/p&gt;
 &lt;p&gt;$$
 \left(\begin{array}{ccccc}
-A_{11} &amp;amp; A_{12} &amp;amp; \cdots &amp;amp; A_{1 j} &amp;amp; \cdots \&lt;br&gt;
-A_{21} &amp;amp; A_{22} &amp;amp; \cdots &amp;amp; A_{2 j} &amp;amp; \cdots \&lt;br&gt;
-\vdots &amp;amp; \vdots &amp;amp; &amp;amp; \vdots &amp;amp; \&lt;br&gt;
-A_{i 1} &amp;amp; A_{i 2} &amp;amp; \cdots &amp;amp; A_{i j} &amp;amp; \cdots \&lt;br&gt;
+A_{11} &amp;amp; A_{12} &amp;amp; \cdots &amp;amp; A_{1 j} &amp;amp; \cdots \nl
+A_{21} &amp;amp; A_{22} &amp;amp; \cdots &amp;amp; A_{2 j} &amp;amp; \cdots \nl
+\vdots &amp;amp; \vdots &amp;amp; &amp;amp; \vdots &amp;amp; \nl
+A_{i 1} &amp;amp; A_{i 2} &amp;amp; \cdots &amp;amp; A_{i j} &amp;amp; \cdots \nl
 \vdots &amp;amp; \vdots &amp;amp; &amp;amp; \vdots &amp;amp;
 \end{array}\right)
 $$&lt;/p&gt;
@@ -324,25 +419,25 @@ $$&lt;/p&gt;
 &lt;p&gt;可以写出矩阵形式：&lt;/p&gt;
 &lt;p&gt;$$
 \left(\begin{array}{c}
-c_{1}^{\prime} \&lt;br&gt;
-c_{2}^{\prime} \&lt;br&gt;
-\vdots \&lt;br&gt;
-c_{i}^{\prime} \&lt;br&gt;
-\vdots \&lt;br&gt;
+c_{1}^{\prime} \nl
+c_{2}^{\prime} \nl
+\vdots \nl
+c_{i}^{\prime} \nl
+\vdots \nl
 \vdots
 \end{array}\right)=\left(\begin{array}{ccccc}
-A_{11} &amp;amp; A_{12} &amp;amp; \cdots &amp;amp; A_{1 j} &amp;amp; \cdots \&lt;br&gt;
-A_{21} &amp;amp; A_{22} &amp;amp; \cdots &amp;amp; A_{2 j} &amp;amp; \cdots \&lt;br&gt;
-\vdots &amp;amp; \vdots &amp;amp; &amp;amp; \vdots &amp;amp; \&lt;br&gt;
-A_{i 1} &amp;amp; A_{i 2} &amp;amp; \cdots &amp;amp; A_{i j} &amp;amp; \cdots \&lt;br&gt;
-\vdots &amp;amp; \vdots &amp;amp; &amp;amp; \vdots &amp;amp; \&lt;br&gt;
+A_{11} &amp;amp; A_{12} &amp;amp; \cdots &amp;amp; A_{1 j} &amp;amp; \cdots \nl
+A_{21} &amp;amp; A_{22} &amp;amp; \cdots &amp;amp; A_{2 j} &amp;amp; \cdots \nl
+\vdots &amp;amp; \vdots &amp;amp; &amp;amp; \vdots &amp;amp; \nl
+A_{i 1} &amp;amp; A_{i 2} &amp;amp; \cdots &amp;amp; A_{i j} &amp;amp; \cdots \nl
+\vdots &amp;amp; \vdots &amp;amp; &amp;amp; \vdots &amp;amp; \nl
 \vdots &amp;amp; \vdots &amp;amp; &amp;amp; \vdots &amp;amp;
 \end{array}\right)\left(\begin{array}{c}
-c_{1} \&lt;br&gt;
-c_{2} \&lt;br&gt;
-\vdots \&lt;br&gt;
-\vdots \&lt;br&gt;
-c_{j} \&lt;br&gt;
+c_{1} \nl
+c_{2} \nl
+\vdots \nl
+\vdots \nl
+c_{j} \nl
 \vdots
 \end{array}\right)
 $$&lt;/p&gt;
@@ -352,18 +447,18 @@ $$&lt;/p&gt;
 $$&lt;/p&gt;
 &lt;p&gt;$$
 \langle\varphi|A| \psi\rangle=\left(b_{1}^{*} b_{2}^{*} \cdots b_{i}^{*} \cdots\right)\left(\begin{array}{ccccc}
-A_{11} &amp;amp; A_{12} &amp;amp; \cdots &amp;amp; A_{1 j} &amp;amp; \cdots \&lt;br&gt;
-A_{21} &amp;amp; A_{22} &amp;amp; \cdots &amp;amp; A_{2 j} &amp;amp; \cdots \&lt;br&gt;
-\vdots &amp;amp; \vdots &amp;amp; &amp;amp; \vdots &amp;amp; \&lt;br&gt;
-\vdots &amp;amp; \vdots &amp;amp; &amp;amp; \vdots &amp;amp; \&lt;br&gt;
-A_{i 1} &amp;amp; A_{i 2} &amp;amp; &amp;amp; A_{i j} &amp;amp; \cdots \&lt;br&gt;
+A_{11} &amp;amp; A_{12} &amp;amp; \cdots &amp;amp; A_{1 j} &amp;amp; \cdots \nl
+A_{21} &amp;amp; A_{22} &amp;amp; \cdots &amp;amp; A_{2 j} &amp;amp; \cdots \nl
+\vdots &amp;amp; \vdots &amp;amp; &amp;amp; \vdots &amp;amp; \nl
+\vdots &amp;amp; \vdots &amp;amp; &amp;amp; \vdots &amp;amp; \nl
+A_{i 1} &amp;amp; A_{i 2} &amp;amp; &amp;amp; A_{i j} &amp;amp; \cdots \nl
 \vdots &amp;amp; \vdots &amp;amp; &amp;amp; \vdots &amp;amp;
 \end{array}\right)\left(\begin{array}{c}
-c_{1} \&lt;br&gt;
-c_{2} \&lt;br&gt;
-\vdots \&lt;br&gt;
-c_{j} \&lt;br&gt;
-\vdots \&lt;br&gt;
+c_{1} \nl
+c_{2} \nl
+\vdots \nl
+c_{j} \nl
+\vdots \nl
 \vdots
 \end{array}\right)
 $$&lt;/p&gt;

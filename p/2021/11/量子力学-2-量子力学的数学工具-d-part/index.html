@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='C 态空间中的表象'><title>[量子力学] 2 量子力学的数学工具 C part</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='D 本征值方程；观察算符'><title>[量子力学] 2 量子力学的数学工具 D part</title>
 
-<link rel='canonical' href='https://mizarzh.github.io/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-c-part/'>
+<link rel='canonical' href='https://mizarzh.github.io/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-d-part/'>
 
-<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='[量子力学] 2 量子力学的数学工具 C part'>
-<meta property='og:description' content='C 态空间中的表象'>
-<meta property='og:url' content='https://mizarzh.github.io/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-c-part/'>
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='[量子力学] 2 量子力学的数学工具 D part'>
+<meta property='og:description' content='D 本征值方程；观察算符'>
+<meta property='og:url' content='https://mizarzh.github.io/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-d-part/'>
 <meta property='og:site_name' content='MizarZ&#39;s Blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='量子力学' /><meta property='article:tag' content='quantum mechanics' /><meta property='article:published_time' content='2021-11-24T19:19:07&#43;08:00'/><meta property='article:modified_time' content='2021-11-24T19:19:07&#43;08:00'/>
-<meta name="twitter:title" content="[量子力学] 2 量子力学的数学工具 C part">
-<meta name="twitter:description" content="C 态空间中的表象">
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='量子力学' /><meta property='article:tag' content='quantum mechanics' /><meta property='article:published_time' content='2021-11-24T20:24:24&#43;08:00'/><meta property='article:modified_time' content='2021-11-24T20:24:24&#43;08:00'/>
+<meta name="twitter:title" content="[量子力学] 2 量子力学的数学工具 D part">
+<meta name="twitter:description" content="D 本征值方程；观察算符">
     <link rel="shortcut icon" href="img/favicon-32x32.png" />
 
     </head>
@@ -75,12 +75,12 @@
     
 
     <h2 class="article-title">
-        <a href="/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-c-part/">[量子力学] 2 量子力学的数学工具 C part</a>
+        <a href="/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-d-part/">[量子力学] 2 量子力学的数学工具 D part</a>
     </h2>
 
     
     <h3 class="article-subtitle">
-        C 态空间中的表象
+        D 本征值方程；观察算符
     </h3>
     
 
@@ -118,195 +118,83 @@
 \newcommand{\bok}[3]{\bra{#1}#2\ket{#3}}
 \def\nl{\newline}
 $$</p>
-<h1 id="c-态空间中的表象">C 态空间中的表象</h1>
-<h2 id="1引言">1、引言</h2>
-<h3 id="a表象的定义">a.表象的定义</h3>
-<p>选择一种表象就是在态空间 $\scr E$ 中选择一个离散或连续的正交归一基。</p>
-<p>在选定的基中，矢量和算符都是用数表示的：</p>
-<ul>
-<li>对于矢量，这些数就是它的分量</li>
-<li>对于算符，这些数就是它的矩阵元</li>
-</ul>
-<p>上一节中的运算就变成了矩阵运算。</p>
-<p>原则上来说，表象的选择是任意的，但如果具体问题具体选择那会更好。</p>
-<h2 id="2一个正交归一基的特征关系式">2、一个正交归一基的特征关系式</h2>
-<h3 id="a-正交归一关系式">a. 正交归一关系式</h3>
-<p>满足以下关系式的称为正交归一关系式：</p>
-<p>$$
-\bk{u_i}{u_j}=\delta_{ij}\quad \text{or} \quad \bk{w_\alpha}{w_{\alpha'}}=\delta(\alpha-\alpha')
+<h1 id="d-本征值方程观察算符">D 本征值方程；观察算符</h1>
+<h2 id="1算符的本征值和本征矢">1、算符的本征值和本征矢</h2>
+<h3 id="a定义">a.定义</h3>
+<p>如果：
+$$
+A\ket\psi=\lambda\ket\psi
+$$
+称为$A$的本征值方程。$\lambda$称为本征值，本征值的集合称为谱。本征值相对应的$\ket\psi$称为本征矢。</p>
+<p>如果$\ket\psi$是$A$属于本征值$\lambda$的本征矢，那么$\alpha\ket\psi$也是属于相同本征值的本征矢。为了消除这种不确定性，我们要将本征矢<strong>归一化</strong>：$\bk{\psi}{\psi}=1$。</p>
+<p>如果本征值$\lambda$只对应一个本征矢，那么这个本征值就是非简并的。如果对应多个本征矢，则是简并的，线性无关的本征矢的数目叫做该本征值的简并度（可以是无限的）。如果：
+$$
+A\ket{\psi^i}=\lambda\ket{\psi^i}
+$$
+那么具有以下形式的右矢：
+$$
+\ket{\psi}=\sum_{i=1}^g c_i\ket{\psi^i}
+$$
+也符合这个本征式。</p>
+<h3 id="b-求算符的本征值和本征矢">b. 求算符的本征值和本征矢</h3>
+<p>和线性代数的本征值求法相同：
+$$
+|\mathscr{A}-\lambda I|=0
 $$</p>
-<h3 id="b-封闭性关系式">b. 封闭性关系式</h3>
-<p>一个右矢能唯一地展开，通过以下推导：</p>
-<p>$$
-\begin{aligned}
-|\psi\rangle &amp;=\sum_{i} c_{i}\left|u_{i}\right\rangle=\sum_{i}\left\langle u_{i} \mid \psi\right\rangle\left|u_{i}\right\rangle \nl
-&amp;=\sum_{i}\left|u_{i}\right\rangle\left\langle u_{i} \mid \psi\right\rangle=\left(\sum_{i}\left|u_{i}\right\rangle\left\langle u_{i}\right|\right)|\psi\rangle \nl
-|\psi\rangle &amp;=\int \mathrm{d} \alpha c(\alpha)\left|w_{\alpha}\right\rangle=\int \mathrm{d} \alpha\left\langle w_{\alpha} \mid \psi\right\rangle\left|w_{\alpha}\right\rangle \nl
-&amp;=\int \mathrm{d} \alpha\left|w_{\alpha}\right\rangle\left\langle w_{\alpha} \mid \psi\right\rangle=\left(\int \mathrm{d} \alpha\left|w_{\alpha}\right\rangle\left\langle w_{\alpha}\right|\right)|\psi\rangle
-\end{aligned}
-$$</p>
-<p>可以得出：</p>
-<p>$$
-\begin{eqnarray}
-&amp;P_{{u_i}}=\sum_i \ket{u_i} \bra{u_i} = \mathbb{1} \nl
-&amp;P_{{w_\alpha}}=\int \dd \alpha \ket{w_\alpha} \bra{w_\alpha} = \mathbb{1}
-\end{eqnarray}
-$$</p>
-<p>这两条式子称为封闭性关系式。</p>
-<p>同理，这个推导可以反向进行操作。</p>
-<p><figure 
-	
-		class="gallery-image" 
-		style="
-			flex-grow: 443; 
-			flex-basis: 1064px"
-	>
-	<a href="/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-c-part/image-20211124194640763.png" data-size="1224x276">
-		<img src="/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-c-part/image-20211124194640763.png"
-			width="1224"
-			height="276"
-			srcset="/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-c-part/image-20211124194640763_hua44ecb7d530b27a48c5593a0b333ca52_74720_480x0_resize_box_3.png 480w, /p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-c-part/image-20211124194640763_hua44ecb7d530b27a48c5593a0b333ca52_74720_1024x0_resize_box_3.png 1024w"
-			loading="lazy"
-			alt="image-20211124194640763">
-	</a>
-	
-	<figcaption>image-20211124194640763</figcaption>
-	
-</figure></p>
-<h2 id="3左矢右矢表示法">3、左矢右矢表示法</h2>
-<h3 id="a右矢的表示法">a.右矢的表示法</h3>
-<p>右矢$\ket{\psi}$是由<strong>其分量</strong>的集合来表示的。含有一列和无穷多行：</p>
-<p>$$
-\begin{pmatrix}
-\bk{u_1}{\psi} \nl
-\bk{u_2}{\psi} \nl
-\vdots \nl
-\bk{u_i}{\psi} \nl
-\vdots
-\end{pmatrix}
-$$</p>
-<p>连续基则是由无穷多个数（$c(\alpha)$函数）表示的。函数的任意一个值都代表$\ket\psi$的一个分量：</p>
-<p>$$
-\begin{pmatrix}
-\vdots \nl
-\bk{w_\alpha}{\psi} \nl
-\vdots
-\end{pmatrix}
-$$</p>
-<h3 id="b左矢的表示法">b.左矢的表示法</h3>
-<p>$$
-(\bk{\psi}{u_1}\ \bk{\psi}{u_2}\ \cdots \bk{\psi}{u_i} \ \cdots)
-$$</p>
-<p>$$
-(\cdots \bk{\psi}{w_\alpha} \ \cdots)
-$$</p>
-<h2 id="4算符的表示法">4、算符的表示法</h2>
-<h3 id="a-方阵表示-a">a. 方阵表示 A</h3>
-<p>线性算符的值依赖于两个指标：</p>
-<p>$$
-A_{ij}=\bok{u_i}{A}{u_j} \quad \text{or} \quad A(\alpha, \alpha')=\bok{w_\alpha}{A}{w_{\alpha'}}
-$$</p>
-<p>因此可以排列成一个方阵，展开后：</p>
-<p>$$
-\left(\begin{array}{ccccc}
-A_{11} &amp; A_{12} &amp; \cdots &amp; A_{1 j} &amp; \cdots \nl
-A_{21} &amp; A_{22} &amp; \cdots &amp; A_{2 j} &amp; \cdots \nl
-\vdots &amp; \vdots &amp; &amp; \vdots &amp; \nl
-A_{i 1} &amp; A_{i 2} &amp; \cdots &amp; A_{i j} &amp; \cdots \nl
-\vdots &amp; \vdots &amp; &amp; \vdots &amp;
-\end{array}\right)
-$$</p>
-<p>连续情况的类似。</p>
-<p>线性算符的乘法：</p>
-<p>$$
-\bok{u_i}{AB}{u_j}=\bok{u_i}{A \mathbb{1} B}{u_j}=\bok{u_i}{A P_{{u_k}} B}{u_j}=\sum_k\bok{u_i}{A}{u_k}\bok{u_k}{B}{u_j}
-$$</p>
-<h3 id="b右矢ketpsiaketpsi的表示">b.右矢$\ket{\psi'}=A\ket\psi$的表示：</h3>
-<p>易得：</p>
-<p>$$
-c'<em>i=\sum_jA</em>{ij}c_j
-$$</p>
-<p>可以写出矩阵形式：</p>
-<p>$$
-\left(\begin{array}{c}
-c_{1}^{\prime} \nl
-c_{2}^{\prime} \nl
-\vdots \nl
-c_{i}^{\prime} \nl
-\vdots \nl
-\vdots
-\end{array}\right)=\left(\begin{array}{ccccc}
-A_{11} &amp; A_{12} &amp; \cdots &amp; A_{1 j} &amp; \cdots \nl
-A_{21} &amp; A_{22} &amp; \cdots &amp; A_{2 j} &amp; \cdots \nl
-\vdots &amp; \vdots &amp; &amp; \vdots &amp; \nl
-A_{i 1} &amp; A_{i 2} &amp; \cdots &amp; A_{i j} &amp; \cdots \nl
-\vdots &amp; \vdots &amp; &amp; \vdots &amp; \nl
-\vdots &amp; \vdots &amp; &amp; \vdots &amp;
-\end{array}\right)\left(\begin{array}{c}
-c_{1} \nl
-c_{2} \nl
-\vdots \nl
-\vdots \nl
-c_{j} \nl
-\vdots
-\end{array}\right)
-$$</p>
-<h3 id="c数bokvarphiapsi的矩阵表示">c.数$\bok{\varphi}{A}{\psi}$的矩阵表示</h3>
-<p>$$
-\bok{\varphi}{A}{\psi}=\sum_{i,j}b^*_iA_{ij}c_j
-$$</p>
-<p>$$
-\langle\varphi|A| \psi\rangle=\left(b_{1}^{*} b_{2}^{*} \cdots b_{i}^{*} \cdots\right)\left(\begin{array}{ccccc}
-A_{11} &amp; A_{12} &amp; \cdots &amp; A_{1 j} &amp; \cdots \nl
-A_{21} &amp; A_{22} &amp; \cdots &amp; A_{2 j} &amp; \cdots \nl
-\vdots &amp; \vdots &amp; &amp; \vdots &amp; \nl
-\vdots &amp; \vdots &amp; &amp; \vdots &amp; \nl
-A_{i 1} &amp; A_{i 2} &amp; &amp; A_{i j} &amp; \cdots \nl
-\vdots &amp; \vdots &amp; &amp; \vdots &amp;
-\end{array}\right)\left(\begin{array}{c}
-c_{1} \nl
-c_{2} \nl
-\vdots \nl
-c_{j} \nl
-\vdots \nl
-\vdots
-\end{array}\right)
-$$</p>
-<h3 id="d-adagger的矩阵表示">d. $A^\dagger$的矩阵表示</h3>
-<p>$$
-(A^\dagger)<em>{ij}=A^*</em>{ji}
-$$</p>
-<p>转置+复数操作。</p>
-<p>若一个算符是 Hermite 的，易知对角元素必为实数（$(A^\dagger)<em>{ij}=A^*</em>{ji}=A_{ij}$）</p>
-<h2 id="5表象的变换">5、表象的变换</h2>
-<h3 id="a梗概">a.梗概</h3>
-<p>在一种指定的表象中，右矢等等由一个矩阵表示。换一种表象，那么将由另一个矩阵表示。求这两个矩阵的联系。</p>
-<p>设从${\ket{u_i}}$变换到${\ket{t_k}}$。那么定义：</p>
-<p>$$
-S_{ik}=\bk{u_i}{t_k}
-$$</p>
-<p>那么$S$称为基的变换矩阵。</p>
-<p>（S 是一个幺正矩阵）</p>
-<h3 id="b右矢分量的变换">b.右矢分量的变换</h3>
-<p>$$
-\bk{t_k}{\psi}=\sum_i\bk{t_k}{u_i}\bk{u_i}{\psi}=\sum_iS^\dagger_{ki}\bk{u_i}{\psi}
-$$</p>
-<p>反向公式：</p>
-<p>$$
-\bk{u_i}{\psi}=\sum_iS_{ik}\bk{t_k}{\psi}
-$$</p>
-<h3 id="c左矢">c.左矢</h3>
-<p>类似</p>
-<h3 id="d矩阵元的变换">d.矩阵元的变换</h3>
-<p>$$
-A_{kl}=\bok{t_k}{A}{t_l}=\sum_{i,j}\bk{t_k}{u_i}\bok{u_i}{A}{u_j}\bk{u_j}{t_l}=\sum_{i,j}S^\dagger_{ki}A_{ij}S_{jl}
-$$</p>
-<p>同理：</p>
-<p>$$
-A_{ij}=\sum_{k,l}S_{ik}A_{kl}S^\dagger_{lj}
-$$</p>
+<h3 id="c-求本征矢">c. 求本征矢</h3>
+<p>线性代数！</p>
+<h2 id="2观察算符">2、观察算符</h2>
+<h3 id="a-hermite-算符的本征值和本征矢的性质">a. Hermite 算符的本征值和本征矢的性质</h3>
+<p>Hermite 算符的定义：$A^\dagger=A$</p>
+<p>性质：</p>
+<p>(i) Hermite算符的本征值是实数</p>
+<p>(ii) Hermite算符的两个不同本征值的本征矢互相正交</p>
+<h3 id="b-观察算符的定义">b. 观察算符的定义</h3>
+<p>如果$\scr E$是有限多维空间，则可以用一个 Hermite 算符的全体本征矢构成一个基。但遇到无限维就有问题了，因此需要引入一个观察算符的概念。</p>
+<p>设有一个 Hermite 算符 $A$。假设其本征值构成一个离散谱 ${a_n}$，$a_n$ 对应的简并度为 $g_n$ ，再设 $\ket{\psi^i_n}\ (i=1,2,\dots,g_n)$ 表示从 $a_n$ 本征子空间 $\mathscr{E}<em>n$ 中选出 $g_n$ 个线性无关的矢量：
+$$
+A\ket{\psi^i_n}=a_n\ket{\psi^i_n}
+$$
+对于另外的本征子空间，原本征子空间的每一个矢量都是与之正交的。而每个本征子空间的内部都可以选择一系列的矢量使得它们正交归一。因此得到了算符 $A$ 的本征矢的正交归一：
+$$
+\bk{\psi^i_n}{\psi^{i'}</em>{n'}}=\delta_{nn'}\delta_{ii'}
+$$
+再加上如果这个正交归一系可以在态空间中构成一个基，那么算符 $A$ 就是一个**观察算符**。当然，构成基的条件可以用封闭性关系式：
+$$
+\sum^\infty_{n=1}\sum^{g_n}_{i=1}\ket{\psi_n^i}\bra{\psi_n^i}=\mathscr{1}
+$$
+本征子空间 $\mathscr{E}_n$ 上的投影算符 $P_n$ 可以写作：
+$$
+P_n=\sum^{g_n}_{i=1}\ket{\psi_n^i}\bra{\psi_n^i}
+$$
+对于连续谱（非简并情况）， $\psi^i_n \rightarrow \psi_\nu,\ a_n\rightarrow a(\nu),\ \delta_{nn'}\delta_{ii'}\rightarrow \delta(\nu-\nu')$，封闭性方程式换为积分。</p>
+<h2 id="3可对易观察算符的集合">3、可对易观察算符的集合</h2>
+<h3 id="a-重要定理">a. 重要定理</h3>
+<p>(i) 如果两个算符 $A,B$ 可对易，且 $\ket{\psi}$ 是 $A$ 的一个本征矢，则 $B\ket{\psi}$ 也是 $A$ 的本征矢，且属于同一对本征值。</p>
+<p>数学形式：
+$$
+[A,B]=0,\ A\ket\psi=a\ket\psi  \Rightarrow A(B\ket\psi)=a(B\ket\psi)
+$$
+另一种表述：如果两个算符 $A,B$ 可对易，那么 $A$ 的所有本征子空间在 $B$ 的作用下都是整体不变的</p>
+<p>(ii) 如果两个算符 $A,B$ 可对易，又若 $\ket{\psi_1},\ket{\psi_2}$ 是 $A$ 的两个本征矢，属于不同的本征值，则 $\bok{\psi_1}{B}{\psi_2}=0$</p>
+<p>数学形式：
+$$
+[A,B]=0,\ A\ket{\psi_1}=a_1\ket{\psi_1},A\ket{\psi_2}=a_2\ket{\psi_2}  \Rightarrow \bok{\psi_1}{B}{\psi_2}=0
+$$
+(iii) （基本定理）如果两个算符 $A,B$ 可对易，则 $A,B$ 的共同本征矢构成态空间的一个正交归一基。</p>
+<p>可以用记号 $\ket{u_{n,p}^i}$ 来标记 $A,B$ 的共同本征矢（本征值为 $a_n, b_p$）。</p>
+<p>该定理可以逆向使用。</p>
+<h3 id="b-可对易观察算符的完全集合法文-ecoc英文-csco">b. 可对易观察算符的完全集合（法文 ECOC,英文 CSCO）</h3>
+<p>假如一个本征值不简并，那么本征值 $a_n$ 就可以表述一个基矢 $\ket{u_n}$。但如果本征值是简并的，就需要额外的一个指标 $i$ 来确定各基矢了。</p>
+<p>可取另一个与 $A$ 对易观察算符 $B$ ，使用它们的共同本征矢构成一个正交归一基。如果这个基是唯一的，那么 $A,B$ 构成一个ECOC。（相当于 $a_n$ 区分不出来的基矢加上一个额外的指标 $b_p$ 就能区分出来了）。</p>
+<p>一系列观察算符 $A,B,C,\cdots$ 的集合叫做可对易观察算符的完全集合的条件是：</p>
+<p>(i) 这些观察算符是<strong>两两对易</strong>的</p>
+<p>(ii) 给出了全体算符的本征值的一个数组，便足以决定唯一一个共同本征矢。（倍乘因子除外）</p>
+<p>等价说法：</p>
+<p>存在着由共同本征矢构成的一个正交归一基，而且这个基是唯一的。（相位因子除外）</p>
+<p>我们通常考虑的是它的最小集合。</p>
 <h2 id="comment">Comment</h2>
-<p>这一节介绍了如何在某个表象下表示一个态矢量（分量组成的矩阵），终于使得态矢量脱离了高高在上无法计算的问题~。最后还探讨了表象之间的变换。</p>
+<p>这一节讲述了非常重要的本征值/矢的概念，这些方法在量子力学中相当于经典力学中的求值&amp;求它们出现的概率&amp;求此时矢量的状态，只不过是本征值以概率形式出现而不是期望值。同时还讲述了 ECOC 的性质，是量子力学中十分重要的一个概念。</p>
 
 </section>
 
@@ -378,12 +266,12 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
                 
                     
 <article class="">
-    <a href="/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-d-part/">
+    <a href="/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-c-part/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">[量子力学] 2 量子力学的数学工具 D part</h2>
+            <h2 class="article-title">[量子力学] 2 量子力学的数学工具 C part</h2>
         </div>
     </a>
 </article>
@@ -551,37 +439,23 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
                 <div class="widget--toc">
                     <nav id="TableOfContents">
   <ol>
-    <li><a href="#1引言">1、引言</a>
+    <li><a href="#1算符的本征值和本征矢">1、算符的本征值和本征矢</a>
       <ol>
-        <li><a href="#a表象的定义">a.表象的定义</a></li>
+        <li><a href="#a定义">a.定义</a></li>
+        <li><a href="#b-求算符的本征值和本征矢">b. 求算符的本征值和本征矢</a></li>
+        <li><a href="#c-求本征矢">c. 求本征矢</a></li>
       </ol>
     </li>
-    <li><a href="#2一个正交归一基的特征关系式">2、一个正交归一基的特征关系式</a>
+    <li><a href="#2观察算符">2、观察算符</a>
       <ol>
-        <li><a href="#a-正交归一关系式">a. 正交归一关系式</a></li>
-        <li><a href="#b-封闭性关系式">b. 封闭性关系式</a></li>
+        <li><a href="#a-hermite-算符的本征值和本征矢的性质">a. Hermite 算符的本征值和本征矢的性质</a></li>
+        <li><a href="#b-观察算符的定义">b. 观察算符的定义</a></li>
       </ol>
     </li>
-    <li><a href="#3左矢右矢表示法">3、左矢右矢表示法</a>
+    <li><a href="#3可对易观察算符的集合">3、可对易观察算符的集合</a>
       <ol>
-        <li><a href="#a右矢的表示法">a.右矢的表示法</a></li>
-        <li><a href="#b左矢的表示法">b.左矢的表示法</a></li>
-      </ol>
-    </li>
-    <li><a href="#4算符的表示法">4、算符的表示法</a>
-      <ol>
-        <li><a href="#a-方阵表示-a">a. 方阵表示 A</a></li>
-        <li><a href="#b右矢ketpsiaketpsi的表示">b.右矢$\ket{\psi'}=A\ket\psi$的表示：</a></li>
-        <li><a href="#c数bokvarphiapsi的矩阵表示">c.数$\bok{\varphi}{A}{\psi}$的矩阵表示</a></li>
-        <li><a href="#d-adagger的矩阵表示">d. $A^\dagger$的矩阵表示</a></li>
-      </ol>
-    </li>
-    <li><a href="#5表象的变换">5、表象的变换</a>
-      <ol>
-        <li><a href="#a梗概">a.梗概</a></li>
-        <li><a href="#b右矢分量的变换">b.右矢分量的变换</a></li>
-        <li><a href="#c左矢">c.左矢</a></li>
-        <li><a href="#d矩阵元的变换">d.矩阵元的变换</a></li>
+        <li><a href="#a-重要定理">a. 重要定理</a></li>
+        <li><a href="#b-可对易观察算符的完全集合法文-ecoc英文-csco">b. 可对易观察算符的完全集合（法文 ECOC,英文 CSCO）</a></li>
       </ol>
     </li>
     <li><a href="#comment">Comment</a></li>
