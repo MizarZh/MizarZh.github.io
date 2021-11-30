@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='C 态空间中的表象'><title>[量子力学] 2 量子力学的数学工具 C part</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='E 表象和观察算符的两个重要例子'><title>[量子力学] 2 量子力学的数学工具 E part</title>
 
-<link rel='canonical' href='https://mizarzh.github.io/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-c-part/'>
+<link rel='canonical' href='https://mizarzh.github.io/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-e-part/'>
 
-<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='[量子力学] 2 量子力学的数学工具 C part'>
-<meta property='og:description' content='C 态空间中的表象'>
-<meta property='og:url' content='https://mizarzh.github.io/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-c-part/'>
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='[量子力学] 2 量子力学的数学工具 E part'>
+<meta property='og:description' content='E 表象和观察算符的两个重要例子'>
+<meta property='og:url' content='https://mizarzh.github.io/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-e-part/'>
 <meta property='og:site_name' content='MizarZ&#39;s Blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='量子力学' /><meta property='article:tag' content='quantum mechanics' /><meta property='article:published_time' content='2021-11-24T19:19:07&#43;08:00'/><meta property='article:modified_time' content='2021-11-24T19:19:07&#43;08:00'/>
-<meta name="twitter:title" content="[量子力学] 2 量子力学的数学工具 C part">
-<meta name="twitter:description" content="C 态空间中的表象">
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='量子力学' /><meta property='article:tag' content='quantum mechanics' /><meta property='article:published_time' content='2021-11-28T00:18:05&#43;08:00'/><meta property='article:modified_time' content='2021-11-28T00:18:05&#43;08:00'/>
+<meta name="twitter:title" content="[量子力学] 2 量子力学的数学工具 E part">
+<meta name="twitter:description" content="E 表象和观察算符的两个重要例子">
     <link rel="shortcut icon" href="img/favicon-32x32.png" />
 
     </head>
@@ -75,12 +75,12 @@
     
 
     <h2 class="article-title">
-        <a href="/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-c-part/">[量子力学] 2 量子力学的数学工具 C part</a>
+        <a href="/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-e-part/">[量子力学] 2 量子力学的数学工具 E part</a>
     </h2>
 
     
     <h3 class="article-subtitle">
-        C 态空间中的表象
+        E 表象和观察算符的两个重要例子
     </h3>
     
 
@@ -97,7 +97,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">2021-11-24</time>
+                <time class="article-time--published">2021-11-28</time>
             </div>
         
 
@@ -117,196 +117,139 @@
 \newcommand{\bk}[2]{\left \langle #1  | #2  \right \rangle}
 \newcommand{\bok}[3]{\bra{#1}#2\ket{#3}}
 \def\nl{\newline}
+\def\Ra{\Rightarrow}
+\def\La{\Leftarrow}
+\def\ra{\rightarrow}
+\def\la{\leftarrow}
 $$</p>
-<h1 id="c-态空间中的表象">C 态空间中的表象</h1>
-<h2 id="1引言">1、引言</h2>
-<h3 id="a表象的定义">a.表象的定义</h3>
-<p>选择一种表象就是在态空间 $\scr E$ 中选择一个离散或连续的正交归一基。</p>
-<p>在选定的基中，矢量和算符都是用数表示的：</p>
-<ul>
-<li>对于矢量，这些数就是它的分量</li>
-<li>对于算符，这些数就是它的矩阵元</li>
-</ul>
-<p>上一节中的运算就变成了矩阵运算。</p>
-<p>原则上来说，表象的选择是任意的，但如果具体问题具体选择那会更好。</p>
-<h2 id="2一个正交归一基的特征关系式">2、一个正交归一基的特征关系式</h2>
-<h3 id="a-正交归一关系式">a. 正交归一关系式</h3>
-<p>满足以下关系式的称为正交归一关系式：</p>
-<p>$$
-\bk{u_i}{u_j}=\delta_{ij}\quad \text{or} \quad \bk{w_\alpha}{w_{\alpha'}}=\delta(\alpha-\alpha')
-$$</p>
-<h3 id="b-封闭性关系式">b. 封闭性关系式</h3>
-<p>一个右矢能唯一地展开，通过以下推导：</p>
-<p>$$
-\begin{aligned}
-|\psi\rangle &amp;=\sum_{i} c_{i}\left|u_{i}\right\rangle=\sum_{i}\left\langle u_{i} \mid \psi\right\rangle\left|u_{i}\right\rangle \nl
-&amp;=\sum_{i}\left|u_{i}\right\rangle\left\langle u_{i} \mid \psi\right\rangle=\left(\sum_{i}\left|u_{i}\right\rangle\left\langle u_{i}\right|\right)|\psi\rangle \nl
-|\psi\rangle &amp;=\int \mathrm{d} \alpha c(\alpha)\left|w_{\alpha}\right\rangle=\int \mathrm{d} \alpha\left\langle w_{\alpha} \mid \psi\right\rangle\left|w_{\alpha}\right\rangle \nl
-&amp;=\int \mathrm{d} \alpha\left|w_{\alpha}\right\rangle\left\langle w_{\alpha} \mid \psi\right\rangle=\left(\int \mathrm{d} \alpha\left|w_{\alpha}\right\rangle\left\langle w_{\alpha}\right|\right)|\psi\rangle
-\end{aligned}
-$$</p>
-<p>可以得出：</p>
+<h1 id="e-表象和观察算符的两个重要例子">E 表象和观察算符的两个重要例子</h1>
+<p>一个重要的对应关系：
+$$
+\bk{\varphi}{\psi}=\int\dd^3 r\varphi^*(\mbf r)\psi(\mbf r)
+$$
+将内积与原来的 $r$ 表象对应上，有了可操作性。</p>
+<h2 id="1ket-r-表象和-ket-p-表象">1、${\ket r}$ 表象和 ${\ket p}$ 表象</h2>
 <p>$$
 \begin{eqnarray}
-&amp;P_{{u_i}}=\sum_i \ket{u_i} \bra{u_i} = \mathbb{1} \nl
-&amp;P_{{w_\alpha}}=\int \dd \alpha \ket{w_\alpha} \bra{w_\alpha} = \mathbb{1}
+&amp;\xi_{r_0}(\mbf r) = \delta(\mbf{r-r_0}) \Ra \ket{r_0} \nl
+&amp;v_{p_0}(\mbf r) = (2\pi\hbar)^{-3/2}e^{i\mbf{p_0\cdot r}/\hbar} \Ra \ket{p_0}
 \end{eqnarray}
+$$
+经过一系列的推导：
+$$
+\bk{r}{\psi}=\psi(\bl r), \bk{p}{\psi}=\bar\psi(\bl p)
+$$
+正交归一关系式和封闭性关系式：
+$$
+\begin{eqnarray}
+\left\langle\boldsymbol{r} \mid \boldsymbol{r}^{\prime}\right\rangle=\delta\left(\boldsymbol{r}-\boldsymbol{r}^{\prime}\right) (a) &amp;\qquad   \left\langle\boldsymbol{p} \mid \boldsymbol{p}^{\prime}\right\rangle=\delta\left(\boldsymbol{p}-\boldsymbol{p}^{\prime}\right) (b) \nl
+\int \mathrm{d}^{3} r|\boldsymbol{r}\rangle\langle\boldsymbol{r}|=\mathbb{1}
+(b) &amp; \qquad\int \mathrm{d}^{3} p|\boldsymbol{p}\rangle\langle\boldsymbol{p}|=1
+(d)
+\end{eqnarray}
+$$
+可以注意到这是连续的。</p>
+<p>另一种内积得表达式：
+$$
+\bk{\varphi}{\psi}=\int\dd^3\bk{\varphi}{p}\bk{p}{\varphi}=\int\dd^3\bar\varphi^<em>(\bl p)\bar\psi(\bl p)
+$$
+从${\ket r}$表象变换到${\ket p}$表象：
+$$
+\bk{r}{p}=\bk{p}{r}^</em>=(2 \pi \hbar)^{-3 / 2} \mathrm{e}^{\frac{i}{\hbar} \boldsymbol{p} \cdot \boldsymbol{r}}
 $$</p>
-<p>这两条式子称为封闭性关系式。</p>
-<p>同理，这个推导可以反向进行操作。</p>
-<p><figure 
-	
-		class="gallery-image" 
-		style="
-			flex-grow: 443; 
-			flex-basis: 1064px"
-	>
-	<a href="/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-c-part/image-20211124194640763.png" data-size="1224x276">
-		<img src="/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-c-part/image-20211124194640763.png"
-			width="1224"
-			height="276"
-			srcset="/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-c-part/image-20211124194640763_hua44ecb7d530b27a48c5593a0b333ca52_74720_480x0_resize_box_3.png 480w, /p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-c-part/image-20211124194640763_hua44ecb7d530b27a48c5593a0b333ca52_74720_1024x0_resize_box_3.png 1024w"
-			loading="lazy"
-			alt="image-20211124194640763">
-	</a>
-	
-	<figcaption>image-20211124194640763</figcaption>
-	
-</figure></p>
-<h2 id="3左矢右矢表示法">3、左矢右矢表示法</h2>
-<h3 id="a右矢的表示法">a.右矢的表示法</h3>
-<p>右矢$\ket{\psi}$是由<strong>其分量</strong>的集合来表示的。含有一列和无穷多行：</p>
+<h2 id="2算符-r-和算符-p">2、算符 $R$ 和算符 $P$</h2>
+<h3 id="a定义">a.定义</h3>
+<p>定义在 ${\ket {r}}$ 表象中波函数乘 $x$ 对应回 $\scr E$ 空间的操作算符为 $X$：
+$$
+\begin{eqnarray}
+&amp;\langle\boldsymbol{r}|X| \psi\rangle=x\langle\boldsymbol{r} \mid \psi\rangle \nl
+&amp;\langle\boldsymbol{r}|Y| \psi\rangle=y\langle\boldsymbol{r} \mid \psi\rangle \nl
+&amp;\langle\boldsymbol{r}|Z| \psi\rangle=z\langle\boldsymbol{r} \mid \psi\rangle
+\end{eqnarray}
+$$
+可以把 $X,Y,Z$ 看成是算符 $R$ 的三个分量。</p>
+<p>矩阵元计算：
+$$
+\bok{\varphi}{X}{\psi}=\int\dd^3\bk{\varphi}{r}\bok{r}{X}{\psi}=\int\dd^3\varphi^*(\bl r)x\psi(\bl r)
+$$
+对于 $P_x,P_y,P_z$ 也如此：
+$$
+\begin{eqnarray}
+\left\langle\boldsymbol{p}\left|P_{x}\right| \psi\right\rangle=p_{x}\langle\boldsymbol{p} \mid \psi\rangle \nl
+\left\langle\boldsymbol{p}\left|P_{y}\right| \psi\right\rangle=p_{y}\langle\boldsymbol{p} \mid \psi\rangle \nl
+\left\langle\boldsymbol{p}\left|P_{z}\right| \psi\right\rangle=p_{z}\langle\boldsymbol{p} \mid \psi\rangle
+\end{eqnarray}
+$$
+因为我们常用的表象是 ${\ket {r}}$，因此我们接下来研究 $P$ 算符如何作用在 ${\ket {r}}$ 表象中：</p>
 <p>$$
-\begin{pmatrix}
-\bk{u_1}{\psi} \nl
-\bk{u_2}{\psi} \nl
-\vdots \nl
-\bk{u_i}{\psi} \nl
-\vdots
-\end{pmatrix}
+\begin{aligned}
+\left\langle\boldsymbol{r}\left|P_{x}\right| \psi\right\rangle &amp;=\int \mathrm{d}^{3} p\langle\boldsymbol{r} \mid \boldsymbol{p}\rangle\left\langle\boldsymbol{p}\left|P_{x}\right| \psi\right\rangle \<br>
+&amp;=(2 \pi \hbar)^{-3 / 2} \int \mathrm{d}^{3} p \mathrm{e}^{\frac{\mathrm{i}}{\hbar} \boldsymbol{p} \cdot \boldsymbol{r}} p_{x} \bar{\psi}(\boldsymbol{p}) \nl
+&amp;= \frac{\hbar}{i}\frac{\par}{\par x}\psi(\bl r)\qquad \text{(傅里叶逆变换)}
+\end{aligned}
+$$
+因此：
+$$
+P=\frac{\hbar}{i}\nabla\qquad\text{(在r表象中)}
+$$
+可以计算它们的对易子：
+$$
+\begin{aligned}
+\left\langle\boldsymbol{r}\left|\left[X, P_{x}\right]\right| \psi\right\rangle &amp;=\left\langle\boldsymbol{r}\left|\left(X P_{x}-P_{x} X\right)\right| \psi\right\rangle \<br>
+&amp;=x\left\langle\boldsymbol{r}\left|P_{x}\right| \psi\right\rangle-\frac{\hbar}{\mathrm{i}} \frac{\partial}{\partial x}\langle\boldsymbol{r}|X| \psi\rangle \<br>
+&amp;=\frac{\hbar}{\mathrm{i}} x \frac{\partial}{\partial x}\langle\boldsymbol{r} \mid \psi\rangle-\frac{\hbar}{\mathrm{i}} \frac{\partial}{\partial x} x\langle\boldsymbol{r} \mid \psi\rangle \<br>
+&amp;=\mathrm{i} \hbar\langle\boldsymbol{r} \mid \psi\rangle
+\end{aligned}
+$$
+因此可以得到（正则对易关系式）：
+$$
+\begin{align}
+&amp;[X,P_x]=i\hbar\nl
+&amp;\text{总结：}\nl
+&amp;{\left[R_{i}, R_{j}\right]=0} \nl
+&amp;{\left[P_{i}, P_{j}\right]=0} \nl
+&amp;{\left[R_{i}, P_{j}\right]=\mathrm{i} \hbar \delta_{i j}}
+\end{align}
 $$</p>
-<p>连续基则是由无穷多个数（$c(\alpha)$函数）表示的。函数的任意一个值都代表$\ket\psi$的一个分量：</p>
+<h3 id="b-r-和-p-都是hermite算符">b. $R$ 和 $P$ 都是Hermite算符</h3>
+<p>根据Hermite算符的性质：
+$$
+\bok{\varphi}{A}{\psi}=\bok{\varphi}{A}{\varphi}^*
+$$
+推导：</p>
+<p>$X$ ：
+$$
+\begin{align}
+\langle\varphi|X| \psi\rangle &amp;=\int \mathrm{d}^{3} r \varphi^{<em>}(\boldsymbol{r}) x \psi(\boldsymbol{r}) \nl
+&amp;=\left[\int \mathrm{d}^{3} r \psi^{</em>}(\boldsymbol{r}) x \varphi(\boldsymbol{r})\right]^{<em>} \nl
+&amp;=\langle\psi|X| \varphi\rangle^{</em>}
+\end{align}
+$$</p>
+<p>$P_x$：
+$$
+\begin{aligned}
+\left\langle\varphi\left|P_{x}\right| \psi\right\rangle &amp;=\frac{\hbar}{\mathrm{i}} \int \mathrm{d} y \mathrm{~d} z \int_{-\infty}^{+\infty} \mathrm{d} x \varphi^{*}(\boldsymbol{r}) \frac{\partial}{\partial x} \psi(\boldsymbol{r}) \<br>
+&amp;=\frac{\hbar}{\mathrm{i}} \int \mathrm{d} y \mathrm{~d} z\left{\left[\varphi^{*}(\boldsymbol{r}) \psi(\boldsymbol{r})\right]_{x=-\infty}^{x=+\infty}-\int_{-\infty}^{+\infty} \mathrm{d} x \psi(\boldsymbol{r}) \frac{\partial}{\partial x} \varphi^{*}(\boldsymbol{r})\right}\nl
+&amp;=-\frac{\hbar}{\mathrm{i}} \int \mathrm{d}^{3} r \psi(\boldsymbol{r}) \frac{\partial}{\partial x} \varphi^{*}(\boldsymbol{r}) \<br>
+&amp;=\left[\frac{\hbar}{\mathrm{i}} \int \mathrm{d}^{3} r \psi^{*}(\boldsymbol{r}) \frac{\partial}{\partial x} \varphi(\boldsymbol{r})\right]^{*} \<br>
+&amp;=\left\langle\psi\left|P_{x}\right| \varphi\right\rangle^{*}
+\end{aligned}
+$$</p>
+<h3 id="c-本征矢">c. 本征矢</h3>
 <p>$$
-\begin{pmatrix}
-\vdots \nl
-\bk{w_\alpha}{\psi} \nl
-\vdots
-\end{pmatrix}
+\begin{array}{l}
+X|\boldsymbol{r}\rangle=x|\boldsymbol{r}\rangle \nl
+Y|\boldsymbol{r}\rangle=y|\boldsymbol{r}\rangle \nl
+Z|\boldsymbol{r}\rangle=z|\boldsymbol{r}\rangle \nl
+P_{x}|\boldsymbol{p}\rangle=p_{x}|\boldsymbol{p}\rangle \nl
+P_{y}|\boldsymbol{p}\rangle=p_{y}|\boldsymbol{p}\rangle \nl
+P_{z}|\boldsymbol{p}\rangle=p_{z}|\boldsymbol{p}\rangle
+\end{array}
 $$</p>
-<h3 id="b左矢的表示法">b.左矢的表示法</h3>
-<p>$$
-(\bk{\psi}{u_1}\ \bk{\psi}{u_2}\ \cdots \bk{\psi}{u_i} \ \cdots)
-$$</p>
-<p>$$
-(\cdots \bk{\psi}{w_\alpha} \ \cdots)
-$$</p>
-<h2 id="4算符的表示法">4、算符的表示法</h2>
-<h3 id="a-方阵表示-a">a. 方阵表示 A</h3>
-<p>线性算符的值依赖于两个指标：</p>
-<p>$$
-A_{ij}=\bok{u_i}{A}{u_j} \quad \text{or} \quad A(\alpha, \alpha')=\bok{w_\alpha}{A}{w_{\alpha'}}
-$$</p>
-<p>因此可以排列成一个方阵，展开后：</p>
-<p>$$
-\left(\begin{array}{ccccc}
-A_{11} &amp; A_{12} &amp; \cdots &amp; A_{1 j} &amp; \cdots \nl
-A_{21} &amp; A_{22} &amp; \cdots &amp; A_{2 j} &amp; \cdots \nl
-\vdots &amp; \vdots &amp; &amp; \vdots &amp; \nl
-A_{i 1} &amp; A_{i 2} &amp; \cdots &amp; A_{i j} &amp; \cdots \nl
-\vdots &amp; \vdots &amp; &amp; \vdots &amp;
-\end{array}\right)
-$$</p>
-<p>连续情况的类似。</p>
-<p>线性算符的乘法：</p>
-<p>$$
-\bok{u_i}{AB}{u_j}=\bok{u_i}{A \mathbb{1} B}{u_j}=\bok{u_i}{A P_{{u_k}} B}{u_j}=\sum_k\bok{u_i}{A}{u_k}\bok{u_k}{B}{u_j}
-$$</p>
-<h3 id="b右矢ketpsiaketpsi的表示">b.右矢$\ket{\psi'}=A\ket\psi$的表示：</h3>
-<p>易得：</p>
-<p>$$
-c'<em>i=\sum_jA</em>{ij}c_j
-$$</p>
-<p>可以写出矩阵形式：</p>
-<p>$$
-\left(\begin{array}{c}
-c_{1}^{\prime} \nl
-c_{2}^{\prime} \nl
-\vdots \nl
-c_{i}^{\prime} \nl
-\vdots \nl
-\vdots
-\end{array}\right)=\left(\begin{array}{ccccc}
-A_{11} &amp; A_{12} &amp; \cdots &amp; A_{1 j} &amp; \cdots \nl
-A_{21} &amp; A_{22} &amp; \cdots &amp; A_{2 j} &amp; \cdots \nl
-\vdots &amp; \vdots &amp; &amp; \vdots &amp; \nl
-A_{i 1} &amp; A_{i 2} &amp; \cdots &amp; A_{i j} &amp; \cdots \nl
-\vdots &amp; \vdots &amp; &amp; \vdots &amp; \nl
-\vdots &amp; \vdots &amp; &amp; \vdots &amp;
-\end{array}\right)\left(\begin{array}{c}
-c_{1} \nl
-c_{2} \nl
-\vdots \nl
-\vdots \nl
-c_{j} \nl
-\vdots
-\end{array}\right)
-$$</p>
-<h3 id="c数bokvarphiapsi的矩阵表示">c.数$\bok{\varphi}{A}{\psi}$的矩阵表示</h3>
-<p>$$
-\bok{\varphi}{A}{\psi}=\sum_{i,j}b^*_iA_{ij}c_j
-$$</p>
-<p>$$
-\langle\varphi|A| \psi\rangle=\left(b_{1}^{*} b_{2}^{*} \cdots b_{i}^{*} \cdots\right)\left(\begin{array}{ccccc}
-A_{11} &amp; A_{12} &amp; \cdots &amp; A_{1 j} &amp; \cdots \nl
-A_{21} &amp; A_{22} &amp; \cdots &amp; A_{2 j} &amp; \cdots \nl
-\vdots &amp; \vdots &amp; &amp; \vdots &amp; \nl
-\vdots &amp; \vdots &amp; &amp; \vdots &amp; \nl
-A_{i 1} &amp; A_{i 2} &amp; &amp; A_{i j} &amp; \cdots \nl
-\vdots &amp; \vdots &amp; &amp; \vdots &amp;
-\end{array}\right)\left(\begin{array}{c}
-c_{1} \nl
-c_{2} \nl
-\vdots \nl
-c_{j} \nl
-\vdots \nl
-\vdots
-\end{array}\right)
-$$</p>
-<h3 id="d-adagger的矩阵表示">d. $A^\dagger$的矩阵表示</h3>
-<p>$$
-(A^\dagger)<em>{ij}=A^*</em>{ji}
-$$</p>
-<p>转置+复数操作。</p>
-<p>若一个算符是 Hermite 的，易知对角元素必为实数（$(A^\dagger)<em>{ij}=A^*</em>{ji}=A_{ij}$）</p>
-<h2 id="5表象的变换">5、表象的变换</h2>
-<h3 id="a梗概">a.梗概</h3>
-<p>在一种指定的表象中，右矢等等由一个矩阵表示。换一种表象，那么将由另一个矩阵表示。求这两个矩阵的联系。</p>
-<p>设从${\ket{u_i}}$变换到${\ket{t_k}}$。那么定义：</p>
-<p>$$
-S_{ik}=\bk{u_i}{t_k}
-$$</p>
-<p>那么$S$称为基的变换矩阵。</p>
-<p>（S 是一个幺正矩阵）</p>
-<h3 id="b右矢分量的变换">b.右矢分量的变换</h3>
-<p>$$
-\bk{t_k}{\psi}=\sum_i\bk{t_k}{u_i}\bk{u_i}{\psi}=\sum_iS^\dagger_{ki}\bk{u_i}{\psi}
-$$</p>
-<p>反向公式：</p>
-<p>$$
-\bk{u_i}{\psi}=\sum_iS_{ik}\bk{t_k}{\psi}
-$$</p>
-<h3 id="c左矢">c.左矢</h3>
-<p>类似</p>
-<h3 id="d矩阵元的变换">d.矩阵元的变换</h3>
-<p>$$
-A_{kl}=\bok{t_k}{A}{t_l}=\sum_{i,j}\bk{t_k}{u_i}\bok{u_i}{A}{u_j}\bk{u_j}{t_l}=\sum_{i,j}S^\dagger_{ki}A_{ij}S_{jl}
-$$</p>
-<p>同理：</p>
-<p>$$
-A_{ij}=\sum_{k,l}S_{ik}A_{kl}S^\dagger_{lj}
-$$</p>
+<h3 id="d-它们都是观察算符">d. 它们都是观察算符</h3>
+<p>有封闭性关系式可知。</p>
 <h2 id="comment">Comment</h2>
-<p>这一节介绍了如何在某个表象下表示一个态矢量（分量组成的矩阵），终于使得态矢量脱离了高高在上无法计算的问题~。最后还探讨了表象之间的变换。</p>
+<p>这一节讲述了两个重要的表象。后续的许多推导都是在 ${\ket{r}}$ 表象中进行的，因此学好这一个表象/算符是十分必要的。</p>
 
 </section>
 
@@ -378,24 +321,24 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
                 
                     
 <article class="">
-    <a href="/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-e-part/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">[量子力学] 2 量子力学的数学工具 E part</h2>
-        </div>
-    </a>
-</article>
-                
-                    
-<article class="">
     <a href="/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-d-part/">
         
         
 
         <div class="article-details">
             <h2 class="article-title">[量子力学] 2 量子力学的数学工具 D part</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-c-part/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">[量子力学] 2 量子力学的数学工具 C part</h2>
         </div>
     </a>
 </article>
@@ -563,37 +506,13 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
                 <div class="widget--toc">
                     <nav id="TableOfContents">
   <ol>
-    <li><a href="#1引言">1、引言</a>
+    <li><a href="#1ket-r-表象和-ket-p-表象">1、${\ket r}$ 表象和 ${\ket p}$ 表象</a></li>
+    <li><a href="#2算符-r-和算符-p">2、算符 $R$ 和算符 $P$</a>
       <ol>
-        <li><a href="#a表象的定义">a.表象的定义</a></li>
-      </ol>
-    </li>
-    <li><a href="#2一个正交归一基的特征关系式">2、一个正交归一基的特征关系式</a>
-      <ol>
-        <li><a href="#a-正交归一关系式">a. 正交归一关系式</a></li>
-        <li><a href="#b-封闭性关系式">b. 封闭性关系式</a></li>
-      </ol>
-    </li>
-    <li><a href="#3左矢右矢表示法">3、左矢右矢表示法</a>
-      <ol>
-        <li><a href="#a右矢的表示法">a.右矢的表示法</a></li>
-        <li><a href="#b左矢的表示法">b.左矢的表示法</a></li>
-      </ol>
-    </li>
-    <li><a href="#4算符的表示法">4、算符的表示法</a>
-      <ol>
-        <li><a href="#a-方阵表示-a">a. 方阵表示 A</a></li>
-        <li><a href="#b右矢ketpsiaketpsi的表示">b.右矢$\ket{\psi'}=A\ket\psi$的表示：</a></li>
-        <li><a href="#c数bokvarphiapsi的矩阵表示">c.数$\bok{\varphi}{A}{\psi}$的矩阵表示</a></li>
-        <li><a href="#d-adagger的矩阵表示">d. $A^\dagger$的矩阵表示</a></li>
-      </ol>
-    </li>
-    <li><a href="#5表象的变换">5、表象的变换</a>
-      <ol>
-        <li><a href="#a梗概">a.梗概</a></li>
-        <li><a href="#b右矢分量的变换">b.右矢分量的变换</a></li>
-        <li><a href="#c左矢">c.左矢</a></li>
-        <li><a href="#d矩阵元的变换">d.矩阵元的变换</a></li>
+        <li><a href="#a定义">a.定义</a></li>
+        <li><a href="#b-r-和-p-都是hermite算符">b. $R$ 和 $P$ 都是Hermite算符</a></li>
+        <li><a href="#c-本征矢">c. 本征矢</a></li>
+        <li><a href="#d-它们都是观察算符">d. 它们都是观察算符</a></li>
       </ol>
     </li>
     <li><a href="#comment">Comment</a></li>
