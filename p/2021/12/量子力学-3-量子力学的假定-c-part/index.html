@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='C 关于可观测量及其测量的假定的物理解释'><title>[量子力学] 3 量子力学的假定 C part</title>
+
+<link rel='canonical' href='https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-3-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%81%87%E5%AE%9A-c-part/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='[量子力学] 3 量子力学的假定 C part'>
+<meta property='og:description' content='C 关于可观测量及其测量的假定的物理解释'>
+<meta property='og:url' content='https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-3-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%81%87%E5%AE%9A-c-part/'>
+<meta property='og:site_name' content='MizarZ&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='量子力学' /><meta property='article:tag' content='quantum mechanics' /><meta property='article:published_time' content='2021-12-07T16:53:22&#43;08:00'/><meta property='article:modified_time' content='2021-12-07T16:53:22&#43;08:00'/>
+<meta name="twitter:title" content="[量子力学] 3 量子力学的假定 C part">
+<meta name="twitter:description" content="C 关于可观测量及其测量的假定的物理解释">
+    <link rel="shortcut icon" href="img/favicon-32x32.png" />
+
+    </head>
+    <body class="
+    article-page has-toc
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        extended
+    
+">
+    
+        <div id="article-toolbar">
+            <a href="/" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>返回</span>
+            </a>
+        </div>
+    
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E7%89%A9%E7%90%86/" style="background-color: #773feb; color: ;">
+                物理
+            </a>
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-3-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%81%87%E5%AE%9A-c-part/">[量子力学] 3 量子力学的假定 C part</a>
+    </h2>
+
+    
+    <h3 class="article-subtitle">
+        C 关于可观测量及其测量的假定的物理解释
+    </h3>
+    
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2021-12-07</time>
+            </div>
+        
+
+        
+    </footer>
+    
+</div>
+</header>
+
+    <section class="article-content">
+    <p>$$
+\def\un{\mathrm}
+\def\dd{\mathrm d}
+\def\par{\partial}
+\def\bl{\boldsymbol}
+\def\mbf{\mathbf}
+\newcommand{\avg}[1]{\left \langle #1 \right \rangle}
+\newcommand{\bk}[2]{\left \langle #1  | #2  \right \rangle}
+\newcommand{\bok}[3]{\bra{#1}#2\ket{#3}}
+\def\nl{\newline}
+\def\Ra{\Rightarrow}
+\def\La{\Leftarrow}
+\def\ra{\rightarrow}
+\def\la{\leftarrow}
+$$</p>
+<h1 id="c-关于可观测量及其测量的假定的物理解释">C 关于可观测量及其测量的假定的物理解释</h1>
+<h2 id="1量子化规则与波函数的概率解释是一致的">1.量子化规则与波函数的概率解释是一致的</h2>
+<p>$$
+\mathrm{d} \mathscr{P}(p)=|\langle p \mid \psi\rangle|^{2} \mathrm{~d} p=|\bar{\psi}(p)|^{2} \mathrm{~d} p
+$$</p>
+<h2 id="2某些物理量的量子化">2.某些物理量的量子化</h2>
+<p>不是说所有物理量都是量子化的，有一些观察算符的谱是连续的。</p>
+<h2 id="3测量的机制">3.测量的机制</h2>
+<p>重点：要注意仪器会与体系有相互作用。</p>
+<h2 id="4可观测量在指定态中的平均值">4.可观测量在指定态中的平均值</h2>
+<p>$$
+\avg{A}_\psi = \bok{\psi}{A}{\psi}
+$$</p>
+<p>通常会在一个确定的表象中做计算，如：</p>
+<p>$$
+\avg{x}_\psi=\int\dd^3\psi^*(\bl r)x\psi(\bl r)
+$$</p>
+<h2 id="5方均根偏差">5.方均根偏差</h2>
+<p>$\avg{A}$ 指出了体系处于 $\ket\psi$ 态时可观测量 $A$ 的大小的数量级，但不能告诉我们各种结果的离散程度。描述这个参数的值是方差：</p>
+<p>$$
+\Delta A=\sqrt{\avg{(A-\avg{A})^2}}=\sqrt{\avg{A^2}-\avg{A}^2}
+$$</p>
+<p>应用到 $R$ 和 $P$ 上，就得到不确定性关系。</p>
+<h2 id="6可观测量的相容性">6.可观测量的相容性</h2>
+<p>如果 $A,B$ 对易，存在一个 $A,B$ 的共同本征右矢：</p>
+<p>$$
+\begin{eqnarray}
+&amp;A\ket{a_n,b_n,i}=a_n\ket{a_n,b_n,i} \nl
+&amp;B\ket{a_n,b_n,i}=b_p\ket{a_n,b_n,i}
+\end{eqnarray}
+$$</p>
+<p>如果 $A$ 测量一定得到 $a_n$，对 $B$ 测量一定得到 $b_p$，可以同时完全确定的可观测量叫做相容的可观测量。</p>
+<p>反之，若不可对易，一般说来，一个态矢量不可能成为这两个观察算符的本征矢，那么就称这两个可观察量是不可相容的。</p>
+<p>假设有两个相容量 $A,B$，测量 $A$ 的信息会因测量 $B$ 后得到补充，以及它们的测量顺序是无关紧要的。</p>
+<p>反之，若有两个不可相容量，不相容的两个可观测量是不能同时测量的，且第二次测量会失去第一次测量得到的信息。</p>
+<h2 id="comment">Comment</h2>
+<p>本节讲述了一些与观测算符相关的基本假设。包括：</p>
+<p>1、观测算符作用的概率解释及本征值量子化。</p>
+<p>2、测量的机制问题</p>
+<p>3、观测算符的平均值/方差及其意义</p>
+<p>4、可观测量的相容性（测量信息损失问题）。解释了科普中的红蓝甜咸棒棒糖。</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/">量子力学</a>
+        
+            <a href="/tags/quantum-mechanics/">quantum mechanics</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css"integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js"integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8"crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js"integrity="sha384-vZTG03m&#43;2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl"crossorigin="anonymous"
+                defer="true"
+                >
+            </script>
+<script>
+MathJax = {
+    tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+    },
+    options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+};
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async
+src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">相关文章</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="">
+    <a href="/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-3-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%81%87%E5%AE%9A-d-part/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">[量子力学] 3 量子力学的假定 D part</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-3-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%81%87%E5%AE%9A-b-part/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">[量子力学] 3 量子力学的假定 B part</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-e-part/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">[量子力学] 2 量子力学的数学工具 E part</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-d-part/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">[量子力学] 2 量子力学的数学工具 D part</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-c-part/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">[量子力学] 2 量子力学的数学工具 C part</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy;
+        
+        2021 MizarZ&#39;s Blog
+    </section>
+
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener"
+                data-version="3.4.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+
+        
+
+    </section>
+
+</footer>
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+        <aside class="sidebar right-sidebar sticky">
+            <section class="widget archives">
+                <div class="widget-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                </div>
+                <h2 class="widget-title section-title">目录</h2>
+                
+                <div class="widget--toc">
+                    <nav id="TableOfContents">
+  <ol>
+    <li><a href="#1量子化规则与波函数的概率解释是一致的">1.量子化规则与波函数的概率解释是一致的</a></li>
+    <li><a href="#2某些物理量的量子化">2.某些物理量的量子化</a></li>
+    <li><a href="#3测量的机制">3.测量的机制</a></li>
+    <li><a href="#4可观测量在指定态中的平均值">4.可观测量在指定态中的平均值</a></li>
+    <li><a href="#5方均根偏差">5.方均根偏差</a></li>
+    <li><a href="#6可观测量的相容性">6.可观测量的相容性</a></li>
+    <li><a href="#comment">Comment</a></li>
+  </ol>
+</nav>
+                </div>
+            </section>
+        </aside>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

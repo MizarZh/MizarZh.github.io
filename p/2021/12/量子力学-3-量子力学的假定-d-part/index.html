@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='D 薛定谔方程的物理意义'><title>[量子力学] 3 量子力学的假定 D part</title>
+
+<link rel='canonical' href='https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-3-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%81%87%E5%AE%9A-d-part/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='[量子力学] 3 量子力学的假定 D part'>
+<meta property='og:description' content='D 薛定谔方程的物理意义'>
+<meta property='og:url' content='https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-3-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%81%87%E5%AE%9A-d-part/'>
+<meta property='og:site_name' content='MizarZ&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='量子力学' /><meta property='article:tag' content='quantum mechanics' /><meta property='article:published_time' content='2021-12-07T20:32:22&#43;08:00'/><meta property='article:modified_time' content='2021-12-07T20:32:22&#43;08:00'/>
+<meta name="twitter:title" content="[量子力学] 3 量子力学的假定 D part">
+<meta name="twitter:description" content="D 薛定谔方程的物理意义">
+    <link rel="shortcut icon" href="img/favicon-32x32.png" />
+
+    </head>
+    <body class="
+    article-page has-toc
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        extended
+    
+">
+    
+        <div id="article-toolbar">
+            <a href="/" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>返回</span>
+            </a>
+        </div>
+    
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E7%89%A9%E7%90%86/" style="background-color: #773feb; color: ;">
+                物理
+            </a>
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-3-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%81%87%E5%AE%9A-d-part/">[量子力学] 3 量子力学的假定 D part</a>
+    </h2>
+
+    
+    <h3 class="article-subtitle">
+        D 薛定谔方程的物理意义
+    </h3>
+    
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2021-12-07</time>
+            </div>
+        
+
+        
+    </footer>
+    
+</div>
+</header>
+
+    <section class="article-content">
+    <p>$$
+\def\un{\mathrm}
+\def\dd{\mathrm d}
+\def\par{\partial}
+\def\bl{\boldsymbol}
+\def\mbf{\mathbf}
+\newcommand{\avg}[1]{\left \langle #1 \right \rangle}
+\newcommand{\bk}[2]{\left \langle #1  | #2  \right \rangle}
+\newcommand{\bok}[3]{\bra{#1}#2\ket{#3}}
+\def\nl{\newline}
+\def\Ra{\Rightarrow}
+\def\La{\Leftarrow}
+\def\ra{\rightarrow}
+\def\la{\leftarrow}
+$$</p>
+<h1 id="d-薛定谔方程的物理意义">D 薛定谔方程的物理意义</h1>
+<h2 id="1schrödinger-方程的普遍性质">1.Schrödinger 方程的普遍性质</h2>
+<h3 id="a-确定性">a. 确定性</h3>
+<p>$$
+i\hbar\frac{\dd}{\dd t}\ket{\psi(t)}=H(t)\ket{\psi(t)}
+$$</p>
+<p>是关于 $t$ 的一次微分方程，给出了初态 $\ket{\psi(t_0)}$ 就能决定后续任意时刻的态。不确定性仅存在于测量某个物理量的时候。</p>
+<h3 id="b叠加原理">b.叠加原理</h3>
+<p>Schrödinger 方程是齐次线性的，因此解是可以叠加的。这意味着 $\ket{\psi(t_0)}$ 和 $\ket{\psi(t)}$ 之间的关系是线性的。</p>
+<h3 id="c概率守恒">c.概率守恒</h3>
+<p>i.</p>
+<p>$$
+\frac{\dd}{\dd t}\bk{\psi(t)}{\psi(t)}=0
+$$</p>
+<p>以及归一化</p>
+<p>ii.概率的局域守恒，概率密度和概率流</p>
+<p>$$
+\rho(\bl r, t) = |\psi(\bl r, t)|^2
+$$</p>
+<p>表示概率密度。设概率流为 $\bl J(\bl r,t)$，那么：</p>
+<p>$$
+\frac{\par}{\par t}\rho(\bl r)+\div \bl J(\bl r,t) = 0
+$$</p>
+<p>易证明：</p>
+<p>$$
+\bl{J}(\bl r,t) = \frac{\hbar}{2mi}[\psi^* \nabla \psi-\psi \nabla \psi^*]=\frac{1}{m} \mathrm{Re} [\psi^* (\frac{\hbar}{i}) \nabla\psi]
+$$</p>
+<h3 id="d量子力学与经典的联系">d.量子力学与经典的联系</h3>
+<p>平均值的演变：</p>
+<p>$$
+\avg{A}(t)=\bok{\psi(t)}{A}{\psi(t)}
+$$</p>
+<p>演变公式：</p>
+<p>对 $\bok{\psi(t)}{A}{\psi(t)}$ 求导：</p>
+<p>$$
+\begin{aligned}
+\frac{\mathrm{d}}{\mathrm{d} t}\langle\psi(t)|A(t)| \psi(t)\rangle=&amp;\left[\frac{\mathrm{d}}{\mathrm{d} t}\langle\psi(t)|\right] A(t)|\psi(t)\rangle+\langle\psi(t)| A(t)\left[\frac{\mathrm{d}}{\mathrm{d} t}|\psi(t)\rangle\right] \nl
+&amp;+\left\langle\psi(t)\left|\frac{\partial A}{\partial t}\right| \psi(t)\right\rangle \nl
+=&amp; \frac{1}{\mathrm{i} \hbar}\langle\psi(t)|[A(t) H(t)-H(t) A(t)]| \psi(t)\rangle \nl
+&amp;+\left\langle\psi(t)\left|\frac{\partial A}{\partial t}\right| \psi(t)\right\rangle \nl
+\Ra&amp; \frac{\mathrm{d}}{\mathrm{d} t}\langle A\rangle=\frac{1}{\mathrm{i} \hbar}\langle[A, H(t)]\rangle+\left\langle\frac{\partial A}{\partial t}\right\rangle
+\end{aligned}
+$$</p>
+<p>应用至 $R, P$ 上（Ehrenfest 定理）：</p>
+<p>$$
+\begin{aligned}
+\frac{\mathrm{d}}{\mathrm{d} t}\langle\boldsymbol{R}\rangle &amp;=\frac{1}{m}\langle\boldsymbol{P}\rangle \nl
+\frac{\mathrm{d}}{\mathrm{d} t}\langle\boldsymbol{P}\rangle &amp;=-\langle\nabla V(\boldsymbol{R})\rangle
+\end{aligned}
+$$</p>
+<h2 id="2保守体系">2.保守体系</h2>
+<h3 id="aschrödinger-方程的解">a.Schrödinger 方程的解</h3>
+<h3 id="b定态">b.定态</h3>
+<p>不含时 $t$ 的体系称为保守体系，它的解称为定态解：</p>
+<p>$$
+|\psi(t)\rangle=\sum_{n} \sum_{\tau} c_{n, \tau}\left(t_{0}\right) \mathrm{e}^{-\mathrm{i} E_{n}\left(t-t_{0}\right) / \hbar}\left|\varphi_{n, \tau}\right\rangle
+$$</p>
+<h3 id="c运动常量">c.运动常量</h3>
+<p>运动常量是一个可观测量 $A$，它不显著依赖于时间，并且与 $H$ 对易：</p>
+<p>$$
+\begin{array}{l}
+\frac{\partial A}{\partial t}=0 \nl
+{[A, H]=0}
+\end{array}
+$$</p>
+<p>运动常量的性质：</p>
+<p>i. $\avg A$ 不随时间而变</p>
+<p>ii. 能找到一个共同的本征值集合：</p>
+<p>$$
+\begin{aligned}
+&amp;H\left|\varphi_{n, p, \tau}\right\rangle=E_{n}\left|\varphi_{n, p, \tau}\right\rangle \nl
+&amp;A\left|\varphi_{n, p, \tau}\right\rangle=a_{p}\left|\varphi_{n, p, \tau}\right\rangle
+\end{aligned}
+$$</p>
+<p>当 $A$ 为运动常量时，物理体系便有一些定态，在任何时刻 $t$，这些态都保持为 $A$ 的属于同一本征值 $a_p$ 的本征态。这些本征值被称为<strong>好量子数</strong>。</p>
+<p>iii. 得到本征值 $a_p$ 的概率是不随时间而变的</p>
+<h3 id="d体系的波尔频率选择定则">d.体系的波尔频率；选择定则</h3>
+<p>待完成</p>
+<h2 id="comment">Comment</h2>
+<p>这一节主要讲述了：</p>
+<p>1、Schrödinger 方程的演变确定性、可叠加性的性质，以及其在定态情况下的解。</p>
+<p>2、如何使用 Schrödinger 方程推出平均数的公式及经典力学的联系公式。</p>
+<p>3、如何使用 Schrödinger 方程推出概率流公式。</p>
+<p>4、运动常量的性质。</p>
+<p>5、波尔频率。</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/">量子力学</a>
+        
+            <a href="/tags/quantum-mechanics/">quantum mechanics</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css"integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js"integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8"crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js"integrity="sha384-vZTG03m&#43;2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl"crossorigin="anonymous"
+                defer="true"
+                >
+            </script>
+<script>
+MathJax = {
+    tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+    },
+    options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+};
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async
+src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">相关文章</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="">
+    <a href="/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-3-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%81%87%E5%AE%9A-c-part/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">[量子力学] 3 量子力学的假定 C part</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-3-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%81%87%E5%AE%9A-b-part/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">[量子力学] 3 量子力学的假定 B part</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-e-part/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">[量子力学] 2 量子力学的数学工具 E part</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-d-part/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">[量子力学] 2 量子力学的数学工具 D part</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-c-part/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">[量子力学] 2 量子力学的数学工具 C part</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy;
+        
+        2021 MizarZ&#39;s Blog
+    </section>
+
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener"
+                data-version="3.4.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+
+        
+
+    </section>
+
+</footer>
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+        <aside class="sidebar right-sidebar sticky">
+            <section class="widget archives">
+                <div class="widget-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                </div>
+                <h2 class="widget-title section-title">目录</h2>
+                
+                <div class="widget--toc">
+                    <nav id="TableOfContents">
+  <ol>
+    <li><a href="#1schrödinger-方程的普遍性质">1.Schrödinger 方程的普遍性质</a>
+      <ol>
+        <li><a href="#a-确定性">a. 确定性</a></li>
+        <li><a href="#b叠加原理">b.叠加原理</a></li>
+        <li><a href="#c概率守恒">c.概率守恒</a></li>
+        <li><a href="#d量子力学与经典的联系">d.量子力学与经典的联系</a></li>
+      </ol>
+    </li>
+    <li><a href="#2保守体系">2.保守体系</a>
+      <ol>
+        <li><a href="#aschrödinger-方程的解">a.Schrödinger 方程的解</a></li>
+        <li><a href="#b定态">b.定态</a></li>
+        <li><a href="#c运动常量">c.运动常量</a></li>
+        <li><a href="#d体系的波尔频率选择定则">d.体系的波尔频率；选择定则</a></li>
+      </ol>
+    </li>
+    <li><a href="#comment">Comment</a></li>
+  </ol>
+</nav>
+                </div>
+            </section>
+        </aside>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

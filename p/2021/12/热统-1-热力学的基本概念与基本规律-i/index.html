@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='林宗涵《热统》的笔记。包含1.1-1.3'><title>[热统] 1 热力学的基本概念与基本规律 I</title>
+
+<link rel='canonical' href='https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-1-%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%BE%8B-i/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='[热统] 1 热力学的基本概念与基本规律 I'>
+<meta property='og:description' content='林宗涵《热统》的笔记。包含1.1-1.3'>
+<meta property='og:url' content='https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-1-%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%BE%8B-i/'>
+<meta property='og:site_name' content='MizarZ&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='热力学与统计力学' /><meta property='article:tag' content='Thermodynamics and Statistical Physics' /><meta property='article:published_time' content='2021-12-08T10:28:42&#43;08:00'/><meta property='article:modified_time' content='2021-12-08T10:28:42&#43;08:00'/>
+<meta name="twitter:title" content="[热统] 1 热力学的基本概念与基本规律 I">
+<meta name="twitter:description" content="林宗涵《热统》的笔记。包含1.1-1.3">
+    <link rel="shortcut icon" href="img/favicon-32x32.png" />
+
+    </head>
+    <body class="
+    article-page has-toc
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        extended
+    
+">
+    
+        <div id="article-toolbar">
+            <a href="/" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>返回</span>
+            </a>
+        </div>
+    
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E7%89%A9%E7%90%86/" style="background-color: #773feb; color: ;">
+                物理
+            </a>
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/p/2021/12/%E7%83%AD%E7%BB%9F-1-%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%BE%8B-i/">[热统] 1 热力学的基本概念与基本规律 I</a>
+    </h2>
+
+    
+    <h3 class="article-subtitle">
+        林宗涵《热统》的笔记。包含1.1-1.3
+    </h3>
+    
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2021-12-08</time>
+            </div>
+        
+
+        
+    </footer>
+    
+</div>
+</header>
+
+    <section class="article-content">
+    <p>$$
+\def\un{\mathrm}
+\def\dd{\mathrm d}
+\def\par{\partial}
+\def\bl{\boldsymbol}
+\def\mbf{\mathbf}
+\def\nl{\newline}
+\def\Ra{\Rightarrow}
+\def\La{\Leftarrow}
+\def\ra{\rightarrow}
+\def\la{\leftarrow}
+$$</p>
+<h1 id="1-热力学的基本概念与基本规律">1 热力学的基本概念与基本规律</h1>
+<h2 id="11-热力学的研究目的">1.1 热力学的研究目的</h2>
+<h3 id="传统热力学">（传统）热力学</h3>
+<p>形成于 19 世纪中期（热力学第一定律与热力学第二定律的建立）至 20 世纪初（热力学第三定律）。具体地说，传统热力学研究的 问题可以归纳为三个方面：</p>
+<p>（1）热现象过程中<strong>能量转化的数量关系</strong>。如计算功、热量、热功转化的效率等。这些也是热力学形成初期最为关注的问题。</p>
+<p>（2）判断<strong>不可逆过程进行的方向</strong>。例如，在一定条件下，相变或化学反应向什么方向进行？或者换一种方式问：要使过程朝着期望的方向进行，应该满足什么条件？</p>
+<p>（3）<strong>物质的平衡性质</strong>。这部分内容很丰富。热力学的基础是它的<strong>三条基本定律</strong>，它们是大量经验的总结，因此，热力学理论是非常普遍和可靠的，适用于一切宏观物体（即由大量微观粒子组成的物体），并被推广应用于大到宇宙小到原子核（但这两种推广都要小心）。</p>
+<p>通常用于处理理想化的准静态过程，处理它的时候基本不考虑时间变量，因此使用 thermodynamics 一词不太对（动力学应该与时间相关）。</p>
+<p>热力学是宏观理论，因此没有经典和量子之分。</p>
+<h3 id="非平衡态热力学线性理论">非平衡态热力学（线性理论）</h3>
+<p>所谓“线性理论”是指引起偏离平衡态的各种热力学力（如温度梯度、电势梯度、密度梯度等）比较小，由这些“力”所产生的各种热力学流（如热流、电流、物质流 等）与“力”之间遵从线性关系。这时的非平衡态离平衡态不远，称为近平衡的非平衡态。线性非平衡态热力学已经发展成为成熟的理论，它在物理、化学、流体力学等诸多领域中得到了广泛的应用。</p>
+<h3 id="非平衡态热力学非线性理论">非平衡态热力学（非线性理论）</h3>
+<p>当引起偏离平衡态的各种热力学力足够强时，系统被驱动到 远离平衡的非平衡态，这时热力学“流”与“力”之间不再遵从线性关系，而变为复杂的非线性关系。有许多的理论尝试去解决这个问题。</p>
+<h2 id="12-平衡态及其描写">1.2 平衡态及其描写</h2>
+<h3 id="121-热力学系统">1.2.1 热力学系统</h3>
+<p>热力学系统是指热力学所研究的对象，不止于气体，还包括液体、液体表面膜、弹性丝、磁体、超导体、电池等等。但有一点限制是热力学系统必须是<strong>宏观物体</strong>，亦即由大量微观粒子所组成的。</p>
+<p>系统有了，也会有外界的定义：是指可以<strong>对系统发生影响</strong>的那部分外部环境。</p>
+<p>一些术语的概述：</p>
+<p>1、绝热壁与导热壁：绝热壁<strong>不允许它两边的物体发生任何形式的<em>热交换</em></strong>，反之称为导热壁。</p>
+<p>2、刚性壁：刚性壁<strong>不允许物体发生<em>位移和形变</em></strong>。因此，外界对物体不可能作机械功。</p>
+<p>3、热接触：由刚性、导热壁分开的两个物体，彼此<strong>只允许发生<em>传热</em>，而不允许发生<em>力的或电磁的相互作用以及物质交换</em></strong>，这时称为两边的物体彼此处于热接触。</p>
+<p>4、孤立系：如果系统由绝热且刚性的壁与环境分隔开，那么，系统将<strong>不会受到外界的任何影响</strong>，即不可能发生任何能量与物质交换，这样的系统称为孤立系。孤立系在热力学与统计物理学的基本 原理的表述中具有特殊的地位。</p>
+<p>5、闭系与开系：系统与外界<strong>不能发生<em>物质交换</em>的称为闭系</strong>；反之称为开系。闭系允许系统与外界有能量交换（通过做功与传热）。开系是粒子数可变的系统。</p>
+<h3 id="122-平衡态">1.2.2 平衡态</h3>
+<p>定义：在没有外界影响的条件下，物体各部分的性质长时间内不发生任何变化的状态。</p>
+<p>平衡态只是宏观性质不随时间变化，从微观上看分子仍在不停地运动着，必然存在涨落，故称为<strong>动态平衡</strong>。</p>
+<p>经验表明，在一定的条件下，初始不处于平衡态的系统，经过一段时间，必将趋近于平衡态，这个时间称为<strong>弛豫时间</strong>。一定的条件指的是<strong>孤立系或不变的外界条件</strong>。</p>
+<p>大热源、热库（heat reservoir）：它足够地大，与物体发生有限数量的热量交换对热库的影响可以忽略。</p>
+<h3 id="123-平衡态的描写">1.2.3 平衡态的描写</h3>
+<p>热力学把物体看成连续介质，不管它的微观结构，因此对于平衡态，只需要用少数几个宏观变量就可以完全描写，这些宏观变量称为<strong>状态变量</strong>，这种描写是宏观描写。</p>
+<p>如：气体的压强 $p$ 和体积 $V$，液体表面的张力 $\sigma$ 与表面积 $A$，弹性丝的张力 $\scr F$ 和长度 $L$。电场的电场强度、极化强度，磁场的磁场强度和磁化强度，多分子组成系统中的摩尔数等。这些状态变量都是可以直接测量的。</p>
+<p>均匀系与非均匀系：如果一个物体的各部分的性质完全相同，称为<strong>均匀系</strong>，也称为<strong>单相系</strong>。如果各部分的性质不同，则称为<strong>非均匀系</strong>，或<strong>复相系</strong>，其中每一个均匀部分称为一个相。</p>
+<p>对于均匀系，有两种变量：</p>
+<p>1、广延量，它与系统的总质量成正比，如摩尔数、体积、内能与熵等</p>
+<p>2、强度量，代表物质的内在性质，与总质量无关，如压强、温度、密度、内能密度、熵密度等。</p>
+<p>广延量具有可加性，强度量不可加，并具有局域的性质。</p>
+<p>如果系统处于非平衡态，就可以将系统分成多个小块（每一个小块宏观上足够小，以反映宏观性质随空间的变化；微观上要足够大，这样局部宏观量作为微观量的统计平均值才有意义），然后对他们进行研究。</p>
+<h2 id="13-温度-物态方程">1.3 温度 物态方程</h2>
+<h3 id="131-热平衡定律-温度">1.3.1 热平衡定律 温度</h3>
+<p>温度是表征物体冷热程度的物理量，温度的概念以及用温度计测量温度的原理都以热平衡定律为基础：</p>
+<p>热平衡定律（热力学第零定律）：若物体 $A$ 分别与物体 $B$ 和 $C$ 处于热平衡，那么，如果让 $B$ 与 $C$ 热接触，它们一定也处于热平衡。</p>
+<p>热平衡定律是经验的总结，它表明，互为热平衡的物体必定存在一个属于物体本身内在性质的物理量，这个量定义为温度。温度的<strong>最基本性质</strong>是：一切互为热平衡的物体的温度相等。</p>
+<p>温度使用的单位是 $\rm K$。</p>
+<h3 id="132-物态方程">1.3.2 物态方程</h3>
+<h4 id="物态方程">物态方程</h4>
+<p>温度与独立状态变量之间的函数关系称为物态方程。</p>
+<p>例如，气体状态变量 $p,V$，物态方程为：</p>
+<p>$$
+T=f(p,V)
+$$</p>
+<p>由于温度是可以直接测量的物理量，它也可以作为状态变量：</p>
+<p>$$
+p=p(T,V)
+$$</p>
+<p>or</p>
+<p>$$
+V=V(T,p)
+$$</p>
+<p>or</p>
+<p>$$
+g(p,V,T)=0
+$$</p>
+<p>普遍的说，令 $(x_1,x_2,\cdots,x_n)$ 描写系统平衡态的独立状态变量，那么物态方程可写为：</p>
+<p>$$
+T=f(x_1,x_2,\cdots,x_n) \quad \text{or} \quad g(x_1,x_2,\cdots,x_n,T)=0
+$$</p>
+<h4 id="物态方程相关的物理量">物态方程相关的物理量</h4>
+<p>1、膨胀系数 $\alpha$</p>
+<p>$$
+\alpha=\frac{1}{V}(\frac{\par V}{\par T})_p
+$$</p>
+<p>代表在压强不变的条件下体积随温度的<strong>相对变化率</strong>。右下角的 $p$ 表示在求微商时把 $V$ 作为 $T$ 和 $p$ 的函数而保持 $p$ 不变。</p>
+<p>由于热力学系统有多个独立状态变量，因此，在求微商时必须把保持什么变量不变写清楚。特别
+是，在计算中常常需要作变量变换，只有写清楚才不会出错。</p>
+<p>2、压强系数 $\beta$</p>
+<p>$$
+\beta=\frac{1}{p}(\frac{\par p}{\par T})_V
+$$</p>
+<p>代表在体积不变的条件下压强随温度的相对变化率。</p>
+<p>3、等温压缩系数（压缩系数） $\kappa_T$</p>
+<p>$$
+\kappa_T=-\frac{1}{V}(\frac{\par V}{\par p})_T
+$$</p>
+<p>代表在温度不变的条件下体积随压强的相对变化率。</p>
+<p>这三个系数之间的关系为：</p>
+<p>$$
+\alpha = \kappa_T\beta p
+$$</p>
+<p>由以下的微商导出：</p>
+<p>$$
+(\frac{\partial V}{\partial T})_p (\frac{\partial T}{\partial p})_V (\frac{\partial p}{\partial V})_T = -1
+$$</p>
+<p>如果知道了物态方程，那么这三个系数就能通过定义式求出。若知道其中两个系数，第三个也能通过关系式导出。</p>
+<h4 id="例子">例子</h4>
+<p>1、理想气体</p>
+<p>理想气体是实际气体在压强趋于零时的极限，它可以作为实际气体在温度不太低，且密度足够稀薄时的近似。</p>
+<p>物态方程为：</p>
+<p>$$
+pV=NRT
+$$</p>
+<p>$N$ 为气体的摩尔数， $T$ 为温度， $R=8.3145 \rm J/(mol\cdot K)$ 为摩尔气体常数。</p>
+<p>2、范德瓦耳斯气体</p>
+<p>范德瓦耳斯（van der Waals）气体是对实际气体的近似，它考虑了分子之间的相互作用所引起的修正，比理想气体进了一步。</p>
+<p>物态方程：</p>
+<p>$$
+(p+\frac{N^2 a}{V^2})(V-Nb)=NRT
+$$</p>
+<p>其中 $\frac{N^2 a}{V^2}$ 代表分子之间的吸引力所引起的修正，而 $Nb$ 是分子之间的排斥力所引起的修正。</p>
+<p>3、昂尼斯方程</p>
+<p>昂尼斯（Onnes）根据实际气体在压强趋于零的极限下趋于理想气体这一性质，提出以下列按压强的级数展开形式作为实际气体的物态方程：</p>
+<p>$$
+pV=NRT(1+A_2p+A_3p^2+\cdots)
+$$</p>
+<p>$A_2,A_3,\cdots$ 都是温度的函数，分别称为第二、第三、……位力系数。</p>
+<p>另一种按体积的负幂次展开的形式：</p>
+<p>$$
+pV=NRT(1+\frac{B_2}{V}+\frac{B_3}{V^2}+\cdots)
+$$</p>
+<p>$B_2,B_3,\cdots$ 都是温度的函数，分别称为第二、第三、……位力系数。</p>
+<p>4、流体与各向同性固体</p>
+<p>由于液体和各向同性固体的 $\alpha$ 和 $\kappa_T$ 都比较小，可以把它们当成常数。</p>
+<p>物态方程：</p>
+<p>$$
+V=V_0(1+\alpha(T-T_0)-\kappa_T(p-p_0))
+$$</p>
+<p>5、顺磁固体</p>
+<p>独立状态变量可选 $(T,V,\scr H)$，体积变化很小，可忽略不计，因此仅剩 $(T,\scr H)$。</p>
+<p>遵从居里定律：</p>
+<p>$$
+\mathscr{M} = \frac{C}{T} \mathscr{H}
+$$</p>
+<h3 id="133-几个常用的物理量的单位">1.3.3 几个常用的物理量的单位</h3>
+<p>压强 $\rm 1\ Pa = 1\ N/m^2$</p>
+<p>CGS 单位制。力的单位是达因（$\rm dyne$），压强的单位是 $\rm dyne/cm^2$，称为微巴（$\rm \mu bar$）。 $\rm 1\ dyne/cm^2 = 1\ \mu bar, 1\ bar = 10^6\ dyne/cm^2 = 10^5\ Pa$</p>
+<p>标准大气压 $\rm 1\ atm = 101325\ Pa = 1.01325\ bar$</p>
+<h2 id="comment">Comment</h2>
+<p>第一节对热力学作了综述，解释了何为热力学以及热力学的用处。</p>
+<p>第二节对热力学中重要的状态——平衡态作了介绍，并对一些概念作了澄清（绝热壁 etc）。引入了两种独立变量的类型：广延量与强度量。</p>
+<p>第三节引入了温度的性质及热力学第零定律，并解释了什么是物态方程（温度与独立状态变量之间的函数关系）。最后列出了一些物态方程的例子（理想气体方程 etc）。</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E5%8A%9B%E5%AD%A6/">热力学与统计力学</a>
+        
+            <a href="/tags/thermodynamics-and-statistical-physics/">Thermodynamics and Statistical Physics</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css"integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js"integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8"crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js"integrity="sha384-vZTG03m&#43;2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl"crossorigin="anonymous"
+                defer="true"
+                >
+            </script>
+<script>
+MathJax = {
+    tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+    },
+    options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+};
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async
+src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">相关文章</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="">
+    <a href="/p/2021/12/%E7%83%AD%E7%BB%9F-1-%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%BE%8B-ii/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">[热统] 1 热力学的基本概念与基本规律 II</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-3-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%81%87%E5%AE%9A-d-part/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">[量子力学] 3 量子力学的假定 D part</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-3-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%81%87%E5%AE%9A-c-part/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">[量子力学] 3 量子力学的假定 C part</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-3-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%81%87%E5%AE%9A-b-part/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">[量子力学] 3 量子力学的假定 B part</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-e-part/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">[量子力学] 2 量子力学的数学工具 E part</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy;
+        
+        2021 MizarZ&#39;s Blog
+    </section>
+
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener"
+                data-version="3.4.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+
+        
+
+    </section>
+
+</footer>
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+        <aside class="sidebar right-sidebar sticky">
+            <section class="widget archives">
+                <div class="widget-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                </div>
+                <h2 class="widget-title section-title">目录</h2>
+                
+                <div class="widget--toc">
+                    <nav id="TableOfContents">
+  <ol>
+    <li><a href="#11-热力学的研究目的">1.1 热力学的研究目的</a>
+      <ol>
+        <li><a href="#传统热力学">（传统）热力学</a></li>
+        <li><a href="#非平衡态热力学线性理论">非平衡态热力学（线性理论）</a></li>
+        <li><a href="#非平衡态热力学非线性理论">非平衡态热力学（非线性理论）</a></li>
+      </ol>
+    </li>
+    <li><a href="#12-平衡态及其描写">1.2 平衡态及其描写</a>
+      <ol>
+        <li><a href="#121-热力学系统">1.2.1 热力学系统</a></li>
+        <li><a href="#122-平衡态">1.2.2 平衡态</a></li>
+        <li><a href="#123-平衡态的描写">1.2.3 平衡态的描写</a></li>
+      </ol>
+    </li>
+    <li><a href="#13-温度-物态方程">1.3 温度 物态方程</a>
+      <ol>
+        <li><a href="#131-热平衡定律-温度">1.3.1 热平衡定律 温度</a></li>
+        <li><a href="#132-物态方程">1.3.2 物态方程</a>
+          <ol>
+            <li><a href="#物态方程">物态方程</a></li>
+            <li><a href="#物态方程相关的物理量">物态方程相关的物理量</a></li>
+            <li><a href="#例子">例子</a></li>
+          </ol>
+        </li>
+        <li><a href="#133-几个常用的物理量的单位">1.3.3 几个常用的物理量的单位</a></li>
+      </ol>
+    </li>
+    <li><a href="#comment">Comment</a></li>
+  </ol>
+</nav>
+                </div>
+            </section>
+        </aside>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

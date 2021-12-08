@@ -6,7 +6,34 @@
     <description>Recent content in quantum mechanics on MizarZ&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 28 Nov 2021 00:18:05 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/tags/quantum-mechanics/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 07 Dec 2021 20:32:22 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/tags/quantum-mechanics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[量子力学] 3 量子力学的假定 D part</title>
+      <link>https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-3-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%81%87%E5%AE%9A-d-part/</link>
+      <pubDate>Tue, 07 Dec 2021 20:32:22 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-3-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%81%87%E5%AE%9A-d-part/</guid>
+      <description>$$ \def\un{\mathrm} \def\dd{\mathrm d} \def\par{\partial} \def\bl{\boldsymbol} \def\mbf{\mathbf} \newcommand{\avg}[1]{\left \langle #1 \right \rangle} \newcommand{\bk}[2]{\left \langle #1 | #2 \right \rangle} \newcommand{\bok}[3]{\bra{#1}#2\ket{#3}} \def\nl{\newline} \def\Ra{\Rightarrow} \def\La{\Leftarrow} \def\ra{\rightarrow} \def\la{\leftarrow} $$ D 薛定谔方程的物理意义 1.Schrödinger 方程的普遍性质 a. 确定性 $$ i\hbar\frac{\dd}{\dd t}\ket{\psi(t)}=H(t)\ket{\psi(t)} $$ 是关于 $t$ 的</description>
+    </item>
+    
+    <item>
+      <title>[量子力学] 3 量子力学的假定 C part</title>
+      <link>https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-3-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%81%87%E5%AE%9A-c-part/</link>
+      <pubDate>Tue, 07 Dec 2021 16:53:22 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-3-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%81%87%E5%AE%9A-c-part/</guid>
+      <description>$$ \def\un{\mathrm} \def\dd{\mathrm d} \def\par{\partial} \def\bl{\boldsymbol} \def\mbf{\mathbf} \newcommand{\avg}[1]{\left \langle #1 \right \rangle} \newcommand{\bk}[2]{\left \langle #1 | #2 \right \rangle} \newcommand{\bok}[3]{\bra{#1}#2\ket{#3}} \def\nl{\newline} \def\Ra{\Rightarrow} \def\La{\Leftarrow} \def\ra{\rightarrow} \def\la{\leftarrow} $$ C 关于可观测量及其测量的假定的物理解释 1.量子化规则与波函数的概率解释是一致的 $$ \mathrm{d} \mathscr{P}(p)=|\langle p \mid</description>
+    </item>
+    
+    <item>
+      <title>[量子力学] 3 量子力学的假定 B part</title>
+      <link>https://mizarzh.github.io/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-3-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%81%87%E5%AE%9A-b-part/</link>
+      <pubDate>Tue, 30 Nov 2021 19:50:27 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-3-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%81%87%E5%AE%9A-b-part/</guid>
+      <description>$$ \def\un{\mathrm} \def\dd{\mathrm d} \def\par{\partial} \def\bl{\boldsymbol} \def\mbf{\mathbf} \newcommand{\bk}[2]{\left \langle #1 | #2 \right \rangle} \newcommand{\bok}[3]{\bra{#1}#2\ket{#3}} \def\nl{\newline} \def\Ra{\Rightarrow} \def\La{\Leftarrow} \def\ra{\rightarrow} \def\la{\leftarrow} $$ 假定的陈述 A 引言 讲了一下上一章所涉及到的数学是如何与现实的量子力学结合起来的。 B 假定的陈述 1. 体系的</description>
+    </item>
+    
     <item>
       <title>[量子力学] 2 量子力学的数学工具 E part</title>
       <link>https://mizarzh.github.io/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-e-part/</link>
