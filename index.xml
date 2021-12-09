@@ -6,7 +6,412 @@
         <description>Recent content on MizarZ&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Wed, 08 Dec 2021 12:27:39 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 09 Dec 2021 17:14:21 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>[量子力学] 3 量子力学的假定 E part</title>
+        <link>https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-3-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%81%87%E5%AE%9A-e-part/</link>
+        <pubDate>Thu, 09 Dec 2021 17:14:21 +0800</pubDate>
+        
+        <guid>https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-3-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%81%87%E5%AE%9A-e-part/</guid>
+        <description>&lt;p&gt;$$
+\def\un{\mathrm}
+\def\dd{\mathrm d}
+\def\par{\partial}
+\def\bl{\boldsymbol}
+\def\mbf{\mathbf}
+\def\mscr{\mathscr}
+\newcommand{\avg}[1]{\left \langle #1 \right \rangle}
+\newcommand{\bk}[2]{\left \langle #1  | #2  \right \rangle}
+\newcommand{\bok}[3]{\bra{#1}#2\ket{#3}}
+\def\nl{\newline}
+\def\Ra{\Rightarrow}
+\def\La{\Leftarrow}
+\def\ra{\rightarrow}
+\def\la{\leftarrow}
+$$&lt;/p&gt;
+&lt;h1 id=&#34;e-薛定谔方程的物理意义&#34;&gt;E 薛定谔方程的物理意义&lt;/h1&gt;
+&lt;h2 id=&#34;1叠加符与干涉效应&#34;&gt;1.叠加符与干涉效应&lt;/h2&gt;
+&lt;h3 id=&#34;推导&#34;&gt;推导&lt;/h3&gt;
+&lt;p&gt;假设 $\ket{\psi_1},\ket{\psi_2}$ 是两个正交归一的态。&lt;/p&gt;
+&lt;p&gt;如果一个体系处于 $\ket{\psi_1}$ 态，假设测量某个可观测量 $A$ 所得的本征矢为 $\ket{u_n}$ 那么测量这个体系得到本征值的概率：&lt;/p&gt;
+&lt;p&gt;$$
+\mscr{P}_1(a_n)=|\bk{u_n}{\psi_1}|^2
+$$&lt;/p&gt;
+&lt;p&gt;同理，对于 $\ket{\psi_2}$ 态：&lt;/p&gt;
+&lt;p&gt;$$
+\mscr{P}_2(a_n)=|\bk{u_n}{\psi_2}|^2
+$$&lt;/p&gt;
+&lt;p&gt;那么，对于一个归一化的态 $\ket{\psi}=\lambda_1 \ket{\psi_1}+\lambda_2 \ket{\psi_2}$，测量 $A$ 得到的概率应该如何计算？&lt;/p&gt;
+&lt;p&gt;按照常理来说，应该是：&lt;/p&gt;
+&lt;p&gt;$$
+\mscr{P}(a_n)\ ?= |\lambda_1|^2 \mscr{P}_1(a_n)+|\lambda_2|^2 \mscr{P}_2(a_n)
+$$&lt;/p&gt;
+&lt;p&gt;但是并不是这么计算的，正确的计算方法如下：&lt;/p&gt;
+&lt;p&gt;由之前的等式可知，$\mscr{P}(a_n)$ 是概率幅 $\bk{u_n}{\psi}$ 的平方，那么这个体系的概率幅是：&lt;/p&gt;
+&lt;p&gt;$$
+\bk{u_n}{\psi} = \lambda_1 \bk{u_n}{\psi_1}+\lambda_2 \bk{u_n}{\psi_2}
+$$&lt;/p&gt;
+&lt;p&gt;那么：&lt;/p&gt;
+&lt;p&gt;$$
+\mscr{P}(a_n)= |\bk{u_n}{\psi}|^2=|\lambda_1|^2 \mscr{P}_1(a_n)+|\lambda_2|^2 \mscr{P}_2(a_n)+2\un{Re}[\lambda_1 \lambda_2^* \bk{u_n}{\psi_1}\bk{u_n}{\psi_2}^*]
+$$&lt;/p&gt;
+&lt;p&gt;第二项是干涉效应。&lt;/p&gt;
+&lt;h3 id=&#34;两个例子&#34;&gt;两个例子&lt;/h3&gt;
+&lt;p&gt;1、偏振光&lt;/p&gt;
+&lt;p&gt;光子的偏振态为两个态线性叠加：&lt;/p&gt;
+&lt;p&gt;$$
+\mbf e=\frac{1}{\sqrt{2}}(\bf e_x+\bf e_y)
+$$&lt;/p&gt;
+&lt;p&gt;一个检偏器，方向与 $\bf e$ 垂直。&lt;/p&gt;
+&lt;p&gt;如果认为光子会通过一半就是错误的，应该是一个都没有通过。如果是 $N/2$ 个光子处于 $\bf e_x$ 态，$N/2$ 个光子处于 $\bf e_y$ 态，就能有半数的光子通过这个检偏器。&lt;/p&gt;
+&lt;p&gt;2、对中间态求和&lt;/p&gt;
+&lt;p&gt;假设有三个观察算符 $A,B,C$，对某个体系先后进行测量。$A\ra B$ 的过程中，对应的 $B$ 的本征矢会有多个值，形成了三个中间态，求概率。&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	
+		class=&#34;gallery-image&#34; 
+		style=&#34;
+			flex-grow: 200; 
+			flex-basis: 480px&#34;
+	&gt;
+	&lt;a href=&#34;https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-3-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%81%87%E5%AE%9A-e-part/image-20211209173725674.png&#34; data-size=&#34;614x307&#34;&gt;
+		&lt;img src=&#34;https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-3-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%81%87%E5%AE%9A-e-part/image-20211209173725674.png&#34;
+			width=&#34;614&#34;
+			height=&#34;307&#34;
+			srcset=&#34;https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-3-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%81%87%E5%AE%9A-e-part/image-20211209173725674_hu73017115a9199dd16d19aafd7a9a2b60_32222_480x0_resize_box_3.png 480w, https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-3-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%81%87%E5%AE%9A-e-part/image-20211209173725674_hu73017115a9199dd16d19aafd7a9a2b60_32222_1024x0_resize_box_3.png 1024w&#34;
+			loading=&#34;lazy&#34;
+			alt=&#34;image-20211209173725674&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;image-20211209173725674&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;我们可能会觉得，是概率的相加：&lt;/p&gt;
+&lt;p&gt;$$
+\mscr{P}_a(c)\ ?= \sum_b \mscr{P}_a(b,c)
+$$&lt;/p&gt;
+&lt;p&gt;但是是错误的，我们要从概率幅的方向考虑。&lt;/p&gt;
+&lt;p&gt;$a\ra c$ 的概率幅可以写成：&lt;/p&gt;
+&lt;p&gt;$$
+\bk{v_c}{u_a} = \sum_b \bk{v_c}{w_b}\bk{w_b}{u_a}
+$$&lt;/p&gt;
+&lt;p&gt;因此，概率为：&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+\mathscr{P}&lt;em&gt;{a}(c)=&amp;amp;\left|\sum&lt;/em&gt;{b}\left\langle v_{c} \mid w_{b}\right\rangle\left\langle w_{b} \mid u_{a}\right\rangle\right|^{2} \nl
+=&amp;amp; \sum_{b}\left|\left\langle v_{c} \mid w_{b}\right\rangle\right|^{2}\left|\left\langle w_{b} \mid u_{a}\right\rangle\right|^{2} \nl
+&amp;amp;+\sum_{b} \sum_{b^{\prime} \neq b}\left\langle v_{c} \mid w_{b}\right\rangle\left\langle w_{b} \mid u_{a}\right\rangle\left\langle v_{c} \mid w_{b^{\prime}}\right\rangle^{*}\left\langle w_{b^{\prime}} \mid u_{a}\right\rangle^{*} \nl
+=&amp;amp;\sum_{b} \mathscr{P}_{a}(b, c)+\sum_{b} \sum_{b^{\prime} \neq b}\left\langle v_{c} \mid w_{b}\right\rangle\left\langle w_{b} \mid u_{a}\right\rangle\left\langle v_{c} \mid w_{b^{\prime}}\right\rangle^{*}\left\langle w_{b^{\prime}} \mid u_{a}\right\rangle^{*}
+\end{aligned}
+$$&lt;/p&gt;
+&lt;p&gt;注意的是，要计算各条路径之间所有的干涉效应。&lt;/p&gt;
+&lt;p&gt;总的来说，我们求概率是要概率幅求和，而不是概率求和。&lt;/p&gt;
+&lt;h2 id=&#34;2若干个态与同一测量结果相联系的情况&#34;&gt;2.若干个态与同一测量结果相联系的情况&lt;/h2&gt;
+&lt;p&gt;同一个结果可能对应着不同的态，此时要取概率的和。&lt;/p&gt;
+&lt;p&gt;例子：简并态&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+&amp;amp;\mathscr{P}\left(a_{n}\right)=\sum_{i=1}^{g_{n}}\left|\left\langle u_{n}^{i} \mid \psi\right\rangle\right|^{2} \nl
+&amp;amp;\left\langle u_{n}^{i} \mid \psi\right\rangle=\lambda_{1}\left\langle u_{n}^{i} \mid \psi_{1}\right\rangle+\lambda_{2}\left\langle u_{n}^{i} \mid \psi_{2}\right\rangle
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;comment&#34;&gt;Comment&lt;/h2&gt;
+&lt;p&gt;这里举了两种情况，详细的说明了量子力学中应该如何对概率进行处理。&lt;/p&gt;
+&lt;p&gt;书中给我们的一句话就是：&lt;/p&gt;
+&lt;p&gt;将对应于同一末态的诸&lt;strong&gt;概率幅&lt;/strong&gt;相加，然后将对应于&lt;strong&gt;正交末态&lt;/strong&gt;的诸&lt;strong&gt;概率&lt;/strong&gt;相加&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>[热统] 1 热力学的基本概念与基本规律 III</title>
+        <link>https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-1-%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%BE%8B-iii/</link>
+        <pubDate>Wed, 08 Dec 2021 16:46:15 +0800</pubDate>
+        
+        <guid>https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-1-%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%BE%8B-iii/</guid>
+        <description>&lt;p&gt;$$
+\def\un{\mathrm}
+\def\dd{\mathrm d}
+\def\par{\partial}
+\def\bl{\boldsymbol}
+\def\mbf{\mathbf}
+\def\nl{\newline}
+\def\Ra{\Rightarrow}
+\def\La{\Leftarrow}
+\def\ra{\rightarrow}
+\def\la{\leftarrow}
+\def\e{\epsilon}
+\def\ve{\varepsilon}
+\newcommand{\mscr}[1]{\mathscr{#1}}
+\def\dbar{\mathrm{đ}}
+$$&lt;/p&gt;
+&lt;h1 id=&#34;1-热力学的基本概念与基本规律&#34;&gt;1 热力学的基本概念与基本规律&lt;/h1&gt;
+&lt;h2 id=&#34;18-卡诺循环&#34;&gt;1.8 卡诺循环&lt;/h2&gt;
+&lt;p&gt;卡诺循环由四个过程构成：&lt;/p&gt;
+&lt;p&gt;I. 等温膨胀。维持高温 $T_1$ 不变，$V_1\ra V_2$
+II. 绝热膨胀。
+III. 等温压缩。维持低温 $T_2$ 不变。$V_3 \ra V_4$
+IV. 绝热压缩回态 I。&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	
+		class=&#34;gallery-image&#34; 
+		style=&#34;
+			flex-grow: 111; 
+			flex-basis: 266px&#34;
+	&gt;
+	&lt;a href=&#34;https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-1-%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%BE%8B-iii/image-20211208171306066.png&#34; data-size=&#34;359x323&#34;&gt;
+		&lt;img src=&#34;https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-1-%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%BE%8B-iii/image-20211208171306066.png&#34;
+			width=&#34;359&#34;
+			height=&#34;323&#34;
+			srcset=&#34;https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-1-%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%BE%8B-iii/image-20211208171306066_hu8f940531370c9ae44e226b92936ac180_21268_480x0_resize_box_3.png 480w, https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-1-%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%BE%8B-iii/image-20211208171306066_hu8f940531370c9ae44e226b92936ac180_21268_1024x0_resize_box_3.png 1024w&#34;
+			loading=&#34;lazy&#34;
+			alt=&#34;image-20211208171306066&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;image-20211208171306066&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;对此循环应用热力学第一定律：&lt;/p&gt;
+&lt;p&gt;$$
+\oint \dd =\oint \dbar Q+\oint \dbar W\Ra -\oint\dbar W=\oint \dbar Q
+$$&lt;/p&gt;
+&lt;p&gt;令：&lt;/p&gt;
+&lt;p&gt;$$
+W&#39;=-\oint\dbar W
+$$&lt;/p&gt;
+&lt;p&gt;即 $W&#39;$ 是气体对外做功的值。因此：&lt;/p&gt;
+&lt;p&gt;$$
+W&#39;=\oint \dbar Q=Q_1+Q_2
+$$&lt;/p&gt;
+&lt;p&gt;其中 $Q_1,Q_2$ 分别代表步骤 I 和步骤 III 从外界吸收的能量。&lt;/p&gt;
+&lt;p&gt;热机效率 $\eta$ 定义（对外做功与吸收外界热量的比值）：&lt;/p&gt;
+&lt;p&gt;$$
+\eta = \frac{W&#39;}{Q_1} = \frac{Q_1-|Q_2|}{Q_1} = 1-\frac{|Q_2|}{Q_1}
+$$&lt;/p&gt;
+&lt;p&gt;通过另外两个绝热过程的推导：&lt;/p&gt;
+&lt;p&gt;$$
+Q_1=NRT_1\ln\frac{V_2}{V_1}, Q_2=-NRT_2\ln\frac{V_3}{V_4}
+$$&lt;/p&gt;
+&lt;p&gt;我们可以得到 $\eta$ 的表达式（即使在 $\gamma=\gamma(T)$ 的条件下也成立）：&lt;/p&gt;
+&lt;p&gt;$$
+\eta = 1-\frac{T_2}{T_1}
+$$&lt;/p&gt;
+&lt;p&gt;热机的反向即为卡诺制冷机。令循环反向进行，则外界对气体做了功 $W$。通过这个循环依靠外界作功把热量从低温传到高温去，所以是一个致冷机。&lt;/p&gt;
+&lt;p&gt;制冷系数 $\ve$ 定义：&lt;/p&gt;
+&lt;p&gt;$$
+\ve = \frac{Q_2}{W} = \frac{T_2}{T_1-T_2}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;19-热力学第二定律&#34;&gt;1.9 热力学第二定律&lt;/h2&gt;
+&lt;h3 id=&#34;191-热力学第二定律解决的问题&#34;&gt;1.9.1 热力学第二定律解决的问题&lt;/h3&gt;
+&lt;p&gt;热力学第一定律给过程加了一条限制，即能量必须守恒。但有些热过程仍然不能发生，如低温物体不会自动向高温物体输送热量。这是一个方向性的问题，需要热力学第二定律来解答。&lt;/p&gt;
+&lt;h3 id=&#34;192-热力学第二定律的两种经典表述&#34;&gt;1.9.2 热力学第二定律的两种经典表述&lt;/h3&gt;
+&lt;p&gt;开尔文表述：不可能从单一热源吸热使之完全变为有用的功而不产生其他影响．&lt;/p&gt;
+&lt;p&gt;揭示的一个特殊性质：在不产生其他影响的情况下，功可以完全转化为热，而热却不能完全转化为功．&lt;/p&gt;
+&lt;p&gt;克劳修斯表述：不可能把热从低温物体传到高温物体而不产生其他影响．&lt;/p&gt;
+&lt;p&gt;如果说热力学第一定律强调了“热”与“功”作为能量转化不同的形式的等价性；那么，热力学第二定律则揭示了“热功相互转化”的不等价性．&lt;/p&gt;
+&lt;p&gt;还有另一种表述：第二类永动机是无法制成的。&lt;/p&gt;
+&lt;h3 id=&#34;193-两种表述的等价性&#34;&gt;1.9.3 两种表述的等价性&lt;/h3&gt;
+&lt;p&gt;1、开尔文 -&amp;gt; 克劳修斯&lt;/p&gt;
+&lt;p&gt;假设克劳修斯表述不成立，设想一卡诺热机工作于 $T_1,T_2,T_1&amp;gt;T_2$ 两个热源之间，从 $T_1$ 热源吸收 $Q_1$ 热量，在 $T_2$ 热源放出 $Q_2$ 热量，对外做功 $W=Q_1-Q_2$。&lt;/p&gt;
+&lt;p&gt;如果克劳修斯表述不成立，那么应该存在一种方法将 $Q_2$ 从低温热源 $T_2$ 传递到高温热源 $T_1$ 处。&lt;/p&gt;
+&lt;p&gt;此时，高温热源吸收热量 $Q_2-Q_1$，但系统对外做功 $Q_1-Q_2$，违反开尔文表述。&lt;/p&gt;
+&lt;p&gt;2、克劳修斯 -&amp;gt; 开尔文&lt;/p&gt;
+&lt;p&gt;假设开尔文表述不成立，假设一热机从单一高温热源 $T_1$ 吸热 $Q_1$ 并完全转换为功 $W=Q_1$。&lt;/p&gt;
+&lt;p&gt;使用这个功推动卡诺制冷机从低温热源 $T_2$ 吸收 $Q_2$ 的热量并传给高温热源 $Q_1+Q_2$ 的热量。&lt;/p&gt;
+&lt;p&gt;结果是：热量 $Q_2$ 从低温热源传给了高温热源而没有产生其他影响，违反克劳修斯表述。&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	
+		class=&#34;gallery-image&#34; 
+		style=&#34;
+			flex-grow: 173; 
+			flex-basis: 417px&#34;
+	&gt;
+	&lt;a href=&#34;https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-1-%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%BE%8B-iii/image-20211208173254361.png&#34; data-size=&#34;614x353&#34;&gt;
+		&lt;img src=&#34;https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-1-%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%BE%8B-iii/image-20211208173254361.png&#34;
+			width=&#34;614&#34;
+			height=&#34;353&#34;
+			srcset=&#34;https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-1-%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%BE%8B-iii/image-20211208173254361_hu8e9a6634017f18d867195464a72a1c42_48307_480x0_resize_box_3.png 480w, https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-1-%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%BE%8B-iii/image-20211208173254361_hu8e9a6634017f18d867195464a72a1c42_48307_1024x0_resize_box_3.png 1024w&#34;
+			loading=&#34;lazy&#34;
+			alt=&#34;image-20211208173254361&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;image-20211208173254361&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;h3 id=&#34;194-热现象过程的不可逆性&#34;&gt;1.9.4 热现象过程的不可逆性&lt;/h3&gt;
+&lt;p&gt;对于可逆过程来说，正反是没有意义的，它可以进行反演。&lt;/p&gt;
+&lt;p&gt;但不可逆过程不同，它具有方向性。自然界一切实际发生的热现象过程都是不可逆过程。&lt;/p&gt;
+&lt;p&gt;不可逆过程的两个基本性质：&lt;/p&gt;
+&lt;p&gt;1、一切不可逆过程都是相互联系的。&lt;/p&gt;
+&lt;p&gt;通过热机，任何一个特殊的不可逆过程，都可以想办法与其他的不可逆过程联系起来．也就是说，一切不可逆过程都是相互联系的．由此，只要肯定任何一个特殊过程的不可逆性，也就肯定了一切其他过程的不可逆性．&lt;/p&gt;
+&lt;p&gt;2、不可逆过程可以由一个态函数判断运动方向的标准。&lt;/p&gt;
+&lt;p&gt;既然不可逆过程的后果无论用任何办法都不能完全恢复 原状而不引起其他变化，这就表明不可逆过程的初态与终态一定存在某种特殊关系，有可能找到一个态函数，为不可逆过程的方向提供判断的标准．这个态函数就是熵&lt;/p&gt;
+&lt;h3 id=&#34;195-研究可逆过程的意义&#34;&gt;1.9.5 研究可逆过程的意义&lt;/h3&gt;
+&lt;p&gt;1、可以近似进行求解&lt;/p&gt;
+&lt;p&gt;2、可以研究平衡态&lt;/p&gt;
+&lt;h2 id=&#34;110-热力学第二定律的数学表述-熵&#34;&gt;1.10 热力学第二定律的数学表述 熵&lt;/h2&gt;
+&lt;h3 id=&#34;1101-卡诺定理&#34;&gt;1.10.1 卡诺定理&lt;/h3&gt;
+&lt;p&gt;卡诺定理：所有工作于两个一定温度之间的热机，以可逆机的效率为最大。&lt;/p&gt;
+&lt;p&gt;设有两个热机 $A,B$ 工作与两个相同的热源之间，分别从 $\theta_1$ 高温热源吸收 $Q_1,Q_1&#39;$ 热量，向 $\theta_2$ 的低温热源放出 $Q_2,Q_2&#39;$ 的热量，对外做功 $W,W&#39;$。两个热机的效率分别为：&lt;/p&gt;
+&lt;p&gt;$$
+\eta_A=\frac{W}{Q_1},\eta_B=\frac{W&#39;}{Q&#39;}
+$$&lt;/p&gt;
+&lt;p&gt;设 $A$ 为可逆机，卡诺定理可以表示为：&lt;/p&gt;
+&lt;p&gt;$$
+\eta_A\ge\eta_B
+$$&lt;/p&gt;
+&lt;p&gt;使用反证法证明。假设 $\eta_A&amp;lt;\eta_B$，则 $\frac{W}{Q_1}&amp;lt;\frac{W&#39;}{Q&#39;}$，令 $Q_1=Q&#39;$，则 $W&amp;lt;W&#39;$，那么让 $B$ 机多出来的功 $W&#39;-W$ 推动 $A$ 机工作。&lt;/p&gt;
+&lt;p&gt;根据热力学第一定律：&lt;/p&gt;
+&lt;p&gt;$$
+W&#39;=Q_1&#39;-Q_2&#39;,W=Q_1-Q_2
+$$&lt;/p&gt;
+&lt;p&gt;则：&lt;/p&gt;
+&lt;p&gt;$$
+W&#39;-W=Q_2-Q_2&#39;
+$$&lt;/p&gt;
+&lt;p&gt;那么这额外多做的功就令 $A$ 机恢复原状，导致两个热机都恢复原状，因此违背了热力学第二定律。&lt;/p&gt;
+&lt;p&gt;因此：&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+&amp;amp;\eta_A=\eta_B, \ A,B 均为可逆机\nl
+&amp;amp;\eta_A&amp;gt;\eta_B, \ A为可逆机，B为不可逆机\nl
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;1102-热力学温标&#34;&gt;1.10.2 热力学温标&lt;/h3&gt;
+&lt;p&gt;开尔文温标：&lt;/p&gt;
+&lt;p&gt;$$
+\frac{Q_2}{Q_1}=\frac{T_2}{T_1}
+$$&lt;/p&gt;
+&lt;p&gt;效率：&lt;/p&gt;
+&lt;p&gt;$$
+\eta=1-\frac{Q_2}{Q_1}=1-\frac{T_2}{T_1}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;1103-克劳修斯不等式&#34;&gt;1.10.3 克劳修斯不等式&lt;/h3&gt;
+&lt;p&gt;根据卡诺定理：&lt;/p&gt;
+&lt;p&gt;$$
+\eta=1-\frac{Q_2}{Q_1}\le1-\frac{T_2}{T_1}\Ra\frac{Q_2}{Q_1}\ge\frac{T_2}{T_1}\Ra\frac{Q_1}{T_1}-\frac{Q_2}{T_2}\le0
+$$&lt;/p&gt;
+&lt;p&gt;现在约定 $Q$ 代表吸收的热量（因为卡诺热机有一次吸热过程和一次放热过程，把他们同时定义成吸热过程，那么就只有一个符号是相反的），因此：&lt;/p&gt;
+&lt;p&gt;$$
+\frac{Q_1}{T_1}+\frac{Q_2}{T_2}\le0
+$$&lt;/p&gt;
+&lt;p&gt;其中 $Q_1,Q_2$ 分别是工质从 $T_1,T_2$ 热源吸收的热量。&lt;/p&gt;
+&lt;p&gt;推广到 $n$ 个热源吸热的过程。&lt;/p&gt;
+&lt;p&gt;$$
+\sum^n_{i=1}\frac{Q_i}{T_i}\le 0
+$$&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	
+		class=&#34;gallery-image&#34; 
+		style=&#34;
+			flex-grow: 83; 
+			flex-basis: 201px&#34;
+	&gt;
+	&lt;a href=&#34;https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-1-%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%BE%8B-iii/image-20211209224928983.png&#34; data-size=&#34;511x609&#34;&gt;
+		&lt;img src=&#34;https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-1-%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%BE%8B-iii/image-20211209224928983.png&#34;
+			width=&#34;511&#34;
+			height=&#34;609&#34;
+			srcset=&#34;https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-1-%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%BE%8B-iii/image-20211209224928983_hu824c0357f18f2beddc6576daf5e913df_76385_480x0_resize_box_3.png 480w, https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-1-%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%BE%8B-iii/image-20211209224928983_hu824c0357f18f2beddc6576daf5e913df_76385_1024x0_resize_box_3.png 1024w&#34;
+			loading=&#34;lazy&#34;
+			alt=&#34;image-20211209224928983&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;image-20211209224928983&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;现在考虑 $n\ra\infty$ 极限情况：&lt;/p&gt;
+&lt;p&gt;$$
+\oint \frac{\dbar Q}{T} \le 0
+$$&lt;/p&gt;
+&lt;h3 id=&#34;1104-第二定律对可逆过程的数学表述-熵&#34;&gt;1.10.4 第二定律对可逆过程的数学表述 熵&lt;/h3&gt;
+&lt;p&gt;如果是可逆过程，那么：&lt;/p&gt;
+&lt;p&gt;$$
+\oint \frac{\dbar Q_R}{T} = 0
+$$&lt;/p&gt;
+&lt;p&gt;$\dbar Q_R$ 代表系统在微小的可逆过程中从热源所吸收的微热量。&lt;/p&gt;
+&lt;p&gt;在系统平衡态的 $k$ 维状态空间中，选择一个封闭的环，在上面选取两个点 $P_0, P$，被分成两个过程 $C_1,C_2$。&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	
+		class=&#34;gallery-image&#34; 
+		style=&#34;
+			flex-grow: 107; 
+			flex-basis: 256px&#34;
+	&gt;
+	&lt;a href=&#34;https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-1-%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%BE%8B-iii/image-20211209225328150.png&#34; data-size=&#34;410x383&#34;&gt;
+		&lt;img src=&#34;https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-1-%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%BE%8B-iii/image-20211209225328150.png&#34;
+			width=&#34;410&#34;
+			height=&#34;383&#34;
+			srcset=&#34;https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-1-%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%BE%8B-iii/image-20211209225328150_hu79a0822a775e8334779e2d13f9a5987e_18416_480x0_resize_box_3.png 480w, https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-1-%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%BE%8B-iii/image-20211209225328150_hu79a0822a775e8334779e2d13f9a5987e_18416_1024x0_resize_box_3.png 1024w&#34;
+			loading=&#34;lazy&#34;
+			alt=&#34;image-20211209225328150&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;image-20211209225328150&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\int_{C_1\ \left( P_{0}\right)}^{(P)}  \frac{\mathrm{\dbar} Q_{\mathrm{R}}}{T}+\int_{C_2\ (\left.P\right)}^{\left(P_{0}\right)} \frac{\mathrm{\dbar} Q_{\mathrm{R}}}{T}=0
+$$&lt;/p&gt;
+&lt;p&gt;可改写成：&lt;/p&gt;
+&lt;p&gt;$$
+\int_{C_1\ \left( P_{0}\right)}^{(P)}  \frac{\mathrm{\dbar} Q_{\mathrm{R}}}{T}=\int_{C_2\ (\left.P_0\right)}^{\left(P\right)} \frac{\mathrm{\dbar} Q_{\mathrm{R}}}{T}
+$$&lt;/p&gt;
+&lt;p&gt;发现路径积分与经过什么路径无关，因此可以定义出一个新的态函数熵 $S$：&lt;/p&gt;
+&lt;p&gt;$$
+S-S_0=\int_{\left( P_{0}\right)}^{(P)}  \frac{\mathrm{\dbar} Q_{\mathrm{R}}}{T}
+$$&lt;/p&gt;
+&lt;p&gt;熵的单位是 $\mathrm{J/K}$。&lt;/p&gt;
+&lt;h3 id=&#34;1105-第二定律对不可逆过程的数学表述&#34;&gt;1.10.5 第二定律对不可逆过程的数学表述&lt;/h3&gt;
+&lt;p&gt;1、初、终态为平衡态的不可逆过程&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	
+		class=&#34;gallery-image&#34; 
+		style=&#34;
+			flex-grow: 111; 
+			flex-basis: 268px&#34;
+	&gt;
+	&lt;a href=&#34;https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-1-%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%BE%8B-iii/image-20211209233725106.png&#34; data-size=&#34;458x409&#34;&gt;
+		&lt;img src=&#34;https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-1-%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%BE%8B-iii/image-20211209233725106.png&#34;
+			width=&#34;458&#34;
+			height=&#34;409&#34;
+			srcset=&#34;https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-1-%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%BE%8B-iii/image-20211209233725106_hud85f59c48352031a244a1a4740a0b36b_20024_480x0_resize_box_3.png 480w, https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-1-%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%BE%8B-iii/image-20211209233725106_hud85f59c48352031a244a1a4740a0b36b_20024_1024x0_resize_box_3.png 1024w&#34;
+			loading=&#34;lazy&#34;
+			alt=&#34;image-20211209233725106&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;image-20211209233725106&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;左侧 $I$ 过程的积分是可逆过程，那么显然：&lt;/p&gt;
+&lt;p&gt;$$
+\int_{\left(P_{0}\right)}^{(P)} \frac{\mathrm{d} Q_{\mathrm{R}}}{T}&amp;gt;\int_{\left(P_{0}\right)}^{(P)} \frac{\mathrm{d} Q_{1}}{T}
+$$&lt;/p&gt;
+&lt;p&gt;由于 $P,P_0$ 都是平衡态，则：&lt;/p&gt;
+&lt;p&gt;$$
+S-S_0&amp;gt;\int_{\left(P_{0}\right)}^{(P)} \frac{\mathrm{d} Q_{1}}{T}
+$$&lt;/p&gt;
+&lt;p&gt;2、初、终态是非平衡态的不可逆过程&lt;/p&gt;
+&lt;p&gt;将初、终态分成 $N$ 个小块，分别求得各部分的式子。由于熵是广延量，因此：&lt;/p&gt;
+&lt;p&gt;$$
+S=\sum_{i=1}^NS^i
+$$&lt;/p&gt;
+&lt;p&gt;得证&lt;/p&gt;
+&lt;h3 id=&#34;1106-熵的性质小结&#34;&gt;1.10.6 熵的性质小结&lt;/h3&gt;
+&lt;p&gt;1、熵是系统的态函数&lt;/p&gt;
+&lt;p&gt;2、熵是广延亮，具有可加性&lt;/p&gt;
+&lt;p&gt;3、$\dbar Q=T\dd S$&lt;/p&gt;
+&lt;p&gt;4、热力学基本微分方程：&lt;/p&gt;
+&lt;p&gt;$$
+\dd U=\dbar Q+\dbar W
+$$&lt;/p&gt;
+&lt;p&gt;展开做功的式子：&lt;/p&gt;
+&lt;p&gt;$$
+\dd U=T\dd S+\sum_l Y_l \dd y_l
+$$&lt;/p&gt;
+&lt;h2 id=&#34;comment&#34;&gt;Comment&lt;/h2&gt;
+&lt;p&gt;主要讲述了热力学第二定律相关的概念，包括：&lt;/p&gt;
+&lt;p&gt;1.8：由卡诺循环的问题导入系统是否可逆的问题。&lt;/p&gt;
+&lt;p&gt;1.9：热力学第二定律的本尊。讲了两个判断热力学进行方向的表述。&lt;/p&gt;
+&lt;p&gt;1.10：热力学第二定律的数学表述。 将文字转换成数学语言，定义出态函数（熵）。&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>[热统] 1 热力学的基本概念与基本规律 II</title>
         <link>https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-1-%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%BE%8B-ii/</link>
         <pubDate>Wed, 08 Dec 2021 12:27:39 +0800</pubDate>

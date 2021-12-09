@@ -6,7 +6,25 @@
     <description>Recent content in 物理 on MizarZ&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 08 Dec 2021 12:27:39 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/categories/%E7%89%A9%E7%90%86/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 09 Dec 2021 17:14:21 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/categories/%E7%89%A9%E7%90%86/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[量子力学] 3 量子力学的假定 E part</title>
+      <link>https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-3-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%81%87%E5%AE%9A-e-part/</link>
+      <pubDate>Thu, 09 Dec 2021 17:14:21 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-3-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%81%87%E5%AE%9A-e-part/</guid>
+      <description>$$ \def\un{\mathrm} \def\dd{\mathrm d} \def\par{\partial} \def\bl{\boldsymbol} \def\mbf{\mathbf} \def\mscr{\mathscr} \newcommand{\avg}[1]{\left \langle #1 \right \rangle} \newcommand{\bk}[2]{\left \langle #1 | #2 \right \rangle} \newcommand{\bok}[3]{\bra{#1}#2\ket{#3}} \def\nl{\newline} \def\Ra{\Rightarrow} \def\La{\Leftarrow} \def\ra{\rightarrow} \def\la{\leftarrow} $$ E 薛定谔方程的物理意义 1.叠加符与干涉效应 推导 假设 $\ket{\psi_1},\ket{\psi_2}$ 是两个正交归一的态。 如果一个体系处</description>
+    </item>
+    
+    <item>
+      <title>[热统] 1 热力学的基本概念与基本规律 III</title>
+      <link>https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-1-%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%BE%8B-iii/</link>
+      <pubDate>Wed, 08 Dec 2021 16:46:15 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-1-%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%BE%8B-iii/</guid>
+      <description>$$ \def\un{\mathrm} \def\dd{\mathrm d} \def\par{\partial} \def\bl{\boldsymbol} \def\mbf{\mathbf} \def\nl{\newline} \def\Ra{\Rightarrow} \def\La{\Leftarrow} \def\ra{\rightarrow} \def\la{\leftarrow} \def\e{\epsilon} \def\ve{\varepsilon} \newcommand{\mscr}[1]{\mathscr{#1}} \def\dbar{\mathrm{đ}} $$ 1 热力学的基本概念与基本规律 1.8 卡诺循环 卡诺循环由四个过程构成： I. 等</description>
+    </item>
+    
     <item>
       <title>[热统] 1 热力学的基本概念与基本规律 II</title>
       <link>https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-1-%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%BE%8B-ii/</link>

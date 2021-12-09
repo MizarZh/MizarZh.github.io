@@ -6,7 +6,16 @@
     <description>Recent content in 热力学与统计力学 on MizarZ&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 08 Dec 2021 12:27:39 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/tags/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E5%8A%9B%E5%AD%A6/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 08 Dec 2021 16:46:15 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/tags/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E5%8A%9B%E5%AD%A6/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[热统] 1 热力学的基本概念与基本规律 III</title>
+      <link>https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-1-%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%BE%8B-iii/</link>
+      <pubDate>Wed, 08 Dec 2021 16:46:15 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-1-%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%BE%8B-iii/</guid>
+      <description>$$ \def\un{\mathrm} \def\dd{\mathrm d} \def\par{\partial} \def\bl{\boldsymbol} \def\mbf{\mathbf} \def\nl{\newline} \def\Ra{\Rightarrow} \def\La{\Leftarrow} \def\ra{\rightarrow} \def\la{\leftarrow} \def\e{\epsilon} \def\ve{\varepsilon} \newcommand{\mscr}[1]{\mathscr{#1}} \def\dbar{\mathrm{đ}} $$ 1 热力学的基本概念与基本规律 1.8 卡诺循环 卡诺循环由四个过程构成： I. 等</description>
+    </item>
+    
     <item>
       <title>[热统] 1 热力学的基本概念与基本规律 II</title>
       <link>https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-1-%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%BE%8B-ii/</link>
