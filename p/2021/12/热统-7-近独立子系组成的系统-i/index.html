@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='7.1-7.4'><title>[热统] 7 近独立子系组成的系统 I</title>
+
+<link rel='canonical' href='https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-7-%E8%BF%91%E7%8B%AC%E7%AB%8B%E5%AD%90%E7%B3%BB%E7%BB%84%E6%88%90%E7%9A%84%E7%B3%BB%E7%BB%9F-i/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='[热统] 7 近独立子系组成的系统 I'>
+<meta property='og:description' content='7.1-7.4'>
+<meta property='og:url' content='https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-7-%E8%BF%91%E7%8B%AC%E7%AB%8B%E5%AD%90%E7%B3%BB%E7%BB%84%E6%88%90%E7%9A%84%E7%B3%BB%E7%BB%9F-i/'>
+<meta property='og:site_name' content='MizarZ&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='热力学与统计力学' /><meta property='article:tag' content='Thermodynamics and Statistical Physics' /><meta property='article:published_time' content='2021-12-12T17:13:15&#43;08:00'/><meta property='article:modified_time' content='2021-12-12T17:13:15&#43;08:00'/>
+<meta name="twitter:title" content="[热统] 7 近独立子系组成的系统 I">
+<meta name="twitter:description" content="7.1-7.4">
+    <link rel="shortcut icon" href="img/favicon-32x32.png" />
+
+    </head>
+    <body class="
+    article-page has-toc
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        extended
+    
+">
+    
+        <div id="article-toolbar">
+            <a href="/" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>返回</span>
+            </a>
+        </div>
+    
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E7%89%A9%E7%90%86/" style="background-color: #773feb; color: ;">
+                物理
+            </a>
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/p/2021/12/%E7%83%AD%E7%BB%9F-7-%E8%BF%91%E7%8B%AC%E7%AB%8B%E5%AD%90%E7%B3%BB%E7%BB%84%E6%88%90%E7%9A%84%E7%B3%BB%E7%BB%9F-i/">[热统] 7 近独立子系组成的系统 I</a>
+    </h2>
+
+    
+    <h3 class="article-subtitle">
+        7.1-7.4
+    </h3>
+    
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2021-12-12</time>
+            </div>
+        
+
+        
+    </footer>
+    
+</div>
+</header>
+
+    <section class="article-content">
+    <p>$$
+\def\un{\mathrm}
+\def\dd{\mathrm d}
+\def\par{\partial}
+\def\bl{\boldsymbol}
+\def\mbf{\mathbf}
+\def\nl{\newline}
+\def\Ra{\Rightarrow}
+\def\La{\Leftarrow}
+\def\ra{\rightarrow}
+\def\la{\leftarrow}
+\def\e{\epsilon}
+\def\ve{\varepsilon}
+\newcommand{\mscr}[1]{\mathscr{#1}}
+\def\lam{\lambda}
+\def\dbar{\mathrm{đ}}
+$$</p>
+<h1 id="7-近独立子系组成的系统">7 近独立子系组成的系统</h1>
+<h2 id="71-分布与系统的微观态-最可几分布">7.1 分布与系统的微观态 最可几分布</h2>
+<h3 id="711-近独立子系">7.1.1 近独立子系</h3>
+<p>子系是组成系统的基本单元，它可以是气体中的分子，金属中的传导电子，热辐射场中的光子等 ；也可以代表粒子的某一个自由度 ；此外，在某些理论处理中，还可以把系统分成许多宏观大小的部分，把每一部分看成一个子系，等等。</p>
+<p>系统的总能量等于各个粒子的能量 $\ve_i$ 之和：</p>
+<p>$$
+E=\sum^N_{i=1}\ve_i
+$$</p>
+<p>则称这种系统为近独立子系（almost independent sub-system）组成的系统，有的书上用 “ 独立粒子系统 ” 或 “ 自由粒子系统 ”，意思实际上是一样的，想表达的都是假如粒子之间完全没有相互作用，粒子之间就不可能交换能量，系统就不可能达到平衡并保持平衡。</p>
+<h3 id="712-粒子按能级的分布-a_lambda">7.1.2 粒子按能级的分布 ${a_\lambda}$</h3>
+<p>令粒子的能级为 $\ve_1,\ve_2,\cdots,\ve_\lambda,\cdots$，它们从低到高顺序排列。相应的，各个能级的简并度为 $g_1,g_2,\cdots,g_\lambda,\cdots$（即每个能级上有多少种量子态），令 $a_1,a_2,\cdots,a_\lambda,\cdots$ 代表这些能级上占据的粒子数，称为粒子按能级的微观分布，简记为 ${a_\lambda}$。</p>
+<p>在一定的宏观状态下，允许出现的微观分布有许许多多 。现在考虑处于平衡态的孤立系，此时系统的总能量 $E$，体积 $V$，总粒子数 $N$ 都是固定的，此时应满足两个条件：</p>
+<p>$$
+\begin{aligned}
+&amp;\sum_\lambda a_\lambda=N \nl
+&amp;\sum_\lambda \ve_\lambda a_\lambda=E
+\end{aligned}
+$$</p>
+<h3 id="713-分布-a_lambda-对应的系统微观状态数-wa_lambda">7.1.3 分布 ${a_\lambda}$ 对应的系统微观状态数 $W({a_\lambda})$</h3>
+<p>分布与系统微观状态数是不同的概念。分布仅确定了每一个<strong>能级</strong> $\ve_i$ 上的粒子数 $a_i$，而系统微观状态要求确定处于每一个<strong>量子态</strong>上的粒子数（意思就是说，一个能级上可能有多个量子态），即在确定了能级 $\ve_i$ 上的粒子数 $a_i$ 后，还需要确定量子态 $g_i$ 上粒子数的分布。</p>
+<p>一个特定的微观分布 ${a_\lambda}$ 对应于许许多多系统的量子态。</p>
+<p>根据等纪律原理，某一微观分布对应的系统微观态数越多，它出现的概率越大。令 $P({a_\lambda})$ 代表微观分布 ${a_\lambda}$ 出现的概率，则：</p>
+<p>$$
+P({a_\lambda})\propto W({a_\lambda})
+$$</p>
+<p>$W({a_\lambda})$ 代表未归一化的相对几率，称为热力学几率。目前我们只需要知道 $W({a_\lambda})$ 是分布的函数就够了。</p>
+<h3 id="714-最可几分布法">7.1.4 最可几分布法</h3>
+<p>统计平均：</p>
+<p>$$
+\bar{a}<em>\lambda=\sum</em>{{a_\lambda}}a_\lambda P({a_\lambda})
+$$</p>
+<p>最可几分布法是从一定宏观状态下所有可能出现的微观分布中，找出出现几率最大的那个分布。倘若最可几分布出现的几率，比起其他分布的几率占有压倒优势 ；那么，最可几分布应该就等于平均分布。可以证明，当系统的粒子数目很大时，最可几分布与平均分布相同。</p>
+<h2 id="72-定域子系-麦克斯韦---玻尔兹曼分布">7.2 定域子系 麦克斯韦 - 玻尔兹曼分布</h2>
+<h3 id="721-分布-a_lambda-对应的系统量子态数-wa_lambda">7.2.1 分布 ${a_\lambda}$ 对应的系统量子态数 $W({a_\lambda})$</h3>
+<p>对于全同的定域子系，粒子是可分辨的，我们可以给粒子加上标号：$1, 2, \cdots,N$。</p>
+<p>系统量子态数为：</p>
+<p>$$
+W({a_\lambda})=\frac{N!}{\prod \limits_\lambda a_\lambda !}\prod_\lambda g_\lambda^{a_\lambda}
+$$</p>
+<p>解释：$g_\lambda^{a_\lambda}$ 代表的含义是 $a_\lambda$ 个粒子在 $\ve_\lam$ 能级上的 $g_\lam$ 个不同的粒子量子态中不同的占据方式。连乘 $\prod \limits_\lam$ 代表不同能级上的量子态分布。</p>
+<p>各能级之间的粒子也可以交换，$N$ 个粒子的交换数是 $N!$，且应除去 $a_\lam$ 各能级的交换数 $\prod_\limits\lam  a_\lam$ 。</p>
+<h3 id="722-最可几分布的推导">7.2.2 最可几分布的推导</h3>
+<p>为了数学上的方便，把求 $W$ 的极大改为求 $\ln W$ 的极大。两者完全等价。</p>
+<p>斯特林公式：</p>
+<p>$$
+m!=m^me^{-m}\sqrt{2\pi m}
+$$</p>
+<p>取对数：</p>
+<p>$$
+\ln m!=m(\ln m-1)+\frac{1}{2}\ln(2\pi m)
+$$</p>
+<p>当 $m$ 很大时，$\ln m \ll m$，那么最后一项可以忽略，即：</p>
+<p>$$
+\ln m!=m(\ln m-1)
+$$</p>
+<p>应用到 $\ln W$，得：</p>
+<p>$$
+\begin{aligned}
+\ln W({a_\lam})&amp;=N(\ln N-1)-\sum_\lam a_\lam(\ln a_\lam-1)+\sum_\lam a_\lam \lg g_\lam\nl
+&amp;=N\ln N-\sum_\lam a_\lam \ln(\frac{a_\lam}{g_\lam})
+\end{aligned}
+$$</p>
+<p>求最可几几率，就是在满足其他条件得情况下，使得 $\delta \ln W=0,\delta^2 \ln W&lt;0$ 的分布。数学上是以 $a_1,a_2,\cdots,a_\lam,\cdots$ 为变数的多元函数的极值。</p>
+<p>$$
+\delta \ln W({a_\lambda})=-\sum_\lam\ln(\frac{a_\lam}{g_\lam})\delta a_\lam=0
+$$</p>
+<p>限制条件：</p>
+<p>$$
+\begin{aligned}
+&amp;\delta N=\sum_\lam\delta a_\lam=0\nl
+&amp;\delta E=\sum_\lam\ve_\lam\delta a_\lam=0
+\end{aligned}
+$$</p>
+<p>应用求多元函数条件极值的拉格朗日未定乘子法。引入两个拉格朗日乘子 $\alpha,\beta$</p>
+<p>$$
+\delta\ln W-\alpha\delta N-\beta\delta E=-\sum_\lam (\ln \frac{a_\lam}{g_\lam}+\alpha+\beta\ve_\lam) \delta a_\lam=0
+$$</p>
+<p>拉格朗日乘子法：</p>
+<p>$$
+\ln \frac{a_\lam}{g_\lam}+\alpha+\beta\ve_\lam=0
+$$</p>
+<p>用符号 $\tilde{a}<em>\lam$ 代表上面的分布（以区分微观分布 $a</em>\lam$），改写为：</p>
+<p>$$
+\tilde{a}<em>\lam=g</em>\lam e^{-\alpha-\beta\ve_\lam}
+$$</p>
+<p>求二阶导：</p>
+<p>$$
+\delta^2\ln W=-\sum_\lam\frac{(\delta a_\lam)^2}{a_\lam}&lt;0
+$$</p>
+<p>因此 $\tilde{a}_\lam$ 为最可几分布，称为麦克斯韦-玻尔兹曼分布，记为 MB 分布。</p>
+<h3 id="723-ln-wa_lambda-是尖锐成峰的极大">7.2.3 $\ln W({a_\lambda})$ 是尖锐成峰的极大</h3>
+<p>反正是一堆证明。这里用一张图说明一切吧：</p>
+<p><figure 
+	
+		class="gallery-image" 
+		style="
+			flex-grow: 122; 
+			flex-basis: 295px"
+	>
+	<a href="/p/2021/12/%E7%83%AD%E7%BB%9F-7-%E8%BF%91%E7%8B%AC%E7%AB%8B%E5%AD%90%E7%B3%BB%E7%BB%84%E6%88%90%E7%9A%84%E7%B3%BB%E7%BB%9F-i/image-20211212215559845.png" data-size="557x453">
+		<img src="/p/2021/12/%E7%83%AD%E7%BB%9F-7-%E8%BF%91%E7%8B%AC%E7%AB%8B%E5%AD%90%E7%B3%BB%E7%BB%84%E6%88%90%E7%9A%84%E7%B3%BB%E7%BB%9F-i/image-20211212215559845.png"
+			width="557"
+			height="453"
+			srcset="/p/2021/12/%E7%83%AD%E7%BB%9F-7-%E8%BF%91%E7%8B%AC%E7%AB%8B%E5%AD%90%E7%B3%BB%E7%BB%84%E6%88%90%E7%9A%84%E7%B3%BB%E7%BB%9F-i/image-20211212215559845_hud91c63a2af984b51b6d796ab1d40af01_29751_480x0_resize_box_3.png 480w, /p/2021/12/%E7%83%AD%E7%BB%9F-7-%E8%BF%91%E7%8B%AC%E7%AB%8B%E5%AD%90%E7%B3%BB%E7%BB%84%E6%88%90%E7%9A%84%E7%B3%BB%E7%BB%9F-i/image-20211212215559845_hud91c63a2af984b51b6d796ab1d40af01_29751_1024x0_resize_box_3.png 1024w"
+			loading="lazy"
+			alt="image-20211212215559845">
+	</a>
+	
+	<figcaption>image-20211212215559845</figcaption>
+	
+</figure></p>
+<p>因此，以后可以将 $\bar{a}<em>\lam=\tilde{a}</em>\lam$。</p>
+<h3 id="724-麦克斯韦-玻尔兹曼分布中参数-alphabeta-的确定">7.2.4 麦克斯韦-玻尔兹曼分布中参数 $\alpha,\beta$ 的确定</h3>
+<p>确定方法：</p>
+<p>$$
+\begin{aligned}
+&amp;N=\sum_\lam g_\lam e^{-\alpha-\beta\ve_\lam}\nl
+&amp;E=\sum_\lam\ve_\lam g_\lam e^{-\alpha-\beta\ve_\lam}
+\end{aligned}
+$$</p>
+<p>引进函数 $Z$：</p>
+<p>$$
+Z=\sum_\lam g_\lam e^{-\beta\ve_\lam}
+$$</p>
+<p>称为子系配分函数，是 $\beta$ 及其他宏观参量的函数。</p>
+<p>由第一条式子得：</p>
+<p>$$
+\alpha=\ln\frac{Z}{N}
+$$</p>
+<p>消去 $\alpha$，得：</p>
+<p>$$
+E=-N\frac{\par}{\par \beta}\ln Z
+$$</p>
+<h2 id="73-二能级系统">7.3 二能级系统</h2>
+<p>讨论一个简单例子：二能级系统。</p>
+<p>这个系统只有两个能级，$\ve_1=-\ve,\ve_2=\ve$，且每个能级只有一个量子态，$g_1=g_2=1$，计算子系按能级的平均分布， 系统的内能与热容 。</p>
+<p>这种系统有一个例子是稀磁系统。</p>
+<p>子系配分函数：</p>
+<p>$$
+Z=\sum_\lam g_\lam e^{-\beta\ve_\lam}=e^{\beta \ve}+e^{-\beta\ve}
+$$</p>
+<p>参数 $\alpha$ 的确定：</p>
+<p>$$
+e^{-\alpha}=\frac{N}{Z}=\frac{N}{e^{\beta \ve}+e^{-\beta\ve}}
+$$</p>
+<p>平均分布：</p>
+<p>$$
+\begin{aligned}
+&amp;\bar{a}<em>{1}=1 \cdot \mathrm{e}^{-\alpha-\beta \varepsilon</em>{1}}=N \frac{\mathrm{e}^{\beta \varepsilon}}{\mathrm{e}^{\beta \varepsilon}}+\mathrm{e}^{-\beta \varepsilon} \nl
+&amp;\bar{a}<em>{2}=1 \cdot \mathrm{e}^{-\alpha-\beta \varepsilon</em>{2}}=N \frac{\mathrm{e}^{-\beta \varepsilon}}{\mathrm{e}^{\beta \varepsilon}}+\mathrm{e}^{-\beta \varepsilon}
+\end{aligned}
+$$</p>
+<p>式中 $\beta=\frac{1}{kT}$。显然，有限温度下 $\bar a_1&gt;\bar a_2$。</p>
+<p>$$
+\begin{array}{l}
+\text { 当 } T \rightarrow 0(\beta \rightarrow \infty): \bar{a}<em>{1}=N, \bar{a}</em>{2}=0 ; \<br>
+\text { 当 } T \rightarrow \infty(\beta \rightarrow 0): \bar{a}<em>{1}=\frac{N}{2}, \bar{a}</em>{2}=\frac{N}{2}
+\end{array}
+$$</p>
+<p><figure 
+	
+		class="gallery-image" 
+		style="
+			flex-grow: 306; 
+			flex-basis: 736px"
+	>
+	<a href="/p/2021/12/%E7%83%AD%E7%BB%9F-7-%E8%BF%91%E7%8B%AC%E7%AB%8B%E5%AD%90%E7%B3%BB%E7%BB%84%E6%88%90%E7%9A%84%E7%B3%BB%E7%BB%9F-i/image-20211213120251466.png" data-size="835x272">
+		<img src="/p/2021/12/%E7%83%AD%E7%BB%9F-7-%E8%BF%91%E7%8B%AC%E7%AB%8B%E5%AD%90%E7%B3%BB%E7%BB%84%E6%88%90%E7%9A%84%E7%B3%BB%E7%BB%9F-i/image-20211213120251466.png"
+			width="835"
+			height="272"
+			srcset="/p/2021/12/%E7%83%AD%E7%BB%9F-7-%E8%BF%91%E7%8B%AC%E7%AB%8B%E5%AD%90%E7%B3%BB%E7%BB%84%E6%88%90%E7%9A%84%E7%B3%BB%E7%BB%9F-i/image-20211213120251466_hucfafbe84f7e5d2aca44b406033b4f3e8_36008_480x0_resize_box_3.png 480w, /p/2021/12/%E7%83%AD%E7%BB%9F-7-%E8%BF%91%E7%8B%AC%E7%AB%8B%E5%AD%90%E7%B3%BB%E7%BB%84%E6%88%90%E7%9A%84%E7%B3%BB%E7%BB%9F-i/image-20211213120251466_hucfafbe84f7e5d2aca44b406033b4f3e8_36008_1024x0_resize_box_3.png 1024w"
+			loading="lazy"
+			alt="image-20211213120251466">
+	</a>
+	
+	<figcaption>image-20211213120251466</figcaption>
+	
+</figure></p>
+<h2 id="74-定域子系热力学量的统计表达式-熵的统计解释">7.4 定域子系热力学量的统计表达式 熵的统计解释</h2>
+<p>本节将从定域子系平衡态下的平均分布出发，导出各热力学量的统计表达式。</p>
+<p>热力学量分两类：一类是内能、外界作用力，有直接的微观量，直接利用 $\bar{a}_\lam$ 求统计平均就能得到。</p>
+<p>另一类如熵、热量，它们没有明显对应的微观量，可以通过与热力学公式类比的办法来建立。</p>
+<h3 id="741-内能">7.4.1 内能</h3>
+<p>内能是系统微观总能量的统计平均值。</p>
+<p>$$
+\begin{aligned}
+U &amp;=E=\sum_{\lambda} \varepsilon_{\lambda} \bar{a}_{\lambda}=\sum_{\lambda} \varepsilon_{\lambda} g_{\lambda} \mathrm{e}^{-\alpha-\beta \varepsilon_{\lambda}}=\mathrm{e}^{-\alpha} \sum_{\lambda} \varepsilon_{\lambda} g_{\lambda} \mathrm{e}^{-\beta \varepsilon_{\lambda}} \nl
+&amp;=\frac{N}{Z}\left(-\frac{\partial}{\partial \beta} \sum_{\lambda} g_{\lambda} \mathrm{e}^{-\beta \varepsilon_{\lambda}}\right)=-N \frac{\partial}{\partial \beta} \ln Z
+\end{aligned}
+$$</p>
+<h3 id="742-外界作用力">7.4.2 外界作用力</h3>
+<p>$$
+\dbar W=\sum_\lam \bar{Y}_\lam \dd y_\lam
+$$</p>
+<p>$y_\lam$ 为广义坐标，外界作用力为 $\bar{Y}_\lam$。</p>
+<p>考虑微观过程中，外界对系统做的功 $\sum_\lam Y_\lam \dd y_\lam$ 等于系统微观总能量的增加，即：</p>
+<p>$$
+\sum_\lam Y_\lam \dd y_\lam=\sum_\lam \frac{\par E}{\par y_\lam} \dd y_\lam
+$$</p>
+<p>即：</p>
+<p>$$
+Y_\lam=\frac{\par E}{\par y_\lam}=\sum_\lam \frac{\par \ve_\lam}{\par y_\lam} a_\lam\ (\text{近独立子系组成的系统})
+$$</p>
+<p>求平均值：</p>
+<p>$$
+\begin{aligned}
+\bar{Y}<em>{\lambda} &amp;=\sum</em>{\lambda} \frac{\partial \varepsilon_{\lambda}}{\partial y_{\lambda}} \bar{a}_{\lambda}=\sum_{\lambda} \frac{\partial \varepsilon_{\lambda}}{\partial y_{\lambda}} g_{\lambda} \mathrm{e}^{-\alpha-\beta \varepsilon_{\lambda}} \nl
+&amp;=\frac{N}{Z} \sum_{\lambda} \frac{\partial \varepsilon_{\lambda}}{\partial y_{\lambda}} g_{\lambda} \mathrm{e}^{-\beta \varepsilon_{\lambda}}=\frac{N}{Z}\left(-\frac{1}{\beta} \frac{\partial}{\partial y_{\lambda}} \sum_{\lambda} g_{\lambda} \mathrm{e}^{-\beta \varepsilon_{\lambda}}\right) \nl
+&amp;=-\frac{N}{\beta} \frac{\partial}{\partial y_{\lambda}} \ln Z
+\end{aligned}
+$$</p>
+<h3 id="743-热量的统计表达式">7.4.3 热量的统计表达式</h3>
+<p>$$
+\dbar Q= \dd \bar{E}-\sum_\lam \bar{Y}_\lam \dd y_\lam
+$$</p>
+<p>代入 $\bar{E}=\sum_\lam \ve_\lam \bar{a}_\lam$：</p>
+<p>$$
+\begin{aligned}
+\mathrm{\dbar} Q &amp;=\mathrm{d}\left(\sum_{\lambda} \varepsilon_{\lambda} \bar{a}_{\lambda}\right)-\sum_{\lambda} \bar{Y}_{\lambda} \mathrm{d} y_{\lambda} \nl
+&amp;=\sum_{\lambda} \mathrm{d} \varepsilon_{\lambda} \cdot \bar{a}_{\lambda}+\sum_{\lambda} \varepsilon_{\lambda} \cdot \mathrm{d} \bar{a}_{\lambda}-\sum_{\lambda} \bar{Y}_{\lambda} \mathrm{d} y_{\lambda}
+\end{aligned}
+$$</p>
+<p>由于 $\dd \ve_\lam=\sum_\lam\frac{\par \ve_\lam}{y_\lam}\dd y_\lam$：</p>
+<p>$$
+\begin{aligned}
+\sum_{\lambda} \mathrm{d} \varepsilon_{\lambda} \cdot \bar{a}_{\lambda} &amp;=\sum_{\lambda}\left(\sum_{\lambda} \frac{\partial \varepsilon_{\lambda}}{\partial y_{\lambda}} \mathrm{d} y_{\lambda}\right) \bar{a}_{\lambda} \nl
+&amp;=\sum_{\lambda}\left(\sum_{\lambda} \frac{\partial \varepsilon_{\lambda}}{\partial y_{\lambda}} \bar{a}_{\lambda}\right) \mathrm{d} y_{\lambda} \nl
+&amp;=\sum_{\lambda}^{\prime} \bar{Y}_{\lambda} \mathrm{d} y_{\lambda} .
+\end{aligned}
+$$</p>
+<p>因此：</p>
+<p>$$
+\mathrm{d} Q=\sum_{\lambda} \varepsilon_{\lambda} \mathrm{d} \bar{a}_{\lambda}
+$$</p>
+<p>这意味着：凡是平均分布不发生改变的过程是绝热过程。即在绝热过程中，外参量的变化导致粒子能级的变化，但不改变平均分布。</p>
+<h3 id="744-熵的统计分布">7.4.4 熵的统计分布</h3>
+<p>$$
+\dd S=\frac{\dbar Q}{T}=\frac{1}{T}(\dd \bar{E}-\sum_\lam \bar{Y}_\lam \dd y_\lam)
+$$</p>
+<p>这条式子告诉我们，虽然 $\dbar Q$ 不是全微分，但是乘 $\frac{1}{T}$ 后就变成了全微分。即 $\frac{1}{T}$ 是 $\dbar Q$ 的积分因子。</p>
+<p>这意味着我们可以反向考虑，证明 $\dbar Q$ 存在积分因子，就能引入熵的存在。</p>
+<p>$$
+\begin{aligned}
+\beta\left(\mathrm{d} \bar{E}-\sum_{\lambda} \bar{Y}_{\lambda} \mathrm{d} y_{\lambda}\right)=&amp;-N \beta \mathrm{d}\left(\frac{\partial}{\partial \beta} \ln Z\right)+N \sum_{\lambda} \frac{\partial}{\partial y_{\lambda}} \ln Z \cdot \mathrm{d} y_{\lambda} \nl
+=&amp;-N \mathrm{~d}\left(\beta \frac{\partial}{\partial \beta} \ln Z\right)+N \frac{\partial}{\partial \beta} \ln Z \cdot \mathrm{d} \beta \nl
+&amp;+N \sum_{\lambda} \frac{\partial}{\partial y_{\lambda}} \ln Z \cdot \mathrm{d} y_{\lambda} \nl
+=&amp; N \mathrm{~d}\left(\ln Z-\beta \frac{\partial}{\partial \beta} \ln Z\right)
+\end{aligned}
+$$</p>
+<p>右方是全微分，这就证明了 $\beta$ 是微分式 $\mathrm{d} \bar{E}-\sum_{\lambda} \bar{Y}_{\lambda} \mathrm{d} y_{\lambda}$ 的积分因子。</p>
+<p>对比，我们可以发现：</p>
+<p>$$
+\beta=\frac{1}{kT}
+$$</p>
+<p>$k$ 是一个普适常数，经过实验可以测得：$k=1.38\times10^{-23}~ \un{J\cdot K^{-1}}$，称为玻尔兹曼常数。</p>
+<p>代回 $\dd S$ 式：</p>
+<p>$$
+\dd S=Nk \mathrm{~d}\left(\ln Z-\beta \frac{\partial}{\partial \beta} \ln Z\right)
+$$</p>
+<p>积分并取 $S_0=0$：</p>
+<p>$$
+S=Nk(\ln Z-\beta\frac{\par}{\par \beta}\ln Z)
+$$</p>
+<p>至此，已经得出了三个基本热力学函数，其他的热力学量也就一并确定了。</p>
+<h3 id="745-玻尔兹曼关系-熵的统计解释">7.4.5 玻尔兹曼关系 熵的统计解释</h3>
+<p>$$
+\ln W({a_\lam})=N\ln N-\sum_\lam a_\lam\ln(\frac{a_\lam}{g_\lam})
+$$</p>
+<p>换成平均分布，上式也成立：</p>
+<p>$$
+\ln W({\bar a_\lam})=N\ln N-\sum_\lam \bar a_\lam\ln(\frac{\bar a_\lam}{g_\lam})
+$$</p>
+<p>代入平均分布的表达式：</p>
+<p>$$
+\ln W({\bar a_\lam})=N\ln N-\sum_\lam \bar a_\lam(-\alpha-\beta\ve_\lam)=N\ln N+\alpha N+\beta \bar{E}
+$$</p>
+<p>代入 $\alpha,\bar E$，得：</p>
+<p>$$
+\ln W({\bar a_\lam})=N(\ln Z-\beta\frac{\par }{\par \beta}\ln Z)
+$$</p>
+<p>与熵的公式比较，发现：</p>
+<p>$$
+S=k\ln W({\bar a_\lam})
+$$</p>
+<p>此式称为玻尔兹曼关系。</p>
+<p>玻尔兹曼关系把熵与热力学几率直接联系起来 ： 热力学几率越大，熵也越大 。由此可以给熵一个统计解释 ： 熵代表系统的混乱度 （ 或无序度 ）。热力学几率越大，即相应的微观状态数越多，代表系统越混乱。</p>
+<h2 id="comment">Comment</h2>
+<p>这一部分涉及到了上一章提出的统计物理学的一个数学表述（近独立子系条件下）：</p>
+<p>1、引入粒子分布 ${a_\lambda}$ 和系统微观状态数 $W({a_\lambda})$ 两个概念。代表了许许多多不同的分布。</p>
+<p>2、粒子分布的最可几分布，即某个粒子分布出现概率最高的分布。并证明了这个分布在粒子数很大的时候相当于平均分布，即这种分布在宏观上的表现。</p>
+<p>3、对最可几分布中的系数 $\alpha,\beta$ 的求解。</p>
+<p>4、使用统计物理学对热力学中的宏观量的求解。如内能、熵、温度等。</p>
+<p>5、对熵的解释（玻尔兹曼公式）。</p>
+<h2 id="附录一点数学">附录：一点数学</h2>
+<h3 id="1-拉格朗日乘子法">1 拉格朗日乘子法</h3>
+<p>是一种寻找多元函数在<strong>一定条件约束</strong>下的<strong>极值</strong>的方法。</p>
+<p>假设约束条件为 $g(\vec{x})=0$，函数为 $f(\vec{x})$。</p>
+<p>简单理解一下方法：首先画出约束条件 $g(\vec{x})=0$ 的曲面，然后不断改变函数 $f(\vec x)$ 的值，使得其与约束条件的曲面相切（即 $\nabla f(\vec x_0)+\lambda\nabla g(\vec x_0)=0$，法线平行且交于同一点）,那么此点的值为极值。</p>
+<p>联立的方程式为：</p>
+<p>$$
+\left{\begin{array}{l}
+\nabla f(\mathbf{x})=\lambda \nabla g(\mathbf{x}) \<br>
+g(\mathbf{x})=0
+\end{array}\right.
+$$</p>
+<p>然后再求解即可。</p>
+<p>拉格朗日乘子法还有一个变形：</p>
+<p>令 $F=f-\lambda g$，然后求解方程组：</p>
+<p>$$
+\left{\begin{array}{l}
+\nabla F= 0 \nl
+\frac{\par F}{\par \lam} = 0
+\end{array}\right.
+$$</p>
+<p>当然，也可以用于多种约束：</p>
+<p>$$
+\begin{array}{l}
+\nabla f=\lambda \nabla g+\mu \nabla h \<br>
+g(\mathbf{x})=0 \<br>
+h(\mathbf{x})=0
+\end{array}
+$$</p>
+<h3 id="2-积分因子">2 积分因子</h3>
+<p>假设有一微分方程：</p>
+<p>$$
+\frac{\dd y}{\dd x}=f(x,y)=-\frac{P(x,y)}{Q(x,y)}\Ra P\dd y+Q\dd x=0
+$$</p>
+<p>假设存在一个可微函数 $\Phi(x,y)$，使得：</p>
+<p>$$
+\dd \Phi=P\dd y+Q\dd x
+$$</p>
+<p>那么根据全微分：</p>
+<p>$$
+\frac{\par \Phi}{\par x}=P,\frac{\par \Phi}{\par y}=Q
+$$</p>
+<p>那么 $\Phi(x,y)=C$ 就是上述方程的通积分曲线。</p>
+<p>判定一个给定的微分方程是或不是恰当方程的充分条件：</p>
+<p>$$
+\frac{\partial P}{\partial y}=\frac{\partial^{2} \Phi}{\partial y \partial x} = \frac{\partial^{2} \Phi}{\partial x \partial y} = \frac{\partial Q}{\partial x}
+$$</p>
+<p>构造 $\Phi(x,y)$ 函数的方法：</p>
+<p>$$
+\Phi(x, y)=\int_{x_{0}}^{x} P(x, y) \mathrm{d} x+\int_{y_{0}}^{y} Q\left(x_{0}, y\right) \mathrm{d} y
+$$</p>
+<p>但如果有符合微分方程形式（即 $P\dd y+Q\dd x=0$）却判定不是恰当方程（$\frac{\partial P}{\partial y}\ne\frac{\partial Q}{\partial x}$）时，就应该给微分方程乘上一个系数 $\mu(x,y)$，使得：</p>
+<p>$$
+\frac{\partial (\mu P)}{\partial y}=\frac{\partial (\mu Q)}{\partial x}
+$$</p>
+<p>这个系数就称为积分因子。</p>
+<p>积分因子有很多求法，例如初等变换法、直接求积法、束缚+复合函数形式的积分因子、分部求积分因子。</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E5%8A%9B%E5%AD%A6/">热力学与统计力学</a>
+        
+            <a href="/tags/thermodynamics-and-statistical-physics/">Thermodynamics and Statistical Physics</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css"integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js"integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8"crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js"integrity="sha384-vZTG03m&#43;2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl"crossorigin="anonymous"
+                defer="true"
+                >
+            </script>
+<script>
+MathJax = {
+    tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+    },
+    options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+};
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async
+src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">相关文章</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="">
+    <a href="/p/2021/12/%E7%83%AD%E7%BB%9F-6-%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">[热统] 6 统计物理学的基本概念</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/2021/12/%E7%83%AD%E7%BB%9F-2-%E5%9D%87%E5%8C%80%E7%B3%BB%E7%9A%84%E5%B9%B3%E8%A1%A1%E6%80%A7%E8%B4%A8-i/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">[热统] 2 均匀系的平衡性质 I</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/2021/12/%E7%83%AD%E7%BB%9F-1-%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%BE%8B-iv/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">[热统] 1 热力学的基本概念与基本规律 IV</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/2021/12/%E7%83%AD%E7%BB%9F-1-%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%BE%8B-iii/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">[热统] 1 热力学的基本概念与基本规律 III</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/2021/12/%E7%83%AD%E7%BB%9F-1-%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%BE%8B-ii/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">[热统] 1 热力学的基本概念与基本规律 II</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy;
+        
+        2021 MizarZ&#39;s Blog
+    </section>
+
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener"
+                data-version="3.4.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+
+        
+
+    </section>
+
+</footer>
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+        <aside class="sidebar right-sidebar sticky">
+            <section class="widget archives">
+                <div class="widget-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                </div>
+                <h2 class="widget-title section-title">目录</h2>
+                
+                <div class="widget--toc">
+                    <nav id="TableOfContents">
+  <ol>
+    <li><a href="#71-分布与系统的微观态-最可几分布">7.1 分布与系统的微观态 最可几分布</a>
+      <ol>
+        <li><a href="#711-近独立子系">7.1.1 近独立子系</a></li>
+        <li><a href="#712-粒子按能级的分布-a_lambda">7.1.2 粒子按能级的分布 ${a_\lambda}$</a></li>
+        <li><a href="#713-分布-a_lambda-对应的系统微观状态数-wa_lambda">7.1.3 分布 ${a_\lambda}$ 对应的系统微观状态数 $W({a_\lambda})$</a></li>
+        <li><a href="#714-最可几分布法">7.1.4 最可几分布法</a></li>
+      </ol>
+    </li>
+    <li><a href="#72-定域子系-麦克斯韦---玻尔兹曼分布">7.2 定域子系 麦克斯韦 - 玻尔兹曼分布</a>
+      <ol>
+        <li><a href="#721-分布-a_lambda-对应的系统量子态数-wa_lambda">7.2.1 分布 ${a_\lambda}$ 对应的系统量子态数 $W({a_\lambda})$</a></li>
+        <li><a href="#722-最可几分布的推导">7.2.2 最可几分布的推导</a></li>
+        <li><a href="#723-ln-wa_lambda-是尖锐成峰的极大">7.2.3 $\ln W({a_\lambda})$ 是尖锐成峰的极大</a></li>
+        <li><a href="#724-麦克斯韦-玻尔兹曼分布中参数-alphabeta-的确定">7.2.4 麦克斯韦-玻尔兹曼分布中参数 $\alpha,\beta$ 的确定</a></li>
+      </ol>
+    </li>
+    <li><a href="#73-二能级系统">7.3 二能级系统</a></li>
+    <li><a href="#74-定域子系热力学量的统计表达式-熵的统计解释">7.4 定域子系热力学量的统计表达式 熵的统计解释</a>
+      <ol>
+        <li><a href="#741-内能">7.4.1 内能</a></li>
+        <li><a href="#742-外界作用力">7.4.2 外界作用力</a></li>
+        <li><a href="#743-热量的统计表达式">7.4.3 热量的统计表达式</a></li>
+        <li><a href="#744-熵的统计分布">7.4.4 熵的统计分布</a></li>
+        <li><a href="#745-玻尔兹曼关系-熵的统计解释">7.4.5 玻尔兹曼关系 熵的统计解释</a></li>
+      </ol>
+    </li>
+    <li><a href="#comment">Comment</a></li>
+    <li><a href="#附录一点数学">附录：一点数学</a>
+      <ol>
+        <li><a href="#1-拉格朗日乘子法">1 拉格朗日乘子法</a></li>
+        <li><a href="#2-积分因子">2 积分因子</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+                </div>
+            </section>
+        </aside>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

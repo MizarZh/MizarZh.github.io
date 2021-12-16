@@ -115,12 +115,12 @@
 \def\bl{\boldsymbol}
 \def\mbf{\mathbf}
 \def\mscr{\mathscr}
-\newcommand{\avg}[1]{\left \langle #1 \right \rangle}
-\newcommand{\bk}[2]{\left \langle #1  | #2  \right \rangle}
+\newcommand{\avg}[1]{ \left  \langle #1  \right  \rangle}
+\newcommand{\bk}[2]{ \left  \langle #1  | #2   \right  \rangle}
 \newcommand{\bok}[3]{\bra{#1}#2\ket{#3}}
 \def\nl{\newline}
-\def\Ra{\Rightarrow}
-\def\La{\Leftarrow}
+\def\Ra{\rightarrow}
+\def\La{\leftarrow}
 \def\ra{\rightarrow}
 \def\la{\leftarrow}
 $$</p>
@@ -185,17 +185,17 @@ $$</p>
 \mscr{P}_a(c)\ ?= \sum_b \mscr{P}_a(b,c)
 $$</p>
 <p>但是是错误的，我们要从概率幅的方向考虑。</p>
-<p>$a\ra c$ 的概率幅可以写成：</p>
+<p>$a \ra c$ 的概率幅可以写成：</p>
 <p>$$
 \bk{v_c}{u_a} = \sum_b \bk{v_c}{w_b}\bk{w_b}{u_a}
 $$</p>
 <p>因此，概率为：</p>
 <p>$$
 \begin{aligned}
-\mathscr{P}<em>{a}(c)=&amp;\left|\sum</em>{b}\left\langle v_{c} \mid w_{b}\right\rangle\left\langle w_{b} \mid u_{a}\right\rangle\right|^{2} \nl
-=&amp; \sum_{b}\left|\left\langle v_{c} \mid w_{b}\right\rangle\right|^{2}\left|\left\langle w_{b} \mid u_{a}\right\rangle\right|^{2} \nl
-&amp;+\sum_{b} \sum_{b^{\prime} \neq b}\left\langle v_{c} \mid w_{b}\right\rangle\left\langle w_{b} \mid u_{a}\right\rangle\left\langle v_{c} \mid w_{b^{\prime}}\right\rangle^{*}\left\langle w_{b^{\prime}} \mid u_{a}\right\rangle^{*} \nl
-=&amp;\sum_{b} \mathscr{P}_{a}(b, c)+\sum_{b} \sum_{b^{\prime} \neq b}\left\langle v_{c} \mid w_{b}\right\rangle\left\langle w_{b} \mid u_{a}\right\rangle\left\langle v_{c} \mid w_{b^{\prime}}\right\rangle^{*}\left\langle w_{b^{\prime}} \mid u_{a}\right\rangle^{*}
+\mathscr{P} _a (c) =&amp;  \left  | \sum_{b}  \left  \langle v_{c} \mid w_{b} \right  \rangle  \left  \langle w_{b} \mid u_{a}  \right  \rangle  \right  |^2 \nl
+=&amp; \sum_{b}  \left |  \left  \langle v_{c} \mid w_{b} \right \rangle \right |^{2} \left | \left \langle w_{b} \mid u_{a} \right \rangle \right |^{2} \nl
+&amp;+ \sum_{b} \sum_{b^{\prime} \neq b} \left \langle v_{c} \mid w_{b} \right \rangle \left \langle w_{b} \mid u_{a} \right \rangle \left \langle v_{c} \mid w_{b^{\prime}} \right \rangle^{*} \left \langle w_{b^{\prime}} \mid u_{a} \right \rangle^{*} \nl
+=&amp; \sum_{b} \mathscr{P}_{a} (b, c)+\sum_{b} \sum_{b^{\prime} \neq b} \left \langle v_{c} \mid w_{b} \right \rangle \left \langle w_{b} \mid u_{a}  \right \rangle \left \langle v_{c} \mid w_{b^{\prime}} \right \rangle^{*}  \left \langle w_{b^{\prime}} \mid u_{a} \right \rangle^{*}
 \end{aligned}
 $$</p>
 <p>注意的是，要计算各条路径之间所有的干涉效应。</p>
@@ -205,8 +205,8 @@ $$</p>
 <p>例子：简并态</p>
 <p>$$
 \begin{aligned}
-&amp;\mathscr{P}\left(a_{n}\right)=\sum_{i=1}^{g_{n}}\left|\left\langle u_{n}^{i} \mid \psi\right\rangle\right|^{2} \nl
-&amp;\left\langle u_{n}^{i} \mid \psi\right\rangle=\lambda_{1}\left\langle u_{n}^{i} \mid \psi_{1}\right\rangle+\lambda_{2}\left\langle u_{n}^{i} \mid \psi_{2}\right\rangle
+&amp;\mathscr{P} \left (a_{n} \right )=\sum_{i=1}^{g_{n}} \left | \left \langle u_{n}^{i} \mid \psi \right \rangle \right |^{2} \nl
+&amp; \left \langle u_{n}^{i} \mid \psi \right \rangle=\lambda_{1} \left \langle u_{n}^{i} \mid \psi_{1} \right \rangle+\lambda_{2} \left \langle u_{n}^{i} \mid \psi_{2} \right \rangle
 \end{aligned}
 $$</p>
 <h2 id="comment">Comment</h2>

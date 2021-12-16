@@ -13,7 +13,7 @@
       <pubDate>Thu, 09 Dec 2021 17:14:21 +0800</pubDate>
       
       <guid>https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-3-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%81%87%E5%AE%9A-e-part/</guid>
-      <description>$$ \def\un{\mathrm} \def\dd{\mathrm d} \def\par{\partial} \def\bl{\boldsymbol} \def\mbf{\mathbf} \def\mscr{\mathscr} \newcommand{\avg}[1]{\left \langle #1 \right \rangle} \newcommand{\bk}[2]{\left \langle #1 | #2 \right \rangle} \newcommand{\bok}[3]{\bra{#1}#2\ket{#3}} \def\nl{\newline} \def\Ra{\Rightarrow} \def\La{\Leftarrow} \def\ra{\rightarrow} \def\la{\leftarrow} $$ E 薛定谔方程的物理意义 1.叠加符与干涉效应 推导 假设 $\ket{\psi_1},\ket{\psi_2}$ 是两个正交归一的态。 如果一个体系处</description>
+      <description>$$ \def\un{\mathrm} \def\dd{\mathrm d} \def\par{\partial} \def\bl{\boldsymbol} \def\mbf{\mathbf} \def\mscr{\mathscr} \newcommand{\avg}[1]{ \left \langle #1 \right \rangle} \newcommand{\bk}[2]{ \left \langle #1 | #2 \right \rangle} \newcommand{\bok}[3]{\bra{#1}#2\ket{#3}} \def\nl{\newline} \def\Ra{\rightarrow} \def\La{\leftarrow} \def\ra{\rightarrow} \def\la{\leftarrow} $$ E 薛定谔方程的物理意义 1.叠加符与干涉效应 推导 假设 $\ket{\psi_1},\ket{\psi_2}$ 是两个正交归一的态。 如果一个体</description>
     </item>
     
     <item>

@@ -6,7 +6,43 @@
     <description>Recent content in Thermodynamics and Statistical Physics on MizarZ&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 08 Dec 2021 16:46:15 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/tags/thermodynamics-and-statistical-physics/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 12 Dec 2021 17:13:15 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/tags/thermodynamics-and-statistical-physics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[热统] 7 近独立子系组成的系统 I</title>
+      <link>https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-7-%E8%BF%91%E7%8B%AC%E7%AB%8B%E5%AD%90%E7%B3%BB%E7%BB%84%E6%88%90%E7%9A%84%E7%B3%BB%E7%BB%9F-i/</link>
+      <pubDate>Sun, 12 Dec 2021 17:13:15 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-7-%E8%BF%91%E7%8B%AC%E7%AB%8B%E5%AD%90%E7%B3%BB%E7%BB%84%E6%88%90%E7%9A%84%E7%B3%BB%E7%BB%9F-i/</guid>
+      <description>$$ \def\un{\mathrm} \def\dd{\mathrm d} \def\par{\partial} \def\bl{\boldsymbol} \def\mbf{\mathbf} \def\nl{\newline} \def\Ra{\Rightarrow} \def\La{\Leftarrow} \def\ra{\rightarrow} \def\la{\leftarrow} \def\e{\epsilon} \def\ve{\varepsilon} \newcommand{\mscr}[1]{\mathscr{#1}} \def\lam{\lambda} \def\dbar{\mathrm{đ}} $$ 7 近独立子系组成的系统 7.1 分布与系统的微观态 最可几分布 7.1.1 近独立子系</description>
+    </item>
+    
+    <item>
+      <title>[热统] 6 统计物理学的基本概念</title>
+      <link>https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-6-%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/</link>
+      <pubDate>Sun, 12 Dec 2021 15:28:30 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-6-%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/</guid>
+      <description>$$ \def\un{\mathrm} \def\dd{\mathrm d} \def\par{\partial} \def\bl{\boldsymbol} \def\mbf{\mathbf} \def\nl{\newline} \def\Ra{\Rightarrow} \def\La{\Leftarrow} \def\ra{\rightarrow} \def\la{\leftarrow} \def\e{\epsilon} \def\ve{\varepsilon} \newcommand{\mscr}[1]{\mathscr{#1}} \def\dbar{\mathrm{đ}} $$ 6 统计物理学的基本概念 6.1 统计物理学的研究对象、目的与方法 热力学是热</description>
+    </item>
+    
+    <item>
+      <title>[热统] 2 均匀系的平衡性质 I</title>
+      <link>https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-2-%E5%9D%87%E5%8C%80%E7%B3%BB%E7%9A%84%E5%B9%B3%E8%A1%A1%E6%80%A7%E8%B4%A8-i/</link>
+      <pubDate>Fri, 10 Dec 2021 12:11:00 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-2-%E5%9D%87%E5%8C%80%E7%B3%BB%E7%9A%84%E5%B9%B3%E8%A1%A1%E6%80%A7%E8%B4%A8-i/</guid>
+      <description>$$ \def\un{\mathrm} \def\dd{\mathrm d} \def\par{\partial} \def\bl{\boldsymbol} \def\mbf{\mathbf} \def\nl{\newline} \def\Ra{\Rightarrow} \def\La{\Leftarrow} \def\ra{\rightarrow} \def\la{\leftarrow} \def\e{\epsilon} \def\ve{\varepsilon} \newcommand{\mscr}[1]{\mathscr{#1}} $$ 2 均匀系的平衡性质 2.1 麦克斯韦关系 2.1.1 麦克斯韦关系 勒让德变换 $$ \dd U=T\dd S-p\dd V $$ 这就是热力学基本微分方程，它是热力学第一</description>
+    </item>
+    
+    <item>
+      <title>[热统] 1 热力学的基本概念与基本规律 IV</title>
+      <link>https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-1-%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%BE%8B-iv/</link>
+      <pubDate>Wed, 08 Dec 2021 16:53:15 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-1-%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%BE%8B-iv/</guid>
+      <description>$$ \def\un{\mathrm} \def\dd{\mathrm d} \def\par{\partial} \def\bl{\boldsymbol} \def\mbf{\mathbf} \def\nl{\newline} \def\Ra{\Rightarrow} \def\La{\Leftarrow} \def\ra{\rightarrow} \def\la{\leftarrow} \def\e{\epsilon} \def\ve{\varepsilon} \newcommand{\mscr}[1]{\mathscr{#1}} \def\dbar{\mathrm{đ}} $$ 1 热力学的基本概念与基本规律 1.11 熵增加原理 1.11.1 熵增加原理 熵增加原理是热</description>
+    </item>
+    
     <item>
       <title>[热统] 1 热力学的基本概念与基本规律 III</title>
       <link>https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-1-%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%BE%8B-iii/</link>
@@ -22,7 +58,7 @@
       <pubDate>Wed, 08 Dec 2021 12:27:39 +0800</pubDate>
       
       <guid>https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-1-%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%BE%8B-ii/</guid>
-      <description>$$ \def\un{\mathrm} \def\dd{\mathrm d} \def\par{\partial} \def\bl{\boldsymbol} \def\mbf{\mathbf} \def\nl{\newline} \def\Ra{\Rightarrow} \def\La{\Leftarrow} \def\ra{\rightarrow} \def\la{\leftarrow} \def\e{\epsilon} \def\ve{\varepsilon} \newcommand{\mscr}[1]{\mathscr{#1}} \def\dbar{đ} $$ 1 热力学的基本概念与基本规律 1.4 功 传统热力学的一个基本任务就是研究能量转化的数值关系。</description>
+      <description>$$ \def\un{\mathrm} \def\dd{\mathrm d} \def\par{\partial} \def\bl{\boldsymbol} \def\mbf{\mathbf} \def\nl{\newline} \def\Ra{\Rightarrow} \def\La{\Leftarrow} \def\ra{\rightarrow} \def\la{\leftarrow} \def\e{\epsilon} \def\ve{\varepsilon} \newcommand{\mscr}[1]{\mathscr{#1}} \def\dbar{\mathrm{đ}} $$ 1 热力学的基本概念与基本规律 1.4 功 传统热力学的一个基本任务就是研究能</description>
     </item>
     
     <item>

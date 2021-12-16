@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='2.1-2.8 有省略'><title>[热统] 2 均匀系的平衡性质 I</title>
+
+<link rel='canonical' href='https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-2-%E5%9D%87%E5%8C%80%E7%B3%BB%E7%9A%84%E5%B9%B3%E8%A1%A1%E6%80%A7%E8%B4%A8-i/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='[热统] 2 均匀系的平衡性质 I'>
+<meta property='og:description' content='2.1-2.8 有省略'>
+<meta property='og:url' content='https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-2-%E5%9D%87%E5%8C%80%E7%B3%BB%E7%9A%84%E5%B9%B3%E8%A1%A1%E6%80%A7%E8%B4%A8-i/'>
+<meta property='og:site_name' content='MizarZ&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='热力学与统计力学' /><meta property='article:tag' content='Thermodynamics and Statistical Physics' /><meta property='article:published_time' content='2021-12-10T12:11:00&#43;08:00'/><meta property='article:modified_time' content='2021-12-10T12:11:00&#43;08:00'/>
+<meta name="twitter:title" content="[热统] 2 均匀系的平衡性质 I">
+<meta name="twitter:description" content="2.1-2.8 有省略">
+    <link rel="shortcut icon" href="img/favicon-32x32.png" />
+
+    </head>
+    <body class="
+    article-page has-toc
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        extended
+    
+">
+    
+        <div id="article-toolbar">
+            <a href="/" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>返回</span>
+            </a>
+        </div>
+    
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E7%89%A9%E7%90%86/" style="background-color: #773feb; color: ;">
+                物理
+            </a>
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/p/2021/12/%E7%83%AD%E7%BB%9F-2-%E5%9D%87%E5%8C%80%E7%B3%BB%E7%9A%84%E5%B9%B3%E8%A1%A1%E6%80%A7%E8%B4%A8-i/">[热统] 2 均匀系的平衡性质 I</a>
+    </h2>
+
+    
+    <h3 class="article-subtitle">
+        2.1-2.8 有省略
+    </h3>
+    
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2021-12-10</time>
+            </div>
+        
+
+        
+    </footer>
+    
+</div>
+</header>
+
+    <section class="article-content">
+    <p>$$
+\def\un{\mathrm}
+\def\dd{\mathrm d}
+\def\par{\partial}
+\def\bl{\boldsymbol}
+\def\mbf{\mathbf}
+\def\nl{\newline}
+\def\Ra{\Rightarrow}
+\def\La{\Leftarrow}
+\def\ra{\rightarrow}
+\def\la{\leftarrow}
+\def\e{\epsilon}
+\def\ve{\varepsilon}
+\newcommand{\mscr}[1]{\mathscr{#1}}
+$$</p>
+<h1 id="2-均匀系的平衡性质">2 均匀系的平衡性质</h1>
+<h2 id="21-麦克斯韦关系">2.1 麦克斯韦关系</h2>
+<h3 id="211-麦克斯韦关系-勒让德变换">2.1.1 麦克斯韦关系 勒让德变换</h3>
+<p>$$
+\dd U=T\dd S-p\dd V
+$$</p>
+<p>这就是热力学基本微分方程，它是热力学第一定律和热力学第二定律相结合对微小可逆过程的表达形式，集中概括了第一定律和第二定律对可逆过程的全部结果，是研究平衡性质的基础。</p>
+<p>导出全微分：
+$$
+\mathrm{d} U=\left(\frac{\partial U}{\partial S}\right)<em>{V} \mathrm{~d} S+\left(\frac{\partial U}{\partial V}\right)</em>{S} \mathrm{~d} V
+$$
+得到：
+$$
+\begin{aligned}
+&amp;\left(\frac{\partial U}{\partial S}\right)<em>{V}=T \nl
+&amp;\left(\frac{\partial U}{\partial V}\right)</em>{S}=-p
+\end{aligned}
+$$
+因 $T&gt;0$，故 $(\frac{\partial U}{\partial S})_V&gt;0$，表示当体积不变时，内能与熵得变化倾向是相同的。</p>
+<p>有时把这两条式子称为麦克斯韦关系</p>
+<p>由于 $U$ 是态函数，因此对其两次微商的先后次序无关：
+$$
+\frac{\partial^{2} U}{\partial V \partial S}=\frac{\partial^{2} U}{\partial S \partial V}
+$$
+因此：
+$$
+\left(\frac{\partial T}{\partial V}\right)<em>{S}=-\left(\frac{\partial p}{\partial S}\right)</em>{V}
+$$
+这只是众多麦克斯韦关系式之一。</p>
+<p>勒让德变换：
+$$
+x\dd y=\dd(xy)-y\dd x
+$$
+如：
+$$
+\begin{aligned}
+&amp;T\dd S=\dd(TS)-S\dd T\nl
+&amp;\Ra\dd U=T\dd S-p\dd V=\dd(TS)-S\dd T-p\dd V \nl
+&amp;\Ra \dd(U-TS)=\dd F=-S\dd T-p \dd V
+\end{aligned}
+$$
+因此得到关系式：
+$$
+\begin{aligned}
+&amp;S=\left(\frac{\partial F}{\partial T}\right)<em>{V} \nl
+&amp;p=-\left(\frac{\partial F}{\partial V}\right)</em>{T}
+\end{aligned}
+$$
+$F$ 的麦克斯韦关系：
+$$
+\left(\frac{\partial S}{\partial V}\right)<em>{T}=\left(\frac{\partial p}{\partial T}\right)</em>{V}
+$$
+总结表格：</p>
+<p><figure 
+	
+		class="gallery-image" 
+		style="
+			flex-grow: 219; 
+			flex-basis: 526px"
+	>
+	<a href="/p/2021/12/%E7%83%AD%E7%BB%9F-2-%E5%9D%87%E5%8C%80%E7%B3%BB%E7%9A%84%E5%B9%B3%E8%A1%A1%E6%80%A7%E8%B4%A8-i/image-20211210122326079.png" data-size="1057x482">
+		<img src="/p/2021/12/%E7%83%AD%E7%BB%9F-2-%E5%9D%87%E5%8C%80%E7%B3%BB%E7%9A%84%E5%B9%B3%E8%A1%A1%E6%80%A7%E8%B4%A8-i/image-20211210122326079.png"
+			width="1057"
+			height="482"
+			srcset="/p/2021/12/%E7%83%AD%E7%BB%9F-2-%E5%9D%87%E5%8C%80%E7%B3%BB%E7%9A%84%E5%B9%B3%E8%A1%A1%E6%80%A7%E8%B4%A8-i/image-20211210122326079_hu4d89fc4ff1d9459680e4611641c2a3ed_116941_480x0_resize_box_3.png 480w, /p/2021/12/%E7%83%AD%E7%BB%9F-2-%E5%9D%87%E5%8C%80%E7%B3%BB%E7%9A%84%E5%B9%B3%E8%A1%A1%E6%80%A7%E8%B4%A8-i/image-20211210122326079_hu4d89fc4ff1d9459680e4611641c2a3ed_116941_1024x0_resize_box_3.png 1024w"
+			loading="lazy"
+			alt="image-20211210122326079">
+	</a>
+	
+	<figcaption>image-20211210122326079</figcaption>
+	
+</figure></p>
+<p>当然也有其他的麦克斯韦关系，如 $\dd S=\frac{1}{T}\dd U+\frac{p}{T}\dd V$，这是最重要的四个。</p>
+<h3 id="212-简单应用">2.1.2 简单应用</h3>
+<p>$(\frac{\par U}{\par V})_T=?$
+$$
+\dd U=T\dd S-p\dd V=T[(\frac{\par S}{\par T})_V\dd T+\frac{\par S}{\par V})_T\dd V] - p\dd V
+$$
+因此：
+$$
+(\frac{\par U}{\par V})_T=T(\frac{\par S}{\par V})_T-p=T(\frac{\par p}{\par T})_V-p
+$$
+对于理想气体（$pV=NRT$）来说：
+$$
+(\frac{\par p}{\par T})_V=\frac{p}{T}
+$$
+因此：
+$$
+(\frac{\par U}{\par V})_T=0
+$$
+上式表明，理想气体的内能只是温度的函数，与体积无关。</p>
+<h3 id="213-可测量量">2.1.3 可测量量</h3>
+<p>可测量量有：</p>
+<p>1、状态变量（$p,V$ 等）。特殊的是 $T$，它是态函数，但可以直接测量，也常常作为状态变量。</p>
+<p>2、热容</p>
+<p>3、物态方程相联系的量。如如温度、体积、压强、电场、磁场等的变化。</p>
+<p>不可直接测量的量：</p>
+<p>1、基本热力学函数 $U,S$，辅助热力学函数 $H,F,G$ 等。</p>
+<p>2、以及它们的各种偏微分（刚好得到可测量量的偏微分除外）。</p>
+<h2 id="22-气体的节流过程-焦耳-汤姆孙效应">2.2 气体的节流过程 焦耳-汤姆孙效应</h2>
+<h2 id="23-绝热去磁降温的热力学理论">2.3 绝热去磁降温的热力学理论</h2>
+<p>这两个是应用例子，暂时先不写</p>
+<h2 id="24-热辐射的热力学理论">2.4 热辐射的热力学理论</h2>
+<p>热力学定律不仅可以应用于实物组成的宏观系统 ， 还可以应用于热辐射场。</p>
+<p>从热力学观点来看，热辐射时一种特殊的 $p-V-T$ 系统。</p>
+<h3 id="241-热辐射的内能密度是温度的普适函数">2.4.1 热辐射的内能密度是温度的普适函数</h3>
+<p>令 $u=U/V$  代表热辐射单位体积的内能 ， 即内能密度。</p>
+<p>设有 A,B 两个空窖，窖内有热辐射。它们具有相同的温度 $T$，但它们的形状、大小和物质都不同。两个窖之间通过一根小导管联通，管道中放一个滤波片，只允许 $\nu$ 到 $\nu+\dd\nu$ 之间的辐射通过。</p>
+<p><figure 
+	
+		class="gallery-image" 
+		style="
+			flex-grow: 165; 
+			flex-basis: 397px"
+	>
+	<a href="/p/2021/12/%E7%83%AD%E7%BB%9F-2-%E5%9D%87%E5%8C%80%E7%B3%BB%E7%9A%84%E5%B9%B3%E8%A1%A1%E6%80%A7%E8%B4%A8-i/image-20211216163349502.png" data-size="479x289">
+		<img src="/p/2021/12/%E7%83%AD%E7%BB%9F-2-%E5%9D%87%E5%8C%80%E7%B3%BB%E7%9A%84%E5%B9%B3%E8%A1%A1%E6%80%A7%E8%B4%A8-i/image-20211216163349502.png"
+			width="479"
+			height="289"
+			srcset="/p/2021/12/%E7%83%AD%E7%BB%9F-2-%E5%9D%87%E5%8C%80%E7%B3%BB%E7%9A%84%E5%B9%B3%E8%A1%A1%E6%80%A7%E8%B4%A8-i/image-20211216163349502_hua7d2fec7f3ea8d8cb525c5a59c499db4_25370_480x0_resize_box_3.png 480w, /p/2021/12/%E7%83%AD%E7%BB%9F-2-%E5%9D%87%E5%8C%80%E7%B3%BB%E7%9A%84%E5%B9%B3%E8%A1%A1%E6%80%A7%E8%B4%A8-i/image-20211216163349502_hua7d2fec7f3ea8d8cb525c5a59c499db4_25370_1024x0_resize_box_3.png 1024w"
+			loading="lazy"
+			alt="image-20211216163349502">
+	</a>
+	
+	<figcaption>image-20211216163349502</figcaption>
+	
+</figure></p>
+<p>令 $u_A,u_B$ 代表 A,B 两窖内热辐射的内能密度，显然：
+$$
+\begin{aligned}
+&amp;u_{A}=\int_{0}^{\infty} u_{A}(\nu) \mathrm{d} \nu \<br>
+&amp;u_{B}=\int_{0}^{\infty} u_{B}(\nu) \mathrm{d} \nu
+\end{aligned}
+$$
+使用热力学第二定律的开尔文表述反证得到（见书本）：
+$$
+u_A(\nu)=u_B(\nu)
+$$
+结果证明内能密度与两窖的形状 、 大小以及窖壁物质均无关，就证明了 $u$ 是 $T$ 的普适函数。内能可表示为：
+$$
+U=Vu(T)
+$$</p>
+<h3 id="242-辐射压强与内能密度的关系">2.4.2 辐射压强与内能密度的关系</h3>
+<p>辐射压强与热辐射的内能密度之间存在下列关系:
+$$
+p=\frac{1}{3}u
+$$
+利用奇怪的辐射压证明（见书本）。</p>
+<h3 id="243-热辐射的热力学函数">2.4.3 热辐射的热力学函数</h3>
+<p>$$
+\dd U=T\dd S-p\dd V\Ra \left(\frac{\partial U}{\partial V}\right)<em>{T}=T\left(\frac{\partial p}{\partial T}\right)</em>{V}-p
+$$</p>
+<p>对于热辐射，可以进行代换：
+$$
+u=\frac{1}{3}T\frac{\dd u}{\dd T}-\frac{u}{3}\Ra \frac{\dd u}{u}=4\frac{\dd T}{T}
+$$
+积分：
+$$
+u=aT^4\Ra U=aT^4 V
+$$
+辐射压强：
+$$
+p=\frac{a}{3}T^4
+$$
+$p$ 和 $T$ 不独立，这是热辐射和 $p-V-T$ 系统不同的地方。</p>
+<p>熵：
+$$
+\dd S=\frac{1}{T}(\dd U+p\dd V)=\dd (\frac{4}{3}aT^3V)
+$$
+积分得到（因 $V=0$ 时$S=0$ ，因此 $S_0=0$）
+$$
+S=\frac{4}{3}aT^3V
+$$
+热力学函数：
+$$
+\begin{array}{l}
+H \equiv U+p V=\frac{4}{3} a T^{4} V \nl
+F \equiv U-T S=-\frac{1}{3} a T^{4} V \nl
+G \equiv U-T S+p V=F+p V=0
+\end{array}
+$$
+$G=0$ 代表热辐射的化学势为零 ， 微观上代表热辐射的光子数不守恒。</p>
+<p>热容：
+$$
+\begin{aligned}
+&amp;C_V=4aT^3V=3S \nl
+&amp;C_p=\infty
+\end{aligned}
+$$
+绝热过程方程：
+$$
+VT^3=C
+$$</p>
+<h2 id="25-气体的热力学函数">2.5 气体的热力学函数</h2>
+<h3 id="251-理想气体的热力学函数">2.5.1 理想气体的热力学函数</h3>
+<p>物态方程：
+$$
+pV=NRT
+$$
+内能：
+$$
+U(T)=\int C_V(T)\dd T+U_0
+$$
+熵：
+$$
+\dd S=\frac{1}{T}\dd U+\frac{p}{T}\dd V=C_V\frac{\dd T}{T}+NR\frac{\dd V}{V}
+$$
+积分：
+$$
+S=\int C_V\frac{\dd T}{T}+NR\ln V+S_0
+$$
+其他热力学方程：
+$$
+H \equiv U+p V=\int C_{p} \mathrm{~d} T+H_{0} \quad\left(H_{0}=U_{0}\right)
+$$</p>
+<h3 id="252-范德瓦耳斯气体的热力学函数">2.5.2 范德瓦耳斯气体的热力学函数</h3>
+<p>物态方程：
+$$
+\left(p+\frac{a}{v^{2}}\right)(v-b)=R T
+$$
+其他关系：
+$$
+\left(\frac{\partial c_{v}}{\partial v}\right)_{T}=T\left(\frac{\partial^{2} p}{\partial T^{2}}\right)_{v}, \text{where}~ (\frac{\par c_v}{\par v})_T=0, c_v=c_v(T)
+$$
+内能与熵：
+$$
+\begin{aligned}
+&amp;u(T, v)=\int c_{v} \mathrm{~d} T-\frac{a}{v}+u_{0} \nl
+&amp;s(T, v)=\int c_{v} \frac{\mathrm{d} T}{T}+R \ln (v-b)+s_{0}
+\end{aligned}
+$$</p>
+<h2 id="26-基本热力学函数的确定">2.6 基本热力学函数的确定</h2>
+<p>以 $p-V-T$ 系统为例：
+$$
+\begin{aligned}
+&amp;p=p(T,V)\nl
+&amp;U=U(T,V)\nl
+&amp;S=S(T,V)
+\end{aligned}
+$$
+选定 $(p,V)$ 作为独立变量。</p>
+<p>确定内能：
+$$
+\mathrm{d} U=\left(\frac{\partial U}{\partial T}\right)<em>{V} \mathrm{~d} T+\left(\frac{\partial U}{\partial V}\right)</em>{T} \mathrm{~d} V = C_{V} \mathrm{~d} T+\left[T\left(\frac{\partial p}{\partial T}\right)_{V}-p\right] \mathrm{d} V
+$$
+积分，可得 $U$ 的值。</p>
+<p>求熵 $S$：
+$$
+\dd S=\frac{1}{T}\dd U+\frac{p}{T}\dd V=C_V\frac{\dd T}{T}+(\frac{\par p}{\par T})_V\dd V
+$$
+积分，可得 $S$ 的值。</p>
+<h2 id="27-特性函数">2.7 特性函数</h2>
+<p>在独立变量适当选择之下，只要一个热力学函数就可以确定均匀系的全部平衡性质。这个函数称为特性函数，它是表征均匀系的特性的，也有的书称为热力学势。</p>
+<p>注意，特性函数并不是什么新引入的态函数，而是适当选择独立变量之下的某一个热力学函数。</p>
+<p>一些例子：</p>
+<p><figure 
+	
+		class="gallery-image" 
+		style="
+			flex-grow: 269; 
+			flex-basis: 647px"
+	>
+	<a href="/p/2021/12/%E7%83%AD%E7%BB%9F-2-%E5%9D%87%E5%8C%80%E7%B3%BB%E7%9A%84%E5%B9%B3%E8%A1%A1%E6%80%A7%E8%B4%A8-i/image-20211212145037683.png" data-size="1055x391">
+		<img src="/p/2021/12/%E7%83%AD%E7%BB%9F-2-%E5%9D%87%E5%8C%80%E7%B3%BB%E7%9A%84%E5%B9%B3%E8%A1%A1%E6%80%A7%E8%B4%A8-i/image-20211212145037683.png"
+			width="1055"
+			height="391"
+			srcset="/p/2021/12/%E7%83%AD%E7%BB%9F-2-%E5%9D%87%E5%8C%80%E7%B3%BB%E7%9A%84%E5%B9%B3%E8%A1%A1%E6%80%A7%E8%B4%A8-i/image-20211212145037683_hu86d9e28767175d133526727007a07998_91369_480x0_resize_box_3.png 480w, /p/2021/12/%E7%83%AD%E7%BB%9F-2-%E5%9D%87%E5%8C%80%E7%B3%BB%E7%9A%84%E5%B9%B3%E8%A1%A1%E6%80%A7%E8%B4%A8-i/image-20211212145037683_hu86d9e28767175d133526727007a07998_91369_1024x0_resize_box_3.png 1024w"
+			loading="lazy"
+			alt="image-20211212145037683">
+	</a>
+	
+	<figcaption>image-20211212145037683</figcaption>
+	
+</figure></p>
+<p>证明其中之一： $(S,V)$ 为独立变量时，内能 $U(S,V)$ 能导出三个基本热力学函数，因此 $U(S,V)$ 是特性函数。</p>
+<p>基本微分方程：
+$$
+\dd U=T\dd S-p\dd V
+$$
+得：
+$$
+T=(\frac{\par U}{\par S})_V\Ra T= T(S,V)\Ra S=S(T,V)
+$$
+同理：
+$$
+p=-(\frac{\par U}{\par V})_S\Ra p=p(S,V)\Ra p =p(S(T,V),V)=p(T,V)
+$$
+最后：
+$$
+U=U(S,V)=U(S(T,V),V)=U(T,V)
+$$
+我们从 $U=U(S,V)$ 出发，推导出了物态方程 $p=p(T,V)$，内能 $U=U(T,V)$ 和熵 $S=S(T,V)$。因此是特征函数。</p>
+<p>具体例子： $U=CS^{4/3}V^{-1/3}$
+$$
+\begin{aligned}
+&amp;T=(\frac{\par U}{\par S})_V=\frac{4C}{3}(\frac{S}{V})^{1/3}\nl
+&amp;\Ra S=(\frac{3}{4C})^3T^3V \nl
+&amp;p=-(\frac{\par U}{\par V})_S=\frac{C}{3}(\frac{S}{V})^{4/3}=\frac{C}{3}(\frac{3}{4C})^4 T^4\nl
+&amp;U=CS^{4/3}V^{-1/3}=C(\frac{3}{4C})^4T^4 V\nl
+\end{aligned}
+$$</p>
+<h2 id="28-可逆循环过程方法">2.8 可逆循环过程方法</h2>
+<p>研究平衡性质还有另一种方法，是热力学发展早期所采用的，可以称为可逆循环过程方法．它把热力学第一定律和第二定律应用到特别设计的可逆循环过程，对于该可逆循环过程，热力学第一定律与第二定律可表达为:
+$$
+\begin{aligned}
+\oint \mathrm{d} U=0 \text { 或 }&amp; \oint \mathrm{d} Q+\oint \mathrm{d} W=0 \text {, } \<br>
+\oint \mathrm{d} S=0 \text { 或 }&amp; \oint \frac{\mathrm{d} Q}{T}=0 .
+\end{aligned}
+$$
+可逆循环过程方法的关键是设计一个可逆循环过程，通过计算，把待求的热力学量计算出来．设计可逆循环是关键，也是不大好掌握之处．而且不同的问题需要设计不同的循环过程，十分不方便。仅是提一下，有所了解。</p>
+<h2 id="comment">Comment</h2>
+<p>这一张讲述了均匀系的一些应用，并引入了其他三个热力学函数。</p>
+<p>1、麦克斯韦关系，代表各种热力学量之间的关系</p>
+<p>2、焦耳-汤姆孙效应、绝热去磁降温的应用（待补充）</p>
+<p>3、热辐射的热力学理论（内能密度相等、$p=\frac{1}{3}u$ 等性质）</p>
+<p>4、气体的热力学函数。将先前讲到的各种热力学函数应用到理想气体和范德瓦尔斯气体上。</p>
+<p>5、独立变量的重要性（确定热力学函数以及特征函数）。</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E5%8A%9B%E5%AD%A6/">热力学与统计力学</a>
+        
+            <a href="/tags/thermodynamics-and-statistical-physics/">Thermodynamics and Statistical Physics</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css"integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js"integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8"crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js"integrity="sha384-vZTG03m&#43;2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl"crossorigin="anonymous"
+                defer="true"
+                >
+            </script>
+<script>
+MathJax = {
+    tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+    },
+    options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+};
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async
+src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">相关文章</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="">
+    <a href="/p/2021/12/%E7%83%AD%E7%BB%9F-7-%E8%BF%91%E7%8B%AC%E7%AB%8B%E5%AD%90%E7%B3%BB%E7%BB%84%E6%88%90%E7%9A%84%E7%B3%BB%E7%BB%9F-i/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">[热统] 7 近独立子系组成的系统 I</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/2021/12/%E7%83%AD%E7%BB%9F-6-%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">[热统] 6 统计物理学的基本概念</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/2021/12/%E7%83%AD%E7%BB%9F-1-%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%BE%8B-iv/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">[热统] 1 热力学的基本概念与基本规律 IV</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/2021/12/%E7%83%AD%E7%BB%9F-1-%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%BE%8B-iii/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">[热统] 1 热力学的基本概念与基本规律 III</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/2021/12/%E7%83%AD%E7%BB%9F-1-%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%BE%8B-ii/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">[热统] 1 热力学的基本概念与基本规律 II</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy;
+        
+        2021 MizarZ&#39;s Blog
+    </section>
+
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener"
+                data-version="3.4.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+
+        
+
+    </section>
+
+</footer>
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+        <aside class="sidebar right-sidebar sticky">
+            <section class="widget archives">
+                <div class="widget-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                </div>
+                <h2 class="widget-title section-title">目录</h2>
+                
+                <div class="widget--toc">
+                    <nav id="TableOfContents">
+  <ol>
+    <li><a href="#21-麦克斯韦关系">2.1 麦克斯韦关系</a>
+      <ol>
+        <li><a href="#211-麦克斯韦关系-勒让德变换">2.1.1 麦克斯韦关系 勒让德变换</a></li>
+        <li><a href="#212-简单应用">2.1.2 简单应用</a></li>
+        <li><a href="#213-可测量量">2.1.3 可测量量</a></li>
+      </ol>
+    </li>
+    <li><a href="#22-气体的节流过程-焦耳-汤姆孙效应">2.2 气体的节流过程 焦耳-汤姆孙效应</a></li>
+    <li><a href="#23-绝热去磁降温的热力学理论">2.3 绝热去磁降温的热力学理论</a></li>
+    <li><a href="#24-热辐射的热力学理论">2.4 热辐射的热力学理论</a>
+      <ol>
+        <li><a href="#241-热辐射的内能密度是温度的普适函数">2.4.1 热辐射的内能密度是温度的普适函数</a></li>
+        <li><a href="#242-辐射压强与内能密度的关系">2.4.2 辐射压强与内能密度的关系</a></li>
+        <li><a href="#243-热辐射的热力学函数">2.4.3 热辐射的热力学函数</a></li>
+      </ol>
+    </li>
+    <li><a href="#25-气体的热力学函数">2.5 气体的热力学函数</a>
+      <ol>
+        <li><a href="#251-理想气体的热力学函数">2.5.1 理想气体的热力学函数</a></li>
+        <li><a href="#252-范德瓦耳斯气体的热力学函数">2.5.2 范德瓦耳斯气体的热力学函数</a></li>
+      </ol>
+    </li>
+    <li><a href="#26-基本热力学函数的确定">2.6 基本热力学函数的确定</a></li>
+    <li><a href="#27-特性函数">2.7 特性函数</a></li>
+    <li><a href="#28-可逆循环过程方法">2.8 可逆循环过程方法</a></li>
+    <li><a href="#comment">Comment</a></li>
+  </ol>
+</nav>
+                </div>
+            </section>
+        </aside>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

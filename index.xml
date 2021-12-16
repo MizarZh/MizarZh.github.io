@@ -6,7 +6,829 @@
         <description>Recent content on MizarZ&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Thu, 09 Dec 2021 17:14:21 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 12 Dec 2021 17:13:15 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>[热统] 7 近独立子系组成的系统 I</title>
+        <link>https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-7-%E8%BF%91%E7%8B%AC%E7%AB%8B%E5%AD%90%E7%B3%BB%E7%BB%84%E6%88%90%E7%9A%84%E7%B3%BB%E7%BB%9F-i/</link>
+        <pubDate>Sun, 12 Dec 2021 17:13:15 +0800</pubDate>
+        
+        <guid>https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-7-%E8%BF%91%E7%8B%AC%E7%AB%8B%E5%AD%90%E7%B3%BB%E7%BB%84%E6%88%90%E7%9A%84%E7%B3%BB%E7%BB%9F-i/</guid>
+        <description>&lt;p&gt;$$
+\def\un{\mathrm}
+\def\dd{\mathrm d}
+\def\par{\partial}
+\def\bl{\boldsymbol}
+\def\mbf{\mathbf}
+\def\nl{\newline}
+\def\Ra{\Rightarrow}
+\def\La{\Leftarrow}
+\def\ra{\rightarrow}
+\def\la{\leftarrow}
+\def\e{\epsilon}
+\def\ve{\varepsilon}
+\newcommand{\mscr}[1]{\mathscr{#1}}
+\def\lam{\lambda}
+\def\dbar{\mathrm{đ}}
+$$&lt;/p&gt;
+&lt;h1 id=&#34;7-近独立子系组成的系统&#34;&gt;7 近独立子系组成的系统&lt;/h1&gt;
+&lt;h2 id=&#34;71-分布与系统的微观态-最可几分布&#34;&gt;7.1 分布与系统的微观态 最可几分布&lt;/h2&gt;
+&lt;h3 id=&#34;711-近独立子系&#34;&gt;7.1.1 近独立子系&lt;/h3&gt;
+&lt;p&gt;子系是组成系统的基本单元，它可以是气体中的分子，金属中的传导电子，热辐射场中的光子等 ；也可以代表粒子的某一个自由度 ；此外，在某些理论处理中，还可以把系统分成许多宏观大小的部分，把每一部分看成一个子系，等等。&lt;/p&gt;
+&lt;p&gt;系统的总能量等于各个粒子的能量 $\ve_i$ 之和：&lt;/p&gt;
+&lt;p&gt;$$
+E=\sum^N_{i=1}\ve_i
+$$&lt;/p&gt;
+&lt;p&gt;则称这种系统为近独立子系（almost independent sub-system）组成的系统，有的书上用 “ 独立粒子系统 ” 或 “ 自由粒子系统 ”，意思实际上是一样的，想表达的都是假如粒子之间完全没有相互作用，粒子之间就不可能交换能量，系统就不可能达到平衡并保持平衡。&lt;/p&gt;
+&lt;h3 id=&#34;712-粒子按能级的分布-a_lambda&#34;&gt;7.1.2 粒子按能级的分布 ${a_\lambda}$&lt;/h3&gt;
+&lt;p&gt;令粒子的能级为 $\ve_1,\ve_2,\cdots,\ve_\lambda,\cdots$，它们从低到高顺序排列。相应的，各个能级的简并度为 $g_1,g_2,\cdots,g_\lambda,\cdots$（即每个能级上有多少种量子态），令 $a_1,a_2,\cdots,a_\lambda,\cdots$ 代表这些能级上占据的粒子数，称为粒子按能级的微观分布，简记为 ${a_\lambda}$。&lt;/p&gt;
+&lt;p&gt;在一定的宏观状态下，允许出现的微观分布有许许多多 。现在考虑处于平衡态的孤立系，此时系统的总能量 $E$，体积 $V$，总粒子数 $N$ 都是固定的，此时应满足两个条件：&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+&amp;amp;\sum_\lambda a_\lambda=N \nl
+&amp;amp;\sum_\lambda \ve_\lambda a_\lambda=E
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;713-分布-a_lambda-对应的系统微观状态数-wa_lambda&#34;&gt;7.1.3 分布 ${a_\lambda}$ 对应的系统微观状态数 $W({a_\lambda})$&lt;/h3&gt;
+&lt;p&gt;分布与系统微观状态数是不同的概念。分布仅确定了每一个&lt;strong&gt;能级&lt;/strong&gt; $\ve_i$ 上的粒子数 $a_i$，而系统微观状态要求确定处于每一个&lt;strong&gt;量子态&lt;/strong&gt;上的粒子数（意思就是说，一个能级上可能有多个量子态），即在确定了能级 $\ve_i$ 上的粒子数 $a_i$ 后，还需要确定量子态 $g_i$ 上粒子数的分布。&lt;/p&gt;
+&lt;p&gt;一个特定的微观分布 ${a_\lambda}$ 对应于许许多多系统的量子态。&lt;/p&gt;
+&lt;p&gt;根据等纪律原理，某一微观分布对应的系统微观态数越多，它出现的概率越大。令 $P({a_\lambda})$ 代表微观分布 ${a_\lambda}$ 出现的概率，则：&lt;/p&gt;
+&lt;p&gt;$$
+P({a_\lambda})\propto W({a_\lambda})
+$$&lt;/p&gt;
+&lt;p&gt;$W({a_\lambda})$ 代表未归一化的相对几率，称为热力学几率。目前我们只需要知道 $W({a_\lambda})$ 是分布的函数就够了。&lt;/p&gt;
+&lt;h3 id=&#34;714-最可几分布法&#34;&gt;7.1.4 最可几分布法&lt;/h3&gt;
+&lt;p&gt;统计平均：&lt;/p&gt;
+&lt;p&gt;$$
+\bar{a}&lt;em&gt;\lambda=\sum&lt;/em&gt;{{a_\lambda}}a_\lambda P({a_\lambda})
+$$&lt;/p&gt;
+&lt;p&gt;最可几分布法是从一定宏观状态下所有可能出现的微观分布中，找出出现几率最大的那个分布。倘若最可几分布出现的几率，比起其他分布的几率占有压倒优势 ；那么，最可几分布应该就等于平均分布。可以证明，当系统的粒子数目很大时，最可几分布与平均分布相同。&lt;/p&gt;
+&lt;h2 id=&#34;72-定域子系-麦克斯韦---玻尔兹曼分布&#34;&gt;7.2 定域子系 麦克斯韦 - 玻尔兹曼分布&lt;/h2&gt;
+&lt;h3 id=&#34;721-分布-a_lambda-对应的系统量子态数-wa_lambda&#34;&gt;7.2.1 分布 ${a_\lambda}$ 对应的系统量子态数 $W({a_\lambda})$&lt;/h3&gt;
+&lt;p&gt;对于全同的定域子系，粒子是可分辨的，我们可以给粒子加上标号：$1, 2, \cdots,N$。&lt;/p&gt;
+&lt;p&gt;系统量子态数为：&lt;/p&gt;
+&lt;p&gt;$$
+W({a_\lambda})=\frac{N!}{\prod \limits_\lambda a_\lambda !}\prod_\lambda g_\lambda^{a_\lambda}
+$$&lt;/p&gt;
+&lt;p&gt;解释：$g_\lambda^{a_\lambda}$ 代表的含义是 $a_\lambda$ 个粒子在 $\ve_\lam$ 能级上的 $g_\lam$ 个不同的粒子量子态中不同的占据方式。连乘 $\prod \limits_\lam$ 代表不同能级上的量子态分布。&lt;/p&gt;
+&lt;p&gt;各能级之间的粒子也可以交换，$N$ 个粒子的交换数是 $N!$，且应除去 $a_\lam$ 各能级的交换数 $\prod_\limits\lam  a_\lam$ 。&lt;/p&gt;
+&lt;h3 id=&#34;722-最可几分布的推导&#34;&gt;7.2.2 最可几分布的推导&lt;/h3&gt;
+&lt;p&gt;为了数学上的方便，把求 $W$ 的极大改为求 $\ln W$ 的极大。两者完全等价。&lt;/p&gt;
+&lt;p&gt;斯特林公式：&lt;/p&gt;
+&lt;p&gt;$$
+m!=m^me^{-m}\sqrt{2\pi m}
+$$&lt;/p&gt;
+&lt;p&gt;取对数：&lt;/p&gt;
+&lt;p&gt;$$
+\ln m!=m(\ln m-1)+\frac{1}{2}\ln(2\pi m)
+$$&lt;/p&gt;
+&lt;p&gt;当 $m$ 很大时，$\ln m \ll m$，那么最后一项可以忽略，即：&lt;/p&gt;
+&lt;p&gt;$$
+\ln m!=m(\ln m-1)
+$$&lt;/p&gt;
+&lt;p&gt;应用到 $\ln W$，得：&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+\ln W({a_\lam})&amp;amp;=N(\ln N-1)-\sum_\lam a_\lam(\ln a_\lam-1)+\sum_\lam a_\lam \lg g_\lam\nl
+&amp;amp;=N\ln N-\sum_\lam a_\lam \ln(\frac{a_\lam}{g_\lam})
+\end{aligned}
+$$&lt;/p&gt;
+&lt;p&gt;求最可几几率，就是在满足其他条件得情况下，使得 $\delta \ln W=0,\delta^2 \ln W&amp;lt;0$ 的分布。数学上是以 $a_1,a_2,\cdots,a_\lam,\cdots$ 为变数的多元函数的极值。&lt;/p&gt;
+&lt;p&gt;$$
+\delta \ln W({a_\lambda})=-\sum_\lam\ln(\frac{a_\lam}{g_\lam})\delta a_\lam=0
+$$&lt;/p&gt;
+&lt;p&gt;限制条件：&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+&amp;amp;\delta N=\sum_\lam\delta a_\lam=0\nl
+&amp;amp;\delta E=\sum_\lam\ve_\lam\delta a_\lam=0
+\end{aligned}
+$$&lt;/p&gt;
+&lt;p&gt;应用求多元函数条件极值的拉格朗日未定乘子法。引入两个拉格朗日乘子 $\alpha,\beta$&lt;/p&gt;
+&lt;p&gt;$$
+\delta\ln W-\alpha\delta N-\beta\delta E=-\sum_\lam (\ln \frac{a_\lam}{g_\lam}+\alpha+\beta\ve_\lam) \delta a_\lam=0
+$$&lt;/p&gt;
+&lt;p&gt;拉格朗日乘子法：&lt;/p&gt;
+&lt;p&gt;$$
+\ln \frac{a_\lam}{g_\lam}+\alpha+\beta\ve_\lam=0
+$$&lt;/p&gt;
+&lt;p&gt;用符号 $\tilde{a}&lt;em&gt;\lam$ 代表上面的分布（以区分微观分布 $a&lt;/em&gt;\lam$），改写为：&lt;/p&gt;
+&lt;p&gt;$$
+\tilde{a}&lt;em&gt;\lam=g&lt;/em&gt;\lam e^{-\alpha-\beta\ve_\lam}
+$$&lt;/p&gt;
+&lt;p&gt;求二阶导：&lt;/p&gt;
+&lt;p&gt;$$
+\delta^2\ln W=-\sum_\lam\frac{(\delta a_\lam)^2}{a_\lam}&amp;lt;0
+$$&lt;/p&gt;
+&lt;p&gt;因此 $\tilde{a}_\lam$ 为最可几分布，称为麦克斯韦-玻尔兹曼分布，记为 MB 分布。&lt;/p&gt;
+&lt;h3 id=&#34;723-ln-wa_lambda-是尖锐成峰的极大&#34;&gt;7.2.3 $\ln W({a_\lambda})$ 是尖锐成峰的极大&lt;/h3&gt;
+&lt;p&gt;反正是一堆证明。这里用一张图说明一切吧：&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	
+		class=&#34;gallery-image&#34; 
+		style=&#34;
+			flex-grow: 122; 
+			flex-basis: 295px&#34;
+	&gt;
+	&lt;a href=&#34;https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-7-%E8%BF%91%E7%8B%AC%E7%AB%8B%E5%AD%90%E7%B3%BB%E7%BB%84%E6%88%90%E7%9A%84%E7%B3%BB%E7%BB%9F-i/image-20211212215559845.png&#34; data-size=&#34;557x453&#34;&gt;
+		&lt;img src=&#34;https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-7-%E8%BF%91%E7%8B%AC%E7%AB%8B%E5%AD%90%E7%B3%BB%E7%BB%84%E6%88%90%E7%9A%84%E7%B3%BB%E7%BB%9F-i/image-20211212215559845.png&#34;
+			width=&#34;557&#34;
+			height=&#34;453&#34;
+			srcset=&#34;https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-7-%E8%BF%91%E7%8B%AC%E7%AB%8B%E5%AD%90%E7%B3%BB%E7%BB%84%E6%88%90%E7%9A%84%E7%B3%BB%E7%BB%9F-i/image-20211212215559845_hud91c63a2af984b51b6d796ab1d40af01_29751_480x0_resize_box_3.png 480w, https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-7-%E8%BF%91%E7%8B%AC%E7%AB%8B%E5%AD%90%E7%B3%BB%E7%BB%84%E6%88%90%E7%9A%84%E7%B3%BB%E7%BB%9F-i/image-20211212215559845_hud91c63a2af984b51b6d796ab1d40af01_29751_1024x0_resize_box_3.png 1024w&#34;
+			loading=&#34;lazy&#34;
+			alt=&#34;image-20211212215559845&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;image-20211212215559845&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;因此，以后可以将 $\bar{a}&lt;em&gt;\lam=\tilde{a}&lt;/em&gt;\lam$。&lt;/p&gt;
+&lt;h3 id=&#34;724-麦克斯韦-玻尔兹曼分布中参数-alphabeta-的确定&#34;&gt;7.2.4 麦克斯韦-玻尔兹曼分布中参数 $\alpha,\beta$ 的确定&lt;/h3&gt;
+&lt;p&gt;确定方法：&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+&amp;amp;N=\sum_\lam g_\lam e^{-\alpha-\beta\ve_\lam}\nl
+&amp;amp;E=\sum_\lam\ve_\lam g_\lam e^{-\alpha-\beta\ve_\lam}
+\end{aligned}
+$$&lt;/p&gt;
+&lt;p&gt;引进函数 $Z$：&lt;/p&gt;
+&lt;p&gt;$$
+Z=\sum_\lam g_\lam e^{-\beta\ve_\lam}
+$$&lt;/p&gt;
+&lt;p&gt;称为子系配分函数，是 $\beta$ 及其他宏观参量的函数。&lt;/p&gt;
+&lt;p&gt;由第一条式子得：&lt;/p&gt;
+&lt;p&gt;$$
+\alpha=\ln\frac{Z}{N}
+$$&lt;/p&gt;
+&lt;p&gt;消去 $\alpha$，得：&lt;/p&gt;
+&lt;p&gt;$$
+E=-N\frac{\par}{\par \beta}\ln Z
+$$&lt;/p&gt;
+&lt;h2 id=&#34;73-二能级系统&#34;&gt;7.3 二能级系统&lt;/h2&gt;
+&lt;p&gt;讨论一个简单例子：二能级系统。&lt;/p&gt;
+&lt;p&gt;这个系统只有两个能级，$\ve_1=-\ve,\ve_2=\ve$，且每个能级只有一个量子态，$g_1=g_2=1$，计算子系按能级的平均分布， 系统的内能与热容 。&lt;/p&gt;
+&lt;p&gt;这种系统有一个例子是稀磁系统。&lt;/p&gt;
+&lt;p&gt;子系配分函数：&lt;/p&gt;
+&lt;p&gt;$$
+Z=\sum_\lam g_\lam e^{-\beta\ve_\lam}=e^{\beta \ve}+e^{-\beta\ve}
+$$&lt;/p&gt;
+&lt;p&gt;参数 $\alpha$ 的确定：&lt;/p&gt;
+&lt;p&gt;$$
+e^{-\alpha}=\frac{N}{Z}=\frac{N}{e^{\beta \ve}+e^{-\beta\ve}}
+$$&lt;/p&gt;
+&lt;p&gt;平均分布：&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+&amp;amp;\bar{a}&lt;em&gt;{1}=1 \cdot \mathrm{e}^{-\alpha-\beta \varepsilon&lt;/em&gt;{1}}=N \frac{\mathrm{e}^{\beta \varepsilon}}{\mathrm{e}^{\beta \varepsilon}}+\mathrm{e}^{-\beta \varepsilon} \nl
+&amp;amp;\bar{a}&lt;em&gt;{2}=1 \cdot \mathrm{e}^{-\alpha-\beta \varepsilon&lt;/em&gt;{2}}=N \frac{\mathrm{e}^{-\beta \varepsilon}}{\mathrm{e}^{\beta \varepsilon}}+\mathrm{e}^{-\beta \varepsilon}
+\end{aligned}
+$$&lt;/p&gt;
+&lt;p&gt;式中 $\beta=\frac{1}{kT}$。显然，有限温度下 $\bar a_1&amp;gt;\bar a_2$。&lt;/p&gt;
+&lt;p&gt;$$
+\begin{array}{l}
+\text { 当 } T \rightarrow 0(\beta \rightarrow \infty): \bar{a}&lt;em&gt;{1}=N, \bar{a}&lt;/em&gt;{2}=0 ; \&lt;br&gt;
+\text { 当 } T \rightarrow \infty(\beta \rightarrow 0): \bar{a}&lt;em&gt;{1}=\frac{N}{2}, \bar{a}&lt;/em&gt;{2}=\frac{N}{2}
+\end{array}
+$$&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	
+		class=&#34;gallery-image&#34; 
+		style=&#34;
+			flex-grow: 306; 
+			flex-basis: 736px&#34;
+	&gt;
+	&lt;a href=&#34;https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-7-%E8%BF%91%E7%8B%AC%E7%AB%8B%E5%AD%90%E7%B3%BB%E7%BB%84%E6%88%90%E7%9A%84%E7%B3%BB%E7%BB%9F-i/image-20211213120251466.png&#34; data-size=&#34;835x272&#34;&gt;
+		&lt;img src=&#34;https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-7-%E8%BF%91%E7%8B%AC%E7%AB%8B%E5%AD%90%E7%B3%BB%E7%BB%84%E6%88%90%E7%9A%84%E7%B3%BB%E7%BB%9F-i/image-20211213120251466.png&#34;
+			width=&#34;835&#34;
+			height=&#34;272&#34;
+			srcset=&#34;https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-7-%E8%BF%91%E7%8B%AC%E7%AB%8B%E5%AD%90%E7%B3%BB%E7%BB%84%E6%88%90%E7%9A%84%E7%B3%BB%E7%BB%9F-i/image-20211213120251466_hucfafbe84f7e5d2aca44b406033b4f3e8_36008_480x0_resize_box_3.png 480w, https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-7-%E8%BF%91%E7%8B%AC%E7%AB%8B%E5%AD%90%E7%B3%BB%E7%BB%84%E6%88%90%E7%9A%84%E7%B3%BB%E7%BB%9F-i/image-20211213120251466_hucfafbe84f7e5d2aca44b406033b4f3e8_36008_1024x0_resize_box_3.png 1024w&#34;
+			loading=&#34;lazy&#34;
+			alt=&#34;image-20211213120251466&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;image-20211213120251466&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;h2 id=&#34;74-定域子系热力学量的统计表达式-熵的统计解释&#34;&gt;7.4 定域子系热力学量的统计表达式 熵的统计解释&lt;/h2&gt;
+&lt;p&gt;本节将从定域子系平衡态下的平均分布出发，导出各热力学量的统计表达式。&lt;/p&gt;
+&lt;p&gt;热力学量分两类：一类是内能、外界作用力，有直接的微观量，直接利用 $\bar{a}_\lam$ 求统计平均就能得到。&lt;/p&gt;
+&lt;p&gt;另一类如熵、热量，它们没有明显对应的微观量，可以通过与热力学公式类比的办法来建立。&lt;/p&gt;
+&lt;h3 id=&#34;741-内能&#34;&gt;7.4.1 内能&lt;/h3&gt;
+&lt;p&gt;内能是系统微观总能量的统计平均值。&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+U &amp;amp;=E=\sum_{\lambda} \varepsilon_{\lambda} \bar{a}_{\lambda}=\sum_{\lambda} \varepsilon_{\lambda} g_{\lambda} \mathrm{e}^{-\alpha-\beta \varepsilon_{\lambda}}=\mathrm{e}^{-\alpha} \sum_{\lambda} \varepsilon_{\lambda} g_{\lambda} \mathrm{e}^{-\beta \varepsilon_{\lambda}} \nl
+&amp;amp;=\frac{N}{Z}\left(-\frac{\partial}{\partial \beta} \sum_{\lambda} g_{\lambda} \mathrm{e}^{-\beta \varepsilon_{\lambda}}\right)=-N \frac{\partial}{\partial \beta} \ln Z
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;742-外界作用力&#34;&gt;7.4.2 外界作用力&lt;/h3&gt;
+&lt;p&gt;$$
+\dbar W=\sum_\lam \bar{Y}_\lam \dd y_\lam
+$$&lt;/p&gt;
+&lt;p&gt;$y_\lam$ 为广义坐标，外界作用力为 $\bar{Y}_\lam$。&lt;/p&gt;
+&lt;p&gt;考虑微观过程中，外界对系统做的功 $\sum_\lam Y_\lam \dd y_\lam$ 等于系统微观总能量的增加，即：&lt;/p&gt;
+&lt;p&gt;$$
+\sum_\lam Y_\lam \dd y_\lam=\sum_\lam \frac{\par E}{\par y_\lam} \dd y_\lam
+$$&lt;/p&gt;
+&lt;p&gt;即：&lt;/p&gt;
+&lt;p&gt;$$
+Y_\lam=\frac{\par E}{\par y_\lam}=\sum_\lam \frac{\par \ve_\lam}{\par y_\lam} a_\lam\ (\text{近独立子系组成的系统})
+$$&lt;/p&gt;
+&lt;p&gt;求平均值：&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+\bar{Y}&lt;em&gt;{\lambda} &amp;amp;=\sum&lt;/em&gt;{\lambda} \frac{\partial \varepsilon_{\lambda}}{\partial y_{\lambda}} \bar{a}_{\lambda}=\sum_{\lambda} \frac{\partial \varepsilon_{\lambda}}{\partial y_{\lambda}} g_{\lambda} \mathrm{e}^{-\alpha-\beta \varepsilon_{\lambda}} \nl
+&amp;amp;=\frac{N}{Z} \sum_{\lambda} \frac{\partial \varepsilon_{\lambda}}{\partial y_{\lambda}} g_{\lambda} \mathrm{e}^{-\beta \varepsilon_{\lambda}}=\frac{N}{Z}\left(-\frac{1}{\beta} \frac{\partial}{\partial y_{\lambda}} \sum_{\lambda} g_{\lambda} \mathrm{e}^{-\beta \varepsilon_{\lambda}}\right) \nl
+&amp;amp;=-\frac{N}{\beta} \frac{\partial}{\partial y_{\lambda}} \ln Z
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;743-热量的统计表达式&#34;&gt;7.4.3 热量的统计表达式&lt;/h3&gt;
+&lt;p&gt;$$
+\dbar Q= \dd \bar{E}-\sum_\lam \bar{Y}_\lam \dd y_\lam
+$$&lt;/p&gt;
+&lt;p&gt;代入 $\bar{E}=\sum_\lam \ve_\lam \bar{a}_\lam$：&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+\mathrm{\dbar} Q &amp;amp;=\mathrm{d}\left(\sum_{\lambda} \varepsilon_{\lambda} \bar{a}_{\lambda}\right)-\sum_{\lambda} \bar{Y}_{\lambda} \mathrm{d} y_{\lambda} \nl
+&amp;amp;=\sum_{\lambda} \mathrm{d} \varepsilon_{\lambda} \cdot \bar{a}_{\lambda}+\sum_{\lambda} \varepsilon_{\lambda} \cdot \mathrm{d} \bar{a}_{\lambda}-\sum_{\lambda} \bar{Y}_{\lambda} \mathrm{d} y_{\lambda}
+\end{aligned}
+$$&lt;/p&gt;
+&lt;p&gt;由于 $\dd \ve_\lam=\sum_\lam\frac{\par \ve_\lam}{y_\lam}\dd y_\lam$：&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+\sum_{\lambda} \mathrm{d} \varepsilon_{\lambda} \cdot \bar{a}_{\lambda} &amp;amp;=\sum_{\lambda}\left(\sum_{\lambda} \frac{\partial \varepsilon_{\lambda}}{\partial y_{\lambda}} \mathrm{d} y_{\lambda}\right) \bar{a}_{\lambda} \nl
+&amp;amp;=\sum_{\lambda}\left(\sum_{\lambda} \frac{\partial \varepsilon_{\lambda}}{\partial y_{\lambda}} \bar{a}_{\lambda}\right) \mathrm{d} y_{\lambda} \nl
+&amp;amp;=\sum_{\lambda}^{\prime} \bar{Y}_{\lambda} \mathrm{d} y_{\lambda} .
+\end{aligned}
+$$&lt;/p&gt;
+&lt;p&gt;因此：&lt;/p&gt;
+&lt;p&gt;$$
+\mathrm{d} Q=\sum_{\lambda} \varepsilon_{\lambda} \mathrm{d} \bar{a}_{\lambda}
+$$&lt;/p&gt;
+&lt;p&gt;这意味着：凡是平均分布不发生改变的过程是绝热过程。即在绝热过程中，外参量的变化导致粒子能级的变化，但不改变平均分布。&lt;/p&gt;
+&lt;h3 id=&#34;744-熵的统计分布&#34;&gt;7.4.4 熵的统计分布&lt;/h3&gt;
+&lt;p&gt;$$
+\dd S=\frac{\dbar Q}{T}=\frac{1}{T}(\dd \bar{E}-\sum_\lam \bar{Y}_\lam \dd y_\lam)
+$$&lt;/p&gt;
+&lt;p&gt;这条式子告诉我们，虽然 $\dbar Q$ 不是全微分，但是乘 $\frac{1}{T}$ 后就变成了全微分。即 $\frac{1}{T}$ 是 $\dbar Q$ 的积分因子。&lt;/p&gt;
+&lt;p&gt;这意味着我们可以反向考虑，证明 $\dbar Q$ 存在积分因子，就能引入熵的存在。&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+\beta\left(\mathrm{d} \bar{E}-\sum_{\lambda} \bar{Y}_{\lambda} \mathrm{d} y_{\lambda}\right)=&amp;amp;-N \beta \mathrm{d}\left(\frac{\partial}{\partial \beta} \ln Z\right)+N \sum_{\lambda} \frac{\partial}{\partial y_{\lambda}} \ln Z \cdot \mathrm{d} y_{\lambda} \nl
+=&amp;amp;-N \mathrm{~d}\left(\beta \frac{\partial}{\partial \beta} \ln Z\right)+N \frac{\partial}{\partial \beta} \ln Z \cdot \mathrm{d} \beta \nl
+&amp;amp;+N \sum_{\lambda} \frac{\partial}{\partial y_{\lambda}} \ln Z \cdot \mathrm{d} y_{\lambda} \nl
+=&amp;amp; N \mathrm{~d}\left(\ln Z-\beta \frac{\partial}{\partial \beta} \ln Z\right)
+\end{aligned}
+$$&lt;/p&gt;
+&lt;p&gt;右方是全微分，这就证明了 $\beta$ 是微分式 $\mathrm{d} \bar{E}-\sum_{\lambda} \bar{Y}_{\lambda} \mathrm{d} y_{\lambda}$ 的积分因子。&lt;/p&gt;
+&lt;p&gt;对比，我们可以发现：&lt;/p&gt;
+&lt;p&gt;$$
+\beta=\frac{1}{kT}
+$$&lt;/p&gt;
+&lt;p&gt;$k$ 是一个普适常数，经过实验可以测得：$k=1.38\times10^{-23}~ \un{J\cdot K^{-1}}$，称为玻尔兹曼常数。&lt;/p&gt;
+&lt;p&gt;代回 $\dd S$ 式：&lt;/p&gt;
+&lt;p&gt;$$
+\dd S=Nk \mathrm{~d}\left(\ln Z-\beta \frac{\partial}{\partial \beta} \ln Z\right)
+$$&lt;/p&gt;
+&lt;p&gt;积分并取 $S_0=0$：&lt;/p&gt;
+&lt;p&gt;$$
+S=Nk(\ln Z-\beta\frac{\par}{\par \beta}\ln Z)
+$$&lt;/p&gt;
+&lt;p&gt;至此，已经得出了三个基本热力学函数，其他的热力学量也就一并确定了。&lt;/p&gt;
+&lt;h3 id=&#34;745-玻尔兹曼关系-熵的统计解释&#34;&gt;7.4.5 玻尔兹曼关系 熵的统计解释&lt;/h3&gt;
+&lt;p&gt;$$
+\ln W({a_\lam})=N\ln N-\sum_\lam a_\lam\ln(\frac{a_\lam}{g_\lam})
+$$&lt;/p&gt;
+&lt;p&gt;换成平均分布，上式也成立：&lt;/p&gt;
+&lt;p&gt;$$
+\ln W({\bar a_\lam})=N\ln N-\sum_\lam \bar a_\lam\ln(\frac{\bar a_\lam}{g_\lam})
+$$&lt;/p&gt;
+&lt;p&gt;代入平均分布的表达式：&lt;/p&gt;
+&lt;p&gt;$$
+\ln W({\bar a_\lam})=N\ln N-\sum_\lam \bar a_\lam(-\alpha-\beta\ve_\lam)=N\ln N+\alpha N+\beta \bar{E}
+$$&lt;/p&gt;
+&lt;p&gt;代入 $\alpha,\bar E$，得：&lt;/p&gt;
+&lt;p&gt;$$
+\ln W({\bar a_\lam})=N(\ln Z-\beta\frac{\par }{\par \beta}\ln Z)
+$$&lt;/p&gt;
+&lt;p&gt;与熵的公式比较，发现：&lt;/p&gt;
+&lt;p&gt;$$
+S=k\ln W({\bar a_\lam})
+$$&lt;/p&gt;
+&lt;p&gt;此式称为玻尔兹曼关系。&lt;/p&gt;
+&lt;p&gt;玻尔兹曼关系把熵与热力学几率直接联系起来 ： 热力学几率越大，熵也越大 。由此可以给熵一个统计解释 ： 熵代表系统的混乱度 （ 或无序度 ）。热力学几率越大，即相应的微观状态数越多，代表系统越混乱。&lt;/p&gt;
+&lt;h2 id=&#34;comment&#34;&gt;Comment&lt;/h2&gt;
+&lt;p&gt;这一部分涉及到了上一章提出的统计物理学的一个数学表述（近独立子系条件下）：&lt;/p&gt;
+&lt;p&gt;1、引入粒子分布 ${a_\lambda}$ 和系统微观状态数 $W({a_\lambda})$ 两个概念。代表了许许多多不同的分布。&lt;/p&gt;
+&lt;p&gt;2、粒子分布的最可几分布，即某个粒子分布出现概率最高的分布。并证明了这个分布在粒子数很大的时候相当于平均分布，即这种分布在宏观上的表现。&lt;/p&gt;
+&lt;p&gt;3、对最可几分布中的系数 $\alpha,\beta$ 的求解。&lt;/p&gt;
+&lt;p&gt;4、使用统计物理学对热力学中的宏观量的求解。如内能、熵、温度等。&lt;/p&gt;
+&lt;p&gt;5、对熵的解释（玻尔兹曼公式）。&lt;/p&gt;
+&lt;h2 id=&#34;附录一点数学&#34;&gt;附录：一点数学&lt;/h2&gt;
+&lt;h3 id=&#34;1-拉格朗日乘子法&#34;&gt;1 拉格朗日乘子法&lt;/h3&gt;
+&lt;p&gt;是一种寻找多元函数在&lt;strong&gt;一定条件约束&lt;/strong&gt;下的&lt;strong&gt;极值&lt;/strong&gt;的方法。&lt;/p&gt;
+&lt;p&gt;假设约束条件为 $g(\vec{x})=0$，函数为 $f(\vec{x})$。&lt;/p&gt;
+&lt;p&gt;简单理解一下方法：首先画出约束条件 $g(\vec{x})=0$ 的曲面，然后不断改变函数 $f(\vec x)$ 的值，使得其与约束条件的曲面相切（即 $\nabla f(\vec x_0)+\lambda\nabla g(\vec x_0)=0$，法线平行且交于同一点）,那么此点的值为极值。&lt;/p&gt;
+&lt;p&gt;联立的方程式为：&lt;/p&gt;
+&lt;p&gt;$$
+\left{\begin{array}{l}
+\nabla f(\mathbf{x})=\lambda \nabla g(\mathbf{x}) \&lt;br&gt;
+g(\mathbf{x})=0
+\end{array}\right.
+$$&lt;/p&gt;
+&lt;p&gt;然后再求解即可。&lt;/p&gt;
+&lt;p&gt;拉格朗日乘子法还有一个变形：&lt;/p&gt;
+&lt;p&gt;令 $F=f-\lambda g$，然后求解方程组：&lt;/p&gt;
+&lt;p&gt;$$
+\left{\begin{array}{l}
+\nabla F= 0 \nl
+\frac{\par F}{\par \lam} = 0
+\end{array}\right.
+$$&lt;/p&gt;
+&lt;p&gt;当然，也可以用于多种约束：&lt;/p&gt;
+&lt;p&gt;$$
+\begin{array}{l}
+\nabla f=\lambda \nabla g+\mu \nabla h \&lt;br&gt;
+g(\mathbf{x})=0 \&lt;br&gt;
+h(\mathbf{x})=0
+\end{array}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;2-积分因子&#34;&gt;2 积分因子&lt;/h3&gt;
+&lt;p&gt;假设有一微分方程：&lt;/p&gt;
+&lt;p&gt;$$
+\frac{\dd y}{\dd x}=f(x,y)=-\frac{P(x,y)}{Q(x,y)}\Ra P\dd y+Q\dd x=0
+$$&lt;/p&gt;
+&lt;p&gt;假设存在一个可微函数 $\Phi(x,y)$，使得：&lt;/p&gt;
+&lt;p&gt;$$
+\dd \Phi=P\dd y+Q\dd x
+$$&lt;/p&gt;
+&lt;p&gt;那么根据全微分：&lt;/p&gt;
+&lt;p&gt;$$
+\frac{\par \Phi}{\par x}=P,\frac{\par \Phi}{\par y}=Q
+$$&lt;/p&gt;
+&lt;p&gt;那么 $\Phi(x,y)=C$ 就是上述方程的通积分曲线。&lt;/p&gt;
+&lt;p&gt;判定一个给定的微分方程是或不是恰当方程的充分条件：&lt;/p&gt;
+&lt;p&gt;$$
+\frac{\partial P}{\partial y}=\frac{\partial^{2} \Phi}{\partial y \partial x} = \frac{\partial^{2} \Phi}{\partial x \partial y} = \frac{\partial Q}{\partial x}
+$$&lt;/p&gt;
+&lt;p&gt;构造 $\Phi(x,y)$ 函数的方法：&lt;/p&gt;
+&lt;p&gt;$$
+\Phi(x, y)=\int_{x_{0}}^{x} P(x, y) \mathrm{d} x+\int_{y_{0}}^{y} Q\left(x_{0}, y\right) \mathrm{d} y
+$$&lt;/p&gt;
+&lt;p&gt;但如果有符合微分方程形式（即 $P\dd y+Q\dd x=0$）却判定不是恰当方程（$\frac{\partial P}{\partial y}\ne\frac{\partial Q}{\partial x}$）时，就应该给微分方程乘上一个系数 $\mu(x,y)$，使得：&lt;/p&gt;
+&lt;p&gt;$$
+\frac{\partial (\mu P)}{\partial y}=\frac{\partial (\mu Q)}{\partial x}
+$$&lt;/p&gt;
+&lt;p&gt;这个系数就称为积分因子。&lt;/p&gt;
+&lt;p&gt;积分因子有很多求法，例如初等变换法、直接求积法、束缚+复合函数形式的积分因子、分部求积分因子。&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>[热统] 6 统计物理学的基本概念</title>
+        <link>https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-6-%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/</link>
+        <pubDate>Sun, 12 Dec 2021 15:28:30 +0800</pubDate>
+        
+        <guid>https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-6-%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/</guid>
+        <description>&lt;p&gt;$$
+\def\un{\mathrm}
+\def\dd{\mathrm d}
+\def\par{\partial}
+\def\bl{\boldsymbol}
+\def\mbf{\mathbf}
+\def\nl{\newline}
+\def\Ra{\Rightarrow}
+\def\La{\Leftarrow}
+\def\ra{\rightarrow}
+\def\la{\leftarrow}
+\def\e{\epsilon}
+\def\ve{\varepsilon}
+\newcommand{\mscr}[1]{\mathscr{#1}}
+\def\dbar{\mathrm{đ}}
+$$&lt;/p&gt;
+&lt;h1 id=&#34;6-统计物理学的基本概念&#34;&gt;6 统计物理学的基本概念&lt;/h1&gt;
+&lt;h2 id=&#34;61-统计物理学的研究对象目的与方法&#34;&gt;6.1 统计物理学的研究对象、目的与方法&lt;/h2&gt;
+&lt;p&gt;热力学是热现象的宏观理论。本章将会介绍热现象的&lt;strong&gt;微观理论&lt;/strong&gt;——统计物理学。&lt;/p&gt;
+&lt;p&gt;统计物理学考虑宏观物体是由大量微观粒子组成的， 从物体的微观组成与结构出发 ，其研究目的是从**系统的微观性质出发研究和计算宏观性质 **。&lt;/p&gt;
+&lt;p&gt;热力学的基础是经验概括的三条基本定律，统计物理学的基础除了描述微观粒子运动的量子力学外， 还需要统计假设。
+热力学与统计物理学的研究方法也不同 。 前者以三条基本定律为基础作演绎推论； 后者从物体的微观组成和结构出发，把宏观性质看成微观性质的统计平均， 采用统计平均的方法。&lt;/p&gt;
+&lt;p&gt;这本书直接使用量子统计，把经典统计作为量子统计的极限来介绍。&lt;/p&gt;
+&lt;h3 id=&#34;62-微观状态的经典描写与量子描写&#34;&gt;6.2 微观状态的经典描写与量子描写&lt;/h3&gt;
+&lt;p&gt;下面先介绍以经典力学为基础的经典描写，再介绍以量子力学为基础的量子描写。 虽然微观粒子的运动遵
+从量子力学，但作为极限，经典描写在一定条件下仍是正确的。&lt;/p&gt;
+&lt;h3 id=&#34;621-微观状态的经典描写&#34;&gt;6.2.1 微观状态的经典描写&lt;/h3&gt;
+&lt;p&gt;微观状态 （ 或力学运动状态 ） 的经典描写以经典力学为基础 ，通常采用正则形式，即用广义坐标（$q_i$）与广义动量（$p_i$）来描写。&lt;/p&gt;
+&lt;p&gt;一般地说，我们把组成宏观物体的基本单元称为&lt;strong&gt;子系&lt;/strong&gt;，它可以是气体中的分子，固体中的原子，也可以是粒子的某一个自由度。&lt;/p&gt;
+&lt;p&gt;如果子系有 $r$ 个自由度，那么其微观状态需要 $2r$ 个变量来描写。子系的能量表达式为：&lt;/p&gt;
+&lt;p&gt;$$
+\ve=\ve(q_1,q_2,\cdots,q_r;p_1,p_2,\cdots,p_r)
+$$&lt;/p&gt;
+&lt;p&gt;将 $r$ 个坐标和 $r$ 个动量组成一个 $2r$ 维空间，称为子相空间（$\mu$ 空间）。子系的一个力学运动状态对应于子相空间中的一个点，子系运动状态的微小范围用 $\dd \omega$ （子相体元）表示：&lt;/p&gt;
+&lt;p&gt;$$
+\dd \omega=\dd q_1\cdots\dd q_r \dd p_1\cdots\dd p_r
+$$&lt;/p&gt;
+&lt;p&gt;整个系统的情况和子系微观状态的情况类似。若有 $N$ 个质点，每个质点有 3 个自由度，那么整个系统的总自由度为 $3N$， 需要用 $6N$ 个变量来描述。&lt;/p&gt;
+&lt;p&gt;一般来说，若系统由 $N$ 个子系构成，每个子系的自由度为 $r$，整个系统的总自由度 $s=Nr$，则需要用 $2s$ 个广义坐标和广义动量描写力学运动状态。这 $2s$ 个变量构成的空间称为相空间（$\Gamma$ 空间）。相元：&lt;/p&gt;
+&lt;p&gt;$$
+\dd \Omega=\dd q_1\cdots\dd q_s \dd p_1\cdots\dd p_s
+$$&lt;/p&gt;
+&lt;p&gt;根据经典力学，微观状态可以连续变化，相应的力学量的取值也可以连续变化。 实际上微观粒子应遵从量子力学 ； 不过经典力学的描写在一定条件下作为量子力学的极限仍是适用的。&lt;/p&gt;
+&lt;h3 id=&#34;622-微观状态的量子描写&#34;&gt;6.2.2 微观状态的量子描写&lt;/h3&gt;
+&lt;p&gt;目前仅需知道的量子力学知识点（当然量子力学一起学会更好）：&lt;/p&gt;
+&lt;p&gt;1、微观状态是一些量子态，可以用一个或一组量子数标志 ，相应的微观力学量 （ 如能量、动量等 ） 的取值是不连续的，或者说是量子化的。&lt;/p&gt;
+&lt;p&gt;如边长为 $L$ 的正方形容器中的自由粒子以及一维谐振子。&lt;/p&gt;
+&lt;p&gt;2、&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;全同粒子系统、全同性原理&lt;/strong&gt;：&lt;/p&gt;
+&lt;p&gt;所谓全同粒子是指它们的内禀性质（ 如质量、电荷、自旋等 ） 完全相同 。量子力学有一条基本规律，称为全同性原理。 它可以简单表述为：全同粒子的交换不引起新的系统的量子态 ，或者说全同粒子是不可分辨的。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;费米子与玻色子&lt;/strong&gt;：&lt;/p&gt;
+&lt;p&gt;粒子自旋为 $\hbar$ 的整数倍的粒子（自旋为 $s\hbar, s=1,2,\cdots$ 的粒子）称为玻色子（boson），如光子 $s=1$， $\pi$ 介子 $s=0$ 等。其波函数是交换对称的，遵从玻色-爱因斯坦分布（Bose-Einstein）。&lt;/p&gt;
+&lt;p&gt;粒子自旋为 $\hbar$ 的半整数倍的粒子（$s=1/2,3/2,\cdots$）称为费米子（fermion），例如轻子、质子、中子（都是 $s=1/2$）。其波函数是交换反对称的，遵从费米-狄拉克（Fermi-Dirac）统计。&lt;/p&gt;
+&lt;p&gt;对于复合粒子， 如果是由偶数个费米子或由玻色子构成的，则为玻色子。如氢原子$\un H$，含 $\un{p,e}$ 。 由奇数个费米子构成的则为费米子，如氘，含 $\un{p,n,e}$。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;泡利不相容原理&lt;/strong&gt;：&lt;/p&gt;
+&lt;p&gt;全同费米子系统遵从一条重要的规律，称为泡利不相容原理： 不允许有两个全同的费米子处于同一个单粒子量子态。如在原子中不能存在相同的电子（？）&lt;/p&gt;
+&lt;p&gt;3、 定域子系&lt;/p&gt;
+&lt;p&gt;全同多粒子系统在某些特殊情况下， 全同性原理不起作用， 这时全同粒子仍然是可以分辨的（distinguishable）。&lt;/p&gt;
+&lt;p&gt;这种特殊情况是指各个粒子的波函数分别局限在空间不同的范围内，彼此没有重叠。 在这种情况下，虽然不能从粒子的内禀性质去区分它们，但可以从粒子所处的不同位置对他们加以区分。 这种子系称为定域子系（localized sub-system）。&lt;/p&gt;
+&lt;p&gt;4、子系的量子态与系统的量子态（全同多粒子系）&lt;/p&gt;
+&lt;p&gt;（a）定域子系，粒子是可分辨的，因此有编号。每一子系量子态上占据的粒子数不受限制。&lt;/p&gt;
+&lt;p&gt;（b）非定域玻色子，粒子不可分辨，因此没有编号。但每一子系量子态上占据的粒子数不受限制。&lt;/p&gt;
+&lt;p&gt;（c）非定域费米子，粒子不可分辨及泡利原理。&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	
+		class=&#34;gallery-image&#34; 
+		style=&#34;
+			flex-grow: 105; 
+			flex-basis: 253px&#34;
+	&gt;
+	&lt;a href=&#34;https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-6-%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/image-20211212162852927.png&#34; data-size=&#34;726x687&#34;&gt;
+		&lt;img src=&#34;https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-6-%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/image-20211212162852927.png&#34;
+			width=&#34;726&#34;
+			height=&#34;687&#34;
+			srcset=&#34;https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-6-%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/image-20211212162852927_hud8b8b4f95d2d915f86527dd9728682ab_75349_480x0_resize_box_3.png 480w, https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-6-%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/image-20211212162852927_hud8b8b4f95d2d915f86527dd9728682ab_75349_1024x0_resize_box_3.png 1024w&#34;
+			loading=&#34;lazy&#34;
+			alt=&#34;image-20211212162852927&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;image-20211212162852927&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;h2 id=&#34;63-宏观量的统计性质-统计规律性&#34;&gt;6.3 宏观量的统计性质 统计规律性&lt;/h2&gt;
+&lt;h3 id=&#34;631-宏观量的统计性质&#34;&gt;6.3.1 宏观量的统计性质&lt;/h3&gt;
+&lt;p&gt;统计物理学的基本观点是：宏观量是相应微观量的统计平均值。&lt;/p&gt;
+&lt;p&gt;宏观观测有两个基本特点：一是空间尺度上是宏观小 （ 才有可能显示出宏观性质的空间变化 ）、 微观大 （ 仍包含足够大量的粒子 ）； 二是时间尺度上是宏观短 （ 才有可能显示宏观性质随时间的变化 ）、 微观长 （ 微观状态已经历足够多次变化 ）。&lt;/p&gt;
+&lt;h3 id=&#34;632-统计规律性&#34;&gt;6.3.2 统计规律性&lt;/h3&gt;
+&lt;p&gt;由于热现象过程是不可逆的，因此不能存粹以力学为规律来解释统计物理学。&lt;/p&gt;
+&lt;p&gt;宏观物体的性质和规律不可能纯粹以力学规律为基础来解释， 而有赖于新的规律，这就是统计规律，它可以表述为：在一定的宏观条件下，某一时刻系统以&lt;strong&gt;一定的几率&lt;/strong&gt;处于某一微观运动状态。 宏观状态与微观状态之间的这种联系是几率性的，这是统计规律的特征。&lt;/p&gt;
+&lt;h2 id=&#34;64-平衡态统计理论的基本假设等几率原理&#34;&gt;6.4 平衡态统计理论的基本假设：等几率原理&lt;/h2&gt;
+&lt;p&gt;等几率原理是平衡态统计理论的基本假设。&lt;/p&gt;
+&lt;p&gt;等几率原理的表述为：对于处于平衡态下的孤立系，系统各个可能的微观状态出现的几率相等。&lt;/p&gt;
+&lt;p&gt;等几率原理目前还未证明成功，直到目前为止 ， 等几率原理仍然是一条基本假设 ， 是平衡态统计物理学唯一的基本假设。但其正确性已不容置疑。&lt;/p&gt;
+&lt;h2 id=&#34;comment&#34;&gt;Comment&lt;/h2&gt;
+&lt;p&gt;这一章对统计物理学的一些基本原理作了概述和澄清。包括：&lt;/p&gt;
+&lt;p&gt;1、统计物理学的研究对象&lt;/p&gt;
+&lt;p&gt;2、微观状态的描写、量子统计的特性。&lt;/p&gt;
+&lt;p&gt;3、宏观量与微观量的联系。&lt;/p&gt;
+&lt;p&gt;4、等概率原理。&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>[热统] 2 均匀系的平衡性质 I</title>
+        <link>https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-2-%E5%9D%87%E5%8C%80%E7%B3%BB%E7%9A%84%E5%B9%B3%E8%A1%A1%E6%80%A7%E8%B4%A8-i/</link>
+        <pubDate>Fri, 10 Dec 2021 12:11:00 +0800</pubDate>
+        
+        <guid>https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-2-%E5%9D%87%E5%8C%80%E7%B3%BB%E7%9A%84%E5%B9%B3%E8%A1%A1%E6%80%A7%E8%B4%A8-i/</guid>
+        <description>&lt;p&gt;$$
+\def\un{\mathrm}
+\def\dd{\mathrm d}
+\def\par{\partial}
+\def\bl{\boldsymbol}
+\def\mbf{\mathbf}
+\def\nl{\newline}
+\def\Ra{\Rightarrow}
+\def\La{\Leftarrow}
+\def\ra{\rightarrow}
+\def\la{\leftarrow}
+\def\e{\epsilon}
+\def\ve{\varepsilon}
+\newcommand{\mscr}[1]{\mathscr{#1}}
+$$&lt;/p&gt;
+&lt;h1 id=&#34;2-均匀系的平衡性质&#34;&gt;2 均匀系的平衡性质&lt;/h1&gt;
+&lt;h2 id=&#34;21-麦克斯韦关系&#34;&gt;2.1 麦克斯韦关系&lt;/h2&gt;
+&lt;h3 id=&#34;211-麦克斯韦关系-勒让德变换&#34;&gt;2.1.1 麦克斯韦关系 勒让德变换&lt;/h3&gt;
+&lt;p&gt;$$
+\dd U=T\dd S-p\dd V
+$$&lt;/p&gt;
+&lt;p&gt;这就是热力学基本微分方程，它是热力学第一定律和热力学第二定律相结合对微小可逆过程的表达形式，集中概括了第一定律和第二定律对可逆过程的全部结果，是研究平衡性质的基础。&lt;/p&gt;
+&lt;p&gt;导出全微分：
+$$
+\mathrm{d} U=\left(\frac{\partial U}{\partial S}\right)&lt;em&gt;{V} \mathrm{~d} S+\left(\frac{\partial U}{\partial V}\right)&lt;/em&gt;{S} \mathrm{~d} V
+$$
+得到：
+$$
+\begin{aligned}
+&amp;amp;\left(\frac{\partial U}{\partial S}\right)&lt;em&gt;{V}=T \nl
+&amp;amp;\left(\frac{\partial U}{\partial V}\right)&lt;/em&gt;{S}=-p
+\end{aligned}
+$$
+因 $T&amp;gt;0$，故 $(\frac{\partial U}{\partial S})_V&amp;gt;0$，表示当体积不变时，内能与熵得变化倾向是相同的。&lt;/p&gt;
+&lt;p&gt;有时把这两条式子称为麦克斯韦关系&lt;/p&gt;
+&lt;p&gt;由于 $U$ 是态函数，因此对其两次微商的先后次序无关：
+$$
+\frac{\partial^{2} U}{\partial V \partial S}=\frac{\partial^{2} U}{\partial S \partial V}
+$$
+因此：
+$$
+\left(\frac{\partial T}{\partial V}\right)&lt;em&gt;{S}=-\left(\frac{\partial p}{\partial S}\right)&lt;/em&gt;{V}
+$$
+这只是众多麦克斯韦关系式之一。&lt;/p&gt;
+&lt;p&gt;勒让德变换：
+$$
+x\dd y=\dd(xy)-y\dd x
+$$
+如：
+$$
+\begin{aligned}
+&amp;amp;T\dd S=\dd(TS)-S\dd T\nl
+&amp;amp;\Ra\dd U=T\dd S-p\dd V=\dd(TS)-S\dd T-p\dd V \nl
+&amp;amp;\Ra \dd(U-TS)=\dd F=-S\dd T-p \dd V
+\end{aligned}
+$$
+因此得到关系式：
+$$
+\begin{aligned}
+&amp;amp;S=\left(\frac{\partial F}{\partial T}\right)&lt;em&gt;{V} \nl
+&amp;amp;p=-\left(\frac{\partial F}{\partial V}\right)&lt;/em&gt;{T}
+\end{aligned}
+$$
+$F$ 的麦克斯韦关系：
+$$
+\left(\frac{\partial S}{\partial V}\right)&lt;em&gt;{T}=\left(\frac{\partial p}{\partial T}\right)&lt;/em&gt;{V}
+$$
+总结表格：&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	
+		class=&#34;gallery-image&#34; 
+		style=&#34;
+			flex-grow: 219; 
+			flex-basis: 526px&#34;
+	&gt;
+	&lt;a href=&#34;https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-2-%E5%9D%87%E5%8C%80%E7%B3%BB%E7%9A%84%E5%B9%B3%E8%A1%A1%E6%80%A7%E8%B4%A8-i/image-20211210122326079.png&#34; data-size=&#34;1057x482&#34;&gt;
+		&lt;img src=&#34;https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-2-%E5%9D%87%E5%8C%80%E7%B3%BB%E7%9A%84%E5%B9%B3%E8%A1%A1%E6%80%A7%E8%B4%A8-i/image-20211210122326079.png&#34;
+			width=&#34;1057&#34;
+			height=&#34;482&#34;
+			srcset=&#34;https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-2-%E5%9D%87%E5%8C%80%E7%B3%BB%E7%9A%84%E5%B9%B3%E8%A1%A1%E6%80%A7%E8%B4%A8-i/image-20211210122326079_hu4d89fc4ff1d9459680e4611641c2a3ed_116941_480x0_resize_box_3.png 480w, https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-2-%E5%9D%87%E5%8C%80%E7%B3%BB%E7%9A%84%E5%B9%B3%E8%A1%A1%E6%80%A7%E8%B4%A8-i/image-20211210122326079_hu4d89fc4ff1d9459680e4611641c2a3ed_116941_1024x0_resize_box_3.png 1024w&#34;
+			loading=&#34;lazy&#34;
+			alt=&#34;image-20211210122326079&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;image-20211210122326079&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;当然也有其他的麦克斯韦关系，如 $\dd S=\frac{1}{T}\dd U+\frac{p}{T}\dd V$，这是最重要的四个。&lt;/p&gt;
+&lt;h3 id=&#34;212-简单应用&#34;&gt;2.1.2 简单应用&lt;/h3&gt;
+&lt;p&gt;$(\frac{\par U}{\par V})_T=?$
+$$
+\dd U=T\dd S-p\dd V=T[(\frac{\par S}{\par T})_V\dd T+\frac{\par S}{\par V})_T\dd V] - p\dd V
+$$
+因此：
+$$
+(\frac{\par U}{\par V})_T=T(\frac{\par S}{\par V})_T-p=T(\frac{\par p}{\par T})_V-p
+$$
+对于理想气体（$pV=NRT$）来说：
+$$
+(\frac{\par p}{\par T})_V=\frac{p}{T}
+$$
+因此：
+$$
+(\frac{\par U}{\par V})_T=0
+$$
+上式表明，理想气体的内能只是温度的函数，与体积无关。&lt;/p&gt;
+&lt;h3 id=&#34;213-可测量量&#34;&gt;2.1.3 可测量量&lt;/h3&gt;
+&lt;p&gt;可测量量有：&lt;/p&gt;
+&lt;p&gt;1、状态变量（$p,V$ 等）。特殊的是 $T$，它是态函数，但可以直接测量，也常常作为状态变量。&lt;/p&gt;
+&lt;p&gt;2、热容&lt;/p&gt;
+&lt;p&gt;3、物态方程相联系的量。如如温度、体积、压强、电场、磁场等的变化。&lt;/p&gt;
+&lt;p&gt;不可直接测量的量：&lt;/p&gt;
+&lt;p&gt;1、基本热力学函数 $U,S$，辅助热力学函数 $H,F,G$ 等。&lt;/p&gt;
+&lt;p&gt;2、以及它们的各种偏微分（刚好得到可测量量的偏微分除外）。&lt;/p&gt;
+&lt;h2 id=&#34;22-气体的节流过程-焦耳-汤姆孙效应&#34;&gt;2.2 气体的节流过程 焦耳-汤姆孙效应&lt;/h2&gt;
+&lt;h2 id=&#34;23-绝热去磁降温的热力学理论&#34;&gt;2.3 绝热去磁降温的热力学理论&lt;/h2&gt;
+&lt;p&gt;这两个是应用例子，暂时先不写&lt;/p&gt;
+&lt;h2 id=&#34;24-热辐射的热力学理论&#34;&gt;2.4 热辐射的热力学理论&lt;/h2&gt;
+&lt;p&gt;热力学定律不仅可以应用于实物组成的宏观系统 ， 还可以应用于热辐射场。&lt;/p&gt;
+&lt;p&gt;从热力学观点来看，热辐射时一种特殊的 $p-V-T$ 系统。&lt;/p&gt;
+&lt;h3 id=&#34;241-热辐射的内能密度是温度的普适函数&#34;&gt;2.4.1 热辐射的内能密度是温度的普适函数&lt;/h3&gt;
+&lt;p&gt;令 $u=U/V$  代表热辐射单位体积的内能 ， 即内能密度。&lt;/p&gt;
+&lt;p&gt;设有 A,B 两个空窖，窖内有热辐射。它们具有相同的温度 $T$，但它们的形状、大小和物质都不同。两个窖之间通过一根小导管联通，管道中放一个滤波片，只允许 $\nu$ 到 $\nu+\dd\nu$ 之间的辐射通过。&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	
+		class=&#34;gallery-image&#34; 
+		style=&#34;
+			flex-grow: 165; 
+			flex-basis: 397px&#34;
+	&gt;
+	&lt;a href=&#34;https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-2-%E5%9D%87%E5%8C%80%E7%B3%BB%E7%9A%84%E5%B9%B3%E8%A1%A1%E6%80%A7%E8%B4%A8-i/image-20211216163349502.png&#34; data-size=&#34;479x289&#34;&gt;
+		&lt;img src=&#34;https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-2-%E5%9D%87%E5%8C%80%E7%B3%BB%E7%9A%84%E5%B9%B3%E8%A1%A1%E6%80%A7%E8%B4%A8-i/image-20211216163349502.png&#34;
+			width=&#34;479&#34;
+			height=&#34;289&#34;
+			srcset=&#34;https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-2-%E5%9D%87%E5%8C%80%E7%B3%BB%E7%9A%84%E5%B9%B3%E8%A1%A1%E6%80%A7%E8%B4%A8-i/image-20211216163349502_hua7d2fec7f3ea8d8cb525c5a59c499db4_25370_480x0_resize_box_3.png 480w, https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-2-%E5%9D%87%E5%8C%80%E7%B3%BB%E7%9A%84%E5%B9%B3%E8%A1%A1%E6%80%A7%E8%B4%A8-i/image-20211216163349502_hua7d2fec7f3ea8d8cb525c5a59c499db4_25370_1024x0_resize_box_3.png 1024w&#34;
+			loading=&#34;lazy&#34;
+			alt=&#34;image-20211216163349502&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;image-20211216163349502&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;令 $u_A,u_B$ 代表 A,B 两窖内热辐射的内能密度，显然：
+$$
+\begin{aligned}
+&amp;amp;u_{A}=\int_{0}^{\infty} u_{A}(\nu) \mathrm{d} \nu \&lt;br&gt;
+&amp;amp;u_{B}=\int_{0}^{\infty} u_{B}(\nu) \mathrm{d} \nu
+\end{aligned}
+$$
+使用热力学第二定律的开尔文表述反证得到（见书本）：
+$$
+u_A(\nu)=u_B(\nu)
+$$
+结果证明内能密度与两窖的形状 、 大小以及窖壁物质均无关，就证明了 $u$ 是 $T$ 的普适函数。内能可表示为：
+$$
+U=Vu(T)
+$$&lt;/p&gt;
+&lt;h3 id=&#34;242-辐射压强与内能密度的关系&#34;&gt;2.4.2 辐射压强与内能密度的关系&lt;/h3&gt;
+&lt;p&gt;辐射压强与热辐射的内能密度之间存在下列关系:
+$$
+p=\frac{1}{3}u
+$$
+利用奇怪的辐射压证明（见书本）。&lt;/p&gt;
+&lt;h3 id=&#34;243-热辐射的热力学函数&#34;&gt;2.4.3 热辐射的热力学函数&lt;/h3&gt;
+&lt;p&gt;$$
+\dd U=T\dd S-p\dd V\Ra \left(\frac{\partial U}{\partial V}\right)&lt;em&gt;{T}=T\left(\frac{\partial p}{\partial T}\right)&lt;/em&gt;{V}-p
+$$&lt;/p&gt;
+&lt;p&gt;对于热辐射，可以进行代换：
+$$
+u=\frac{1}{3}T\frac{\dd u}{\dd T}-\frac{u}{3}\Ra \frac{\dd u}{u}=4\frac{\dd T}{T}
+$$
+积分：
+$$
+u=aT^4\Ra U=aT^4 V
+$$
+辐射压强：
+$$
+p=\frac{a}{3}T^4
+$$
+$p$ 和 $T$ 不独立，这是热辐射和 $p-V-T$ 系统不同的地方。&lt;/p&gt;
+&lt;p&gt;熵：
+$$
+\dd S=\frac{1}{T}(\dd U+p\dd V)=\dd (\frac{4}{3}aT^3V)
+$$
+积分得到（因 $V=0$ 时$S=0$ ，因此 $S_0=0$）
+$$
+S=\frac{4}{3}aT^3V
+$$
+热力学函数：
+$$
+\begin{array}{l}
+H \equiv U+p V=\frac{4}{3} a T^{4} V \nl
+F \equiv U-T S=-\frac{1}{3} a T^{4} V \nl
+G \equiv U-T S+p V=F+p V=0
+\end{array}
+$$
+$G=0$ 代表热辐射的化学势为零 ， 微观上代表热辐射的光子数不守恒。&lt;/p&gt;
+&lt;p&gt;热容：
+$$
+\begin{aligned}
+&amp;amp;C_V=4aT^3V=3S \nl
+&amp;amp;C_p=\infty
+\end{aligned}
+$$
+绝热过程方程：
+$$
+VT^3=C
+$$&lt;/p&gt;
+&lt;h2 id=&#34;25-气体的热力学函数&#34;&gt;2.5 气体的热力学函数&lt;/h2&gt;
+&lt;h3 id=&#34;251-理想气体的热力学函数&#34;&gt;2.5.1 理想气体的热力学函数&lt;/h3&gt;
+&lt;p&gt;物态方程：
+$$
+pV=NRT
+$$
+内能：
+$$
+U(T)=\int C_V(T)\dd T+U_0
+$$
+熵：
+$$
+\dd S=\frac{1}{T}\dd U+\frac{p}{T}\dd V=C_V\frac{\dd T}{T}+NR\frac{\dd V}{V}
+$$
+积分：
+$$
+S=\int C_V\frac{\dd T}{T}+NR\ln V+S_0
+$$
+其他热力学方程：
+$$
+H \equiv U+p V=\int C_{p} \mathrm{~d} T+H_{0} \quad\left(H_{0}=U_{0}\right)
+$$&lt;/p&gt;
+&lt;h3 id=&#34;252-范德瓦耳斯气体的热力学函数&#34;&gt;2.5.2 范德瓦耳斯气体的热力学函数&lt;/h3&gt;
+&lt;p&gt;物态方程：
+$$
+\left(p+\frac{a}{v^{2}}\right)(v-b)=R T
+$$
+其他关系：
+$$
+\left(\frac{\partial c_{v}}{\partial v}\right)_{T}=T\left(\frac{\partial^{2} p}{\partial T^{2}}\right)_{v}, \text{where}~ (\frac{\par c_v}{\par v})_T=0, c_v=c_v(T)
+$$
+内能与熵：
+$$
+\begin{aligned}
+&amp;amp;u(T, v)=\int c_{v} \mathrm{~d} T-\frac{a}{v}+u_{0} \nl
+&amp;amp;s(T, v)=\int c_{v} \frac{\mathrm{d} T}{T}+R \ln (v-b)+s_{0}
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;26-基本热力学函数的确定&#34;&gt;2.6 基本热力学函数的确定&lt;/h2&gt;
+&lt;p&gt;以 $p-V-T$ 系统为例：
+$$
+\begin{aligned}
+&amp;amp;p=p(T,V)\nl
+&amp;amp;U=U(T,V)\nl
+&amp;amp;S=S(T,V)
+\end{aligned}
+$$
+选定 $(p,V)$ 作为独立变量。&lt;/p&gt;
+&lt;p&gt;确定内能：
+$$
+\mathrm{d} U=\left(\frac{\partial U}{\partial T}\right)&lt;em&gt;{V} \mathrm{~d} T+\left(\frac{\partial U}{\partial V}\right)&lt;/em&gt;{T} \mathrm{~d} V = C_{V} \mathrm{~d} T+\left[T\left(\frac{\partial p}{\partial T}\right)_{V}-p\right] \mathrm{d} V
+$$
+积分，可得 $U$ 的值。&lt;/p&gt;
+&lt;p&gt;求熵 $S$：
+$$
+\dd S=\frac{1}{T}\dd U+\frac{p}{T}\dd V=C_V\frac{\dd T}{T}+(\frac{\par p}{\par T})_V\dd V
+$$
+积分，可得 $S$ 的值。&lt;/p&gt;
+&lt;h2 id=&#34;27-特性函数&#34;&gt;2.7 特性函数&lt;/h2&gt;
+&lt;p&gt;在独立变量适当选择之下，只要一个热力学函数就可以确定均匀系的全部平衡性质。这个函数称为特性函数，它是表征均匀系的特性的，也有的书称为热力学势。&lt;/p&gt;
+&lt;p&gt;注意，特性函数并不是什么新引入的态函数，而是适当选择独立变量之下的某一个热力学函数。&lt;/p&gt;
+&lt;p&gt;一些例子：&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	
+		class=&#34;gallery-image&#34; 
+		style=&#34;
+			flex-grow: 269; 
+			flex-basis: 647px&#34;
+	&gt;
+	&lt;a href=&#34;https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-2-%E5%9D%87%E5%8C%80%E7%B3%BB%E7%9A%84%E5%B9%B3%E8%A1%A1%E6%80%A7%E8%B4%A8-i/image-20211212145037683.png&#34; data-size=&#34;1055x391&#34;&gt;
+		&lt;img src=&#34;https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-2-%E5%9D%87%E5%8C%80%E7%B3%BB%E7%9A%84%E5%B9%B3%E8%A1%A1%E6%80%A7%E8%B4%A8-i/image-20211212145037683.png&#34;
+			width=&#34;1055&#34;
+			height=&#34;391&#34;
+			srcset=&#34;https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-2-%E5%9D%87%E5%8C%80%E7%B3%BB%E7%9A%84%E5%B9%B3%E8%A1%A1%E6%80%A7%E8%B4%A8-i/image-20211212145037683_hu86d9e28767175d133526727007a07998_91369_480x0_resize_box_3.png 480w, https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-2-%E5%9D%87%E5%8C%80%E7%B3%BB%E7%9A%84%E5%B9%B3%E8%A1%A1%E6%80%A7%E8%B4%A8-i/image-20211212145037683_hu86d9e28767175d133526727007a07998_91369_1024x0_resize_box_3.png 1024w&#34;
+			loading=&#34;lazy&#34;
+			alt=&#34;image-20211212145037683&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;image-20211212145037683&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;证明其中之一： $(S,V)$ 为独立变量时，内能 $U(S,V)$ 能导出三个基本热力学函数，因此 $U(S,V)$ 是特性函数。&lt;/p&gt;
+&lt;p&gt;基本微分方程：
+$$
+\dd U=T\dd S-p\dd V
+$$
+得：
+$$
+T=(\frac{\par U}{\par S})_V\Ra T= T(S,V)\Ra S=S(T,V)
+$$
+同理：
+$$
+p=-(\frac{\par U}{\par V})_S\Ra p=p(S,V)\Ra p =p(S(T,V),V)=p(T,V)
+$$
+最后：
+$$
+U=U(S,V)=U(S(T,V),V)=U(T,V)
+$$
+我们从 $U=U(S,V)$ 出发，推导出了物态方程 $p=p(T,V)$，内能 $U=U(T,V)$ 和熵 $S=S(T,V)$。因此是特征函数。&lt;/p&gt;
+&lt;p&gt;具体例子： $U=CS^{4/3}V^{-1/3}$
+$$
+\begin{aligned}
+&amp;amp;T=(\frac{\par U}{\par S})_V=\frac{4C}{3}(\frac{S}{V})^{1/3}\nl
+&amp;amp;\Ra S=(\frac{3}{4C})^3T^3V \nl
+&amp;amp;p=-(\frac{\par U}{\par V})_S=\frac{C}{3}(\frac{S}{V})^{4/3}=\frac{C}{3}(\frac{3}{4C})^4 T^4\nl
+&amp;amp;U=CS^{4/3}V^{-1/3}=C(\frac{3}{4C})^4T^4 V\nl
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;28-可逆循环过程方法&#34;&gt;2.8 可逆循环过程方法&lt;/h2&gt;
+&lt;p&gt;研究平衡性质还有另一种方法，是热力学发展早期所采用的，可以称为可逆循环过程方法．它把热力学第一定律和第二定律应用到特别设计的可逆循环过程，对于该可逆循环过程，热力学第一定律与第二定律可表达为:
+$$
+\begin{aligned}
+\oint \mathrm{d} U=0 \text { 或 }&amp;amp; \oint \mathrm{d} Q+\oint \mathrm{d} W=0 \text {, } \&lt;br&gt;
+\oint \mathrm{d} S=0 \text { 或 }&amp;amp; \oint \frac{\mathrm{d} Q}{T}=0 .
+\end{aligned}
+$$
+可逆循环过程方法的关键是设计一个可逆循环过程，通过计算，把待求的热力学量计算出来．设计可逆循环是关键，也是不大好掌握之处．而且不同的问题需要设计不同的循环过程，十分不方便。仅是提一下，有所了解。&lt;/p&gt;
+&lt;h2 id=&#34;comment&#34;&gt;Comment&lt;/h2&gt;
+&lt;p&gt;这一张讲述了均匀系的一些应用，并引入了其他三个热力学函数。&lt;/p&gt;
+&lt;p&gt;1、麦克斯韦关系，代表各种热力学量之间的关系&lt;/p&gt;
+&lt;p&gt;2、焦耳-汤姆孙效应、绝热去磁降温的应用（待补充）&lt;/p&gt;
+&lt;p&gt;3、热辐射的热力学理论（内能密度相等、$p=\frac{1}{3}u$ 等性质）&lt;/p&gt;
+&lt;p&gt;4、气体的热力学函数。将先前讲到的各种热力学函数应用到理想气体和范德瓦尔斯气体上。&lt;/p&gt;
+&lt;p&gt;5、独立变量的重要性（确定热力学函数以及特征函数）。&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>[量子力学] 3 量子力学的假定 E part</title>
         <link>https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-3-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%81%87%E5%AE%9A-e-part/</link>
         <pubDate>Thu, 09 Dec 2021 17:14:21 +0800</pubDate>
@@ -19,12 +841,12 @@
 \def\bl{\boldsymbol}
 \def\mbf{\mathbf}
 \def\mscr{\mathscr}
-\newcommand{\avg}[1]{\left \langle #1 \right \rangle}
-\newcommand{\bk}[2]{\left \langle #1  | #2  \right \rangle}
+\newcommand{\avg}[1]{ \left  \langle #1  \right  \rangle}
+\newcommand{\bk}[2]{ \left  \langle #1  | #2   \right  \rangle}
 \newcommand{\bok}[3]{\bra{#1}#2\ket{#3}}
 \def\nl{\newline}
-\def\Ra{\Rightarrow}
-\def\La{\Leftarrow}
+\def\Ra{\rightarrow}
+\def\La{\leftarrow}
 \def\ra{\rightarrow}
 \def\la{\leftarrow}
 $$&lt;/p&gt;
@@ -89,17 +911,17 @@ $$&lt;/p&gt;
 \mscr{P}_a(c)\ ?= \sum_b \mscr{P}_a(b,c)
 $$&lt;/p&gt;
 &lt;p&gt;但是是错误的，我们要从概率幅的方向考虑。&lt;/p&gt;
-&lt;p&gt;$a\ra c$ 的概率幅可以写成：&lt;/p&gt;
+&lt;p&gt;$a \ra c$ 的概率幅可以写成：&lt;/p&gt;
 &lt;p&gt;$$
 \bk{v_c}{u_a} = \sum_b \bk{v_c}{w_b}\bk{w_b}{u_a}
 $$&lt;/p&gt;
 &lt;p&gt;因此，概率为：&lt;/p&gt;
 &lt;p&gt;$$
 \begin{aligned}
-\mathscr{P}&lt;em&gt;{a}(c)=&amp;amp;\left|\sum&lt;/em&gt;{b}\left\langle v_{c} \mid w_{b}\right\rangle\left\langle w_{b} \mid u_{a}\right\rangle\right|^{2} \nl
-=&amp;amp; \sum_{b}\left|\left\langle v_{c} \mid w_{b}\right\rangle\right|^{2}\left|\left\langle w_{b} \mid u_{a}\right\rangle\right|^{2} \nl
-&amp;amp;+\sum_{b} \sum_{b^{\prime} \neq b}\left\langle v_{c} \mid w_{b}\right\rangle\left\langle w_{b} \mid u_{a}\right\rangle\left\langle v_{c} \mid w_{b^{\prime}}\right\rangle^{*}\left\langle w_{b^{\prime}} \mid u_{a}\right\rangle^{*} \nl
-=&amp;amp;\sum_{b} \mathscr{P}_{a}(b, c)+\sum_{b} \sum_{b^{\prime} \neq b}\left\langle v_{c} \mid w_{b}\right\rangle\left\langle w_{b} \mid u_{a}\right\rangle\left\langle v_{c} \mid w_{b^{\prime}}\right\rangle^{*}\left\langle w_{b^{\prime}} \mid u_{a}\right\rangle^{*}
+\mathscr{P} _a (c) =&amp;amp;  \left  | \sum_{b}  \left  \langle v_{c} \mid w_{b} \right  \rangle  \left  \langle w_{b} \mid u_{a}  \right  \rangle  \right  |^2 \nl
+=&amp;amp; \sum_{b}  \left |  \left  \langle v_{c} \mid w_{b} \right \rangle \right |^{2} \left | \left \langle w_{b} \mid u_{a} \right \rangle \right |^{2} \nl
+&amp;amp;+ \sum_{b} \sum_{b^{\prime} \neq b} \left \langle v_{c} \mid w_{b} \right \rangle \left \langle w_{b} \mid u_{a} \right \rangle \left \langle v_{c} \mid w_{b^{\prime}} \right \rangle^{*} \left \langle w_{b^{\prime}} \mid u_{a} \right \rangle^{*} \nl
+=&amp;amp; \sum_{b} \mathscr{P}_{a} (b, c)+\sum_{b} \sum_{b^{\prime} \neq b} \left \langle v_{c} \mid w_{b} \right \rangle \left \langle w_{b} \mid u_{a}  \right \rangle \left \langle v_{c} \mid w_{b^{\prime}} \right \rangle^{*}  \left \langle w_{b^{\prime}} \mid u_{a} \right \rangle^{*}
 \end{aligned}
 $$&lt;/p&gt;
 &lt;p&gt;注意的是，要计算各条路径之间所有的干涉效应。&lt;/p&gt;
@@ -109,14 +931,245 @@ $$&lt;/p&gt;
 &lt;p&gt;例子：简并态&lt;/p&gt;
 &lt;p&gt;$$
 \begin{aligned}
-&amp;amp;\mathscr{P}\left(a_{n}\right)=\sum_{i=1}^{g_{n}}\left|\left\langle u_{n}^{i} \mid \psi\right\rangle\right|^{2} \nl
-&amp;amp;\left\langle u_{n}^{i} \mid \psi\right\rangle=\lambda_{1}\left\langle u_{n}^{i} \mid \psi_{1}\right\rangle+\lambda_{2}\left\langle u_{n}^{i} \mid \psi_{2}\right\rangle
+&amp;amp;\mathscr{P} \left (a_{n} \right )=\sum_{i=1}^{g_{n}} \left | \left \langle u_{n}^{i} \mid \psi \right \rangle \right |^{2} \nl
+&amp;amp; \left \langle u_{n}^{i} \mid \psi \right \rangle=\lambda_{1} \left \langle u_{n}^{i} \mid \psi_{1} \right \rangle+\lambda_{2} \left \langle u_{n}^{i} \mid \psi_{2} \right \rangle
 \end{aligned}
 $$&lt;/p&gt;
 &lt;h2 id=&#34;comment&#34;&gt;Comment&lt;/h2&gt;
 &lt;p&gt;这里举了两种情况，详细的说明了量子力学中应该如何对概率进行处理。&lt;/p&gt;
 &lt;p&gt;书中给我们的一句话就是：&lt;/p&gt;
 &lt;p&gt;将对应于同一末态的诸&lt;strong&gt;概率幅&lt;/strong&gt;相加，然后将对应于&lt;strong&gt;正交末态&lt;/strong&gt;的诸&lt;strong&gt;概率&lt;/strong&gt;相加&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>[热统] 1 热力学的基本概念与基本规律 IV</title>
+        <link>https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-1-%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%BE%8B-iv/</link>
+        <pubDate>Wed, 08 Dec 2021 16:53:15 +0800</pubDate>
+        
+        <guid>https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-1-%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%BE%8B-iv/</guid>
+        <description>&lt;p&gt;$$
+\def\un{\mathrm}
+\def\dd{\mathrm d}
+\def\par{\partial}
+\def\bl{\boldsymbol}
+\def\mbf{\mathbf}
+\def\nl{\newline}
+\def\Ra{\Rightarrow}
+\def\La{\Leftarrow}
+\def\ra{\rightarrow}
+\def\la{\leftarrow}
+\def\e{\epsilon}
+\def\ve{\varepsilon}
+\newcommand{\mscr}[1]{\mathscr{#1}}
+\def\dbar{\mathrm{đ}}
+$$&lt;/p&gt;
+&lt;h1 id=&#34;1-热力学的基本概念与基本规律&#34;&gt;1 热力学的基本概念与基本规律&lt;/h1&gt;
+&lt;h2 id=&#34;111-熵增加原理&#34;&gt;1.11 熵增加原理&lt;/h2&gt;
+&lt;h3 id=&#34;1111-熵增加原理&#34;&gt;1.11.1 熵增加原理&lt;/h3&gt;
+&lt;p&gt;熵增加原理是热力学第二定律数学表述的一个重要的推论。&lt;/p&gt;
+&lt;p&gt;$$
+\Delta S\ge \int^2_1\frac{\dbar Q}{T}
+$$&lt;/p&gt;
+&lt;p&gt;如果绝热， $\dbar Q = 0$：&lt;/p&gt;
+&lt;p&gt;$$
+\Delta S\ge0
+$$&lt;/p&gt;
+&lt;p&gt;用文字表述：系统的熵在绝热过程中永不减少。在可逆绝热过程中不变；在不可逆绝热过程中增加。它的另一表述是：孤立系的熵永不减少。&lt;/p&gt;
+&lt;h3 id=&#34;1112-不可逆过程熵变的例子&#34;&gt;1.11.2 不可逆过程熵变的例子&lt;/h3&gt;
+&lt;p&gt;1、理想气体的自由膨胀&lt;/p&gt;
+&lt;p&gt;一个系统经历以下变化，试计算熵的该变量：&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	
+		class=&#34;gallery-image&#34; 
+		style=&#34;
+			flex-grow: 202; 
+			flex-basis: 485px&#34;
+	&gt;
+	&lt;a href=&#34;https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-1-%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%BE%8B-iv/image-20211210000936427.png&#34; data-size=&#34;502x248&#34;&gt;
+		&lt;img src=&#34;https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-1-%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%BE%8B-iv/image-20211210000936427.png&#34;
+			width=&#34;502&#34;
+			height=&#34;248&#34;
+			srcset=&#34;https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-1-%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%BE%8B-iv/image-20211210000936427_huf397ae12ab7867a5e1f5a86061f35a64_71844_480x0_resize_box_3.png 480w, https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-1-%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%BE%8B-iv/image-20211210000936427_huf397ae12ab7867a5e1f5a86061f35a64_71844_1024x0_resize_box_3.png 1024w&#34;
+			loading=&#34;lazy&#34;
+			alt=&#34;image-20211210000936427&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;image-20211210000936427&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;$$
+\Delta S=\int^2_1\frac{\dbar Q}{T}=\frac{Q}{T}=NR\ln\frac{V_2}{V_1}&amp;gt;0
+$$&lt;/p&gt;
+&lt;p&gt;2、涉及非平衡态的熵的改变&lt;/p&gt;
+&lt;p&gt;发生如下的过程：&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	
+		class=&#34;gallery-image&#34; 
+		style=&#34;
+			flex-grow: 206; 
+			flex-basis: 494px&#34;
+	&gt;
+	&lt;a href=&#34;https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-1-%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%BE%8B-iv/image-20211210001432802.png&#34; data-size=&#34;886x430&#34;&gt;
+		&lt;img src=&#34;https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-1-%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%BE%8B-iv/image-20211210001432802.png&#34;
+			width=&#34;886&#34;
+			height=&#34;430&#34;
+			srcset=&#34;https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-1-%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%BE%8B-iv/image-20211210001432802_hu4cae8526252ddd0da7eab8c7274c1932_83866_480x0_resize_box_3.png 480w, https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-1-%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%BE%8B-iv/image-20211210001432802_hu4cae8526252ddd0da7eab8c7274c1932_83866_1024x0_resize_box_3.png 1024w&#34;
+			loading=&#34;lazy&#34;
+			alt=&#34;image-20211210001432802&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;image-20211210001432802&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;对于均匀棒，各点的温度为：&lt;/p&gt;
+&lt;p&gt;$$
+T(x)=T_1-\frac{T_1-T_2}{L}x
+$$&lt;/p&gt;
+&lt;p&gt;非平衡态暂时先不涉及吧……不然没时间了。&lt;/p&gt;
+&lt;h2 id=&#34;112-最大功&#34;&gt;1.12 最大功&lt;/h2&gt;
+&lt;h3 id=&#34;1121-初终态给定的情形&#34;&gt;1.12.1 初、终态给定的情形&lt;/h3&gt;
+&lt;p&gt;热力学第一定律：&lt;/p&gt;
+&lt;p&gt;$$
+\dd U=\dbar Q+\dbar W
+$$&lt;/p&gt;
+&lt;p&gt;令 $\dbar W&#39;=-\dbar W$ 代表系统对外界所做的微功，则：&lt;/p&gt;
+&lt;p&gt;$$
+\dbar W&#39;=\dbar Q-\dd U
+$$&lt;/p&gt;
+&lt;p&gt;根据熵的性质：&lt;/p&gt;
+&lt;p&gt;$$
+\dbar Q\le T_e \dd S
+$$&lt;/p&gt;
+&lt;p&gt;其中$=$ 对应可逆过程，此时 $T_e$ 是热源/系统本身的温度；而 $&amp;lt;$ 对应不可逆过程，此时 $T_e$ 只代表热源的温度。代入上式：&lt;/p&gt;
+&lt;p&gt;$$
+\dbar W&#39;\le T_e \dd S-\dd U
+$$&lt;/p&gt;
+&lt;p&gt;$\dd S,\dd U$ 给定的条件下（亦即在初、终态给定的情况下），系统对外界做最大功：&lt;/p&gt;
+&lt;p&gt;$$
+\dbar W&#39;_{\text{max}}=\dbar W&#39;_R=T\dd S-\dd U
+$$&lt;/p&gt;
+&lt;p&gt;其中 $\dbar W&#39;_R$ 代表可逆系统对外做的微功，$T$ 代表系统的温度，而不可逆系统对外界做的微功必小于可逆系统的。&lt;/p&gt;
+&lt;h3 id=&#34;1122-初态一定但终态不同的情形&#34;&gt;1.12.2 初态一定但终态不同的情形&lt;/h3&gt;
+&lt;p&gt;（感觉这一部分的介绍比 Callen 的书写得差，有机会再补上）&lt;/p&gt;
+&lt;p&gt;普遍的定律：可逆过程输出的功为最大。这是熵增加原理的推论，称为最大功定理。&lt;/p&gt;
+&lt;p&gt;例子：&lt;/p&gt;
+&lt;p&gt;假设有两个有限大小、性质相同的物体 $A,B$，初始温度分别为 $T_1,T_2(T_1&amp;gt;T_2)$。这两个物体可以对外做功，试问什么情况下输出的功 $W&#39;$ 最大，最大值为多少？&lt;/p&gt;
+&lt;p&gt;有三种方式：&lt;/p&gt;
+&lt;p&gt;（1）让物体直接接触并达到相同温度。期间发生了不可逆热传导，没有任何功输出。&lt;/p&gt;
+&lt;p&gt;（2）让一个热机工作其中，从 $A$ 物体吸热，并向 $B$ 物体放热。热机可以是可逆的，也可以是不可逆的。&lt;/p&gt;
+&lt;p&gt;（3）使用（1）（2）混合方法。&lt;/p&gt;
+&lt;p&gt;很明显，建立平衡的各种不同的方式实际上可以有无穷多种，它们所相应的输出功的大小是不同的。&lt;/p&gt;
+&lt;p&gt;考虑情况（2），设最终温度为 $T_f$，$Q_1,Q_2$ 分别为 $A$ 物体放出的热量、$B$ 物体吸收的能量，那么：&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+&amp;amp;Q_1=C_V(T_1-T_f)\nl
+&amp;amp;Q_2=C_V(T_f-T_2) \nl
+&amp;amp;W&#39;=Q_1-Q_2=C_V(T_1+T_2-2T_f)
+\end{aligned}
+$$&lt;/p&gt;
+&lt;p&gt;使用熵增加原理（使用熵增加原理自然能够导出最大功定理）：&lt;/p&gt;
+&lt;p&gt;$$
+\Delta S=\Delta S_1 +\Delta S_2 +\Delta S_{热机}=\Delta S_1 +\Delta S_2\ge 0
+$$&lt;/p&gt;
+&lt;p&gt;具体计算：&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+&amp;amp;\Delta S_1 = \int^{T_f}&lt;em&gt;{T_1}\frac{C_V\dd T}{T}=C_V\ln\frac{T_f}{T_1}&amp;lt;0\nl
+&amp;amp;\Delta S_2 = \int^{T_f}&lt;/em&gt;{T_2}\frac{C_V\dd T}{T}=C_V\ln\frac{T_f}{T_2}&amp;gt;0\nl
+&amp;amp;\Delta S=C_V\ln\frac{T_f^2}{T_1T_2}\ge0
+\end{aligned}
+$$&lt;/p&gt;
+&lt;p&gt;因此：&lt;/p&gt;
+&lt;p&gt;$$
+T_f\ge\sqrt{T_1T_2}
+$$&lt;/p&gt;
+&lt;p&gt;带入对外做功的式子中：&lt;/p&gt;
+&lt;p&gt;$$
+W&#39;\le C_V(T_1+T_2-2\sqrt{T_1T_2})
+$$&lt;/p&gt;
+&lt;p&gt;可以得出最大值。&lt;/p&gt;
+&lt;p&gt;我们可以看到，如果使用（1）方法，得到的最终温度 $T_f=\frac{1}{2}(T_1+T_2)$ 为最高温度，而可逆热机 $T_f=\sqrt{T_1T_2}$ 为最低温度，但输出功最大。&lt;/p&gt;
+&lt;h2 id=&#34;113-自由能与吉布斯函数&#34;&gt;1.13 自由能与吉布斯函数&lt;/h2&gt;
+&lt;h3 id=&#34;1131-自由能&#34;&gt;1.13.1 自由能&lt;/h3&gt;
+&lt;p&gt;考虑这样的等温过程：&lt;/p&gt;
+&lt;p&gt;1、热源维持恒定温度 $T$&lt;/p&gt;
+&lt;p&gt;2、系统的初态与终态的温度 $T_1$ 和 $T_2$ 的热源的温度相同，即 $T_1=T_2=T$。对于可逆等温过程，系统的温度自始至终与热源的温度相同；对不可逆过程，对过程中间系统的温度并未作任何限制。&lt;/p&gt;
+&lt;p&gt;对于等温情况：&lt;/p&gt;
+&lt;p&gt;$$
+T\Delta S\ge Q=\Delta U-W\Ra \Delta U -T\Delta S\le W
+$$&lt;/p&gt;
+&lt;p&gt;引入新的态函数 $F$，定义：&lt;/p&gt;
+&lt;p&gt;$$
+F=U-TS
+$$&lt;/p&gt;
+&lt;p&gt;则上式可由 $F$ 表达为：&lt;/p&gt;
+&lt;p&gt;$$
+\Delta F= \Delta U -T\Delta S\le W
+$$&lt;/p&gt;
+&lt;p&gt;对外界做功最大值 $W_{\un{max}}&#39;=-\Delta F$&lt;/p&gt;
+&lt;p&gt;若 $W=0$，则 $\Delta F\le 0$，代表了等温等容过程的准则：可逆不变，不可逆则自由能减小。&lt;/p&gt;
+&lt;p&gt;性质：&lt;/p&gt;
+&lt;p&gt;1、自由能是态函数。&lt;/p&gt;
+&lt;p&gt;由于 $U,T,S$ 都是态函数，因此 $F$ 也是态函数。尽管我们是从讨论等温过程而引入自由能的，但 $F$ 作为态函数无需依赖等温过程。&lt;/p&gt;
+&lt;p&gt;2、$F$ 是广延量&lt;/p&gt;
+&lt;p&gt;3、等温过程对外做功满足：&lt;/p&gt;
+&lt;p&gt;$$
+W&#39;\le-\Delta F
+$$&lt;/p&gt;
+&lt;p&gt;4、等温等容过程有：&lt;/p&gt;
+&lt;p&gt;$$
+\Delta F\le 0
+$$&lt;/p&gt;
+&lt;p&gt;5、对于 $p-V-T$ 系统：&lt;/p&gt;
+&lt;p&gt;$$
+\dd F=\dd U-T\dd S-S\dd T=T\dd S-p\dd V-T\dd S-S\dd T=-S\dd T-p\dd V
+$$&lt;/p&gt;
+&lt;h3 id=&#34;1132-吉布斯函数&#34;&gt;1.13.2 吉布斯函数&lt;/h3&gt;
+&lt;p&gt;考虑这样的等温、等压过程：&lt;/p&gt;
+&lt;p&gt;1、热源维持恒定温度 $T$。系统的初态与终态的温度 $T_1$ 和 $T_2$ 的热源的温度相同，即 $T_1=T_2=T$。可逆与不可逆系统的限制同 1.13.1。&lt;/p&gt;
+&lt;p&gt;2、外界维持恒定的压强 $p$。系统的初态与终态的压强 $p_1$ 和 $p_2$ 的外界的压强相同，即 $p_1=p_2=p$。可逆与不可逆系统的限制同 1.13.1。&lt;/p&gt;
+&lt;p&gt;等温自由能的性质：&lt;/p&gt;
+&lt;p&gt;$$
+\Delta F\le W
+$$&lt;/p&gt;
+&lt;p&gt;等压过程中，膨胀功为：&lt;/p&gt;
+&lt;p&gt;$$
+W=W_1-p\Delta V
+$$&lt;/p&gt;
+&lt;p&gt;其中 $W_1$ 为非膨胀功。&lt;/p&gt;
+&lt;p&gt;因此：&lt;/p&gt;
+&lt;p&gt;$$
+\Delta F+p\Delta V\le W_1
+$$&lt;/p&gt;
+&lt;p&gt;引入新的态函数 $G$，定义：&lt;/p&gt;
+&lt;p&gt;$$
+G=U-TS+pV=F+pV
+$$&lt;/p&gt;
+&lt;p&gt;$G$ 称为吉布斯函数。&lt;/p&gt;
+&lt;p&gt;性质：&lt;/p&gt;
+&lt;p&gt;（1）$G$ 是态函数&lt;/p&gt;
+&lt;p&gt;（2）$G$ 是广延量&lt;/p&gt;
+&lt;p&gt;（3）$W_1&#39;\le-\Delta G$&lt;/p&gt;
+&lt;p&gt;（4）$W_1&#39;=0$ 的等温等压过程，$\Delta G\le 0$&lt;/p&gt;
+&lt;p&gt;（5）$p-V-T$ 系统的热力学基本微分方程式：&lt;/p&gt;
+&lt;p&gt;$$
+\dd G=-S\dd T+V\dd p
+$$&lt;/p&gt;
+&lt;h3 id=&#34;1133-一点说明&#34;&gt;1.13.3 一点说明&lt;/h3&gt;
+&lt;p&gt;我们已经引入了三个基本的热力学函数，即：&lt;/p&gt;
+&lt;p&gt;1、温度/物态方程（热平衡定律）&lt;/p&gt;
+&lt;p&gt;2、内能（热力学第一定律）&lt;/p&gt;
+&lt;p&gt;3、熵（热力学第二定律）&lt;/p&gt;
+&lt;p&gt;又引入了三个辅助热力学函数&lt;/p&gt;
+&lt;p&gt;1、焓 $H=U+pV$，用于定压过程中的热容计算，$C_p=(\frac{\par H}{\par T})_p$。&lt;/p&gt;
+&lt;p&gt;2、自由能 $F=U-TS$，用于等温过程中。&lt;/p&gt;
+&lt;p&gt;3、吉布斯函数 $G=U-TS-pV$，用于等温等压过程中。&lt;/p&gt;
+&lt;h2 id=&#34;comment&#34;&gt;Comment&lt;/h2&gt;
+&lt;p&gt;这一部分讲述了：&lt;/p&gt;
+&lt;p&gt;1、熵的一种重要的性质：熵增加原理（系统的熵在绝热过程中永不减少。在可逆绝热过程中不变；在不可逆绝热过程中增加。）&lt;/p&gt;
+&lt;p&gt;2、最大功原理，就是熵增加原理的一个应用。&lt;/p&gt;
+&lt;p&gt;3、两个辅助热力学函数。&lt;/p&gt;
+&lt;p&gt;总算是把第一章给学习完了……这一张主要的内容就是通过提出这第零、一、二热力学定律来讲述热力学系统的性质。&lt;/p&gt;
 </description>
         </item>
         <item>
@@ -431,7 +1484,7 @@ $$&lt;/p&gt;
 \def\e{\epsilon}
 \def\ve{\varepsilon}
 \newcommand{\mscr}[1]{\mathscr{#1}}
-\def\dbar{đ}
+\def\dbar{\mathrm{đ}}
 $$&lt;/p&gt;
 &lt;h1 id=&#34;1-热力学的基本概念与基本规律&#34;&gt;1 热力学的基本概念与基本规律&lt;/h1&gt;
 &lt;h2 id=&#34;14-功&#34;&gt;1.4 功&lt;/h2&gt;

@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='6.1-6.4'><title>[热统] 6 统计物理学的基本概念</title>
+
+<link rel='canonical' href='https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-6-%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='[热统] 6 统计物理学的基本概念'>
+<meta property='og:description' content='6.1-6.4'>
+<meta property='og:url' content='https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-6-%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/'>
+<meta property='og:site_name' content='MizarZ&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='热力学与统计力学' /><meta property='article:tag' content='Thermodynamics and Statistical Physics' /><meta property='article:published_time' content='2021-12-12T15:28:30&#43;08:00'/><meta property='article:modified_time' content='2021-12-12T15:28:30&#43;08:00'/>
+<meta name="twitter:title" content="[热统] 6 统计物理学的基本概念">
+<meta name="twitter:description" content="6.1-6.4">
+    <link rel="shortcut icon" href="img/favicon-32x32.png" />
+
+    </head>
+    <body class="
+    article-page has-toc
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        extended
+    
+">
+    
+        <div id="article-toolbar">
+            <a href="/" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>返回</span>
+            </a>
+        </div>
+    
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E7%89%A9%E7%90%86/" style="background-color: #773feb; color: ;">
+                物理
+            </a>
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/p/2021/12/%E7%83%AD%E7%BB%9F-6-%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/">[热统] 6 统计物理学的基本概念</a>
+    </h2>
+
+    
+    <h3 class="article-subtitle">
+        6.1-6.4
+    </h3>
+    
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2021-12-12</time>
+            </div>
+        
+
+        
+    </footer>
+    
+</div>
+</header>
+
+    <section class="article-content">
+    <p>$$
+\def\un{\mathrm}
+\def\dd{\mathrm d}
+\def\par{\partial}
+\def\bl{\boldsymbol}
+\def\mbf{\mathbf}
+\def\nl{\newline}
+\def\Ra{\Rightarrow}
+\def\La{\Leftarrow}
+\def\ra{\rightarrow}
+\def\la{\leftarrow}
+\def\e{\epsilon}
+\def\ve{\varepsilon}
+\newcommand{\mscr}[1]{\mathscr{#1}}
+\def\dbar{\mathrm{đ}}
+$$</p>
+<h1 id="6-统计物理学的基本概念">6 统计物理学的基本概念</h1>
+<h2 id="61-统计物理学的研究对象目的与方法">6.1 统计物理学的研究对象、目的与方法</h2>
+<p>热力学是热现象的宏观理论。本章将会介绍热现象的<strong>微观理论</strong>——统计物理学。</p>
+<p>统计物理学考虑宏观物体是由大量微观粒子组成的， 从物体的微观组成与结构出发 ，其研究目的是从**系统的微观性质出发研究和计算宏观性质 **。</p>
+<p>热力学的基础是经验概括的三条基本定律，统计物理学的基础除了描述微观粒子运动的量子力学外， 还需要统计假设。
+热力学与统计物理学的研究方法也不同 。 前者以三条基本定律为基础作演绎推论； 后者从物体的微观组成和结构出发，把宏观性质看成微观性质的统计平均， 采用统计平均的方法。</p>
+<p>这本书直接使用量子统计，把经典统计作为量子统计的极限来介绍。</p>
+<h3 id="62-微观状态的经典描写与量子描写">6.2 微观状态的经典描写与量子描写</h3>
+<p>下面先介绍以经典力学为基础的经典描写，再介绍以量子力学为基础的量子描写。 虽然微观粒子的运动遵
+从量子力学，但作为极限，经典描写在一定条件下仍是正确的。</p>
+<h3 id="621-微观状态的经典描写">6.2.1 微观状态的经典描写</h3>
+<p>微观状态 （ 或力学运动状态 ） 的经典描写以经典力学为基础 ，通常采用正则形式，即用广义坐标（$q_i$）与广义动量（$p_i$）来描写。</p>
+<p>一般地说，我们把组成宏观物体的基本单元称为<strong>子系</strong>，它可以是气体中的分子，固体中的原子，也可以是粒子的某一个自由度。</p>
+<p>如果子系有 $r$ 个自由度，那么其微观状态需要 $2r$ 个变量来描写。子系的能量表达式为：</p>
+<p>$$
+\ve=\ve(q_1,q_2,\cdots,q_r;p_1,p_2,\cdots,p_r)
+$$</p>
+<p>将 $r$ 个坐标和 $r$ 个动量组成一个 $2r$ 维空间，称为子相空间（$\mu$ 空间）。子系的一个力学运动状态对应于子相空间中的一个点，子系运动状态的微小范围用 $\dd \omega$ （子相体元）表示：</p>
+<p>$$
+\dd \omega=\dd q_1\cdots\dd q_r \dd p_1\cdots\dd p_r
+$$</p>
+<p>整个系统的情况和子系微观状态的情况类似。若有 $N$ 个质点，每个质点有 3 个自由度，那么整个系统的总自由度为 $3N$， 需要用 $6N$ 个变量来描述。</p>
+<p>一般来说，若系统由 $N$ 个子系构成，每个子系的自由度为 $r$，整个系统的总自由度 $s=Nr$，则需要用 $2s$ 个广义坐标和广义动量描写力学运动状态。这 $2s$ 个变量构成的空间称为相空间（$\Gamma$ 空间）。相元：</p>
+<p>$$
+\dd \Omega=\dd q_1\cdots\dd q_s \dd p_1\cdots\dd p_s
+$$</p>
+<p>根据经典力学，微观状态可以连续变化，相应的力学量的取值也可以连续变化。 实际上微观粒子应遵从量子力学 ； 不过经典力学的描写在一定条件下作为量子力学的极限仍是适用的。</p>
+<h3 id="622-微观状态的量子描写">6.2.2 微观状态的量子描写</h3>
+<p>目前仅需知道的量子力学知识点（当然量子力学一起学会更好）：</p>
+<p>1、微观状态是一些量子态，可以用一个或一组量子数标志 ，相应的微观力学量 （ 如能量、动量等 ） 的取值是不连续的，或者说是量子化的。</p>
+<p>如边长为 $L$ 的正方形容器中的自由粒子以及一维谐振子。</p>
+<p>2、</p>
+<p><strong>全同粒子系统、全同性原理</strong>：</p>
+<p>所谓全同粒子是指它们的内禀性质（ 如质量、电荷、自旋等 ） 完全相同 。量子力学有一条基本规律，称为全同性原理。 它可以简单表述为：全同粒子的交换不引起新的系统的量子态 ，或者说全同粒子是不可分辨的。</p>
+<p><strong>费米子与玻色子</strong>：</p>
+<p>粒子自旋为 $\hbar$ 的整数倍的粒子（自旋为 $s\hbar, s=1,2,\cdots$ 的粒子）称为玻色子（boson），如光子 $s=1$， $\pi$ 介子 $s=0$ 等。其波函数是交换对称的，遵从玻色-爱因斯坦分布（Bose-Einstein）。</p>
+<p>粒子自旋为 $\hbar$ 的半整数倍的粒子（$s=1/2,3/2,\cdots$）称为费米子（fermion），例如轻子、质子、中子（都是 $s=1/2$）。其波函数是交换反对称的，遵从费米-狄拉克（Fermi-Dirac）统计。</p>
+<p>对于复合粒子， 如果是由偶数个费米子或由玻色子构成的，则为玻色子。如氢原子$\un H$，含 $\un{p,e}$ 。 由奇数个费米子构成的则为费米子，如氘，含 $\un{p,n,e}$。</p>
+<p><strong>泡利不相容原理</strong>：</p>
+<p>全同费米子系统遵从一条重要的规律，称为泡利不相容原理： 不允许有两个全同的费米子处于同一个单粒子量子态。如在原子中不能存在相同的电子（？）</p>
+<p>3、 定域子系</p>
+<p>全同多粒子系统在某些特殊情况下， 全同性原理不起作用， 这时全同粒子仍然是可以分辨的（distinguishable）。</p>
+<p>这种特殊情况是指各个粒子的波函数分别局限在空间不同的范围内，彼此没有重叠。 在这种情况下，虽然不能从粒子的内禀性质去区分它们，但可以从粒子所处的不同位置对他们加以区分。 这种子系称为定域子系（localized sub-system）。</p>
+<p>4、子系的量子态与系统的量子态（全同多粒子系）</p>
+<p>（a）定域子系，粒子是可分辨的，因此有编号。每一子系量子态上占据的粒子数不受限制。</p>
+<p>（b）非定域玻色子，粒子不可分辨，因此没有编号。但每一子系量子态上占据的粒子数不受限制。</p>
+<p>（c）非定域费米子，粒子不可分辨及泡利原理。</p>
+<p><figure 
+	
+		class="gallery-image" 
+		style="
+			flex-grow: 105; 
+			flex-basis: 253px"
+	>
+	<a href="/p/2021/12/%E7%83%AD%E7%BB%9F-6-%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/image-20211212162852927.png" data-size="726x687">
+		<img src="/p/2021/12/%E7%83%AD%E7%BB%9F-6-%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/image-20211212162852927.png"
+			width="726"
+			height="687"
+			srcset="/p/2021/12/%E7%83%AD%E7%BB%9F-6-%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/image-20211212162852927_hud8b8b4f95d2d915f86527dd9728682ab_75349_480x0_resize_box_3.png 480w, /p/2021/12/%E7%83%AD%E7%BB%9F-6-%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/image-20211212162852927_hud8b8b4f95d2d915f86527dd9728682ab_75349_1024x0_resize_box_3.png 1024w"
+			loading="lazy"
+			alt="image-20211212162852927">
+	</a>
+	
+	<figcaption>image-20211212162852927</figcaption>
+	
+</figure></p>
+<h2 id="63-宏观量的统计性质-统计规律性">6.3 宏观量的统计性质 统计规律性</h2>
+<h3 id="631-宏观量的统计性质">6.3.1 宏观量的统计性质</h3>
+<p>统计物理学的基本观点是：宏观量是相应微观量的统计平均值。</p>
+<p>宏观观测有两个基本特点：一是空间尺度上是宏观小 （ 才有可能显示出宏观性质的空间变化 ）、 微观大 （ 仍包含足够大量的粒子 ）； 二是时间尺度上是宏观短 （ 才有可能显示宏观性质随时间的变化 ）、 微观长 （ 微观状态已经历足够多次变化 ）。</p>
+<h3 id="632-统计规律性">6.3.2 统计规律性</h3>
+<p>由于热现象过程是不可逆的，因此不能存粹以力学为规律来解释统计物理学。</p>
+<p>宏观物体的性质和规律不可能纯粹以力学规律为基础来解释， 而有赖于新的规律，这就是统计规律，它可以表述为：在一定的宏观条件下，某一时刻系统以<strong>一定的几率</strong>处于某一微观运动状态。 宏观状态与微观状态之间的这种联系是几率性的，这是统计规律的特征。</p>
+<h2 id="64-平衡态统计理论的基本假设等几率原理">6.4 平衡态统计理论的基本假设：等几率原理</h2>
+<p>等几率原理是平衡态统计理论的基本假设。</p>
+<p>等几率原理的表述为：对于处于平衡态下的孤立系，系统各个可能的微观状态出现的几率相等。</p>
+<p>等几率原理目前还未证明成功，直到目前为止 ， 等几率原理仍然是一条基本假设 ， 是平衡态统计物理学唯一的基本假设。但其正确性已不容置疑。</p>
+<h2 id="comment">Comment</h2>
+<p>这一章对统计物理学的一些基本原理作了概述和澄清。包括：</p>
+<p>1、统计物理学的研究对象</p>
+<p>2、微观状态的描写、量子统计的特性。</p>
+<p>3、宏观量与微观量的联系。</p>
+<p>4、等概率原理。</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E5%8A%9B%E5%AD%A6/">热力学与统计力学</a>
+        
+            <a href="/tags/thermodynamics-and-statistical-physics/">Thermodynamics and Statistical Physics</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css"integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js"integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8"crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js"integrity="sha384-vZTG03m&#43;2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl"crossorigin="anonymous"
+                defer="true"
+                >
+            </script>
+<script>
+MathJax = {
+    tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+    },
+    options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+};
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async
+src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">相关文章</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="">
+    <a href="/p/2021/12/%E7%83%AD%E7%BB%9F-7-%E8%BF%91%E7%8B%AC%E7%AB%8B%E5%AD%90%E7%B3%BB%E7%BB%84%E6%88%90%E7%9A%84%E7%B3%BB%E7%BB%9F-i/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">[热统] 7 近独立子系组成的系统 I</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/2021/12/%E7%83%AD%E7%BB%9F-2-%E5%9D%87%E5%8C%80%E7%B3%BB%E7%9A%84%E5%B9%B3%E8%A1%A1%E6%80%A7%E8%B4%A8-i/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">[热统] 2 均匀系的平衡性质 I</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/2021/12/%E7%83%AD%E7%BB%9F-1-%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%BE%8B-iv/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">[热统] 1 热力学的基本概念与基本规律 IV</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/2021/12/%E7%83%AD%E7%BB%9F-1-%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%BE%8B-iii/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">[热统] 1 热力学的基本概念与基本规律 III</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/2021/12/%E7%83%AD%E7%BB%9F-1-%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%BE%8B-ii/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">[热统] 1 热力学的基本概念与基本规律 II</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy;
+        
+        2021 MizarZ&#39;s Blog
+    </section>
+
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener"
+                data-version="3.4.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+
+        
+
+    </section>
+
+</footer>
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+        <aside class="sidebar right-sidebar sticky">
+            <section class="widget archives">
+                <div class="widget-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                </div>
+                <h2 class="widget-title section-title">目录</h2>
+                
+                <div class="widget--toc">
+                    <nav id="TableOfContents">
+  <ol>
+    <li><a href="#61-统计物理学的研究对象目的与方法">6.1 统计物理学的研究对象、目的与方法</a>
+      <ol>
+        <li><a href="#62-微观状态的经典描写与量子描写">6.2 微观状态的经典描写与量子描写</a></li>
+        <li><a href="#621-微观状态的经典描写">6.2.1 微观状态的经典描写</a></li>
+        <li><a href="#622-微观状态的量子描写">6.2.2 微观状态的量子描写</a></li>
+      </ol>
+    </li>
+    <li><a href="#63-宏观量的统计性质-统计规律性">6.3 宏观量的统计性质 统计规律性</a>
+      <ol>
+        <li><a href="#631-宏观量的统计性质">6.3.1 宏观量的统计性质</a></li>
+        <li><a href="#632-统计规律性">6.3.2 统计规律性</a></li>
+      </ol>
+    </li>
+    <li><a href="#64-平衡态统计理论的基本假设等几率原理">6.4 平衡态统计理论的基本假设：等几率原理</a></li>
+    <li><a href="#comment">Comment</a></li>
+  </ol>
+</nav>
+                </div>
+            </section>
+        </aside>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
