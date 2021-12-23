@@ -6,7 +6,696 @@
         <description>Recent content on MizarZ&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Sun, 12 Dec 2021 17:13:15 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 16 Dec 2021 23:38:39 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>[量子力学] 6 量子力学中角动量的普遍性质 D part</title>
+        <link>https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-6-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E4%B8%AD%E8%A7%92%E5%8A%A8%E9%87%8F%E7%9A%84%E6%99%AE%E9%81%8D%E6%80%A7%E8%B4%A8-d-part/</link>
+        <pubDate>Thu, 16 Dec 2021 23:38:39 +0800</pubDate>
+        
+        <guid>https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-6-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E4%B8%AD%E8%A7%92%E5%8A%A8%E9%87%8F%E7%9A%84%E6%99%AE%E9%81%8D%E6%80%A7%E8%B4%A8-d-part/</guid>
+        <description>&lt;p&gt;$$
+\def\un{\mathrm}
+\def\dd{\mathrm d}
+\def\par{\partial}
+\def\bl{\boldsymbol}
+\def\mbf{\mathbf}
+\def\mscr{\mathscr}
+\newcommand{\avg}[1]{\left \langle #1 \right \rangle}
+\newcommand{\bk}[2]{\left \langle #1  | #2  \right \rangle}
+\newcommand{\bok}[3]{\bra{#1}#2\ket{#3}}
+\def\nl{\newline}
+\def\Ra{\Rightarrow}
+\def\La{\Leftarrow}
+\def\ra{\rightarrow}
+\def\la{\leftarrow}
+\def\e{\epsilon}
+\def\ve{\varepsilon}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;1-l2-与-l_z-的本征值及本征函数&#34;&gt;1. $L^2$ 与 $L_z$ 的本征值及本征函数&lt;/h2&gt;
+&lt;h3 id=&#34;a-ketr-表象中的本征值方程&#34;&gt;a. $\{\ket{r}\}$ 表象中的本征值方程&lt;/h3&gt;
+&lt;p&gt;角动量 $L$ 的三个分量：&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+L_{x} &amp;amp;=\frac{\hbar}{\mathrm{i}}\left(y \frac{\partial}{\partial z}-z \frac{\partial}{\partial y}\right) \nl
+L_{y} &amp;amp;=\frac{\hbar}{\mathrm{i}}\left(z \frac{\partial}{\partial x}-x \frac{\partial}{\partial z}\right) \nl
+L_{z} &amp;amp;=\frac{\hbar}{\mathrm{i}}\left(x \frac{\partial}{\partial y}-y \frac{\partial}{\partial x}\right)
+\end{aligned}
+$$&lt;/p&gt;
+&lt;p&gt;使用球坐标更方便：&lt;/p&gt;
+&lt;p&gt;$$
+\left\{\begin{array}{l}
+x=r \sin \theta \cos \varphi \nl
+y=r \sin \theta \sin \varphi \nl
+z=r \cos \theta
+\end{array}\right.
+$$&lt;/p&gt;
+&lt;p&gt;体元：&lt;/p&gt;
+&lt;p&gt;$$
+\dd^3 r = r^2\sin \theta \dd r \dd \theta \dd \varphi=r^2 \dd r \dd \Omega
+$$&lt;/p&gt;
+&lt;p&gt;使用坐标变换的方法可以得到：&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+&amp;amp;L_{x}=\mathrm{i} \hbar\left(\sin \varphi \frac{\partial}{\partial \theta}+\frac{\cos \varphi}{\tan \theta} \frac{\partial}{\partial \varphi}\right) \nl
+&amp;amp;L_{y}=\mathrm{i} \hbar\left(-\cos \varphi \frac{\partial}{\partial \theta}+\frac{\sin \varphi}{\tan \theta} \frac{\partial}{\partial \varphi}\right) \nl
+&amp;amp;L_{z}=\frac{\hbar}{\mathrm{i}} \frac{\partial}{\partial \varphi}
+\end{aligned}
+$$&lt;/p&gt;
+&lt;p&gt;得到其他的算符：&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+&amp;amp;L^{2}=-\hbar^{2}\left(\frac{\partial^{2}}{\partial \theta^{2}}+\frac{1}{\tan \theta} \frac{\partial}{\partial \theta}+\frac{1}{\sin ^{2} \theta} \frac{\partial^{2}}{\partial \varphi^{2}}\right) \nl
+&amp;amp;L_{+}=\hbar \mathrm{e}^{\mathrm{i} \varphi}\left(\frac{\partial}{\partial \theta}+\mathrm{i} \cot \theta \frac{\partial}{\partial \varphi}\right) \nl
+&amp;amp;L_{-}=\hbar \mathrm{e}^{-\mathrm{i} \varphi}\left(-\frac{\partial}{\partial \theta}+\mathrm{i} \cot \theta \frac{\partial}{\partial \varphi}\right)
+\end{aligned}
+$$&lt;/p&gt;
+&lt;p&gt;最后得到两条式子：&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+&amp;amp;-\left\{\frac{\partial^{2}}{\partial \theta^{2}}+\frac{1}{\tan \theta} \frac{\partial}{\partial \theta}+\frac{1}{\sin ^{2} \theta} \frac{\partial^{2}}{\partial \varphi^{2}}\right\} \psi(r, \theta, \varphi)=l(l+1) \psi(r, \theta, \varphi) \nl
+&amp;amp;-\mathrm{i} \frac{\partial}{\partial \varphi} \psi(r, \theta, \varphi)=m \psi(r, \theta, \varphi)
+\end{aligned}
+$$&lt;/p&gt;
+&lt;p&gt;由于 $r$ 并未出现在任何微分算符中，因此可以将其看作参变量，并只需考虑算符与 $\theta,\varphi$ 的依赖关系：&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+&amp;amp;L^2Y^m_l(\theta,\varphi)=l(l+1)\hbar^2 Y^m_l(\theta,\varphi) \nl
+&amp;amp;L_zY^m_l(\theta,\varphi)=m\hbar Y^m_l(\theta,\varphi)
+\end{aligned}
+$$&lt;/p&gt;
+&lt;p&gt;一旦解出 $Y^m_l(\theta,\varphi)$，那么我们就可以得到波函数的表达式：&lt;/p&gt;
+&lt;p&gt;$$
+\psi_{l,m}(r,\theta,\varphi)=f(r)Y^m_l(\theta,\varphi)
+$$&lt;/p&gt;
+&lt;p&gt;对于波函数的归一化：&lt;/p&gt;
+&lt;p&gt;$$
+\int^{2\pi}_0\dd \varphi\int^\pi_0\sin\theta |Y^m_l(\theta,\varphi)|^2\dd \theta = 1
+$$&lt;/p&gt;
+&lt;p&gt;以及 $r$：&lt;/p&gt;
+&lt;p&gt;$$
+\int^\infty_0 r^2|f(r)|^2\dd r=1
+$$&lt;/p&gt;
+&lt;h3 id=&#34;b-l-与-m-的值&#34;&gt;b. $l$ 与 $m$ 的值&lt;/h3&gt;
+&lt;h4 id=&#34;1l-和-m-只能是整数&#34;&gt;1、$l$ 和 $m$ 只能是整数&lt;/h4&gt;
+&lt;p&gt;$$
+\frac{\hbar}{i}\frac{\par}{\par\varphi}Y^m_l(\theta,\varphi)=m\hbar Y^m_l(\theta,\varphi)
+$$&lt;/p&gt;
+&lt;p&gt;这表明：&lt;/p&gt;
+&lt;p&gt;$$
+Y^m_l(\theta,\varphi)=F^m_l(\theta)e^{im\varphi}
+$$&lt;/p&gt;
+&lt;p&gt;由于 $Y^m_l(\theta,\varphi=0)=Y^m_l(\theta,\varphi=2\pi)$&lt;/p&gt;
+&lt;p&gt;由此可以推知：&lt;/p&gt;
+&lt;p&gt;$$
+e^{2im\pi=1}
+$$&lt;/p&gt;
+&lt;p&gt;因此得到 $m$ 仅能是整数，就能从此推得 $l$ 也只能是整数。&lt;/p&gt;
+&lt;h4 id=&#34;2-l-的全体整数值都会出现&#34;&gt;2、 $l$ 的全体整数值都会出现&lt;/h4&gt;
+&lt;p&gt;我们将 $l$ 固定到一个整数值，我们知道：&lt;/p&gt;
+&lt;p&gt;$$
+L_+Y^l_l(\theta,\varphi)=0
+$$&lt;/p&gt;
+&lt;p&gt;展开后：&lt;/p&gt;
+&lt;p&gt;$$
+(\frac{\dd}{\dd\theta}-l\cot \theta)F^l_l(\theta)=0
+$$&lt;/p&gt;
+&lt;p&gt;通解为：&lt;/p&gt;
+&lt;p&gt;$$
+F^l_l(\theta)=c_l(\sin\theta)^l
+$$&lt;/p&gt;
+&lt;p&gt;因此：&lt;/p&gt;
+&lt;p&gt;$$
+Y^l_l(\theta,\varphi)=c_l(\sin\theta)^le^{il\varphi}
+$$&lt;/p&gt;
+&lt;p&gt;然后经过 $L_-$ 的数次迭代作用，就能得到更低级的 $m$。因此我们可以算出这些函数，$Y^m_l(\theta,\varphi)$ 类型的本征函数被叫做球谐函数。&lt;/p&gt;
+&lt;h3 id=&#34;c-球谐函数的主要性质&#34;&gt;c. 球谐函数的主要性质&lt;/h3&gt;
+&lt;h4 id=&#34;1递推关系&#34;&gt;1、递推关系&lt;/h4&gt;
+&lt;p&gt;$$
+L_\pm Y^m_l(\theta,\varphi)=\hbar \sqrt{l(l+1)+m(m\pm 1)}Y^{m\pm1}_l(\theta,\varphi)
+$$&lt;/p&gt;
+&lt;h4 id=&#34;2正交归一化关系和封闭性关系式&#34;&gt;2、正交归一化关系和封闭性关系式&lt;/h4&gt;
+&lt;p&gt;正交归一化：&lt;/p&gt;
+&lt;p&gt;$$
+\int^{2\pi}_0\dd \varphi\int^\pi_0\sin\theta~ \dd \theta ~Y^{m&#39;*}_{l&#39;}(\theta,\varphi)Y^m_l(\theta,\varphi)=\delta_{l&amp;rsquo;l}\delta_{m&amp;rsquo;m}
+$$&lt;/p&gt;
+&lt;p&gt;球谐函数展开：&lt;/p&gt;
+&lt;p&gt;$$
+f(\theta,\varphi)=\sum^\infty_{l=0}\sum^{+l}_{m=-l}c_{l,m}Y^m_l(\theta,\varphi)
+$$&lt;/p&gt;
+&lt;p&gt;系数：&lt;/p&gt;
+&lt;p&gt;$$
+c_{l, m}=\int_{0}^{2 \pi} \mathrm{d} \varphi \int_{0}^{\pi} \sin \theta \mathrm{d} \theta \mathrm{Y}_{l}^{m *}(\theta, \varphi) f(\theta, \varphi)
+$$&lt;/p&gt;
+&lt;p&gt;封闭性关系式：&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+\sum_{l=0}^{\infty} \sum_{m=-l}^{+l} \mathrm{Y}_{l}^{m}(\theta, \varphi) \mathrm{Y}_{l}^{m *}\left(\theta^{\prime}, \varphi^{\prime}\right) &amp;amp;=\delta\left(\cos \theta-\cos \theta^{\prime}\right) \delta\left(\varphi-\varphi^{\prime}\right) \nl
+&amp;amp;=\frac{1}{\sin \theta} \delta\left(\theta-\theta^{\prime}\right) \delta\left(\varphi-\varphi^{\prime}\right)
+\end{aligned}
+$$&lt;/p&gt;
+&lt;p&gt;（因为 $Y^m_l(\theta,\varphi)$ 中的微分元是 $\cos\theta$）&lt;/p&gt;
+&lt;h4 id=&#34;3宇称与复数共轭&#34;&gt;3、宇称与复数共轭&lt;/h4&gt;
+&lt;p&gt;$$
+Y^m_l(\pi-\theta,\pi+\varphi)=(-1)^lY^m_l(\theta,\varphi)
+$$&lt;/p&gt;
+&lt;p&gt;还有以下关系：&lt;/p&gt;
+&lt;p&gt;$$
+[Y^m_l(\theta,\varphi)]^*=(-1)^m Y^{-m}_l(\theta,\varphi)
+$$&lt;/p&gt;
+&lt;h3 id=&#34;d-一个无自旋粒子的波函数空间中的标准基&#34;&gt;d. 一个无自旋粒子的波函数空间中的标准基&lt;/h3&gt;
+&lt;p&gt;我们可以推知关系式：&lt;/p&gt;
+&lt;p&gt;$$
+\psi_{k,l,m}(r)=R_{k,l,m}(r)Y^m_l(\theta,\varphi)
+$$&lt;/p&gt;
+&lt;p&gt;被 $L_{\pm}$ 作用时：&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+L_{\pm} \psi_{k, l, m}(\boldsymbol{r}) &amp;amp;=R_{k, l, m}(r) L_{\pm} \mathrm{Y}_{l}^{m}(\theta, \varphi) \nl
+&amp;amp;=\hbar \sqrt{l(l+1)-m(m \pm 1)} R_{k, l, m}(r) \mathrm{Y}_{l}^{m \pm 1}(\theta, \varphi)
+\end{aligned}
+$$&lt;/p&gt;
+&lt;p&gt;因此，径向函数与 $m$ 无关，因此可以化成：&lt;/p&gt;
+&lt;p&gt;$$
+\psi_{k,l,m}(r)=R_{k,l}(r)Y^m_l(\theta,\varphi)
+$$&lt;/p&gt;
+&lt;p&gt;正交归一关系式：&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+\int \mathrm{d}^{3} r \psi_{k, l, m}^{*}(\boldsymbol{r}) \psi_{k^{\prime}, l^{\prime}, m^{\prime}}(\boldsymbol{r})=&amp;amp; \int_{0}^{\infty} r^{2} \mathrm{~d} r R_{k, l}^{*}(r) R_{k^{\prime}, l^{\prime}}(r) \nl
+&amp;amp; \times \int_{0}^{2 \pi} \mathrm{d} \varphi \int_{0}^{\pi} \sin \theta \mathrm{d} \theta \mathrm{Y}_{l}^{m *}(\theta, \varphi) \mathrm{Y}_{l^{\prime}}^{m^{\prime}}(\theta, \varphi) \nl
+=&amp;amp; \delta_{k k^{\prime}} \delta_{l l^{\prime}} \delta_{m m^{\prime}}
+\end{aligned}
+$$&lt;/p&gt;
+&lt;p&gt;由于球谐函数早已归一化，因此最后得到：&lt;/p&gt;
+&lt;p&gt;$$
+\int_{0}^{\infty} r^{2} \mathrm{~d} r R_{k, l}^{*}(r) R_{k^{\prime}, l}(r)=\delta_{k k^{\prime}}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;2-物理上的考虑&#34;&gt;2. 物理上的考虑&lt;/h2&gt;
+&lt;h3 id=&#34;a-关于态-ketklm-的讨论&#34;&gt;a. 关于态 $\ket{k,l,m}$ 的讨论&lt;/h3&gt;
+&lt;p&gt;我们讨论一个无自旋粒子，它处于 $L^2$ 和 $L_z$ 的本征态 $\ket{k,l,m}$。&lt;/p&gt;
+&lt;p&gt;但是当我们测量其在 $Ox,Oy$ 轴上的分量时，因为不对易的关系，因此不能得出确切的预言。&lt;/p&gt;
+&lt;p&gt;将式子反过来求解：&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+&amp;amp;L_x=\frac{1}{2}(L_++L_-)\nl
+&amp;amp;L_y=\frac{1}{2i}(L_+-L_-)
+\end{aligned}
+$$&lt;/p&gt;
+&lt;p&gt;因此可以推知（正交归一）：&lt;/p&gt;
+&lt;p&gt;$$
+\bok{k,l,m}{L_x}{k,l,m}=\bok{k,l,m}{L_y}{k,l,m}=0
+$$&lt;/p&gt;
+&lt;p&gt;此外：&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+&amp;amp;\bok{k,l,m}{L_x^2}{k,l,m}=\frac{1}{4}\bok{k,l,m}{L_+^2+L_-^2+L_+L_-+L_-L_+}{k,l,m}\nl
+&amp;amp;\bok{k,l,m}{L_y^2}{k,l,m}=\frac{1}{4}\bok{k,l,m}{L_+^2+L_-^2-L_+L_&amp;ndash;L_-L_+}{k,l,m}
+\end{aligned}
+$$&lt;/p&gt;
+&lt;p&gt;由于平方项对结果无贡献，另外：&lt;/p&gt;
+&lt;p&gt;$$
+L_+L_-+L_-L_+=2(L^2-L_z^2)
+$$&lt;/p&gt;
+&lt;p&gt;因此：&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+\left\langle k, l, m\left|L_{x}^{2}\right| k, l, m\right\rangle &amp;amp;=\left\langle k, l, m\left|L_{y}^{2}\right| k, l, m\right\rangle \nl
+&amp;amp;=\frac{1}{2}\left\langle k, l, m\left|\left(\boldsymbol{L}^{2}-L_{z}^{2}\right)\right| k, l, m\right\rangle \nl
+&amp;amp;=\frac{\hbar^{2}}{2}\left[l(l+1)-m^{2}\right]
+\end{aligned}
+$$&lt;/p&gt;
+&lt;p&gt;由这两个值，我们可以推出：&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+&amp;amp;\avg{L_x}=\avg{L_y}=0\nl
+&amp;amp;\Delta L_x=\Delta L_y=\hbar\sqrt{l(l+1)-m^{2}}
+\end{aligned}
+$$&lt;/p&gt;
+&lt;p&gt;我们得到的一个图像是经典角动量。它的模 $|OL|=\hbar\sqrt{l(l+1)}$，它在 $Oz$ 轴上的投影 $|OH|=m\hbar$。&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	
+		class=&#34;gallery-image&#34; 
+		style=&#34;
+			flex-grow: 116; 
+			flex-basis: 279px&#34;
+	&gt;
+	&lt;a href=&#34;https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-6-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E4%B8%AD%E8%A7%92%E5%8A%A8%E9%87%8F%E7%9A%84%E6%99%AE%E9%81%8D%E6%80%A7%E8%B4%A8-d-part/image-20211222232135435.png&#34; data-size=&#34;445x382&#34;&gt;
+		&lt;img src=&#34;https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-6-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E4%B8%AD%E8%A7%92%E5%8A%A8%E9%87%8F%E7%9A%84%E6%99%AE%E9%81%8D%E6%80%A7%E8%B4%A8-d-part/image-20211222232135435.png&#34;
+			width=&#34;445&#34;
+			height=&#34;382&#34;
+			srcset=&#34;https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-6-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E4%B8%AD%E8%A7%92%E5%8A%A8%E9%87%8F%E7%9A%84%E6%99%AE%E9%81%8D%E6%80%A7%E8%B4%A8-d-part/image-20211222232135435_hu70383cc2223b192cd47501fcb898d37a_26677_480x0_resize_box_3.png 480w, https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-6-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E4%B8%AD%E8%A7%92%E5%8A%A8%E9%87%8F%E7%9A%84%E6%99%AE%E9%81%8D%E6%80%A7%E8%B4%A8-d-part/image-20211222232135435_hu70383cc2223b192cd47501fcb898d37a_26677_1024x0_resize_box_3.png 1024w&#34;
+			loading=&#34;lazy&#34;
+			alt=&#34;image-20211222232135435&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;image-20211222232135435&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;h3 id=&#34;b-关于测量-l2-与-l_z-的物理语言的计算&#34;&gt;b. 关于测量 $L^2$ 与 $L_z$ 的物理语言的计算&lt;/h3&gt;
+&lt;p&gt;使用 $\bra{r}$ 表象&lt;/p&gt;
+&lt;h4 id=&#34;1普遍公式&#34;&gt;1、普遍公式&lt;/h4&gt;
+&lt;p&gt;引入标准基：&lt;/p&gt;
+&lt;p&gt;$$
+\psi_{k,l,m}(r)=R_{k,l}(r)Y^m_l(\theta,\varphi)
+$$&lt;/p&gt;
+&lt;p&gt;从而可以写出：&lt;/p&gt;
+&lt;p&gt;$$
+\psi(r)=\sum_k\sum_l\sum_m c_{k,l,m}R_{k,l}(r)Y^m_l(\theta,\varphi)
+$$&lt;/p&gt;
+&lt;p&gt;系数的计算方法：&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+c_{k, l, m} &amp;amp;=\int \mathrm{d}^{3} r \psi_{k, l, m}^{*}(\boldsymbol{r}) \psi(\boldsymbol{r}) \nl
+&amp;amp;=\int_{0}^{\infty} r^{2} \mathrm{~d} r R_{k, l}^{*}(r) \int_{0}^{2 \pi} \mathrm{d} \varphi \int_{0}^{\pi} \sin \theta \mathrm{d} \theta \mathrm{Y}_{l}^{m *}(\theta, \varphi) \psi(r, \theta, \varphi)
+\end{aligned}
+$$&lt;/p&gt;
+&lt;p&gt;概率：&lt;/p&gt;
+&lt;p&gt;$$
+\mscr P_{L^2,L_z}(l,m)=\sum_k|c_{k,l,m}|^2
+$$&lt;/p&gt;
+&lt;p&gt;如果只测量 $L^2$，则将 $L_z$ 的部分（即 $m=-l$ 到 $l$ 加起来）：&lt;/p&gt;
+&lt;p&gt;$$
+\mscr P_{L^2}(l)=\sum_k\sum_{m=-l}^l|c_{k,l,m}|^2
+$$&lt;/p&gt;
+&lt;p&gt;对于 $L_z$ 同理：&lt;/p&gt;
+&lt;p&gt;$$
+\mscr P_{L_z}(m)=\sum_k\sum_{k\ge|m|}|c_{k,l,m}|^2
+$$&lt;/p&gt;
+&lt;p&gt;还有一些特殊情况：&lt;/p&gt;
+&lt;p&gt;1、引入 $a_{l,m}(r)$ 说明 $L^2,L_z$ 只与 $\theta,\varphi$ 相关&lt;/p&gt;
+&lt;p&gt;2、引入 $Y^m_l(\theta,\varphi)=Z^m_l(\theta)\frac{e^{im\varphi}}{\sqrt{2\pi}}$ 的形式导出 $L_z$ 只与 $\varphi$ 相关。&lt;/p&gt;
+&lt;p&gt;3、以及他们与 $\mscr P$、归一化关系式的各种关系式。&lt;/p&gt;
+&lt;p&gt;4、一种特殊情况。&lt;/p&gt;
+&lt;p&gt;就看书吧，全部记下来真的太繁琐了。&lt;/p&gt;
+&lt;h2 id=&#34;comment&#34;&gt;Comment&lt;/h2&gt;
+&lt;p&gt;总算是把角动量这一张给啃完了。虽然还是有一些不太理解的地方，但大概的想法已经理解了。&lt;/p&gt;
+&lt;p&gt;D part 主要的内容是关于角动量理论的具体解法。&lt;/p&gt;
+&lt;p&gt;1、使用 $\ket{r}$ 表象，解出了各算符的表达式。&lt;/p&gt;
+&lt;p&gt;2、发现 $L^2,L_z$ 算符与 $r$ 无关，因此导出专门的一个函数球谐函数 $Y_l^m(\theta,\varphi)$，并探讨了它的性质，导出其正交归一和封闭性。&lt;/p&gt;
+&lt;p&gt;3、增加 $R_{k,l}(\theta,\varphi)$ 项。&lt;/p&gt;
+&lt;p&gt;4、与真实物理概率联系起来。并用经典物理进行类比。&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>[量子力学] 6 量子力学中角动量的普遍性质 ABC part</title>
+        <link>https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-6-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E4%B8%AD%E8%A7%92%E5%8A%A8%E9%87%8F%E7%9A%84%E6%99%AE%E9%81%8D%E6%80%A7%E8%B4%A8-abc-part/</link>
+        <pubDate>Thu, 16 Dec 2021 23:38:26 +0800</pubDate>
+        
+        <guid>https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-6-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E4%B8%AD%E8%A7%92%E5%8A%A8%E9%87%8F%E7%9A%84%E6%99%AE%E9%81%8D%E6%80%A7%E8%B4%A8-abc-part/</guid>
+        <description>&lt;p&gt;$$
+\def\un{\mathrm}
+\def\dd{\mathrm d}
+\def\par{\partial}
+\def\bl{\boldsymbol}
+\def\mbf{\mathbf}
+\def\mscr{\mathscr}
+\newcommand{\avg}[1]{\left \langle #1 \right \rangle}
+\newcommand{\bk}[2]{\left \langle #1  | #2  \right \rangle}
+\newcommand{\bok}[3]{\bra{#1}#2\ket{#3}}
+\def\nl{\newline}
+\def\Ra{\Rightarrow}
+\def\La{\Leftarrow}
+\def\ra{\rightarrow}
+\def\la{\leftarrow}
+\def\e{\epsilon}
+\def\ve{\varepsilon}
+$$&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;h1 id=&#34;6-量子力学中角动量的普遍性质&#34;&gt;6 量子力学中角动量的普遍性质&lt;/h1&gt;
+&lt;h2 id=&#34;a-引言角动量的重要性&#34;&gt;A 引言：角动量的重要性&lt;/h2&gt;
+&lt;p&gt;角动量守恒定理：&lt;/p&gt;
+&lt;p&gt;$$
+\frac{\dd}{\dd t}\mscr L=0
+$$&lt;/p&gt;
+&lt;p&gt;和经典体系的角动量 $\scr L$ 相联系的是一个可观测量 $\bl L$，它是 $L_x,L_y,L_z$ 的集合。这是和经典物理所对应的&lt;/p&gt;
+&lt;p&gt;另一方面，第四章中的 Stern-Gerlach 实验显示了角动量的量子化。因此说明我们可能需要引入量子性的、没有任何经典类比的角动量（即内禀角动量）。&lt;/p&gt;
+&lt;p&gt;从现在起，凡是经典类比的角动量都称为&lt;strong&gt;轨道角动量&lt;/strong&gt;（用 $\bl L$ 表示对应的可观察量），凡是内禀角动量都称为&lt;strong&gt;自旋角动量&lt;/strong&gt;（用 $\bl S$ 表示对应的可观察量）。构成的&lt;strong&gt;总角动量&lt;/strong&gt;为 $\bl J$。在这一章将研究一切角动量都具有的普遍量子性质。&lt;/p&gt;
+&lt;h2 id=&#34;b-角动量所持有的对易关系式&#34;&gt;B 角动量所持有的对易关系式&lt;/h2&gt;
+&lt;h3 id=&#34;1-轨道角动量&#34;&gt;1. 轨道角动量&lt;/h3&gt;
+&lt;p&gt;经典角动量的一个分量：&lt;/p&gt;
+&lt;p&gt;$$
+\mscr L_x=yp_x-zp_y
+$$&lt;/p&gt;
+&lt;p&gt;由于 $Y,P_x$ 之类可以对易，因此顺序并不重要。因此可得到算符 $L_x$：&lt;/p&gt;
+&lt;p&gt;$$
+L_x=YP_z-ZP_y
+$$&lt;/p&gt;
+&lt;p&gt;同理也可以写出 $L_y,L_z$，于是：&lt;/p&gt;
+&lt;p&gt;$$
+\bl L=\bl R\times\bl P
+$$&lt;/p&gt;
+&lt;p&gt;易得对易关系：&lt;/p&gt;
+&lt;p&gt;$$
+\begin{array}{l}
+{\left[L_{x}, L_{y}\right]=\mathrm{i} \hbar L_{z}} \nl
+{\left[L_{y}, L_{z}\right]=\mathrm{i} \hbar L_{x}} \nl
+{\left[L_{z}, L_{x}\right]=\mathrm{i} \hbar L_{y}}
+\end{array}
+$$&lt;/p&gt;
+&lt;p&gt;可以立即推广到 $N$ 个无自旋粒子的体系：&lt;/p&gt;
+&lt;p&gt;$$
+\bl L=\sum_{i=1}^N\bl L_i
+$$&lt;/p&gt;
+&lt;h3 id=&#34;2-推广角动量的定义&#34;&gt;2. 推广：角动量的定义&lt;/h3&gt;
+&lt;p&gt;如果任意三个观察算符 $J_x,J_y,J_z$ 满足以下关系式：&lt;/p&gt;
+&lt;p&gt;$$
+\begin{array}{l}
+{\left[J_{x}, J_{y}\right]=\mathrm{i} \hbar J_{z}} \nl
+{\left[J_{y}, J_{z}\right]=\mathrm{i} \hbar J_{x}} \nl
+{\left[J_{z}, J_{x}\right]=\mathrm{i} \hbar J_{y}}
+\end{array}
+$$&lt;/p&gt;
+&lt;p&gt;我们就称 $J_x,J_y,J_z$ 的集合为角动量 $\bl J$，这是三维空间中旋转的几何性质导致的。&lt;/p&gt;
+&lt;p&gt;引入角动量平方的算符 $\bl J^2$：&lt;/p&gt;
+&lt;p&gt;$$
+\bl J^2=J_x^2+J_y^2+J_z^2
+$$&lt;/p&gt;
+&lt;p&gt;由于 $J_x,J_y,J_z$ 都是 Hermite 算符，因此 $\bl J^2$ 也是。可证明：&lt;/p&gt;
+&lt;p&gt;$$
+[\bl J^2,\bl J]=0
+$$&lt;/p&gt;
+&lt;p&gt;我们注意到，角动量的三个分量式不可能同时测量的（互相不对易），但是 $\bl J^2$ 和 $\bl J$ 的任意一个分量都是相容的。&lt;/p&gt;
+&lt;h3 id=&#34;3-问题的梗概&#34;&gt;3. 问题的梗概&lt;/h3&gt;
+&lt;p&gt;通过 $\bl L^2$ 和 Hamilton 算符 $H$ 对易，导出四个运动常量 $\bl L^2,L_x,L_y,L_z$，且四个算符彼此并不对易。为了找到与 $H$ 构成 ECOC 的算符，我们只能取 $\bl L^2$ 与其他三个算符中的一个，例如 $L_z$。&lt;/p&gt;
+&lt;h2 id=&#34;c-角动量的普遍理论&#34;&gt;C 角动量的普遍理论&lt;/h2&gt;
+&lt;p&gt;这一节我们要确定 $\bl J^2$ 和 $J_z$ 的谱，然后寻求他们的共同本征矢。&lt;/p&gt;
+&lt;h3 id=&#34;1-定义与符号&#34;&gt;1. 定义与符号&lt;/h3&gt;
+&lt;h4 id=&#34;a-算符-j_j_-&#34;&gt;a. 算符 $J_+,J_-$&lt;/h4&gt;
+&lt;p&gt;定义：&lt;/p&gt;
+&lt;p&gt;$$
+J_+=J_x+iJ_y,~J_-=J_x-iJ_y
+$$&lt;/p&gt;
+&lt;p&gt;各种关系：&lt;/p&gt;
+&lt;p&gt;1、对易关系：&lt;/p&gt;
+&lt;p&gt;$$
+\begin{array}{l}
+{\left[J_{z}, J_{+}\right]=\hbar J_{+}} \nl
+{\left[J_{z}, J_{-}\right]=-\hbar J_{-}} \nl
+{\left[J_{+}, J_{-}\right]=2 \hbar J_{z}} \nl
+{\left[\boldsymbol{J}^{2}, J_{+}\right]=\left[\boldsymbol{J}^{2}, J_{-}\right]=\left[\boldsymbol{J}^{2}, J_{z}\right]=0}
+\end{array}
+$$&lt;/p&gt;
+&lt;p&gt;2、相乘：&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+J_{+} J_{-} &amp;amp;=\left(J_{x}+\mathrm{i} J_{y}\right)\left(J_{x}-\mathrm{i} J_{y}\right) \nl
+&amp;amp;=J_{x}^{2}+J_{y}^{2}-\mathrm{i}\left[J_{x}, J_{y}\right] \nl
+&amp;amp;=J_{x}^{2}+J_{y}^{2}+\hbar J_{z} \nl
+&amp;amp;=\bl J^2-J_z^2+\hbar J_z\nl
+J_{-} J_{+} &amp;amp;=\left(J_{x}-\mathrm{i} J_{y}\right)\left(J_{x}+\mathrm{i} J_{y}\right) \nl
+&amp;amp;=J_{x}^{2}+J_{y}^{2}+\mathrm{i}\left[J_{x}, J_{y}\right] \nl
+&amp;amp;=J_{x}^{2}+J_{y}^{2}-\hbar J_{z}\nl
+&amp;amp;=\bl J^2-J_z^2-\hbar J_z
+\end{aligned}
+$$&lt;/p&gt;
+&lt;p&gt;反向导出：&lt;/p&gt;
+&lt;p&gt;$$
+J^{2}=\frac{1}{2}\left(J_{+} J_{-}+J_{-} J_{+}\right)+J_{z}^{2}
+$$&lt;/p&gt;
+&lt;h4 id=&#34;b-bl-j2-与-j_z-的本征值的符号&#34;&gt;b. $\bl J^2$ 与 $J_z$ 的本征值的符号&lt;/h4&gt;
+&lt;p&gt;$$
+\bok{\psi}{J^2}{\psi}\ge 0
+$$&lt;/p&gt;
+&lt;p&gt;意味着 $J^2$ 的所有本征值都是正数或零。&lt;/p&gt;
+&lt;p&gt;取其本征值为：&lt;/p&gt;
+&lt;p&gt;$$
+j(j+1)\hbar^2,j\ge 0,\text{ and let} ~\lambda=j(j+1)
+$$&lt;/p&gt;
+&lt;p&gt;容易知道 $\lambda$ 的值唯一地确定了 $j$ 的值。&lt;/p&gt;
+&lt;p&gt;至于 $J_z$ 的本征值，设其本征值为 $m\hbar$。&lt;/p&gt;
+&lt;h3 id=&#34;c-bl-j2-与-j_z-的本征值方程&#34;&gt;c. $\bl J^2$ 与 $J_z$ 的本征值方程&lt;/h3&gt;
+&lt;p&gt;由于 $J^2,J_z$ 并不构成一个 ECOC，因此必须引入第三个指标来区分这两个算符。&lt;/p&gt;
+&lt;p&gt;方程组为：&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+&amp;amp;J^2\ket{k,j,m}=j(j+1)\hbar^2\ket{k,j,m}\nl
+&amp;amp;J_z\ket{k,j,m}=m\hbar\ket{k,j,m}
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h2 id=&#34;2-bl-j2-与-j_z-的本征值&#34;&gt;2. $\bl J^2$ 与 $J_z$ 的本征值&lt;/h2&gt;
+&lt;h3 id=&#34;a-引理&#34;&gt;a. 引理&lt;/h3&gt;
+&lt;p&gt;引理 I：如果满足这两条方程组，那么：&lt;/p&gt;
+&lt;p&gt;$$
+-j\le m\le j
+$$&lt;/p&gt;
+&lt;p&gt;引理 II（矢量 $J_-\ket{k,j,m}$ 的性质）&lt;/p&gt;
+&lt;p&gt;如果满足这两条方程组，那么：&lt;/p&gt;
+&lt;p&gt;(i) 如果 $m=-j$ ，则 $J_-\ket{k,j,-j}=0$&lt;/p&gt;
+&lt;p&gt;(ii) 如果 $m&amp;gt;-j$，则 $J_-\ket{k,j,m}$ 是 $J^2$ 与 $J_z$ 的一个非零本征矢，属于本征值 $j(j+1)\hbar^2$ 和 $(m-1)\hbar$。&lt;/p&gt;
+&lt;p&gt;引理 III （矢量 $J_+\ket{k,j,m}$ 的性质）&lt;/p&gt;
+&lt;p&gt;如果满足这两条方程组，那么：&lt;/p&gt;
+&lt;p&gt;(i) 如果 $m=j$ ，则 $J+-\ket{k,j,j}=0$&lt;/p&gt;
+&lt;p&gt;(ii) 如果 $m&amp;lt;j$，则 $J_+\ket{k,j,m}$ 是 $J^2$ 与 $J_z$ 的一个非零本征矢，属于本征值 $j(j+1)\hbar^2$ 和 $(m+1)\hbar$。&lt;/p&gt;
+&lt;h2 id=&#34;b-确定-j2-及-j_z-的谱&#34;&gt;b. 确定 $J^2$ 及 $J_z$ 的谱&lt;/h2&gt;
+&lt;p&gt;假设 $\ket{k,j,m}$ 满足这两条方程组，那么应有 $-j\le m\le j$，因此一定存在一个非负整数 $p$ 使得（就是将 $m-p$ 变成分数）：&lt;/p&gt;
+&lt;p&gt;$$
+-j\le m-p &amp;lt; -j+1
+$$&lt;/p&gt;
+&lt;p&gt;考虑以下一系列矢量序列：&lt;/p&gt;
+&lt;p&gt;$$
+\ket{k,j,m},J_-\ket{k,j,m},\cdots,(J_-)^p\ket{k,j,m}
+$$&lt;/p&gt;
+&lt;p&gt;这一串矢量中 $(J_-)^n$ 项属于本征值 $j(j+1)\hbar^2$ 与 $(m-n)\hbar$。&lt;/p&gt;
+&lt;p&gt;$(J_-)^{n-1}\ket{k,j,m}$ 对应的本征值是 $j(j+1)\hbar^2$ 及 $(m-n+1)\hbar$。&lt;/p&gt;
+&lt;p&gt;显然 $m-n+1\ge m-p+1$，再因为 $m-p\ge -j$，因此：&lt;/p&gt;
+&lt;p&gt;$$
+m-n+1\ge m-p+1\ge -j+1
+$$&lt;/p&gt;
+&lt;p&gt;但对于 $(J_-)^p\ket{j,k,m}$ ，必须严格大于 $-j\hbar$：&lt;/p&gt;
+&lt;p&gt;$$
+m-p&amp;gt;-j
+$$&lt;/p&gt;
+&lt;p&gt;但不能再使用这个算符，不然将会得到 0，因此：&lt;/p&gt;
+&lt;p&gt;$$
+m-p=-j
+$$&lt;/p&gt;
+&lt;p&gt;由引理 III，可以推出另一个不等式：&lt;/p&gt;
+&lt;p&gt;$$
+m+q=j
+$$&lt;/p&gt;
+&lt;p&gt;结合起来：&lt;/p&gt;
+&lt;p&gt;$$
+p+q=2j
+$$&lt;/p&gt;
+&lt;p&gt;因此可以推知 $j$ 等于整数或半整数。$J_z$ 的本征值为：&lt;/p&gt;
+&lt;p&gt;$$
+-j\hbar,(-j+1)\hbar,\cdots,(j-1)\hbar,j\hbar
+$$&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	
+		class=&#34;gallery-image&#34; 
+		style=&#34;
+			flex-grow: 316; 
+			flex-basis: 758px&#34;
+	&gt;
+	&lt;a href=&#34;https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-6-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E4%B8%AD%E8%A7%92%E5%8A%A8%E9%87%8F%E7%9A%84%E6%99%AE%E9%81%8D%E6%80%A7%E8%B4%A8-abc-part/image-20211220214614767.png&#34; data-size=&#34;1675x530&#34;&gt;
+		&lt;img src=&#34;https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-6-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E4%B8%AD%E8%A7%92%E5%8A%A8%E9%87%8F%E7%9A%84%E6%99%AE%E9%81%8D%E6%80%A7%E8%B4%A8-abc-part/image-20211220214614767.png&#34;
+			width=&#34;1675&#34;
+			height=&#34;530&#34;
+			srcset=&#34;https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-6-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E4%B8%AD%E8%A7%92%E5%8A%A8%E9%87%8F%E7%9A%84%E6%99%AE%E9%81%8D%E6%80%A7%E8%B4%A8-abc-part/image-20211220214614767_huaf3b901d48134a351be0968f089d236b_316219_480x0_resize_box_3.png 480w, https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-6-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E4%B8%AD%E8%A7%92%E5%8A%A8%E9%87%8F%E7%9A%84%E6%99%AE%E9%81%8D%E6%80%A7%E8%B4%A8-abc-part/image-20211220214614767_huaf3b901d48134a351be0968f089d236b_316219_1024x0_resize_box_3.png 1024w&#34;
+			loading=&#34;lazy&#34;
+			alt=&#34;image-20211220214614767&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;image-20211220214614767&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;h3 id=&#34;3-标准表象-ketkjm&#34;&gt;3. 标准表象 $\ket{k,j,m}$&lt;/h3&gt;
+&lt;h3 id=&#34;a-基右矢&#34;&gt;a. 基右矢&lt;/h3&gt;
+&lt;p&gt;假设这两条式子的本征值集合再 $\scr E$ 空间中张成一个矢量子空间，记作 $\mscr E(j,m)$，可以预见其维数 $g(j,m)&amp;gt;1$，这是因为一般说来 $J^2,J_z$ 并不构成 一个 ECOC。现在选择一个任意的正交归一基 $\{\ket{k,j,m};k=1,2,\cdots,g(j,m)\}$。&lt;/p&gt;
+&lt;p&gt;那么，当 $-j&amp;lt;m&amp;lt;j$ 的情况下，在 $\mscr E(j,m+1),\mscr E(j,m-1)$ 空间中各构造一个正交归一基。&lt;/p&gt;
+&lt;p&gt;首先，我们证明： $k_1\ne k_2$，则 $J_+\ket{k_1,j,m},J_+\ket{k_2,j,m}$ 正交， $J_-$ 的两条式子也正交。&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+\left\langle k_{2}, j, m\left|J_{\mp} J_{\pm}\right| k_{1}, j, m\right\rangle &amp;amp;=\left\langle k_{2}, j, m\left|\left(\boldsymbol{J}^{2}-J_{z}^{2} \mp \hbar J_{z}\right)\right| k_{1}, j, m\right\rangle \nl
+&amp;amp;=[j(j+1)-m(m \pm 1)] \hbar^{2}\left\langle k_{2}, j, m \mid k_{1}, j, m\right\rangle
+\end{aligned}
+$$&lt;/p&gt;
+&lt;p&gt;由于 $\mscr E(j,m)$ 是正交归一的，因此 $k_1\ne k_2$ 时这个标量积为 0，当 $k_1=k_2$ 时，便得到 $J_{\pm}\ket{k,j,m}$ 的模平方 $[j(j+1)-m(m\pm1)]\hbar^2$。&lt;/p&gt;
+&lt;p&gt;考虑下式：&lt;/p&gt;
+&lt;p&gt;$$
+|k, j, m+1\rangle=\frac{1}{\hbar \sqrt{j(j+1)-m(m+1)}} J_{+}|k, j, m\rangle
+$$&lt;/p&gt;
+&lt;p&gt;总之 balabala 就能构成 $\mscr E(j,m+1)$ 空间中的一个基。&lt;/p&gt;
+&lt;p&gt;同理，&lt;/p&gt;
+&lt;p&gt;$$
+|k, j, m-1\rangle=\frac{1}{\hbar \sqrt{j(j+1)-m(m-1)}} J_{-}|k, j, m\rangle
+$$&lt;/p&gt;
+&lt;p&gt;也是构成 $\mscr E(j,m-1)$ 空间中的一个基。&lt;/p&gt;
+&lt;p&gt;特别地，我们发现：&lt;/p&gt;
+&lt;p&gt;$$
+g(j,m+1)=g(j,m-1)=g(j,m)=g(j)
+$$&lt;/p&gt;
+&lt;p&gt;这表明它们的维数与 $m$ 无关。&lt;/p&gt;
+&lt;p&gt;接下来我们取标准基：&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	
+		class=&#34;gallery-image&#34; 
+		style=&#34;
+			flex-grow: 153; 
+			flex-basis: 367px&#34;
+	&gt;
+	&lt;a href=&#34;https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-6-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E4%B8%AD%E8%A7%92%E5%8A%A8%E9%87%8F%E7%9A%84%E6%99%AE%E9%81%8D%E6%80%A7%E8%B4%A8-abc-part/image-20211221210854423.png&#34; data-size=&#34;1538x1004&#34;&gt;
+		&lt;img src=&#34;https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-6-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E4%B8%AD%E8%A7%92%E5%8A%A8%E9%87%8F%E7%9A%84%E6%99%AE%E9%81%8D%E6%80%A7%E8%B4%A8-abc-part/image-20211221210854423.png&#34;
+			width=&#34;1538&#34;
+			height=&#34;1004&#34;
+			srcset=&#34;https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-6-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E4%B8%AD%E8%A7%92%E5%8A%A8%E9%87%8F%E7%9A%84%E6%99%AE%E9%81%8D%E6%80%A7%E8%B4%A8-abc-part/image-20211221210854423_hu2ae3ef0b3d8830a7bd4e9515d152a963_252407_480x0_resize_box_3.png 480w, https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-6-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E4%B8%AD%E8%A7%92%E5%8A%A8%E9%87%8F%E7%9A%84%E6%99%AE%E9%81%8D%E6%80%A7%E8%B4%A8-abc-part/image-20211221210854423_hu2ae3ef0b3d8830a7bd4e9515d152a963_252407_1024x0_resize_box_3.png 1024w&#34;
+			loading=&#34;lazy&#34;
+			alt=&#34;image-20211221210854423&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;image-20211221210854423&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;接下来，正交归一关系式和封闭性关系式：&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+&amp;amp;\left\langle k, j, m \mid k^{\prime}, j^{\prime}, m^{\prime}\right\rangle=\delta_{k k^{\prime}} \delta_{j j^{\prime}} \delta_{m m^{\prime}} \nl
+&amp;amp;\sum_{j} \sum_{m=-j}^{+j} \sum_{k=1}^{g(j)}|k, j, m\rangle\langle k, j, m|=1
+\end{aligned}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;b-子空间-mscr-ekj&#34;&gt;b. 子空间 $\mscr E(k,j)$&lt;/h3&gt;
+&lt;p&gt;使用 $\mscr E(j,m)$ 有不便之处。首先，维数 $g(j)$ 事先是不知道的。&lt;/p&gt;
+&lt;p&gt;引入了另外的一些子空间，即子空间 $\mscr E(k,j)$。即将 $\ket{k,j,m}$ 另行组成一个集合，其中 $k,j$ 有指定值。&lt;/p&gt;
+&lt;p&gt;有简单性质：&lt;/p&gt;
+&lt;p&gt;1、不论研究的是什么物理体系，也不论 $k$ 的数值如何，子空间的维数都是 $(2j+1)$&lt;/p&gt;
+&lt;p&gt;2、子空间 $\mscr E(k,j)$ 在 $J$ 的作用下具有整体不变性。因为 $J_z, J_+,J_-$ 的作用都不会改变 $k,j$ 的数值。&lt;/p&gt;
+&lt;h3 id=&#34;c-表示角动量算符的矩阵&#34;&gt;c. 表示角动量算符的矩阵&lt;/h3&gt;
+&lt;p&gt;由于换了空间，因此结构得到了很大的简化：&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	
+		class=&#34;gallery-image&#34; 
+		style=&#34;
+			flex-grow: 269; 
+			flex-basis: 647px&#34;
+	&gt;
+	&lt;a href=&#34;https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-6-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E4%B8%AD%E8%A7%92%E5%8A%A8%E9%87%8F%E7%9A%84%E6%99%AE%E9%81%8D%E6%80%A7%E8%B4%A8-abc-part/image-20211222233711644.png&#34; data-size=&#34;877x325&#34;&gt;
+		&lt;img src=&#34;https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-6-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E4%B8%AD%E8%A7%92%E5%8A%A8%E9%87%8F%E7%9A%84%E6%99%AE%E9%81%8D%E6%80%A7%E8%B4%A8-abc-part/image-20211222233711644.png&#34;
+			width=&#34;877&#34;
+			height=&#34;325&#34;
+			srcset=&#34;https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-6-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E4%B8%AD%E8%A7%92%E5%8A%A8%E9%87%8F%E7%9A%84%E6%99%AE%E9%81%8D%E6%80%A7%E8%B4%A8-abc-part/image-20211222233711644_huc0b18417208733648bfb1da05349b2ac_72992_480x0_resize_box_3.png 480w, https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-6-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E4%B8%AD%E8%A7%92%E5%8A%A8%E9%87%8F%E7%9A%84%E6%99%AE%E9%81%8D%E6%80%A7%E8%B4%A8-abc-part/image-20211222233711644_huc0b18417208733648bfb1da05349b2ac_72992_1024x0_resize_box_3.png 1024w&#34;
+			loading=&#34;lazy&#34;
+			alt=&#34;image-20211222233711644&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;image-20211222233711644&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;每一个这样的有限阶子矩阵都不依赖于 $k$，也不依赖于待研究的体系，只依赖于 $j$。&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	
+		class=&#34;gallery-image&#34; 
+		style=&#34;
+			flex-grow: 409; 
+			flex-basis: 983px&#34;
+	&gt;
+	&lt;a href=&#34;https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-6-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E4%B8%AD%E8%A7%92%E5%8A%A8%E9%87%8F%E7%9A%84%E6%99%AE%E9%81%8D%E6%80%A7%E8%B4%A8-abc-part/image-20211221205309810.png&#34; data-size=&#34;1024x250&#34;&gt;
+		&lt;img src=&#34;https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-6-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E4%B8%AD%E8%A7%92%E5%8A%A8%E9%87%8F%E7%9A%84%E6%99%AE%E9%81%8D%E6%80%A7%E8%B4%A8-abc-part/image-20211221205309810.png&#34;
+			width=&#34;1024&#34;
+			height=&#34;250&#34;
+			srcset=&#34;https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-6-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E4%B8%AD%E8%A7%92%E5%8A%A8%E9%87%8F%E7%9A%84%E6%99%AE%E9%81%8D%E6%80%A7%E8%B4%A8-abc-part/image-20211221205309810_hu04242441688b196daa5153a211fdc846_85525_480x0_resize_box_3.png 480w, https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-6-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E4%B8%AD%E8%A7%92%E5%8A%A8%E9%87%8F%E7%9A%84%E6%99%AE%E9%81%8D%E6%80%A7%E8%B4%A8-abc-part/image-20211221205309810_hu04242441688b196daa5153a211fdc846_85525_1024x0_resize_box_3.png 1024w&#34;
+			loading=&#34;lazy&#34;
+			alt=&#34;image-20211221205309810&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;image-20211221205309810&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;依靠这些式子，我们可以得到矩阵中的每个值：&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+&amp;amp;\left\langle k, j, m\left|J_{z}\right| k^{\prime}, j^{\prime}, m^{\prime}\right\rangle=m \hbar \delta_{k k^{\prime}} \delta_{j j^{\prime}} \delta_{m m^{\prime}} \nl
+&amp;amp;\left\langle k, j, m\left|J_{\pm}\right| k^{\prime}, j^{\prime}, m^{\prime}\right\rangle=\hbar \sqrt{j(j+1)-m^{\prime}\left(m^{\prime} \pm 1\right)} \delta_{k k^{\prime}} \delta_{j j^{\prime}} \delta_{m, m^{\prime} \pm 1}
+\end{aligned}
+$$&lt;/p&gt;
+&lt;p&gt;下面是矩阵 $(J_u)^{(j)}$ 的一些例子：&lt;/p&gt;
+&lt;p&gt;(i) $j=0$&lt;/p&gt;
+&lt;p&gt;值为 0&lt;/p&gt;
+&lt;p&gt;(ii) $j=1/2$&lt;/p&gt;
+&lt;p&gt;基矢的顺序 $m=1/2,-1/2$&lt;/p&gt;
+&lt;p&gt;$$
+\begin{array}{c}
+\left(J_{z}\right)^{(1 / 2)}=\frac{\hbar}{2}\left(\begin{array}{cc}
+1 &amp;amp; 0 \nl
+0 &amp;amp; -1
+\end{array}\right) \nl
+\left(J_{+}\right)^{(1 / 2)}=\hbar\left(\begin{array}{ll}
+0 &amp;amp; 1 \nl
+0 &amp;amp; 0
+\end{array}\right), \quad\left(J_{-}\right)^{(1 / 2)}=\hbar\left(\begin{array}{ll}
+0 &amp;amp; 0 \nl
+1 &amp;amp; 0
+\end{array}\right)\nl
+\left(J_{x}\right)^{(1 / 2)}=\frac{\hbar}{2}\left(\begin{array}{ll}
+0 &amp;amp; 1 \nl
+1 &amp;amp; 0
+\end{array}\right), \quad J_{y}^{(1 / 2)}=\frac{\hbar}{2}\left(\begin{array}{cc}
+0 &amp;amp; -\mathrm{i} \nl
+\mathrm{i} &amp;amp; 0
+\end{array}\right)
+\end{array}
+$$&lt;/p&gt;
+&lt;p&gt;(iii) $j=1$&lt;/p&gt;
+&lt;p&gt;基矢的顺序 $m=1,0,-1$&lt;/p&gt;
+&lt;p&gt;$$
+\begin{array}{c}
+\left(J_{z}\right)^{(1)}=\hbar\left(\begin{array}{ccc}
+1 &amp;amp; 0 &amp;amp; 0 \nl
+0 &amp;amp; 0 &amp;amp; 0 \nl
+0 &amp;amp; 0 &amp;amp; -1
+\end{array}\right) \nl
+\left(J_{+}\right)^{(1)}=\hbar\left(\begin{array}{ccc}
+0 &amp;amp; \sqrt{2} &amp;amp; 0 \nl
+0 &amp;amp; 0 &amp;amp; \sqrt{2} \nl
+0 &amp;amp; 0 &amp;amp; 0
+\end{array}\right), \quad\left(J_{-}\right)^{(1)}=\hbar\left(\begin{array}{ccc}
+0 &amp;amp; 0 &amp;amp; 0 \nl
+\sqrt{2} &amp;amp; 0 &amp;amp; 0 \nl
+0 &amp;amp; \sqrt{2} &amp;amp; 0
+\end{array}\right) \nl
+\left(J_{x}\right)^{(1)}=\frac{\hbar}{\sqrt{2}}\left(\begin{array}{ccc}
+0 &amp;amp; 1 &amp;amp; 0 \nl
+1 &amp;amp; 0 &amp;amp; 1 \nl
+0 &amp;amp; 1 &amp;amp; 0
+\end{array}\right), \quad\left(J_{y}\right)^{(1)}=\frac{\hbar}{\sqrt{2}}\left(\begin{array}{ccc}
+0 &amp;amp; -\mathrm{i} &amp;amp; 0 \nl
+\mathrm{i} &amp;amp; 0 &amp;amp; -\mathrm{i} \nl
+0 &amp;amp; \mathrm{i} &amp;amp; 0
+\end{array}\right) \nl
+\left(J^{2}\right)^{(1)}=2 \hbar^{2}\left(\begin{array}{ccc}
+1 &amp;amp; 0 &amp;amp; 0 \nl
+0 &amp;amp; 1 &amp;amp; 0 \nl
+0 &amp;amp; 0 &amp;amp; 1
+\end{array}\right)
+\end{array}
+$$&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	
+		class=&#34;gallery-image&#34; 
+		style=&#34;
+			flex-grow: 269; 
+			flex-basis: 647px&#34;
+	&gt;
+	&lt;a href=&#34;https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-6-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E4%B8%AD%E8%A7%92%E5%8A%A8%E9%87%8F%E7%9A%84%E6%99%AE%E9%81%8D%E6%80%A7%E8%B4%A8-abc-part/image-20211222233645334.png&#34; data-size=&#34;860x319&#34;&gt;
+		&lt;img src=&#34;https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-6-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E4%B8%AD%E8%A7%92%E5%8A%A8%E9%87%8F%E7%9A%84%E6%99%AE%E9%81%8D%E6%80%A7%E8%B4%A8-abc-part/image-20211222233645334.png&#34;
+			width=&#34;860&#34;
+			height=&#34;319&#34;
+			srcset=&#34;https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-6-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E4%B8%AD%E8%A7%92%E5%8A%A8%E9%87%8F%E7%9A%84%E6%99%AE%E9%81%8D%E6%80%A7%E8%B4%A8-abc-part/image-20211222233645334_huba41667c47ce5bddc28bca8026564fe3_120094_480x0_resize_box_3.png 480w, https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-6-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E4%B8%AD%E8%A7%92%E5%8A%A8%E9%87%8F%E7%9A%84%E6%99%AE%E9%81%8D%E6%80%A7%E8%B4%A8-abc-part/image-20211222233645334_huba41667c47ce5bddc28bca8026564fe3_120094_1024x0_resize_box_3.png 1024w&#34;
+			loading=&#34;lazy&#34;
+			alt=&#34;image-20211222233645334&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;image-20211222233645334&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;h2 id=&#34;comment&#34;&gt;Comment&lt;/h2&gt;
+&lt;p&gt;怪我前面没学懂，角动量这张关于空间的论述实在是太过于数学、也太难理解了 qwq。只能尽量讲讲现在的感受，以后有什么改进再修改吧。&lt;/p&gt;
+&lt;p&gt;1、首先定义了角动量的算符，以及他们之间的关系。（或者是依据符合某些关系而定义了什么是角动量算符）&lt;/p&gt;
+&lt;p&gt;2、角动量算符的 ECOC 以及他们的本征值。&lt;/p&gt;
+&lt;p&gt;3、通过定义 $L_+,L_-$ 两个算符对角动量算符的性质进行探讨。&lt;/p&gt;
+&lt;p&gt;4、开始研究角动量的结构，并定义出一系列标准基。&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>[热统] 7 近独立子系组成的系统 I</title>
         <link>https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-7-%E8%BF%91%E7%8B%AC%E7%AB%8B%E5%AD%90%E7%B3%BB%E7%BB%84%E6%88%90%E7%9A%84%E7%B3%BB%E7%BB%9F-i/</link>
         <pubDate>Sun, 12 Dec 2021 17:13:15 +0800</pubDate>
@@ -18,7 +707,7 @@
 \def\par{\partial}
 \def\bl{\boldsymbol}
 \def\mbf{\mathbf}
-\def\nl{\newline}
+\def\nl{\newline} % 换行最后使用 \nl 来避免 markdown 对 \nl 的转义
 \def\Ra{\Rightarrow}
 \def\La{\Leftarrow}
 \def\ra{\rightarrow}
@@ -33,93 +722,93 @@ $$&lt;/p&gt;
 &lt;h2 id=&#34;71-分布与系统的微观态-最可几分布&#34;&gt;7.1 分布与系统的微观态 最可几分布&lt;/h2&gt;
 &lt;h3 id=&#34;711-近独立子系&#34;&gt;7.1.1 近独立子系&lt;/h3&gt;
 &lt;p&gt;子系是组成系统的基本单元，它可以是气体中的分子，金属中的传导电子，热辐射场中的光子等 ；也可以代表粒子的某一个自由度 ；此外，在某些理论处理中，还可以把系统分成许多宏观大小的部分，把每一部分看成一个子系，等等。&lt;/p&gt;
-&lt;p&gt;系统的总能量等于各个粒子的能量 $\ve_i$ 之和：&lt;/p&gt;
-&lt;p&gt;$$
+&lt;p&gt;系统的总能量等于各个粒子的能量  $\ve_i$ 之和：
+$$
 E=\sum^N_{i=1}\ve_i
-$$&lt;/p&gt;
-&lt;p&gt;则称这种系统为近独立子系（almost independent sub-system）组成的系统，有的书上用 “ 独立粒子系统 ” 或 “ 自由粒子系统 ”，意思实际上是一样的，想表达的都是假如粒子之间完全没有相互作用，粒子之间就不可能交换能量，系统就不可能达到平衡并保持平衡。&lt;/p&gt;
-&lt;h3 id=&#34;712-粒子按能级的分布-a_lambda&#34;&gt;7.1.2 粒子按能级的分布 ${a_\lambda}$&lt;/h3&gt;
-&lt;p&gt;令粒子的能级为 $\ve_1,\ve_2,\cdots,\ve_\lambda,\cdots$，它们从低到高顺序排列。相应的，各个能级的简并度为 $g_1,g_2,\cdots,g_\lambda,\cdots$（即每个能级上有多少种量子态），令 $a_1,a_2,\cdots,a_\lambda,\cdots$ 代表这些能级上占据的粒子数，称为粒子按能级的微观分布，简记为 ${a_\lambda}$。&lt;/p&gt;
-&lt;p&gt;在一定的宏观状态下，允许出现的微观分布有许许多多 。现在考虑处于平衡态的孤立系，此时系统的总能量 $E$，体积 $V$，总粒子数 $N$ 都是固定的，此时应满足两个条件：&lt;/p&gt;
-&lt;p&gt;$$
+$$
+则称这种系统为近独立子系（almost independent sub-system）组成的系统，有的书上用 “ 独立粒子系统 ” 或 “ 自由粒子系统 ”，意思实际上是一样的，想表达的都是假如粒子之间完全没有相互作用，粒子之间就不可能交换能量，系统就不可能达到平衡并保持平衡。&lt;/p&gt;
+&lt;h3 id=&#34;712-粒子按能级的分布-a_lambda&#34;&gt;7.1.2 粒子按能级的分布 $\{a_\lambda\}$&lt;/h3&gt;
+&lt;p&gt;令粒子的能级为 $\ve_1,\ve_2,\cdots,\ve_\lambda,\cdots$，它们从低到高顺序排列。相应的，各个能级的简并度为 $g_1,g_2,\cdots,g_\lambda,\cdots$（即每个能级上有多少种量子态），令 $a_1,a_2,\cdots,a_\lambda,\cdots$ 代表这些能级上占据的粒子数，称为粒子按能级的微观分布，简记为 $\{a_\lambda\}$。&lt;/p&gt;
+&lt;p&gt;在一定的宏观状态下，允许出现的微观分布有许许多多 。现在考虑处于平衡态的孤立系，此时系统的总能量 $E$，体积 $V$，总粒子数 $N$ 都是固定的，此时应满足两个条件：
+$$
 \begin{aligned}
 &amp;amp;\sum_\lambda a_\lambda=N \nl
 &amp;amp;\sum_\lambda \ve_\lambda a_\lambda=E
 \end{aligned}
 $$&lt;/p&gt;
-&lt;h3 id=&#34;713-分布-a_lambda-对应的系统微观状态数-wa_lambda&#34;&gt;7.1.3 分布 ${a_\lambda}$ 对应的系统微观状态数 $W({a_\lambda})$&lt;/h3&gt;
+&lt;h3 id=&#34;713-分布-a_lambda-对应的系统微观状态数-wa_lambda&#34;&gt;7.1.3 分布 $\{a_\lambda\}$ 对应的系统微观状态数 $W(\{a_\lambda\})$&lt;/h3&gt;
 &lt;p&gt;分布与系统微观状态数是不同的概念。分布仅确定了每一个&lt;strong&gt;能级&lt;/strong&gt; $\ve_i$ 上的粒子数 $a_i$，而系统微观状态要求确定处于每一个&lt;strong&gt;量子态&lt;/strong&gt;上的粒子数（意思就是说，一个能级上可能有多个量子态），即在确定了能级 $\ve_i$ 上的粒子数 $a_i$ 后，还需要确定量子态 $g_i$ 上粒子数的分布。&lt;/p&gt;
-&lt;p&gt;一个特定的微观分布 ${a_\lambda}$ 对应于许许多多系统的量子态。&lt;/p&gt;
-&lt;p&gt;根据等纪律原理，某一微观分布对应的系统微观态数越多，它出现的概率越大。令 $P({a_\lambda})$ 代表微观分布 ${a_\lambda}$ 出现的概率，则：&lt;/p&gt;
-&lt;p&gt;$$
-P({a_\lambda})\propto W({a_\lambda})
-$$&lt;/p&gt;
-&lt;p&gt;$W({a_\lambda})$ 代表未归一化的相对几率，称为热力学几率。目前我们只需要知道 $W({a_\lambda})$ 是分布的函数就够了。&lt;/p&gt;
+&lt;p&gt;一个特定的微观分布 $\{a_\lambda\}$ 对应于许许多多系统的量子态。&lt;/p&gt;
+&lt;p&gt;根据等几率原理，某一微观分布对应的系统微观态数越多，它出现的概率越大。令 $P(\{a_\lambda\})$ 代表微观分布 $\{a_\lambda\}$ 出现的概率，则：
+$$
+P(\{a_\lambda\})\propto W(\{a_\lambda\})
+$$
+$W(\{a_\lambda\})$ 代表未归一化的相对几率，称为热力学几率。目前我们只需要知道 $W(\{a_\lambda\})$ 是分布的函数就够了。&lt;/p&gt;
 &lt;h3 id=&#34;714-最可几分布法&#34;&gt;7.1.4 最可几分布法&lt;/h3&gt;
-&lt;p&gt;统计平均：&lt;/p&gt;
-&lt;p&gt;$$
-\bar{a}&lt;em&gt;\lambda=\sum&lt;/em&gt;{{a_\lambda}}a_\lambda P({a_\lambda})
-$$&lt;/p&gt;
-&lt;p&gt;最可几分布法是从一定宏观状态下所有可能出现的微观分布中，找出出现几率最大的那个分布。倘若最可几分布出现的几率，比起其他分布的几率占有压倒优势 ；那么，最可几分布应该就等于平均分布。可以证明，当系统的粒子数目很大时，最可几分布与平均分布相同。&lt;/p&gt;
+&lt;p&gt;统计平均：
+$$
+\bar{a}_\lambda=\sum_{\{a_\lambda\}}a_\lambda P(\{a_\lambda\})
+$$
+最可几分布法是从一定宏观状态下所有可能出现的微观分布中，找出出现几率最大的那个分布。倘若最可几分布出现的几率，比起其他分布的几率占有压倒优势 ；那么，最可几分布应该就等于平均分布。可以证明，当系统的粒子数目很大时，最可几分布与平均分布相同。&lt;/p&gt;
 &lt;h2 id=&#34;72-定域子系-麦克斯韦---玻尔兹曼分布&#34;&gt;7.2 定域子系 麦克斯韦 - 玻尔兹曼分布&lt;/h2&gt;
-&lt;h3 id=&#34;721-分布-a_lambda-对应的系统量子态数-wa_lambda&#34;&gt;7.2.1 分布 ${a_\lambda}$ 对应的系统量子态数 $W({a_\lambda})$&lt;/h3&gt;
+&lt;h3 id=&#34;721-分布-a_lambda-对应的系统量子态数-wa_lambda&#34;&gt;7.2.1 分布 $\{a_\lambda\}$ 对应的系统量子态数 $W(\{a_\lambda\})$&lt;/h3&gt;
 &lt;p&gt;对于全同的定域子系，粒子是可分辨的，我们可以给粒子加上标号：$1, 2, \cdots,N$。&lt;/p&gt;
-&lt;p&gt;系统量子态数为：&lt;/p&gt;
-&lt;p&gt;$$
-W({a_\lambda})=\frac{N!}{\prod \limits_\lambda a_\lambda !}\prod_\lambda g_\lambda^{a_\lambda}
-$$&lt;/p&gt;
-&lt;p&gt;解释：$g_\lambda^{a_\lambda}$ 代表的含义是 $a_\lambda$ 个粒子在 $\ve_\lam$ 能级上的 $g_\lam$ 个不同的粒子量子态中不同的占据方式。连乘 $\prod \limits_\lam$ 代表不同能级上的量子态分布。&lt;/p&gt;
-&lt;p&gt;各能级之间的粒子也可以交换，$N$ 个粒子的交换数是 $N!$，且应除去 $a_\lam$ 各能级的交换数 $\prod_\limits\lam  a_\lam$ 。&lt;/p&gt;
+&lt;p&gt;系统量子态数为：
+$$
+W(\{a_\lambda\})=\frac{N!}{\prod \limits_\lambda a_\lambda !}\prod_\lambda g_\lambda^{a_\lambda}
+$$
+解释：$g_\lambda^{a_\lambda}$ 代表的含义是 $a_\lambda$ 个粒子在 $\ve_\lam$ 能级上的 $g_\lam$ 个不同的粒子量子态中不同的占据方式。连乘 $\prod \limits_\lam$ 代表不同能级上的量子态分布。&lt;/p&gt;
+&lt;p&gt;各能级之间的粒子也可以交换，$N$ 个粒子的交换数是 $N!$，且应除去 $a_\lam$  各能级的交换数 $\prod_\limits\lam  a_\lam$  。&lt;/p&gt;
 &lt;h3 id=&#34;722-最可几分布的推导&#34;&gt;7.2.2 最可几分布的推导&lt;/h3&gt;
 &lt;p&gt;为了数学上的方便，把求 $W$ 的极大改为求 $\ln W$ 的极大。两者完全等价。&lt;/p&gt;
-&lt;p&gt;斯特林公式：&lt;/p&gt;
-&lt;p&gt;$$
+&lt;p&gt;斯特林公式：
+$$
 m!=m^me^{-m}\sqrt{2\pi m}
-$$&lt;/p&gt;
-&lt;p&gt;取对数：&lt;/p&gt;
-&lt;p&gt;$$
+$$
+取对数：
+$$
 \ln m!=m(\ln m-1)+\frac{1}{2}\ln(2\pi m)
-$$&lt;/p&gt;
-&lt;p&gt;当 $m$ 很大时，$\ln m \ll m$，那么最后一项可以忽略，即：&lt;/p&gt;
-&lt;p&gt;$$
+$$
+当 $m$ 很大时，$\ln m \ll m$，那么最后一项可以忽略，即：
+$$
 \ln m!=m(\ln m-1)
-$$&lt;/p&gt;
-&lt;p&gt;应用到 $\ln W$，得：&lt;/p&gt;
-&lt;p&gt;$$
+$$
+应用到 $\ln W$，得：
+$$
 \begin{aligned}
-\ln W({a_\lam})&amp;amp;=N(\ln N-1)-\sum_\lam a_\lam(\ln a_\lam-1)+\sum_\lam a_\lam \lg g_\lam\nl
+\ln W(\{a_\lam\})&amp;amp;=N(\ln N-1)-\sum_\lam a_\lam(\ln a_\lam-1)+\sum_\lam a_\lam \lg g_\lam\nl
 &amp;amp;=N\ln N-\sum_\lam a_\lam \ln(\frac{a_\lam}{g_\lam})
 \end{aligned}
-$$&lt;/p&gt;
-&lt;p&gt;求最可几几率，就是在满足其他条件得情况下，使得 $\delta \ln W=0,\delta^2 \ln W&amp;lt;0$ 的分布。数学上是以 $a_1,a_2,\cdots,a_\lam,\cdots$ 为变数的多元函数的极值。&lt;/p&gt;
-&lt;p&gt;$$
-\delta \ln W({a_\lambda})=-\sum_\lam\ln(\frac{a_\lam}{g_\lam})\delta a_\lam=0
-$$&lt;/p&gt;
-&lt;p&gt;限制条件：&lt;/p&gt;
-&lt;p&gt;$$
+$$
+求最可几几率，就是在满足其他条件得情况下，使得 $\delta \ln W=0,\delta^2 \ln W&amp;lt;0$ 的分布。数学上是以 $a_1,a_2,\cdots,a_\lam,\cdots$ 为变数的多元函数的极值。
+$$
+\delta \ln W(\{a_\lambda\})=-\sum_\lam\ln(\frac{a_\lam}{g_\lam})\delta a_\lam=0
+$$
+限制条件：
+$$
 \begin{aligned}
 &amp;amp;\delta N=\sum_\lam\delta a_\lam=0\nl
 &amp;amp;\delta E=\sum_\lam\ve_\lam\delta a_\lam=0
 \end{aligned}
-$$&lt;/p&gt;
-&lt;p&gt;应用求多元函数条件极值的拉格朗日未定乘子法。引入两个拉格朗日乘子 $\alpha,\beta$&lt;/p&gt;
-&lt;p&gt;$$
+$$
+应用求多元函数条件极值的拉格朗日未定乘子法。引入两个拉格朗日乘子 $\alpha,\beta$
+$$
 \delta\ln W-\alpha\delta N-\beta\delta E=-\sum_\lam (\ln \frac{a_\lam}{g_\lam}+\alpha+\beta\ve_\lam) \delta a_\lam=0
-$$&lt;/p&gt;
-&lt;p&gt;拉格朗日乘子法：&lt;/p&gt;
-&lt;p&gt;$$
+$$
+拉格朗日乘子法：
+$$
 \ln \frac{a_\lam}{g_\lam}+\alpha+\beta\ve_\lam=0
-$$&lt;/p&gt;
-&lt;p&gt;用符号 $\tilde{a}&lt;em&gt;\lam$ 代表上面的分布（以区分微观分布 $a&lt;/em&gt;\lam$），改写为：&lt;/p&gt;
-&lt;p&gt;$$
-\tilde{a}&lt;em&gt;\lam=g&lt;/em&gt;\lam e^{-\alpha-\beta\ve_\lam}
-$$&lt;/p&gt;
-&lt;p&gt;求二阶导：&lt;/p&gt;
-&lt;p&gt;$$
+$$
+用符号 $\tilde{a}_\lam$ 代表上面的分布（以区分微观分布 $a_\lam$），改写为：
+$$
+\tilde{a}_\lam=g_\lam e^{-\alpha-\beta\ve_\lam}
+$$
+求二阶导：
+$$
 \delta^2\ln W=-\sum_\lam\frac{(\delta a_\lam)^2}{a_\lam}&amp;lt;0
-$$&lt;/p&gt;
-&lt;p&gt;因此 $\tilde{a}_\lam$ 为最可几分布，称为麦克斯韦-玻尔兹曼分布，记为 MB 分布。&lt;/p&gt;
-&lt;h3 id=&#34;723-ln-wa_lambda-是尖锐成峰的极大&#34;&gt;7.2.3 $\ln W({a_\lambda})$ 是尖锐成峰的极大&lt;/h3&gt;
+$$
+因此 $\tilde{a}_\lam$ 为最可几分布，称为麦克斯韦-玻尔兹曼分布，记为 MB 分布。&lt;/p&gt;
+&lt;h3 id=&#34;723-ln-wa_lambda-是尖锐成峰的极大&#34;&gt;7.2.3 $\ln W(\{a_\lambda\})$ 是尖锐成峰的极大&lt;/h3&gt;
 &lt;p&gt;反正是一堆证明。这里用一张图说明一切吧：&lt;/p&gt;
 &lt;p&gt;&lt;figure 
 	
@@ -140,55 +829,55 @@ $$&lt;/p&gt;
 	&lt;figcaption&gt;image-20211212215559845&lt;/figcaption&gt;
 	
 &lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;因此，以后可以将 $\bar{a}&lt;em&gt;\lam=\tilde{a}&lt;/em&gt;\lam$。&lt;/p&gt;
+&lt;p&gt;因此，以后可以将 $\bar{a}_\lam=\tilde{a}_\lam$。&lt;/p&gt;
 &lt;h3 id=&#34;724-麦克斯韦-玻尔兹曼分布中参数-alphabeta-的确定&#34;&gt;7.2.4 麦克斯韦-玻尔兹曼分布中参数 $\alpha,\beta$ 的确定&lt;/h3&gt;
-&lt;p&gt;确定方法：&lt;/p&gt;
-&lt;p&gt;$$
+&lt;p&gt;确定方法：
+$$
 \begin{aligned}
 &amp;amp;N=\sum_\lam g_\lam e^{-\alpha-\beta\ve_\lam}\nl
 &amp;amp;E=\sum_\lam\ve_\lam g_\lam e^{-\alpha-\beta\ve_\lam}
 \end{aligned}
-$$&lt;/p&gt;
-&lt;p&gt;引进函数 $Z$：&lt;/p&gt;
-&lt;p&gt;$$
+$$
+引进函数 $Z$：
+$$
 Z=\sum_\lam g_\lam e^{-\beta\ve_\lam}
-$$&lt;/p&gt;
-&lt;p&gt;称为子系配分函数，是 $\beta$ 及其他宏观参量的函数。&lt;/p&gt;
-&lt;p&gt;由第一条式子得：&lt;/p&gt;
-&lt;p&gt;$$
+$$
+称为子系配分函数，是 $\beta$ 及其他宏观参量的函数。&lt;/p&gt;
+&lt;p&gt;由第一条式子得：
+$$
 \alpha=\ln\frac{Z}{N}
-$$&lt;/p&gt;
-&lt;p&gt;消去 $\alpha$，得：&lt;/p&gt;
-&lt;p&gt;$$
+$$
+消去 $\alpha$，得：
+$$
 E=-N\frac{\par}{\par \beta}\ln Z
 $$&lt;/p&gt;
 &lt;h2 id=&#34;73-二能级系统&#34;&gt;7.3 二能级系统&lt;/h2&gt;
 &lt;p&gt;讨论一个简单例子：二能级系统。&lt;/p&gt;
 &lt;p&gt;这个系统只有两个能级，$\ve_1=-\ve,\ve_2=\ve$，且每个能级只有一个量子态，$g_1=g_2=1$，计算子系按能级的平均分布， 系统的内能与热容 。&lt;/p&gt;
 &lt;p&gt;这种系统有一个例子是稀磁系统。&lt;/p&gt;
-&lt;p&gt;子系配分函数：&lt;/p&gt;
-&lt;p&gt;$$
+&lt;p&gt;子系配分函数：
+$$
 Z=\sum_\lam g_\lam e^{-\beta\ve_\lam}=e^{\beta \ve}+e^{-\beta\ve}
-$$&lt;/p&gt;
-&lt;p&gt;参数 $\alpha$ 的确定：&lt;/p&gt;
-&lt;p&gt;$$
+$$
+参数 $\alpha$ 的确定：
+$$
 e^{-\alpha}=\frac{N}{Z}=\frac{N}{e^{\beta \ve}+e^{-\beta\ve}}
-$$&lt;/p&gt;
-&lt;p&gt;平均分布：&lt;/p&gt;
-&lt;p&gt;$$
+$$
+平均分布：
+$$
 \begin{aligned}
-&amp;amp;\bar{a}&lt;em&gt;{1}=1 \cdot \mathrm{e}^{-\alpha-\beta \varepsilon&lt;/em&gt;{1}}=N \frac{\mathrm{e}^{\beta \varepsilon}}{\mathrm{e}^{\beta \varepsilon}}+\mathrm{e}^{-\beta \varepsilon} \nl
-&amp;amp;\bar{a}&lt;em&gt;{2}=1 \cdot \mathrm{e}^{-\alpha-\beta \varepsilon&lt;/em&gt;{2}}=N \frac{\mathrm{e}^{-\beta \varepsilon}}{\mathrm{e}^{\beta \varepsilon}}+\mathrm{e}^{-\beta \varepsilon}
+&amp;amp;\bar{a}_{1}=1 \cdot \mathrm{e}^{-\alpha-\beta \varepsilon_{1}}=N \frac{\mathrm{e}^{\beta \varepsilon}}{\mathrm{e}^{\beta \varepsilon}}+\mathrm{e}^{-\beta \varepsilon} \nl
+&amp;amp;\bar{a}_{2}=1 \cdot \mathrm{e}^{-\alpha-\beta \varepsilon_{2}}=N \frac{\mathrm{e}^{-\beta \varepsilon}}{\mathrm{e}^{\beta \varepsilon}}+\mathrm{e}^{-\beta \varepsilon}
 \end{aligned}
-$$&lt;/p&gt;
-&lt;p&gt;式中 $\beta=\frac{1}{kT}$。显然，有限温度下 $\bar a_1&amp;gt;\bar a_2$。&lt;/p&gt;
-&lt;p&gt;$$
+$$
+式中 $\beta=\frac{1}{kT}$。显然，有限温度下 $\bar a_1&amp;gt;\bar a_2$。
+$$
 \begin{array}{l}
-\text { 当 } T \rightarrow 0(\beta \rightarrow \infty): \bar{a}&lt;em&gt;{1}=N, \bar{a}&lt;/em&gt;{2}=0 ; \&lt;br&gt;
-\text { 当 } T \rightarrow \infty(\beta \rightarrow 0): \bar{a}&lt;em&gt;{1}=\frac{N}{2}, \bar{a}&lt;/em&gt;{2}=\frac{N}{2}
+\text { 当 } T \rightarrow 0(\beta \rightarrow \infty): \bar{a}_{1}=N, \bar{a}_{2}=0 ; \nl
+\text { 当 } T \rightarrow \infty(\beta \rightarrow 0): \bar{a}_{1}=\frac{N}{2}, \bar{a}_{2}=\frac{N}{2}
 \end{array}
-$$&lt;/p&gt;
-&lt;p&gt;&lt;figure 
+$$
+&lt;figure 
 	
 		class=&#34;gallery-image&#34; 
 		style=&#34;
@@ -207,13 +896,49 @@ $$&lt;/p&gt;
 	&lt;figcaption&gt;image-20211213120251466&lt;/figcaption&gt;
 	
 &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;根据麦克斯韦-玻尔兹曼分布的公式，得到粒子占据 $\ve_\lam$ 上每一个量子态的几率 $p_\lam$ 为：
+$$
+p_\lam=\frac{1}{Z}e^{-\beta\ve_\lam}
+$$
+即：
+$$
+p_\lam\propto e^{-\beta e_\lam}=e^{-\ve_\lam/kT}
+$$
+$e^{-\ve_\lam/kT}$ 被称为玻尔兹曼因子。&lt;/p&gt;
+&lt;p&gt;对于二能级系统， 高低二能级占据粒子数之比为：
+$$
+\frac{\bar{a}_{2}}{\bar{a}_{1}} \sim \mathrm{e}^{-\Delta \varepsilon / k T}
+$$&lt;/p&gt;
+&lt;p&gt;其中 $\Delta\ve=\ve_2-\ve_1=2\ve$&lt;/p&gt;
+&lt;p&gt;温度极限：
+$$
+\begin{aligned}
+&amp;amp;\frac{\bar{a}_{2}}{\bar{a}_{1}} \sim 1 &amp;amp; (k T \gg \Delta \varepsilon) \nl
+&amp;amp;\bar{a}_{2} \sim 0 &amp;amp; (k T \ll \Delta \varepsilon)
+\end{aligned}
+$$
+内能：
+$$
+\begin{aligned}
+\bar{E} &amp;amp;=\sum_{\lambda} \varepsilon_{\lambda} \bar{a}_{\lambda}=\varepsilon_{1} \bar{a}_{1}+\varepsilon_{2} \bar{a}_{2} \nl
+&amp;amp;=-N \varepsilon \frac{\mathrm{e}^{\beta \varepsilon}-\mathrm{e}^{-\beta \varepsilon}}{\mathrm{e}^{\beta \varepsilon}+\mathrm{e}^{-\beta \varepsilon}}=-N \varepsilon \tanh \left(\frac{\varepsilon}{k T}\right)
+\end{aligned}
+$$
+热容：
+$$
+C=\frac{\partial \bar{E}}{\partial T}=N k\left(\frac{\Delta \varepsilon}{k T}\right)^{2} \frac{1}{\left(\mathrm{e}^{\varepsilon / k T}+\mathrm{e}^{-\varepsilon / k T}\right)^{2}}
+$$
+在 $T\ra 0$ 的极限下：
+$$
+C=N k\left(\frac{\Delta \varepsilon}{k T}\right)^{2} \mathrm{e}^{-\Delta \varepsilon / k T} \rightarrow 0
+$$&lt;/p&gt;
 &lt;h2 id=&#34;74-定域子系热力学量的统计表达式-熵的统计解释&#34;&gt;7.4 定域子系热力学量的统计表达式 熵的统计解释&lt;/h2&gt;
 &lt;p&gt;本节将从定域子系平衡态下的平均分布出发，导出各热力学量的统计表达式。&lt;/p&gt;
 &lt;p&gt;热力学量分两类：一类是内能、外界作用力，有直接的微观量，直接利用 $\bar{a}_\lam$ 求统计平均就能得到。&lt;/p&gt;
 &lt;p&gt;另一类如熵、热量，它们没有明显对应的微观量，可以通过与热力学公式类比的办法来建立。&lt;/p&gt;
 &lt;h3 id=&#34;741-内能&#34;&gt;7.4.1 内能&lt;/h3&gt;
-&lt;p&gt;内能是系统微观总能量的统计平均值。&lt;/p&gt;
-&lt;p&gt;$$
+&lt;p&gt;内能是系统微观总能量的统计平均值。
+$$
 \begin{aligned}
 U &amp;amp;=E=\sum_{\lambda} \varepsilon_{\lambda} \bar{a}_{\lambda}=\sum_{\lambda} \varepsilon_{\lambda} g_{\lambda} \mathrm{e}^{-\alpha-\beta \varepsilon_{\lambda}}=\mathrm{e}^{-\alpha} \sum_{\lambda} \varepsilon_{\lambda} g_{\lambda} \mathrm{e}^{-\beta \varepsilon_{\lambda}} \nl
 &amp;amp;=\frac{N}{Z}\left(-\frac{\partial}{\partial \beta} \sum_{\lambda} g_{\lambda} \mathrm{e}^{-\beta \varepsilon_{\lambda}}\right)=-N \frac{\partial}{\partial \beta} \ln Z
@@ -224,18 +949,18 @@ $$&lt;/p&gt;
 \dbar W=\sum_\lam \bar{Y}_\lam \dd y_\lam
 $$&lt;/p&gt;
 &lt;p&gt;$y_\lam$ 为广义坐标，外界作用力为 $\bar{Y}_\lam$。&lt;/p&gt;
-&lt;p&gt;考虑微观过程中，外界对系统做的功 $\sum_\lam Y_\lam \dd y_\lam$ 等于系统微观总能量的增加，即：&lt;/p&gt;
-&lt;p&gt;$$
+&lt;p&gt;考虑微观过程中，外界对系统做的功 $\sum_\lam Y_\lam \dd y_\lam$ 等于系统微观总能量的增加，即：
+$$
 \sum_\lam Y_\lam \dd y_\lam=\sum_\lam \frac{\par E}{\par y_\lam} \dd y_\lam
-$$&lt;/p&gt;
-&lt;p&gt;即：&lt;/p&gt;
-&lt;p&gt;$$
+$$
+即：
+$$
 Y_\lam=\frac{\par E}{\par y_\lam}=\sum_\lam \frac{\par \ve_\lam}{\par y_\lam} a_\lam\ (\text{近独立子系组成的系统})
-$$&lt;/p&gt;
-&lt;p&gt;求平均值：&lt;/p&gt;
-&lt;p&gt;$$
+$$
+求平均值：
+$$
 \begin{aligned}
-\bar{Y}&lt;em&gt;{\lambda} &amp;amp;=\sum&lt;/em&gt;{\lambda} \frac{\partial \varepsilon_{\lambda}}{\partial y_{\lambda}} \bar{a}_{\lambda}=\sum_{\lambda} \frac{\partial \varepsilon_{\lambda}}{\partial y_{\lambda}} g_{\lambda} \mathrm{e}^{-\alpha-\beta \varepsilon_{\lambda}} \nl
+\bar{Y}_{\lambda} &amp;amp;=\sum_{\lambda} \frac{\partial \varepsilon_{\lambda}}{\partial y_{\lambda}} \bar{a}_{\lambda}=\sum_{\lambda} \frac{\partial \varepsilon_{\lambda}}{\partial y_{\lambda}} g_{\lambda} \mathrm{e}^{-\alpha-\beta \varepsilon_{\lambda}} \nl
 &amp;amp;=\frac{N}{Z} \sum_{\lambda} \frac{\partial \varepsilon_{\lambda}}{\partial y_{\lambda}} g_{\lambda} \mathrm{e}^{-\beta \varepsilon_{\lambda}}=\frac{N}{Z}\left(-\frac{1}{\beta} \frac{\partial}{\partial y_{\lambda}} \sum_{\lambda} g_{\lambda} \mathrm{e}^{-\beta \varepsilon_{\lambda}}\right) \nl
 &amp;amp;=-\frac{N}{\beta} \frac{\partial}{\partial y_{\lambda}} \ln Z
 \end{aligned}
@@ -244,80 +969,80 @@ $$&lt;/p&gt;
 &lt;p&gt;$$
 \dbar Q= \dd \bar{E}-\sum_\lam \bar{Y}_\lam \dd y_\lam
 $$&lt;/p&gt;
-&lt;p&gt;代入 $\bar{E}=\sum_\lam \ve_\lam \bar{a}_\lam$：&lt;/p&gt;
-&lt;p&gt;$$
+&lt;p&gt;代入 $\bar{E}=\sum_\lam \ve_\lam \bar{a}_\lam$：
+$$
 \begin{aligned}
 \mathrm{\dbar} Q &amp;amp;=\mathrm{d}\left(\sum_{\lambda} \varepsilon_{\lambda} \bar{a}_{\lambda}\right)-\sum_{\lambda} \bar{Y}_{\lambda} \mathrm{d} y_{\lambda} \nl
 &amp;amp;=\sum_{\lambda} \mathrm{d} \varepsilon_{\lambda} \cdot \bar{a}_{\lambda}+\sum_{\lambda} \varepsilon_{\lambda} \cdot \mathrm{d} \bar{a}_{\lambda}-\sum_{\lambda} \bar{Y}_{\lambda} \mathrm{d} y_{\lambda}
 \end{aligned}
-$$&lt;/p&gt;
-&lt;p&gt;由于 $\dd \ve_\lam=\sum_\lam\frac{\par \ve_\lam}{y_\lam}\dd y_\lam$：&lt;/p&gt;
-&lt;p&gt;$$
+$$
+由于 $\dd \ve_\lam=\sum_\lam\frac{\par \ve_\lam}{y_\lam}\dd y_\lam$：
+$$
 \begin{aligned}
 \sum_{\lambda} \mathrm{d} \varepsilon_{\lambda} \cdot \bar{a}_{\lambda} &amp;amp;=\sum_{\lambda}\left(\sum_{\lambda} \frac{\partial \varepsilon_{\lambda}}{\partial y_{\lambda}} \mathrm{d} y_{\lambda}\right) \bar{a}_{\lambda} \nl
 &amp;amp;=\sum_{\lambda}\left(\sum_{\lambda} \frac{\partial \varepsilon_{\lambda}}{\partial y_{\lambda}} \bar{a}_{\lambda}\right) \mathrm{d} y_{\lambda} \nl
 &amp;amp;=\sum_{\lambda}^{\prime} \bar{Y}_{\lambda} \mathrm{d} y_{\lambda} .
 \end{aligned}
-$$&lt;/p&gt;
-&lt;p&gt;因此：&lt;/p&gt;
-&lt;p&gt;$$
+$$
+因此：
+$$
 \mathrm{d} Q=\sum_{\lambda} \varepsilon_{\lambda} \mathrm{d} \bar{a}_{\lambda}
-$$&lt;/p&gt;
-&lt;p&gt;这意味着：凡是平均分布不发生改变的过程是绝热过程。即在绝热过程中，外参量的变化导致粒子能级的变化，但不改变平均分布。&lt;/p&gt;
+$$
+这意味着：凡是平均分布不发生改变的过程是绝热过程。即在绝热过程中，外参量的变化导致粒子能级的变化，但不改变平均分布。&lt;/p&gt;
 &lt;h3 id=&#34;744-熵的统计分布&#34;&gt;7.4.4 熵的统计分布&lt;/h3&gt;
 &lt;p&gt;$$
 \dd S=\frac{\dbar Q}{T}=\frac{1}{T}(\dd \bar{E}-\sum_\lam \bar{Y}_\lam \dd y_\lam)
 $$&lt;/p&gt;
 &lt;p&gt;这条式子告诉我们，虽然 $\dbar Q$ 不是全微分，但是乘 $\frac{1}{T}$ 后就变成了全微分。即 $\frac{1}{T}$ 是 $\dbar Q$ 的积分因子。&lt;/p&gt;
-&lt;p&gt;这意味着我们可以反向考虑，证明 $\dbar Q$ 存在积分因子，就能引入熵的存在。&lt;/p&gt;
-&lt;p&gt;$$
+&lt;p&gt;这意味着我们可以反向考虑，证明 $\dbar Q$ 存在积分因子，就能引入熵的存在。
+$$
 \begin{aligned}
 \beta\left(\mathrm{d} \bar{E}-\sum_{\lambda} \bar{Y}_{\lambda} \mathrm{d} y_{\lambda}\right)=&amp;amp;-N \beta \mathrm{d}\left(\frac{\partial}{\partial \beta} \ln Z\right)+N \sum_{\lambda} \frac{\partial}{\partial y_{\lambda}} \ln Z \cdot \mathrm{d} y_{\lambda} \nl
 =&amp;amp;-N \mathrm{~d}\left(\beta \frac{\partial}{\partial \beta} \ln Z\right)+N \frac{\partial}{\partial \beta} \ln Z \cdot \mathrm{d} \beta \nl
 &amp;amp;+N \sum_{\lambda} \frac{\partial}{\partial y_{\lambda}} \ln Z \cdot \mathrm{d} y_{\lambda} \nl
 =&amp;amp; N \mathrm{~d}\left(\ln Z-\beta \frac{\partial}{\partial \beta} \ln Z\right)
 \end{aligned}
-$$&lt;/p&gt;
-&lt;p&gt;右方是全微分，这就证明了 $\beta$ 是微分式 $\mathrm{d} \bar{E}-\sum_{\lambda} \bar{Y}_{\lambda} \mathrm{d} y_{\lambda}$ 的积分因子。&lt;/p&gt;
-&lt;p&gt;对比，我们可以发现：&lt;/p&gt;
-&lt;p&gt;$$
+$$
+右方是全微分，这就证明了 $\beta$ 是微分式 $\mathrm{d} \bar{E}-\sum_{\lambda} \bar{Y}_{\lambda} \mathrm{d} y_{\lambda}$ 的积分因子。&lt;/p&gt;
+&lt;p&gt;对比，我们可以发现：
+$$
 \beta=\frac{1}{kT}
-$$&lt;/p&gt;
-&lt;p&gt;$k$ 是一个普适常数，经过实验可以测得：$k=1.38\times10^{-23}~ \un{J\cdot K^{-1}}$，称为玻尔兹曼常数。&lt;/p&gt;
-&lt;p&gt;代回 $\dd S$ 式：&lt;/p&gt;
-&lt;p&gt;$$
+$$
+$k$ 是一个普适常数，经过实验可以测得：$k=1.38\times10^{-23}~ \un{J\cdot K^{-1}}$，称为玻尔兹曼常数。&lt;/p&gt;
+&lt;p&gt;代回 $\dd S$ 式：
+$$
 \dd S=Nk \mathrm{~d}\left(\ln Z-\beta \frac{\partial}{\partial \beta} \ln Z\right)
-$$&lt;/p&gt;
-&lt;p&gt;积分并取 $S_0=0$：&lt;/p&gt;
-&lt;p&gt;$$
+$$
+积分并取 $S_0=0$：
+$$
 S=Nk(\ln Z-\beta\frac{\par}{\par \beta}\ln Z)
-$$&lt;/p&gt;
-&lt;p&gt;至此，已经得出了三个基本热力学函数，其他的热力学量也就一并确定了。&lt;/p&gt;
+$$
+至此，已经得出了三个基本热力学函数，其他的热力学量也就一并确定了。&lt;/p&gt;
 &lt;h3 id=&#34;745-玻尔兹曼关系-熵的统计解释&#34;&gt;7.4.5 玻尔兹曼关系 熵的统计解释&lt;/h3&gt;
 &lt;p&gt;$$
-\ln W({a_\lam})=N\ln N-\sum_\lam a_\lam\ln(\frac{a_\lam}{g_\lam})
+\ln W(\{a_\lam\})=N\ln N-\sum_\lam a_\lam\ln(\frac{a_\lam}{g_\lam})
 $$&lt;/p&gt;
-&lt;p&gt;换成平均分布，上式也成立：&lt;/p&gt;
-&lt;p&gt;$$
-\ln W({\bar a_\lam})=N\ln N-\sum_\lam \bar a_\lam\ln(\frac{\bar a_\lam}{g_\lam})
-$$&lt;/p&gt;
-&lt;p&gt;代入平均分布的表达式：&lt;/p&gt;
-&lt;p&gt;$$
-\ln W({\bar a_\lam})=N\ln N-\sum_\lam \bar a_\lam(-\alpha-\beta\ve_\lam)=N\ln N+\alpha N+\beta \bar{E}
-$$&lt;/p&gt;
-&lt;p&gt;代入 $\alpha,\bar E$，得：&lt;/p&gt;
-&lt;p&gt;$$
-\ln W({\bar a_\lam})=N(\ln Z-\beta\frac{\par }{\par \beta}\ln Z)
-$$&lt;/p&gt;
-&lt;p&gt;与熵的公式比较，发现：&lt;/p&gt;
-&lt;p&gt;$$
-S=k\ln W({\bar a_\lam})
-$$&lt;/p&gt;
-&lt;p&gt;此式称为玻尔兹曼关系。&lt;/p&gt;
+&lt;p&gt;换成平均分布，上式也成立：
+$$
+\ln W(\{\bar a_\lam\})=N\ln N-\sum_\lam \bar a_\lam\ln(\frac{\bar a_\lam}{g_\lam})
+$$
+代入平均分布的表达式：
+$$
+\ln W(\{\bar a_\lam\})=N\ln N-\sum_\lam \bar a_\lam(-\alpha-\beta\ve_\lam)=N\ln N+\alpha N+\beta \bar{E}
+$$
+代入 $\alpha,\bar E$，得：
+$$
+\ln W(\{\bar a_\lam\})=N(\ln Z-\beta\frac{\par }{\par \beta}\ln Z)
+$$
+与熵的公式比较，发现：
+$$
+S=k\ln W(\{\bar a_\lam\})
+$$
+此式称为玻尔兹曼关系。&lt;/p&gt;
 &lt;p&gt;玻尔兹曼关系把熵与热力学几率直接联系起来 ： 热力学几率越大，熵也越大 。由此可以给熵一个统计解释 ： 熵代表系统的混乱度 （ 或无序度 ）。热力学几率越大，即相应的微观状态数越多，代表系统越混乱。&lt;/p&gt;
 &lt;h2 id=&#34;comment&#34;&gt;Comment&lt;/h2&gt;
 &lt;p&gt;这一部分涉及到了上一章提出的统计物理学的一个数学表述（近独立子系条件下）：&lt;/p&gt;
-&lt;p&gt;1、引入粒子分布 ${a_\lambda}$ 和系统微观状态数 $W({a_\lambda})$ 两个概念。代表了许许多多不同的分布。&lt;/p&gt;
+&lt;p&gt;1、引入粒子分布 $\{a_\lambda\}$ 和系统微观状态数 $W(\{a_\lambda\})$ 两个概念。代表了许许多多不同的分布。&lt;/p&gt;
 &lt;p&gt;2、粒子分布的最可几分布，即某个粒子分布出现概率最高的分布。并证明了这个分布在粒子数很大的时候相当于平均分布，即这种分布在宏观上的表现。&lt;/p&gt;
 &lt;p&gt;3、对最可几分布中的系数 $\alpha,\beta$ 的求解。&lt;/p&gt;
 &lt;p&gt;4、使用统计物理学对热力学中的宏观量的求解。如内能、熵、温度等。&lt;/p&gt;
@@ -327,57 +1052,57 @@ $$&lt;/p&gt;
 &lt;p&gt;是一种寻找多元函数在&lt;strong&gt;一定条件约束&lt;/strong&gt;下的&lt;strong&gt;极值&lt;/strong&gt;的方法。&lt;/p&gt;
 &lt;p&gt;假设约束条件为 $g(\vec{x})=0$，函数为 $f(\vec{x})$。&lt;/p&gt;
 &lt;p&gt;简单理解一下方法：首先画出约束条件 $g(\vec{x})=0$ 的曲面，然后不断改变函数 $f(\vec x)$ 的值，使得其与约束条件的曲面相切（即 $\nabla f(\vec x_0)+\lambda\nabla g(\vec x_0)=0$，法线平行且交于同一点）,那么此点的值为极值。&lt;/p&gt;
-&lt;p&gt;联立的方程式为：&lt;/p&gt;
-&lt;p&gt;$$
-\left{\begin{array}{l}
-\nabla f(\mathbf{x})=\lambda \nabla g(\mathbf{x}) \&lt;br&gt;
+&lt;p&gt;联立的方程式为：
+$$
+\left\{\begin{array}{l}
+\nabla f(\mathbf{x})=\lambda \nabla g(\mathbf{x}) \nl
 g(\mathbf{x})=0
 \end{array}\right.
-$$&lt;/p&gt;
-&lt;p&gt;然后再求解即可。&lt;/p&gt;
+$$
+然后再求解即可。&lt;/p&gt;
 &lt;p&gt;拉格朗日乘子法还有一个变形：&lt;/p&gt;
-&lt;p&gt;令 $F=f-\lambda g$，然后求解方程组：&lt;/p&gt;
-&lt;p&gt;$$
-\left{\begin{array}{l}
+&lt;p&gt;令 $F=f-\lambda g$，然后求解方程组：
+$$
+\begin{array}{l}
 \nabla F= 0 \nl
 \frac{\par F}{\par \lam} = 0
-\end{array}\right.
-$$&lt;/p&gt;
-&lt;p&gt;当然，也可以用于多种约束：&lt;/p&gt;
-&lt;p&gt;$$
+\end{array}
+$$
+当然，也可以用于多种约束：
+$$
 \begin{array}{l}
-\nabla f=\lambda \nabla g+\mu \nabla h \&lt;br&gt;
-g(\mathbf{x})=0 \&lt;br&gt;
+\nabla f=\lambda \nabla g+\mu \nabla h \nl
+g(\mathbf{x})=0 \nl
 h(\mathbf{x})=0
 \end{array}
 $$&lt;/p&gt;
 &lt;h3 id=&#34;2-积分因子&#34;&gt;2 积分因子&lt;/h3&gt;
-&lt;p&gt;假设有一微分方程：&lt;/p&gt;
-&lt;p&gt;$$
+&lt;p&gt;假设有一微分方程：
+$$
 \frac{\dd y}{\dd x}=f(x,y)=-\frac{P(x,y)}{Q(x,y)}\Ra P\dd y+Q\dd x=0
-$$&lt;/p&gt;
-&lt;p&gt;假设存在一个可微函数 $\Phi(x,y)$，使得：&lt;/p&gt;
-&lt;p&gt;$$
+$$
+假设存在一个可微函数 $\Phi(x,y)$，使得：
+$$
 \dd \Phi=P\dd y+Q\dd x
-$$&lt;/p&gt;
-&lt;p&gt;那么根据全微分：&lt;/p&gt;
-&lt;p&gt;$$
+$$
+那么根据全微分：
+$$
 \frac{\par \Phi}{\par x}=P,\frac{\par \Phi}{\par y}=Q
-$$&lt;/p&gt;
-&lt;p&gt;那么 $\Phi(x,y)=C$ 就是上述方程的通积分曲线。&lt;/p&gt;
-&lt;p&gt;判定一个给定的微分方程是或不是恰当方程的充分条件：&lt;/p&gt;
-&lt;p&gt;$$
+$$
+那么 $\Phi(x,y)=C$ 就是上述方程的通积分曲线。&lt;/p&gt;
+&lt;p&gt;判定一个给定的微分方程是或不是恰当方程的充分条件：
+$$
 \frac{\partial P}{\partial y}=\frac{\partial^{2} \Phi}{\partial y \partial x} = \frac{\partial^{2} \Phi}{\partial x \partial y} = \frac{\partial Q}{\partial x}
-$$&lt;/p&gt;
-&lt;p&gt;构造 $\Phi(x,y)$ 函数的方法：&lt;/p&gt;
-&lt;p&gt;$$
+$$
+构造 $\Phi(x,y)$ 函数的方法：
+$$
 \Phi(x, y)=\int_{x_{0}}^{x} P(x, y) \mathrm{d} x+\int_{y_{0}}^{y} Q\left(x_{0}, y\right) \mathrm{d} y
-$$&lt;/p&gt;
-&lt;p&gt;但如果有符合微分方程形式（即 $P\dd y+Q\dd x=0$）却判定不是恰当方程（$\frac{\partial P}{\partial y}\ne\frac{\partial Q}{\partial x}$）时，就应该给微分方程乘上一个系数 $\mu(x,y)$，使得：&lt;/p&gt;
-&lt;p&gt;$$
+$$
+但如果有符合微分方程形式（即 $P\dd y+Q\dd x=0$）却判定不是恰当方程（$\frac{\partial P}{\partial y}\ne\frac{\partial Q}{\partial x}$）时，就应该给微分方程乘上一个系数 $\mu(x,y)$，使得：
+$$
 \frac{\partial (\mu P)}{\partial y}=\frac{\partial (\mu Q)}{\partial x}
-$$&lt;/p&gt;
-&lt;p&gt;这个系数就称为积分因子。&lt;/p&gt;
+$$
+这个系数就称为积分因子。&lt;/p&gt;
 &lt;p&gt;积分因子有很多求法，例如初等变换法、直接求积法、束缚+复合函数形式的积分因子、分部求积分因子。&lt;/p&gt;
 </description>
         </item>
@@ -508,6 +1233,9 @@ $$&lt;/p&gt;
 \def\e{\epsilon}
 \def\ve{\varepsilon}
 \newcommand{\mscr}[1]{\mathscr{#1}}
+\def_{_} % 避免 下标符号 的转义。使用时应该先全部打好 下标符号，再用查找功能将其全部转换成 _
+% 如果后面新增了内容用到了下标符号，则正则为：
+% 查找：([^])(_) 替换：$1\$2
 $$&lt;/p&gt;
 &lt;h1 id=&#34;2-均匀系的平衡性质&#34;&gt;2 均匀系的平衡性质&lt;/h1&gt;
 &lt;h2 id=&#34;21-麦克斯韦关系&#34;&gt;2.1 麦克斯韦关系&lt;/h2&gt;
@@ -518,13 +1246,13 @@ $$&lt;/p&gt;
 &lt;p&gt;这就是热力学基本微分方程，它是热力学第一定律和热力学第二定律相结合对微小可逆过程的表达形式，集中概括了第一定律和第二定律对可逆过程的全部结果，是研究平衡性质的基础。&lt;/p&gt;
 &lt;p&gt;导出全微分：
 $$
-\mathrm{d} U=\left(\frac{\partial U}{\partial S}\right)&lt;em&gt;{V} \mathrm{~d} S+\left(\frac{\partial U}{\partial V}\right)&lt;/em&gt;{S} \mathrm{~d} V
+\mathrm{d} U=\left(\frac{\partial U}{\partial S}\right)_{V} \mathrm{~d} S+\left(\frac{\partial U}{\partial V}\right)_{S} \mathrm{~d} V
 $$
 得到：
 $$
 \begin{aligned}
-&amp;amp;\left(\frac{\partial U}{\partial S}\right)&lt;em&gt;{V}=T \nl
-&amp;amp;\left(\frac{\partial U}{\partial V}\right)&lt;/em&gt;{S}=-p
+&amp;amp;\left(\frac{\partial U}{\partial S}\right)_{V}=T \nl
+&amp;amp;\left(\frac{\partial U}{\partial V}\right)_{S}=-p
 \end{aligned}
 $$
 因 $T&amp;gt;0$，故 $(\frac{\partial U}{\partial S})_V&amp;gt;0$，表示当体积不变时，内能与熵得变化倾向是相同的。&lt;/p&gt;
@@ -535,7 +1263,7 @@ $$
 $$
 因此：
 $$
-\left(\frac{\partial T}{\partial V}\right)&lt;em&gt;{S}=-\left(\frac{\partial p}{\partial S}\right)&lt;/em&gt;{V}
+\left(\frac{\partial T}{\partial V}\right)_{S}=-\left(\frac{\partial p}{\partial S}\right)_{V}
 $$
 这只是众多麦克斯韦关系式之一。&lt;/p&gt;
 &lt;p&gt;勒让德变换：
@@ -553,13 +1281,13 @@ $$
 因此得到关系式：
 $$
 \begin{aligned}
-&amp;amp;S=\left(\frac{\partial F}{\partial T}\right)&lt;em&gt;{V} \nl
-&amp;amp;p=-\left(\frac{\partial F}{\partial V}\right)&lt;/em&gt;{T}
+&amp;amp;S=\left(\frac{\partial F}{\partial T}\right)_{V} \nl
+&amp;amp;p=-\left(\frac{\partial F}{\partial V}\right)_{T}
 \end{aligned}
 $$
 $F$ 的麦克斯韦关系：
 $$
-\left(\frac{\partial S}{\partial V}\right)&lt;em&gt;{T}=\left(\frac{\partial p}{\partial T}\right)&lt;/em&gt;{V}
+\left(\frac{\partial S}{\partial V}\right)_{T}=\left(\frac{\partial p}{\partial T}\right)_{V}
 $$
 总结表格：&lt;/p&gt;
 &lt;p&gt;&lt;figure 
@@ -659,7 +1387,7 @@ $$
 利用奇怪的辐射压证明（见书本）。&lt;/p&gt;
 &lt;h3 id=&#34;243-热辐射的热力学函数&#34;&gt;2.4.3 热辐射的热力学函数&lt;/h3&gt;
 &lt;p&gt;$$
-\dd U=T\dd S-p\dd V\Ra \left(\frac{\partial U}{\partial V}\right)&lt;em&gt;{T}=T\left(\frac{\partial p}{\partial T}\right)&lt;/em&gt;{V}-p
+\dd U=T\dd S-p\dd V\Ra \left(\frac{\partial U}{\partial V}\right)_{T}=T\left(\frac{\partial p}{\partial T}\right)_{V}-p
 $$&lt;/p&gt;
 &lt;p&gt;对于热辐射，可以进行代换：
 $$
@@ -752,7 +1480,7 @@ $$
 选定 $(p,V)$ 作为独立变量。&lt;/p&gt;
 &lt;p&gt;确定内能：
 $$
-\mathrm{d} U=\left(\frac{\partial U}{\partial T}\right)&lt;em&gt;{V} \mathrm{~d} T+\left(\frac{\partial U}{\partial V}\right)&lt;/em&gt;{T} \mathrm{~d} V = C_{V} \mathrm{~d} T+\left[T\left(\frac{\partial p}{\partial T}\right)_{V}-p\right] \mathrm{d} V
+\mathrm{d} U=\left(\frac{\partial U}{\partial T}\right)_{V} \mathrm{~d} T+\left(\frac{\partial U}{\partial V}\right)_{T} \mathrm{~d} V = C_{V} \mathrm{~d} T+\left[T\left(\frac{\partial p}{\partial T}\right)_{V}-p\right] \mathrm{d} V
 $$
 积分，可得 $U$ 的值。&lt;/p&gt;
 &lt;p&gt;求熵 $S$：
@@ -826,6 +1554,216 @@ $$
 &lt;p&gt;3、热辐射的热力学理论（内能密度相等、$p=\frac{1}{3}u$ 等性质）&lt;/p&gt;
 &lt;p&gt;4、气体的热力学函数。将先前讲到的各种热力学函数应用到理想气体和范德瓦尔斯气体上。&lt;/p&gt;
 &lt;p&gt;5、独立变量的重要性（确定热力学函数以及特征函数）。&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>[量子力学] 5 一维谐振子 AB part</title>
+        <link>https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-5-%E4%B8%80%E7%BB%B4%E8%B0%90%E6%8C%AF%E5%AD%90-ab-part/</link>
+        <pubDate>Thu, 09 Dec 2021 20:05:12 +0800</pubDate>
+        
+        <guid>https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-5-%E4%B8%80%E7%BB%B4%E8%B0%90%E6%8C%AF%E5%AD%90-ab-part/</guid>
+        <description>&lt;p&gt;$$
+\def\un{\mathrm}
+\def\dd{\mathrm d}
+\def\par{\partial}
+\def\bl{\boldsymbol}
+\def\mbf{\mathbf}
+\def\mscr{\mathscr}
+\newcommand{\avg}[1]{\left \langle #1 \right \rangle}
+\newcommand{\bk}[2]{\left \langle #1  | #2  \right \rangle}
+\newcommand{\bok}[3]{\bra{#1}#2\ket{#3}}
+\def\nl{\newline}
+\def\Ra{\Rightarrow}
+\def\La{\Leftarrow}
+\def\ra{\rightarrow}
+\def\la{\leftarrow}
+\def\e{\epsilon}
+\def\ve{\varepsilon}
+\def_{&lt;em&gt;} % 避免 下标符号 的转义。使用时应该先全部打好 下标符号，再用查找功能将其全部转换成 _
+% 如果后面新增了内容用到了下标符号，则正则为：
+% 查找：([^\])(&lt;/em&gt;) 替换：$1\$2
+$$&lt;/p&gt;
+&lt;h1 id=&#34;a-引言&#34;&gt;A 引言&lt;/h1&gt;
+&lt;h2 id=&#34;1-谐振子的重要性&#34;&gt;1. 谐振子的重要性&lt;/h2&gt;
+&lt;p&gt;谐振子的形式就是势能 $V(x)=\frac{1}{2}kx^2$。&lt;/p&gt;
+&lt;p&gt;反正就是在很多地方里面有用（&lt;/p&gt;
+&lt;h2 id=&#34;2经典力学的谐振子&#34;&gt;2.经典力学的谐振子&lt;/h2&gt;
+&lt;p&gt;$$
+m\frac{\dd^2 x}{\dd t^2}=-\frac{\dd V}{\dd x}=-kx
+$$&lt;/p&gt;
+&lt;p&gt;通解：&lt;/p&gt;
+&lt;p&gt;$$
+x=x_M\cos(\omega t-\varphi)
+$$&lt;/p&gt;
+&lt;p&gt;能量表达式：&lt;/p&gt;
+&lt;p&gt;$$
+E=T+V=\frac{p^2}{2m}+\frac{1}{2}m\omega^2 x^2
+$$&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	
+		class=&#34;gallery-image&#34; 
+		style=&#34;
+			flex-grow: 151; 
+			flex-basis: 362px&#34;
+	&gt;
+	&lt;a href=&#34;https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-5-%E4%B8%80%E7%BB%B4%E8%B0%90%E6%8C%AF%E5%AD%90-ab-part/image-20211209203305798.png&#34; data-size=&#34;435x288&#34;&gt;
+		&lt;img src=&#34;https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-5-%E4%B8%80%E7%BB%B4%E8%B0%90%E6%8C%AF%E5%AD%90-ab-part/image-20211209203305798.png&#34;
+			width=&#34;435&#34;
+			height=&#34;288&#34;
+			srcset=&#34;https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-5-%E4%B8%80%E7%BB%B4%E8%B0%90%E6%8C%AF%E5%AD%90-ab-part/image-20211209203305798_hu6aeeffd4ed843af6135e8b61724c3da3_25335_480x0_resize_box_3.png 480w, https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-5-%E4%B8%80%E7%BB%B4%E8%B0%90%E6%8C%AF%E5%AD%90-ab-part/image-20211209203305798_hu6aeeffd4ed843af6135e8b61724c3da3_25335_1024x0_resize_box_3.png 1024w&#34;
+			loading=&#34;lazy&#34;
+			alt=&#34;image-20211209203305798&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;image-20211209203305798&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;h2 id=&#34;3哈密顿算符一般性质&#34;&gt;3.哈密顿算符一般性质&lt;/h2&gt;
+&lt;p&gt;1、哈密顿算符的本征值都是正的。&lt;/p&gt;
+&lt;p&gt;$$
+V(x) \ge V_m \Ra E&amp;gt;V_m
+$$&lt;/p&gt;
+&lt;p&gt;2、 $H$ 的本征函数具有确定的宇称。&lt;/p&gt;
+&lt;p&gt;$$
+V(-x) = V(x)
+$$&lt;/p&gt;
+&lt;p&gt;3、能谱是离散的&lt;/p&gt;
+&lt;h1 id=&#34;b-hamilton-算符的本征值&#34;&gt;B Hamilton 算符的本征值&lt;/h1&gt;
+&lt;h2 id=&#34;1符号&#34;&gt;1.符号&lt;/h2&gt;
+&lt;h3 id=&#34;a算符-widehatx-widehatp&#34;&gt;a.算符 $\widehat{X}, \widehat{P}$&lt;/h3&gt;
+&lt;p&gt;观察算符 $X,P$ 是有量纲的。为了方便，定义没有量纲的两个可观测量：&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+\widehat{X}=\sqrt{\frac{m \omega}{\hbar}} X \nl
+\widehat{P}=\frac{1}{\sqrt{m \hbar \omega}} P
+\end{aligned}
+$$&lt;/p&gt;
+&lt;p&gt;这两个算符的正则对易关系：&lt;/p&gt;
+&lt;p&gt;$$
+[\widehat{X}, \widehat{P}]=i
+$$&lt;/p&gt;
+&lt;p&gt;Hamilton 算符的形式：&lt;/p&gt;
+&lt;p&gt;$$
+H=\hbar \omega \widehat{H}
+$$&lt;/p&gt;
+&lt;p&gt;其中：&lt;/p&gt;
+&lt;p&gt;$$
+\widehat{H}=\frac{1}{2}(\widehat{X}^2 + \widehat{P}^2)
+$$&lt;/p&gt;
+&lt;p&gt;即将求解的本征值方程为：&lt;/p&gt;
+&lt;p&gt;$$
+\widehat{H} \ket{\psi^i_\nu}=\ve\ket{\psi^i_\nu}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;b算符-aadagger-以及-n&#34;&gt;b.算符 $a,a^\dagger$ 以及 $N$&lt;/h3&gt;
+&lt;p&gt;定义：&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+a &amp;amp;=\frac{1}{\sqrt{2}}(\widehat{X}+\mathrm{i} \widehat{P}) \nl
+a^{\dagger} &amp;amp;=\frac{1}{\sqrt{2}}(\widehat{X}-\mathrm{i} \widehat{P})
+\end{aligned}
+$$&lt;/p&gt;
+&lt;p&gt;易得：&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+\widehat{X}=\frac{1}{\sqrt{2}}\left(a^{\dagger}+a\right) \nl
+\widehat{P}=\frac{\mathrm{i}}{\sqrt{2}}\left(a^{\dagger}-a\right)
+\end{aligned}
+$$&lt;/p&gt;
+&lt;p&gt;也就是说：&lt;/p&gt;
+&lt;p&gt;$$
+[a,a^\dagger]=1
+$$&lt;/p&gt;
+&lt;p&gt;一些公式：&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+&amp;amp; a^{\dagger} a = \frac{1}{2}\left(\widehat{X}^{2}+\widehat{P}^{2}-1\right) \nl
+&amp;amp;\widehat{H} = a^\dagger a+\frac{1}{2} = aa^\dagger-\frac{1}{2} \nl
+\end{aligned}
+$$&lt;/p&gt;
+&lt;p&gt;引入算符 $N=a^\dagger a$，它是一个 Hermite 算符。&lt;/p&gt;
+&lt;p&gt;一些性质：&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+&amp;amp;[N,a]=-a\nl
+&amp;amp;[N,a^\dagger] = a^\dagger \nl
+&amp;amp;\widehat{H}=N + \frac{1}{2}
+\end{aligned}
+$$&lt;/p&gt;
+&lt;p&gt;因此，算 $\widehat{H}$ 的本征值方程可以换成 $N$ 的本征值方程：&lt;/p&gt;
+&lt;p&gt;$$
+\widehat{N} \ket{\psi^i_\nu}=\nu\ket{\psi^i_\nu} \Ra H \ket{\psi^i_\nu}=(\ve+\frac{1}{2})\ket{\psi^i_\nu}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;2谱的确定&#34;&gt;2.谱的确定&lt;/h3&gt;
+&lt;h3 id=&#34;a引理&#34;&gt;a.引理&lt;/h3&gt;
+&lt;h4 id=&#34;引理-i&#34;&gt;引理 I&lt;/h4&gt;
+&lt;p&gt;算符 $N$ 的本征值 $\nu$ 都是正数或零。&lt;/p&gt;
+&lt;p&gt;证明：&lt;/p&gt;
+&lt;p&gt;$$
+||a\ket{\psi^i_\nu}||^2=\bok{\psi^i_\nu}{a^\dagger a}{\psi^i_\nu} \ge 0 \Ra \nu \ge 0
+$$&lt;/p&gt;
+&lt;h4 id=&#34;引理-ii&#34;&gt;引理 II&lt;/h4&gt;
+&lt;p&gt;设 $\ket{\psi^i_\nu}$ 是 $N$ 的非零本征矢，属于本征值 $\nu$&lt;/p&gt;
+&lt;p&gt;若 $\nu=0$，则 $\ket{\psi^i_{\nu=0}}=0$&lt;/p&gt;
+&lt;p&gt;若 $\nu&amp;gt;0$，则 $\ket{\psi^i_{\nu}}$ 是 $N$ 的非零本征矢，属于本征值 $\nu -1$&lt;/p&gt;
+&lt;h4 id=&#34;引理-iii&#34;&gt;引理 III&lt;/h4&gt;
+&lt;p&gt;设 $\ket{\psi^i_\nu}$ 是 $N$ 的非零本征矢，属于本征值 $\nu$&lt;/p&gt;
+&lt;p&gt;$a^\dagger\ket{\psi^i_\nu}$ 永远不为零&lt;/p&gt;
+&lt;p&gt;$a^\dagger\ket{\psi^i_\nu}$ 是 $N$ 的非零本征矢，属于本征值 $\nu + 1$&lt;/p&gt;
+&lt;h3 id=&#34;b-n-的谱由非负整数构成&#34;&gt;b. $N$ 的谱由非负整数构成&lt;/h3&gt;
+&lt;p&gt;根据引理 I，$\nu$ 都是正数或零。balalbala 反证法，不写了。&lt;/p&gt;
+&lt;p&gt;由此可知，$H$ 的本征值应该为：&lt;/p&gt;
+&lt;p&gt;$$
+E_n=(n+\frac{1}{2})\hbar \omega
+$$&lt;/p&gt;
+&lt;p&gt;可以见到，谐振子的能量是量子化的，且能量最小值不为 0，为 $\hbar \omega/2$&lt;/p&gt;
+&lt;h3 id=&#34;c对算符-aadagger-的解释&#34;&gt;c.对算符 $a,a^\dagger$ 的解释&lt;/h3&gt;
+&lt;p&gt;$a$ 为湮没算符， $a^\dagger$ 为产生算符。（升降算符？）&lt;/p&gt;
+&lt;h2 id=&#34;3本征值的简并度&#34;&gt;3.本征值的简并度&lt;/h2&gt;
+&lt;h3 id=&#34;a基态能级是非简并的&#34;&gt;a.基态能级是非简并的&lt;/h3&gt;
+&lt;p&gt;对应的能级 $E_0=\frac{1}{2}\hbar \omega$&lt;/p&gt;
+&lt;p&gt;基态对应的情况：&lt;/p&gt;
+&lt;p&gt;$$
+a\ket{\psi_0^i}=0
+$$&lt;/p&gt;
+&lt;p&gt;将其展开：&lt;/p&gt;
+&lt;p&gt;$$
+\frac{1}{\sqrt{2}}[\sqrt{\frac{m\omega}{\hbar}}X+\frac{1}{\sqrt{m\hbar \omega}}P]\ket{\psi^i_0}=0
+$$&lt;/p&gt;
+&lt;p&gt;使用 ${\ket{x}}$ 表象：&lt;/p&gt;
+&lt;p&gt;$$
+(\frac{m\omega}{\hbar}x+\frac{\dd}{\dd x})\psi^i_0(x)=0
+$$&lt;/p&gt;
+&lt;p&gt;解得：&lt;/p&gt;
+&lt;p&gt;$$
+\psi^i_0(x)=ce^{-\frac{1}{2}\frac{m\omega}{\hbar}x^2}
+$$&lt;/p&gt;
+&lt;p&gt;这个解不存在多个线性无关特解的情况，因此说明右矢 $\ket{\psi_0}$ 只有一个，说明是非简并的。&lt;/p&gt;
+&lt;h3 id=&#34;b所有能级是非简并的&#34;&gt;b.所有能级是非简并的&lt;/h3&gt;
+&lt;p&gt;数学归纳法：&lt;/p&gt;
+&lt;p&gt;假设能级 $E_n=(n+1/2)\hbar \omega$ 是非简并的，那么 $E_{n+1}=(n+1+1/2)\hbar \omega$ 也是非简并的。&lt;/p&gt;
+&lt;p&gt;设：&lt;/p&gt;
+&lt;p&gt;$$
+N\ket{\psi_n}=n\ket{\psi_n}
+$$&lt;/p&gt;
+&lt;p&gt;那么：&lt;/p&gt;
+&lt;p&gt;$$
+N\ket{\psi^i_{n+1}}=(n+1)\ket{\psi_{n+1}^i}
+$$&lt;/p&gt;
+&lt;p&gt;然后（由于 $a\ket{\psi^i_{n+1}}$ 不为 0 且是 $N$ 的本征矢，假设中这个本征值也是非简并的）：&lt;/p&gt;
+&lt;p&gt;$$
+a\ket{\psi^i_{n+1}}=c^i\ket{\psi_n}
+$$&lt;/p&gt;
+&lt;p&gt;两边再作用一个算符 $a^\dagger$：&lt;/p&gt;
+&lt;p&gt;$$
+a^\dagger a\ket{\psi^i_{n+1}}=c^ia^\dagger \ket{\psi_n}\Ra N\ket{\psi^i_{n+1}}=c^ia^\dagger\ket{\psi_n}
+$$&lt;/p&gt;
+&lt;p&gt;因此可得：&lt;/p&gt;
+&lt;p&gt;$$
+\ket{\psi^i_{n+1}}=\frac{c^i}{n+1}a^\dagger\ket{\psi_n}
+$$&lt;/p&gt;
+&lt;p&gt;我们已知 $a^\dagger \ket{\psi_n}$ 是 $N$ 的本征矢且本征值为 $n+1$，因此 $\ket{\psi^i_{n+1}}$ 是非简并的。&lt;/p&gt;
+&lt;h2 id=&#34;comment&#34;&gt;Comment&lt;/h2&gt;
+&lt;p&gt;这两节讲述了量子力学中谐振子的一些性质。&lt;/p&gt;
 </description>
         </item>
         <item>
@@ -1074,8 +2012,8 @@ $$&lt;/p&gt;
 &lt;p&gt;具体计算：&lt;/p&gt;
 &lt;p&gt;$$
 \begin{aligned}
-&amp;amp;\Delta S_1 = \int^{T_f}&lt;em&gt;{T_1}\frac{C_V\dd T}{T}=C_V\ln\frac{T_f}{T_1}&amp;lt;0\nl
-&amp;amp;\Delta S_2 = \int^{T_f}&lt;/em&gt;{T_2}\frac{C_V\dd T}{T}=C_V\ln\frac{T_f}{T_2}&amp;gt;0\nl
+&amp;amp;\Delta S_1 = \int^{T_f}_{T_1}\frac{C_V\dd T}{T}=C_V\ln\frac{T_f}{T_1}&amp;lt;0\nl
+&amp;amp;\Delta S_2 = \int^{T_f}_{T_2}\frac{C_V\dd T}{T}=C_V\ln\frac{T_f}{T_2}&amp;gt;0\nl
 &amp;amp;\Delta S=C_V\ln\frac{T_f^2}{T_1T_2}\ge0
 \end{aligned}
 $$&lt;/p&gt;

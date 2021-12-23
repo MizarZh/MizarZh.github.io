@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='D 应用于轨道角动量'><title>[量子力学] 6 量子力学中角动量的普遍性质 D part</title>
+
+<link rel='canonical' href='https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-6-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E4%B8%AD%E8%A7%92%E5%8A%A8%E9%87%8F%E7%9A%84%E6%99%AE%E9%81%8D%E6%80%A7%E8%B4%A8-d-part/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='[量子力学] 6 量子力学中角动量的普遍性质 D part'>
+<meta property='og:description' content='D 应用于轨道角动量'>
+<meta property='og:url' content='https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-6-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E4%B8%AD%E8%A7%92%E5%8A%A8%E9%87%8F%E7%9A%84%E6%99%AE%E9%81%8D%E6%80%A7%E8%B4%A8-d-part/'>
+<meta property='og:site_name' content='MizarZ&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='量子力学' /><meta property='article:tag' content='quantum mechanics' /><meta property='article:published_time' content='2021-12-16T23:38:39&#43;08:00'/><meta property='article:modified_time' content='2021-12-16T23:38:39&#43;08:00'/>
+<meta name="twitter:title" content="[量子力学] 6 量子力学中角动量的普遍性质 D part">
+<meta name="twitter:description" content="D 应用于轨道角动量">
+    <link rel="shortcut icon" href="img/favicon-32x32.png" />
+
+    </head>
+    <body class="
+    article-page has-toc
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        extended
+    
+">
+    
+        <div id="article-toolbar">
+            <a href="/" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>返回</span>
+            </a>
+        </div>
+    
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E7%89%A9%E7%90%86/" style="background-color: #773feb; color: ;">
+                物理
+            </a>
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-6-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E4%B8%AD%E8%A7%92%E5%8A%A8%E9%87%8F%E7%9A%84%E6%99%AE%E9%81%8D%E6%80%A7%E8%B4%A8-d-part/">[量子力学] 6 量子力学中角动量的普遍性质 D part</a>
+    </h2>
+
+    
+    <h3 class="article-subtitle">
+        D 应用于轨道角动量
+    </h3>
+    
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2021-12-16</time>
+            </div>
+        
+
+        
+    </footer>
+    
+</div>
+</header>
+
+    <section class="article-content">
+    <p>$$
+\def\un{\mathrm}
+\def\dd{\mathrm d}
+\def\par{\partial}
+\def\bl{\boldsymbol}
+\def\mbf{\mathbf}
+\def\mscr{\mathscr}
+\newcommand{\avg}[1]{\left \langle #1 \right \rangle}
+\newcommand{\bk}[2]{\left \langle #1  | #2  \right \rangle}
+\newcommand{\bok}[3]{\bra{#1}#2\ket{#3}}
+\def\nl{\newline}
+\def\Ra{\Rightarrow}
+\def\La{\Leftarrow}
+\def\ra{\rightarrow}
+\def\la{\leftarrow}
+\def\e{\epsilon}
+\def\ve{\varepsilon}
+$$</p>
+<h2 id="1-l2-与-l_z-的本征值及本征函数">1. $L^2$ 与 $L_z$ 的本征值及本征函数</h2>
+<h3 id="a-ketr-表象中的本征值方程">a. $\{\ket{r}\}$ 表象中的本征值方程</h3>
+<p>角动量 $L$ 的三个分量：</p>
+<p>$$
+\begin{aligned}
+L_{x} &amp;=\frac{\hbar}{\mathrm{i}}\left(y \frac{\partial}{\partial z}-z \frac{\partial}{\partial y}\right) \nl
+L_{y} &amp;=\frac{\hbar}{\mathrm{i}}\left(z \frac{\partial}{\partial x}-x \frac{\partial}{\partial z}\right) \nl
+L_{z} &amp;=\frac{\hbar}{\mathrm{i}}\left(x \frac{\partial}{\partial y}-y \frac{\partial}{\partial x}\right)
+\end{aligned}
+$$</p>
+<p>使用球坐标更方便：</p>
+<p>$$
+\left\{\begin{array}{l}
+x=r \sin \theta \cos \varphi \nl
+y=r \sin \theta \sin \varphi \nl
+z=r \cos \theta
+\end{array}\right.
+$$</p>
+<p>体元：</p>
+<p>$$
+\dd^3 r = r^2\sin \theta \dd r \dd \theta \dd \varphi=r^2 \dd r \dd \Omega
+$$</p>
+<p>使用坐标变换的方法可以得到：</p>
+<p>$$
+\begin{aligned}
+&amp;L_{x}=\mathrm{i} \hbar\left(\sin \varphi \frac{\partial}{\partial \theta}+\frac{\cos \varphi}{\tan \theta} \frac{\partial}{\partial \varphi}\right) \nl
+&amp;L_{y}=\mathrm{i} \hbar\left(-\cos \varphi \frac{\partial}{\partial \theta}+\frac{\sin \varphi}{\tan \theta} \frac{\partial}{\partial \varphi}\right) \nl
+&amp;L_{z}=\frac{\hbar}{\mathrm{i}} \frac{\partial}{\partial \varphi}
+\end{aligned}
+$$</p>
+<p>得到其他的算符：</p>
+<p>$$
+\begin{aligned}
+&amp;L^{2}=-\hbar^{2}\left(\frac{\partial^{2}}{\partial \theta^{2}}+\frac{1}{\tan \theta} \frac{\partial}{\partial \theta}+\frac{1}{\sin ^{2} \theta} \frac{\partial^{2}}{\partial \varphi^{2}}\right) \nl
+&amp;L_{+}=\hbar \mathrm{e}^{\mathrm{i} \varphi}\left(\frac{\partial}{\partial \theta}+\mathrm{i} \cot \theta \frac{\partial}{\partial \varphi}\right) \nl
+&amp;L_{-}=\hbar \mathrm{e}^{-\mathrm{i} \varphi}\left(-\frac{\partial}{\partial \theta}+\mathrm{i} \cot \theta \frac{\partial}{\partial \varphi}\right)
+\end{aligned}
+$$</p>
+<p>最后得到两条式子：</p>
+<p>$$
+\begin{aligned}
+&amp;-\left\{\frac{\partial^{2}}{\partial \theta^{2}}+\frac{1}{\tan \theta} \frac{\partial}{\partial \theta}+\frac{1}{\sin ^{2} \theta} \frac{\partial^{2}}{\partial \varphi^{2}}\right\} \psi(r, \theta, \varphi)=l(l+1) \psi(r, \theta, \varphi) \nl
+&amp;-\mathrm{i} \frac{\partial}{\partial \varphi} \psi(r, \theta, \varphi)=m \psi(r, \theta, \varphi)
+\end{aligned}
+$$</p>
+<p>由于 $r$ 并未出现在任何微分算符中，因此可以将其看作参变量，并只需考虑算符与 $\theta,\varphi$ 的依赖关系：</p>
+<p>$$
+\begin{aligned}
+&amp;L^2Y^m_l(\theta,\varphi)=l(l+1)\hbar^2 Y^m_l(\theta,\varphi) \nl
+&amp;L_zY^m_l(\theta,\varphi)=m\hbar Y^m_l(\theta,\varphi)
+\end{aligned}
+$$</p>
+<p>一旦解出 $Y^m_l(\theta,\varphi)$，那么我们就可以得到波函数的表达式：</p>
+<p>$$
+\psi_{l,m}(r,\theta,\varphi)=f(r)Y^m_l(\theta,\varphi)
+$$</p>
+<p>对于波函数的归一化：</p>
+<p>$$
+\int^{2\pi}_0\dd \varphi\int^\pi_0\sin\theta |Y^m_l(\theta,\varphi)|^2\dd \theta = 1
+$$</p>
+<p>以及 $r$：</p>
+<p>$$
+\int^\infty_0 r^2|f(r)|^2\dd r=1
+$$</p>
+<h3 id="b-l-与-m-的值">b. $l$ 与 $m$ 的值</h3>
+<h4 id="1l-和-m-只能是整数">1、$l$ 和 $m$ 只能是整数</h4>
+<p>$$
+\frac{\hbar}{i}\frac{\par}{\par\varphi}Y^m_l(\theta,\varphi)=m\hbar Y^m_l(\theta,\varphi)
+$$</p>
+<p>这表明：</p>
+<p>$$
+Y^m_l(\theta,\varphi)=F^m_l(\theta)e^{im\varphi}
+$$</p>
+<p>由于 $Y^m_l(\theta,\varphi=0)=Y^m_l(\theta,\varphi=2\pi)$</p>
+<p>由此可以推知：</p>
+<p>$$
+e^{2im\pi=1}
+$$</p>
+<p>因此得到 $m$ 仅能是整数，就能从此推得 $l$ 也只能是整数。</p>
+<h4 id="2-l-的全体整数值都会出现">2、 $l$ 的全体整数值都会出现</h4>
+<p>我们将 $l$ 固定到一个整数值，我们知道：</p>
+<p>$$
+L_+Y^l_l(\theta,\varphi)=0
+$$</p>
+<p>展开后：</p>
+<p>$$
+(\frac{\dd}{\dd\theta}-l\cot \theta)F^l_l(\theta)=0
+$$</p>
+<p>通解为：</p>
+<p>$$
+F^l_l(\theta)=c_l(\sin\theta)^l
+$$</p>
+<p>因此：</p>
+<p>$$
+Y^l_l(\theta,\varphi)=c_l(\sin\theta)^le^{il\varphi}
+$$</p>
+<p>然后经过 $L_-$ 的数次迭代作用，就能得到更低级的 $m$。因此我们可以算出这些函数，$Y^m_l(\theta,\varphi)$ 类型的本征函数被叫做球谐函数。</p>
+<h3 id="c-球谐函数的主要性质">c. 球谐函数的主要性质</h3>
+<h4 id="1递推关系">1、递推关系</h4>
+<p>$$
+L_\pm Y^m_l(\theta,\varphi)=\hbar \sqrt{l(l+1)+m(m\pm 1)}Y^{m\pm1}_l(\theta,\varphi)
+$$</p>
+<h4 id="2正交归一化关系和封闭性关系式">2、正交归一化关系和封闭性关系式</h4>
+<p>正交归一化：</p>
+<p>$$
+\int^{2\pi}_0\dd \varphi\int^\pi_0\sin\theta~ \dd \theta ~Y^{m'*}_{l'}(\theta,\varphi)Y^m_l(\theta,\varphi)=\delta_{l&rsquo;l}\delta_{m&rsquo;m}
+$$</p>
+<p>球谐函数展开：</p>
+<p>$$
+f(\theta,\varphi)=\sum^\infty_{l=0}\sum^{+l}_{m=-l}c_{l,m}Y^m_l(\theta,\varphi)
+$$</p>
+<p>系数：</p>
+<p>$$
+c_{l, m}=\int_{0}^{2 \pi} \mathrm{d} \varphi \int_{0}^{\pi} \sin \theta \mathrm{d} \theta \mathrm{Y}_{l}^{m *}(\theta, \varphi) f(\theta, \varphi)
+$$</p>
+<p>封闭性关系式：</p>
+<p>$$
+\begin{aligned}
+\sum_{l=0}^{\infty} \sum_{m=-l}^{+l} \mathrm{Y}_{l}^{m}(\theta, \varphi) \mathrm{Y}_{l}^{m *}\left(\theta^{\prime}, \varphi^{\prime}\right) &amp;=\delta\left(\cos \theta-\cos \theta^{\prime}\right) \delta\left(\varphi-\varphi^{\prime}\right) \nl
+&amp;=\frac{1}{\sin \theta} \delta\left(\theta-\theta^{\prime}\right) \delta\left(\varphi-\varphi^{\prime}\right)
+\end{aligned}
+$$</p>
+<p>（因为 $Y^m_l(\theta,\varphi)$ 中的微分元是 $\cos\theta$）</p>
+<h4 id="3宇称与复数共轭">3、宇称与复数共轭</h4>
+<p>$$
+Y^m_l(\pi-\theta,\pi+\varphi)=(-1)^lY^m_l(\theta,\varphi)
+$$</p>
+<p>还有以下关系：</p>
+<p>$$
+[Y^m_l(\theta,\varphi)]^*=(-1)^m Y^{-m}_l(\theta,\varphi)
+$$</p>
+<h3 id="d-一个无自旋粒子的波函数空间中的标准基">d. 一个无自旋粒子的波函数空间中的标准基</h3>
+<p>我们可以推知关系式：</p>
+<p>$$
+\psi_{k,l,m}(r)=R_{k,l,m}(r)Y^m_l(\theta,\varphi)
+$$</p>
+<p>被 $L_{\pm}$ 作用时：</p>
+<p>$$
+\begin{aligned}
+L_{\pm} \psi_{k, l, m}(\boldsymbol{r}) &amp;=R_{k, l, m}(r) L_{\pm} \mathrm{Y}_{l}^{m}(\theta, \varphi) \nl
+&amp;=\hbar \sqrt{l(l+1)-m(m \pm 1)} R_{k, l, m}(r) \mathrm{Y}_{l}^{m \pm 1}(\theta, \varphi)
+\end{aligned}
+$$</p>
+<p>因此，径向函数与 $m$ 无关，因此可以化成：</p>
+<p>$$
+\psi_{k,l,m}(r)=R_{k,l}(r)Y^m_l(\theta,\varphi)
+$$</p>
+<p>正交归一关系式：</p>
+<p>$$
+\begin{aligned}
+\int \mathrm{d}^{3} r \psi_{k, l, m}^{*}(\boldsymbol{r}) \psi_{k^{\prime}, l^{\prime}, m^{\prime}}(\boldsymbol{r})=&amp; \int_{0}^{\infty} r^{2} \mathrm{~d} r R_{k, l}^{*}(r) R_{k^{\prime}, l^{\prime}}(r) \nl
+&amp; \times \int_{0}^{2 \pi} \mathrm{d} \varphi \int_{0}^{\pi} \sin \theta \mathrm{d} \theta \mathrm{Y}_{l}^{m *}(\theta, \varphi) \mathrm{Y}_{l^{\prime}}^{m^{\prime}}(\theta, \varphi) \nl
+=&amp; \delta_{k k^{\prime}} \delta_{l l^{\prime}} \delta_{m m^{\prime}}
+\end{aligned}
+$$</p>
+<p>由于球谐函数早已归一化，因此最后得到：</p>
+<p>$$
+\int_{0}^{\infty} r^{2} \mathrm{~d} r R_{k, l}^{*}(r) R_{k^{\prime}, l}(r)=\delta_{k k^{\prime}}
+$$</p>
+<h2 id="2-物理上的考虑">2. 物理上的考虑</h2>
+<h3 id="a-关于态-ketklm-的讨论">a. 关于态 $\ket{k,l,m}$ 的讨论</h3>
+<p>我们讨论一个无自旋粒子，它处于 $L^2$ 和 $L_z$ 的本征态 $\ket{k,l,m}$。</p>
+<p>但是当我们测量其在 $Ox,Oy$ 轴上的分量时，因为不对易的关系，因此不能得出确切的预言。</p>
+<p>将式子反过来求解：</p>
+<p>$$
+\begin{aligned}
+&amp;L_x=\frac{1}{2}(L_++L_-)\nl
+&amp;L_y=\frac{1}{2i}(L_+-L_-)
+\end{aligned}
+$$</p>
+<p>因此可以推知（正交归一）：</p>
+<p>$$
+\bok{k,l,m}{L_x}{k,l,m}=\bok{k,l,m}{L_y}{k,l,m}=0
+$$</p>
+<p>此外：</p>
+<p>$$
+\begin{aligned}
+&amp;\bok{k,l,m}{L_x^2}{k,l,m}=\frac{1}{4}\bok{k,l,m}{L_+^2+L_-^2+L_+L_-+L_-L_+}{k,l,m}\nl
+&amp;\bok{k,l,m}{L_y^2}{k,l,m}=\frac{1}{4}\bok{k,l,m}{L_+^2+L_-^2-L_+L_&ndash;L_-L_+}{k,l,m}
+\end{aligned}
+$$</p>
+<p>由于平方项对结果无贡献，另外：</p>
+<p>$$
+L_+L_-+L_-L_+=2(L^2-L_z^2)
+$$</p>
+<p>因此：</p>
+<p>$$
+\begin{aligned}
+\left\langle k, l, m\left|L_{x}^{2}\right| k, l, m\right\rangle &amp;=\left\langle k, l, m\left|L_{y}^{2}\right| k, l, m\right\rangle \nl
+&amp;=\frac{1}{2}\left\langle k, l, m\left|\left(\boldsymbol{L}^{2}-L_{z}^{2}\right)\right| k, l, m\right\rangle \nl
+&amp;=\frac{\hbar^{2}}{2}\left[l(l+1)-m^{2}\right]
+\end{aligned}
+$$</p>
+<p>由这两个值，我们可以推出：</p>
+<p>$$
+\begin{aligned}
+&amp;\avg{L_x}=\avg{L_y}=0\nl
+&amp;\Delta L_x=\Delta L_y=\hbar\sqrt{l(l+1)-m^{2}}
+\end{aligned}
+$$</p>
+<p>我们得到的一个图像是经典角动量。它的模 $|OL|=\hbar\sqrt{l(l+1)}$，它在 $Oz$ 轴上的投影 $|OH|=m\hbar$。</p>
+<p><figure 
+	
+		class="gallery-image" 
+		style="
+			flex-grow: 116; 
+			flex-basis: 279px"
+	>
+	<a href="/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-6-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E4%B8%AD%E8%A7%92%E5%8A%A8%E9%87%8F%E7%9A%84%E6%99%AE%E9%81%8D%E6%80%A7%E8%B4%A8-d-part/image-20211222232135435.png" data-size="445x382">
+		<img src="/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-6-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E4%B8%AD%E8%A7%92%E5%8A%A8%E9%87%8F%E7%9A%84%E6%99%AE%E9%81%8D%E6%80%A7%E8%B4%A8-d-part/image-20211222232135435.png"
+			width="445"
+			height="382"
+			srcset="/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-6-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E4%B8%AD%E8%A7%92%E5%8A%A8%E9%87%8F%E7%9A%84%E6%99%AE%E9%81%8D%E6%80%A7%E8%B4%A8-d-part/image-20211222232135435_hu70383cc2223b192cd47501fcb898d37a_26677_480x0_resize_box_3.png 480w, /p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-6-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E4%B8%AD%E8%A7%92%E5%8A%A8%E9%87%8F%E7%9A%84%E6%99%AE%E9%81%8D%E6%80%A7%E8%B4%A8-d-part/image-20211222232135435_hu70383cc2223b192cd47501fcb898d37a_26677_1024x0_resize_box_3.png 1024w"
+			loading="lazy"
+			alt="image-20211222232135435">
+	</a>
+	
+	<figcaption>image-20211222232135435</figcaption>
+	
+</figure></p>
+<h3 id="b-关于测量-l2-与-l_z-的物理语言的计算">b. 关于测量 $L^2$ 与 $L_z$ 的物理语言的计算</h3>
+<p>使用 $\bra{r}$ 表象</p>
+<h4 id="1普遍公式">1、普遍公式</h4>
+<p>引入标准基：</p>
+<p>$$
+\psi_{k,l,m}(r)=R_{k,l}(r)Y^m_l(\theta,\varphi)
+$$</p>
+<p>从而可以写出：</p>
+<p>$$
+\psi(r)=\sum_k\sum_l\sum_m c_{k,l,m}R_{k,l}(r)Y^m_l(\theta,\varphi)
+$$</p>
+<p>系数的计算方法：</p>
+<p>$$
+\begin{aligned}
+c_{k, l, m} &amp;=\int \mathrm{d}^{3} r \psi_{k, l, m}^{*}(\boldsymbol{r}) \psi(\boldsymbol{r}) \nl
+&amp;=\int_{0}^{\infty} r^{2} \mathrm{~d} r R_{k, l}^{*}(r) \int_{0}^{2 \pi} \mathrm{d} \varphi \int_{0}^{\pi} \sin \theta \mathrm{d} \theta \mathrm{Y}_{l}^{m *}(\theta, \varphi) \psi(r, \theta, \varphi)
+\end{aligned}
+$$</p>
+<p>概率：</p>
+<p>$$
+\mscr P_{L^2,L_z}(l,m)=\sum_k|c_{k,l,m}|^2
+$$</p>
+<p>如果只测量 $L^2$，则将 $L_z$ 的部分（即 $m=-l$ 到 $l$ 加起来）：</p>
+<p>$$
+\mscr P_{L^2}(l)=\sum_k\sum_{m=-l}^l|c_{k,l,m}|^2
+$$</p>
+<p>对于 $L_z$ 同理：</p>
+<p>$$
+\mscr P_{L_z}(m)=\sum_k\sum_{k\ge|m|}|c_{k,l,m}|^2
+$$</p>
+<p>还有一些特殊情况：</p>
+<p>1、引入 $a_{l,m}(r)$ 说明 $L^2,L_z$ 只与 $\theta,\varphi$ 相关</p>
+<p>2、引入 $Y^m_l(\theta,\varphi)=Z^m_l(\theta)\frac{e^{im\varphi}}{\sqrt{2\pi}}$ 的形式导出 $L_z$ 只与 $\varphi$ 相关。</p>
+<p>3、以及他们与 $\mscr P$、归一化关系式的各种关系式。</p>
+<p>4、一种特殊情况。</p>
+<p>就看书吧，全部记下来真的太繁琐了。</p>
+<h2 id="comment">Comment</h2>
+<p>总算是把角动量这一张给啃完了。虽然还是有一些不太理解的地方，但大概的想法已经理解了。</p>
+<p>D part 主要的内容是关于角动量理论的具体解法。</p>
+<p>1、使用 $\ket{r}$ 表象，解出了各算符的表达式。</p>
+<p>2、发现 $L^2,L_z$ 算符与 $r$ 无关，因此导出专门的一个函数球谐函数 $Y_l^m(\theta,\varphi)$，并探讨了它的性质，导出其正交归一和封闭性。</p>
+<p>3、增加 $R_{k,l}(\theta,\varphi)$ 项。</p>
+<p>4、与真实物理概率联系起来。并用经典物理进行类比。</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/">量子力学</a>
+        
+            <a href="/tags/quantum-mechanics/">quantum mechanics</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css"integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js"integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8"crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js"integrity="sha384-vZTG03m&#43;2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl"crossorigin="anonymous"
+                defer="true"
+                >
+            </script>
+<script>
+MathJax = {
+    tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+    },
+    options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+};
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async
+src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">相关文章</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="">
+    <a href="/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-6-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E4%B8%AD%E8%A7%92%E5%8A%A8%E9%87%8F%E7%9A%84%E6%99%AE%E9%81%8D%E6%80%A7%E8%B4%A8-abc-part/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">[量子力学] 6 量子力学中角动量的普遍性质 ABC part</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-5-%E4%B8%80%E7%BB%B4%E8%B0%90%E6%8C%AF%E5%AD%90-ab-part/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">[量子力学] 5 一维谐振子 AB part</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-3-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%81%87%E5%AE%9A-e-part/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">[量子力学] 3 量子力学的假定 E part</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-3-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%81%87%E5%AE%9A-d-part/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">[量子力学] 3 量子力学的假定 D part</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-3-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%81%87%E5%AE%9A-c-part/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">[量子力学] 3 量子力学的假定 C part</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy;
+        
+        2021 MizarZ&#39;s Blog
+    </section>
+
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener"
+                data-version="3.4.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+
+        
+
+    </section>
+
+</footer>
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+        <aside class="sidebar right-sidebar sticky">
+            <section class="widget archives">
+                <div class="widget-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                </div>
+                <h2 class="widget-title section-title">目录</h2>
+                
+                <div class="widget--toc">
+                    <nav id="TableOfContents">
+  <ol>
+    <li><a href="#1-l2-与-l_z-的本征值及本征函数">1. $L^2$ 与 $L_z$ 的本征值及本征函数</a>
+      <ol>
+        <li><a href="#a-ketr-表象中的本征值方程">a. $\{\ket{r}\}$ 表象中的本征值方程</a></li>
+        <li><a href="#b-l-与-m-的值">b. $l$ 与 $m$ 的值</a>
+          <ol>
+            <li><a href="#1l-和-m-只能是整数">1、$l$ 和 $m$ 只能是整数</a></li>
+            <li><a href="#2-l-的全体整数值都会出现">2、 $l$ 的全体整数值都会出现</a></li>
+          </ol>
+        </li>
+        <li><a href="#c-球谐函数的主要性质">c. 球谐函数的主要性质</a>
+          <ol>
+            <li><a href="#1递推关系">1、递推关系</a></li>
+            <li><a href="#2正交归一化关系和封闭性关系式">2、正交归一化关系和封闭性关系式</a></li>
+            <li><a href="#3宇称与复数共轭">3、宇称与复数共轭</a></li>
+          </ol>
+        </li>
+        <li><a href="#d-一个无自旋粒子的波函数空间中的标准基">d. 一个无自旋粒子的波函数空间中的标准基</a></li>
+      </ol>
+    </li>
+    <li><a href="#2-物理上的考虑">2. 物理上的考虑</a>
+      <ol>
+        <li><a href="#a-关于态-ketklm-的讨论">a. 关于态 $\ket{k,l,m}$ 的讨论</a></li>
+        <li><a href="#b-关于测量-l2-与-l_z-的物理语言的计算">b. 关于测量 $L^2$ 与 $L_z$ 的物理语言的计算</a>
+          <ol>
+            <li><a href="#1普遍公式">1、普遍公式</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#comment">Comment</a></li>
+  </ol>
+</nav>
+                </div>
+            </section>
+        </aside>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

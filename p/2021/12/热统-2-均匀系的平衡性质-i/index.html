@@ -122,6 +122,9 @@
 \def\e{\epsilon}
 \def\ve{\varepsilon}
 \newcommand{\mscr}[1]{\mathscr{#1}}
+\def_{_} % 避免 下标符号 的转义。使用时应该先全部打好 下标符号，再用查找功能将其全部转换成 _
+% 如果后面新增了内容用到了下标符号，则正则为：
+% 查找：([^])(_) 替换：$1\$2
 $$</p>
 <h1 id="2-均匀系的平衡性质">2 均匀系的平衡性质</h1>
 <h2 id="21-麦克斯韦关系">2.1 麦克斯韦关系</h2>
@@ -132,13 +135,13 @@ $$</p>
 <p>这就是热力学基本微分方程，它是热力学第一定律和热力学第二定律相结合对微小可逆过程的表达形式，集中概括了第一定律和第二定律对可逆过程的全部结果，是研究平衡性质的基础。</p>
 <p>导出全微分：
 $$
-\mathrm{d} U=\left(\frac{\partial U}{\partial S}\right)<em>{V} \mathrm{~d} S+\left(\frac{\partial U}{\partial V}\right)</em>{S} \mathrm{~d} V
+\mathrm{d} U=\left(\frac{\partial U}{\partial S}\right)_{V} \mathrm{~d} S+\left(\frac{\partial U}{\partial V}\right)_{S} \mathrm{~d} V
 $$
 得到：
 $$
 \begin{aligned}
-&amp;\left(\frac{\partial U}{\partial S}\right)<em>{V}=T \nl
-&amp;\left(\frac{\partial U}{\partial V}\right)</em>{S}=-p
+&amp;\left(\frac{\partial U}{\partial S}\right)_{V}=T \nl
+&amp;\left(\frac{\partial U}{\partial V}\right)_{S}=-p
 \end{aligned}
 $$
 因 $T&gt;0$，故 $(\frac{\partial U}{\partial S})_V&gt;0$，表示当体积不变时，内能与熵得变化倾向是相同的。</p>
@@ -149,7 +152,7 @@ $$
 $$
 因此：
 $$
-\left(\frac{\partial T}{\partial V}\right)<em>{S}=-\left(\frac{\partial p}{\partial S}\right)</em>{V}
+\left(\frac{\partial T}{\partial V}\right)_{S}=-\left(\frac{\partial p}{\partial S}\right)_{V}
 $$
 这只是众多麦克斯韦关系式之一。</p>
 <p>勒让德变换：
@@ -167,13 +170,13 @@ $$
 因此得到关系式：
 $$
 \begin{aligned}
-&amp;S=\left(\frac{\partial F}{\partial T}\right)<em>{V} \nl
-&amp;p=-\left(\frac{\partial F}{\partial V}\right)</em>{T}
+&amp;S=\left(\frac{\partial F}{\partial T}\right)_{V} \nl
+&amp;p=-\left(\frac{\partial F}{\partial V}\right)_{T}
 \end{aligned}
 $$
 $F$ 的麦克斯韦关系：
 $$
-\left(\frac{\partial S}{\partial V}\right)<em>{T}=\left(\frac{\partial p}{\partial T}\right)</em>{V}
+\left(\frac{\partial S}{\partial V}\right)_{T}=\left(\frac{\partial p}{\partial T}\right)_{V}
 $$
 总结表格：</p>
 <p><figure 
@@ -273,7 +276,7 @@ $$
 利用奇怪的辐射压证明（见书本）。</p>
 <h3 id="243-热辐射的热力学函数">2.4.3 热辐射的热力学函数</h3>
 <p>$$
-\dd U=T\dd S-p\dd V\Ra \left(\frac{\partial U}{\partial V}\right)<em>{T}=T\left(\frac{\partial p}{\partial T}\right)</em>{V}-p
+\dd U=T\dd S-p\dd V\Ra \left(\frac{\partial U}{\partial V}\right)_{T}=T\left(\frac{\partial p}{\partial T}\right)_{V}-p
 $$</p>
 <p>对于热辐射，可以进行代换：
 $$
@@ -366,7 +369,7 @@ $$
 选定 $(p,V)$ 作为独立变量。</p>
 <p>确定内能：
 $$
-\mathrm{d} U=\left(\frac{\partial U}{\partial T}\right)<em>{V} \mathrm{~d} T+\left(\frac{\partial U}{\partial V}\right)</em>{T} \mathrm{~d} V = C_{V} \mathrm{~d} T+\left[T\left(\frac{\partial p}{\partial T}\right)_{V}-p\right] \mathrm{d} V
+\mathrm{d} U=\left(\frac{\partial U}{\partial T}\right)_{V} \mathrm{~d} T+\left(\frac{\partial U}{\partial V}\right)_{T} \mathrm{~d} V = C_{V} \mathrm{~d} T+\left[T\left(\frac{\partial p}{\partial T}\right)_{V}-p\right] \mathrm{d} V
 $$
 积分，可得 $U$ 的值。</p>
 <p>求熵 $S$：
