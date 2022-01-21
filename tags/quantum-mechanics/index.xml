@@ -6,7 +6,43 @@
     <description>Recent content in quantum mechanics on MizarZ&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 16 Dec 2021 23:38:39 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/tags/quantum-mechanics/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 26 Dec 2021 16:14:08 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/tags/quantum-mechanics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[量子力学] 9 电子的自旋</title>
+      <link>https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-9-%E7%94%B5%E5%AD%90%E7%9A%84%E8%87%AA%E6%97%8B/</link>
+      <pubDate>Sun, 26 Dec 2021 16:14:08 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-9-%E7%94%B5%E5%AD%90%E7%9A%84%E8%87%AA%E6%97%8B/</guid>
+      <description>$$ \def\un{\mathrm} \def\dd{\mathrm d} \def\par{\partial} \def\bl{\boldsymbol} \def\mbf{\mathbf} \def\mscr{\mathscr} \newcommand{\avg}[1]{\left \langle #1 \right \rangle} \newcommand{\bk}[2]{\left \langle #1 | #2 \right \rangle} \newcommand{\bok}[3]{\bra{#1}#2\ket{#3}} \def\nl{\newline} \def\Ra{\Rightarrow} \def\La{\Leftarrow} \def\ra{\rightarrow} \def\la{\leftarrow} \def\e{\epsilon} \def\ve{\varepsilon} $$ 9 电子的自旋 对原子光谱进行更详尽的研究，我们会发现一些现象无法用我们过去的知识解释</description>
+    </item>
+    
+    <item>
+      <title>[量子力学] 7 中心势场的粒子；氢原子 C part</title>
+      <link>https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-7-%E4%B8%AD%E5%BF%83%E5%8A%BF%E5%9C%BA%E7%9A%84%E7%B2%92%E5%AD%90%E6%B0%A2%E5%8E%9F%E5%AD%90-c-part/</link>
+      <pubDate>Thu, 23 Dec 2021 17:26:38 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-7-%E4%B8%AD%E5%BF%83%E5%8A%BF%E5%9C%BA%E7%9A%84%E7%B2%92%E5%AD%90%E6%B0%A2%E5%8E%9F%E5%AD%90-c-part/</guid>
+      <description>$$ \def\un{\mathrm} \def\dd{\mathrm d} \def\par{\partial} \def\bl{\boldsymbol} \def\mbf{\mathbf} \def\mscr{\mathscr} \newcommand{\avg}[1]{\left \langle #1 \right \rangle} \newcommand{\bk}[2]{\left \langle #1 | #2 \right \rangle} \newcommand{\bok}[3]{\bra{#1}#2\ket{#3}} \def\nl{\newline} \def\Ra{\Rightarrow} \def\La{\Leftarrow} \def\ra{\rightarrow} \def\la{\leftarrow} \def\e{\epsilon} \def\ve{\varepsilon} $$ C 氢原子 1. 引言 一些参数： 质子质量 $m_p=1.7\times10^{-27} ~\un{kg}$，电荷 $q=1.6\times10^{-19} ~\un{C}$s，电</description>
+    </item>
+    
+    <item>
+      <title>[量子力学] 7 中心势场的粒子；氢原子 B part</title>
+      <link>https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-7-%E4%B8%AD%E5%BF%83%E5%8A%BF%E5%9C%BA%E7%9A%84%E7%B2%92%E5%AD%90%E6%B0%A2%E5%8E%9F%E5%AD%90-b-part/</link>
+      <pubDate>Thu, 23 Dec 2021 17:26:34 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-7-%E4%B8%AD%E5%BF%83%E5%8A%BF%E5%9C%BA%E7%9A%84%E7%B2%92%E5%AD%90%E6%B0%A2%E5%8E%9F%E5%AD%90-b-part/</guid>
+      <description>$$ \def\un{\mathrm} \def\dd{\mathrm d} \def\par{\partial} \def\bl{\boldsymbol} \def\mbf{\mathbf} \def\mscr{\mathscr} \newcommand{\avg}[1]{\left \langle #1 \right \rangle} \newcommand{\bk}[2]{\left \langle #1 | #2 \right \rangle} \newcommand{\bok}[3]{\bra{#1}#2\ket{#3}} \def\nl{\newline} \def\Ra{\Rightarrow} \def\La{\Leftarrow} \def\ra{\rightarrow} \def\la{\leftarrow} \def\e{\epsilon} \def\ve{\varepsilon} $$ B 在有相互作用的双粒子体系中之心的运动和相对运动 1. 经典力学中的质心运动和相对运动 拉</description>
+    </item>
+    
+    <item>
+      <title>[量子力学] 7 中心势场的粒子；氢原子 A part</title>
+      <link>https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-7-%E4%B8%AD%E5%BF%83%E5%8A%BF%E5%9C%BA%E7%9A%84%E7%B2%92%E5%AD%90%E6%B0%A2%E5%8E%9F%E5%AD%90-a-part/</link>
+      <pubDate>Thu, 23 Dec 2021 17:26:11 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-7-%E4%B8%AD%E5%BF%83%E5%8A%BF%E5%9C%BA%E7%9A%84%E7%B2%92%E5%AD%90%E6%B0%A2%E5%8E%9F%E5%AD%90-a-part/</guid>
+      <description>$$ \def\un{\mathrm} \def\dd{\mathrm d} \def\par{\partial} \def\bl{\boldsymbol} \def\mbf{\mathbf} \def\mscr{\mathscr} \newcommand{\avg}[1]{\left \langle #1 \right \rangle} \newcommand{\bk}[2]{\left \langle #1 | #2 \right \rangle} \newcommand{\bok}[3]{\bra{#1}#2\ket{#3}} \def\nl{\newline} \def\Ra{\Rightarrow} \def\La{\Leftarrow} \def\ra{\rightarrow} \def\la{\leftarrow} \def\e{\epsilon} \def\ve{\varepsilon} $$ A 中心势场中粒子的定态 1. 问题梗概 a. 经典力学回顾 粒子总能量： $$ E=\frac{1}{2}\mu v^2+V(r)=\frac{1}{2}\mu v^2_r+\frac{1}{2}\mu v^2_\perp+V(r) $$ 使用动量和角</description>
+    </item>
+    
     <item>
       <title>[量子力学] 6 量子力学中角动量的普遍性质 D part</title>
       <link>https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-6-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E4%B8%AD%E8%A7%92%E5%8A%A8%E9%87%8F%E7%9A%84%E6%99%AE%E9%81%8D%E6%80%A7%E8%B4%A8-d-part/</link>

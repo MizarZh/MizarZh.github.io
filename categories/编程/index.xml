@@ -6,7 +6,16 @@
     <description>Recent content in 编程 on MizarZ&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 25 Nov 2021 15:14:33 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/categories/%E7%BC%96%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 20 Jan 2022 21:25:09 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/categories/%E7%BC%96%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Date方法</title>
+      <link>https://mizarzh.github.io/p/2022/01/date%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Thu, 20 Jan 2022 21:25:09 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2022/01/date%E6%96%B9%E6%B3%95/</guid>
+      <description>1、概述、构造函数 Date 对象基于 Unix Time Stamp，即从 1970 年 1 月 1 日（UTC）起经过的毫秒数。 构造函数： new Date(); // 返回实例化时刻的日期和时间。 new Date(value); // value 是</description>
+    </item>
+    
     <item>
       <title>Rust模块系统</title>
       <link>https://mizarzh.github.io/p/2021/11/rust%E6%A8%A1%E5%9D%97%E7%B3%BB%E7%BB%9F/</link>

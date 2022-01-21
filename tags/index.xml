@@ -6,11 +6,29 @@
     <description>Recent content in Tags on MizarZ&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 16 Dec 2021 23:38:39 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 20 Jan 2022 21:25:09 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>js</title>
+      <link>https://mizarzh.github.io/tags/js/</link>
+      <pubDate>Thu, 20 Jan 2022 21:25:09 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/tags/js/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>前端</title>
+      <link>https://mizarzh.github.io/tags/%E5%89%8D%E7%AB%AF/</link>
+      <pubDate>Thu, 20 Jan 2022 21:25:09 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/tags/%E5%89%8D%E7%AB%AF/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>quantum mechanics</title>
       <link>https://mizarzh.github.io/tags/quantum-mechanics/</link>
-      <pubDate>Thu, 16 Dec 2021 23:38:39 +0800</pubDate>
+      <pubDate>Sun, 26 Dec 2021 16:14:08 +0800</pubDate>
       
       <guid>https://mizarzh.github.io/tags/quantum-mechanics/</guid>
       <description></description>
@@ -19,7 +37,7 @@
     <item>
       <title>量子力学</title>
       <link>https://mizarzh.github.io/tags/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/</link>
-      <pubDate>Thu, 16 Dec 2021 23:38:39 +0800</pubDate>
+      <pubDate>Sun, 26 Dec 2021 16:14:08 +0800</pubDate>
       
       <guid>https://mizarzh.github.io/tags/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/</guid>
       <description></description>
@@ -76,24 +94,6 @@
       <pubDate>Thu, 25 Nov 2021 15:14:33 +0800</pubDate>
       
       <guid>https://mizarzh.github.io/tags/rust/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>js</title>
-      <link>https://mizarzh.github.io/tags/js/</link>
-      <pubDate>Sat, 13 Nov 2021 18:14:10 +0800</pubDate>
-      
-      <guid>https://mizarzh.github.io/tags/js/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>前端</title>
-      <link>https://mizarzh.github.io/tags/%E5%89%8D%E7%AB%AF/</link>
-      <pubDate>Sat, 13 Nov 2021 18:14:10 +0800</pubDate>
-      
-      <guid>https://mizarzh.github.io/tags/%E5%89%8D%E7%AB%AF/</guid>
       <description></description>
     </item>
     

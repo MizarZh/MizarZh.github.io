@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='C 氢原子'><title>[量子力学] 7 中心势场的粒子；氢原子 C part</title>
+
+<link rel='canonical' href='https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-7-%E4%B8%AD%E5%BF%83%E5%8A%BF%E5%9C%BA%E7%9A%84%E7%B2%92%E5%AD%90%E6%B0%A2%E5%8E%9F%E5%AD%90-c-part/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='[量子力学] 7 中心势场的粒子；氢原子 C part'>
+<meta property='og:description' content='C 氢原子'>
+<meta property='og:url' content='https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-7-%E4%B8%AD%E5%BF%83%E5%8A%BF%E5%9C%BA%E7%9A%84%E7%B2%92%E5%AD%90%E6%B0%A2%E5%8E%9F%E5%AD%90-c-part/'>
+<meta property='og:site_name' content='MizarZ&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='量子力学' /><meta property='article:tag' content='quantum mechanics' /><meta property='article:published_time' content='2021-12-23T17:26:38&#43;08:00'/><meta property='article:modified_time' content='2021-12-23T17:26:38&#43;08:00'/>
+<meta name="twitter:title" content="[量子力学] 7 中心势场的粒子；氢原子 C part">
+<meta name="twitter:description" content="C 氢原子">
+    <link rel="shortcut icon" href="img/favicon-32x32.png" />
+
+    </head>
+    <body class="
+    article-page has-toc
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        extended
+    
+">
+    
+        <div id="article-toolbar">
+            <a href="/" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>返回</span>
+            </a>
+        </div>
+    
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E7%89%A9%E7%90%86/" style="background-color: #773feb; color: ;">
+                物理
+            </a>
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-7-%E4%B8%AD%E5%BF%83%E5%8A%BF%E5%9C%BA%E7%9A%84%E7%B2%92%E5%AD%90%E6%B0%A2%E5%8E%9F%E5%AD%90-c-part/">[量子力学] 7 中心势场的粒子；氢原子 C part</a>
+    </h2>
+
+    
+    <h3 class="article-subtitle">
+        C 氢原子
+    </h3>
+    
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2021-12-23</time>
+            </div>
+        
+
+        
+    </footer>
+    
+</div>
+</header>
+
+    <section class="article-content">
+    <p>$$
+\def\un{\mathrm}
+\def\dd{\mathrm d}
+\def\par{\partial}
+\def\bl{\boldsymbol}
+\def\mbf{\mathbf}
+\def\mscr{\mathscr}
+\newcommand{\avg}[1]{\left \langle #1 \right \rangle}
+\newcommand{\bk}[2]{\left \langle #1  | #2  \right \rangle}
+\newcommand{\bok}[3]{\bra{#1}#2\ket{#3}}
+\def\nl{\newline}
+\def\Ra{\Rightarrow}
+\def\La{\Leftarrow}
+\def\ra{\rightarrow}
+\def\la{\leftarrow}
+\def\e{\epsilon}
+\def\ve{\varepsilon}
+$$</p>
+<h1 id="c-氢原子">C 氢原子</h1>
+<h2 id="1-引言">1. 引言</h2>
+<p>一些参数：</p>
+<p>质子质量 $m_p=1.7\times10^{-27} ~\un{kg}$，电荷 $q=1.6\times10^{-19} ~\un{C}$s，电子质量 $m_e=9.1\times10^{-30}~\un{kg}$。</p>
+<p>势能表达式：</p>
+<p>$$
+V(r)=-\frac{q^2}{4\pi\ve_0}\frac{1}{r}=-\frac{e^2}{r}
+$$</p>
+<p>质心坐标系：</p>
+<p>$$
+\mscr H(r,p)=\frac{p^2}{2\mu}-\frac{e^2}{r}
+$$</p>
+<p>由于 $m_p\gg m_e$，因此：</p>
+<p>$$
+\mu=\frac{m_em_p}{m_e+m_p}\approx m_p
+$$</p>
+<p>体系的质心几乎与质子重合，因此直接以质子为质心。</p>
+<h2 id="2-玻尔模型">2. 玻尔模型</h2>
+<p>玻尔模型遵循以下方程</p>
+<p>$$
+\begin{aligned}
+&amp;E=\frac{1}{2}\mu v^2-\frac{e^2}{r}\nl
+&amp;\frac{\mu v^2}{r}=\frac{e^2}{r^2}\nl
+&amp;\mu v r = n\hbar,n=1,2,\cdots
+\end{aligned}
+$$</p>
+<p>第一条是能量，第二条是力学方程，第三条是假设的量子化条件（离散能级）。</p>
+<p>解得：</p>
+<p>$$
+\begin{aligned}
+&amp;E_n=-\frac{1}{n^2}E_I\nl
+&amp; r_n=n^2 a_n\nl
+&amp; v_n=\frac{1}{n}v_0
+\end{aligned}
+$$</p>
+<p>其中：</p>
+<p>$$
+\begin{aligned}
+&amp;E_I=\frac{\mu e^4}{2\hbar^2}\nl
+&amp; a_0=\frac{\hbar^2}{\mu e^2}\nl
+&amp;v_0=\frac{e^2}{\hbar}
+\end{aligned}
+$$</p>
+<p>电离能 $E_I=13.6 ~\un{eV}$，玻尔半径 $a_0=0.052~\un{nm}$</p>
+<h2 id="3-氢原子的量子力学理论">3. 氢原子的量子力学理论</h2>
+<p>解方程：</p>
+<p>$$
+[-\frac{\hbar^2}{2\mu}\triangle-\frac{e^2}{r}]\psi(r)=E\psi(r)
+$$</p>
+<p>展开$\psi_{k,l,m}(r)=\frac{1}{r}u_{k,l}Y^m_l(\theta,\varphi)$，并得到径向方程：</p>
+<p>$$
+\left[-\frac{\hbar^{2}}{2 \mu} \frac{\mathrm{d}^{2}}{\mathrm{~d} r^{2}}+\frac{l(l+1) \hbar^{2}}{2 \mu r^{2}}-\frac{e^{2}}{r}\right] u_{k, l}(r)=E_{k, l} u_{k, l}(r)
+$$</p>
+<p>以及附加条件 $u_{k,l}(0)=0$。</p>
+<p>有一个特性：对于 $E$ 的一个正值，经典运动在空间中是不受限制的。$E&lt;0$ 时，经典运动是受限制的，局限在 $B,C$ 两点之间。</p>
+<p><figure 
+	
+		class="gallery-image" 
+		style="
+			flex-grow: 105; 
+			flex-basis: 253px"
+	>
+	<a href="/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-7-%E4%B8%AD%E5%BF%83%E5%8A%BF%E5%9C%BA%E7%9A%84%E7%B2%92%E5%AD%90%E6%B0%A2%E5%8E%9F%E5%AD%90-c-part/image-20211226151640973.png" data-size="702x664">
+		<img src="/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-7-%E4%B8%AD%E5%BF%83%E5%8A%BF%E5%9C%BA%E7%9A%84%E7%B2%92%E5%AD%90%E6%B0%A2%E5%8E%9F%E5%AD%90-c-part/image-20211226151640973.png"
+			width="702"
+			height="664"
+			srcset="/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-7-%E4%B8%AD%E5%BF%83%E5%8A%BF%E5%9C%BA%E7%9A%84%E7%B2%92%E5%AD%90%E6%B0%A2%E5%8E%9F%E5%AD%90-c-part/image-20211226151640973_hud346177a5c501d2cca65459f1587b6e0_51320_480x0_resize_box_3.png 480w, /p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-7-%E4%B8%AD%E5%BF%83%E5%8A%BF%E5%9C%BA%E7%9A%84%E7%B2%92%E5%AD%90%E6%B0%A2%E5%8E%9F%E5%AD%90-c-part/image-20211226151640973_hud346177a5c501d2cca65459f1587b6e0_51320_1024x0_resize_box_3.png 1024w"
+			loading="lazy"
+			alt="image-20211226151640973">
+	</a>
+	
+	<figcaption>image-20211226151640973</figcaption>
+	
+</figure></p>
+<p>开始解方程了~</p>
+<h3 id="a-变量的变换">a. 变量的变换</h3>
+<p>引入无量纲的量：</p>
+<p>$$
+\rho=r/a_0,\lambda_{k,l}=\sqrt{-E_{k,l}/E_I}
+$$</p>
+<p>由此得到式子：</p>
+<p>$$
+[\frac{\dd^2}{\dd \rho^2}-\frac{l(l+1)}{\rho^2}+\frac{2}{\rho}-\lambda^2_{k,l}]u_{k,l}(\rho)=0
+$$</p>
+<h3 id="b-求解径向方程">b. 求解径向方程</h3>
+<h4 id="i-渐进行为">I. 渐进行为</h4>
+<p>当 $\rho\ra\infty$，$1/\rho$ 的项可以忽略：</p>
+<p>$$
+[\frac{\dd^2}{\dd \rho^2}-\lambda^2_{k,l}]u_{k,l}(\rho)=0
+$$</p>
+<p>解为：$e^{\pm\rho\lambda_{k,l}}$，且要舍去 $e^{+\rho\lambda_{k,l}}$ 的部分，因为无限远处是有界的。</p>
+<p>设一个系数：</p>
+<p>$$
+u_{k,l}(\rho)=e^{-\rho\lambda_{k,l}}y_{k,l}(\rho)
+$$</p>
+<p>再代入原式进行求解：</p>
+<p>$$
+\left{\frac{\mathrm{d}^{2}}{\mathrm{~d} \rho^{2}}-2 \lambda_{k, l} \frac{\mathrm{d}}{\mathrm{d} \rho}+\left[\frac{2}{\rho}-\frac{l(l+1)}{\rho^{2}}\right]\right} y_{k, l}(\rho)=0
+$$</p>
+<p>附加条件：</p>
+<p>$$
+y_{k,l}(0)=0
+$$</p>
+<h4 id="ii-寻找幂级数形式的解">II. 寻找幂级数形式的解</h4>
+<p>$$
+y_{k,l}(\rho)=\rho^s\sum^\infty_{q=0}c_q\rho^q
+$$</p>
+<p>代入后求解递归项（其中，$s=l+1~或~s=-l$）：</p>
+<p>$$
+c_q=-\frac{2(k-q)}{q(q+2l+1)(k+l)}c_{q-1}
+$$</p>
+<p>全体系数：</p>
+<p>$$
+c_q=(-1)^q(\frac{2}{k+l})^q\frac{(k-1)!}{(k-q-1)!}\frac{(2l+1)!}{q!(q+2l+1)!}c_0
+$$</p>
+<p>$c_0$ 由归一化条件决定。</p>
+<h2 id="4-结果的条论">4. 结果的条论</h2>
+<h3 id="a-原子参量的数量级">a. 原子参量的数量级</h3>
+<p>将基态能量和玻尔半径写成下列形式：</p>
+<p>$$
+\begin{aligned}
+&amp;E_I=\frac{1}{2}\alpha^2\mu c^2\nl
+&amp;a_0=\frac{1}{\alpha}\lambda_c
+\end{aligned}
+$$</p>
+<p>其中 $\alpha$ 称为精细结构常数，$\lambda_c$ 为电子的康普顿波长。</p>
+<h3 id="b-能级">b. 能级</h3>
+<p>在氢原子情况下， $E_{k,l}$ 并不单独地依赖于 $k,l$，而是依赖于两者之和。令：</p>
+<p>$$
+n=k+l
+$$</p>
+<p>之后便用 $n$ 代替 $k$ 来标记。$n$ 称为主量子数。</p>
+<p>由于 $k\ge 1$，因此 $l$ 的取值为 $0,1,\cdots,n-1$，而 $m$ 的取值为 $-l$ 到 $l$。</p>
+<p>简并度为：</p>
+<p>$$
+g_n=\sum^{n-1}_{l=0}(2l+1)=2\frac{(n-1)n}{2}+n=n^2
+$$</p>
+<p>光谱学符号：</p>
+<p><figure 
+	
+		class="gallery-image" 
+		style="
+			flex-grow: 69; 
+			flex-basis: 165px"
+	>
+	<a href="/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-7-%E4%B8%AD%E5%BF%83%E5%8A%BF%E5%9C%BA%E7%9A%84%E7%B2%92%E5%AD%90%E6%B0%A2%E5%8E%9F%E5%AD%90-c-part/image-20211226155943440.png" data-size="315x456">
+		<img src="/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-7-%E4%B8%AD%E5%BF%83%E5%8A%BF%E5%9C%BA%E7%9A%84%E7%B2%92%E5%AD%90%E6%B0%A2%E5%8E%9F%E5%AD%90-c-part/image-20211226155943440.png"
+			width="315"
+			height="456"
+			srcset="/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-7-%E4%B8%AD%E5%BF%83%E5%8A%BF%E5%9C%BA%E7%9A%84%E7%B2%92%E5%AD%90%E6%B0%A2%E5%8E%9F%E5%AD%90-c-part/image-20211226155943440_huec1bdac8e9bcec837d3e4e764c853619_32580_480x0_resize_box_3.png 480w, /p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-7-%E4%B8%AD%E5%BF%83%E5%8A%BF%E5%9C%BA%E7%9A%84%E7%B2%92%E5%AD%90%E6%B0%A2%E5%8E%9F%E5%AD%90-c-part/image-20211226155943440_huec1bdac8e9bcec837d3e4e764c853619_32580_1024x0_resize_box_3.png 1024w"
+			loading="lazy"
+			alt="image-20211226155943440">
+	</a>
+	
+	<figcaption>image-20211226155943440</figcaption>
+	
+</figure></p>
+<p>再在前面加上 $n$ 所对应的数字，就组成了标记壳层的光谱学符号：</p>
+<p><figure 
+	
+		class="gallery-image" 
+		style="
+			flex-grow: 83; 
+			flex-basis: 200px"
+	>
+	<a href="/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-7-%E4%B8%AD%E5%BF%83%E5%8A%BF%E5%9C%BA%E7%9A%84%E7%B2%92%E5%AD%90%E6%B0%A2%E5%8E%9F%E5%AD%90-c-part/image-20211226155457513.png" data-size="677x810">
+		<img src="/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-7-%E4%B8%AD%E5%BF%83%E5%8A%BF%E5%9C%BA%E7%9A%84%E7%B2%92%E5%AD%90%E6%B0%A2%E5%8E%9F%E5%AD%90-c-part/image-20211226155457513.png"
+			width="677"
+			height="810"
+			srcset="/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-7-%E4%B8%AD%E5%BF%83%E5%8A%BF%E5%9C%BA%E7%9A%84%E7%B2%92%E5%AD%90%E6%B0%A2%E5%8E%9F%E5%AD%90-c-part/image-20211226155457513_hu4c79dc64bce7a876869da9d7c3ac5f5f_46938_480x0_resize_box_3.png 480w, /p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-7-%E4%B8%AD%E5%BF%83%E5%8A%BF%E5%9C%BA%E7%9A%84%E7%B2%92%E5%AD%90%E6%B0%A2%E5%8E%9F%E5%AD%90-c-part/image-20211226155457513_hu4c79dc64bce7a876869da9d7c3ac5f5f_46938_1024x0_resize_box_3.png 1024w"
+			loading="lazy"
+			alt="image-20211226155457513">
+	</a>
+	
+	<figcaption>image-20211226155457513</figcaption>
+	
+</figure></p>
+<h3 id="c-波函数">c. 波函数</h3>
+<p>角依赖性：由于 $Y^m_l(\theta,\varphi)$ 只通过 $e^{im\varphi}$ 因子依赖于 $\varphi$ 的，因此 $|Y^m_l(\theta,\varphi)|^2$ 与 $\varphi$ 无关，因此我们只需要作出宣传曲面在 $Oz$ 平面上的截口就可以了。</p>
+<p>一些例子：</p>
+<p><figure 
+	
+		class="gallery-image" 
+		style="
+			flex-grow: 215; 
+			flex-basis: 516px"
+	>
+	<a href="/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-7-%E4%B8%AD%E5%BF%83%E5%8A%BF%E5%9C%BA%E7%9A%84%E7%B2%92%E5%AD%90%E6%B0%A2%E5%8E%9F%E5%AD%90-c-part/image-20211226160415471.png" data-size="1291x600">
+		<img src="/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-7-%E4%B8%AD%E5%BF%83%E5%8A%BF%E5%9C%BA%E7%9A%84%E7%B2%92%E5%AD%90%E6%B0%A2%E5%8E%9F%E5%AD%90-c-part/image-20211226160415471.png"
+			width="1291"
+			height="600"
+			srcset="/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-7-%E4%B8%AD%E5%BF%83%E5%8A%BF%E5%9C%BA%E7%9A%84%E7%B2%92%E5%AD%90%E6%B0%A2%E5%8E%9F%E5%AD%90-c-part/image-20211226160415471_hucbe6b4c3f56f8badbeeb426ab36750b6_154607_480x0_resize_box_3.png 480w, /p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-7-%E4%B8%AD%E5%BF%83%E5%8A%BF%E5%9C%BA%E7%9A%84%E7%B2%92%E5%AD%90%E6%B0%A2%E5%8E%9F%E5%AD%90-c-part/image-20211226160415471_hucbe6b4c3f56f8badbeeb426ab36750b6_154607_1024x0_resize_box_3.png 1024w"
+			loading="lazy"
+			alt="image-20211226160415471">
+	</a>
+	
+	<figcaption>image-20211226160415471</figcaption>
+	
+</figure></p>
+<h2 id="comment">Comment</h2>
+<p>这一节将上一节的结论应用到了氢原子上，并提出了很多相关的概念。</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/">量子力学</a>
+        
+            <a href="/tags/quantum-mechanics/">quantum mechanics</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css"integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js"integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8"crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js"integrity="sha384-vZTG03m&#43;2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl"crossorigin="anonymous"
+                defer="true"
+                >
+            </script>
+<script>
+MathJax = {
+    tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+    },
+    options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+};
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async
+src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">相关文章</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="">
+    <a href="/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-9-%E7%94%B5%E5%AD%90%E7%9A%84%E8%87%AA%E6%97%8B/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">[量子力学] 9 电子的自旋</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-7-%E4%B8%AD%E5%BF%83%E5%8A%BF%E5%9C%BA%E7%9A%84%E7%B2%92%E5%AD%90%E6%B0%A2%E5%8E%9F%E5%AD%90-b-part/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">[量子力学] 7 中心势场的粒子；氢原子 B part</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-7-%E4%B8%AD%E5%BF%83%E5%8A%BF%E5%9C%BA%E7%9A%84%E7%B2%92%E5%AD%90%E6%B0%A2%E5%8E%9F%E5%AD%90-a-part/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">[量子力学] 7 中心势场的粒子；氢原子 A part</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-6-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E4%B8%AD%E8%A7%92%E5%8A%A8%E9%87%8F%E7%9A%84%E6%99%AE%E9%81%8D%E6%80%A7%E8%B4%A8-d-part/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">[量子力学] 6 量子力学中角动量的普遍性质 D part</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-6-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E4%B8%AD%E8%A7%92%E5%8A%A8%E9%87%8F%E7%9A%84%E6%99%AE%E9%81%8D%E6%80%A7%E8%B4%A8-abc-part/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">[量子力学] 6 量子力学中角动量的普遍性质 ABC part</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy;
+        
+        2021 -
+        
+        2022 MizarZ&#39;s Blog
+    </section>
+
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener"
+                data-version="3.4.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+
+        
+
+    </section>
+
+</footer>
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+        <aside class="sidebar right-sidebar sticky">
+            <section class="widget archives">
+                <div class="widget-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                </div>
+                <h2 class="widget-title section-title">目录</h2>
+                
+                <div class="widget--toc">
+                    <nav id="TableOfContents">
+  <ol>
+    <li><a href="#1-引言">1. 引言</a></li>
+    <li><a href="#2-玻尔模型">2. 玻尔模型</a></li>
+    <li><a href="#3-氢原子的量子力学理论">3. 氢原子的量子力学理论</a>
+      <ol>
+        <li><a href="#a-变量的变换">a. 变量的变换</a></li>
+        <li><a href="#b-求解径向方程">b. 求解径向方程</a>
+          <ol>
+            <li><a href="#i-渐进行为">I. 渐进行为</a></li>
+            <li><a href="#ii-寻找幂级数形式的解">II. 寻找幂级数形式的解</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#4-结果的条论">4. 结果的条论</a>
+      <ol>
+        <li><a href="#a-原子参量的数量级">a. 原子参量的数量级</a></li>
+        <li><a href="#b-能级">b. 能级</a></li>
+        <li><a href="#c-波函数">c. 波函数</a></li>
+      </ol>
+    </li>
+    <li><a href="#comment">Comment</a></li>
+  </ol>
+</nav>
+                </div>
+            </section>
+        </aside>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

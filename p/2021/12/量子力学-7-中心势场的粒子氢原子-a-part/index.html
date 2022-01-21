@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='A 中心势场中粒子的定态'><title>[量子力学] 7 中心势场的粒子；氢原子 A part</title>
+
+<link rel='canonical' href='https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-7-%E4%B8%AD%E5%BF%83%E5%8A%BF%E5%9C%BA%E7%9A%84%E7%B2%92%E5%AD%90%E6%B0%A2%E5%8E%9F%E5%AD%90-a-part/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='[量子力学] 7 中心势场的粒子；氢原子 A part'>
+<meta property='og:description' content='A 中心势场中粒子的定态'>
+<meta property='og:url' content='https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-7-%E4%B8%AD%E5%BF%83%E5%8A%BF%E5%9C%BA%E7%9A%84%E7%B2%92%E5%AD%90%E6%B0%A2%E5%8E%9F%E5%AD%90-a-part/'>
+<meta property='og:site_name' content='MizarZ&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='量子力学' /><meta property='article:tag' content='quantum mechanics' /><meta property='article:published_time' content='2021-12-23T17:26:11&#43;08:00'/><meta property='article:modified_time' content='2021-12-23T17:26:11&#43;08:00'/>
+<meta name="twitter:title" content="[量子力学] 7 中心势场的粒子；氢原子 A part">
+<meta name="twitter:description" content="A 中心势场中粒子的定态">
+    <link rel="shortcut icon" href="img/favicon-32x32.png" />
+
+    </head>
+    <body class="
+    article-page has-toc
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        extended
+    
+">
+    
+        <div id="article-toolbar">
+            <a href="/" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>返回</span>
+            </a>
+        </div>
+    
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E7%89%A9%E7%90%86/" style="background-color: #773feb; color: ;">
+                物理
+            </a>
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-7-%E4%B8%AD%E5%BF%83%E5%8A%BF%E5%9C%BA%E7%9A%84%E7%B2%92%E5%AD%90%E6%B0%A2%E5%8E%9F%E5%AD%90-a-part/">[量子力学] 7 中心势场的粒子；氢原子 A part</a>
+    </h2>
+
+    
+    <h3 class="article-subtitle">
+        A 中心势场中粒子的定态
+    </h3>
+    
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2021-12-23</time>
+            </div>
+        
+
+        
+    </footer>
+    
+</div>
+</header>
+
+    <section class="article-content">
+    <p>$$
+\def\un{\mathrm}
+\def\dd{\mathrm d}
+\def\par{\partial}
+\def\bl{\boldsymbol}
+\def\mbf{\mathbf}
+\def\mscr{\mathscr}
+\newcommand{\avg}[1]{\left \langle #1 \right \rangle}
+\newcommand{\bk}[2]{\left \langle #1  | #2  \right \rangle}
+\newcommand{\bok}[3]{\bra{#1}#2\ket{#3}}
+\def\nl{\newline}
+\def\Ra{\Rightarrow}
+\def\La{\Leftarrow}
+\def\ra{\rightarrow}
+\def\la{\leftarrow}
+\def\e{\epsilon}
+\def\ve{\varepsilon}
+$$</p>
+<h1 id="a-中心势场中粒子的定态">A 中心势场中粒子的定态</h1>
+<h2 id="1-问题梗概">1. 问题梗概</h2>
+<h3 id="a-经典力学回顾">a. 经典力学回顾</h3>
+<p>粒子总能量：</p>
+<p>$$
+E=\frac{1}{2}\mu v^2+V(r)=\frac{1}{2}\mu v^2_r+\frac{1}{2}\mu v^2_\perp+V(r)
+$$</p>
+<p>使用动量和角动量替换 $v_r,v_\perp$ 项：</p>
+<p>$$
+E=\frac{p_r^2}{2\mu}+\frac{\mscr L^2}{2\mu r^2}+V(r)
+$$</p>
+<p>其中：</p>
+<p>$$
+p_r=\mu\frac{\dd r}{\dd t},\mscr L^2=p_\theta^2+\frac{1}{
+\sin^2\theta}p_\varphi^2
+$$</p>
+<p>定义一个有效势（仅与 $r$ 相关）：</p>
+<p>$$
+V_{\un{eff}}(r)=V(r)+\frac{\mscr L^2}{2\mu r^2}
+$$</p>
+<h3 id="b-hamilton-算符">b. Hamilton 算符</h3>
+<p>$$
+H=[-\frac{\hbar^2}{2\mu}\triangle+V(r)]\varphi(\bl r)=E\varphi(\bl r)
+$$</p>
+<p>在球坐标下：</p>
+<p>$$
+\triangle=\frac{1}{r}\frac{\par^2}{\par r^2}r+\frac{1}{r^2}(\frac{\par^2}{\par\theta^2}+\frac{1}{\tan\theta}\frac{\par}{\par\theta}+\frac{1}{
+sin^2\theta}\frac{\par^2}{\par\varphi^2})
+$$</p>
+<p>代入 $L^2$ 算符：</p>
+<p>$$
+H=-\frac{\hbar^2}{2\mu}\frac{1}{r}\frac{\par^2}{\par r^2}r+\frac{1}{2\mu r^2}L^2+V(r)
+$$</p>
+<p>求解的本征值方程：</p>
+<p>$$
+[-\frac{\hbar^2}{2\mu}\frac{1}{r}\frac{\par^2}{\par r^2}r+\frac{1}{2\mu r^2}L^2+V(r)]\psi(r,\theta,\varphi)=E\psi(r,\theta,\varphi)
+$$</p>
+<h2 id="2-变量的分离">2. 变量的分离</h2>
+<h3 id="a-本征函数与角度的依赖关系">a. 本征函数与角度的依赖关系</h3>
+<p>因为 $L$ 函数只作用于 $\theta,\varphi$ 变量，因此，一切作用于 $r$ 的算符都可以对易。在量子力学意义下，$L$ 的三个分量都是运动常量，即：</p>
+<p>$$
+[H,L]=0
+$$</p>
+<p>同样的， $H$ 和 $L^2$ 也可以对易。</p>
+<p>三个方程组：</p>
+<p>$$
+\begin{aligned}
+H\psi(\bl r)&amp;=E\psi(\bl r)\nl
+L^2\psi(\bl r)&amp;=l(l+1)\hbar^2\psi(\bl r)\nl
+L_z\psi(\bl r)&amp;=m\hbar\psi(\bl r)
+\end{aligned}
+$$</p>
+<p>根据之前的讨论，我们可以得出：</p>
+<p>$$
+\psi(\bl r)=R(r)Y^m_l(\theta,\varphi)
+$$</p>
+<h3 id="b-径向方程">b. 径向方程</h3>
+<p>将上式代入本征值方程中：</p>
+<p>$$
+[-\frac{\hbar^2}{2\mu}\frac{1}{r}\frac{\par^2}{\par r^2}r+\frac{l(l+1)\hbar^2}{2\mu r^2}+V(r)]R(r)=ER(r)
+$$</p>
+<p>通过一系列讨论，我们可以得到一些数与 $k,l$ 的相关性： $R(r)=R_{k,l}(r),E=E_{k,l}$。</p>
+<p>进行代换：</p>
+<p>$$
+R_{k,l}=\frac{1}{r}u_{k,l}(r)
+$$</p>
+<p>得到的本征方程：</p>
+<p>$$
+[-\frac{\hbar^2}{2\mu}\frac{\par^2}{\par r^2}+\frac{l(l+1)\hbar^2}{2\mu r^2}+V(r)]u_{k,l}(r)=E_{k,l}u_{k,l}(r)
+$$</p>
+<h3 id="c-径向方程的解在原点的行为">c. 径向方程的解在原点的行为</h3>
+<p>当 $r\ra 0$ 时，设：</p>
+<p>$$
+R_{k,l}(r)\approx Cr^s
+$$</p>
+<p>代入方程中，并令主项的系数为 0，得到方程：</p>
+<p>$$
+-s(s+1)+l(l+1)=0
+$$</p>
+<p>解得：</p>
+<p>$$
+s=l~ \text{ or}~s=-(l+1)
+$$</p>
+<p>我们可以排除 $s=-(l+1)$ 的解，因为在 0 处不符合函数性质。</p>
+<p>因此：</p>
+<p>$$
+u_{k,l}(0)=0
+$$</p>
+<h2 id="3-中心势场中粒子的定态">3. 中心势场中粒子的定态</h2>
+<h3 id="a-量子数">a. 量子数</h3>
+<p>(i) 规定 $H$ 的本征函数同时又是 $L^2,L_z$ 的本征函数，因此：</p>
+<p>$$
+\psi_{k,l,m}(\bl r)=R_{k,l}(r)Y^m_l(\theta,\varphi)=\frac{1}{r}u_{k,l}Y^m_l(\theta,\varphi)
+$$</p>
+<p>(ii) 将 $H$ 的本征值方程代换为只含变量 $r$ 的微分方程。</p>
+<p>归一化：</p>
+<p>$$
+\int |\psi_{k,l,m}|^2 r^2\dd r\dd\Omega=1
+$$</p>
+<p>分解：</p>
+<p>$$
+\int |\psi_{k,l,m}|^2 r^2\dd r\dd\Omega=\int^\infty_0 r^2\dd r|R_{k,l}|^2\int \dd \Omega |Y^m_l(\theta,\varphi)|^2
+$$</p>
+<p>由于球谐函数已归一化，因此：</p>
+<p>$$
+\int^\infty_0 r^2\dd r|R_{k,l}|^2=\int^\infty_0\dd r|u_{k,l}(r)|^2=1
+$$</p>
+<h3 id="b-能级的简并度">b. 能级的简并度</h3>
+<p>将 $k,l$ 的值固定，$m$ 的值可以从 $-l$ 变化到 $l$，与此对应的 $(2l+1)$ 个函数都属于同一本征值 $E_{k,l}$ 的本征函数。这种简并总是存在的，称它为实质性简并。如果偶尔相同，那就叫偶然性兼并。</p>
+<p>从上面的讨论可以推知， $H,L^2,L_z$ 构成一个 ECOC。</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6/">量子力学</a>
+        
+            <a href="/tags/quantum-mechanics/">quantum mechanics</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css"integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js"integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8"crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js"integrity="sha384-vZTG03m&#43;2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl"crossorigin="anonymous"
+                defer="true"
+                >
+            </script>
+<script>
+MathJax = {
+    tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+    },
+    options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+};
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async
+src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">相关文章</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="">
+    <a href="/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-9-%E7%94%B5%E5%AD%90%E7%9A%84%E8%87%AA%E6%97%8B/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">[量子力学] 9 电子的自旋</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-7-%E4%B8%AD%E5%BF%83%E5%8A%BF%E5%9C%BA%E7%9A%84%E7%B2%92%E5%AD%90%E6%B0%A2%E5%8E%9F%E5%AD%90-c-part/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">[量子力学] 7 中心势场的粒子；氢原子 C part</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-7-%E4%B8%AD%E5%BF%83%E5%8A%BF%E5%9C%BA%E7%9A%84%E7%B2%92%E5%AD%90%E6%B0%A2%E5%8E%9F%E5%AD%90-b-part/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">[量子力学] 7 中心势场的粒子；氢原子 B part</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-6-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E4%B8%AD%E8%A7%92%E5%8A%A8%E9%87%8F%E7%9A%84%E6%99%AE%E9%81%8D%E6%80%A7%E8%B4%A8-d-part/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">[量子力学] 6 量子力学中角动量的普遍性质 D part</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-6-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E4%B8%AD%E8%A7%92%E5%8A%A8%E9%87%8F%E7%9A%84%E6%99%AE%E9%81%8D%E6%80%A7%E8%B4%A8-abc-part/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">[量子力学] 6 量子力学中角动量的普遍性质 ABC part</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy;
+        
+        2021 -
+        
+        2022 MizarZ&#39;s Blog
+    </section>
+
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener"
+                data-version="3.4.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+
+        
+
+    </section>
+
+</footer>
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+        <aside class="sidebar right-sidebar sticky">
+            <section class="widget archives">
+                <div class="widget-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                </div>
+                <h2 class="widget-title section-title">目录</h2>
+                
+                <div class="widget--toc">
+                    <nav id="TableOfContents">
+  <ol>
+    <li><a href="#1-问题梗概">1. 问题梗概</a>
+      <ol>
+        <li><a href="#a-经典力学回顾">a. 经典力学回顾</a></li>
+        <li><a href="#b-hamilton-算符">b. Hamilton 算符</a></li>
+      </ol>
+    </li>
+    <li><a href="#2-变量的分离">2. 变量的分离</a>
+      <ol>
+        <li><a href="#a-本征函数与角度的依赖关系">a. 本征函数与角度的依赖关系</a></li>
+        <li><a href="#b-径向方程">b. 径向方程</a></li>
+        <li><a href="#c-径向方程的解在原点的行为">c. 径向方程的解在原点的行为</a></li>
+      </ol>
+    </li>
+    <li><a href="#3-中心势场中粒子的定态">3. 中心势场中粒子的定态</a>
+      <ol>
+        <li><a href="#a-量子数">a. 量子数</a></li>
+        <li><a href="#b-能级的简并度">b. 能级的简并度</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+                </div>
+            </section>
+        </aside>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

@@ -6,7 +6,784 @@
         <description>Recent content on MizarZ&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Thu, 16 Dec 2021 23:38:39 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 20 Jan 2022 21:25:09 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Date方法</title>
+        <link>https://mizarzh.github.io/p/2022/01/date%E6%96%B9%E6%B3%95/</link>
+        <pubDate>Thu, 20 Jan 2022 21:25:09 +0800</pubDate>
+        
+        <guid>https://mizarzh.github.io/p/2022/01/date%E6%96%B9%E6%B3%95/</guid>
+        <description>&lt;h2 id=&#34;1概述构造函数&#34;&gt;1、概述、构造函数&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;Date&lt;/code&gt; 对象基于 Unix Time Stamp，即从 1970 年 1 月 1 日（UTC）起经过的毫秒数。&lt;/p&gt;
+&lt;p&gt;构造函数：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;Date&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// 返回实例化时刻的日期和时间。
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;Date&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// value 是 Unix 时间戳。
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;Date&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;dateString&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// 表示日期的字符串值。
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;Date&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;year&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;monthIndex&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;day&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;hours&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;minutes&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;seconds&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;milliseconds&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]]]]]);&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// 具体日期的表示。
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// year: 0到99会被映射至1900年至1999年，其它值代表实际年份。
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// monthIndex: 从 0（1月）至 11（12月）
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// date: 从 1 开始
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;类似于这个构造函数，后面对于各种参数的构造也是 &lt;code&gt;month&lt;/code&gt; 从 0 开始到 11 对应 1 月到 12 月。&lt;/p&gt;
+&lt;h2 id=&#34;2毫秒数&#34;&gt;2、毫秒数&lt;/h2&gt;
+&lt;h3 id=&#34;datenow&#34;&gt;Date.now()&lt;/h3&gt;
+&lt;p&gt;返回自 1970-1-1 00:00:00  UTC（世界标准时间）至今所经过的毫秒数。&lt;/p&gt;
+&lt;h3 id=&#34;dateparse&#34;&gt;Date.parse()&lt;/h3&gt;
+&lt;p&gt;解析一个表示日期的字符串，并返回从 1970-1-1 00:00:00 所经过的毫秒数。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;：由于浏览器差异和不一致，强烈建议不要使用&lt;code&gt;Date.parse&lt;/code&gt;解析字符串。&lt;/p&gt;
+&lt;h3 id=&#34;dateutc&#34;&gt;Date.UTC()&lt;/h3&gt;
+&lt;p&gt;返回从1970-1-1 00:00:00 UTC到指定日期的的毫秒数。&lt;/p&gt;
+&lt;p&gt;语法：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;nb&#34;&gt;Date&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;UTC&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;year&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;month&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[,&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;date&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[,&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;hrs&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[,&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;min&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[,&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;sec&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[,&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;ms&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]]]]])&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;和 &lt;code&gt;new Date()&lt;/code&gt; 中时间初始化的各格式相同。&lt;/p&gt;
+&lt;h3 id=&#34;datevalueof--dategettime&#34;&gt;Date#valueOf() / Date#getTime()&lt;/h3&gt;
+&lt;p&gt;返回从1970年1月1日0时0分0秒（UTC，即协调世界时）到该日期的毫秒数。&lt;/p&gt;
+&lt;p&gt;valueOf 方法通常在 JavaScript 内部被调用，而不是在代码中显式调用。因此在外部尽量使用 getTime。&lt;/p&gt;
+&lt;h3 id=&#34;datesettime&#34;&gt;Date#setTime()&lt;/h3&gt;
+&lt;p&gt;从1970-1-1 00:00:00 UTC计时的毫秒数为来为 &lt;code&gt;Date&lt;/code&gt; 对象设置时间。&lt;/p&gt;
+&lt;h2 id=&#34;3获取时间&#34;&gt;3、获取时间&lt;/h2&gt;
+&lt;p&gt;一堆 get&lt;/p&gt;
+&lt;p&gt;不带 UTC 的获取的就是本地时间：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Date#getFullYear()
+Date#getMonth() // 同理，这里也是 0-11
+Date#getDate()
+Date#getDay() // 要和 getDate 分清。这个 getDay 返回一个具体日期中一周的第几天，0 表示星期天。
+Date#getHours()
+Date#getMinutes()
+Date#getSeconds()
+Date#getMilliseconds()
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;相对应的，带 UTC 的获取的就是世界时：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Date#getUTCFullYear()
+Date#getUTCMonth() // 同理，这里也是 0-11
+Date#getUTCDate()
+Date#getUTCDay() // 这个 getUTCDay 也是同理。
+Date#getUTCHours()
+Date#getUTCMinutes()
+Date#getUTCSeconds()
+Date#getUTCMilliseconds()
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;4设置时间&#34;&gt;4、设置时间&lt;/h2&gt;
+&lt;p&gt;也有带 UTC 和不带 UTC 两种版本。&lt;/p&gt;
+&lt;p&gt;不带 UTC 的设置的就是本地时间：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Date#setFullYear(yearValue[, monthValue[, dayValue]])
+Date#setMonth(monthValue[, dayValue])
+Date#setDate(dayValue)
+Date#setHours(hoursValue[, minutesValue[, secondsValue[, msValue]]])
+Date#setMinutes(minutesValue[, secondsValue[, msValue]])
+Date#setSeconds(secondsValue[, msValue])
+Date#setMilliseconds(msValue)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;我们可以发现，在高等级的设置中也可以顺便设置后面的一些时间参数，调用的也是下一级的 &lt;code&gt;set&lt;/code&gt; 函数（如 &lt;code&gt;setFullYear&lt;/code&gt; 指定了 &lt;code&gt;monthValue&lt;/code&gt; 就会调用 &lt;code&gt;setMonth&lt;/code&gt;）&lt;/p&gt;
+&lt;p&gt;带 UTC 的版本：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Date#setUTCFullYear(yearValue[, monthValue[, dayValue]])
+Date#setUTCMonth(monthValue[, dayValue])
+Date#setUTCDate(dayValue)
+Date#setUTCHours(hoursValue[, minutesValue[, secondsValue[, msValue]]])
+Date#setUTCMinutes(minutesValue[, secondsValue[, msValue]])
+Date#setUTCSeconds(secondsValue[, msValue])
+Date#setUTCMilliseconds(msValue)
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;5输出&#34;&gt;5、输出&lt;/h2&gt;
+&lt;p&gt;基本格式：&lt;code&gt;to[Locale][Date/Time/UTC/ISO]String&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;datetostring&#34;&gt;Date#toString()&lt;/h3&gt;
+&lt;p&gt;总是返回一个美式英语日期格式的字符串。&lt;/p&gt;
+&lt;h3 id=&#34;datetotimestring&#34;&gt;Date#toTimeString()&lt;/h3&gt;
+&lt;p&gt;以美式英语和人类易读形式返回一个日期对象&lt;strong&gt;时间部分&lt;/strong&gt;的字符串，该字符串以美式英语格式化。&lt;/p&gt;
+&lt;h3 id=&#34;datetodatestring&#34;&gt;Date#toDateString()&lt;/h3&gt;
+&lt;p&gt;以美式英语和人类易读的形式返回一个日期对象&lt;strong&gt;日期部分&lt;/strong&gt;的字符串。&lt;/p&gt;
+&lt;h3 id=&#34;datetolocalestringlocales--options&#34;&gt;Date#toLocaleString([locales [, options]])&lt;/h3&gt;
+&lt;p&gt;方法返回该日期对象的字符串，该字符串格式因不同语言而不同。新增的参数 &lt;code&gt;locales&lt;/code&gt; 和 &lt;code&gt;options&lt;/code&gt; 使程序能够指定使用哪种语言格式化规则，允许定制该方法的表现（behavior）。&lt;/p&gt;
+&lt;p&gt;带 Locale 的都会配上 locales 和 options 选项。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;nx&#34;&gt;dateObj&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;toLocaleString&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;locales&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;options&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]])&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;locales 和 options 最后部分会解释。&lt;/p&gt;
+&lt;h3 id=&#34;datetolocaledatestringlocales--options&#34;&gt;Date#toLocaleDateString([locales [, options]])&lt;/h3&gt;
+&lt;p&gt;返回该日期对象日期部分的字符串&lt;/p&gt;
+&lt;h3 id=&#34;datetolocaletimestringlocales--options&#34;&gt;Date#toLocaleTimeString([locales [, options]])&lt;/h3&gt;
+&lt;p&gt;返回该日期对象时间部分的字符串，该字符串格式因不同语言而不同。&lt;/p&gt;
+&lt;p&gt;语法：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;nx&#34;&gt;dateObj&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;toLocaleTimeString&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;locales&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;options&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]])&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;datetoutcstring&#34;&gt;Date#toUTCString()&lt;/h3&gt;
+&lt;p&gt;把一个日期转换为一个字符串，使用UTC时区。返回值的格式可能随平台而变化。通常返回值是一个 RFC-1123 格式的时间戳，这是一个 RFC-822 时间戳的小幅更新版。&lt;/p&gt;
+&lt;h3 id=&#34;datetoisostring&#34;&gt;Date#toISOString()&lt;/h3&gt;
+&lt;p&gt;总是返回一个 ISO 格式的字符：&lt;strong&gt;YYYY-MM-DDTHH:mm:ss.sssZ&lt;/strong&gt;。时区总是UTC（协调世界时），加一个后缀“Z”标识。&lt;/p&gt;
+&lt;h3 id=&#34;datetojson&#34;&gt;Date#toJSON()&lt;/h3&gt;
+&lt;p&gt;返回 &lt;code&gt;Date&lt;/code&gt; 对象的字符串形式。&lt;/p&gt;
+&lt;h3 id=&#34;datetosource&#34;&gt;Date#toSource()&lt;/h3&gt;
+&lt;p&gt;返回表示源代码的字符串。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;：该特性是非标准的，请尽量不要在生产环境中使用它&lt;/p&gt;
+&lt;h2 id=&#34;6其他&#34;&gt;6、其他&lt;/h2&gt;
+&lt;h3 id=&#34;dategettimezoneoffset&#34;&gt;Date#getTimezoneOffset()&lt;/h3&gt;
+&lt;p&gt;返回协调世界时（UTC）相对于当前时区的时间差值，单位为分钟。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;：如果本地时区后于协调世界时，则该差值为正值，如果先于协调世界时则为负值。如中国是 UTC+8，那么得到的数是 -480，除 60 后即为 -8。&lt;/p&gt;
+&lt;h3 id=&#34;intllocale&#34;&gt;Intl.Locale&lt;/h3&gt;
+&lt;p&gt;对象是为了更便捷地处理 Unicode 区域设置。Unicode 使用字符串作为区域识别标识。区域标识符由&lt;em&gt;语言标识符&lt;/em&gt;和&lt;em&gt;扩展标记&lt;/em&gt;组成。&lt;/p&gt;
+&lt;p&gt;传入的参数为 locales 和 options。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;locales&lt;/code&gt;：是一个 BCP 47 语言标记的字符串，或者是一个包括多个语言标记的数组。如果不提供，则使用默认运行时的 locale。&lt;/p&gt;
+&lt;p&gt;最常见的格式：语言代码，脚本代码，和国家代码，全部由连字符分隔开。&lt;/p&gt;
+&lt;p&gt;如：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;&amp;quot;hi&amp;quot;&lt;/code&gt;：印地语 (primary language)。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;&amp;quot;de-AT&amp;quot;&lt;/code&gt;：在奥地利使用的德语 (primary language with country code)。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;&amp;quot;zh-Hans-CN&amp;quot;&lt;/code&gt;：在中国使用的简体中文 (primary language with script and country codes)。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;还有很多其他的格式，这里就不列出来了。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;options&lt;/code&gt;：是一个对象，其属性值在不同的构造函数和方法中会有所变化。‘&lt;/p&gt;
+&lt;p&gt;对于这里使用的日期，&lt;code&gt;Intl.Locale&lt;/code&gt; 的 &lt;code&gt;DateTimeFormat&lt;/code&gt; 实例描述了这两个参数的值：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;locales&lt;/code&gt;：language[-scripts][-region]-u-nu-* 和 language[-scripts][-region]-u-ca-*&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;nu&lt;/code&gt;:编号系统. 可能的值包括: &lt;code&gt;&amp;quot;arab&amp;quot;&lt;/code&gt;, &lt;code&gt;&amp;quot;arabext&amp;quot;&lt;/code&gt;, &lt;code&gt;&amp;quot;bali&amp;quot;&lt;/code&gt;, &lt;code&gt;&amp;quot;beng&amp;quot;&lt;/code&gt;, &lt;code&gt;&amp;quot;deva&amp;quot;&lt;/code&gt;, &lt;code&gt;&amp;quot;fullwide&amp;quot;&lt;/code&gt;, &lt;code&gt;&amp;quot;gujr&amp;quot;&lt;/code&gt;, &lt;code&gt;&amp;quot;guru&amp;quot;&lt;/code&gt;, &lt;code&gt;&amp;quot;hanidec&amp;quot;&lt;/code&gt;, &lt;code&gt;&amp;quot;khmr&amp;quot;&lt;/code&gt;, &lt;code&gt;&amp;quot;knda&amp;quot;&lt;/code&gt;, &lt;code&gt;&amp;quot;laoo&amp;quot;&lt;/code&gt;, &lt;code&gt;&amp;quot;latn&amp;quot;&lt;/code&gt;, &lt;code&gt;&amp;quot;limb&amp;quot;&lt;/code&gt;, &lt;code&gt;&amp;quot;mlym&amp;quot;&lt;/code&gt;, &lt;code&gt;&amp;quot;mong&amp;quot;&lt;/code&gt;, &lt;code&gt;&amp;quot;mymr&amp;quot;&lt;/code&gt;, &lt;code&gt;&amp;quot;orya&amp;quot;&lt;/code&gt;, &lt;code&gt;&amp;quot;tamldec&amp;quot;&lt;/code&gt;, &lt;code&gt;&amp;quot;telu&amp;quot;&lt;/code&gt;, &lt;code&gt;&amp;quot;thai&amp;quot;&lt;/code&gt;, &lt;code&gt;&amp;quot;tibt&amp;quot;&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;ca&lt;/code&gt;:日历. 可能的值包括: &lt;code&gt;&amp;quot;buddhist&amp;quot;&lt;/code&gt;, &lt;code&gt;&amp;quot;chinese&amp;quot;&lt;/code&gt;, &lt;code&gt;&amp;quot;coptic&amp;quot;&lt;/code&gt;, &lt;code&gt;&amp;quot;ethioaa&amp;quot;&lt;/code&gt;, &lt;code&gt;&amp;quot;ethiopic&amp;quot;&lt;/code&gt;, &lt;code&gt;&amp;quot;gregory&amp;quot;&lt;/code&gt;, &lt;code&gt;&amp;quot;hebrew&amp;quot;&lt;/code&gt;, &lt;code&gt;&amp;quot;indian&amp;quot;&lt;/code&gt;, &lt;code&gt;&amp;quot;islamic&amp;quot;&lt;/code&gt;, &lt;code&gt;&amp;quot;islamicc&amp;quot;&lt;/code&gt;, &lt;code&gt;&amp;quot;iso8601&amp;quot;&lt;/code&gt;, &lt;code&gt;&amp;quot;japanese&amp;quot;&lt;/code&gt;, &lt;code&gt;&amp;quot;persian&amp;quot;&lt;/code&gt;, &lt;code&gt;&amp;quot;roc&amp;quot;&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;options &lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;localeMatcher&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;使用的local的匹配算法. 可能的值有&amp;quot;lookup&amp;quot;和&amp;quot;best fit&amp;quot;; 默认值是 &lt;code&gt;&amp;quot;best fit&amp;quot;&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;timeZone&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;使用的时区. 这唯一的值实现必须被标准世界时间(UTC)所识别。默认值是运行时的默认时区. &lt;a class=&#34;link&#34; href=&#34;https://www.iana.org/time-zones&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;IANA time zone database &lt;/a&gt;中的时区名称可能会被识别, 例如&lt;code&gt;&amp;quot;Asia/Shanghai&amp;quot;&lt;/code&gt;, &lt;code&gt;&amp;quot;Asia/Kolkata&amp;quot;&lt;/code&gt;, &lt;code&gt;&amp;quot;America/New_York&amp;quot;&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;hour12&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;是否使用12小时时间制(而不是24小时的时间). 可能的值是&lt;code&gt;true&lt;/code&gt; 或 &lt;code&gt;false&lt;/code&gt;; 默认值是根据locale来自动决定的&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;formatMatcher&lt;/code&gt;
+format的匹配算法.可能的值有&amp;quot;basic&amp;quot;和&amp;quot;best fit&amp;quot;;默认值是&amp;quot;best fit&amp;quot;.&lt;/p&gt;
+&lt;p&gt;日期时间插件被格式化输出时可以使用的属性集合描述。实现需要支持是以下子集中的其中一个&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;weekday&lt;/code&gt;, &lt;code&gt;year&lt;/code&gt;, &lt;code&gt;month&lt;/code&gt;, &lt;code&gt;day&lt;/code&gt;, &lt;code&gt;hour&lt;/code&gt;, &lt;code&gt;minute&lt;/code&gt;, &lt;code&gt;second&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;weekday&lt;/code&gt;, &lt;code&gt;year&lt;/code&gt;, &lt;code&gt;month&lt;/code&gt;, &lt;code&gt;day&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;year&lt;/code&gt;, &lt;code&gt;month&lt;/code&gt;, &lt;code&gt;day&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;year&lt;/code&gt;, &lt;code&gt;month&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;month&lt;/code&gt;, &lt;code&gt;day&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;hour&lt;/code&gt;, &lt;code&gt;minute&lt;/code&gt;, &lt;code&gt;second&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;hour&lt;/code&gt;, &lt;code&gt;minute&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;关于这部分的内容详见 &lt;a class=&#34;link&#34; href=&#34;https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Intl&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;MDN/Intl&lt;/a&gt; 。&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>[量子力学] 9 电子的自旋</title>
+        <link>https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-9-%E7%94%B5%E5%AD%90%E7%9A%84%E8%87%AA%E6%97%8B/</link>
+        <pubDate>Sun, 26 Dec 2021 16:14:08 +0800</pubDate>
+        
+        <guid>https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-9-%E7%94%B5%E5%AD%90%E7%9A%84%E8%87%AA%E6%97%8B/</guid>
+        <description>&lt;p&gt;$$
+\def\un{\mathrm}
+\def\dd{\mathrm d}
+\def\par{\partial}
+\def\bl{\boldsymbol}
+\def\mbf{\mathbf}
+\def\mscr{\mathscr}
+\newcommand{\avg}[1]{\left \langle #1 \right \rangle}
+\newcommand{\bk}[2]{\left \langle #1  | #2  \right \rangle}
+\newcommand{\bok}[3]{\bra{#1}#2\ket{#3}}
+\def\nl{\newline}
+\def\Ra{\Rightarrow}
+\def\La{\Leftarrow}
+\def\ra{\rightarrow}
+\def\la{\leftarrow}
+\def\e{\epsilon}
+\def\ve{\varepsilon}
+$$&lt;/p&gt;
+&lt;h1 id=&#34;9-电子的自旋&#34;&gt;9 电子的自旋&lt;/h1&gt;
+&lt;p&gt;对原子光谱进行更详尽的研究，我们会发现一些现象无法用我们过去的知识解释。因此我们需要补充相对论修正以及未考虑的磁效应。&lt;/p&gt;
+&lt;p&gt;在相对论量子力学中式使用 Dirac 方程来描述电子的，它说明了电子自旋的存在。&lt;/p&gt;
+&lt;p&gt;这一张使用的是 Pauli 理论，比相对论量子力学要简单得多。&lt;/p&gt;
+&lt;h1 id=&#34;a-电子自旋的引入&#34;&gt;A 电子自旋的引入&lt;/h1&gt;
+&lt;h2 id=&#34;1-实验证据&#34;&gt;1. 实验证据&lt;/h2&gt;
+&lt;h3 id=&#34;a-谱线的精细结构&#34;&gt;a. 谱线的精细结构&lt;/h3&gt;
+&lt;p&gt;每一条谱线实际上都包含频率非常靠近的若干组分。&lt;/p&gt;
+&lt;h3 id=&#34;b-反常塞曼效应&#34;&gt;b. “反常”塞曼效应&lt;/h3&gt;
+&lt;p&gt;当一个原子处在均匀磁场中时，它的每一条谱线都被分裂为若干条等距离的谱线，间隔正比于磁场，这就是塞曼效应。&lt;/p&gt;
+&lt;p&gt;一个电子的轨道角动量 $\bl L$ 对应一个磁矩：&lt;/p&gt;
+&lt;p&gt;$$
+\bl M=\frac{\mu_B}{\hbar}\bl L
+$$&lt;/p&gt;
+&lt;p&gt;其中 $\mu_B=\frac{q\hbar}{2m_e}$ 称为玻尔磁子。&lt;/p&gt;
+&lt;p&gt;但有些情况下却出现了反常的塞曼效应。最明显的反常性表现在原子序数 $Z$ 为奇数的原子，它们的能级分裂为偶数个塞曼次能级。由于 $(2l+1)$，这个数应该是奇数。&lt;/p&gt;
+&lt;h3 id=&#34;c-半整数角动量的存在&#34;&gt;c. 半整数角动量的存在&lt;/h3&gt;
+&lt;p&gt;Stern-Gerlach 实验说明 $j$ 的半整数值时存在的。&lt;/p&gt;
+&lt;h2 id=&#34;2-量子描述pauli-理论的基本假定&#34;&gt;2. 量子描述：Pauli 理论的基本假定&lt;/h2&gt;
+&lt;p&gt;假定电子“绕自身旋转”，赋予了电子一种固有的角动量，我们称之为自旋。我们承认这个自旋的角动量 $\bl S$ 联系着一个磁矩 $\bl M_S$：&lt;/p&gt;
+&lt;p&gt;$$
+\bl M_S=2\frac{\mu_B}{\hbar}\bl S
+$$&lt;/p&gt;
+&lt;p&gt;我们发现，自旋磁旋比是轨道磁旋比的两倍。&lt;/p&gt;
+&lt;p&gt;设：&lt;/p&gt;
+&lt;p&gt;(i) 自旋算符 $\bl S$ 是一个角动量算符，符合角动量的关系式：&lt;/p&gt;
+&lt;p&gt;$$
+[S_x,S_y]=i\hbar S_z
+$$&lt;/p&gt;
+&lt;p&gt;(ii) 自旋算符在一个新空间自旋态空间 $\mscr E_s$ 中起作用，因此：&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+&amp;amp;S^2\ket{s,m}=s(s+1)\hbar^2\ket{s,m}\nl
+&amp;amp;S_z\ket{s,m}=m\hbar\ket{s,m}
+\end{aligned}
+$$&lt;/p&gt;
+&lt;p&gt;(iii) 待研究的粒子的态空间 $\mscr E$ 是空间 $\mscr E_r,\mscr E_s$ 的张量积：&lt;/p&gt;
+&lt;p&gt;$$
+\mscr E=\mscr E_r \otimes \mscr E_s
+$$&lt;/p&gt;
+&lt;p&gt;(iv) 电子是自旋为 1/2 的粒子。&lt;/p&gt;
+&lt;h1 id=&#34;b-12-角动量的特殊性质&#34;&gt;B. 1/2 角动量的特殊性质&lt;/h1&gt;
+&lt;p&gt;取 $S^2,S_z$ 的共同本征矢的正交归一集合 ${\ket+,\ket-}$ 作为基。&lt;/p&gt;
+&lt;p&gt;$$
+\begin{array}{l}
+\boldsymbol{S}^{2}|\pm\rangle=\frac{3}{4} \hbar^{2}|\pm\rangle \nl
+S_{z}|\pm\rangle=\pm \frac{1}{2} \hbar|\pm\rangle
+\end{array}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+\begin{array}{l}
+\langle+\mid-\rangle=0 \nl
+\langle+\mid+\rangle=\langle-\mid-\rangle=1
+\end{array}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+|+\rangle\langle+|+|-\rangle\langle-|=1
+$$&lt;/p&gt;
+&lt;p&gt;一般的自旋态：&lt;/p&gt;
+&lt;p&gt;$$
+\ket\chi=c_+\ket++c_-\ket-
+$$&lt;/p&gt;
+&lt;p&gt;由角动量的普遍性质，我们可以知道 $S^2$ 的本征值为 $3\hbar^2/4$。&lt;/p&gt;
+&lt;p&gt;使用角动量的解法：&lt;/p&gt;
+&lt;p&gt;$$
+S_\pm=S_x\pm-S_y
+$$&lt;/p&gt;
+&lt;p&gt;得到的关系式：&lt;/p&gt;
+&lt;p&gt;$$
+\begin{array}{ll}
+S_{+}|+\rangle=0 &amp;amp; S_{+}|-\rangle=\hbar|+\rangle \nl
+S_{-}|+\rangle=\hbar|-\rangle &amp;amp; S_{-}|-\rangle=0
+\end{array}
+$$&lt;/p&gt;
+&lt;p&gt;最终解得：&lt;/p&gt;
+&lt;p&gt;$$
+(S)=\frac{\hbar}{2}\sigma
+$$&lt;/p&gt;
+&lt;p&gt;其中 $\sigma$ 代表三个 Pauli 矩阵：&lt;/p&gt;
+&lt;p&gt;$$
+\sigma_{x}=\left(\begin{array}{cc}
+0 &amp;amp; 1 \nl
+1 &amp;amp; 0
+\end{array}\right) \quad \sigma_{y}=\left(\begin{array}{cc}
+0 &amp;amp; -\mathrm{i} \nl
+\mathrm{i} &amp;amp; 0
+\end{array}\right) \quad \sigma_{z}=\left(\begin{array}{cc}
+1 &amp;amp; 0 \nl
+0 &amp;amp; -1
+\end{array}\right)
+$$&lt;/p&gt;
+&lt;p&gt;性质：&lt;/p&gt;
+&lt;p&gt;$$
+\begin{array}{c}
+\sigma_{x}^{2}=\sigma_{y}^{2}=\sigma_{z}^{2}=1 \nl
+\sigma_{x} \sigma_{y}+\sigma_{y} \sigma_{x}=0 \nl
+{\left[\sigma_{x}, \sigma_{y}\right]=2 \mathrm{i} \sigma_{z}} \nl
+\sigma_{x} \sigma_{y}=\mathrm{i} \sigma_{z}
+\end{array}
+$$&lt;/p&gt;
+&lt;h1 id=&#34;c-对自旋-12-粒子的非相对论概述&#34;&gt;C 对自旋 1/2 粒子的非相对论概述&lt;/h1&gt;
+&lt;p&gt;暂时不写，因为考试不考，而且张量积不熟悉。&lt;/p&gt;
+&lt;h2 id=&#34;comment&#34;&gt;Comment&lt;/h2&gt;
+&lt;p&gt;这一张从实验出发，导出了电子自旋为 1/2 的理论。&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>[量子力学] 7 中心势场的粒子；氢原子 C part</title>
+        <link>https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-7-%E4%B8%AD%E5%BF%83%E5%8A%BF%E5%9C%BA%E7%9A%84%E7%B2%92%E5%AD%90%E6%B0%A2%E5%8E%9F%E5%AD%90-c-part/</link>
+        <pubDate>Thu, 23 Dec 2021 17:26:38 +0800</pubDate>
+        
+        <guid>https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-7-%E4%B8%AD%E5%BF%83%E5%8A%BF%E5%9C%BA%E7%9A%84%E7%B2%92%E5%AD%90%E6%B0%A2%E5%8E%9F%E5%AD%90-c-part/</guid>
+        <description>&lt;p&gt;$$
+\def\un{\mathrm}
+\def\dd{\mathrm d}
+\def\par{\partial}
+\def\bl{\boldsymbol}
+\def\mbf{\mathbf}
+\def\mscr{\mathscr}
+\newcommand{\avg}[1]{\left \langle #1 \right \rangle}
+\newcommand{\bk}[2]{\left \langle #1  | #2  \right \rangle}
+\newcommand{\bok}[3]{\bra{#1}#2\ket{#3}}
+\def\nl{\newline}
+\def\Ra{\Rightarrow}
+\def\La{\Leftarrow}
+\def\ra{\rightarrow}
+\def\la{\leftarrow}
+\def\e{\epsilon}
+\def\ve{\varepsilon}
+$$&lt;/p&gt;
+&lt;h1 id=&#34;c-氢原子&#34;&gt;C 氢原子&lt;/h1&gt;
+&lt;h2 id=&#34;1-引言&#34;&gt;1. 引言&lt;/h2&gt;
+&lt;p&gt;一些参数：&lt;/p&gt;
+&lt;p&gt;质子质量 $m_p=1.7\times10^{-27} ~\un{kg}$，电荷 $q=1.6\times10^{-19} ~\un{C}$s，电子质量 $m_e=9.1\times10^{-30}~\un{kg}$。&lt;/p&gt;
+&lt;p&gt;势能表达式：&lt;/p&gt;
+&lt;p&gt;$$
+V(r)=-\frac{q^2}{4\pi\ve_0}\frac{1}{r}=-\frac{e^2}{r}
+$$&lt;/p&gt;
+&lt;p&gt;质心坐标系：&lt;/p&gt;
+&lt;p&gt;$$
+\mscr H(r,p)=\frac{p^2}{2\mu}-\frac{e^2}{r}
+$$&lt;/p&gt;
+&lt;p&gt;由于 $m_p\gg m_e$，因此：&lt;/p&gt;
+&lt;p&gt;$$
+\mu=\frac{m_em_p}{m_e+m_p}\approx m_p
+$$&lt;/p&gt;
+&lt;p&gt;体系的质心几乎与质子重合，因此直接以质子为质心。&lt;/p&gt;
+&lt;h2 id=&#34;2-玻尔模型&#34;&gt;2. 玻尔模型&lt;/h2&gt;
+&lt;p&gt;玻尔模型遵循以下方程&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+&amp;amp;E=\frac{1}{2}\mu v^2-\frac{e^2}{r}\nl
+&amp;amp;\frac{\mu v^2}{r}=\frac{e^2}{r^2}\nl
+&amp;amp;\mu v r = n\hbar,n=1,2,\cdots
+\end{aligned}
+$$&lt;/p&gt;
+&lt;p&gt;第一条是能量，第二条是力学方程，第三条是假设的量子化条件（离散能级）。&lt;/p&gt;
+&lt;p&gt;解得：&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+&amp;amp;E_n=-\frac{1}{n^2}E_I\nl
+&amp;amp; r_n=n^2 a_n\nl
+&amp;amp; v_n=\frac{1}{n}v_0
+\end{aligned}
+$$&lt;/p&gt;
+&lt;p&gt;其中：&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+&amp;amp;E_I=\frac{\mu e^4}{2\hbar^2}\nl
+&amp;amp; a_0=\frac{\hbar^2}{\mu e^2}\nl
+&amp;amp;v_0=\frac{e^2}{\hbar}
+\end{aligned}
+$$&lt;/p&gt;
+&lt;p&gt;电离能 $E_I=13.6 ~\un{eV}$，玻尔半径 $a_0=0.052~\un{nm}$&lt;/p&gt;
+&lt;h2 id=&#34;3-氢原子的量子力学理论&#34;&gt;3. 氢原子的量子力学理论&lt;/h2&gt;
+&lt;p&gt;解方程：&lt;/p&gt;
+&lt;p&gt;$$
+[-\frac{\hbar^2}{2\mu}\triangle-\frac{e^2}{r}]\psi(r)=E\psi(r)
+$$&lt;/p&gt;
+&lt;p&gt;展开$\psi_{k,l,m}(r)=\frac{1}{r}u_{k,l}Y^m_l(\theta,\varphi)$，并得到径向方程：&lt;/p&gt;
+&lt;p&gt;$$
+\left[-\frac{\hbar^{2}}{2 \mu} \frac{\mathrm{d}^{2}}{\mathrm{~d} r^{2}}+\frac{l(l+1) \hbar^{2}}{2 \mu r^{2}}-\frac{e^{2}}{r}\right] u_{k, l}(r)=E_{k, l} u_{k, l}(r)
+$$&lt;/p&gt;
+&lt;p&gt;以及附加条件 $u_{k,l}(0)=0$。&lt;/p&gt;
+&lt;p&gt;有一个特性：对于 $E$ 的一个正值，经典运动在空间中是不受限制的。$E&amp;lt;0$ 时，经典运动是受限制的，局限在 $B,C$ 两点之间。&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	
+		class=&#34;gallery-image&#34; 
+		style=&#34;
+			flex-grow: 105; 
+			flex-basis: 253px&#34;
+	&gt;
+	&lt;a href=&#34;https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-7-%E4%B8%AD%E5%BF%83%E5%8A%BF%E5%9C%BA%E7%9A%84%E7%B2%92%E5%AD%90%E6%B0%A2%E5%8E%9F%E5%AD%90-c-part/image-20211226151640973.png&#34; data-size=&#34;702x664&#34;&gt;
+		&lt;img src=&#34;https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-7-%E4%B8%AD%E5%BF%83%E5%8A%BF%E5%9C%BA%E7%9A%84%E7%B2%92%E5%AD%90%E6%B0%A2%E5%8E%9F%E5%AD%90-c-part/image-20211226151640973.png&#34;
+			width=&#34;702&#34;
+			height=&#34;664&#34;
+			srcset=&#34;https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-7-%E4%B8%AD%E5%BF%83%E5%8A%BF%E5%9C%BA%E7%9A%84%E7%B2%92%E5%AD%90%E6%B0%A2%E5%8E%9F%E5%AD%90-c-part/image-20211226151640973_hud346177a5c501d2cca65459f1587b6e0_51320_480x0_resize_box_3.png 480w, https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-7-%E4%B8%AD%E5%BF%83%E5%8A%BF%E5%9C%BA%E7%9A%84%E7%B2%92%E5%AD%90%E6%B0%A2%E5%8E%9F%E5%AD%90-c-part/image-20211226151640973_hud346177a5c501d2cca65459f1587b6e0_51320_1024x0_resize_box_3.png 1024w&#34;
+			loading=&#34;lazy&#34;
+			alt=&#34;image-20211226151640973&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;image-20211226151640973&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;开始解方程了~&lt;/p&gt;
+&lt;h3 id=&#34;a-变量的变换&#34;&gt;a. 变量的变换&lt;/h3&gt;
+&lt;p&gt;引入无量纲的量：&lt;/p&gt;
+&lt;p&gt;$$
+\rho=r/a_0,\lambda_{k,l}=\sqrt{-E_{k,l}/E_I}
+$$&lt;/p&gt;
+&lt;p&gt;由此得到式子：&lt;/p&gt;
+&lt;p&gt;$$
+[\frac{\dd^2}{\dd \rho^2}-\frac{l(l+1)}{\rho^2}+\frac{2}{\rho}-\lambda^2_{k,l}]u_{k,l}(\rho)=0
+$$&lt;/p&gt;
+&lt;h3 id=&#34;b-求解径向方程&#34;&gt;b. 求解径向方程&lt;/h3&gt;
+&lt;h4 id=&#34;i-渐进行为&#34;&gt;I. 渐进行为&lt;/h4&gt;
+&lt;p&gt;当 $\rho\ra\infty$，$1/\rho$ 的项可以忽略：&lt;/p&gt;
+&lt;p&gt;$$
+[\frac{\dd^2}{\dd \rho^2}-\lambda^2_{k,l}]u_{k,l}(\rho)=0
+$$&lt;/p&gt;
+&lt;p&gt;解为：$e^{\pm\rho\lambda_{k,l}}$，且要舍去 $e^{+\rho\lambda_{k,l}}$ 的部分，因为无限远处是有界的。&lt;/p&gt;
+&lt;p&gt;设一个系数：&lt;/p&gt;
+&lt;p&gt;$$
+u_{k,l}(\rho)=e^{-\rho\lambda_{k,l}}y_{k,l}(\rho)
+$$&lt;/p&gt;
+&lt;p&gt;再代入原式进行求解：&lt;/p&gt;
+&lt;p&gt;$$
+\left{\frac{\mathrm{d}^{2}}{\mathrm{~d} \rho^{2}}-2 \lambda_{k, l} \frac{\mathrm{d}}{\mathrm{d} \rho}+\left[\frac{2}{\rho}-\frac{l(l+1)}{\rho^{2}}\right]\right} y_{k, l}(\rho)=0
+$$&lt;/p&gt;
+&lt;p&gt;附加条件：&lt;/p&gt;
+&lt;p&gt;$$
+y_{k,l}(0)=0
+$$&lt;/p&gt;
+&lt;h4 id=&#34;ii-寻找幂级数形式的解&#34;&gt;II. 寻找幂级数形式的解&lt;/h4&gt;
+&lt;p&gt;$$
+y_{k,l}(\rho)=\rho^s\sum^\infty_{q=0}c_q\rho^q
+$$&lt;/p&gt;
+&lt;p&gt;代入后求解递归项（其中，$s=l+1~或~s=-l$）：&lt;/p&gt;
+&lt;p&gt;$$
+c_q=-\frac{2(k-q)}{q(q+2l+1)(k+l)}c_{q-1}
+$$&lt;/p&gt;
+&lt;p&gt;全体系数：&lt;/p&gt;
+&lt;p&gt;$$
+c_q=(-1)^q(\frac{2}{k+l})^q\frac{(k-1)!}{(k-q-1)!}\frac{(2l+1)!}{q!(q+2l+1)!}c_0
+$$&lt;/p&gt;
+&lt;p&gt;$c_0$ 由归一化条件决定。&lt;/p&gt;
+&lt;h2 id=&#34;4-结果的条论&#34;&gt;4. 结果的条论&lt;/h2&gt;
+&lt;h3 id=&#34;a-原子参量的数量级&#34;&gt;a. 原子参量的数量级&lt;/h3&gt;
+&lt;p&gt;将基态能量和玻尔半径写成下列形式：&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+&amp;amp;E_I=\frac{1}{2}\alpha^2\mu c^2\nl
+&amp;amp;a_0=\frac{1}{\alpha}\lambda_c
+\end{aligned}
+$$&lt;/p&gt;
+&lt;p&gt;其中 $\alpha$ 称为精细结构常数，$\lambda_c$ 为电子的康普顿波长。&lt;/p&gt;
+&lt;h3 id=&#34;b-能级&#34;&gt;b. 能级&lt;/h3&gt;
+&lt;p&gt;在氢原子情况下， $E_{k,l}$ 并不单独地依赖于 $k,l$，而是依赖于两者之和。令：&lt;/p&gt;
+&lt;p&gt;$$
+n=k+l
+$$&lt;/p&gt;
+&lt;p&gt;之后便用 $n$ 代替 $k$ 来标记。$n$ 称为主量子数。&lt;/p&gt;
+&lt;p&gt;由于 $k\ge 1$，因此 $l$ 的取值为 $0,1,\cdots,n-1$，而 $m$ 的取值为 $-l$ 到 $l$。&lt;/p&gt;
+&lt;p&gt;简并度为：&lt;/p&gt;
+&lt;p&gt;$$
+g_n=\sum^{n-1}_{l=0}(2l+1)=2\frac{(n-1)n}{2}+n=n^2
+$$&lt;/p&gt;
+&lt;p&gt;光谱学符号：&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	
+		class=&#34;gallery-image&#34; 
+		style=&#34;
+			flex-grow: 69; 
+			flex-basis: 165px&#34;
+	&gt;
+	&lt;a href=&#34;https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-7-%E4%B8%AD%E5%BF%83%E5%8A%BF%E5%9C%BA%E7%9A%84%E7%B2%92%E5%AD%90%E6%B0%A2%E5%8E%9F%E5%AD%90-c-part/image-20211226155943440.png&#34; data-size=&#34;315x456&#34;&gt;
+		&lt;img src=&#34;https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-7-%E4%B8%AD%E5%BF%83%E5%8A%BF%E5%9C%BA%E7%9A%84%E7%B2%92%E5%AD%90%E6%B0%A2%E5%8E%9F%E5%AD%90-c-part/image-20211226155943440.png&#34;
+			width=&#34;315&#34;
+			height=&#34;456&#34;
+			srcset=&#34;https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-7-%E4%B8%AD%E5%BF%83%E5%8A%BF%E5%9C%BA%E7%9A%84%E7%B2%92%E5%AD%90%E6%B0%A2%E5%8E%9F%E5%AD%90-c-part/image-20211226155943440_huec1bdac8e9bcec837d3e4e764c853619_32580_480x0_resize_box_3.png 480w, https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-7-%E4%B8%AD%E5%BF%83%E5%8A%BF%E5%9C%BA%E7%9A%84%E7%B2%92%E5%AD%90%E6%B0%A2%E5%8E%9F%E5%AD%90-c-part/image-20211226155943440_huec1bdac8e9bcec837d3e4e764c853619_32580_1024x0_resize_box_3.png 1024w&#34;
+			loading=&#34;lazy&#34;
+			alt=&#34;image-20211226155943440&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;image-20211226155943440&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;再在前面加上 $n$ 所对应的数字，就组成了标记壳层的光谱学符号：&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	
+		class=&#34;gallery-image&#34; 
+		style=&#34;
+			flex-grow: 83; 
+			flex-basis: 200px&#34;
+	&gt;
+	&lt;a href=&#34;https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-7-%E4%B8%AD%E5%BF%83%E5%8A%BF%E5%9C%BA%E7%9A%84%E7%B2%92%E5%AD%90%E6%B0%A2%E5%8E%9F%E5%AD%90-c-part/image-20211226155457513.png&#34; data-size=&#34;677x810&#34;&gt;
+		&lt;img src=&#34;https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-7-%E4%B8%AD%E5%BF%83%E5%8A%BF%E5%9C%BA%E7%9A%84%E7%B2%92%E5%AD%90%E6%B0%A2%E5%8E%9F%E5%AD%90-c-part/image-20211226155457513.png&#34;
+			width=&#34;677&#34;
+			height=&#34;810&#34;
+			srcset=&#34;https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-7-%E4%B8%AD%E5%BF%83%E5%8A%BF%E5%9C%BA%E7%9A%84%E7%B2%92%E5%AD%90%E6%B0%A2%E5%8E%9F%E5%AD%90-c-part/image-20211226155457513_hu4c79dc64bce7a876869da9d7c3ac5f5f_46938_480x0_resize_box_3.png 480w, https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-7-%E4%B8%AD%E5%BF%83%E5%8A%BF%E5%9C%BA%E7%9A%84%E7%B2%92%E5%AD%90%E6%B0%A2%E5%8E%9F%E5%AD%90-c-part/image-20211226155457513_hu4c79dc64bce7a876869da9d7c3ac5f5f_46938_1024x0_resize_box_3.png 1024w&#34;
+			loading=&#34;lazy&#34;
+			alt=&#34;image-20211226155457513&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;image-20211226155457513&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;h3 id=&#34;c-波函数&#34;&gt;c. 波函数&lt;/h3&gt;
+&lt;p&gt;角依赖性：由于 $Y^m_l(\theta,\varphi)$ 只通过 $e^{im\varphi}$ 因子依赖于 $\varphi$ 的，因此 $|Y^m_l(\theta,\varphi)|^2$ 与 $\varphi$ 无关，因此我们只需要作出宣传曲面在 $Oz$ 平面上的截口就可以了。&lt;/p&gt;
+&lt;p&gt;一些例子：&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	
+		class=&#34;gallery-image&#34; 
+		style=&#34;
+			flex-grow: 215; 
+			flex-basis: 516px&#34;
+	&gt;
+	&lt;a href=&#34;https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-7-%E4%B8%AD%E5%BF%83%E5%8A%BF%E5%9C%BA%E7%9A%84%E7%B2%92%E5%AD%90%E6%B0%A2%E5%8E%9F%E5%AD%90-c-part/image-20211226160415471.png&#34; data-size=&#34;1291x600&#34;&gt;
+		&lt;img src=&#34;https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-7-%E4%B8%AD%E5%BF%83%E5%8A%BF%E5%9C%BA%E7%9A%84%E7%B2%92%E5%AD%90%E6%B0%A2%E5%8E%9F%E5%AD%90-c-part/image-20211226160415471.png&#34;
+			width=&#34;1291&#34;
+			height=&#34;600&#34;
+			srcset=&#34;https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-7-%E4%B8%AD%E5%BF%83%E5%8A%BF%E5%9C%BA%E7%9A%84%E7%B2%92%E5%AD%90%E6%B0%A2%E5%8E%9F%E5%AD%90-c-part/image-20211226160415471_hucbe6b4c3f56f8badbeeb426ab36750b6_154607_480x0_resize_box_3.png 480w, https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-7-%E4%B8%AD%E5%BF%83%E5%8A%BF%E5%9C%BA%E7%9A%84%E7%B2%92%E5%AD%90%E6%B0%A2%E5%8E%9F%E5%AD%90-c-part/image-20211226160415471_hucbe6b4c3f56f8badbeeb426ab36750b6_154607_1024x0_resize_box_3.png 1024w&#34;
+			loading=&#34;lazy&#34;
+			alt=&#34;image-20211226160415471&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;image-20211226160415471&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;h2 id=&#34;comment&#34;&gt;Comment&lt;/h2&gt;
+&lt;p&gt;这一节将上一节的结论应用到了氢原子上，并提出了很多相关的概念。&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>[量子力学] 7 中心势场的粒子；氢原子 B part</title>
+        <link>https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-7-%E4%B8%AD%E5%BF%83%E5%8A%BF%E5%9C%BA%E7%9A%84%E7%B2%92%E5%AD%90%E6%B0%A2%E5%8E%9F%E5%AD%90-b-part/</link>
+        <pubDate>Thu, 23 Dec 2021 17:26:34 +0800</pubDate>
+        
+        <guid>https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-7-%E4%B8%AD%E5%BF%83%E5%8A%BF%E5%9C%BA%E7%9A%84%E7%B2%92%E5%AD%90%E6%B0%A2%E5%8E%9F%E5%AD%90-b-part/</guid>
+        <description>&lt;p&gt;$$
+\def\un{\mathrm}
+\def\dd{\mathrm d}
+\def\par{\partial}
+\def\bl{\boldsymbol}
+\def\mbf{\mathbf}
+\def\mscr{\mathscr}
+\newcommand{\avg}[1]{\left \langle #1 \right \rangle}
+\newcommand{\bk}[2]{\left \langle #1  | #2  \right \rangle}
+\newcommand{\bok}[3]{\bra{#1}#2\ket{#3}}
+\def\nl{\newline}
+\def\Ra{\Rightarrow}
+\def\La{\Leftarrow}
+\def\ra{\rightarrow}
+\def\la{\leftarrow}
+\def\e{\epsilon}
+\def\ve{\varepsilon}
+$$&lt;/p&gt;
+&lt;h1 id=&#34;b-在有相互作用的双粒子体系中之心的运动和相对运动&#34;&gt;B 在有相互作用的双粒子体系中之心的运动和相对运动&lt;/h1&gt;
+&lt;h2 id=&#34;1-经典力学中的质心运动和相对运动&#34;&gt;1. 经典力学中的质心运动和相对运动&lt;/h2&gt;
+&lt;p&gt;拉格朗日函数：&lt;/p&gt;
+&lt;p&gt;$$
+\mscr L(r_1,\dot{r}_1,r_2,\dot{r}_2)=T-V=\frac{1}{2}m_1\dot{r}_1^2+\frac{1}{2}m_2\dot{r}_2^2-V(\bl r_1-\bl r_2)
+$$&lt;/p&gt;
+&lt;p&gt;引入质心坐标和相对坐标：&lt;/p&gt;
+&lt;p&gt;$$
+\bl r_G=\frac{m_1\bl r_1+m_2\bl r_2}{m_1+m_2},\bl r=\bl r_1-\bl r_2
+$$&lt;/p&gt;
+&lt;p&gt;反向导出表达式：&lt;/p&gt;
+&lt;p&gt;$$
+\bl r_1=\bl r_G+\frac{m_2}{m_1+m_2}\bl r,\bl r_2=\bl r_G-\frac{m_1}{m_1+m_2}\bl r
+$$&lt;/p&gt;
+&lt;p&gt;于是：&lt;/p&gt;
+&lt;p&gt;$$
+\mscr L(r_1,\dot{r}_1,r_2,\dot{r}_2)=\frac{1}{2}M\dot{r}_G^2+\frac{1}{2}\mu \dot{r}^2-V(\bl r)
+$$&lt;/p&gt;
+&lt;p&gt;其中总质量和约化质量：&lt;/p&gt;
+&lt;p&gt;$$
+M=m_1+m_2,\mu=\frac{m_1m_2}{m_1+m_2}
+$$&lt;/p&gt;
+&lt;p&gt;因此，我们可以得到总动量和相对动量：&lt;/p&gt;
+&lt;p&gt;$$
+\bl p_G=M\dot{\bl r}_G=\bl p_1+\bl p_2,\bl p = \mu \dot{\bl r}=\frac{m_2\bl p_1-m_1\bl p_2}{m_1+m_2}
+$$&lt;/p&gt;
+&lt;p&gt;系统的 Hamilton 量为：&lt;/p&gt;
+&lt;p&gt;$$
+\mscr H(r_G,p_G;r,p)=\frac{p_G^2}{2M}+\frac{p^2}{2\mu} +V(\bl r)
+$$&lt;/p&gt;
+&lt;h2 id=&#34;2-量子力学中变量的分离&#34;&gt;2. 量子力学中变量的分离&lt;/h2&gt;
+&lt;h3 id=&#34;a-与质心及相对粒子相联系的观察算符&#34;&gt;a. 与质心及相对粒子相联系的观察算符&lt;/h3&gt;
+&lt;p&gt;定义：&lt;/p&gt;
+&lt;p&gt;$$
+\bl R_G=\frac{m_1\bl R_1+m_2\bl R_2}{m_1+m_2},\bl R=\bl R_1-\bl R_2
+$$&lt;/p&gt;
+&lt;p&gt;动量算符：&lt;/p&gt;
+&lt;p&gt;$$
+\bl P_G=\bl P_1+\bl P_2,\bl P =\frac{m_2\bl P_1-m_1\bl P_2}{m_1+m_2}
+$$&lt;/p&gt;
+&lt;p&gt;对易子不难计算：&lt;/p&gt;
+&lt;p&gt;$$
+[X_G,P_{Gx}]=i\hbar,[X,P_x]=i\hbar
+$$&lt;/p&gt;
+&lt;p&gt;因此说明质心和粒子的方程也遵守该对易式。&lt;/p&gt;
+&lt;h3 id=&#34;b-hamilton-算符的本征值和本征函数&#34;&gt;b. Hamilton 算符的本征值和本征函数&lt;/h3&gt;
+&lt;p&gt;$$
+H=\frac{P_1^2}{2m_1}+\frac{P_2^2}{2m_2}+V(R_1-R_2)
+$$&lt;/p&gt;
+&lt;p&gt;变换成质心表达式：&lt;/p&gt;
+&lt;p&gt;$$
+H=\frac{P_G^2}{2M}+\frac{P^2}{2\mu}+V(R)
+$$&lt;/p&gt;
+&lt;p&gt;于是 Hamilton 算符就变成两项之和：&lt;/p&gt;
+&lt;p&gt;$$
+H=H_G+H_r,H_G=\frac{P_G^2}{2M},H_r=\frac{P^2}{2\mu}+V(R)
+$$&lt;/p&gt;
+&lt;p&gt;这两个算符是可对易的：&lt;/p&gt;
+&lt;p&gt;$$
+[H_G,H_r]=0
+$$&lt;/p&gt;
+&lt;p&gt;我们可以将方程式分成两条：&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+&amp;amp;H_G\ket{\psi}=E_G\ket{\psi}\nl
+&amp;amp;H_r\ket\psi=E_r\ket\psi
+\end{aligned}
+$$&lt;/p&gt;
+&lt;p&gt;最后将他们组合起来：&lt;/p&gt;
+&lt;p&gt;$$
+E=E_G+E_r
+$$&lt;/p&gt;
+&lt;p&gt;张量积：&lt;/p&gt;
+&lt;p&gt;$$
+|\psi\rangle=\left|\chi_{G}\right\rangle \otimes\left|\omega_{r}\right\rangle
+$$&lt;/p&gt;
+&lt;p&gt;因此方程组变为：&lt;/p&gt;
+&lt;p&gt;$$
+\begin{array}{c}
+\left{\begin{array}{l}
+H_{G}\left|\chi_{G}\right\rangle=E_{G}\left|\chi_{G}\right\rangle \nl
+\left|\chi_{G}\right\rangle \in \mathscr{E}_{r_{G}}
+\end{array}\right. \nl
+\left{\begin{array}{l}
+H_{r}\left|\omega_{r}\right\rangle=E_{r}\left|\omega_{r}\right\rangle \nl
+\left|\omega_{r}\right\rangle \in \mathscr{E}_{r}
+\end{array}\right.
+\end{array}
+$$&lt;/p&gt;
+&lt;p&gt;使用 $r$ 表象：&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+&amp;amp;-\frac{\hbar^{2}}{2 M} \Delta_{G} \chi_{G}\left(\boldsymbol{r}_{G}\right)=E_{G} \chi_{G}\left(\boldsymbol{r}_{G}\right)\nl
+&amp;amp;\left[-\frac{\hbar^{2}}{2 \mu} \Delta+V(r)\right] \omega_{r}(\boldsymbol{r})=E_{r} \omega_{r}(\boldsymbol{r})
+\end{aligned}
+$$&lt;/p&gt;
+&lt;p&gt;第一条式子明显就是自由粒子（平面波）的解&lt;/p&gt;
+&lt;p&gt;$$
+X_G(r_G)=\frac{1}{(2\pi\hbar)^{3/2}}e^{\frac{i}{\hbar}p_G\cdot r_G}
+$$&lt;/p&gt;
+&lt;p&gt;对应的能量：&lt;/p&gt;
+&lt;p&gt;$$
+E_G=\frac{p_G^2}{2M}
+$$&lt;/p&gt;
+&lt;p&gt;而第二项方程明显更重要，描述的是相对粒子体系在质心坐标系中的行为。&lt;/p&gt;
+&lt;h2 id=&#34;comment&#34;&gt;Comment&lt;/h2&gt;
+&lt;p&gt;这一章将两个粒子的坐标系转换到质心坐标系，正如经典力学中做的那样，在量子力学中也做了一遍，以方便后面对氢原子的演算。&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>[量子力学] 7 中心势场的粒子；氢原子 A part</title>
+        <link>https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-7-%E4%B8%AD%E5%BF%83%E5%8A%BF%E5%9C%BA%E7%9A%84%E7%B2%92%E5%AD%90%E6%B0%A2%E5%8E%9F%E5%AD%90-a-part/</link>
+        <pubDate>Thu, 23 Dec 2021 17:26:11 +0800</pubDate>
+        
+        <guid>https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-7-%E4%B8%AD%E5%BF%83%E5%8A%BF%E5%9C%BA%E7%9A%84%E7%B2%92%E5%AD%90%E6%B0%A2%E5%8E%9F%E5%AD%90-a-part/</guid>
+        <description>&lt;p&gt;$$
+\def\un{\mathrm}
+\def\dd{\mathrm d}
+\def\par{\partial}
+\def\bl{\boldsymbol}
+\def\mbf{\mathbf}
+\def\mscr{\mathscr}
+\newcommand{\avg}[1]{\left \langle #1 \right \rangle}
+\newcommand{\bk}[2]{\left \langle #1  | #2  \right \rangle}
+\newcommand{\bok}[3]{\bra{#1}#2\ket{#3}}
+\def\nl{\newline}
+\def\Ra{\Rightarrow}
+\def\La{\Leftarrow}
+\def\ra{\rightarrow}
+\def\la{\leftarrow}
+\def\e{\epsilon}
+\def\ve{\varepsilon}
+$$&lt;/p&gt;
+&lt;h1 id=&#34;a-中心势场中粒子的定态&#34;&gt;A 中心势场中粒子的定态&lt;/h1&gt;
+&lt;h2 id=&#34;1-问题梗概&#34;&gt;1. 问题梗概&lt;/h2&gt;
+&lt;h3 id=&#34;a-经典力学回顾&#34;&gt;a. 经典力学回顾&lt;/h3&gt;
+&lt;p&gt;粒子总能量：&lt;/p&gt;
+&lt;p&gt;$$
+E=\frac{1}{2}\mu v^2+V(r)=\frac{1}{2}\mu v^2_r+\frac{1}{2}\mu v^2_\perp+V(r)
+$$&lt;/p&gt;
+&lt;p&gt;使用动量和角动量替换 $v_r,v_\perp$ 项：&lt;/p&gt;
+&lt;p&gt;$$
+E=\frac{p_r^2}{2\mu}+\frac{\mscr L^2}{2\mu r^2}+V(r)
+$$&lt;/p&gt;
+&lt;p&gt;其中：&lt;/p&gt;
+&lt;p&gt;$$
+p_r=\mu\frac{\dd r}{\dd t},\mscr L^2=p_\theta^2+\frac{1}{
+\sin^2\theta}p_\varphi^2
+$$&lt;/p&gt;
+&lt;p&gt;定义一个有效势（仅与 $r$ 相关）：&lt;/p&gt;
+&lt;p&gt;$$
+V_{\un{eff}}(r)=V(r)+\frac{\mscr L^2}{2\mu r^2}
+$$&lt;/p&gt;
+&lt;h3 id=&#34;b-hamilton-算符&#34;&gt;b. Hamilton 算符&lt;/h3&gt;
+&lt;p&gt;$$
+H=[-\frac{\hbar^2}{2\mu}\triangle+V(r)]\varphi(\bl r)=E\varphi(\bl r)
+$$&lt;/p&gt;
+&lt;p&gt;在球坐标下：&lt;/p&gt;
+&lt;p&gt;$$
+\triangle=\frac{1}{r}\frac{\par^2}{\par r^2}r+\frac{1}{r^2}(\frac{\par^2}{\par\theta^2}+\frac{1}{\tan\theta}\frac{\par}{\par\theta}+\frac{1}{
+sin^2\theta}\frac{\par^2}{\par\varphi^2})
+$$&lt;/p&gt;
+&lt;p&gt;代入 $L^2$ 算符：&lt;/p&gt;
+&lt;p&gt;$$
+H=-\frac{\hbar^2}{2\mu}\frac{1}{r}\frac{\par^2}{\par r^2}r+\frac{1}{2\mu r^2}L^2+V(r)
+$$&lt;/p&gt;
+&lt;p&gt;求解的本征值方程：&lt;/p&gt;
+&lt;p&gt;$$
+[-\frac{\hbar^2}{2\mu}\frac{1}{r}\frac{\par^2}{\par r^2}r+\frac{1}{2\mu r^2}L^2+V(r)]\psi(r,\theta,\varphi)=E\psi(r,\theta,\varphi)
+$$&lt;/p&gt;
+&lt;h2 id=&#34;2-变量的分离&#34;&gt;2. 变量的分离&lt;/h2&gt;
+&lt;h3 id=&#34;a-本征函数与角度的依赖关系&#34;&gt;a. 本征函数与角度的依赖关系&lt;/h3&gt;
+&lt;p&gt;因为 $L$ 函数只作用于 $\theta,\varphi$ 变量，因此，一切作用于 $r$ 的算符都可以对易。在量子力学意义下，$L$ 的三个分量都是运动常量，即：&lt;/p&gt;
+&lt;p&gt;$$
+[H,L]=0
+$$&lt;/p&gt;
+&lt;p&gt;同样的， $H$ 和 $L^2$ 也可以对易。&lt;/p&gt;
+&lt;p&gt;三个方程组：&lt;/p&gt;
+&lt;p&gt;$$
+\begin{aligned}
+H\psi(\bl r)&amp;amp;=E\psi(\bl r)\nl
+L^2\psi(\bl r)&amp;amp;=l(l+1)\hbar^2\psi(\bl r)\nl
+L_z\psi(\bl r)&amp;amp;=m\hbar\psi(\bl r)
+\end{aligned}
+$$&lt;/p&gt;
+&lt;p&gt;根据之前的讨论，我们可以得出：&lt;/p&gt;
+&lt;p&gt;$$
+\psi(\bl r)=R(r)Y^m_l(\theta,\varphi)
+$$&lt;/p&gt;
+&lt;h3 id=&#34;b-径向方程&#34;&gt;b. 径向方程&lt;/h3&gt;
+&lt;p&gt;将上式代入本征值方程中：&lt;/p&gt;
+&lt;p&gt;$$
+[-\frac{\hbar^2}{2\mu}\frac{1}{r}\frac{\par^2}{\par r^2}r+\frac{l(l+1)\hbar^2}{2\mu r^2}+V(r)]R(r)=ER(r)
+$$&lt;/p&gt;
+&lt;p&gt;通过一系列讨论，我们可以得到一些数与 $k,l$ 的相关性： $R(r)=R_{k,l}(r),E=E_{k,l}$。&lt;/p&gt;
+&lt;p&gt;进行代换：&lt;/p&gt;
+&lt;p&gt;$$
+R_{k,l}=\frac{1}{r}u_{k,l}(r)
+$$&lt;/p&gt;
+&lt;p&gt;得到的本征方程：&lt;/p&gt;
+&lt;p&gt;$$
+[-\frac{\hbar^2}{2\mu}\frac{\par^2}{\par r^2}+\frac{l(l+1)\hbar^2}{2\mu r^2}+V(r)]u_{k,l}(r)=E_{k,l}u_{k,l}(r)
+$$&lt;/p&gt;
+&lt;h3 id=&#34;c-径向方程的解在原点的行为&#34;&gt;c. 径向方程的解在原点的行为&lt;/h3&gt;
+&lt;p&gt;当 $r\ra 0$ 时，设：&lt;/p&gt;
+&lt;p&gt;$$
+R_{k,l}(r)\approx Cr^s
+$$&lt;/p&gt;
+&lt;p&gt;代入方程中，并令主项的系数为 0，得到方程：&lt;/p&gt;
+&lt;p&gt;$$
+-s(s+1)+l(l+1)=0
+$$&lt;/p&gt;
+&lt;p&gt;解得：&lt;/p&gt;
+&lt;p&gt;$$
+s=l~ \text{ or}~s=-(l+1)
+$$&lt;/p&gt;
+&lt;p&gt;我们可以排除 $s=-(l+1)$ 的解，因为在 0 处不符合函数性质。&lt;/p&gt;
+&lt;p&gt;因此：&lt;/p&gt;
+&lt;p&gt;$$
+u_{k,l}(0)=0
+$$&lt;/p&gt;
+&lt;h2 id=&#34;3-中心势场中粒子的定态&#34;&gt;3. 中心势场中粒子的定态&lt;/h2&gt;
+&lt;h3 id=&#34;a-量子数&#34;&gt;a. 量子数&lt;/h3&gt;
+&lt;p&gt;(i) 规定 $H$ 的本征函数同时又是 $L^2,L_z$ 的本征函数，因此：&lt;/p&gt;
+&lt;p&gt;$$
+\psi_{k,l,m}(\bl r)=R_{k,l}(r)Y^m_l(\theta,\varphi)=\frac{1}{r}u_{k,l}Y^m_l(\theta,\varphi)
+$$&lt;/p&gt;
+&lt;p&gt;(ii) 将 $H$ 的本征值方程代换为只含变量 $r$ 的微分方程。&lt;/p&gt;
+&lt;p&gt;归一化：&lt;/p&gt;
+&lt;p&gt;$$
+\int |\psi_{k,l,m}|^2 r^2\dd r\dd\Omega=1
+$$&lt;/p&gt;
+&lt;p&gt;分解：&lt;/p&gt;
+&lt;p&gt;$$
+\int |\psi_{k,l,m}|^2 r^2\dd r\dd\Omega=\int^\infty_0 r^2\dd r|R_{k,l}|^2\int \dd \Omega |Y^m_l(\theta,\varphi)|^2
+$$&lt;/p&gt;
+&lt;p&gt;由于球谐函数已归一化，因此：&lt;/p&gt;
+&lt;p&gt;$$
+\int^\infty_0 r^2\dd r|R_{k,l}|^2=\int^\infty_0\dd r|u_{k,l}(r)|^2=1
+$$&lt;/p&gt;
+&lt;h3 id=&#34;b-能级的简并度&#34;&gt;b. 能级的简并度&lt;/h3&gt;
+&lt;p&gt;将 $k,l$ 的值固定，$m$ 的值可以从 $-l$ 变化到 $l$，与此对应的 $(2l+1)$ 个函数都属于同一本征值 $E_{k,l}$ 的本征函数。这种简并总是存在的，称它为实质性简并。如果偶尔相同，那就叫偶然性兼并。&lt;/p&gt;
+&lt;p&gt;从上面的讨论可以推知， $H,L^2,L_z$ 构成一个 ECOC。&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>[量子力学] 6 量子力学中角动量的普遍性质 D part</title>
         <link>https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-6-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E4%B8%AD%E8%A7%92%E5%8A%A8%E9%87%8F%E7%9A%84%E6%99%AE%E9%81%8D%E6%80%A7%E8%B4%A8-d-part/</link>
         <pubDate>Thu, 16 Dec 2021 23:38:39 +0800</pubDate>
