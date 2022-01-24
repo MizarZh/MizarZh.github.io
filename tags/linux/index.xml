@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Linux on MizarZ&#39;s Blog</title>
+    <title>linux on MizarZ&#39;s Blog</title>
     <link>https://mizarzh.github.io/tags/linux/</link>
-    <description>Recent content in Linux on MizarZ&#39;s Blog</description>
+    <description>Recent content in linux on MizarZ&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 27 Nov 2021 20:24:46 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 21 Jan 2022 22:50:01 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Node在linux上的更新问题</title>
+      <link>https://mizarzh.github.io/p/2022/01/node%E5%9C%A8linux%E4%B8%8A%E7%9A%84%E6%9B%B4%E6%96%B0%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Fri, 21 Jan 2022 22:50:01 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2022/01/node%E5%9C%A8linux%E4%B8%8A%E7%9A%84%E6%9B%B4%E6%96%B0%E9%97%AE%E9%A2%98/</guid>
+      <description>概述 由于 node 在 linux 的包（指的是使用 apt install 安装的包）长期不更新，而手动下载再改 PATH 并进行管理十分麻烦，因此有一个小技巧，可以使用 apt install 安装到新版本。 使用</description>
+    </item>
+    
     <item>
       <title>Terminal查看远程图片</title>
       <link>https://mizarzh.github.io/p/2021/11/terminal%E6%9F%A5%E7%9C%8B%E8%BF%9C%E7%A8%8B%E5%9B%BE%E7%89%87/</link>

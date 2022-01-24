@@ -6,7 +6,34 @@
     <description>Recent content in 编程 on MizarZ&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 20 Jan 2022 21:25:09 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/categories/%E7%BC%96%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 24 Jan 2022 15:01:36 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/categories/%E7%BC%96%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Sequelize基本使用-2</title>
+      <link>https://mizarzh.github.io/p/2022/01/sequelize%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8-2/</link>
+      <pubDate>Mon, 24 Jan 2022 15:01:36 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2022/01/sequelize%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8-2/</guid>
+      <description>Sequelize基本使用-2 C! R! U! D! 1、Model 实例 一个 Model 实例代表的是从这个 Model 中获取的对象（相对应的就是数据库中的一条或几条数据）。 创建</description>
+    </item>
+    
+    <item>
+      <title>Sequelize基本使用-1</title>
+      <link>https://mizarzh.github.io/p/2022/01/sequelize%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8-1/</link>
+      <pubDate>Fri, 21 Jan 2022 22:50:12 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2022/01/sequelize%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8-1/</guid>
+      <description>Sequelize基本使用-1 1、介绍 Sequelize 是一个基于 Promise 的 Node.js ORM (Object Relational Mapping, 对象关系映射) 工具。 可以对很多数据库操作，支持 Postgres, MySQL, MariaDB, SQLite 等等数据库。 安装： npm install</description>
+    </item>
+    
+    <item>
+      <title>Node在linux上的更新问题</title>
+      <link>https://mizarzh.github.io/p/2022/01/node%E5%9C%A8linux%E4%B8%8A%E7%9A%84%E6%9B%B4%E6%96%B0%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Fri, 21 Jan 2022 22:50:01 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2022/01/node%E5%9C%A8linux%E4%B8%8A%E7%9A%84%E6%9B%B4%E6%96%B0%E9%97%AE%E9%A2%98/</guid>
+      <description>概述 由于 node 在 linux 的包（指的是使用 apt install 安装的包）长期不更新，而手动下载再改 PATH 并进行管理十分麻烦，因此有一个小技巧，可以使用 apt install 安装到新版本。 使用</description>
+    </item>
+    
     <item>
       <title>Date方法</title>
       <link>https://mizarzh.github.io/p/2022/01/date%E6%96%B9%E6%B3%95/</link>

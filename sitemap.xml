@@ -3,27 +3,42 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://mizarzh.github.io/categories/</loc>
-    <lastmod>2022-01-20T21:25:09+08:00</lastmod>
+    <lastmod>2022-01-24T15:01:36+08:00</lastmod>
+  </url><url>
+    <loc>https://mizarzh.github.io/tags/js/</loc>
+    <lastmod>2022-01-24T15:01:36+08:00</lastmod>
+  </url><url>
+    <loc>https://mizarzh.github.io/</loc>
+    <lastmod>2022-01-24T15:01:36+08:00</lastmod>
+  </url><url>
+    <loc>https://mizarzh.github.io/posts/</loc>
+    <lastmod>2022-01-24T15:01:36+08:00</lastmod>
+  </url><url>
+    <loc>https://mizarzh.github.io/p/2022/01/sequelize%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8-2/</loc>
+    <lastmod>2022-01-24T15:01:36+08:00</lastmod>
+  </url><url>
+    <loc>https://mizarzh.github.io/tags/</loc>
+    <lastmod>2022-01-24T15:01:36+08:00</lastmod>
+  </url><url>
+    <loc>https://mizarzh.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
+    <lastmod>2022-01-24T15:01:36+08:00</lastmod>
+  </url><url>
+    <loc>https://mizarzh.github.io/categories/%E7%BC%96%E7%A8%8B/</loc>
+    <lastmod>2022-01-24T15:01:36+08:00</lastmod>
+  </url><url>
+    <loc>https://mizarzh.github.io/p/2022/01/sequelize%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8-1/</loc>
+    <lastmod>2022-01-21T22:50:12+08:00</lastmod>
+  </url><url>
+    <loc>https://mizarzh.github.io/tags/linux/</loc>
+    <lastmod>2022-01-21T22:50:01+08:00</lastmod>
+  </url><url>
+    <loc>https://mizarzh.github.io/p/2022/01/node%E5%9C%A8linux%E4%B8%8A%E7%9A%84%E6%9B%B4%E6%96%B0%E9%97%AE%E9%A2%98/</loc>
+    <lastmod>2022-01-21T22:50:01+08:00</lastmod>
   </url><url>
     <loc>https://mizarzh.github.io/p/2022/01/date%E6%96%B9%E6%B3%95/</loc>
     <lastmod>2022-01-20T21:25:09+08:00</lastmod>
   </url><url>
-    <loc>https://mizarzh.github.io/tags/js/</loc>
-    <lastmod>2022-01-20T21:25:09+08:00</lastmod>
-  </url><url>
-    <loc>https://mizarzh.github.io/</loc>
-    <lastmod>2022-01-20T21:25:09+08:00</lastmod>
-  </url><url>
-    <loc>https://mizarzh.github.io/posts/</loc>
-    <lastmod>2022-01-20T21:25:09+08:00</lastmod>
-  </url><url>
-    <loc>https://mizarzh.github.io/tags/</loc>
-    <lastmod>2022-01-20T21:25:09+08:00</lastmod>
-  </url><url>
     <loc>https://mizarzh.github.io/tags/%E5%89%8D%E7%AB%AF/</loc>
-    <lastmod>2022-01-20T21:25:09+08:00</lastmod>
-  </url><url>
-    <loc>https://mizarzh.github.io/categories/%E7%BC%96%E7%A8%8B/</loc>
     <lastmod>2022-01-20T21:25:09+08:00</lastmod>
   </url><url>
     <loc>https://mizarzh.github.io/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-9-%E7%94%B5%E5%AD%90%E7%9A%84%E8%87%AA%E6%97%8B/</loc>
@@ -97,9 +112,6 @@
   </url><url>
     <loc>https://mizarzh.github.io/p/2021/11/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-2-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E7%9A%84%E6%95%B0%E5%AD%A6%E5%B7%A5%E5%85%B7-e-part/</loc>
     <lastmod>2021-11-28T00:18:05+08:00</lastmod>
-  </url><url>
-    <loc>https://mizarzh.github.io/tags/linux/</loc>
-    <lastmod>2021-11-27T20:24:46+08:00</lastmod>
   </url><url>
     <loc>https://mizarzh.github.io/tags/ssh/</loc>
     <lastmod>2021-11-27T20:24:46+08:00</lastmod>

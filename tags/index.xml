@@ -6,13 +6,31 @@
     <description>Recent content in Tags on MizarZ&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 20 Jan 2022 21:25:09 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 24 Jan 2022 15:01:36 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>js</title>
       <link>https://mizarzh.github.io/tags/js/</link>
-      <pubDate>Thu, 20 Jan 2022 21:25:09 +0800</pubDate>
+      <pubDate>Mon, 24 Jan 2022 15:01:36 +0800</pubDate>
       
       <guid>https://mizarzh.github.io/tags/js/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>数据库</title>
+      <link>https://mizarzh.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
+      <pubDate>Mon, 24 Jan 2022 15:01:36 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>linux</title>
+      <link>https://mizarzh.github.io/tags/linux/</link>
+      <pubDate>Fri, 21 Jan 2022 22:50:01 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/tags/linux/</guid>
       <description></description>
     </item>
     
@@ -58,15 +76,6 @@
       <pubDate>Sun, 12 Dec 2021 17:13:15 +0800</pubDate>
       
       <guid>https://mizarzh.github.io/tags/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E5%8A%9B%E5%AD%A6/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Linux</title>
-      <link>https://mizarzh.github.io/tags/linux/</link>
-      <pubDate>Sat, 27 Nov 2021 20:24:46 +0800</pubDate>
-      
-      <guid>https://mizarzh.github.io/tags/linux/</guid>
       <description></description>
     </item>
     
