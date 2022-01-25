@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='简介 因为某项目使用 nohup 在后台挂机总是莫名其妙就断掉了很生气，因此我当场换成 pm2 帮我管理这些 node 项目。 pm2 是一个 node 进程管理工具，可以简化很多 node 应用管理'><title>Pm2介绍及使用</title>
+
+<link rel='canonical' href='https://mizarzh.github.io/p/2022/01/pm2%E4%BB%8B%E7%BB%8D%E5%8F%8A%E4%BD%BF%E7%94%A8/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='Pm2介绍及使用'>
+<meta property='og:description' content='简介 因为某项目使用 nohup 在后台挂机总是莫名其妙就断掉了很生气，因此我当场换成 pm2 帮我管理这些 node 项目。 pm2 是一个 node 进程管理工具，可以简化很多 node 应用管理'>
+<meta property='og:url' content='https://mizarzh.github.io/p/2022/01/pm2%E4%BB%8B%E7%BB%8D%E5%8F%8A%E4%BD%BF%E7%94%A8/'>
+<meta property='og:site_name' content='MizarZ&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='linux' /><meta property='article:tag' content='node' /><meta property='article:published_time' content='2022-01-25T18:22:22&#43;08:00'/><meta property='article:modified_time' content='2022-01-25T18:22:22&#43;08:00'/>
+<meta name="twitter:title" content="Pm2介绍及使用">
+<meta name="twitter:description" content="简介 因为某项目使用 nohup 在后台挂机总是莫名其妙就断掉了很生气，因此我当场换成 pm2 帮我管理这些 node 项目。 pm2 是一个 node 进程管理工具，可以简化很多 node 应用管理">
+    <link rel="shortcut icon" href="img/favicon-32x32.png" />
+
+    </head>
+    <body class="
+    article-page has-toc
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        extended
+    
+">
+    
+        <div id="article-toolbar">
+            <a href="/" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>返回</span>
+            </a>
+        </div>
+    
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" style="background-color: #1b2153; color: ;">
+                计算机
+            </a>
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/p/2022/01/pm2%E4%BB%8B%E7%BB%8D%E5%8F%8A%E4%BD%BF%E7%94%A8/">Pm2介绍及使用</a>
+    </h2>
+
+    
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-01-25</time>
+            </div>
+        
+
+        
+    </footer>
+    
+</div>
+</header>
+
+    <section class="article-content">
+    <h2 id="简介">简介</h2>
+<p>因为某项目使用 nohup 在后台挂机总是莫名其妙就断掉了很生气，因此我当场换成 pm2 帮我管理这些 node 项目。</p>
+<p>pm2 是一个 node 进程管理工具，可以简化很多 node 应用管理的任务，如性能监控、自动重启</p>
+<p>负载均衡等。</p>
+<p>安装 pm2：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">npm install -g pm2
+</code></pre></div><h2 id="核心命令">核心命令</h2>
+<h3 id="一些常见操作">一些常见操作</h3>
+<p>启动、重新加载、重启、关闭、删除：</p>
+<p>可以指定多个 app：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">pm2 start app
+pm2 reload app
+pm2 restart app
+pm2 stop app
+pm2 delete app
+</code></pre></div><p><code>app.js</code> 也可以换成 <code>all</code> 代表全部，换成 <code>id</code> 代表这个进程的编号，换成字符串（如&quot;npm run start&quot;）代表执行 bash 命令。</p>
+<p>启动可以给入的参数（<code>start, restart</code>）：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 传入参数</span>
+-- arg1 arg2
+<span class="c1"># 更新环境（通常前面设置 NODE_ENV 改变）</span>
+--update-env
+</code></pre></div><p>列出：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">pm2 <span class="o">[</span>list<span class="p">|</span>ls<span class="p">|</span>l<span class="p">|</span>status<span class="o">]</span>
+<span class="c1"># 后面加上参数，代表按照……进行排序</span>
+--sort <span class="o">[</span>name<span class="p">|</span>id<span class="p">|</span>pid<span class="p">|</span>memory<span class="p">|</span>cpu<span class="p">|</span>status<span class="p">|</span>uptime<span class="o">][</span>:asc<span class="p">|</span>desc<span class="o">]</span>
+</code></pre></div><p>dashboard：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">pm2 monit
+</code></pre></div><p>显示元信息：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">pm2 show app
+</code></pre></div><p>重置重启次数：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">pm2 reset app
+</code></pre></div><p>pm2 也可以使用文件模式进行配置，因为太长本文不介绍。详情见 <a class="link" href="https://pm2.keymetrics.io/docs/usage/application-declaration/"  target="_blank" rel="noopener"
+    >pm2 configureation file</a>。</p>
+<h3 id="静态文件">静态文件</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">pm2 serve &lt;path&gt; &lt;port&gt;
+</code></pre></div><p>可以像普通的 app 一样指定参数。</p>
+<p>SPA：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">pm2 serve --spa
+</code></pre></div><p>会自动定位到 <code>index.html</code></p>
+<p>基本 auth：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">pm2 serve --basic-auth-username &lt;username&gt; --basic-auth-password &lt;password&gt;
+</code></pre></div><h2 id="重启策略">重启策略</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 在某一个 cron 时间重启</span>
+--cron-restart<span class="o">=</span><span class="s2">&#34;0 0 * * *&#34;</span>
+--cron-restart <span class="m">0</span> <span class="c1"># 不使用 cron 重启</span>
+
+<span class="c1"># 文件改变时重启</span>
+--watch
+
+<span class="c1"># 最大内存重启</span>
+--max-memory-restart 300M
+
+<span class="c1"># 重启延迟</span>
+--restart-delay<span class="o">=</span><span class="m">3000</span>
+
+<span class="c1"># 不自动重启</span>
+--no-autorestart
+
+<span class="c1"># </span>
+--stop-exit-codes <span class="m">0</span>
+
+<span class="c1"># 指数增长的重启延迟</span>
+--exp-backoff-restart-delay<span class="o">=</span><span class="m">100</span>
+</code></pre></div><h2 id="记录logs">记录（logs）</h2>
+<p>默认的记录文件在 <code>$HOME/.pm2/</code> 文件夹中</p>
+<h3 id="显示记录">显示记录</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">❯ pm2 logs -h
+
+  Usage: logs <span class="o">[</span>options<span class="o">]</span> <span class="o">[</span>id<span class="p">|</span>name<span class="p">|</span>namespace<span class="o">]</span> <span class="c1"># pm2 logs 选项 + app</span>
+
+  stream logs file. Default stream all logs
+
+  Options:
+    <span class="c1"># 三种格式</span>
+    --json                json log output
+    --format              formated log output
+    --raw                 raw output
+    <span class="c1"># 只显示错误或标准输出</span>
+    --err                 only shows error output
+    --out                 only shows standard output
+    <span class="c1"># 显示 n 行</span>
+    --lines &lt;n&gt;           output the last N lines, instead of the last <span class="m">15</span> by default
+    <span class="c1"># 增加时间戳</span>
+    --timestamp <span class="o">[</span>format<span class="o">]</span>  add timestamps <span class="o">(</span>default format YYYY-MM-DD-HH:mm:ss<span class="o">)</span>
+    <span class="c1"># 仅打印 logs，不记录</span>
+    --nostream            print logs without lauching the log stream
+    <span class="c1"># 高光一些值</span>
+    --highlight <span class="o">[</span>value<span class="o">]</span>   highlights the given value
+    -h, --help            output usage information
+</code></pre></div><p>限制 log 大小，需要使用 <code>pm2-logrotate</code> 插件：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">pm2 install pm2-logrotate
+</code></pre></div><p>刷新 log：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">pm2 flush <span class="o">[</span>app<span class="o">]</span>
+</code></pre></div><h3 id="开启-app-时指定的-log-设置">开启 app 时指定的 log 设置</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">-l --log <span class="o">[</span>path<span class="o">]</span>              <span class="c1"># 指定输出路径</span>
+-o --output &lt;path&gt;           <span class="c1"># 指定标准输出路径</span>
+-e --error &lt;path&gt;            <span class="c1"># 指定错误输出路径</span>
+--time                       <span class="c1"># 使用标准时间戳记录</span>
+--log-date-format &lt;format&gt;   <span class="c1"># 自定义时间戳记录</span>
+--merge-logs                 <span class="c1"># 运行多个进程时使用同一个文件记录，不依照 id 区分</span>
+</code></pre></div><h2 id="持续运行">持续运行</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ pm2 startup
+<span class="o">[</span>PM2<span class="o">]</span> You have to run this <span class="nb">command</span> as root. Execute the following command:
+      sudo su -c <span class="s2">&#34;env PATH=</span><span class="nv">$PATH</span><span class="s2">:/home/unitech/.nvm/versions/node/v14.3/bin pm2 startup &lt;distribution&gt; -u &lt;user&gt; --hp &lt;home-path&gt;
+</span></code></pre></div><p>复制并执行：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo su -c <span class="s2">&#34;env PATH=</span><span class="nv">$PATH</span><span class="s2">:/home/unitech/.nvm/versions/node/v14.3/bin pm2 startup &lt;distribution&gt; -u &lt;user&gt; --hp &lt;home-path&gt;
+</span></code></pre></div><p>就可以了。</p>
+<p>保存 app 列表，在重启时会马上再次运行：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">pm2 save
+</code></pre></div><p>回滚？（resurrect），回到 save 时的版本：</p>
+<pre tabindex="0"><code>pm2 resurrect 
+</code></pre><p>取消开启时运行：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">pm2 unstartup
+</code></pre></div><h2 id="cluster-集群">cluster 集群</h2>
+<p>Node.js 的单个实例在单个线程中运行。 为了利用多核系统，用户有时会想要启动 Node.js 进程的集群来处理负载。集群模块可以轻松创建共享服务器端口的子进程。</p>
+<p>pm2 中也可以使用 cluster 集群，传入 <code>-i</code> 选项：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">pm2 start app.js -i max
+</code></pre></div><p><code>max</code> 代表 pm2 会自动探测有多少核的 CPU，并尝试运行最多的进程。</p>
+<h2 id="部署系统">部署系统</h2>
+<p>见 <a class="link" href="https://pm2.keymetrics.io/docs/usage/deployment/"  target="_blank" rel="noopener"
+    >Deployment System</a>。</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/linux/">linux</a>
+        
+            <a href="/tags/node/">node</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css"integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js"integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8"crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js"integrity="sha384-vZTG03m&#43;2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl"crossorigin="anonymous"
+                defer="true"
+                >
+            </script>
+<script>
+MathJax = {
+    tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+    },
+    options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+};
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async
+src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">相关文章</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="">
+    <a href="/p/2022/01/cron%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Cron基本用法</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/2021/11/terminal%E6%9F%A5%E7%9C%8B%E8%BF%9C%E7%A8%8B%E5%9B%BE%E7%89%87/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Terminal查看远程图片</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/2021/10/%E5%90%84%E7%B1%BBtex/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">各类“TeX”</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/2021/09/%E7%A1%AC%E7%9B%98/%E5%82%A8%E5%AD%98%E4%BB%8B%E8%B4%A8%E7%AC%94%E8%AE%B0/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">硬盘/储存介质笔记</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy;
+        
+        2021 -
+        
+        2022 MizarZ&#39;s Blog
+    </section>
+
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener"
+                data-version="3.4.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+
+        
+
+    </section>
+
+</footer>
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+        <aside class="sidebar right-sidebar sticky">
+            <section class="widget archives">
+                <div class="widget-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                </div>
+                <h2 class="widget-title section-title">目录</h2>
+                
+                <div class="widget--toc">
+                    <nav id="TableOfContents">
+  <ol>
+    <li><a href="#简介">简介</a></li>
+    <li><a href="#核心命令">核心命令</a>
+      <ol>
+        <li><a href="#一些常见操作">一些常见操作</a></li>
+        <li><a href="#静态文件">静态文件</a></li>
+      </ol>
+    </li>
+    <li><a href="#重启策略">重启策略</a></li>
+    <li><a href="#记录logs">记录（logs）</a>
+      <ol>
+        <li><a href="#显示记录">显示记录</a></li>
+        <li><a href="#开启-app-时指定的-log-设置">开启 app 时指定的 log 设置</a></li>
+      </ol>
+    </li>
+    <li><a href="#持续运行">持续运行</a></li>
+    <li><a href="#cluster-集群">cluster 集群</a></li>
+    <li><a href="#部署系统">部署系统</a></li>
+  </ol>
+</nav>
+                </div>
+            </section>
+        </aside>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

@@ -6,7 +6,34 @@
     <description>Recent content in Posts on MizarZ&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 24 Jan 2022 15:01:36 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 25 Jan 2022 18:22:22 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Pm2介绍及使用</title>
+      <link>https://mizarzh.github.io/p/2022/01/pm2%E4%BB%8B%E7%BB%8D%E5%8F%8A%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Tue, 25 Jan 2022 18:22:22 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2022/01/pm2%E4%BB%8B%E7%BB%8D%E5%8F%8A%E4%BD%BF%E7%94%A8/</guid>
+      <description>简介 因为某项目使用 nohup 在后台挂机总是莫名其妙就断掉了很生气，因此我当场换成 pm2 帮我管理这些 node 项目。 pm2 是一个 node 进程管理工具，可以简化很多 node 应用管理</description>
+    </item>
+    
+    <item>
+      <title>前端下载原始实现</title>
+      <link>https://mizarzh.github.io/p/2022/01/%E5%89%8D%E7%AB%AF%E4%B8%8B%E8%BD%BD%E5%8E%9F%E5%A7%8B%E5%AE%9E%E7%8E%B0/</link>
+      <pubDate>Mon, 24 Jan 2022 22:07:49 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2022/01/%E5%89%8D%E7%AB%AF%E4%B8%8B%E8%BD%BD%E5%8E%9F%E5%A7%8B%E5%AE%9E%E7%8E%B0/</guid>
+      <description>如果服务器有公开的路径 调用 window.location 跳到指定的路径。 如果使用二进制传输 服务端： 内部传二进制类型，并设置 HTTP 头： Content-Type: application/octet-stream 前端： 首先要设置 XMLHTTPRequest 的 responseType 为 arrayb</description>
+    </item>
+    
+    <item>
+      <title>Cron基本用法</title>
+      <link>https://mizarzh.github.io/p/2022/01/cron%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/</link>
+      <pubDate>Mon, 24 Jan 2022 20:00:48 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2022/01/cron%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/</guid>
+      <description>1、简介 cron 是一个能让用户定时执行指令的程序，这些任务被称为 cron jobs。 cron 是一个守护进程（daemon）。守护进程是一个后台执行非交互指令的进</description>
+    </item>
+    
     <item>
       <title>Sequelize基本使用-2</title>
       <link>https://mizarzh.github.io/p/2022/01/sequelize%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8-2/</link>

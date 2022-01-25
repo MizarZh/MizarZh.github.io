@@ -6,7 +6,25 @@
     <description>Recent content in 计算机 on MizarZ&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 27 Nov 2021 20:24:46 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 25 Jan 2022 18:22:22 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Pm2介绍及使用</title>
+      <link>https://mizarzh.github.io/p/2022/01/pm2%E4%BB%8B%E7%BB%8D%E5%8F%8A%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Tue, 25 Jan 2022 18:22:22 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2022/01/pm2%E4%BB%8B%E7%BB%8D%E5%8F%8A%E4%BD%BF%E7%94%A8/</guid>
+      <description>简介 因为某项目使用 nohup 在后台挂机总是莫名其妙就断掉了很生气，因此我当场换成 pm2 帮我管理这些 node 项目。 pm2 是一个 node 进程管理工具，可以简化很多 node 应用管理</description>
+    </item>
+    
+    <item>
+      <title>Cron基本用法</title>
+      <link>https://mizarzh.github.io/p/2022/01/cron%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/</link>
+      <pubDate>Mon, 24 Jan 2022 20:00:48 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2022/01/cron%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/</guid>
+      <description>1、简介 cron 是一个能让用户定时执行指令的程序，这些任务被称为 cron jobs。 cron 是一个守护进程（daemon）。守护进程是一个后台执行非交互指令的进</description>
+    </item>
+    
     <item>
       <title>Terminal查看远程图片</title>
       <link>https://mizarzh.github.io/p/2021/11/terminal%E6%9F%A5%E7%9C%8B%E8%BF%9C%E7%A8%8B%E5%9B%BE%E7%89%87/</link>
