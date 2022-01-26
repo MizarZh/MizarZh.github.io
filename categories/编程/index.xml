@@ -6,7 +6,16 @@
     <description>Recent content in 编程 on MizarZ&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 24 Jan 2022 22:07:49 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/categories/%E7%BC%96%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 26 Jan 2022 16:15:31 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/categories/%E7%BC%96%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Echarts基本使用</title>
+      <link>https://mizarzh.github.io/p/2022/01/echarts%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Wed, 26 Jan 2022 16:15:31 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2022/01/echarts%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</guid>
+      <description>简介 本文仅是一个快速入手的基本使用简介，详细配置项请到官网去（真的非常详细！） 官网地址：https://echarts.apache.org</description>
+    </item>
+    
     <item>
       <title>前端下载原始实现</title>
       <link>https://mizarzh.github.io/p/2022/01/%E5%89%8D%E7%AB%AF%E4%B8%8B%E8%BD%BD%E5%8E%9F%E5%A7%8B%E5%AE%9E%E7%8E%B0/</link>

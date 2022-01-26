@@ -6,7 +6,34 @@
     <description>Recent content in Posts on MizarZ&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 25 Jan 2022 18:22:22 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 26 Jan 2022 16:15:31 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Echarts基本使用</title>
+      <link>https://mizarzh.github.io/p/2022/01/echarts%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Wed, 26 Jan 2022 16:15:31 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2022/01/echarts%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</guid>
+      <description>简介 本文仅是一个快速入手的基本使用简介，详细配置项请到官网去（真的非常详细！） 官网地址：https://echarts.apache.org</description>
+    </item>
+    
+    <item>
+      <title>HTTP头的一些知识点（Cache）</title>
+      <link>https://mizarzh.github.io/p/2022/01/http%E5%A4%B4%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%E7%82%B9cache/</link>
+      <pubDate>Tue, 25 Jan 2022 20:25:37 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2022/01/http%E5%A4%B4%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%E7%82%B9cache/</guid>
+      <description>缓存 概述 整体概述见 MDN-Cache。 缓存是一种保存资源副本并在下次请求时直接使用该副本的技术。当 web 缓存发现请求的资源已经被存储，它会拦截请</description>
+    </item>
+    
+    <item>
+      <title>HTTP头的一些知识点（CORS、CSP）</title>
+      <link>https://mizarzh.github.io/p/2022/01/http%E5%A4%B4%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%E7%82%B9corscsp/</link>
+      <pubDate>Tue, 25 Jan 2022 20:25:37 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2022/01/http%E5%A4%B4%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%E7%82%B9corscsp/</guid>
+      <description>跨域问题 整体概述见 MDN-CORS 简介 一个重要的概念是跨源资源共享（CORS），意为除了本服务器以外的其他来源（origin）访问自己的资源。首部字段 Access-Control-Allow-Origin 用</description>
+    </item>
+    
     <item>
       <title>Pm2介绍及使用</title>
       <link>https://mizarzh.github.io/p/2022/01/pm2%E4%BB%8B%E7%BB%8D%E5%8F%8A%E4%BD%BF%E7%94%A8/</link>

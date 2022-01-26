@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='跨域问题 整体概述见 MDN-CORS 简介 一个重要的概念是跨源资源共享（CORS），意为除了本服务器以外的其他来源（origin）访问自己的资源。首部字段 Access-Control-Allow-Origin 用'><title>HTTP头的一些知识点（CORS、CSP）</title>
+
+<link rel='canonical' href='https://mizarzh.github.io/p/2022/01/http%E5%A4%B4%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%E7%82%B9corscsp/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='HTTP头的一些知识点（CORS、CSP）'>
+<meta property='og:description' content='跨域问题 整体概述见 MDN-CORS 简介 一个重要的概念是跨源资源共享（CORS），意为除了本服务器以外的其他来源（origin）访问自己的资源。首部字段 Access-Control-Allow-Origin 用'>
+<meta property='og:url' content='https://mizarzh.github.io/p/2022/01/http%E5%A4%B4%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%E7%82%B9corscsp/'>
+<meta property='og:site_name' content='MizarZ&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='HTTP' /><meta property='article:tag' content='CORS' /><meta property='article:published_time' content='2022-01-25T20:25:37&#43;08:00'/><meta property='article:modified_time' content='2022-01-25T20:25:37&#43;08:00'/>
+<meta name="twitter:title" content="HTTP头的一些知识点（CORS、CSP）">
+<meta name="twitter:description" content="跨域问题 整体概述见 MDN-CORS 简介 一个重要的概念是跨源资源共享（CORS），意为除了本服务器以外的其他来源（origin）访问自己的资源。首部字段 Access-Control-Allow-Origin 用">
+    <link rel="shortcut icon" href="img/favicon-32x32.png" />
+
+    </head>
+    <body class="
+    article-page has-toc
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        extended
+    
+">
+    
+        <div id="article-toolbar">
+            <a href="/" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>返回</span>
+            </a>
+        </div>
+    
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" style="background-color: #1b2153; color: ;">
+                计算机
+            </a>
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/p/2022/01/http%E5%A4%B4%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%E7%82%B9corscsp/">HTTP头的一些知识点（CORS、CSP）</a>
+    </h2>
+
+    
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-01-25</time>
+            </div>
+        
+
+        
+    </footer>
+    
+</div>
+</header>
+
+    <section class="article-content">
+    <h1 id="跨域问题">跨域问题</h1>
+<p>整体概述见 <a class="link" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/CORS"  target="_blank" rel="noopener"
+    >MDN-CORS</a></p>
+<h2 id="简介">简介</h2>
+<p>一个重要的概念是跨源资源共享（CORS），意为除了本服务器以外的其他来源（origin）访问自己的资源。首部字段 <code>Access-Control-Allow-Origin</code> 用来控制什么域可以访问。</p>
+<p>有时候我们需要检查 CORS 请求是否是真实的。跨源资源共享还通过一种机制来检查服务器是否会允许要发送的真实请求，该机制通过浏览器发起一个到服务器托管的跨源资源的&quot;预检&quot;请求。首部字段如 <code>Access-Control-Max-Age, Access-Control-Allow-Credentials, Access-Control-Allow-Methods, Access-Control-Allow-Headers</code> 是用于预检请求的。</p>
+<p>对那些可能对服务器数据产生副作用的 HTTP 请求方法，浏览器必须首先使用 <code>OPTIONS</code> 方法发起一个预检请求（preflight request），从而获知服务端是否允许该跨源请求。服务器确认允许之后，才发起实际的 HTTP 请求。在预检请求的返回中，服务器端也可以通知客户端，是否需要携带身份凭证。身份凭证通常为 <code>Cookie</code>。</p>
+<p><strong>满足所有下述条件</strong>不会触发 CORS 预检请求：</p>
+<pre tabindex="0"><code>1、使用下列方法之一：
+
+    GET
+    HEAD
+    POST
+
+2、除了被用户代理自动设置的首部字段（例如 Connection，User-Agent）和在 Fetch 规范中定义为 禁用首部名称 的其他首部，允许人为设置的字段为 Fetch 规范定义的 对 CORS 安全的首部字段集合。该集合为：
+
+    Accept
+    Accept-Language
+    Content-Language
+    Content-Type （需要注意额外的限制）
+
+3、Content-Type 的值仅限于下列三者之一：
+
+    text/plain
+    multipart/form-data
+    application/x-www-form-urlencoded
+
+4、请求中的任意 XMLHttpRequest 对象均没有注册任何事件监听器；XMLHttpRequest 对象可以使用 XMLHttpRequest.upload 属性访问。
+
+5、请求中没有使用 ReadableStream 对象。
+</code></pre><p>预检请求的过程（以下省略 <code>Access-Control</code>，因为太长了）：</p>
+<p>OPTIONS 发起（携带 <code>Request-Method</code> 和 <code>Request-Headers</code>） -&gt;</p>
+<p>[验证 <code>Allow-Credentials: true</code> + 身份凭证（通常为 Cookie）-&gt;  ]</p>
+<p>返回 <code>Max-Age</code> 头表示允许的最长时间， <code>Allow-Methods</code> 表示允许操作的方法，<code>Allow-Headers</code> 表示允许的首部字段。或者返回 CORS 错误。</p>
+<h2 id="响应">响应</h2>
+<h3 id="access-control-allow-origin">Access-Control-Allow-Origin</h3>
+<p>指定了该响应的资源是否被允许与给定的 origin 共享。</p>
+<p>语法：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="err">Access-Control-Allow-Origin: *
+</span><span class="err">Access-Control-Allow-Origin: &lt;origin&gt;
+</span></code></pre></div><p><code>*</code>：不需要凭证。（即允许所有网站都能访问）</p>
+<p><code>&lt;origin&gt;</code>：指定一个可以访问资源的 URI。（指定某些网站能访问）</p>
+<p>为了对不同的域有不同的缓存，我们可以加上 <code>Vary: Origin</code> 的头。</p>
+<h3 id="access-control-expose-headers">Access-Control-Expose-Headers</h3>
+<p>列出了哪些首部可以作为响应的一部分暴露给外部。</p>
+<p>通常有七种简单响应首部：</p>
+<pre><code>Cache-Control
+Content-Language
+Content-Length
+Content-Type
+Expires
+Last-Modified
+Pragma
+</code></pre>
+<p>设定 <code>Access-Control-Expose-Headers </code> 可以暴露其中的一部分。</p>
+<h3 id="access-control-max-age">Access-Control-Max-Age</h3>
+<p>表示预检请求的返回结果可以被缓存多久（即<code>Access-Control-Allow-Methods, Access-Control-Allow-Headers</code>）。</p>
+<p>语法：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="err">Access-Control-Max-Age: &lt;delta-seconds&gt;
+</span></code></pre></div><p>浏览器一般有限制的最大值。</p>
+<p>如果值为 <strong>-1</strong>，表示禁用缓存，则每次请求前都需要使用 OPTIONS 预检请求。</p>
+<h3 id="access-control-allow-credentials">Access-Control-Allow-Credentials</h3>
+<p>表示是否可以将对请求的响应暴露给页面。返回true则可以，其他值均不可以。</p>
+<p>Credentials可以是 cookies, authorization headers 或 TLS client certificates。</p>
+<p>与 <code>XMLHttpRequest.withCredentials</code> 或Fetch API中的 <code>Request()</code> 构造器中的 credentials 选项结合使用。</p>
+<h3 id="access-control-allow-methods">Access-Control-Allow-Methods</h3>
+<p>语法：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="err">Access-Control-Allow-Methods: &lt;method&gt;, &lt;method&gt;, ...
+</span></code></pre></div><h3 id="access-control-allow-headers">Access-Control-Allow-Headers</h3>
+<p>语法：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="err">Access-Control-Allow-Headers: &lt;field-name&gt;[, &lt;field-name&gt;]*
+</span><span class="err">Access-Control-Allow-Headers: *
+</span></code></pre></div><h2 id="请求">请求</h2>
+<h3 id="origin">Origin</h3>
+<p>请求首部字段 <code>Origin</code> 指示了请求来自于哪个站点。该字段仅指示服务器名称，并不包含任何路径信息。</p>
+<p>语法：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="err">Origin: &#34;&#34;
+</span><span class="err">Origin: &lt;scheme&gt; &#34;://&#34; &lt;host&gt; [ &#34;:&#34; &lt;port&gt; ]
+</span></code></pre></div><h3 id="access-control-request-method">Access-Control-Request-Method</h3>
+<p>用于预检请求。其作用是，将实际请求所使用的 HTTP 方法告诉服务器。</p>
+<p>语法：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="err">Access-Control-Allow-Methods: &lt;method&gt;, &lt;method&gt;, ...
+</span></code></pre></div><h3 id="access-control-request-headers">Access-Control-Request-Headers</h3>
+<p>用于预检请求。其作用是，将实际请求所携带的首部字段告诉服务器。</p>
+<p>语法：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="err">Access-Control-Allow-Headers: &lt;header-name&gt;[, &lt;header-name&gt;]*
+</span><span class="err">Access-Control-Allow-Headers: *
+</span></code></pre></div><h1 id="跨域策略">跨域策略</h1>
+<p>详细资料见 <a class="link" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Cross-Origin_Resource_Policy_%28CORP%29"  target="_blank" rel="noopener"
+    >MDN-CORP </a>和 <a class="link" href="https://web.dev/why-coop-coep/"  target="_blank" rel="noopener"
+    >为何需要“跨源隔离”才能获得强大的功能</a>。</p>
+<h2 id="简介-1">简介</h2>
+<p>CORS 出现后，确实能加载跨域资源了，但是基于 CORS 网络攻击也随之而来。如 Spectre，跨域脚本注入攻击等。因此需要引入另外的策略以确保安全。</p>
+<p>CORP 是默认同源策略上的一层保护。</p>
+<h2 id="cross-origin-resource-policy-corp">Cross-Origin-Resource-Policy (CORP)</h2>
+<p>会指示浏览器阻止对指定资源的无源跨域/跨站点请求。</p>
+<p>语法：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="err">Cross-Origin-Resource-Policy: same-site | same-origin | cross-origin
+</span></code></pre></div><h2 id="cross-origin-opener-policy-coop">Cross-Origin-Opener-Policy (COOP)</h2>
+<p>允许通过将其他文档放在不同的浏览器上下文组中，确保将其与其他文档隔离开，这样它们就不能直接与顶层窗口进行交互。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="err">Cross-Origin-Opener-Policy: unsafe-none | same-origin-allow-popups | same-origin
+</span></code></pre></div><ul>
+<li>
+<p><code>unsafe-none</code></p>
+<p>​    默认值，允许设置浏览器上下文组，除非 opener 本身的 COOP 为 <code>same-origin</code> 或 <code>same-origin-allow-popups</code>。</p>
+</li>
+<li>
+<p><code>same-origin-allow-popups</code></p>
+<p>​    带有 <code>same-origin-allow-popups</code> 的顶级文档保留了对未设置 COOP 或通过把 COOP 设置为 <code>unsafe-none</code> 而选择退出隔离的任何弹出窗口的引用。</p>
+</li>
+</ul>
+<p><figure 
+	
+		class="gallery-image" 
+		style="
+			flex-grow: 148; 
+			flex-basis: 357px"
+	>
+	<a href="/p/2022/01/http%E5%A4%B4%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%E7%82%B9corscsp/coop3.png" data-size="800x537">
+		<img src="/p/2022/01/http%E5%A4%B4%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%E7%82%B9corscsp/coop3.png"
+			width="800"
+			height="537"
+			srcset="/p/2022/01/http%E5%A4%B4%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%E7%82%B9corscsp/coop3_hu768711903f085caee47ac7be37afed2b_21514_480x0_resize_box_3.png 480w, /p/2022/01/http%E5%A4%B4%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%E7%82%B9corscsp/coop3_hu768711903f085caee47ac7be37afed2b_21514_1024x0_resize_box_3.png 1024w"
+			loading="lazy"
+			alt="COOP">
+	</a>
+	
+	<figcaption>COOP</figcaption>
+	
+</figure></p>
+<ul>
+<li>
+<p><code>same-origin</code></p>
+<p>​    标有 <code>same-origin</code> 的文档可以与标有 <code>same-origin</code> 的同源文件共享相同的浏览上下文组。</p>
+</li>
+</ul>
+<p><figure 
+	
+		class="gallery-image" 
+		style="
+			flex-grow: 157; 
+			flex-basis: 378px"
+	>
+	<a href="/p/2022/01/http%E5%A4%B4%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%E7%82%B9corscsp/coop2.png" data-size="800x507">
+		<img src="/p/2022/01/http%E5%A4%B4%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%E7%82%B9corscsp/coop2.png"
+			width="800"
+			height="507"
+			srcset="/p/2022/01/http%E5%A4%B4%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%E7%82%B9corscsp/coop2_huf2e1fa64086281a1c8bedc1c47a49ca2_24491_480x0_resize_box_3.png 480w, /p/2022/01/http%E5%A4%B4%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%E7%82%B9corscsp/coop2_huf2e1fa64086281a1c8bedc1c47a49ca2_24491_1024x0_resize_box_3.png 1024w"
+			loading="lazy"
+			alt="COOP2">
+	</a>
+	
+	<figcaption>COOP2</figcaption>
+	
+</figure></p>
+<h2 id="cross-origin-embedder-policy-coep">Cross-Origin-Embedder-Policy (COEP)</h2>
+<p>可防止文档加载未明确授予文档权限(通过 CORP 或者 CORS)的任何跨域资源 。</p>
+<p><figure 
+	
+		class="gallery-image" 
+		style="
+			flex-grow: 195; 
+			flex-basis: 468px"
+	>
+	<a href="/p/2022/01/http%E5%A4%B4%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%E7%82%B9corscsp/coep.png" data-size="800x410">
+		<img src="/p/2022/01/http%E5%A4%B4%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%E7%82%B9corscsp/coep.png"
+			width="800"
+			height="410"
+			srcset="/p/2022/01/http%E5%A4%B4%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%E7%82%B9corscsp/coep_huc0ac7001fa60d37fe55a5bb05ff9b1bc_21404_480x0_resize_box_3.png 480w, /p/2022/01/http%E5%A4%B4%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%E7%82%B9corscsp/coep_huc0ac7001fa60d37fe55a5bb05ff9b1bc_21404_1024x0_resize_box_3.png 1024w"
+			loading="lazy"
+			alt="COEP 的工作原理">
+	</a>
+	
+	<figcaption>COEP 的工作原理</figcaption>
+	
+</figure></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="err">Cross-Origin-Embedder-Policy: unsafe-none | require-corp
+</span></code></pre></div><ul>
+<li>
+<p><code>unsafe-none</code></p>
+<p>这是默认值. 允许文档获取跨源资源，而无需通过CORS协议或 <code>Cross-Origin-Resource-Policy</code>头。</p>
+</li>
+<li>
+<p><code>require-corp</code></p>
+<p>文档只能从相同的源加载资源，或显式标记为可从另一个源加载的资源。</p>
+<p>如果跨源资源支持CORS，则 <code>crossorigin</code> 属性或 <code>Cross-Origin-Resource-Policy</code>头必须使用它来加载资源，而不会被COEP阻止。</p>
+</li>
+</ul>
+<h1 id="内容安全策略csp">内容安全策略（CSP）</h1>
+<p>详细介绍见 <a class="link" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/CSP"  target="_blank" rel="noopener"
+    >MDN-CSP</a></p>
+<p>是一个额外的安全层，用于检测并削弱某些特定类型的攻击，包括跨站脚本 (XSS) 和数据注入攻击等。</p>
+<h2 id="content-security-policy">Content-Security-Policy</h2>
+<p>语法：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="err">Content-Security-Policy: &lt;policy-directive&gt;; &lt;policy-directive&gt;
+</span></code></pre></div><p>格式：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="err">Content-Security-Policy: default-src &#39;self&#39;; img-src *; media-src media1.com media2.com;
+</span></code></pre></div><p><code>'self'</code> 指的是站点的同一个源。</p>
+<p>通常使用的获取指令（fetch directives）：</p>
+<p><code>child-src</code>
+为 web workers 和其他内嵌浏览器内容（例如用 <code>&lt;frame&gt;</code> 和 <code>&lt;iframe&gt;</code> 加载到页面的内容）定义合法的源地址。</p>
+<p><code>connect-src</code>
+限制能通过脚本接口加载的URL。
+<code>default-src</code>
+为其他取指令提供备用服务fetch directives。
+<code>font-src</code>
+font-src：设置允许通过@font-face加载的字体源地址。
+<code>frame-src</code>
+设置允许通过类似 <code>&lt;frame&gt;</code> 和 <code>&lt;iframe&gt;</code> 标签加载的内嵌内容的源地址。
+<code>img-src</code>
+限制图片和图标的源地址
+<code>manifest-src</code>
+限制应用声明文件的源地址。
+<code>media-src</code>
+限制通过 <code>&lt;audio&gt;</code>、<code>&lt;video&gt;</code> 或 <code>&lt;track&gt;</code> 标签加载的媒体文件的源地址。
+<code>object-src</code>
+限制 <code>&lt;object&gt;</code>、<code>&lt;embed&gt;</code>、<code>&lt;applet&gt;</code> 标签的源地址。</p>
+<p><code>prefetch-src</code>
+指定预加载或预渲染的允许源地址。
+<code>script-src</code>
+限制 JavaScript 的源地址。
+<code>style-src</code>
+限制层叠样式表文件源。</p>
+<p><code>worker-src</code>
+限制Worker、SharedWorker或者ServiceWorker脚本源。</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/http/">HTTP</a>
+        
+            <a href="/tags/cors/">CORS</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css"integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js"integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8"crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js"integrity="sha384-vZTG03m&#43;2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl"crossorigin="anonymous"
+                defer="true"
+                >
+            </script>
+<script>
+MathJax = {
+    tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+    },
+    options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+};
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async
+src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">相关文章</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="">
+    <a href="/p/2022/01/http%E5%A4%B4%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%E7%82%B9cache/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">HTTP头的一些知识点（Cache）</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/2022/01/pm2%E4%BB%8B%E7%BB%8D%E5%8F%8A%E4%BD%BF%E7%94%A8/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Pm2介绍及使用</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/2022/01/cron%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Cron基本用法</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/2021/11/terminal%E6%9F%A5%E7%9C%8B%E8%BF%9C%E7%A8%8B%E5%9B%BE%E7%89%87/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Terminal查看远程图片</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/2021/10/%E5%90%84%E7%B1%BBtex/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">各类“TeX”</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy;
+        
+        2021 -
+        
+        2022 MizarZ&#39;s Blog
+    </section>
+
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener"
+                data-version="3.4.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+
+        
+
+    </section>
+
+</footer>
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+        <aside class="sidebar right-sidebar sticky">
+            <section class="widget archives">
+                <div class="widget-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                </div>
+                <h2 class="widget-title section-title">目录</h2>
+                
+                <div class="widget--toc">
+                    <nav id="TableOfContents">
+  <ol>
+    <li><a href="#简介">简介</a></li>
+    <li><a href="#响应">响应</a>
+      <ol>
+        <li><a href="#access-control-allow-origin">Access-Control-Allow-Origin</a></li>
+        <li><a href="#access-control-expose-headers">Access-Control-Expose-Headers</a></li>
+        <li><a href="#access-control-max-age">Access-Control-Max-Age</a></li>
+        <li><a href="#access-control-allow-credentials">Access-Control-Allow-Credentials</a></li>
+        <li><a href="#access-control-allow-methods">Access-Control-Allow-Methods</a></li>
+        <li><a href="#access-control-allow-headers">Access-Control-Allow-Headers</a></li>
+      </ol>
+    </li>
+    <li><a href="#请求">请求</a>
+      <ol>
+        <li><a href="#origin">Origin</a></li>
+        <li><a href="#access-control-request-method">Access-Control-Request-Method</a></li>
+        <li><a href="#access-control-request-headers">Access-Control-Request-Headers</a></li>
+      </ol>
+    </li>
+  </ol>
+
+  <ol>
+    <li><a href="#简介-1">简介</a></li>
+    <li><a href="#cross-origin-resource-policy-corp">Cross-Origin-Resource-Policy (CORP)</a></li>
+    <li><a href="#cross-origin-opener-policy-coop">Cross-Origin-Opener-Policy (COOP)</a></li>
+    <li><a href="#cross-origin-embedder-policy-coep">Cross-Origin-Embedder-Policy (COEP)</a></li>
+  </ol>
+
+  <ol>
+    <li><a href="#content-security-policy">Content-Security-Policy</a></li>
+  </ol>
+</nav>
+                </div>
+            </section>
+        </aside>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

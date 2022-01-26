@@ -3,12 +3,45 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://mizarzh.github.io/categories/</loc>
-    <lastmod>2022-01-25T18:22:22+08:00</lastmod>
+    <lastmod>2022-01-26T16:15:31+08:00</lastmod>
   </url><url>
-    <loc>https://mizarzh.github.io/tags/linux/</loc>
-    <lastmod>2022-01-25T18:22:22+08:00</lastmod>
+    <loc>https://mizarzh.github.io/tags/echarts/</loc>
+    <lastmod>2022-01-26T16:15:31+08:00</lastmod>
+  </url><url>
+    <loc>https://mizarzh.github.io/p/2022/01/echarts%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</loc>
+    <lastmod>2022-01-26T16:15:31+08:00</lastmod>
+  </url><url>
+    <loc>https://mizarzh.github.io/tags/js/</loc>
+    <lastmod>2022-01-26T16:15:31+08:00</lastmod>
   </url><url>
     <loc>https://mizarzh.github.io/</loc>
+    <lastmod>2022-01-26T16:15:31+08:00</lastmod>
+  </url><url>
+    <loc>https://mizarzh.github.io/posts/</loc>
+    <lastmod>2022-01-26T16:15:31+08:00</lastmod>
+  </url><url>
+    <loc>https://mizarzh.github.io/tags/</loc>
+    <lastmod>2022-01-26T16:15:31+08:00</lastmod>
+  </url><url>
+    <loc>https://mizarzh.github.io/categories/%E7%BC%96%E7%A8%8B/</loc>
+    <lastmod>2022-01-26T16:15:31+08:00</lastmod>
+  </url><url>
+    <loc>https://mizarzh.github.io/tags/cors/</loc>
+    <lastmod>2022-01-25T20:25:37+08:00</lastmod>
+  </url><url>
+    <loc>https://mizarzh.github.io/tags/http/</loc>
+    <lastmod>2022-01-25T20:25:37+08:00</lastmod>
+  </url><url>
+    <loc>https://mizarzh.github.io/p/2022/01/http%E5%A4%B4%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%E7%82%B9cache/</loc>
+    <lastmod>2022-01-25T20:25:37+08:00</lastmod>
+  </url><url>
+    <loc>https://mizarzh.github.io/p/2022/01/http%E5%A4%B4%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%E7%82%B9corscsp/</loc>
+    <lastmod>2022-01-25T20:25:37+08:00</lastmod>
+  </url><url>
+    <loc>https://mizarzh.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/</loc>
+    <lastmod>2022-01-25T20:25:37+08:00</lastmod>
+  </url><url>
+    <loc>https://mizarzh.github.io/tags/linux/</loc>
     <lastmod>2022-01-25T18:22:22+08:00</lastmod>
   </url><url>
     <loc>https://mizarzh.github.io/tags/node/</loc>
@@ -17,25 +50,10 @@
     <loc>https://mizarzh.github.io/p/2022/01/pm2%E4%BB%8B%E7%BB%8D%E5%8F%8A%E4%BD%BF%E7%94%A8/</loc>
     <lastmod>2022-01-25T18:22:22+08:00</lastmod>
   </url><url>
-    <loc>https://mizarzh.github.io/posts/</loc>
-    <lastmod>2022-01-25T18:22:22+08:00</lastmod>
-  </url><url>
-    <loc>https://mizarzh.github.io/tags/</loc>
-    <lastmod>2022-01-25T18:22:22+08:00</lastmod>
-  </url><url>
-    <loc>https://mizarzh.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/</loc>
-    <lastmod>2022-01-25T18:22:22+08:00</lastmod>
-  </url><url>
-    <loc>https://mizarzh.github.io/tags/js/</loc>
-    <lastmod>2022-01-24T22:07:49+08:00</lastmod>
-  </url><url>
     <loc>https://mizarzh.github.io/tags/%E5%89%8D%E7%AB%AF/</loc>
     <lastmod>2022-01-24T22:07:49+08:00</lastmod>
   </url><url>
     <loc>https://mizarzh.github.io/p/2022/01/%E5%89%8D%E7%AB%AF%E4%B8%8B%E8%BD%BD%E5%8E%9F%E5%A7%8B%E5%AE%9E%E7%8E%B0/</loc>
-    <lastmod>2022-01-24T22:07:49+08:00</lastmod>
-  </url><url>
-    <loc>https://mizarzh.github.io/categories/%E7%BC%96%E7%A8%8B/</loc>
     <lastmod>2022-01-24T22:07:49+08:00</lastmod>
   </url><url>
     <loc>https://mizarzh.github.io/p/2022/01/cron%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/</loc>

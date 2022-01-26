@@ -6,7 +6,43 @@
     <description>Recent content in Tags on MizarZ&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 25 Jan 2022 18:22:22 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 26 Jan 2022 16:15:31 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Echarts</title>
+      <link>https://mizarzh.github.io/tags/echarts/</link>
+      <pubDate>Wed, 26 Jan 2022 16:15:31 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/tags/echarts/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>js</title>
+      <link>https://mizarzh.github.io/tags/js/</link>
+      <pubDate>Wed, 26 Jan 2022 16:15:31 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/tags/js/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CORS</title>
+      <link>https://mizarzh.github.io/tags/cors/</link>
+      <pubDate>Tue, 25 Jan 2022 20:25:37 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/tags/cors/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>HTTP</title>
+      <link>https://mizarzh.github.io/tags/http/</link>
+      <pubDate>Tue, 25 Jan 2022 20:25:37 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/tags/http/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>linux</title>
       <link>https://mizarzh.github.io/tags/linux/</link>
@@ -22,15 +58,6 @@
       <pubDate>Tue, 25 Jan 2022 18:22:22 +0800</pubDate>
       
       <guid>https://mizarzh.github.io/tags/node/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>js</title>
-      <link>https://mizarzh.github.io/tags/js/</link>
-      <pubDate>Mon, 24 Jan 2022 22:07:49 +0800</pubDate>
-      
-      <guid>https://mizarzh.github.io/tags/js/</guid>
       <description></description>
     </item>
     
