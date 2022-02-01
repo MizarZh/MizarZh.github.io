@@ -6,22 +6,49 @@
     <description>Recent content in Tags on MizarZ&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 26 Jan 2022 16:15:31 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 28 Jan 2022 21:47:02 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>js</title>
+      <link>https://mizarzh.github.io/tags/js/</link>
+      <pubDate>Fri, 28 Jan 2022 21:47:02 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/tags/js/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>electron</title>
+      <link>https://mizarzh.github.io/tags/electron/</link>
+      <pubDate>Fri, 28 Jan 2022 21:46:31 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/tags/electron/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>matplotlib</title>
+      <link>https://mizarzh.github.io/tags/matplotlib/</link>
+      <pubDate>Wed, 26 Jan 2022 19:56:47 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/tags/matplotlib/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>python</title>
+      <link>https://mizarzh.github.io/tags/python/</link>
+      <pubDate>Wed, 26 Jan 2022 19:56:47 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/tags/python/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Echarts</title>
       <link>https://mizarzh.github.io/tags/echarts/</link>
       <pubDate>Wed, 26 Jan 2022 16:15:31 +0800</pubDate>
       
       <guid>https://mizarzh.github.io/tags/echarts/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>js</title>
-      <link>https://mizarzh.github.io/tags/js/</link>
-      <pubDate>Wed, 26 Jan 2022 16:15:31 +0800</pubDate>
-      
-      <guid>https://mizarzh.github.io/tags/js/</guid>
       <description></description>
     </item>
     
@@ -229,15 +256,6 @@
       <pubDate>Sun, 10 Jan 2021 20:54:39 +0800</pubDate>
       
       <guid>https://mizarzh.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>python</title>
-      <link>https://mizarzh.github.io/tags/python/</link>
-      <pubDate>Sat, 04 Jul 2020 16:49:29 +0800</pubDate>
-      
-      <guid>https://mizarzh.github.io/tags/python/</guid>
       <description></description>
     </item>
     

@@ -6,7 +6,352 @@
         <description>Recent content on MizarZ&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Wed, 26 Jan 2022 16:15:31 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 28 Jan 2022 21:47:02 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Js的模块系统以及其零碎知识</title>
+        <link>https://mizarzh.github.io/p/2022/01/js%E7%9A%84%E6%A8%A1%E5%9D%97%E7%B3%BB%E7%BB%9F%E4%BB%A5%E5%8F%8A%E5%85%B6%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86/</link>
+        <pubDate>Fri, 28 Jan 2022 21:47:02 +0800</pubDate>
+        
+        <guid>https://mizarzh.github.io/p/2022/01/js%E7%9A%84%E6%A8%A1%E5%9D%97%E7%B3%BB%E7%BB%9F%E4%BB%A5%E5%8F%8A%E5%85%B6%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86/</guid>
+        <description>&lt;h2 id=&#34;原始状态&#34;&gt;原始状态&lt;/h2&gt;
+&lt;p&gt;可以引入多个文件：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;script&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;src&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;./index.js&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;script&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;src&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;./app.js&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;但是就算这么引入，也是全都在全局环境的：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;fn1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;...&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+    
+&lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;fn2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;...&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;会造成全局环境污染&lt;/p&gt;
+&lt;h2 id=&#34;使用对象&#34;&gt;使用对象&lt;/h2&gt;
+&lt;p&gt;我们可以使用不同的对象写成模块：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;kd&#34;&gt;var&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;module&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;nx&#34;&gt;fn1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;p&#34;&gt;...&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;},&lt;/span&gt;
+    &lt;span class=&#34;nx&#34;&gt;fn2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;p&#34;&gt;...&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;nx&#34;&gt;module&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;fn1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;但内部的私有变量会暴露。&lt;/p&gt;
+&lt;h2 id=&#34;iife&#34;&gt;IIFE&lt;/h2&gt;
+&lt;p&gt;立即表达式&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;kd&#34;&gt;var&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;module&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;kd&#34;&gt;var&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;fn1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;p&#34;&gt;...&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+    &lt;span class=&#34;kd&#34;&gt;var&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;someValue&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;nx&#34;&gt;fn1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;fn1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+        &lt;span class=&#34;nx&#34;&gt;someValue&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;someValue&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;})();&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这样内部的值就不会被修改。&lt;/p&gt;
+&lt;h2 id=&#34;amd&#34;&gt;AMD&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;nx&#34;&gt;define&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;id&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;dependencies&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;factory&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;nx&#34;&gt;define&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;module&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;require&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;exports&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;other&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;],&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;require&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;exports&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;other&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+   	&lt;span class=&#34;nx&#34;&gt;require&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;other&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;someFunc&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+    &lt;span class=&#34;nx&#34;&gt;exports&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;fn1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;p&#34;&gt;...&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;})&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;已过时&lt;/p&gt;
+&lt;h2 id=&#34;umd&#34;&gt;UMD&lt;/h2&gt;
+&lt;p&gt;一个通用化的模块系统。是 AMD 和 CJS 的结合体，为了解决这两种不同模块系统之间相互使用的问题。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;root&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;factory&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;typeof&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;define&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;===&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;function&amp;#39;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;define&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;amd&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;c1&#34;&gt;// AMD. Register as an anonymous module.
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;nx&#34;&gt;define&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;b&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;],&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;factory&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;typeof&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;module&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;===&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;object&amp;#39;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;module&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;exports&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;c1&#34;&gt;// Node. Does not work with strict CommonJS, but
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;c1&#34;&gt;// only CommonJS-like environments that support module.exports,
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;c1&#34;&gt;// like Node.
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;nx&#34;&gt;module&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;exports&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;factory&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;require&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;b&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;));&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;c1&#34;&gt;// Browser globals (root is window)
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;nx&#34;&gt;root&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;returnExports&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;factory&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;root&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;//use b in some fashion.
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;// Just return a value to define the module export.
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;c1&#34;&gt;// This example returns an object, but the module
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;c1&#34;&gt;// can return a function as the exported value.
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{}&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}));&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;cjs-commonjs&#34;&gt;CJS (CommonJS)&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;someModule&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;require&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;someModule&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// 全部导入
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;someValue&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;require&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;someModule&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// 解构，即部分导入
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;nx&#34;&gt;require&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;someModule&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// promise
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;nx&#34;&gt;module&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;exports&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;someModule&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// 默认导出
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;module&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;exports&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;someValue&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;someValue&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// 导出 someValue 值
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;esm-ecmascript-module&#34;&gt;ESM (ECMAScript Module)&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;kr&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;someModule&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;someModule&amp;#39;&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// 全部导入
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kr&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;someValue&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;someModule&amp;#39;&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// 解构，即部分导入
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;kr&#34;&gt;import&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;someModule&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// promise
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;kr&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;default&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;someValue&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// 默认导出
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kr&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;someValue&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// 导出 someValue 值
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;可以在 html 中将 &lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt; 增加一个属性：&lt;code&gt;&amp;lt;script type=&amp;quot;module&amp;quot;&amp;gt;&lt;/code&gt;，浏览器就能识别这是一个 es6 模块。&lt;/p&gt;
+&lt;h2 id=&#34;文件格式的问题&#34;&gt;文件格式的问题&lt;/h2&gt;
+&lt;p&gt;由于 CJS 在 node 上的广泛应用和 ESM 成为 ES6 标准的一部分，目前这两个模块系统都在使用。&lt;/p&gt;
+&lt;p&gt;有时候会使用文件名来区分这两种文件系统：&lt;/p&gt;
+&lt;p&gt;CJS: &lt;code&gt;.cjs&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;ESM: &lt;code&gt;.mjs&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;在文件识别时，会识别相应的内容。而对于没有区分的 &lt;code&gt;.js&lt;/code&gt; 文件，则按照自己使用的模块系统来识别。&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;使用 cjs：
+.cjs -&amp;gt; cjs
+.js  -&amp;gt; cjs
+.mjs -&amp;gt; esm
+使用 esm:
+.cjs -&amp;gt; cjs
+.js  -&amp;gt; esm
+.mjs -&amp;gt; esm
+&lt;/code&gt;&lt;/pre&gt;</description>
+        </item>
+        <item>
+        <title>Electron基本介绍</title>
+        <link>https://mizarzh.github.io/p/2022/01/electron%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D/</link>
+        <pubDate>Fri, 28 Jan 2022 21:46:31 +0800</pubDate>
+        
+        <guid>https://mizarzh.github.io/p/2022/01/electron%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D/</guid>
+        <description>&lt;h2 id=&#34;简介&#34;&gt;简介&lt;/h2&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.electronjs.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;electron&lt;/a&gt; 是一个使用 JavaScript、HTML 和 CSS 构建桌面应用程序的框架。 嵌入 &lt;a class=&#34;link&#34; href=&#34;https://www.chromium.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Chromium&lt;/a&gt; 和 &lt;a class=&#34;link&#34; href=&#34;https://nodejs.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Node.js&lt;/a&gt; 到 二进制的 Electron 允许您保持一个 JavaScript 代码代码库并创建 在Windows上运行的跨平台应用 macOS和Linux——不需要本地开发经验。&lt;/p&gt;
+&lt;p&gt;基本依赖：&lt;code&gt;node, npm&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 创建程序&lt;/span&gt;
+mkdir my-electron-app &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; my-electron-app
+npm init &lt;span class=&#34;c1&#34;&gt;# 在这里的 entry point 应为 main.js&lt;/span&gt;
+
+&lt;span class=&#34;c1&#34;&gt;# 安装 electron&lt;/span&gt;
+npm install --save-dev electron
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在 scripts 字段下增加：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;nt&#34;&gt;&amp;#34;scripts&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;nt&#34;&gt;&amp;#34;start&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;electron .&amp;#34;&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;electron-的结构&#34;&gt;electron 的结构&lt;/h2&gt;
+&lt;p&gt;electron 的结构分为三部分：&lt;code&gt;main, preload, renderer&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;electron 由于使用了 Chromium，其内部构造也和浏览器很相似：&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	
+		class=&#34;gallery-image&#34; 
+		style=&#34;
+			flex-grow: 429; 
+			flex-basis: 1031px&#34;
+	&gt;
+	&lt;a href=&#34;https://mizarzh.github.io/p/2022/01/electron%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D/chromium.png&#34; data-size=&#34;593x138&#34;&gt;
+		&lt;img src=&#34;https://mizarzh.github.io/p/2022/01/electron%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D/chromium.png&#34;
+			width=&#34;593&#34;
+			height=&#34;138&#34;
+			srcset=&#34;https://mizarzh.github.io/p/2022/01/electron%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D/chromium_hu64828677bfe6a108f7291dc4979ecfe6_55414_480x0_resize_box_3.png 480w, https://mizarzh.github.io/p/2022/01/electron%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D/chromium_hu64828677bfe6a108f7291dc4979ecfe6_55414_1024x0_resize_box_3.png 1024w&#34;
+			loading=&#34;lazy&#34;
+			&gt;
+	&lt;/a&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;1、&lt;code&gt;main&lt;/code&gt; 相当于浏览器本身，因此一个应用一次只能用一个 &lt;code&gt;main&lt;/code&gt; 在运行。&lt;/p&gt;
+&lt;p&gt;它具有使用 require 模块和 nodejs API 的能力。&lt;/p&gt;
+&lt;p&gt;整个 electron 项目的入口也是它。&lt;/p&gt;
+&lt;p&gt;2、&lt;code&gt;renderer&lt;/code&gt; 相当于各个页面，浏览器可以打开多个 tab 表名可以存在多个页面。&lt;/p&gt;
+&lt;p&gt;渲染器进程就像网页，无法直接使用 nodejs API。&lt;/p&gt;
+&lt;p&gt;入口是 &lt;code&gt;index.html&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;3、&lt;code&gt;preload&lt;/code&gt; 是在 &lt;code&gt;renderer&lt;/code&gt; 加载前加载的进程，可以暴露部分 &lt;code&gt;renderer&lt;/code&gt; 不允许使用的 API，或为 &lt;code&gt;renderer&lt;/code&gt; 提前设置环境。&lt;/p&gt;
+&lt;p&gt;建议文件架构中就将这三个模块放到三个文件夹中，或者将 &lt;code&gt;main&lt;/code&gt; 和 &lt;code&gt;preload&lt;/code&gt; 将 &lt;code&gt;renderer&lt;/code&gt; 分离开来。&lt;/p&gt;
+&lt;p&gt;接下来将讲解一些重要方法。&lt;/p&gt;
+&lt;h2 id=&#34;main&#34;&gt;main&lt;/h2&gt;
+&lt;p&gt;两个重要的模块：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;app&lt;/code&gt;：控制应用程序的生命周期&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;BrowserWindow&lt;/code&gt;：创建和管理应用程序窗口。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;nx&#34;&gt;app&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;on&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(...)&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// 在窗口在某些情况下会触发什么函数
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;// BrowserWindow 的用法
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;createWindow&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;win&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;BrowserWindow&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;({&lt;/span&gt;
+    &lt;span class=&#34;nx&#34;&gt;width&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;800&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+    &lt;span class=&#34;nx&#34;&gt;height&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;600&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;})&lt;/span&gt;
+
+  &lt;span class=&#34;nx&#34;&gt;win&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;loadFile&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;index.html&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// 加载渲染器进程
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;要加载 &lt;code&gt;preload&lt;/code&gt; 脚本，要在 &lt;code&gt;BrowserWindow&lt;/code&gt; 的 &lt;code&gt;webPreferences&lt;/code&gt; 选项中加上一项：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;createWindow&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;win&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;BrowserWindow&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;({&lt;/span&gt;
+    &lt;span class=&#34;nx&#34;&gt;width&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;800&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+    &lt;span class=&#34;nx&#34;&gt;height&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;600&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+    &lt;span class=&#34;nx&#34;&gt;webPreferences&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+      &lt;span class=&#34;nx&#34;&gt;preload&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;path&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;join&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;__&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;dirname&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;preload.js&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;})&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;主进程有各种各样的配置，建议查看官方的模板或 github 上适应各种情况的模板。&lt;/p&gt;
+&lt;h2 id=&#34;preload&#34;&gt;preload&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;preload&lt;/code&gt; 相当于 &lt;code&gt;main&lt;/code&gt;  和 &lt;code&gt;renderer&lt;/code&gt; 之间的桥梁。&lt;/p&gt;
+&lt;p&gt;设置事件：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;nb&#34;&gt;window&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;addEventListener&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;DOMContentLoaded&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;  &lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;...&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;})&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;通信：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;contextBridge&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;require&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;electron&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;nx&#34;&gt;contextBridge&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;exposeInMainWorld&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;myAPI&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;nx&#34;&gt;desktop&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;})&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// renderer.js
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;console&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;log&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;window&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;myAPI&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// {desktop: true}
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;renderer&#34;&gt;renderer&lt;/h2&gt;
+&lt;p&gt;在 &lt;code&gt;index.html&lt;/code&gt; 中加上：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;script&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;src&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;./renderer.js&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;script&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;即算加入了渲染器进程（就把他们当作普通的网页看待就好）&lt;/p&gt;
+&lt;p&gt;渲染进程中的 &lt;code&gt;ipcRenderer &lt;/code&gt;方法可以用于进程间的事件通信。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// 渲染进程
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;ipcRenderer&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;invoke&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;some-name&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;someArgument&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;then&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;((&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;result&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;c1&#34;&gt;// ...
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;})&lt;/span&gt;
+
+&lt;span class=&#34;c1&#34;&gt;// 主进程
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;ipcMain&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;handle&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;some-name&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kr&#34;&gt;async&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;event&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;someArgument&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;result&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kr&#34;&gt;await&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;doSomeWork&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;someArgument&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;result&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;})&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+        </item>
+        <item>
+        <title>Matplotlib 速查表</title>
+        <link>https://mizarzh.github.io/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/</link>
+        <pubDate>Wed, 26 Jan 2022 19:56:47 +0800</pubDate>
+        
+        <guid>https://mizarzh.github.io/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/</guid>
+        <description>&lt;h2 id=&#34;官方速查&#34;&gt;官方速查&lt;/h2&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/matplotlib/cheatsheets&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;GitHub - matplotlib/cheatsheets: Official Matplotlib cheat sheets&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	
+		class=&#34;gallery-image&#34; 
+		style=&#34;
+			flex-grow: 141; 
+			flex-basis: 339px&#34;
+	&gt;
+	&lt;a href=&#34;https://mizarzh.github.io/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/cheatsheet1.png&#34; data-size=&#34;1754x1240&#34;&gt;
+		&lt;img src=&#34;https://mizarzh.github.io/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/cheatsheet1.png&#34;
+			width=&#34;1754&#34;
+			height=&#34;1240&#34;
+			srcset=&#34;https://mizarzh.github.io/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/cheatsheet1_hu836356118c12b6842b50af95c4f1ace2_424598_480x0_resize_box_3.png 480w, https://mizarzh.github.io/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/cheatsheet1_hu836356118c12b6842b50af95c4f1ace2_424598_1024x0_resize_box_3.png 1024w&#34;
+			loading=&#34;lazy&#34;
+			alt=&#34;cheatsheet1&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;cheatsheet1&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	
+		class=&#34;gallery-image&#34; 
+		style=&#34;
+			flex-grow: 141; 
+			flex-basis: 339px&#34;
+	&gt;
+	&lt;a href=&#34;https://mizarzh.github.io/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/cheatsheet2.png&#34; data-size=&#34;1754x1240&#34;&gt;
+		&lt;img src=&#34;https://mizarzh.github.io/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/cheatsheet2.png&#34;
+			width=&#34;1754&#34;
+			height=&#34;1240&#34;
+			srcset=&#34;https://mizarzh.github.io/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/cheatsheet2_hu836356118c12b6842b50af95c4f1ace2_428109_480x0_resize_box_3.png 480w, https://mizarzh.github.io/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/cheatsheet2_hu836356118c12b6842b50af95c4f1ace2_428109_1024x0_resize_box_3.png 1024w&#34;
+			loading=&#34;lazy&#34;
+			alt=&#34;cheatsheet2&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;cheatsheet2&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;操作指南：&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	
+		class=&#34;gallery-image&#34; 
+		style=&#34;
+			flex-grow: 141; 
+			flex-basis: 339px&#34;
+	&gt;
+	&lt;a href=&#34;https://mizarzh.github.io/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/handout1.png&#34; data-size=&#34;1754x1240&#34;&gt;
+		&lt;img src=&#34;https://mizarzh.github.io/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/handout1.png&#34;
+			width=&#34;1754&#34;
+			height=&#34;1240&#34;
+			srcset=&#34;https://mizarzh.github.io/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/handout1_hu836356118c12b6842b50af95c4f1ace2_230256_480x0_resize_box_3.png 480w, https://mizarzh.github.io/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/handout1_hu836356118c12b6842b50af95c4f1ace2_230256_1024x0_resize_box_3.png 1024w&#34;
+			loading=&#34;lazy&#34;
+			alt=&#34;handout1&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;handout1&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	
+		class=&#34;gallery-image&#34; 
+		style=&#34;
+			flex-grow: 141; 
+			flex-basis: 339px&#34;
+	&gt;
+	&lt;a href=&#34;https://mizarzh.github.io/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/handout2.png&#34; data-size=&#34;1754x1240&#34;&gt;
+		&lt;img src=&#34;https://mizarzh.github.io/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/handout2.png&#34;
+			width=&#34;1754&#34;
+			height=&#34;1240&#34;
+			srcset=&#34;https://mizarzh.github.io/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/handout2_hu836356118c12b6842b50af95c4f1ace2_260038_480x0_resize_box_3.png 480w, https://mizarzh.github.io/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/handout2_hu836356118c12b6842b50af95c4f1ace2_260038_1024x0_resize_box_3.png 1024w&#34;
+			loading=&#34;lazy&#34;
+			alt=&#34;handout2&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;handout2&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	
+		class=&#34;gallery-image&#34; 
+		style=&#34;
+			flex-grow: 141; 
+			flex-basis: 339px&#34;
+	&gt;
+	&lt;a href=&#34;https://mizarzh.github.io/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/handout3.png&#34; data-size=&#34;1754x1240&#34;&gt;
+		&lt;img src=&#34;https://mizarzh.github.io/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/handout3.png&#34;
+			width=&#34;1754&#34;
+			height=&#34;1240&#34;
+			srcset=&#34;https://mizarzh.github.io/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/handout3_hu836356118c12b6842b50af95c4f1ace2_206600_480x0_resize_box_3.png 480w, https://mizarzh.github.io/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/handout3_hu836356118c12b6842b50af95c4f1ace2_206600_1024x0_resize_box_3.png 1024w&#34;
+			loading=&#34;lazy&#34;
+			alt=&#34;handout3&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;handout3&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;h2 id=&#34;风格速查&#34;&gt;风格速查&lt;/h2&gt;
+&lt;p&gt;&lt;figure 
+	
+		class=&#34;gallery-image&#34; 
+		style=&#34;
+			flex-grow: 141; 
+			flex-basis: 339px&#34;
+	&gt;
+	&lt;a href=&#34;https://mizarzh.github.io/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/matplotlib-cheatsheet.png&#34; data-size=&#34;4960x3507&#34;&gt;
+		&lt;img src=&#34;https://mizarzh.github.io/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/matplotlib-cheatsheet.png&#34;
+			width=&#34;4960&#34;
+			height=&#34;3507&#34;
+			srcset=&#34;https://mizarzh.github.io/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/matplotlib-cheatsheet_hu2684437d2f30aaac6b819e7acf86423a_2790488_480x0_resize_box_3.png 480w, https://mizarzh.github.io/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/matplotlib-cheatsheet_hu2684437d2f30aaac6b819e7acf86423a_2790488_1024x0_resize_box_3.png 1024w&#34;
+			loading=&#34;lazy&#34;
+			alt=&#34;风格&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;风格&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;待补充……&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>Echarts基本使用</title>
         <link>https://mizarzh.github.io/p/2022/01/echarts%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</link>
         <pubDate>Wed, 26 Jan 2022 16:15:31 +0800</pubDate>

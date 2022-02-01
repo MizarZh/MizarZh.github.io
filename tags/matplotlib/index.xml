@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>matplotlib on MizarZ&#39;s Blog</title>
+    <link>https://mizarzh.github.io/tags/matplotlib/</link>
+    <description>Recent content in matplotlib on MizarZ&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 26 Jan 2022 19:56:47 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/tags/matplotlib/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Matplotlib 速查表</title>
+      <link>https://mizarzh.github.io/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/</link>
+      <pubDate>Wed, 26 Jan 2022 19:56:47 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/</guid>
+      <description>官方速查 GitHub - matplotlib/cheatsheets: Official Matplotlib cheat sheets cheatsheet1 cheatsheet2 操作指南： handout1 handout2 handout3 风格速查 风格 待补充……</description>
+    </item>
+    
+  </channel>
+</rss>

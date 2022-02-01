@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>electron on MizarZ&#39;s Blog</title>
+    <link>https://mizarzh.github.io/tags/electron/</link>
+    <description>Recent content in electron on MizarZ&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 28 Jan 2022 21:46:31 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/tags/electron/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Electron基本介绍</title>
+      <link>https://mizarzh.github.io/p/2022/01/electron%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D/</link>
+      <pubDate>Fri, 28 Jan 2022 21:46:31 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2022/01/electron%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D/</guid>
+      <description>简介 electron 是一个使用 JavaScript、HTML 和 CSS 构建桌面应用程序的框架。 嵌入 Chromium 和 Node.js 到 二进制的 Electron 允许您保持一个 JavaScript 代码代码库并创建 在Windo</description>
+    </item>
+    
+  </channel>
+</rss>
