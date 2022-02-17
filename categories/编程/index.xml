@@ -6,7 +6,25 @@
     <description>Recent content in 编程 on MizarZ&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 28 Jan 2022 21:47:02 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/categories/%E7%BC%96%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 16 Feb 2022 18:37:26 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/categories/%E7%BC%96%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Svg笔记</title>
+      <link>https://mizarzh.github.io/p/2022/02/svg%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Wed, 16 Feb 2022 18:37:26 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2022/02/svg%E7%AC%94%E8%AE%B0/</guid>
+      <description>简介 SVG 是一种 XML 语言，可以用来绘制矢量图形。 一些注意的点： SVG的元素和属性必须按标准格式书写，因为XML是区分大小写的（这一点和HTML不同</description>
+    </item>
+    
+    <item>
+      <title>Canvas笔记</title>
+      <link>https://mizarzh.github.io/p/2022/02/canvas%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Tue, 15 Feb 2022 19:14:10 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2022/02/canvas%E7%AC%94%E8%AE%B0/</guid>
+      <description>基本用法 html 写法： &amp;lt;canvas id=&amp;#34;canvas&amp;#34; width=&amp;#34;150&amp;#34; height=&amp;#34;150&amp;#34;&amp;gt;&amp;lt;/canvas&amp;gt; 渲染上下文，可以用来绘制想要的内容。传统意义上说的 canvas 的渲染上下文叫做 2d，而 WebGL 的渲染上下文叫做 webgl let canvas = document.getElementById(&amp;#39;canvas&amp;#39;); let ctx = canvas.getContext(&amp;#39;2d&amp;#39;); 绘制</description>
+    </item>
+    
     <item>
       <title>Js的模块系统以及其零碎知识</title>
       <link>https://mizarzh.github.io/p/2022/01/js%E7%9A%84%E6%A8%A1%E5%9D%97%E7%B3%BB%E7%BB%9F%E4%BB%A5%E5%8F%8A%E5%85%B6%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86/</link>
