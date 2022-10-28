@@ -184,18 +184,18 @@ W [日期] 指定距离每个月第几天最近的工作日。如 1W 指定的�
 <p>cron 权限：</p>
 <p><strong>/etc/cron.allow</strong> 存在，那么就允许其中的用户创建计划表。<strong>/etc/cron.deny</strong> 存在，就阻止。</p>
 <p>node 中使用 cron：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">npm install cron
-</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">cron</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;node-cron&#39;</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">job</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CronJob</span><span class="p">(</span>
-	<span class="s1">&#39;* * * * * *&#39;</span><span class="p">,</span>
-	<span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;You will see this message every second&#39;</span><span class="p">);</span>
-	<span class="p">},</span>
-	<span class="kc">null</span><span class="p">,</span>
-	<span class="kc">true</span><span class="p">,</span>
-	<span class="s1">&#39;America/Los_Angeles&#39;</span>
-<span class="p">);</span>
-</code></pre></div><p>文档见：<a class="link" href="https://github.com/kelektiv/node-cron"  target="_blank" rel="noopener"
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">npm install cron
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">cron</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;node-cron&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">job</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CronJob</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="s1">&#39;* * * * * *&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;You will see this message every second&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="p">},</span>
+</span></span><span class="line"><span class="cl">	<span class="kc">null</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="s1">&#39;America/Los_Angeles&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="p">);</span>
+</span></span></code></pre></div><p>文档见：<a class="link" href="https://github.com/kelektiv/node-cron"  target="_blank" rel="noopener"
     >node-cron</a>。</p>
 
 </section>
@@ -278,6 +278,18 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
                 
                     
 <article class="">
+    <a href="/p/2022/02/docker%E4%BB%8B%E7%BB%8D/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Docker介绍</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
     <a href="/p/2022/01/http%E5%A4%B4%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%E7%82%B9corscsp/">
         
         
@@ -308,18 +320,6 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
 
         <div class="article-details">
             <h2 class="article-title">Terminal查看远程图片</h2>
-        </div>
-    </a>
-</article>
-                
-                    
-<article class="">
-    <a href="/p/2021/10/%E5%90%84%E7%B1%BBtex/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">各类“TeX”</h2>
         </div>
     </a>
 </article>

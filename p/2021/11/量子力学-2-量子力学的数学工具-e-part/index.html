@@ -183,7 +183,7 @@ $$</p>
 <p>因为我们常用的表象是 ${\ket {r}}$，因此我们接下来研究 $P$ 算符如何作用在 ${\ket {r}}$ 表象中：</p>
 <p>$$
 \begin{aligned}
-\left\langle\boldsymbol{r}\left|P_{x}\right| \psi\right\rangle &amp;=\int \mathrm{d}^{3} p\langle\boldsymbol{r} \mid \boldsymbol{p}\rangle\left\langle\boldsymbol{p}\left|P_{x}\right| \psi\right\rangle \<br>
+\left\langle\boldsymbol{r}\left|P_{x}\right| \psi\right\rangle &amp;=\int \mathrm{d}^{3} p\langle\boldsymbol{r} \mid \boldsymbol{p}\rangle\left\langle\boldsymbol{p}\left|P_{x}\right| \psi\right\rangle \
 &amp;=(2 \pi \hbar)^{-3 / 2} \int \mathrm{d}^{3} p \mathrm{e}^{\frac{\mathrm{i}}{\hbar} \boldsymbol{p} \cdot \boldsymbol{r}} p_{x} \bar{\psi}(\boldsymbol{p}) \nl
 &amp;= \frac{\hbar}{i}\frac{\par}{\par x}\psi(\bl r)\qquad \text{(傅里叶逆变换)}
 \end{aligned}
@@ -195,9 +195,9 @@ $$</p>
 <p>可以计算它们的对易子：</p>
 <p>$$
 \begin{aligned}
-\left\langle\boldsymbol{r}\left|\left[X, P_{x}\right]\right| \psi\right\rangle &amp;=\left\langle\boldsymbol{r}\left|\left(X P_{x}-P_{x} X\right)\right| \psi\right\rangle \<br>
-&amp;=x\left\langle\boldsymbol{r}\left|P_{x}\right| \psi\right\rangle-\frac{\hbar}{\mathrm{i}} \frac{\partial}{\partial x}\langle\boldsymbol{r}|X| \psi\rangle \<br>
-&amp;=\frac{\hbar}{\mathrm{i}} x \frac{\partial}{\partial x}\langle\boldsymbol{r} \mid \psi\rangle-\frac{\hbar}{\mathrm{i}} \frac{\partial}{\partial x} x\langle\boldsymbol{r} \mid \psi\rangle \<br>
+\left\langle\boldsymbol{r}\left|\left[X, P_{x}\right]\right| \psi\right\rangle &amp;=\left\langle\boldsymbol{r}\left|\left(X P_{x}-P_{x} X\right)\right| \psi\right\rangle \
+&amp;=x\left\langle\boldsymbol{r}\left|P_{x}\right| \psi\right\rangle-\frac{\hbar}{\mathrm{i}} \frac{\partial}{\partial x}\langle\boldsymbol{r}|X| \psi\rangle \
+&amp;=\frac{\hbar}{\mathrm{i}} x \frac{\partial}{\partial x}\langle\boldsymbol{r} \mid \psi\rangle-\frac{\hbar}{\mathrm{i}} \frac{\partial}{\partial x} x\langle\boldsymbol{r} \mid \psi\rangle \
 &amp;=\mathrm{i} \hbar\langle\boldsymbol{r} \mid \psi\rangle
 \end{aligned}
 $$</p>
@@ -228,10 +228,10 @@ $$</p>
 <p>$P_x$：</p>
 <p>$$
 \begin{aligned}
-\left\langle\varphi\left|P_{x}\right| \psi\right\rangle &amp;=\frac{\hbar}{\mathrm{i}} \int \mathrm{d} y \mathrm{~d} z \int_{-\infty}^{+\infty} \mathrm{d} x \varphi^{*}(\boldsymbol{r}) \frac{\partial}{\partial x} \psi(\boldsymbol{r}) \<br>
-&amp;=\frac{\hbar}{\mathrm{i}} \int \mathrm{d} y \mathrm{~d} z\left{\left[\varphi^{*}(\boldsymbol{r}) \psi(\boldsymbol{r})\right]_{x=-\infty}^{x=+\infty}-\int_{-\infty}^{+\infty} \mathrm{d} x \psi(\boldsymbol{r}) \frac{\partial}{\partial x} \varphi^{*}(\boldsymbol{r})\right}\nl
-&amp;=-\frac{\hbar}{\mathrm{i}} \int \mathrm{d}^{3} r \psi(\boldsymbol{r}) \frac{\partial}{\partial x} \varphi^{*}(\boldsymbol{r}) \<br>
-&amp;=\left[\frac{\hbar}{\mathrm{i}} \int \mathrm{d}^{3} r \psi^{*}(\boldsymbol{r}) \frac{\partial}{\partial x} \varphi(\boldsymbol{r})\right]^{*} \<br>
+\left\langle\varphi\left|P_{x}\right| \psi\right\rangle &amp;=\frac{\hbar}{\mathrm{i}} \int \mathrm{d} y \mathrm{~d} z \int_{-\infty}^{+\infty} \mathrm{d} x \varphi^{<em>}(\boldsymbol{r}) \frac{\partial}{\partial x} \psi(\boldsymbol{r}) \
+&amp;=\frac{\hbar}{\mathrm{i}} \int \mathrm{d} y \mathrm{~d} z\left{\left[\varphi^{</em>}(\boldsymbol{r}) \psi(\boldsymbol{r})\right]<em>{x=-\infty}^{x=+\infty}-\int</em>{-\infty}^{+\infty} \mathrm{d} x \psi(\boldsymbol{r}) \frac{\partial}{\partial x} \varphi^{<em>}(\boldsymbol{r})\right}\nl
+&amp;=-\frac{\hbar}{\mathrm{i}} \int \mathrm{d}^{3} r \psi(\boldsymbol{r}) \frac{\partial}{\partial x} \varphi^{</em>}(\boldsymbol{r}) \
+&amp;=\left[\frac{\hbar}{\mathrm{i}} \int \mathrm{d}^{3} r \psi^{<em>}(\boldsymbol{r}) \frac{\partial}{\partial x} \varphi(\boldsymbol{r})\right]^{</em>} \
 &amp;=\left\langle\psi\left|P_{x}\right| \varphi\right\rangle^{*}
 \end{aligned}
 $$</p>
@@ -321,6 +321,30 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
                 
                     
 <article class="">
+    <a href="/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-11-%E5%AE%9A%E6%80%81%E5%BE%AE%E6%89%B0%E7%90%86%E8%AE%BA/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">[量子力学] 11 定态微扰理论</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-9-%E7%94%B5%E5%AD%90%E7%9A%84%E8%87%AA%E6%97%8B-ab-part/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">[量子力学] 9 电子的自旋 AB part</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
     <a href="/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-9-%E7%94%B5%E5%AD%90%E7%9A%84%E8%87%AA%E6%97%8B/">
         
         
@@ -351,30 +375,6 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
 
         <div class="article-details">
             <h2 class="article-title">[量子力学] 7 中心势场的粒子；氢原子 B part</h2>
-        </div>
-    </a>
-</article>
-                
-                    
-<article class="">
-    <a href="/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-7-%E4%B8%AD%E5%BF%83%E5%8A%BF%E5%9C%BA%E7%9A%84%E7%B2%92%E5%AD%90%E6%B0%A2%E5%8E%9F%E5%AD%90-a-part/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">[量子力学] 7 中心势场的粒子；氢原子 A part</h2>
-        </div>
-    </a>
-</article>
-                
-                    
-<article class="">
-    <a href="/p/2021/12/%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6-6-%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6%E4%B8%AD%E8%A7%92%E5%8A%A8%E9%87%8F%E7%9A%84%E6%99%AE%E9%81%8D%E6%80%A7%E8%B4%A8-d-part/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">[量子力学] 6 量子力学中角动量的普遍性质 D part</h2>
         </div>
     </a>
 </article>

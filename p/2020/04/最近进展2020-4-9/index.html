@@ -106,8 +106,8 @@
     <section class="article-content">
     <h2 id="wincmd脚本">wincmd脚本</h2>
 <h2 id="ffmpeg">ffmpeg</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">ffmpeg -ss 00:00:00 -t 00:00:03.000 -i <span class="s2">&#34;x.wav&#34;</span> -filter_complex <span class="nv">afade</span><span class="o">=</span><span class="nv">t</span><span class="o">=</span>out:st<span class="o">=</span>1:d<span class="o">=</span><span class="m">2</span> <span class="s2">&#34;y.wav&#34;</span>
-</code></pre></div><p>-filter_complex afade=t=out:st=1:d=2 代表从1s开始淡出，持续2s</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ffmpeg -ss 00:00:00 -t 00:00:03.000 -i <span class="s2">&#34;x.wav&#34;</span> -filter_complex <span class="nv">afade</span><span class="o">=</span><span class="nv">t</span><span class="o">=</span>out:st<span class="o">=</span>1:d<span class="o">=</span><span class="m">2</span> <span class="s2">&#34;y.wav&#34;</span>
+</span></span></code></pre></div><p>-filter_complex afade=t=out:st=1:d=2 代表从1s开始淡出，持续2s</p>
 <!-- raw HTML omitted -->
 <h2 id="js">js</h2>
 <h3 id="文件读取">文件读取</h3>
@@ -119,137 +119,137 @@
 <p>首先调用astropy的solar_system_ephemeris.set(&lsquo;jpl&rsquo;)，从jpl处下载数据
 然后使用astropy.coordinates中的get_moon()和get_sun()函数获取日月的RA、DEC、distance
 先找到满月的第一个点，然后取下一次时间时增加一个朔望月周期，并在其周围(-1.2,1.2,0.1)进行校正，矫正次数记录在err.txt，因此这种计算的误差为+-0.05d</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">astropy</span> <span class="kn">import</span> <span class="n">units</span> <span class="k">as</span> <span class="n">u</span>
-<span class="kn">from</span> <span class="nn">astropy.time</span> <span class="kn">import</span> <span class="n">Time</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">astropy.coordinates</span> <span class="kn">import</span> <span class="n">solar_system_ephemeris</span>
-<span class="kn">from</span> <span class="nn">astropy.coordinates</span> <span class="kn">import</span> <span class="n">get_moon</span><span class="p">,</span> <span class="n">get_sun</span>
-<span class="n">x</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;datafull.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;datanew.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
-<span class="n">z</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;err.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
-<span class="n">jds</span> <span class="o">=</span> <span class="n">Time</span><span class="p">(</span><span class="s1">&#39;1900-01-15T19:12:00.000&#39;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;isot&#39;</span><span class="p">,</span>
-           <span class="n">scale</span><span class="o">=</span><span class="s1">&#39;tdb&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">jd</span>
-<span class="n">jds2</span> <span class="o">=</span> <span class="n">Time</span><span class="p">(</span><span class="s1">&#39;1900-01-01T14:24:00.000&#39;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;isot&#39;</span><span class="p">,</span>
-            <span class="n">scale</span><span class="o">=</span><span class="s1">&#39;tdb&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">jd</span>
-<span class="n">jde</span> <span class="o">=</span> <span class="n">Time</span><span class="p">(</span><span class="s1">&#39;2100-01-01T00:00:00&#39;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;isot&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="s1">&#39;tdb&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">jd</span>  <span class="c1"># 2488069.5</span>
-
-<span class="n">circle</span> <span class="o">=</span> <span class="mf">29.53059</span>      <span class="c1">#一个朔望月周期</span>
-<span class="n">h</span> <span class="o">=</span> <span class="kc">True</span>               <span class="c1">#进度条相关</span>
-<span class="n">m</span> <span class="o">=</span> <span class="p">(</span><span class="n">jde</span> <span class="o">+</span> <span class="n">jds</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>  <span class="c1">#进度条相关</span>
-
-<span class="k">def</span> <span class="nf">diff</span><span class="p">(</span><span class="n">ra1</span><span class="p">,</span> <span class="n">ra2</span><span class="p">):</span>
-    <span class="n">dra</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">ra1</span><span class="o">-</span><span class="n">ra2</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">dra</span> <span class="o">&gt;</span> <span class="mi">180</span><span class="p">:</span>
-        <span class="n">dra</span> <span class="o">=</span> <span class="mi">360</span> <span class="o">-</span> <span class="n">dra</span>
-    <span class="k">return</span> <span class="n">dra</span>
-
-
-
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">jds</span><span class="p">,</span> <span class="n">jde</span><span class="p">,</span> <span class="n">circle</span><span class="p">):</span>
-    <span class="n">largest</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">#最大RA距离</span>
-    <span class="n">errcount</span> <span class="o">=</span> <span class="mi">0</span><span class="c1">#计算矫正次数（最大24次），大于24次说明有问题</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="n">m</span> <span class="ow">and</span> <span class="n">h</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;half1&#39;</span><span class="p">)</span>
-        <span class="n">h</span> <span class="o">=</span> <span class="kc">False</span>
-    <span class="n">z</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;--------------</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">1.2</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">):</span>
-        <span class="n">t</span> <span class="o">=</span> <span class="n">Time</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="n">j</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;jd&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="s1">&#39;tdb&#39;</span><span class="p">)</span> <span class="c1">#在朔望月周期附近微调</span>
-        <span class="n">moon</span> <span class="o">=</span> <span class="n">get_moon</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-        <span class="n">sun</span> <span class="o">=</span> <span class="n">get_sun</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-        <span class="n">dra</span> <span class="o">=</span> <span class="n">diff</span><span class="p">(</span><span class="n">moon</span><span class="o">.</span><span class="n">ra</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">sun</span><span class="o">.</span><span class="n">ra</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
-        <span class="k">if</span><span class="p">(</span><span class="n">dra</span> <span class="o">&gt;</span> <span class="n">largest</span><span class="p">):</span> <span class="c1">#判断是否为最大</span>
-            <span class="n">largest</span> <span class="o">=</span> <span class="n">dra</span>              <span class="c1">#最大RA距离</span>
-            <span class="n">dis</span> <span class="o">=</span> <span class="n">moon</span><span class="o">.</span><span class="n">distance</span><span class="o">.</span><span class="n">value</span>  <span class="c1">#最大RA距离时距离</span>
-            <span class="n">time</span> <span class="o">=</span> <span class="n">t</span>                   <span class="c1">#最大RA距离时时间</span>
-            <span class="n">errcount</span> <span class="o">+=</span> <span class="mi">1</span>
-            <span class="n">z</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">errcount</span><span class="p">))</span>
-            <span class="n">z</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-        
-    <span class="n">x</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">iso</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span><span class="p">)</span>
-    <span class="n">x</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">jd</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span><span class="p">)</span>
-    <span class="n">x</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">dis</span><span class="p">))</span>
-    <span class="n">x</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;end1&#39;</span><span class="p">)</span>
-<span class="n">h</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="n">m</span> <span class="o">=</span> <span class="p">(</span><span class="n">jde</span> <span class="o">+</span> <span class="n">jds2</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
-<span class="n">x</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-<span class="n">z</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;++++++++++++++++++++++++++</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">jds2</span><span class="p">,</span> <span class="n">jde</span><span class="p">,</span> <span class="n">circle</span><span class="p">):</span>
-    <span class="n">smallest</span> <span class="o">=</span> <span class="mi">180</span>
-    <span class="n">errcount</span> <span class="o">=</span> <span class="mi">0</span><span class="c1">#计算矫正次数（最大24次），大于24次说明有问题</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="n">m</span> <span class="ow">and</span> <span class="n">h</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;half2&#39;</span><span class="p">)</span>
-        <span class="n">h</span> <span class="o">=</span> <span class="kc">False</span>
-    <span class="n">z</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;--------------</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">1.2</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">):</span>
-        <span class="n">t</span> <span class="o">=</span> <span class="n">Time</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="n">j</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;jd&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="s1">&#39;tdb&#39;</span><span class="p">)</span>
-        <span class="n">moon</span> <span class="o">=</span> <span class="n">get_moon</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-        <span class="n">sun</span> <span class="o">=</span> <span class="n">get_sun</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-        <span class="n">dra</span> <span class="o">=</span> <span class="n">diff</span><span class="p">(</span><span class="n">moon</span><span class="o">.</span><span class="n">ra</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">sun</span><span class="o">.</span><span class="n">ra</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
-        <span class="k">if</span><span class="p">(</span><span class="n">dra</span> <span class="o">&lt;</span> <span class="n">smallest</span><span class="p">):</span>
-            <span class="n">smallest</span> <span class="o">=</span> <span class="n">dra</span>
-            <span class="n">dis</span> <span class="o">=</span> <span class="n">moon</span><span class="o">.</span><span class="n">distance</span><span class="o">.</span><span class="n">value</span>
-            <span class="n">time</span> <span class="o">=</span> <span class="n">t</span>
-            <span class="n">errcount</span> <span class="o">+=</span> <span class="mi">1</span>
-            <span class="n">z</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">errcount</span><span class="p">))</span>
-            <span class="n">z</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-            
-    <span class="n">y</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">iso</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span><span class="p">)</span>
-    <span class="n">y</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">jd</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span><span class="p">)</span>
-    <span class="n">y</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">dis</span><span class="p">))</span>
-    <span class="n">y</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;end2&#39;</span><span class="p">)</span>
-<span class="n">y</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-<span class="n">z</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</code></pre></div><p>文件读取：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="n">x</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;xxx&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="c1">#有很多选项</span>
-<span class="n">x</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<span class="n">x</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
-</code></pre></div><p>csv:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;xxx.csv&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span>
-    <span class="n">freader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">freader</span><span class="p">:</span>
-        <span class="c1">#...</span>
-
-    <span class="n">fdreader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="c1">#读字典</span>
-
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;xxx.csv&#39;</span><span class="p">,</span><span class="s1">&#39;w&#39;</span><span class="p">,</span><span class="n">newline</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span> <span class="c1">#newline = &#39;&#39;是为了防止每次写完之后都换行</span>
-    <span class="n">fwriter</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-    <span class="n">fwriter</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="n">xx</span><span class="p">,</span><span class="n">xx</span><span class="p">,</span><span class="n">xx</span><span class="p">])</span>
-    <span class="n">fdwriter</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictWriter</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="c1">#写字典</span>
-</code></pre></div><p>json:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="kn">import</span> <span class="nn">json</span>
-<span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">某个数据结构</span><span class="p">)</span> <span class="c1">#将某个数据结构转化为json</span>
-<span class="n">j</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">某json</span><span class="p">)</span> <span class="c1">#将json转化为python内置数据结构</span>
-</code></pre></div><p>从<a class="link" href="https://www.hko.gov.hk/tc/gts/time/conversion1_text.htm#"  target="_blank" rel="noopener"
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">astropy</span> <span class="kn">import</span> <span class="n">units</span> <span class="k">as</span> <span class="n">u</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">astropy.time</span> <span class="kn">import</span> <span class="n">Time</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">astropy.coordinates</span> <span class="kn">import</span> <span class="n">solar_system_ephemeris</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">astropy.coordinates</span> <span class="kn">import</span> <span class="n">get_moon</span><span class="p">,</span> <span class="n">get_sun</span>
+</span></span><span class="line"><span class="cl"><span class="n">x</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;datafull.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">y</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;datanew.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">z</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;err.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">jds</span> <span class="o">=</span> <span class="n">Time</span><span class="p">(</span><span class="s1">&#39;1900-01-15T19:12:00.000&#39;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;isot&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">           <span class="n">scale</span><span class="o">=</span><span class="s1">&#39;tdb&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">jd</span>
+</span></span><span class="line"><span class="cl"><span class="n">jds2</span> <span class="o">=</span> <span class="n">Time</span><span class="p">(</span><span class="s1">&#39;1900-01-01T14:24:00.000&#39;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;isot&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="n">scale</span><span class="o">=</span><span class="s1">&#39;tdb&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">jd</span>
+</span></span><span class="line"><span class="cl"><span class="n">jde</span> <span class="o">=</span> <span class="n">Time</span><span class="p">(</span><span class="s1">&#39;2100-01-01T00:00:00&#39;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;isot&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="s1">&#39;tdb&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">jd</span>  <span class="c1"># 2488069.5</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">circle</span> <span class="o">=</span> <span class="mf">29.53059</span>      <span class="c1">#一个朔望月周期</span>
+</span></span><span class="line"><span class="cl"><span class="n">h</span> <span class="o">=</span> <span class="kc">True</span>               <span class="c1">#进度条相关</span>
+</span></span><span class="line"><span class="cl"><span class="n">m</span> <span class="o">=</span> <span class="p">(</span><span class="n">jde</span> <span class="o">+</span> <span class="n">jds</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>  <span class="c1">#进度条相关</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">diff</span><span class="p">(</span><span class="n">ra1</span><span class="p">,</span> <span class="n">ra2</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">dra</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">ra1</span><span class="o">-</span><span class="n">ra2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">dra</span> <span class="o">&gt;</span> <span class="mi">180</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">dra</span> <span class="o">=</span> <span class="mi">360</span> <span class="o">-</span> <span class="n">dra</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">dra</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">jds</span><span class="p">,</span> <span class="n">jde</span><span class="p">,</span> <span class="n">circle</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">largest</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">#最大RA距离</span>
+</span></span><span class="line"><span class="cl">    <span class="n">errcount</span> <span class="o">=</span> <span class="mi">0</span><span class="c1">#计算矫正次数（最大24次），大于24次说明有问题</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="n">m</span> <span class="ow">and</span> <span class="n">h</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;half1&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">h</span> <span class="o">=</span> <span class="kc">False</span>
+</span></span><span class="line"><span class="cl">    <span class="n">z</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;--------------</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">1.2</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">t</span> <span class="o">=</span> <span class="n">Time</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="n">j</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;jd&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="s1">&#39;tdb&#39;</span><span class="p">)</span> <span class="c1">#在朔望月周期附近微调</span>
+</span></span><span class="line"><span class="cl">        <span class="n">moon</span> <span class="o">=</span> <span class="n">get_moon</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">sun</span> <span class="o">=</span> <span class="n">get_sun</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">dra</span> <span class="o">=</span> <span class="n">diff</span><span class="p">(</span><span class="n">moon</span><span class="o">.</span><span class="n">ra</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">sun</span><span class="o">.</span><span class="n">ra</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">dra</span> <span class="o">&gt;</span> <span class="n">largest</span><span class="p">):</span> <span class="c1">#判断是否为最大</span>
+</span></span><span class="line"><span class="cl">            <span class="n">largest</span> <span class="o">=</span> <span class="n">dra</span>              <span class="c1">#最大RA距离</span>
+</span></span><span class="line"><span class="cl">            <span class="n">dis</span> <span class="o">=</span> <span class="n">moon</span><span class="o">.</span><span class="n">distance</span><span class="o">.</span><span class="n">value</span>  <span class="c1">#最大RA距离时距离</span>
+</span></span><span class="line"><span class="cl">            <span class="n">time</span> <span class="o">=</span> <span class="n">t</span>                   <span class="c1">#最大RA距离时时间</span>
+</span></span><span class="line"><span class="cl">            <span class="n">errcount</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">            <span class="n">z</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">errcount</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">            <span class="n">z</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">    <span class="n">x</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">iso</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">x</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">jd</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">x</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">dis</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="n">x</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;end1&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">h</span> <span class="o">=</span> <span class="kc">True</span>
+</span></span><span class="line"><span class="cl"><span class="n">m</span> <span class="o">=</span> <span class="p">(</span><span class="n">jde</span> <span class="o">+</span> <span class="n">jds2</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+</span></span><span class="line"><span class="cl"><span class="n">x</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">z</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;++++++++++++++++++++++++++</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">jds2</span><span class="p">,</span> <span class="n">jde</span><span class="p">,</span> <span class="n">circle</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">smallest</span> <span class="o">=</span> <span class="mi">180</span>
+</span></span><span class="line"><span class="cl">    <span class="n">errcount</span> <span class="o">=</span> <span class="mi">0</span><span class="c1">#计算矫正次数（最大24次），大于24次说明有问题</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="n">m</span> <span class="ow">and</span> <span class="n">h</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;half2&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">h</span> <span class="o">=</span> <span class="kc">False</span>
+</span></span><span class="line"><span class="cl">    <span class="n">z</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;--------------</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">1.2</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">t</span> <span class="o">=</span> <span class="n">Time</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="n">j</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;jd&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="s1">&#39;tdb&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">moon</span> <span class="o">=</span> <span class="n">get_moon</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">sun</span> <span class="o">=</span> <span class="n">get_sun</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">dra</span> <span class="o">=</span> <span class="n">diff</span><span class="p">(</span><span class="n">moon</span><span class="o">.</span><span class="n">ra</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">sun</span><span class="o">.</span><span class="n">ra</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">dra</span> <span class="o">&lt;</span> <span class="n">smallest</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">smallest</span> <span class="o">=</span> <span class="n">dra</span>
+</span></span><span class="line"><span class="cl">            <span class="n">dis</span> <span class="o">=</span> <span class="n">moon</span><span class="o">.</span><span class="n">distance</span><span class="o">.</span><span class="n">value</span>
+</span></span><span class="line"><span class="cl">            <span class="n">time</span> <span class="o">=</span> <span class="n">t</span>
+</span></span><span class="line"><span class="cl">            <span class="n">errcount</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">            <span class="n">z</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">errcount</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">            <span class="n">z</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            
+</span></span><span class="line"><span class="cl">    <span class="n">y</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">iso</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">y</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">jd</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">y</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">dis</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="n">y</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;end2&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">y</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">z</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span></span></code></pre></div><p>文件读取：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">x</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;xxx&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="c1">#有很多选项</span>
+</span></span><span class="line"><span class="cl"><span class="n">x</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">x</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+</span></span></code></pre></div><p>csv:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;xxx.csv&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span>
+</span></span><span class="line"><span class="cl">    <span class="n">freader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">freader</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">#...</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">fdreader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="c1">#读字典</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;xxx.csv&#39;</span><span class="p">,</span><span class="s1">&#39;w&#39;</span><span class="p">,</span><span class="n">newline</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span> <span class="c1">#newline = &#39;&#39;是为了防止每次写完之后都换行</span>
+</span></span><span class="line"><span class="cl">    <span class="n">fwriter</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">fwriter</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="n">xx</span><span class="p">,</span><span class="n">xx</span><span class="p">,</span><span class="n">xx</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">    <span class="n">fdwriter</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictWriter</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="c1">#写字典</span>
+</span></span></code></pre></div><p>json:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">json</span>
+</span></span><span class="line"><span class="cl"><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">某个数据结构</span><span class="p">)</span> <span class="c1">#将某个数据结构转化为json</span>
+</span></span><span class="line"><span class="cl"><span class="n">j</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">某json</span><span class="p">)</span> <span class="c1">#将json转化为python内置数据结构</span>
+</span></span></code></pre></div><p>从<a class="link" href="https://www.hko.gov.hk/tc/gts/time/conversion1_text.htm#"  target="_blank" rel="noopener"
     >香港天文台</a>获取数据，使用爬虫：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlopen</span>
-<span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">Request</span>
-
-<span class="kn">import</span> <span class="nn">time</span>
-<span class="c1">#for i in range(0,100):</span>
-<span class="n">maping</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;s2l.txt&#39;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
-<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://www.hko.gov.hk/tc/gts/time/calendar/text/files/&#39;</span>
-<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&#34;User-Agent&#34;</span><span class="p">:</span> <span class="s2">&#34;Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:74.0) Gecko/20100101 Firefox/74.0&#34;</span><span class="p">,</span>
-    <span class="s2">&#34;Accept&#34;</span><span class="p">:</span> <span class="s1">&#39;text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8&#39;</span>
-<span class="p">}</span>
-
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">200</span><span class="p">):</span>
-    <span class="n">fileName</span> <span class="o">=</span> <span class="s1">&#39;T&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="mi">1901</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span> <span class="o">+</span><span class="s1">&#39;c.txt&#39;</span>
-    <span class="n">req</span> <span class="o">=</span> <span class="n">Request</span><span class="p">(</span><span class="n">url</span> <span class="o">=</span> <span class="n">url</span> <span class="o">+</span> <span class="n">fileName</span><span class="p">,</span><span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">)</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">urlopen</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
-    <span class="n">fulltext</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;Big5&#39;</span><span class="p">)</span>
-    <span class="n">fulllist</span> <span class="o">=</span> <span class="n">fulltext</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)[</span><span class="mi">3</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">fulllist</span><span class="p">)):</span>
-        <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">fulllist</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</code></pre></div><p>后续将尝试转化农历和公历</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlopen</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">Request</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#for i in range(0,100):</span>
+</span></span><span class="line"><span class="cl"><span class="n">maping</span> <span class="o">=</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl"><span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;s2l.txt&#39;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://www.hko.gov.hk/tc/gts/time/calendar/text/files/&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;User-Agent&#34;</span><span class="p">:</span> <span class="s2">&#34;Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:74.0) Gecko/20100101 Firefox/74.0&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;Accept&#34;</span><span class="p">:</span> <span class="s1">&#39;text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">200</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">fileName</span> <span class="o">=</span> <span class="s1">&#39;T&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="mi">1901</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span> <span class="o">+</span><span class="s1">&#39;c.txt&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">req</span> <span class="o">=</span> <span class="n">Request</span><span class="p">(</span><span class="n">url</span> <span class="o">=</span> <span class="n">url</span> <span class="o">+</span> <span class="n">fileName</span><span class="p">,</span><span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">x</span> <span class="o">=</span> <span class="n">urlopen</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">fulltext</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;Big5&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">fulllist</span> <span class="o">=</span> <span class="n">fulltext</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)[</span><span class="mi">3</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">fulllist</span><span class="p">)):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">fulllist</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span></span></code></pre></div><p>后续将尝试转化农历和公历</p>
 
 </section>
 
@@ -316,36 +316,36 @@
                 
                     
 <article class="">
+    <a href="/p/2022/02/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%BD%93%E9%AA%8C1/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">前端工程化体验（1）</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/2022/01/typescript%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Typescript基本使用</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
     <a href="/p/2022/01/js%E7%9A%84%E6%A8%A1%E5%9D%97%E7%B3%BB%E7%BB%9F%E4%BB%A5%E5%8F%8A%E5%85%B6%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86/">
         
         
 
         <div class="article-details">
             <h2 class="article-title">Js的模块系统以及其零碎知识</h2>
-        </div>
-    </a>
-</article>
-                
-                    
-<article class="">
-    <a href="/p/2022/01/electron%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">Electron基本介绍</h2>
-        </div>
-    </a>
-</article>
-                
-                    
-<article class="">
-    <a href="/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">Matplotlib 速查表</h2>
         </div>
     </a>
 </article>

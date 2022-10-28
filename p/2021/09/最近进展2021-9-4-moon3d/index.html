@@ -160,12 +160,12 @@
 <p>这段过程就只讲一点点，其他详情直接看源代码。</p>
 <h3 id="坐标轴的确立旋转方向的确定">坐标轴的确立/旋转方向的确定</h3>
 <p>因为程序导入月球表面图的中心点是该图的左侧中心点，而 NASA 提供的表面图的经纬度原点是在该图的中心，导致导入后原点位置与预想并不相符。最后选择将摄影机移到经纬度为(0,0)的位置，但这样会导致坐标轴出现问题，因此可以看到 js 其中的一个程序：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="k">return</span> <span class="p">[</span>
-  <span class="nx">r</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">cos</span><span class="p">(</span><span class="nx">lat</span><span class="p">)</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">cos</span><span class="p">(</span><span class="nx">lon</span><span class="p">),</span>
-  <span class="nx">r</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">sin</span><span class="p">(</span><span class="nx">lat</span><span class="p">),</span>
-  <span class="o">-</span><span class="nx">r</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">cos</span><span class="p">(</span><span class="nx">lat</span><span class="p">)</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">sin</span><span class="p">(</span><span class="nx">lon</span><span class="p">),</span>
-<span class="p">];</span>
-</code></pre></div><p>有一个负号。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="k">return</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">r</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">cos</span><span class="p">(</span><span class="nx">lat</span><span class="p">)</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">cos</span><span class="p">(</span><span class="nx">lon</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">r</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">sin</span><span class="p">(</span><span class="nx">lat</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">  <span class="o">-</span><span class="nx">r</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">cos</span><span class="p">(</span><span class="nx">lat</span><span class="p">)</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">sin</span><span class="p">(</span><span class="nx">lon</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl"><span class="p">];</span>
+</span></span></code></pre></div><p>有一个负号。</p>
 <p>其实这个问题是刚上手 three.js 遇到的问题，现在一想直接将球转 90 度不就好了吗……。不过程序既定，就懒得改了。</p>
 <p>旋转方向这个就是玄学问题了……。three.js 里面的 rotate 根本不知道绕着哪个轴转，只能通过实验确定。最后还闹了个笑话：北极点的旋转代码<code>camera.rotateZ(-(rotateAng / 180) * Math.PI)</code>之前是没有负号的，导致月球倾斜方向与正确的方向完全对称。差点就要因为严谨性问题被拉出去打了……</p>
 <h3 id="打包">打包</h3>

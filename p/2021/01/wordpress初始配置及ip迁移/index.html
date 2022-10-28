@@ -119,78 +119,78 @@
 以下内容默认开启su</p>
 <h2 id="1下载">1、下载</h2>
 <p>使用wget获取官网下载内容：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">wget https://cn.wordpress.org/latest-zh_CN.tar.gz
-tar -zxvf latest-zh_CN.tar.gz
-</code></pre></div><p>然后见到一大堆php文件，不要慌，先将文件夹中wp-config-sample.php复制一份并改名为wp-config.php。
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">wget https://cn.wordpress.org/latest-zh_CN.tar.gz
+</span></span><span class="line"><span class="cl">tar -zxvf latest-zh_CN.tar.gz
+</span></span></code></pre></div><p>然后见到一大堆php文件，不要慌，先将文件夹中wp-config-sample.php复制一份并改名为wp-config.php。
 复制一份到/var/www/html或者其子文件夹处，这一份是被别人访问的。修改访问权限（不知道这步有没有用）：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">chown -R www-data:www-data /var/www/html
-</code></pre></div><p>接下来整一些别的东西。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">chown -R www-data:www-data /var/www/html
+</span></span></code></pre></div><p>接下来整一些别的东西。</p>
 <h2 id="2数据库">2、数据库</h2>
 <p>wordpress是需要使用数据库的，我嫌弃mysql安装太麻烦而且不在apt中，改用mariadb，其用法与mysql基本一致。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">apt install mariadb-server <span class="c1">#安装</span>
-mysqladmin -u root password <span class="s2">&#34;[enter your password here]&#34;</span> <span class="c1">#设置root密码</span>
-mysql -u root -p <span class="c1">#用root用户密码登录</span>
-</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="o">#</span><span class="w"> </span><span class="err">以下是在</span><span class="n">mysql环境中操作</span><span class="w">
-</span><span class="w"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">wordpress</span><span class="w"> </span><span class="o">#</span><span class="err">创建新数据库</span><span class="n">wordpress</span><span class="w">
-</span><span class="w"></span><span class="o">#</span><span class="w"> </span><span class="err">这两句似乎是授予权限，但是感觉就在服务器本机做这个没什么必要</span><span class="w">
-</span><span class="w"></span><span class="k">GRANT</span><span class="w"> </span><span class="k">ALL</span><span class="w"> </span><span class="k">PRIVILEGES</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">databasename</span><span class="p">.</span><span class="o">*</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="s2">&#34;wordpressusername&#34;</span><span class="o">@</span><span class="s2">&#34;hostname&#34;</span><span class="w">
-</span><span class="w"></span><span class="n">FLUSH</span><span class="w"> </span><span class="k">PRIVILEGES</span><span class="p">;</span><span class="w">
-</span><span class="w"></span><span class="n">EXIT</span><span class="p">;</span><span class="w"> </span><span class="o">#</span><span class="err">退出</span><span class="w">
-</span></code></pre></div><h2 id="3配置wp-configphp">3、配置wp-config.php</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">apt install mariadb-server <span class="c1">#安装</span>
+</span></span><span class="line"><span class="cl">mysqladmin -u root password <span class="s2">&#34;[enter your password here]&#34;</span> <span class="c1">#设置root密码</span>
+</span></span><span class="line"><span class="cl">mysql -u root -p <span class="c1">#用root用户密码登录</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="o">#</span><span class="w"> </span><span class="err">以下是在</span><span class="n">mysql环境中操作</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">wordpress</span><span class="w"> </span><span class="o">#</span><span class="err">创建新数据库</span><span class="n">wordpress</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">#</span><span class="w"> </span><span class="err">这两句似乎是授予权限，但是感觉就在服务器本机做这个没什么必要</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">GRANT</span><span class="w"> </span><span class="k">ALL</span><span class="w"> </span><span class="k">PRIVILEGES</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">databasename</span><span class="p">.</span><span class="o">*</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="s2">&#34;wordpressusername&#34;</span><span class="o">@</span><span class="s2">&#34;hostname&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">FLUSH</span><span class="w"> </span><span class="k">PRIVILEGES</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">EXIT</span><span class="p">;</span><span class="w"> </span><span class="o">#</span><span class="err">退出</span><span class="w">
+</span></span></span></code></pre></div><h2 id="3配置wp-configphp">3、配置wp-config.php</h2>
 <p>修改其中的内容：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="sd">/** WordPress数据库的名称 */</span>
-<span class="nx">define</span><span class="p">(</span> <span class="s1">&#39;DB_NAME&#39;</span><span class="p">,</span> <span class="s1">&#39;database_name_here&#39;</span> <span class="p">);</span>
-
-<span class="sd">/** MySQL数据库用户名 */</span>
-<span class="nx">define</span><span class="p">(</span> <span class="s1">&#39;DB_USER&#39;</span><span class="p">,</span> <span class="s1">&#39;username_here&#39;</span> <span class="p">);</span>
-
-<span class="sd">/** MySQL数据库密码 */</span>
-<span class="nx">define</span><span class="p">(</span> <span class="s1">&#39;DB_PASSWORD&#39;</span><span class="p">,</span> <span class="s1">&#39;password_here&#39;</span> <span class="p">);</span>
-
-<span class="sd">/** MySQL主机 */</span>
-<span class="nx">define</span><span class="p">(</span> <span class="s1">&#39;DB_HOST&#39;</span><span class="p">,</span> <span class="s1">&#39;localhost&#39;</span> <span class="p">);</span>
-</code></pre></div><p>这几句将之前创建的数据库数据填入即可</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="nx">define</span><span class="p">(</span> <span class="s1">&#39;AUTH_KEY&#39;</span><span class="p">,</span>         <span class="s1">&#39;put your unique phrase here&#39;</span> <span class="p">);</span>
-<span class="nx">define</span><span class="p">(</span> <span class="s1">&#39;SECURE_AUTH_KEY&#39;</span><span class="p">,</span>  <span class="s1">&#39;put your unique phrase here&#39;</span> <span class="p">);</span>
-<span class="nx">define</span><span class="p">(</span> <span class="s1">&#39;LOGGED_IN_KEY&#39;</span><span class="p">,</span>    <span class="s1">&#39;put your unique phrase here&#39;</span> <span class="p">);</span>
-<span class="nx">define</span><span class="p">(</span> <span class="s1">&#39;NONCE_KEY&#39;</span><span class="p">,</span>        <span class="s1">&#39;put your unique phrase here&#39;</span> <span class="p">);</span>
-<span class="nx">define</span><span class="p">(</span> <span class="s1">&#39;AUTH_SALT&#39;</span><span class="p">,</span>        <span class="s1">&#39;put your unique phrase here&#39;</span> <span class="p">);</span>
-<span class="nx">define</span><span class="p">(</span> <span class="s1">&#39;SECURE_AUTH_SALT&#39;</span><span class="p">,</span> <span class="s1">&#39;put your unique phrase here&#39;</span> <span class="p">);</span>
-<span class="nx">define</span><span class="p">(</span> <span class="s1">&#39;LOGGED_IN_SALT&#39;</span><span class="p">,</span>   <span class="s1">&#39;put your unique phrase here&#39;</span> <span class="p">);</span>
-<span class="nx">define</span><span class="p">(</span> <span class="s1">&#39;NONCE_SALT&#39;</span><span class="p">,</span>       <span class="s1">&#39;put your unique phrase here&#39;</span> <span class="p">);</span>
-</code></pre></div><p>填入随机数，在<a class="link" href="https://api.wordpress.org/secret-key/1.1/salt"  target="_blank" rel="noopener"
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="sd">/** WordPress数据库的名称 */</span>
+</span></span><span class="line"><span class="cl"><span class="nx">define</span><span class="p">(</span> <span class="s1">&#39;DB_NAME&#39;</span><span class="p">,</span> <span class="s1">&#39;database_name_here&#39;</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="sd">/** MySQL数据库用户名 */</span>
+</span></span><span class="line"><span class="cl"><span class="nx">define</span><span class="p">(</span> <span class="s1">&#39;DB_USER&#39;</span><span class="p">,</span> <span class="s1">&#39;username_here&#39;</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="sd">/** MySQL数据库密码 */</span>
+</span></span><span class="line"><span class="cl"><span class="nx">define</span><span class="p">(</span> <span class="s1">&#39;DB_PASSWORD&#39;</span><span class="p">,</span> <span class="s1">&#39;password_here&#39;</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="sd">/** MySQL主机 */</span>
+</span></span><span class="line"><span class="cl"><span class="nx">define</span><span class="p">(</span> <span class="s1">&#39;DB_HOST&#39;</span><span class="p">,</span> <span class="s1">&#39;localhost&#39;</span> <span class="p">);</span>
+</span></span></code></pre></div><p>这几句将之前创建的数据库数据填入即可</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="nx">define</span><span class="p">(</span> <span class="s1">&#39;AUTH_KEY&#39;</span><span class="p">,</span>         <span class="s1">&#39;put your unique phrase here&#39;</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">define</span><span class="p">(</span> <span class="s1">&#39;SECURE_AUTH_KEY&#39;</span><span class="p">,</span>  <span class="s1">&#39;put your unique phrase here&#39;</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">define</span><span class="p">(</span> <span class="s1">&#39;LOGGED_IN_KEY&#39;</span><span class="p">,</span>    <span class="s1">&#39;put your unique phrase here&#39;</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">define</span><span class="p">(</span> <span class="s1">&#39;NONCE_KEY&#39;</span><span class="p">,</span>        <span class="s1">&#39;put your unique phrase here&#39;</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">define</span><span class="p">(</span> <span class="s1">&#39;AUTH_SALT&#39;</span><span class="p">,</span>        <span class="s1">&#39;put your unique phrase here&#39;</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">define</span><span class="p">(</span> <span class="s1">&#39;SECURE_AUTH_SALT&#39;</span><span class="p">,</span> <span class="s1">&#39;put your unique phrase here&#39;</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">define</span><span class="p">(</span> <span class="s1">&#39;LOGGED_IN_SALT&#39;</span><span class="p">,</span>   <span class="s1">&#39;put your unique phrase here&#39;</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">define</span><span class="p">(</span> <span class="s1">&#39;NONCE_SALT&#39;</span><span class="p">,</span>       <span class="s1">&#39;put your unique phrase here&#39;</span> <span class="p">);</span>
+</span></span></code></pre></div><p>填入随机数，在<a class="link" href="https://api.wordpress.org/secret-key/1.1/salt"  target="_blank" rel="noopener"
     >此处</a>获取，直接复制进去就好了。
 填入后即完成配置</p>
 <h2 id="4服务器配置nginx">4、服务器配置（nginx）</h2>
 <p>nginx代理这部分对于我这种新手来说做起来非常复杂（主要是由于php的原因），在网上也见到不下于三种对nginx的操作，这里选择了成功的一种讲。
 首先需要安装php相关服务：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">apt install php-fpm php-mysql
-</code></pre></div><p>接下来修改nginx中的server block configuration部分：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">vim /etc/nginx/sites-available/default
-</code></pre></div><p>在server出做出如下修改：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">apt install php-fpm php-mysql
+</span></span></code></pre></div><p>接下来修改nginx中的server block configuration部分：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">vim /etc/nginx/sites-available/default
+</span></span></code></pre></div><p>在server出做出如下修改：</p>
 <ul>
 <li>在index index.html那一行加上index.php</li>
 <li>取消对location ~ .php$和location ~/.ht部分的注释，但注意location ~ .php 中只需要开启fastcgi_pass unix://那一条即可（记得匹配fpm版本号）</li>
 <li>nginx.conf就不需要修改了
 此步玩成了就算正式完成了wordpress的配置，打开nginx服务：</li>
 </ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">service nginx start
-</code></pre></div><p>打开http://yourip/wp-login.php登陆使用gui配置就方便多啦。
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">service nginx start
+</span></span></code></pre></div><p>打开http://yourip/wp-login.php登陆使用gui配置就方便多啦。
 <strong>ps</strong>：如果是放在/var/www/html的子文件夹处，如/var/www/html/blog，那么就需要在访问网址后加上这个名称，如http://yourip/wp-login.php/blog，或者将nginx配置中的root设为这个目录处。</p>
 <h2 id="5frp配置">5、frp配置</h2>
 <p>放在有公网的学生机的frps配置：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="k">[common]</span>
-<span class="na">bind_port</span> <span class="o">=</span> <span class="s">7000</span>
-<span class="na">vhost_http_port</span> <span class="o">=</span> <span class="s">80</span>
-</code></pre></div><p>放在内网web服务的frpc配置：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="k">[common]</span>
-<span class="na">server_addr</span> <span class="o">=</span> <span class="s">frp服务器ip</span>
-<span class="na">server_port</span> <span class="o">=</span> <span class="s">7000</span>
-<span class="k">[web]</span>
-<span class="na">type</span> <span class="o">=</span> <span class="s">http</span>
-<span class="na">local_port</span> <span class="o">=</span> <span class="s">80</span>
-<span class="na">custom_domains</span> <span class="o">=</span> <span class="s">frp服务器ip或服务器域名</span>
-</code></pre></div><p>使用nohup挂载在后台即可</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="line"><span class="cl"><span class="k">[common]</span>
+</span></span><span class="line"><span class="cl"><span class="na">bind_port</span> <span class="o">=</span> <span class="s">7000</span>
+</span></span><span class="line"><span class="cl"><span class="na">vhost_http_port</span> <span class="o">=</span> <span class="s">80</span>
+</span></span></code></pre></div><p>放在内网web服务的frpc配置：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="line"><span class="cl"><span class="k">[common]</span>
+</span></span><span class="line"><span class="cl"><span class="na">server_addr</span> <span class="o">=</span> <span class="s">frp服务器ip</span>
+</span></span><span class="line"><span class="cl"><span class="na">server_port</span> <span class="o">=</span> <span class="s">7000</span>
+</span></span><span class="line"><span class="cl"><span class="k">[web]</span>
+</span></span><span class="line"><span class="cl"><span class="na">type</span> <span class="o">=</span> <span class="s">http</span>
+</span></span><span class="line"><span class="cl"><span class="na">local_port</span> <span class="o">=</span> <span class="s">80</span>
+</span></span><span class="line"><span class="cl"><span class="na">custom_domains</span> <span class="o">=</span> <span class="s">frp服务器ip或服务器域名</span>
+</span></span></code></pre></div><p>使用nohup挂载在后台即可</p>
 <h1 id="ip迁移">ip迁移</h1>
 <p>在宿舍迁回家，由于ip不同导致wordpress打开缓慢，这里写下解决方法以备不时之需。</p>
 <h2 id="暴力解决法">暴力解决法</h2>
@@ -200,12 +200,12 @@ mysql -u root -p <span class="c1">#用root用户密码登录</span>
 <li>wp_posts    修改guid字段和post_content字段，将其中的老ip替换为新IP</li>
 <li>wp_dtree_cache  在我的侧边栏菜单里，还需要修改一下这个表才能变过来： update wp_dtree_cache set content = replace(content, &lsquo;老地址&rsquo;, &lsquo;新地址&rsquo;);</li>
 </ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="k">UPDATE</span><span class="w"> </span><span class="n">wp_options</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">option_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">replace</span><span class="p">(</span><span class="w"> </span><span class="n">option_value</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;http://www.old.com&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;http://www.new.com&#39;</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">option_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;home&#39;</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="n">option_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;siteurl&#39;</span><span class="p">;</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span><span class="k">UPDATE</span><span class="w"> </span><span class="n">wp_posts</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">post_content</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">replace</span><span class="p">(</span><span class="w"> </span><span class="n">post_content</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;http://www.old.com&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;http://www.new.com&#39;</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">;</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span><span class="k">UPDATE</span><span class="w"> </span><span class="n">wp_posts</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">guid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">replace</span><span class="p">(</span><span class="w"> </span><span class="n">guid</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;http://www.old.com&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;http://www.new.com&#39;</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">;</span><span class="w">
-</span></code></pre></div><p>在nginx中/etc/nginx/sites-available/default中修改地址为新地址</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">UPDATE</span><span class="w"> </span><span class="n">wp_options</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">option_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">replace</span><span class="p">(</span><span class="w"> </span><span class="n">option_value</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;http://www.old.com&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;http://www.new.com&#39;</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">option_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;home&#39;</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="n">option_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;siteurl&#39;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">UPDATE</span><span class="w"> </span><span class="n">wp_posts</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">post_content</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">replace</span><span class="p">(</span><span class="w"> </span><span class="n">post_content</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;http://www.old.com&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;http://www.new.com&#39;</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">UPDATE</span><span class="w"> </span><span class="n">wp_posts</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">guid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">replace</span><span class="p">(</span><span class="w"> </span><span class="n">guid</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;http://www.old.com&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;http://www.new.com&#39;</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><p>在nginx中/etc/nginx/sites-available/default中修改地址为新地址</p>
 <h2 id="简单方法">简单方法</h2>
 <p>wp-login应该还是可以访问的。通过它进入管理界面，在设置中修改ip地址即可。</p>
 </section>
@@ -255,6 +255,18 @@ mysql -u root -p <span class="c1">#用root用户密码登录</span>
 
         <div class="article-details">
             <h2 class="article-title">瞎折腾之家庭服务器</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/2021/12/2021-12-4-%E5%87%BA%E6%B8%B8/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">2021-12-4 出游</h2>
         </div>
     </a>
 </article>

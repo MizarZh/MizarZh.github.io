@@ -107,14 +107,14 @@
     <h2 id="1概述构造函数">1、概述、构造函数</h2>
 <p><code>Date</code> 对象基于 Unix Time Stamp，即从 1970 年 1 月 1 日（UTC）起经过的毫秒数。</p>
 <p>构造函数：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="k">new</span> <span class="nb">Date</span><span class="p">();</span> <span class="c1">// 返回实例化时刻的日期和时间。
-</span><span class="c1"></span><span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span> <span class="c1">// value 是 Unix 时间戳。
-</span><span class="c1"></span><span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="nx">dateString</span><span class="p">);</span> <span class="c1">// 表示日期的字符串值。
-</span><span class="c1"></span><span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="nx">year</span><span class="p">,</span> <span class="nx">monthIndex</span> <span class="p">[,</span> <span class="nx">day</span> <span class="p">[,</span> <span class="nx">hours</span> <span class="p">[,</span> <span class="nx">minutes</span> <span class="p">[,</span> <span class="nx">seconds</span> <span class="p">[,</span> <span class="nx">milliseconds</span><span class="p">]]]]]);</span> <span class="c1">// 具体日期的表示。
-</span><span class="c1">// year: 0到99会被映射至1900年至1999年，其它值代表实际年份。
-</span><span class="c1">// monthIndex: 从 0（1月）至 11（12月）
-</span><span class="c1">// date: 从 1 开始
-</span></code></pre></div><p>类似于这个构造函数，后面对于各种参数的构造也是 <code>month</code> 从 0 开始到 11 对应 1 月到 12 月。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="k">new</span> <span class="nb">Date</span><span class="p">();</span> <span class="c1">// 返回实例化时刻的日期和时间。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span> <span class="c1">// value 是 Unix 时间戳。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="nx">dateString</span><span class="p">);</span> <span class="c1">// 表示日期的字符串值。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="nx">year</span><span class="p">,</span> <span class="nx">monthIndex</span> <span class="p">[,</span> <span class="nx">day</span> <span class="p">[,</span> <span class="nx">hours</span> <span class="p">[,</span> <span class="nx">minutes</span> <span class="p">[,</span> <span class="nx">seconds</span> <span class="p">[,</span> <span class="nx">milliseconds</span><span class="p">]]]]]);</span> <span class="c1">// 具体日期的表示。
+</span></span></span><span class="line"><span class="cl"><span class="c1">// year: 0到99会被映射至1900年至1999年，其它值代表实际年份。
+</span></span></span><span class="line"><span class="cl"><span class="c1">// monthIndex: 从 0（1月）至 11（12月）
+</span></span></span><span class="line"><span class="cl"><span class="c1">// date: 从 1 开始
+</span></span></span></code></pre></div><p>类似于这个构造函数，后面对于各种参数的构造也是 <code>month</code> 从 0 开始到 11 对应 1 月到 12 月。</p>
 <h2 id="2毫秒数">2、毫秒数</h2>
 <h3 id="datenow">Date.now()</h3>
 <p>返回自 1970-1-1 00:00:00  UTC（世界标准时间）至今所经过的毫秒数。</p>
@@ -124,8 +124,8 @@
 <h3 id="dateutc">Date.UTC()</h3>
 <p>返回从1970-1-1 00:00:00 UTC到指定日期的的毫秒数。</p>
 <p>语法：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nb">Date</span><span class="p">.</span><span class="nx">UTC</span><span class="p">(</span><span class="nx">year</span><span class="p">,</span><span class="nx">month</span><span class="p">[,</span><span class="nx">date</span><span class="p">[,</span><span class="nx">hrs</span><span class="p">[,</span><span class="nx">min</span><span class="p">[,</span><span class="nx">sec</span><span class="p">[,</span><span class="nx">ms</span><span class="p">]]]]])</span> 
-</code></pre></div><p>和 <code>new Date()</code> 中时间初始化的各格式相同。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nb">Date</span><span class="p">.</span><span class="nx">UTC</span><span class="p">(</span><span class="nx">year</span><span class="p">,</span><span class="nx">month</span><span class="p">[,</span><span class="nx">date</span><span class="p">[,</span><span class="nx">hrs</span><span class="p">[,</span><span class="nx">min</span><span class="p">[,</span><span class="nx">sec</span><span class="p">[,</span><span class="nx">ms</span><span class="p">]]]]])</span> 
+</span></span></code></pre></div><p>和 <code>new Date()</code> 中时间初始化的各格式相同。</p>
 <h3 id="datevalueof--dategettime">Date#valueOf() / Date#getTime()</h3>
 <p>返回从1970年1月1日0时0分0秒（UTC，即协调世界时）到该日期的毫秒数。</p>
 <p>valueOf 方法通常在 JavaScript 内部被调用，而不是在代码中显式调用。因此在外部尽量使用 getTime。</p>
@@ -181,15 +181,15 @@ Date#setUTCMilliseconds(msValue)
 <h3 id="datetolocalestringlocales--options">Date#toLocaleString([locales [, options]])</h3>
 <p>方法返回该日期对象的字符串，该字符串格式因不同语言而不同。新增的参数 <code>locales</code> 和 <code>options</code> 使程序能够指定使用哪种语言格式化规则，允许定制该方法的表现（behavior）。</p>
 <p>带 Locale 的都会配上 locales 和 options 选项。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nx">dateObj</span><span class="p">.</span><span class="nx">toLocaleString</span><span class="p">([</span><span class="nx">locales</span> <span class="p">[,</span> <span class="nx">options</span><span class="p">]])</span>
-</code></pre></div><p>locales 和 options 最后部分会解释。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">dateObj</span><span class="p">.</span><span class="nx">toLocaleString</span><span class="p">([</span><span class="nx">locales</span> <span class="p">[,</span> <span class="nx">options</span><span class="p">]])</span>
+</span></span></code></pre></div><p>locales 和 options 最后部分会解释。</p>
 <h3 id="datetolocaledatestringlocales--options">Date#toLocaleDateString([locales [, options]])</h3>
 <p>返回该日期对象日期部分的字符串</p>
 <h3 id="datetolocaletimestringlocales--options">Date#toLocaleTimeString([locales [, options]])</h3>
 <p>返回该日期对象时间部分的字符串，该字符串格式因不同语言而不同。</p>
 <p>语法：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nx">dateObj</span><span class="p">.</span><span class="nx">toLocaleTimeString</span><span class="p">([</span><span class="nx">locales</span> <span class="p">[,</span> <span class="nx">options</span><span class="p">]])</span>
-</code></pre></div><h3 id="datetoutcstring">Date#toUTCString()</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">dateObj</span><span class="p">.</span><span class="nx">toLocaleTimeString</span><span class="p">([</span><span class="nx">locales</span> <span class="p">[,</span> <span class="nx">options</span><span class="p">]])</span>
+</span></span></code></pre></div><h3 id="datetoutcstring">Date#toUTCString()</h3>
 <p>把一个日期转换为一个字符串，使用UTC时区。返回值的格式可能随平台而变化。通常返回值是一个 RFC-1123 格式的时间戳，这是一个 RFC-822 时间戳的小幅更新版。</p>
 <h3 id="datetoisostring">Date#toISOString()</h3>
 <p>总是返回一个 ISO 格式的字符：<strong>YYYY-MM-DDTHH:mm:ss.sssZ</strong>。时区总是UTC（协调世界时），加一个后缀“Z”标识。</p>

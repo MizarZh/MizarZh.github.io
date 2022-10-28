@@ -125,28 +125,28 @@
 <p>缓存指令是单向的，这意味着在请求中设置的指令，不一定被包含在响应中。</p>
 <h3 id="指令">指令</h3>
 <p>请求指令：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="err">Cache-Control: max-age=&lt;seconds&gt;
-</span><span class="err">Cache-Control: max-stale[=&lt;seconds&gt;]
-</span><span class="err">Cache-Control: min-fresh=&lt;seconds&gt;
-</span><span class="err">Cache-control: no-cache
-</span><span class="err">Cache-control: no-store
-</span><span class="err">Cache-control: no-transform
-</span><span class="err">Cache-control: only-if-cached
-</span></code></pre></div><p>响应指令：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="err">Cache-control: must-revalidate
-</span><span class="err">Cache-control: no-cache
-</span><span class="err">Cache-control: no-store
-</span><span class="err">Cache-control: no-transform
-</span><span class="err">Cache-control: public
-</span><span class="err">Cache-control: private
-</span><span class="err">Cache-control: proxy-revalidate
-</span><span class="err">Cache-Control: max-age=&lt;seconds&gt;
-</span><span class="err">Cache-control: s-maxage=&lt;seconds&gt;
-</span></code></pre></div><p>拓展指令（不是标准文档的一部分，注意兼容性）：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="err">Cache-control: immutable
-</span><span class="err">Cache-control: stale-while-revalidate=&lt;seconds&gt;
-</span><span class="err">Cache-control: stale-if-error=&lt;seconds&gt;
-</span></code></pre></div><h3 id="详细解释">详细解释</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="line"><span class="cl"><span class="err">Cache-Control: max-age=&lt;seconds&gt;
+</span></span></span><span class="line"><span class="cl"><span class="err">Cache-Control: max-stale[=&lt;seconds&gt;]
+</span></span></span><span class="line"><span class="cl"><span class="err">Cache-Control: min-fresh=&lt;seconds&gt;
+</span></span></span><span class="line"><span class="cl"><span class="err">Cache-control: no-cache
+</span></span></span><span class="line"><span class="cl"><span class="err">Cache-control: no-store
+</span></span></span><span class="line"><span class="cl"><span class="err">Cache-control: no-transform
+</span></span></span><span class="line"><span class="cl"><span class="err">Cache-control: only-if-cached
+</span></span></span></code></pre></div><p>响应指令：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="line"><span class="cl"><span class="err">Cache-control: must-revalidate
+</span></span></span><span class="line"><span class="cl"><span class="err">Cache-control: no-cache
+</span></span></span><span class="line"><span class="cl"><span class="err">Cache-control: no-store
+</span></span></span><span class="line"><span class="cl"><span class="err">Cache-control: no-transform
+</span></span></span><span class="line"><span class="cl"><span class="err">Cache-control: public
+</span></span></span><span class="line"><span class="cl"><span class="err">Cache-control: private
+</span></span></span><span class="line"><span class="cl"><span class="err">Cache-control: proxy-revalidate
+</span></span></span><span class="line"><span class="cl"><span class="err">Cache-Control: max-age=&lt;seconds&gt;
+</span></span></span><span class="line"><span class="cl"><span class="err">Cache-control: s-maxage=&lt;seconds&gt;
+</span></span></span></code></pre></div><p>拓展指令（不是标准文档的一部分，注意兼容性）：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="line"><span class="cl"><span class="err">Cache-control: immutable
+</span></span></span><span class="line"><span class="cl"><span class="err">Cache-control: stale-while-revalidate=&lt;seconds&gt;
+</span></span></span><span class="line"><span class="cl"><span class="err">Cache-control: stale-if-error=&lt;seconds&gt;
+</span></span></span></code></pre></div><h3 id="详细解释">详细解释</h3>
 <h4 id="可缓存性">可缓存性</h4>
 <p><code>public</code></p>
 <p>可以被任何对象缓存（包括发送请求的客户端，代理服务器，等等）。</p>
@@ -191,21 +191,21 @@
 <p>如果在 <code>Cache-Control </code>响应头设置了 &ldquo;max-age&rdquo; 或者 &ldquo;s-max-age&rdquo; 指令，那么 <code>Expires</code> 头会被忽略。</p>
 <p>和 max-age 区别：max-age 指定的是时间长度，Expires 指定的是日期</p>
 <p>语法：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="err">Expires: &lt;http-date&gt;
-</span><span class="err">例子：
-</span><span class="err">Expires: Wed, 21 Oct 2015 07:28:00 GMT
-</span></code></pre></div><h2 id="pragma">Pragma</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="line"><span class="cl"><span class="err">Expires: &lt;http-date&gt;
+</span></span></span><span class="line"><span class="cl"><span class="err">例子：
+</span></span></span><span class="line"><span class="cl"><span class="err">Expires: Wed, 21 Oct 2015 07:28:00 GMT
+</span></span></span></code></pre></div><h2 id="pragma">Pragma</h2>
 <p>是一个在 HTTP/1.0 中规定的通用首部，这个首部的效果依赖于不同的实现，所以在“请求-响应”链中可能会有不同的效果。它用来向后兼容只支持 HTTP/1.0 协议的缓存服务器，那时候 HTTP/1.1 协议中的 Cache-Control 还没有出来。（兼容用）</p>
 <h2 id="etag">ETag</h2>
 <p>是资源的特定版本的标识符。</p>
 <p>如果内容发生了变化，使用ETag有助于防止资源的同时更新相互覆盖（“空中碰撞”）。如果给定URL中的资源更改，则一定要生成新的Etag值。</p>
 <p>语法：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="err">ETag: W/&#34;&lt;etag_value&gt;&#34;
-</span><span class="err">ETag: &#34;&lt;etag_value&gt;&#34;
-</span><span class="err">例子
-</span><span class="err">ETag: W/&#34;0815&#34;
-</span><span class="err">ETag: &#34;33a64df551425fcc55e4d42a148795d9f25f89d4&#34;
-</span></code></pre></div><p><code>W/</code> 可选</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="line"><span class="cl"><span class="err">ETag: W/&#34;&lt;etag_value&gt;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="err">ETag: &#34;&lt;etag_value&gt;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="err">例子
+</span></span></span><span class="line"><span class="cl"><span class="err">ETag: W/&#34;0815&#34;
+</span></span></span><span class="line"><span class="cl"><span class="err">ETag: &#34;33a64df551425fcc55e4d42a148795d9f25f89d4&#34;
+</span></span></span></code></pre></div><p><code>W/</code> 可选</p>
 <p>表示使用弱验证器。弱验证器很容易生成，但不利于比较。</p>
 <p><code>&quot;&lt;etag_value&gt;&quot;</code></p>
 <p>实体标签唯一地表示所请求的资源。 它们是位于双引号之间的ASCII字符串（如“675af34563dc-tr34”）。 没有明确指定生成ETag值的方法。 通常，使用内容的散列，最后修改时间戳的哈希值，或简单地使用版本号。</p>
@@ -213,18 +213,18 @@
 <p><code>If-Match</code>  代表不相同代表不是最新。</p>
 <p>如果客户端没有 <code>ETag</code>，显示过期了，客服端旧发送<code>If-None_Match</code> 。如果匹配就说明 304（未修改）。</p>
 <p>例如：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="err">If-Match: &#34;33a64df551425fcc55e4d42a148795d9f25f89d4&#34;
-</span><span class="err">If-None-Match: &#34;33a64df551425fcc55e4d42a148795d9f25f89d4&#34;
-</span></code></pre></div><h2 id="vary">Vary</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="line"><span class="cl"><span class="err">If-Match: &#34;33a64df551425fcc55e4d42a148795d9f25f89d4&#34;
+</span></span></span><span class="line"><span class="cl"><span class="err">If-None-Match: &#34;33a64df551425fcc55e4d42a148795d9f25f89d4&#34;
+</span></span></span></code></pre></div><h2 id="vary">Vary</h2>
 <p>它决定了对于未来的一个请求头，应该用一个缓存的回复(response)还是向源服务器请求一个新的回复。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="err">Vary: *
-</span><span class="err">Vary: &lt;header-name&gt;, &lt;header-name&gt;, ...
-</span></code></pre></div><p><code>*</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="line"><span class="cl"><span class="err">Vary: *
+</span></span></span><span class="line"><span class="cl"><span class="err">Vary: &lt;header-name&gt;, &lt;header-name&gt;, ...
+</span></span></span></code></pre></div><p><code>*</code></p>
 <p>所有的请求都被视为唯一并且非缓存的，使<code>Cache-Control: no-store</code>来实现则更适用，这样用于说明不存储该对象更加清晰。</p>
 <p><code>&lt;header-name&gt;</code></p>
 <p>逗号分隔的一系列http头部名称，用于确定缓存是否可用。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="err">Vary: User-Agent
-</span></code></pre></div><p>这句话是对 UA 头部信息进行判别的。提供给移动端的内容是不同的，可用防止你客户端误使用了用于桌面端的缓存。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="line"><span class="cl"><span class="err">Vary: User-Agent
+</span></span></span></code></pre></div><p>这句话是对 UA 头部信息进行判别的。提供给移动端的内容是不同的，可用防止你客户端误使用了用于桌面端的缓存。</p>
 
 </section>
 
@@ -306,6 +306,18 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
                 
                     
 <article class="">
+    <a href="/p/2022/02/docker%E4%BB%8B%E7%BB%8D/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Docker介绍</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
     <a href="/p/2022/01/pm2%E4%BB%8B%E7%BB%8D%E5%8F%8A%E4%BD%BF%E7%94%A8/">
         
         
@@ -336,18 +348,6 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
 
         <div class="article-details">
             <h2 class="article-title">Terminal查看远程图片</h2>
-        </div>
-    </a>
-</article>
-                
-                    
-<article class="">
-    <a href="/p/2021/10/%E5%90%84%E7%B1%BBtex/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">各类“TeX”</h2>
         </div>
     </a>
 </article>

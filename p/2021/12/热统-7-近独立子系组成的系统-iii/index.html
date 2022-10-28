@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='7.9-7.13 有省略'><title>[热统] 7 近独立子系组成的系统 III</title>
+
+<link rel='canonical' href='https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-7-%E8%BF%91%E7%8B%AC%E7%AB%8B%E5%AD%90%E7%B3%BB%E7%BB%84%E6%88%90%E7%9A%84%E7%B3%BB%E7%BB%9F-iii/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='[热统] 7 近独立子系组成的系统 III'>
+<meta property='og:description' content='7.9-7.13 有省略'>
+<meta property='og:url' content='https://mizarzh.github.io/p/2021/12/%E7%83%AD%E7%BB%9F-7-%E8%BF%91%E7%8B%AC%E7%AB%8B%E5%AD%90%E7%B3%BB%E7%BB%84%E6%88%90%E7%9A%84%E7%B3%BB%E7%BB%9F-iii/'>
+<meta property='og:site_name' content='MizarZ&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='热力学与统计力学' /><meta property='article:tag' content='Thermodynamics and Statistical Physics' /><meta property='article:published_time' content='2021-12-16T20:31:43&#43;08:00'/><meta property='article:modified_time' content='2021-12-16T20:31:43&#43;08:00'/>
+<meta name="twitter:title" content="[热统] 7 近独立子系组成的系统 III">
+<meta name="twitter:description" content="7.9-7.13 有省略">
+    <link rel="shortcut icon" href="img/favicon-32x32.png" />
+
+    </head>
+    <body class="
+    article-page has-toc
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        extended
+    
+">
+    
+        <div id="article-toolbar">
+            <a href="/" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>返回</span>
+            </a>
+        </div>
+    
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <h2 class="article-title">
+        <a href="/p/2021/12/%E7%83%AD%E7%BB%9F-7-%E8%BF%91%E7%8B%AC%E7%AB%8B%E5%AD%90%E7%B3%BB%E7%BB%84%E6%88%90%E7%9A%84%E7%B3%BB%E7%BB%9F-iii/">[热统] 7 近独立子系组成的系统 III</a>
+    </h2>
+
+    
+    <h3 class="article-subtitle">
+        7.9-7.13 有省略
+    </h3>
+    
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2021-12-16</time>
+            </div>
+        
+
+        
+    </footer>
+    
+</div>
+</header>
+
+    <section class="article-content">
+    <p>$$
+\def\un{\mathrm}
+\def\dd{\mathrm d}
+\def\par{\partial}
+\def\bl{\boldsymbol}
+\def\mbf{\mathbf}
+\def\nl{\newline} % 换行最后使用 \nl 来避免 markdown 对 \ 的转义
+\def\Ra{\Rightarrow}
+\def\La{\Leftarrow}
+\def\ra{\rightarrow}
+\def\la{\leftarrow}
+\def\e{\epsilon}
+\def\ve{\varepsilon}
+\newcommand{\mscr}[1]{\mathscr{#1}}
+\def\lam{\lambda}
+\def\dbar{\mathrm{đ}}
+\def_{<em>} % 避免 下标符号 的转义。使用时应该先全部打好 下标符号，再用查找功能将其全部转换成 _
+% 如果后面新增了内容用到了下标符号，则正则为：
+% 查找：([^\])(</em>) 替换：$1\$2
+$$</p>
+<h1 id="7-近独立子系组成的系统">7 近独立子系组成的系统</h1>
+<h2 id="79-非定域子系-费米-狄拉克分布-玻色-爱因斯坦分布">7.9 非定域子系 费米-狄拉克分布 玻色-爱因斯坦分布</h2>
+<h3 id="791-非定域子系与定域子系的不同">7.9.1 非定域子系与定域子系的不同</h3>
+<p>使用的符号依旧与 7.2 相同：</p>
+<p>令 $\ve_1,\ve_2,\cdots,\ve_\lam,\cdots$ 代表粒子的能级， $g_1,g_2,\cdots,g_\lam,\cdots$ 代表各能级的简并度，$a_1,a_2,\cdots,a_\lam,\cdots$ 代表个能及占据的粒子数。</p>
+<p>满足以下两个条件：
+$$
+\begin{aligned}
+&amp;\sum_{\lambda} a_{\lambda}=N \nl
+&amp;\sum_{\lambda} \varepsilon_{\lambda} a_{\lambda}=E
+\end{aligned}
+$$</p>
+<h3 id="792-非定域全同费米子和全同玻色子">7.9.2 非定域全同费米子和全同玻色子</h3>
+<p>对非定域的全同费米子系统：
+$$
+W_{\mathrm{FD}}\left(\left{a_{\lambda}\right}\right)=\prod_{\lambda} \frac{g_{\lambda} !}{a_{\lambda} !\left(g_{\lambda}-a_{\lambda}\right) !}
+$$
+对非定域的全同玻色子系统：
+$$
+W_{\mathrm{BE}}\left(\left{a_{\lambda}\right}\right)=\prod_{\lambda} \frac{\left(g_{\lambda}+a_{\lambda}-1\right) !}{a_{\lambda} !\left(g_{\lambda}-1\right) !}
+$$</p>
+<h3 id="793-最可几分布">7.9.3 最可几分布</h3>
+<h4 id="费米子">费米子</h4>
+<p>使用斯特令公式：
+$$
+\ln W_{\mathrm{FD}} \approx \sum_{\lambda}\left{g_{\lambda} \ln g_{\lambda}-a_{\lambda} \ln a_{\lambda}-\left(g_{\lambda}-a_{\lambda}\right) \ln \left(g_{\lambda}-a_{\lambda}\right)\right}
+$$
+拉格朗日乘子法，最后得到：
+$$
+\sum_{\lambda}\left{\ln \frac{g_{\lambda}-a_{\lambda}}{a_{\lambda}}-\alpha-\beta \varepsilon_{\lambda}\right} \delta a_{\lambda}=0
+$$
+得到分布：
+$$
+\tilde{a}<em>{\lambda}=\bar{a}</em>{\lambda}=\frac{g_{\lambda}}{\mathrm{e}^{\alpha+\beta \varepsilon_{\lambda}}+1}
+$$
+这个分布称为费米-狄拉克分布。</p>
+<h4 id="玻色子">玻色子</h4>
+<p>使用斯特令公式：
+$$
+\ln W_{\mathrm{BE}} \approx \sum_{\lambda}\left{\left(g_{\lambda}+a_{\lambda}\right) \ln \left(g_{\lambda}+a_{\lambda}\right)-a_{\lambda} \ln a_{\lambda}-g_{\lambda} \ln g_{\lambda}\right}
+$$
+拉格朗日乘子法：
+$$
+\sum_{\lambda}\left{\ln \frac{g_{\lambda}+a_{\lambda}}{a_{\lambda}}-\alpha-\beta \varepsilon_{\lambda}\right} \delta a_{\lambda}=0
+$$
+得到分布：
+$$
+\tilde{a}<em>{\lambda}=\bar{a}</em>{\lambda}=\frac{g_{\lambda}}{\mathrm{e}^{\alpha+\beta \ve_{\lambda}}-1}
+$$
+上式称为玻色-爱因斯坦分布。</p>
+<h3 id="794-几点说明">7.9.4 几点说明</h3>
+<p>（1）后文将证明：$\beta=\frac{1}{k T}, \alpha=-\mu / k T$</p>
+<p>（2）
+$$
+\bar{a}<em>{\lambda}=\frac{g</em>{\lambda}}{\mathrm{e}^{\alpha+\beta \varepsilon_{\lambda}}+\eta}, \quad \eta=\left{\begin{array}{ll}
++1, &amp; \text { 费米-狄拉克分布, } \
+0, &amp; \text { 麦克斯韦-玻尔兹曼分布, } \
+-1, &amp; \text { 玻色-爱因斯坦分布. }
+\end{array}\right.
+$$
+三种分布的区别：</p>
+<p><figure 
+	
+		class="gallery-image" 
+		style="
+			flex-grow: 168; 
+			flex-basis: 404px"
+	>
+	<a href="/p/2021/12/%E7%83%AD%E7%BB%9F-7-%E8%BF%91%E7%8B%AC%E7%AB%8B%E5%AD%90%E7%B3%BB%E7%BB%84%E6%88%90%E7%9A%84%E7%B3%BB%E7%BB%9F-iii/image-20211216213254497.png" data-size="536x318">
+		<img src="/p/2021/12/%E7%83%AD%E7%BB%9F-7-%E8%BF%91%E7%8B%AC%E7%AB%8B%E5%AD%90%E7%B3%BB%E7%BB%84%E6%88%90%E7%9A%84%E7%B3%BB%E7%BB%9F-iii/image-20211216213254497.png"
+			width="536"
+			height="318"
+			srcset="/p/2021/12/%E7%83%AD%E7%BB%9F-7-%E8%BF%91%E7%8B%AC%E7%AB%8B%E5%AD%90%E7%B3%BB%E7%BB%84%E6%88%90%E7%9A%84%E7%B3%BB%E7%BB%9F-iii/image-20211216213254497_hu2aaaddd21868943f103713fef7ac99d7_34788_480x0_resize_box_3.png 480w, /p/2021/12/%E7%83%AD%E7%BB%9F-7-%E8%BF%91%E7%8B%AC%E7%AB%8B%E5%AD%90%E7%B3%BB%E7%BB%84%E6%88%90%E7%9A%84%E7%B3%BB%E7%BB%9F-iii/image-20211216213254497_hu2aaaddd21868943f103713fef7ac99d7_34788_1024x0_resize_box_3.png 1024w"
+			loading="lazy"
+			alt="image-20211216213254497">
+	</a>
+	
+	<figcaption>image-20211216213254497</figcaption>
+	
+</figure></p>
+<p>（3）使用斯特令公式时，需要假设 $a_\lam\gg1,g_\lam\gg1$，但实际上的物理系统可能这两个数并不大。严格的方法由两种， 一种是达尔文-福勒的方法， 另一种是从统计系综出发直接推导平均分布的方法。</p>
+<h2 id="710-理想玻色气体和理想费米气体热力学量的统计表达式">7.10 理想玻色气体和理想费米气体热力学量的统计表达式</h2>
+<h3 id="7101-理想玻色气体">7.10.1 理想玻色气体</h3>
+<p>玻色分布：
+$$
+\bar{a}<em>{\lambda}=\frac{g</em>{\lambda}}{\mathrm{e}^{\alpha+\beta \ve_{\lambda}}-1}
+$$
+引入理想玻色气体的巨配分函数 $\Xi$：
+$$
+\Xi=\prod_{\lambda}\left(1-\mathrm{e}^{-\alpha-\beta \epsilon_{\lambda}}\right)^{-g_{\lambda}}=E\left(\alpha, \beta,\left{y_{\lambda}\right}\right)
+$$
+除了依赖参数 $\alpha,\beta$ 外，还通过 $\ve_\lam$ 依赖外参量 ${y_\lam}$。</p>
+<p>取对数：
+$$
+\ln \Xi=-\sum_{\lambda} g_{\lambda} \ln \left(1-\mathrm{e}^{-\alpha-\beta \epsilon_{\lambda}}\right)
+$$
+各参数的平均值：
+$$
+\begin{aligned}
+&amp;N=-\frac{\partial}{\partial \alpha} \ln \Xi \
+&amp;\bar{E}=-\frac{\partial}{\partial \beta} \ln \Xi \
+&amp;\overline{Y_{\lambda}}=-\frac{1}{\beta} \frac{\partial}{\partial y_{\lambda}} \ln \Xi
+\end{aligned}
+$$
+一个特殊情景：
+$$
+p=\frac{1}{\beta}\frac{\par}{\par V}\ln \Xi
+$$
+证明自己看书（</p>
+<p>巨配分函数是最自然的方式是从巨正则系综引入。</p>
+<p>熵：
+$$
+\begin{aligned}
+&amp;S=k\left(\ln \Xi-\alpha \frac{\partial}{\partial \alpha} \ln \Xi-\beta \frac{\partial}{\partial \beta} \ln \Xi\right)\nl
+&amp;\alpha=\frac{1}{kT}\nl
+&amp;\beta=-\frac{\mu}{kT}
+\end{aligned}
+$$
+其他热力学函数：
+$$
+\begin{aligned}
+&amp;F \equiv \bar{E}-T S=-k T\left(\ln \Xi-\alpha \frac{\partial}{\partial \alpha} \ln \Xi\right), \nl
+&amp;G=N \mu=-N k T \alpha=k T \alpha \frac{\partial}{\partial \alpha} \ln \Xi, \nl
+&amp;\Psi \equiv F-G=-k T \ln \Xi .
+\end{aligned}
+$$
+$\ln \Xi$ 是 $(\alpha,\beta,V)\ra(T,V,\mu)$ 的函数，那么巨势（$\Psi(T,V,\mu)$）就是特征函数。</p>
+<p>当然，玻尔兹曼关系依旧是成立的：
+$$
+S=k\ln W_{\max}
+$$</p>
+<h3 id="7102-理想费米气体">7.10.2 理想费米气体</h3>
+<p>同理。</p>
+<h3 id="7103-理想玻色气体和理想费米气体诸公式的统一表示">7.10.3 理想玻色气体和理想费米气体诸公式的统一表示</h3>
+<p>平均分布：
+$$
+\bar{a}<em>{\lambda}=\frac{g</em>{\lambda}}{\mathrm{e}^{\alpha+\beta \ve_{\lambda}}\pm1}
+$$
+（$+$：理想费米气体，$-$：理想玻色气体）</p>
+<p>各种式子：
+$$
+\begin{aligned}
+&amp;\Xi=\prod_{\lambda}\left(1 \pm \mathrm{e}^{-\alpha-\beta \varepsilon_{\lambda}}\right)^{\pm g_{\lambda}}=\Xi\left(\alpha, \beta,\left{y_{\lambda}\right}\right),\
+&amp;\text { (&quot;+/-&quot; 号规定同上 ) }\
+&amp;\ln \Xi=\pm \sum_{\lambda} g_{\lambda} \ln \left(1 \pm \mathrm{e}^{-\alpha-\beta \varepsilon_{\lambda}}\right),\
+&amp;( \text {&quot;+/-&quot; 号规定同上 ) }\
+&amp;\bar{N}=-\frac{\partial}{\partial \alpha} \ln \Xi,\
+&amp;E=-\frac{\partial}{\partial \beta} \ln \Xi,\
+&amp;\bar{Y}<em>{\lambda}=-\frac{1}{\beta} \frac{\partial}{\partial y</em>{\lambda}} \ln \Xi \quad\left(p=\frac{1}{\beta} \frac{\partial}{\partial V} \ln \Xi\right),\
+&amp;S=k\left(\ln \Xi-\alpha \frac{\partial}{\partial \alpha} \ln \Xi-\beta \frac{\partial}{\partial \beta} \ln \Xi\right)\
+&amp;F=-k T \ln E+k T \alpha \frac{\partial}{\partial \alpha} \ln \Xi,\
+&amp;G=k T \alpha \frac{\partial}{\partial \alpha} \ln \Xi,\
+&amp;\Psi=-k T \ln \Xi,\
+&amp;S=k \ln W\left(\left{\bar{a}_{\lambda}\right}\right) .
+\end{aligned}
+$$</p>
+<h2 id="711-非简并条件-经典极限条件">7.11 非简并条件 经典极限条件</h2>
+<h3 id="7111-非简并条件">7.11.1 非简并条件</h3>
+<p>表达式：
+$$
+\bar{a}<em>{\lambda}=\frac{g</em>{\lambda}}{\mathrm{e}^{\alpha+\beta \ve_{\lambda}}\pm1}
+$$
+如果：
+$$
+e^\alpha\gg 1
+$$
+那么表达式右边的 $\pm$ 号可以忽略，于是：
+$$
+\bar a_\lam=g_\lam e^{-\alpha-\beta\ve_\lam}
+$$
+表明在这个条件下，玻色分布与费米分布的差别消失 ， 还原到麦克斯韦-玻尔兹曼分布。这个条件被称为非简并条件。</p>
+<p>这个条件的物理理解是：每一个粒子量子态上平均占据的粒子数远远小于1。</p>
+<h3 id="7112-决定非简并条件的物理参数">7.11.2 决定非简并条件的物理参数</h3>
+<h3 id="7113-非简并条件下热力学量的统计表达式">7.11.3 非简并条件下热力学量的统计表达式</h3>
+<h2 id="712-麦克斯韦速度分布律">7.12 麦克斯韦速度分布律</h2>
+<h2 id="713-能量均分定理">7.13 能量均分定理</h2>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/%E7%83%AD%E5%8A%9B%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1%E5%8A%9B%E5%AD%A6/">热力学与统计力学</a>
+        
+            <a href="/tags/thermodynamics-and-statistical-physics/">Thermodynamics and Statistical Physics</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css"integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js"integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8"crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js"integrity="sha384-vZTG03m&#43;2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl"crossorigin="anonymous"
+                defer="true"
+                >
+            </script>
+<script>
+MathJax = {
+    tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+    },
+    options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+};
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async
+src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">相关文章</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="">
+    <a href="/p/2021/12/%E7%83%AD%E7%BB%9F-7-%E8%BF%91%E7%8B%AC%E7%AB%8B%E5%AD%90%E7%B3%BB%E7%BB%84%E6%88%90%E7%9A%84%E7%B3%BB%E7%BB%9F-ii/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">[热统] 7 近独立子系组成的系统 II</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/2021/12/%E7%83%AD%E7%BB%9F-7-%E8%BF%91%E7%8B%AC%E7%AB%8B%E5%AD%90%E7%B3%BB%E7%BB%84%E6%88%90%E7%9A%84%E7%B3%BB%E7%BB%9F-i/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">[热统] 7 近独立子系组成的系统 I</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/2021/12/%E7%83%AD%E7%BB%9F-6-%E7%BB%9F%E8%AE%A1%E7%89%A9%E7%90%86%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">[热统] 6 统计物理学的基本概念</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/2021/12/%E7%83%AD%E7%BB%9F-2-%E5%9D%87%E5%8C%80%E7%B3%BB%E7%9A%84%E5%B9%B3%E8%A1%A1%E6%80%A7%E8%B4%A8-i/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">[热统] 2 均匀系的平衡性质 I</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/2021/12/%E7%83%AD%E7%BB%9F-1-%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%A7%84%E5%BE%8B-iv/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">[热统] 1 热力学的基本概念与基本规律 IV</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy;
+        
+        2021 -
+        
+        2022 MizarZ&#39;s Blog
+    </section>
+
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener"
+                data-version="3.4.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+
+        
+
+    </section>
+
+</footer>
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+        <aside class="sidebar right-sidebar sticky">
+            <section class="widget archives">
+                <div class="widget-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                </div>
+                <h2 class="widget-title section-title">目录</h2>
+                
+                <div class="widget--toc">
+                    <nav id="TableOfContents">
+  <ol>
+    <li><a href="#79-非定域子系-费米-狄拉克分布-玻色-爱因斯坦分布">7.9 非定域子系 费米-狄拉克分布 玻色-爱因斯坦分布</a>
+      <ol>
+        <li><a href="#791-非定域子系与定域子系的不同">7.9.1 非定域子系与定域子系的不同</a></li>
+        <li><a href="#792-非定域全同费米子和全同玻色子">7.9.2 非定域全同费米子和全同玻色子</a></li>
+        <li><a href="#793-最可几分布">7.9.3 最可几分布</a>
+          <ol>
+            <li><a href="#费米子">费米子</a></li>
+            <li><a href="#玻色子">玻色子</a></li>
+          </ol>
+        </li>
+        <li><a href="#794-几点说明">7.9.4 几点说明</a></li>
+      </ol>
+    </li>
+    <li><a href="#710-理想玻色气体和理想费米气体热力学量的统计表达式">7.10 理想玻色气体和理想费米气体热力学量的统计表达式</a>
+      <ol>
+        <li><a href="#7101-理想玻色气体">7.10.1 理想玻色气体</a></li>
+        <li><a href="#7102-理想费米气体">7.10.2 理想费米气体</a></li>
+        <li><a href="#7103-理想玻色气体和理想费米气体诸公式的统一表示">7.10.3 理想玻色气体和理想费米气体诸公式的统一表示</a></li>
+      </ol>
+    </li>
+    <li><a href="#711-非简并条件-经典极限条件">7.11 非简并条件 经典极限条件</a>
+      <ol>
+        <li><a href="#7111-非简并条件">7.11.1 非简并条件</a></li>
+        <li><a href="#7112-决定非简并条件的物理参数">7.11.2 决定非简并条件的物理参数</a></li>
+        <li><a href="#7113-非简并条件下热力学量的统计表达式">7.11.3 非简并条件下热力学量的统计表达式</a></li>
+      </ol>
+    </li>
+    <li><a href="#712-麦克斯韦速度分布律">7.12 麦克斯韦速度分布律</a></li>
+    <li><a href="#713-能量均分定理">7.13 能量均分定理</a></li>
+  </ol>
+</nav>
+                </div>
+            </section>
+        </aside>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

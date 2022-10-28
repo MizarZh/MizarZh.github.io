@@ -109,119 +109,119 @@
 <p>pm2 是一个 node 进程管理工具，可以简化很多 node 应用管理的任务，如性能监控、自动重启</p>
 <p>负载均衡等。</p>
 <p>安装 pm2：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">npm install -g pm2
-</code></pre></div><h2 id="核心命令">核心命令</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">npm install -g pm2
+</span></span></code></pre></div><h2 id="核心命令">核心命令</h2>
 <h3 id="一些常见操作">一些常见操作</h3>
 <p>启动、重新加载、重启、关闭、删除：</p>
 <p>可以指定多个 app：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">pm2 start app
-pm2 reload app
-pm2 restart app
-pm2 stop app
-pm2 delete app
-</code></pre></div><p><code>app.js</code> 也可以换成 <code>all</code> 代表全部，换成 <code>id</code> 代表这个进程的编号，换成字符串（如&quot;npm run start&quot;）代表执行 bash 命令。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pm2 start app
+</span></span><span class="line"><span class="cl">pm2 reload app
+</span></span><span class="line"><span class="cl">pm2 restart app
+</span></span><span class="line"><span class="cl">pm2 stop app
+</span></span><span class="line"><span class="cl">pm2 delete app
+</span></span></code></pre></div><p><code>app.js</code> 也可以换成 <code>all</code> 代表全部，换成 <code>id</code> 代表这个进程的编号，换成字符串（如&quot;npm run start&quot;）代表执行 bash 命令。</p>
 <p>启动可以给入的参数（<code>start, restart</code>）：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 传入参数</span>
--- arg1 arg2
-<span class="c1"># 更新环境（通常前面设置 NODE_ENV 改变）</span>
---update-env
-</code></pre></div><p>列出：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">pm2 <span class="o">[</span>list<span class="p">|</span>ls<span class="p">|</span>l<span class="p">|</span>status<span class="o">]</span>
-<span class="c1"># 后面加上参数，代表按照……进行排序</span>
---sort <span class="o">[</span>name<span class="p">|</span>id<span class="p">|</span>pid<span class="p">|</span>memory<span class="p">|</span>cpu<span class="p">|</span>status<span class="p">|</span>uptime<span class="o">][</span>:asc<span class="p">|</span>desc<span class="o">]</span>
-</code></pre></div><p>dashboard：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">pm2 monit
-</code></pre></div><p>显示元信息：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">pm2 show app
-</code></pre></div><p>重置重启次数：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">pm2 reset app
-</code></pre></div><p>pm2 也可以使用文件模式进行配置，因为太长本文不介绍。详情见 <a class="link" href="https://pm2.keymetrics.io/docs/usage/application-declaration/"  target="_blank" rel="noopener"
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 传入参数</span>
+</span></span><span class="line"><span class="cl">-- arg1 arg2
+</span></span><span class="line"><span class="cl"><span class="c1"># 更新环境（通常前面设置 NODE_ENV 改变）</span>
+</span></span><span class="line"><span class="cl">--update-env
+</span></span></code></pre></div><p>列出：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pm2 <span class="o">[</span>list<span class="p">|</span>ls<span class="p">|</span>l<span class="p">|</span>status<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 后面加上参数，代表按照……进行排序</span>
+</span></span><span class="line"><span class="cl">--sort <span class="o">[</span>name<span class="p">|</span>id<span class="p">|</span>pid<span class="p">|</span>memory<span class="p">|</span>cpu<span class="p">|</span>status<span class="p">|</span>uptime<span class="o">][</span>:asc<span class="p">|</span>desc<span class="o">]</span>
+</span></span></code></pre></div><p>dashboard：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pm2 monit
+</span></span></code></pre></div><p>显示元信息：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pm2 show app
+</span></span></code></pre></div><p>重置重启次数：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pm2 reset app
+</span></span></code></pre></div><p>pm2 也可以使用文件模式进行配置，因为太长本文不介绍。详情见 <a class="link" href="https://pm2.keymetrics.io/docs/usage/application-declaration/"  target="_blank" rel="noopener"
     >pm2 configureation file</a>。</p>
 <h3 id="静态文件">静态文件</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">pm2 serve &lt;path&gt; &lt;port&gt;
-</code></pre></div><p>可以像普通的 app 一样指定参数。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pm2 serve &lt;path&gt; &lt;port&gt;
+</span></span></code></pre></div><p>可以像普通的 app 一样指定参数。</p>
 <p>SPA：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">pm2 serve --spa
-</code></pre></div><p>会自动定位到 <code>index.html</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pm2 serve --spa
+</span></span></code></pre></div><p>会自动定位到 <code>index.html</code></p>
 <p>基本 auth：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">pm2 serve --basic-auth-username &lt;username&gt; --basic-auth-password &lt;password&gt;
-</code></pre></div><h2 id="重启策略">重启策略</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 在某一个 cron 时间重启</span>
---cron-restart<span class="o">=</span><span class="s2">&#34;0 0 * * *&#34;</span>
---cron-restart <span class="m">0</span> <span class="c1"># 不使用 cron 重启</span>
-
-<span class="c1"># 文件改变时重启</span>
---watch
-
-<span class="c1"># 最大内存重启</span>
---max-memory-restart 300M
-
-<span class="c1"># 重启延迟</span>
---restart-delay<span class="o">=</span><span class="m">3000</span>
-
-<span class="c1"># 不自动重启</span>
---no-autorestart
-
-<span class="c1"># </span>
---stop-exit-codes <span class="m">0</span>
-
-<span class="c1"># 指数增长的重启延迟</span>
---exp-backoff-restart-delay<span class="o">=</span><span class="m">100</span>
-</code></pre></div><h2 id="记录logs">记录（logs）</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pm2 serve --basic-auth-username &lt;username&gt; --basic-auth-password &lt;password&gt;
+</span></span></code></pre></div><h2 id="重启策略">重启策略</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 在某一个 cron 时间重启</span>
+</span></span><span class="line"><span class="cl">--cron-restart<span class="o">=</span><span class="s2">&#34;0 0 * * *&#34;</span>
+</span></span><span class="line"><span class="cl">--cron-restart <span class="m">0</span> <span class="c1"># 不使用 cron 重启</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 文件改变时重启</span>
+</span></span><span class="line"><span class="cl">--watch
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 最大内存重启</span>
+</span></span><span class="line"><span class="cl">--max-memory-restart 300M
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 重启延迟</span>
+</span></span><span class="line"><span class="cl">--restart-delay<span class="o">=</span><span class="m">3000</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 不自动重启</span>
+</span></span><span class="line"><span class="cl">--no-autorestart
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># </span>
+</span></span><span class="line"><span class="cl">--stop-exit-codes <span class="m">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 指数增长的重启延迟</span>
+</span></span><span class="line"><span class="cl">--exp-backoff-restart-delay<span class="o">=</span><span class="m">100</span>
+</span></span></code></pre></div><h2 id="记录logs">记录（logs）</h2>
 <p>默认的记录文件在 <code>$HOME/.pm2/</code> 文件夹中</p>
 <h3 id="显示记录">显示记录</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">❯ pm2 logs -h
-
-  Usage: logs <span class="o">[</span>options<span class="o">]</span> <span class="o">[</span>id<span class="p">|</span>name<span class="p">|</span>namespace<span class="o">]</span> <span class="c1"># pm2 logs 选项 + app</span>
-
-  stream logs file. Default stream all logs
-
-  Options:
-    <span class="c1"># 三种格式</span>
-    --json                json log output
-    --format              formated log output
-    --raw                 raw output
-    <span class="c1"># 只显示错误或标准输出</span>
-    --err                 only shows error output
-    --out                 only shows standard output
-    <span class="c1"># 显示 n 行</span>
-    --lines &lt;n&gt;           output the last N lines, instead of the last <span class="m">15</span> by default
-    <span class="c1"># 增加时间戳</span>
-    --timestamp <span class="o">[</span>format<span class="o">]</span>  add timestamps <span class="o">(</span>default format YYYY-MM-DD-HH:mm:ss<span class="o">)</span>
-    <span class="c1"># 仅打印 logs，不记录</span>
-    --nostream            print logs without lauching the log stream
-    <span class="c1"># 高光一些值</span>
-    --highlight <span class="o">[</span>value<span class="o">]</span>   highlights the given value
-    -h, --help            output usage information
-</code></pre></div><p>限制 log 大小，需要使用 <code>pm2-logrotate</code> 插件：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">pm2 install pm2-logrotate
-</code></pre></div><p>刷新 log：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">pm2 flush <span class="o">[</span>app<span class="o">]</span>
-</code></pre></div><h3 id="开启-app-时指定的-log-设置">开启 app 时指定的 log 设置</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">-l --log <span class="o">[</span>path<span class="o">]</span>              <span class="c1"># 指定输出路径</span>
--o --output &lt;path&gt;           <span class="c1"># 指定标准输出路径</span>
--e --error &lt;path&gt;            <span class="c1"># 指定错误输出路径</span>
---time                       <span class="c1"># 使用标准时间戳记录</span>
---log-date-format &lt;format&gt;   <span class="c1"># 自定义时间戳记录</span>
---merge-logs                 <span class="c1"># 运行多个进程时使用同一个文件记录，不依照 id 区分</span>
-</code></pre></div><h2 id="持续运行">持续运行</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ pm2 startup
-<span class="o">[</span>PM2<span class="o">]</span> You have to run this <span class="nb">command</span> as root. Execute the following command:
-      sudo su -c <span class="s2">&#34;env PATH=</span><span class="nv">$PATH</span><span class="s2">:/home/unitech/.nvm/versions/node/v14.3/bin pm2 startup &lt;distribution&gt; -u &lt;user&gt; --hp &lt;home-path&gt;
-</span></code></pre></div><p>复制并执行：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo su -c <span class="s2">&#34;env PATH=</span><span class="nv">$PATH</span><span class="s2">:/home/unitech/.nvm/versions/node/v14.3/bin pm2 startup &lt;distribution&gt; -u &lt;user&gt; --hp &lt;home-path&gt;
-</span></code></pre></div><p>就可以了。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">❯ pm2 logs -h
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  Usage: logs <span class="o">[</span>options<span class="o">]</span> <span class="o">[</span>id<span class="p">|</span>name<span class="p">|</span>namespace<span class="o">]</span> <span class="c1"># pm2 logs 选项 + app</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  stream logs file. Default stream all logs
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  Options:
+</span></span><span class="line"><span class="cl">    <span class="c1"># 三种格式</span>
+</span></span><span class="line"><span class="cl">    --json                json log output
+</span></span><span class="line"><span class="cl">    --format              formated log output
+</span></span><span class="line"><span class="cl">    --raw                 raw output
+</span></span><span class="line"><span class="cl">    <span class="c1"># 只显示错误或标准输出</span>
+</span></span><span class="line"><span class="cl">    --err                 only shows error output
+</span></span><span class="line"><span class="cl">    --out                 only shows standard output
+</span></span><span class="line"><span class="cl">    <span class="c1"># 显示 n 行</span>
+</span></span><span class="line"><span class="cl">    --lines &lt;n&gt;           output the last N lines, instead of the last <span class="m">15</span> by default
+</span></span><span class="line"><span class="cl">    <span class="c1"># 增加时间戳</span>
+</span></span><span class="line"><span class="cl">    --timestamp <span class="o">[</span>format<span class="o">]</span>  add timestamps <span class="o">(</span>default format YYYY-MM-DD-HH:mm:ss<span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 仅打印 logs，不记录</span>
+</span></span><span class="line"><span class="cl">    --nostream            print logs without lauching the log stream
+</span></span><span class="line"><span class="cl">    <span class="c1"># 高光一些值</span>
+</span></span><span class="line"><span class="cl">    --highlight <span class="o">[</span>value<span class="o">]</span>   highlights the given value
+</span></span><span class="line"><span class="cl">    -h, --help            output usage information
+</span></span></code></pre></div><p>限制 log 大小，需要使用 <code>pm2-logrotate</code> 插件：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pm2 install pm2-logrotate
+</span></span></code></pre></div><p>刷新 log：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pm2 flush <span class="o">[</span>app<span class="o">]</span>
+</span></span></code></pre></div><h3 id="开启-app-时指定的-log-设置">开启 app 时指定的 log 设置</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">-l --log <span class="o">[</span>path<span class="o">]</span>              <span class="c1"># 指定输出路径</span>
+</span></span><span class="line"><span class="cl">-o --output &lt;path&gt;           <span class="c1"># 指定标准输出路径</span>
+</span></span><span class="line"><span class="cl">-e --error &lt;path&gt;            <span class="c1"># 指定错误输出路径</span>
+</span></span><span class="line"><span class="cl">--time                       <span class="c1"># 使用标准时间戳记录</span>
+</span></span><span class="line"><span class="cl">--log-date-format &lt;format&gt;   <span class="c1"># 自定义时间戳记录</span>
+</span></span><span class="line"><span class="cl">--merge-logs                 <span class="c1"># 运行多个进程时使用同一个文件记录，不依照 id 区分</span>
+</span></span></code></pre></div><h2 id="持续运行">持续运行</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ pm2 startup
+</span></span><span class="line"><span class="cl"><span class="o">[</span>PM2<span class="o">]</span> You have to run this <span class="nb">command</span> as root. Execute the following command:
+</span></span><span class="line"><span class="cl">      sudo su -c <span class="s2">&#34;env PATH=</span><span class="nv">$PATH</span><span class="s2">:/home/unitech/.nvm/versions/node/v14.3/bin pm2 startup &lt;distribution&gt; -u &lt;user&gt; --hp &lt;home-path&gt;
+</span></span></span></code></pre></div><p>复制并执行：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo su -c <span class="s2">&#34;env PATH=</span><span class="nv">$PATH</span><span class="s2">:/home/unitech/.nvm/versions/node/v14.3/bin pm2 startup &lt;distribution&gt; -u &lt;user&gt; --hp &lt;home-path&gt;
+</span></span></span></code></pre></div><p>就可以了。</p>
 <p>保存 app 列表，在重启时会马上再次运行：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">pm2 save
-</code></pre></div><p>回滚？（resurrect），回到 save 时的版本：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pm2 save
+</span></span></code></pre></div><p>回滚？（resurrect），回到 save 时的版本：</p>
 <pre tabindex="0"><code>pm2 resurrect 
 </code></pre><p>取消开启时运行：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">pm2 unstartup
-</code></pre></div><h2 id="cluster-集群">cluster 集群</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pm2 unstartup
+</span></span></code></pre></div><h2 id="cluster-集群">cluster 集群</h2>
 <p>Node.js 的单个实例在单个线程中运行。 为了利用多核系统，用户有时会想要启动 Node.js 进程的集群来处理负载。集群模块可以轻松创建共享服务器端口的子进程。</p>
 <p>pm2 中也可以使用 cluster 集群，传入 <code>-i</code> 选项：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">pm2 start app.js -i max
-</code></pre></div><p><code>max</code> 代表 pm2 会自动探测有多少核的 CPU，并尝试运行最多的进程。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pm2 start app.js -i max
+</span></span></code></pre></div><p><code>max</code> 代表 pm2 会自动探测有多少核的 CPU，并尝试运行最多的进程。</p>
 <h2 id="部署系统">部署系统</h2>
 <p>见 <a class="link" href="https://pm2.keymetrics.io/docs/usage/deployment/"  target="_blank" rel="noopener"
     >Deployment System</a>。</p>
@@ -308,6 +308,18 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
                 
                     
 <article class="">
+    <a href="/p/2022/02/docker%E4%BB%8B%E7%BB%8D/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Docker介绍</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
     <a href="/p/2022/01/http%E5%A4%B4%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%E7%82%B9corscsp/">
         
         
@@ -338,18 +350,6 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
 
         <div class="article-details">
             <h2 class="article-title">Terminal查看远程图片</h2>
-        </div>
-    </a>
-</article>
-                
-                    
-<article class="">
-    <a href="/p/2021/10/%E5%90%84%E7%B1%BBtex/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">各类“TeX”</h2>
         </div>
     </a>
 </article>

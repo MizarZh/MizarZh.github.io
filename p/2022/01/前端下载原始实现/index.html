@@ -109,34 +109,34 @@
 <h2 id="如果使用二进制传输">如果使用二进制传输</h2>
 <p>服务端：</p>
 <p>内部传二进制类型，并设置 HTTP 头：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="err">Content-Type: application/octet-stream
-</span></code></pre></div><p>前端：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="line"><span class="cl"><span class="err">Content-Type: application/octet-stream
+</span></span></span></code></pre></div><p>前端：</p>
 <p>首先要设置 <code>XMLHTTPRequest</code> 的 <code>responseType</code> 为 <code>arraybuffer</code>，然后创建 blob 对象，最后创建连接下载。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="c1">// 设置 respnseType
-</span><span class="c1"></span><span class="nx">XMLHttpRequest</span><span class="p">.</span><span class="nx">responseType</span> <span class="o">=</span> <span class="s1">&#39;arraybuffer&#39;</span>
-<span class="c1">// jquery:
-</span><span class="c1"></span><span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
-    <span class="nx">xhrFields</span><span class="o">:</span> <span class="p">{</span>
-        <span class="nx">responseType</span> <span class="o">=</span> <span class="s1">&#39;arraybuffer&#39;</span>
-    <span class="p">}</span>
-<span class="p">})</span>
-<span class="c1">// 其他什么 axios 应该也直接有类似选项
-</span><span class="c1">// 创建 Blob：
-</span><span class="c1"></span><span class="kd">let</span> <span class="nx">blob</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Blob</span><span class="p">([</span><span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">],</span> <span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;application/octet-stream&#39;</span> <span class="p">});</span>
-
-<span class="c1">// 创建链接并下载
-</span><span class="c1"></span><span class="kd">let</span> <span class="nx">URL</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">URL</span> <span class="o">||</span> <span class="nb">window</span><span class="p">.</span><span class="nx">webkitURL</span><span class="p">;</span> <span class="c1">// 获取 URL
-</span><span class="c1"></span><span class="kd">let</span> <span class="nx">objectUrl</span> <span class="o">=</span> <span class="nx">URL</span><span class="p">.</span><span class="nx">createObjectURL</span><span class="p">(</span><span class="nx">blob</span><span class="p">);</span> <span class="c1">// 创建 ObjectURL
-</span><span class="c1">// 创建链接
-</span><span class="c1"></span><span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">);</span>
-<span class="nx">a</span><span class="p">.</span><span class="nx">href</span> <span class="o">=</span> <span class="nx">objectUrl</span><span class="p">;</span>
-<span class="nx">a</span><span class="p">.</span><span class="nx">download</span> <span class="o">=</span> <span class="nx">fileName</span><span class="p">;</span> <span class="c1">//下载后文件名
-</span><span class="c1"></span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
-<span class="nx">a</span><span class="p">.</span><span class="nx">click</span><span class="p">();</span> <span class="c1">//点击下载
-</span><span class="c1"></span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">removeChild</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span> <span class="c1">//下载完成移除元素
-</span><span class="c1"></span>
-<span class="nb">window</span><span class="p">.</span><span class="nx">URL</span><span class="p">.</span><span class="nx">revokeObjectURL</span><span class="p">(</span><span class="nx">objectUrl</span><span class="p">);</span> <span class="c1">// 销毁 ObjectURL
-</span></code></pre></div><h2 id="其他高端的方式">其他高端的方式</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">// 设置 respnseType
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">XMLHttpRequest</span><span class="p">.</span><span class="nx">responseType</span> <span class="o">=</span> <span class="s1">&#39;arraybuffer&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// jquery:
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">xhrFields</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">responseType</span> <span class="o">=</span> <span class="s1">&#39;arraybuffer&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">})</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 其他什么 axios 应该也直接有类似选项
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 创建 Blob：
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">let</span> <span class="nx">blob</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Blob</span><span class="p">([</span><span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">],</span> <span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;application/octet-stream&#39;</span> <span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 创建链接并下载
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">let</span> <span class="nx">URL</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">URL</span> <span class="o">||</span> <span class="nb">window</span><span class="p">.</span><span class="nx">webkitURL</span><span class="p">;</span> <span class="c1">// 获取 URL
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">let</span> <span class="nx">objectUrl</span> <span class="o">=</span> <span class="nx">URL</span><span class="p">.</span><span class="nx">createObjectURL</span><span class="p">(</span><span class="nx">blob</span><span class="p">);</span> <span class="c1">// 创建 ObjectURL
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 创建链接
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">a</span><span class="p">.</span><span class="nx">href</span> <span class="o">=</span> <span class="nx">objectUrl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">a</span><span class="p">.</span><span class="nx">download</span> <span class="o">=</span> <span class="nx">fileName</span><span class="p">;</span> <span class="c1">//下载后文件名
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">a</span><span class="p">.</span><span class="nx">click</span><span class="p">();</span> <span class="c1">//点击下载
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">removeChild</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span> <span class="c1">//下载完成移除元素
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nb">window</span><span class="p">.</span><span class="nx">URL</span><span class="p">.</span><span class="nx">revokeObjectURL</span><span class="p">(</span><span class="nx">objectUrl</span><span class="p">);</span> <span class="c1">// 销毁 ObjectURL
+</span></span></span></code></pre></div><h2 id="其他高端的方式">其他高端的方式</h2>
 <p>待补充</p>
 
 </section>

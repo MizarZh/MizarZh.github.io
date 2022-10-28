@@ -145,21 +145,21 @@
 </ul>
 <p>实际上，它们就是内建函数。</p>
 <p>原生函数可以被当作构造函数来使用，但其构造出来的对象可能会和我们设想的有所出入：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">String</span><span class="p">(</span> <span class="s2">&#34;abc&#34;</span> <span class="p">);</span> 
-<span class="k">typeof</span> <span class="nx">a</span><span class="p">;</span> <span class="c1">// 是&#34;object&#34;，不是&#34;String&#34;
-</span><span class="c1"></span><span class="nx">a</span> <span class="k">instanceof</span> <span class="nb">String</span><span class="p">;</span>  <span class="c1">// true
-</span><span class="c1"></span><span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span> <span class="nx">a</span> <span class="p">);</span> <span class="c1">// &#34;[object String]&#34;
-</span></code></pre></div><p>typeof 在这里返回的是对象类型的子类型。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">String</span><span class="p">(</span> <span class="s2">&#34;abc&#34;</span> <span class="p">);</span> 
+</span></span><span class="line"><span class="cl"><span class="k">typeof</span> <span class="nx">a</span><span class="p">;</span> <span class="c1">// 是&#34;object&#34;，不是&#34;String&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">a</span> <span class="k">instanceof</span> <span class="nb">String</span><span class="p">;</span>  <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span> <span class="nx">a</span> <span class="p">);</span> <span class="c1">// &#34;[object String]&#34;
+</span></span></span></code></pre></div><p>typeof 在这里返回的是对象类型的子类型。</p>
 <p>补充：instanceof（用class太多，该回去复习原型链了……）</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nx">object</span> <span class="k">instanceof</span> <span class="nx">constructor</span>
-<span class="c1">// object 某个实例对象, constructor 某个构造函数 
-</span></code></pre></div><h2 id="内部属性class">内部属性[[Class]]</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">object</span> <span class="k">instanceof</span> <span class="nx">constructor</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// object 某个实例对象, constructor 某个构造函数 
+</span></span></span></code></pre></div><h2 id="内部属性class">内部属性[[Class]]</h2>
 <p>所有 typeof 返回值为 &ldquo;object&rdquo; 的对象（如数组）都包含一个内部属性 [[Class]]（我们可 以把它看作一个内部的分类，而非传统的面向对象意义上的类）。</p>
 <p>可以使用Object.prototype.toString(..)来查看：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="p">);</span> <span class="c1">// &#34;[object Array]&#34;
-</span><span class="c1"></span><span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span> <span class="kc">null</span> <span class="p">);</span> <span class="c1">// &#34;[object Null]&#34;
-</span><span class="c1"></span><span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span> <span class="s2">&#34;abc&#34;</span> <span class="p">);</span> <span class="c1">// &#34;[object String]&#34;
-</span></code></pre></div><p>虽然null和undefined的原生构造函数并不存在，但仍然具有内部类型。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="p">);</span> <span class="c1">// &#34;[object Array]&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span> <span class="kc">null</span> <span class="p">);</span> <span class="c1">// &#34;[object Null]&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span> <span class="s2">&#34;abc&#34;</span> <span class="p">);</span> <span class="c1">// &#34;[object String]&#34;
+</span></span></span></code></pre></div><p>虽然null和undefined的原生构造函数并不存在，但仍然具有内部类型。</p>
 <p>String等类型是包装类型。</p>
 <h2 id="封装对象包装">封装对象包装</h2>
 <p>基本类型是不存在.length 和 .toString() 这样的属性和方法，因此需要通过封装对象才能访问。</p>

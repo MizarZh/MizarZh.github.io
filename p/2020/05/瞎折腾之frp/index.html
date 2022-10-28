@@ -115,21 +115,21 @@ frps是frp的服务器，应放置在有公网ip的服务器上（这里指的�
 使用scp传文件到服务器上
 frpc是frp的客户端，应放置在要暴露服务的机器上（这里指的是损友电脑）。</p>
 <p>接下来在服务端配置frps.ini：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="p">[</span><span class="nx">common</span><span class="p">]</span>
-<span class="nx">bind_port</span> <span class="o">=</span> <span class="c1">// 其他机器访问的端口
-</span></code></pre></div><p>客户端frpc.ini的配置:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="p">[</span><span class="nx">common</span><span class="p">]</span>
-<span class="nx">server_addr</span> <span class="o">=</span> <span class="c1">// 服务器的地址
-</span><span class="c1"></span><span class="nx">server_port</span> <span class="o">=</span> <span class="c1">// frps.ini中的bind_port
-</span><span class="c1"></span><span class="p">[</span><span class="nx">minecraft</span><span class="p">]</span>
-<span class="nx">type</span> <span class="o">=</span> <span class="nx">tcp</span>
-<span class="nx">local_ip</span> <span class="o">=</span> <span class="mf">127.0</span><span class="p">.</span><span class="mf">0.1</span> <span class="c1">// 本地
-</span><span class="c1"></span><span class="nx">local_port</span> <span class="o">=</span> <span class="mi">25565</span> <span class="c1">// mc开启的端口
-</span><span class="c1"></span><span class="nx">remote_port</span> <span class="o">=</span> <span class="mi">25565</span>
-</code></pre></div><p>都配置好之后就在命令行中分别运行</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">./frps
-./frpc
-</code></pre></div><p>同时开启mc服务器，在其他机器上输入连接frpc.ini中的server_addr:server_port即可开始游戏。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="p">[</span><span class="nx">common</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">bind_port</span> <span class="o">=</span> <span class="c1">// 其他机器访问的端口
+</span></span></span></code></pre></div><p>客户端frpc.ini的配置:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="p">[</span><span class="nx">common</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">server_addr</span> <span class="o">=</span> <span class="c1">// 服务器的地址
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">server_port</span> <span class="o">=</span> <span class="c1">// frps.ini中的bind_port
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">[</span><span class="nx">minecraft</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">type</span> <span class="o">=</span> <span class="nx">tcp</span>
+</span></span><span class="line"><span class="cl"><span class="nx">local_ip</span> <span class="o">=</span> <span class="mf">127.0</span><span class="p">.</span><span class="mf">0.1</span> <span class="c1">// 本地
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">local_port</span> <span class="o">=</span> <span class="mi">25565</span> <span class="c1">// mc开启的端口
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">remote_port</span> <span class="o">=</span> <span class="mi">25565</span>
+</span></span></code></pre></div><p>都配置好之后就在命令行中分别运行</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">./frps
+</span></span><span class="line"><span class="cl">./frpc
+</span></span></code></pre></div><p>同时开启mc服务器，在其他机器上输入连接frpc.ini中的server_addr:server_port即可开始游戏。</p>
 
 </section>
 
@@ -169,6 +169,18 @@ frpc是frp的客户端，应放置在要暴露服务的机器上（这里指的�
         <h2 class="section-title">相关文章</h2>
         <div class="related-contents">
             <div class="flex article-list--tile">
+                
+                    
+<article class="">
+    <a href="/p/2021/12/2021-12-4-%E5%87%BA%E6%B8%B8/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">2021-12-4 出游</h2>
+        </div>
+    </a>
+</article>
                 
                     
 <article class="">

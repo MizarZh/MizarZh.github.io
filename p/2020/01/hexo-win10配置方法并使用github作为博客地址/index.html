@@ -111,49 +111,49 @@
 <li>安装<a class="link" href="https://git-scm.com/download/win"  target="_blank" rel="noopener"
     >git for windows</a>，以后将使用git bash作为命令行操4作
 配置git账号信息：
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">git config --global user.name <span class="s2">&#34;Firstname Lastname&#34;</span>
-git config --global user.email <span class="s2">&#34;your-email@youremail.com&#34;</span>
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git config --global user.name <span class="s2">&#34;Firstname Lastname&#34;</span>
+</span></span><span class="line"><span class="cl">git config --global user.email <span class="s2">&#34;your-email@youremail.com&#34;</span>
+</span></span></code></pre></div></li>
 <li>github新建repository的地址需命名为<em>your-github-name.github.io</em></li>
 </ol>
 <h2 id="1使用cnpm">1、使用cnpm</h2>
 <p>npm命令在国内较慢，需要安装cnpm(淘宝镜像)</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">npm install -g cnpm --registry<span class="o">=</span>https://registry.npm.taobao.org
-</code></pre></div><!-- raw HTML omitted -->
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">npm install -g cnpm --registry<span class="o">=</span>https://registry.npm.taobao.org
+</span></span></code></pre></div><!-- raw HTML omitted -->
 <h2 id="2安装hexo">2、安装hexo</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">cnpm install -g hexo-cli
-</code></pre></div><h2 id="3新建文件夹">3、新建文件夹</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cnpm install -g hexo-cli
+</span></span></code></pre></div><h2 id="3新建文件夹">3、新建文件夹</h2>
 <p>新建一个文件夹，里面将存储blog所需文件</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">mkdir my_blog
-<span class="nb">cd</span> my_blog
-</code></pre></div><h2 id="4初始化hexo">4、初始化hexo</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">hexo init
-</code></pre></div><h2 id="5安装hexo部署至github的工具">5、安装hexo部署至github的工具</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">cnpm install --save hexo-deployer-git
-</code></pre></div><p>（若出现ERROR Deployer not found: git错误，则是这个工具未安装）</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mkdir my_blog
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> my_blog
+</span></span></code></pre></div><h2 id="4初始化hexo">4、初始化hexo</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">hexo init
+</span></span></code></pre></div><h2 id="5安装hexo部署至github的工具">5、安装hexo部署至github的工具</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cnpm install --save hexo-deployer-git
+</span></span></code></pre></div><p>（若出现ERROR Deployer not found: git错误，则是这个工具未安装）</p>
 <h2 id="6其他配置">6、其他配置</h2>
 <p>其中文件_config.yml是配置文件
 部署到github上需要配置deploy部分</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-makefile" data-lang="makefile"><span class="nf">type</span><span class="o">:</span> &#39;<span class="n">git</span>&#39;
-</code></pre></div><p>添加两行：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-makefile" data-lang="makefile"><span class="nf">repo</span><span class="o">:</span> <span class="n">_path</span>-<span class="n">to</span>-<span class="n">github</span>-<span class="n">blog_</span>
-<span class="nf">branch</span><span class="o">:</span> <span class="n">master</span>
-</code></pre></div><p>可在theme中更换主题</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-makefile" data-lang="makefile"><span class="line"><span class="cl"><span class="nf">type</span><span class="o">:</span> &#39;<span class="n">git</span>&#39;
+</span></span></code></pre></div><p>添加两行：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-makefile" data-lang="makefile"><span class="line"><span class="cl"><span class="nf">repo</span><span class="o">:</span> <span class="n">_path</span>-<span class="n">to</span>-<span class="n">github</span>-<span class="n">blog_</span>
+</span></span><span class="line"><span class="cl"><span class="nf">branch</span><span class="o">:</span> <span class="n">master</span>
+</span></span></code></pre></div><p>可在theme中更换主题</p>
 <h3 id="本地临时服务器">本地临时服务器：</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">hexo s 
-s 代表 start
-</code></pre></div><p>默认地址为localhost:4000</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">hexo s 
+</span></span><span class="line"><span class="cl">s 代表 start
+</span></span></code></pre></div><p>默认地址为localhost:4000</p>
 <h3 id="新建文档">新建文档：</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">hexo n <span class="s2">&#34;name&#34;</span> 
-n 代表 new
-</code></pre></div><p>文档存放在/source/_post/中</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">hexo n <span class="s2">&#34;name&#34;</span> 
+</span></span><span class="line"><span class="cl">n 代表 new
+</span></span></code></pre></div><p>文档存放在/source/_post/中</p>
 <h3 id="生成文档">生成文档：</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">hexo g 
-g 代表 generate
-</code></pre></div><p>部署文档到github上：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">hexo d 
-d 代表 deploy
-</code></pre></div><p>第一次配置可能需要输入github的账号密码
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">hexo g 
+</span></span><span class="line"><span class="cl">g 代表 generate
+</span></span></code></pre></div><p>部署文档到github上：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">hexo d 
+</span></span><span class="line"><span class="cl">d 代表 deploy
+</span></span></code></pre></div><p>第一次配置可能需要输入github的账号密码
 若是git bash内提示账号相关的错误，返回第零步进行账号的配置</p>
 
 </section>
@@ -219,36 +219,36 @@ d 代表 deploy
                 
                     
 <article class="">
+    <a href="/p/2022/02/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%BD%93%E9%AA%8C1/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">前端工程化体验（1）</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/2022/01/typescript%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Typescript基本使用</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
     <a href="/p/2022/01/js%E7%9A%84%E6%A8%A1%E5%9D%97%E7%B3%BB%E7%BB%9F%E4%BB%A5%E5%8F%8A%E5%85%B6%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86/">
         
         
 
         <div class="article-details">
             <h2 class="article-title">Js的模块系统以及其零碎知识</h2>
-        </div>
-    </a>
-</article>
-                
-                    
-<article class="">
-    <a href="/p/2022/01/electron%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">Electron基本介绍</h2>
-        </div>
-    </a>
-</article>
-                
-                    
-<article class="">
-    <a href="/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">Matplotlib 速查表</h2>
         </div>
     </a>
 </article>

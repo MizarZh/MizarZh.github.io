@@ -108,31 +108,31 @@
 <h2 id="71-递归">7.1 递归</h2>
 <p>使用argument.callee
 严格模式下，可使用命名函数表达式来达成相同的结果</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">factorial</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span> <span class="nx">f</span><span class="p">(</span><span class="nx">num</span><span class="p">){</span>     
-    <span class="k">if</span> <span class="p">(</span><span class="nx">num</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">){</span>          
-        <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>     
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>         
-        <span class="k">return</span> <span class="nx">num</span> <span class="o">*</span> <span class="nx">f</span><span class="p">(</span><span class="nx">num</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>     
-    <span class="p">}</span> 
-<span class="p">});</span> 
-</code></pre></div><p>以上代码创建了一个名为 f()的命名函数表达式，然后将它赋值给变量 factorial。即便把函数赋值给了另一个变量，函数的名字 f 仍然有效，所以递归调用照样能正确完成。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">factorial</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span> <span class="nx">f</span><span class="p">(</span><span class="nx">num</span><span class="p">){</span>     
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">num</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">){</span>          
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>     
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>         
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nx">num</span> <span class="o">*</span> <span class="nx">f</span><span class="p">(</span><span class="nx">num</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>     
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> 
+</span></span><span class="line"><span class="cl"><span class="p">});</span> 
+</span></span></code></pre></div><p>以上代码创建了一个名为 f()的命名函数表达式，然后将它赋值给变量 factorial。即便把函数赋值给了另一个变量，函数的名字 f 仍然有效，所以递归调用照样能正确完成。</p>
 <!-- raw HTML omitted -->
 <h2 id="72-闭包">7.2 闭包</h2>
 <p>闭包是指有权访问另一个函数作用域中的变量的函数。创建闭包的常见方式，就是在一个函数内部创建另一个函数。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">createComparisonFunction</span><span class="p">(</span><span class="nx">propertyName</span><span class="p">)</span> <span class="p">{</span>          
-    <span class="k">return</span> <span class="kd">function</span><span class="p">(</span><span class="nx">object1</span><span class="p">,</span> <span class="nx">object2</span><span class="p">){</span>         
-        <span class="kd">var</span> <span class="nx">value1</span> <span class="o">=</span> <span class="nx">object1</span><span class="p">[</span><span class="nx">propertyName</span><span class="p">];</span>         
-        <span class="kd">var</span> <span class="nx">value2</span> <span class="o">=</span> <span class="nx">object2</span><span class="p">[</span><span class="nx">propertyName</span><span class="p">];</span>                  
-        <span class="k">if</span> <span class="p">(</span><span class="nx">value1</span> <span class="o">&lt;</span> <span class="nx">value2</span><span class="p">){</span>             
-            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>         
-            <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">value1</span> <span class="o">&gt;</span> <span class="nx">value2</span><span class="p">){</span>             
-                <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>         
-            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>             
-                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>         
-            <span class="p">}</span>     
-    <span class="p">};</span> 
-<span class="p">}</span> 
-</code></pre></div><p>在创建compare()函数时，会创建一个预先包含全局变量对象的作用域链，这个作用域链被保存在内部的[[Scope]]属性中。当调用compare()函数时，会为函数创建一个执行环境，然后通过复制函数的[[Scope]]属性中的对象构建起执行环境的作用域链。作用域链本质上是一个指向变量对象的指针列表，它只引用但不实际包含变量对象。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">createComparisonFunction</span><span class="p">(</span><span class="nx">propertyName</span><span class="p">)</span> <span class="p">{</span>          
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="kd">function</span><span class="p">(</span><span class="nx">object1</span><span class="p">,</span> <span class="nx">object2</span><span class="p">){</span>         
+</span></span><span class="line"><span class="cl">        <span class="kd">var</span> <span class="nx">value1</span> <span class="o">=</span> <span class="nx">object1</span><span class="p">[</span><span class="nx">propertyName</span><span class="p">];</span>         
+</span></span><span class="line"><span class="cl">        <span class="kd">var</span> <span class="nx">value2</span> <span class="o">=</span> <span class="nx">object2</span><span class="p">[</span><span class="nx">propertyName</span><span class="p">];</span>                  
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="nx">value1</span> <span class="o">&lt;</span> <span class="nx">value2</span><span class="p">){</span>             
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>         
+</span></span><span class="line"><span class="cl">            <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">value1</span> <span class="o">&gt;</span> <span class="nx">value2</span><span class="p">){</span>             
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>         
+</span></span><span class="line"><span class="cl">            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>             
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>         
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>     
+</span></span><span class="line"><span class="cl">    <span class="p">};</span> 
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><p>在创建compare()函数时，会创建一个预先包含全局变量对象的作用域链，这个作用域链被保存在内部的[[Scope]]属性中。当调用compare()函数时，会为函数创建一个执行环境，然后通过复制函数的[[Scope]]属性中的对象构建起执行环境的作用域链。作用域链本质上是一个指向变量对象的指针列表，它只引用但不实际包含变量对象。</p>
 
 </section>
 

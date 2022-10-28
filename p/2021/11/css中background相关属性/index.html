@@ -146,11 +146,11 @@
 <p><code>scroll</code>：内部滑动不动，而外部滑动随之动</p>
 <p>此关键属性值表示背景相对于元素本身固定， 而不是随着它的内容滚动（对元素边框是有效的）。</p>
 <p>可以使用逗号分隔，指定多个不同背景的attachment。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="nt">p</span> <span class="p">{</span>
-  <span class="k">background-image</span><span class="p">:</span> <span class="nb">url</span><span class="p">(</span><span class="s2">&#34;picture1.png&#34;</span><span class="p">),</span> <span class="nb">url</span><span class="p">(</span><span class="s2">&#34;picture2.png&#34;</span><span class="p">);</span>
-  <span class="k">background-attachment</span><span class="p">:</span> <span class="kc">fixed</span><span class="p">,</span> <span class="kc">scroll</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div><h2 id="position">position</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="nt">p</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">background-image</span><span class="p">:</span> <span class="nb">url</span><span class="p">(</span><span class="s2">&#34;picture1.png&#34;</span><span class="p">),</span> <span class="nb">url</span><span class="p">(</span><span class="s2">&#34;picture2.png&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">background-attachment</span><span class="p">:</span> <span class="kc">fixed</span><span class="p">,</span> <span class="kc">scroll</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h2 id="position">position</h2>
 <p>决定它的属性是<code>background-position</code>。</p>
 <p>语法：</p>
 <ol>
@@ -159,80 +159,80 @@
 <li>关键字<code>top</code>, <code>left</code>, <code>bottom</code>, <code>right</code> + 长度或百分比 x2。</li>
 </ol>
 <p>例子：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="nt">background-position</span><span class="o">:</span> <span class="nt">top</span><span class="o">;</span>
-<span class="nt">background-position</span><span class="o">:</span> <span class="nt">center</span><span class="o">;</span>
-
-<span class="nt">background-position</span><span class="o">:</span> <span class="nt">25</span><span class="o">%</span> <span class="nt">75</span><span class="o">%;</span>
-<span class="nt">background-position</span><span class="o">:</span> <span class="nt">100px</span> <span class="nt">200px</span><span class="o">;</span>
-
-<span class="nt">background-position</span><span class="o">:</span> <span class="nt">bottom</span> <span class="nt">10px</span> <span class="nt">right</span> <span class="nt">20px</span><span class="o">;</span>
-<span class="nt">background-position</span><span class="o">:</span> <span class="nt">right</span> <span class="nt">3em</span> <span class="nt">bottom</span> <span class="nt">10px</span><span class="o">;</span>
-<span class="nt">background-position</span><span class="o">:</span> <span class="nt">top</span> <span class="nt">right</span> <span class="nt">10px</span><span class="o">;</span> <span class="c">/*  距离top 0，距离right 10px */</span>
-</code></pre></div><p>可以使用负值，即背景在框外。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="nt">background-position</span><span class="o">:</span> <span class="nt">top</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">background-position</span><span class="o">:</span> <span class="nt">center</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">background-position</span><span class="o">:</span> <span class="nt">25</span><span class="o">%</span> <span class="nt">75</span><span class="o">%;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">background-position</span><span class="o">:</span> <span class="nt">100px</span> <span class="nt">200px</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">background-position</span><span class="o">:</span> <span class="nt">bottom</span> <span class="nt">10px</span> <span class="nt">right</span> <span class="nt">20px</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">background-position</span><span class="o">:</span> <span class="nt">right</span> <span class="nt">3em</span> <span class="nt">bottom</span> <span class="nt">10px</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">background-position</span><span class="o">:</span> <span class="nt">top</span> <span class="nt">right</span> <span class="nt">10px</span><span class="o">;</span> <span class="c">/*  距离top 0，距离right 10px */</span>
+</span></span></code></pre></div><p>可以使用负值，即背景在框外。</p>
 <p>可以用逗号隔开，指定多个不同背景的position。</p>
 <h2 id="repeat-style">repeat-style</h2>
 <p>定义背景图像的重复方式。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="c">/* 单值语法 */</span>
-<span class="nt">background-repeat</span><span class="o">:</span> <span class="nt">repeat-x</span><span class="o">;</span> <span class="c">/* 相当于 repeat no-repeat，以下同理 */</span>
-<span class="nt">background-repeat</span><span class="o">:</span> <span class="nt">repeat-y</span><span class="o">;</span>
-<span class="nt">background-repeat</span><span class="o">:</span> <span class="nt">repeat</span><span class="o">;</span>
-<span class="nt">background-repeat</span><span class="o">:</span> <span class="nt">space</span><span class="o">;</span>
-<span class="nt">background-repeat</span><span class="o">:</span> <span class="nt">round</span><span class="o">;</span>
-<span class="nt">background-repeat</span><span class="o">:</span> <span class="nt">no-repeat</span><span class="o">;</span>
-
-<span class="c">/* 双值语法: 水平horizontal | 垂直vertical */</span>
-<span class="nt">background-repeat</span><span class="o">:</span> <span class="nt">repeat</span> <span class="nt">space</span><span class="o">;</span>
-<span class="nt">background-repeat</span><span class="o">:</span> <span class="nt">repeat</span> <span class="nt">repeat</span><span class="o">;</span>
-<span class="nt">background-repeat</span><span class="o">:</span> <span class="nt">round</span> <span class="nt">space</span><span class="o">;</span>
-<span class="nt">background-repeat</span><span class="o">:</span> <span class="nt">no-repeat</span> <span class="nt">round</span><span class="o">;</span>
-</code></pre></div><p><code>repeat</code>：重复，边缘图像会裁剪。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="c">/* 单值语法 */</span>
+</span></span><span class="line"><span class="cl"><span class="nt">background-repeat</span><span class="o">:</span> <span class="nt">repeat-x</span><span class="o">;</span> <span class="c">/* 相当于 repeat no-repeat，以下同理 */</span>
+</span></span><span class="line"><span class="cl"><span class="nt">background-repeat</span><span class="o">:</span> <span class="nt">repeat-y</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">background-repeat</span><span class="o">:</span> <span class="nt">repeat</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">background-repeat</span><span class="o">:</span> <span class="nt">space</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">background-repeat</span><span class="o">:</span> <span class="nt">round</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">background-repeat</span><span class="o">:</span> <span class="nt">no-repeat</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">/* 双值语法: 水平horizontal | 垂直vertical */</span>
+</span></span><span class="line"><span class="cl"><span class="nt">background-repeat</span><span class="o">:</span> <span class="nt">repeat</span> <span class="nt">space</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">background-repeat</span><span class="o">:</span> <span class="nt">repeat</span> <span class="nt">repeat</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">background-repeat</span><span class="o">:</span> <span class="nt">round</span> <span class="nt">space</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">background-repeat</span><span class="o">:</span> <span class="nt">no-repeat</span> <span class="nt">round</span><span class="o">;</span>
+</span></span></code></pre></div><p><code>repeat</code>：重复，边缘图像会裁剪。</p>
 <p><code>space</code>：图像会尽可能得重复，中间会有空隙，最边缘的图像会贴在边缘上, 不会裁剪。<code>background-position</code>会被无视除非只有一张图像。</p>
 <p><code>round</code>：图像会被拉伸，直到有足够的空间来添加一个图像。当下一个图像被添加后, 所有的当前的图像会被压缩来腾出空间。什么时候添加下一个图像由浏览器决定。</p>
 <p><code>no-repeat</code>：无重复。</p>
 <p>可以用逗号隔开，指定多个不同背景的<code>background-repeat</code></p>
 <h2 id="background-size">background-size</h2>
 <p>设置背景图片大小。图片可以保有其原有的尺寸，或者拉伸到新的尺寸，或者在保持其原有比例的同时缩放到元素的可用空间的尺寸。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="c">/* 关键字 */</span>
-<span class="nt">background-size</span><span class="o">:</span> <span class="nt">cover</span>
-<span class="nt">background-size</span><span class="o">:</span> <span class="nt">contain</span>
-
-<span class="c">/* 一个值: 这个值指定图片的宽度，图片的高度隐式的为auto */</span>
-<span class="nt">background-size</span><span class="o">:</span> <span class="nt">50</span><span class="o">%</span>
-<span class="nt">background-size</span><span class="o">:</span> <span class="nt">3em</span>
-<span class="nt">background-size</span><span class="o">:</span> <span class="nt">12px</span>
-<span class="nt">background-size</span><span class="o">:</span> <span class="nt">auto</span>
-
-<span class="c">/* 两个值 */</span>
-<span class="c">/* 第一个值指定图片的宽度，第二个值指定图片的高度 */</span>
-<span class="nt">background-size</span><span class="o">:</span> <span class="nt">50</span><span class="o">%</span> <span class="nt">auto</span>
-<span class="nt">background-size</span><span class="o">:</span> <span class="nt">3em</span> <span class="nt">25</span><span class="o">%</span>
-<span class="nt">background-size</span><span class="o">:</span> <span class="nt">auto</span> <span class="nt">6px</span>
-<span class="nt">background-size</span><span class="o">:</span> <span class="nt">auto</span> <span class="nt">auto</span>
-</code></pre></div><p>没有被背景图片覆盖的背景区域仍然会显示用<code>background-color</code>属性设置的背景颜色。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="c">/* 关键字 */</span>
+</span></span><span class="line"><span class="cl"><span class="nt">background-size</span><span class="o">:</span> <span class="nt">cover</span>
+</span></span><span class="line"><span class="cl"><span class="nt">background-size</span><span class="o">:</span> <span class="nt">contain</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">/* 一个值: 这个值指定图片的宽度，图片的高度隐式的为auto */</span>
+</span></span><span class="line"><span class="cl"><span class="nt">background-size</span><span class="o">:</span> <span class="nt">50</span><span class="o">%</span>
+</span></span><span class="line"><span class="cl"><span class="nt">background-size</span><span class="o">:</span> <span class="nt">3em</span>
+</span></span><span class="line"><span class="cl"><span class="nt">background-size</span><span class="o">:</span> <span class="nt">12px</span>
+</span></span><span class="line"><span class="cl"><span class="nt">background-size</span><span class="o">:</span> <span class="nt">auto</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">/* 两个值 */</span>
+</span></span><span class="line"><span class="cl"><span class="c">/* 第一个值指定图片的宽度，第二个值指定图片的高度 */</span>
+</span></span><span class="line"><span class="cl"><span class="nt">background-size</span><span class="o">:</span> <span class="nt">50</span><span class="o">%</span> <span class="nt">auto</span>
+</span></span><span class="line"><span class="cl"><span class="nt">background-size</span><span class="o">:</span> <span class="nt">3em</span> <span class="nt">25</span><span class="o">%</span>
+</span></span><span class="line"><span class="cl"><span class="nt">background-size</span><span class="o">:</span> <span class="nt">auto</span> <span class="nt">6px</span>
+</span></span><span class="line"><span class="cl"><span class="nt">background-size</span><span class="o">:</span> <span class="nt">auto</span> <span class="nt">auto</span>
+</span></span></code></pre></div><p>没有被背景图片覆盖的背景区域仍然会显示用<code>background-color</code>属性设置的背景颜色。</p>
 <p>关键字：</p>
 <p><code>contain</code>：缩放背景图片以完全覆盖背景区，可能背景图片部分看不见，会尽可能保持图像的比例。</p>
 <p><code>cover</code>：缩放背景图片以完全装入背景区，可能背景区部分空白，会尽可能保持图像的比例。</p>
 <h2 id="box">box</h2>
 <p>由两个属性决定： <code>background-clip</code> 和 <code>background-origin</code></p>
 <p><code>background-clip</code>：决定背景图片覆盖盒模型中的哪些部分。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="nt">background-clip</span><span class="o">:</span> <span class="nt">border-box</span><span class="o">;</span>
-<span class="nt">background-clip</span><span class="o">:</span> <span class="nt">padding-box</span><span class="o">;</span>
-<span class="nt">background-clip</span><span class="o">:</span> <span class="nt">content-box</span><span class="o">;</span>
-<span class="nt">background-clip</span><span class="o">:</span> <span class="nt">text</span><span class="o">;</span>
-</code></pre></div><p><code>background-origin</code>：规定了指定背景图片<code>background-image</code> 属性的原点位置的背景相对区域。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="nt">background-origin</span><span class="o">:</span> <span class="nt">border-box</span><span class="o">;</span>
-<span class="nt">background-origin</span><span class="o">:</span> <span class="nt">padding-box</span><span class="o">;</span>
-<span class="nt">background-origin</span><span class="o">:</span> <span class="nt">content-box</span><span class="o">;</span>
-</code></pre></div><p>当使用 <code>background-attachment</code>为fixed时，该属性将被忽略不起作用。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="nt">background-clip</span><span class="o">:</span> <span class="nt">border-box</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">background-clip</span><span class="o">:</span> <span class="nt">padding-box</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">background-clip</span><span class="o">:</span> <span class="nt">content-box</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">background-clip</span><span class="o">:</span> <span class="nt">text</span><span class="o">;</span>
+</span></span></code></pre></div><p><code>background-origin</code>：规定了指定背景图片<code>background-image</code> 属性的原点位置的背景相对区域。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="nt">background-origin</span><span class="o">:</span> <span class="nt">border-box</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">background-origin</span><span class="o">:</span> <span class="nt">padding-box</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">background-origin</span><span class="o">:</span> <span class="nt">content-box</span><span class="o">;</span>
+</span></span></code></pre></div><p>当使用 <code>background-attachment</code>为fixed时，该属性将被忽略不起作用。</p>
 <h2 id="综合">综合</h2>
 <p><code>&lt;box&gt;</code> 可能出现 0 次、1 次或 2 次。如果出现 1 次，它同时设定 <code>background-origin</code>和 <code>background-clip</code>。如果出现 2 次，第一次的出现设置 <code>background-origin</code>，第二次的出现设置 <code>background-clip</code>。</p>
 <p>其他的能出现0次或1次。</p>
 <p><code>&lt;bg-size&gt;</code> 只能紧接着 <code>&lt;position&gt;</code> 出现，以&quot;/&ldquo;分割，如： &ldquo;<code>center/80%</code>&rdquo;.</p>
 <p><code>&lt;background-color&gt;</code> 只能被包含在最后一层。</p>
 <p>例子：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="nt">background</span><span class="o">:</span> <span class="nt">center</span> <span class="o">/</span> <span class="nt">contain</span> <span class="nt">no-repeat</span> <span class="nt">url</span><span class="o">(</span><span class="s2">&#34;logo.svg&#34;</span><span class="o">),</span> <span class="p">#</span><span class="nn">eee</span> <span class="nt">35</span><span class="o">%</span> <span class="nt">url</span><span class="o">(</span><span class="s2">&#34;logo2.svg&#34;</span><span class="o">);</span>
-<span class="nt">background</span><span class="o">:</span> <span class="nt">left</span> <span class="nt">5</span><span class="o">%</span> <span class="o">/</span> <span class="nt">15</span><span class="o">%</span> <span class="nt">60</span><span class="o">%</span> <span class="nt">repeat-x</span> <span class="nt">url</span><span class="o">(</span><span class="s2">&#34;star.png&#34;</span><span class="o">);</span>
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="nt">background</span><span class="o">:</span> <span class="nt">center</span> <span class="o">/</span> <span class="nt">contain</span> <span class="nt">no-repeat</span> <span class="nt">url</span><span class="o">(</span><span class="s2">&#34;logo.svg&#34;</span><span class="o">),</span> <span class="p">#</span><span class="nn">eee</span> <span class="nt">35</span><span class="o">%</span> <span class="nt">url</span><span class="o">(</span><span class="s2">&#34;logo2.svg&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="nt">background</span><span class="o">:</span> <span class="nt">left</span> <span class="nt">5</span><span class="o">%</span> <span class="o">/</span> <span class="nt">15</span><span class="o">%</span> <span class="nt">60</span><span class="o">%</span> <span class="nt">repeat-x</span> <span class="nt">url</span><span class="o">(</span><span class="s2">&#34;star.png&#34;</span><span class="o">);</span>
+</span></span></code></pre></div>
 </section>
 
 
@@ -298,6 +298,18 @@
                 
                     
 <article class="">
+    <a href="/p/2022/02/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%BD%93%E9%AA%8C1/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">前端工程化体验（1）</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
     <a href="/p/2022/01/%E5%89%8D%E7%AB%AF%E4%B8%8B%E8%BD%BD%E5%8E%9F%E5%A7%8B%E5%AE%9E%E7%8E%B0/">
         
         
@@ -316,18 +328,6 @@
 
         <div class="article-details">
             <h2 class="article-title">Date方法</h2>
-        </div>
-    </a>
-</article>
-                
-                    
-<article class="">
-    <a href="/p/2021/11/object%E6%96%B9%E6%B3%95/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">Object方法</h2>
         </div>
     </a>
 </article>

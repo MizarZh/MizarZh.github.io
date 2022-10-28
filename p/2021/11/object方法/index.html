@@ -108,12 +108,12 @@
 <p>1、对于属性描述符的介绍见<a class="link" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty"  target="_blank" rel="noopener"
     >MDN 属性描述符</a></p>
 <h2 id="构造函数">构造函数</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="c1">// 对象初始化器（Object initialiser）或对象字面量（literal）
-</span><span class="c1"></span><span class="p">{</span> <span class="p">[</span> <span class="nx">nameValuePair1</span><span class="p">[,</span> <span class="nx">nameValuePair2</span><span class="p">[,</span> <span class="p">...</span><span class="nx">nameValuePairN</span><span class="p">]</span> <span class="p">]</span> <span class="p">]</span> <span class="p">}</span>
-
-<span class="c1">// 以构造函数形式来调用
-</span><span class="c1"></span><span class="k">new</span> <span class="nb">Object</span><span class="p">([</span><span class="nx">value</span><span class="p">])</span>
-</code></pre></div><p><code>Object</code>构造函数，会根据给定的参数创建对象，具体有以下情况：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">// 对象初始化器（Object initialiser）或对象字面量（literal）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">{</span> <span class="p">[</span> <span class="nx">nameValuePair1</span><span class="p">[,</span> <span class="nx">nameValuePair2</span><span class="p">[,</span> <span class="p">...</span><span class="nx">nameValuePairN</span><span class="p">]</span> <span class="p">]</span> <span class="p">]</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 以构造函数形式来调用
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">new</span> <span class="nb">Object</span><span class="p">([</span><span class="nx">value</span><span class="p">])</span>
+</span></span></code></pre></div><p><code>Object</code>构造函数，会根据给定的参数创建对象，具体有以下情况：</p>
 <ul>
 <li>如果给定值是 <code>null</code> 或 <code>undefined</code>，将会创建并返回一个空对象</li>
 <li>如果传进去的是一个基本类型的值，则会构造其包装类型的对象</li>
@@ -125,29 +125,29 @@
 <h3 id="objectcreate">Object.create()</h3>
 <p>创建一个新对象，使用现有的对象来提供新创建的对象的_<em>proto</em>_。</p>
 <p>语法：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">proto</span><span class="err">，</span><span class="p">[</span><span class="nx">propertiesObject</span><span class="p">])</span>
-</code></pre></div><p><code>proto</code>：新创建对象的原型对象。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">proto</span><span class="err">，</span><span class="p">[</span><span class="nx">propertiesObject</span><span class="p">])</span>
+</span></span></code></pre></div><p><code>proto</code>：新创建对象的原型对象。</p>
 <p>返回：Object，带着指定的原型对象和属性。</p>
 <p><strong>注意点</strong></p>
 <p>如果<code>proto</code>参数不是 <code>null</code>或非原始包装对象，则抛出一个 <code>TypeError</code> 异常。</p>
 <p>可以用于继承中：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">Father</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">val</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="nx">Father</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">add</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">val</span> <span class="o">+=</span> <span class="nx">x</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kd">function</span> <span class="nx">Son</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">father</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="nx">Son</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">Father</span><span class="p">.</span><span class="nx">prototype</span><span class="p">);</span> <span class="c1">// here
-</span><span class="c1"></span><span class="nx">Son</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">constructor</span> <span class="o">=</span> <span class="nx">Son</span><span class="p">;</span>
-</code></pre></div><h3 id="objectassign">Object.assign()</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">Father</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="p">.</span><span class="nx">val</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">Father</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">add</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="p">.</span><span class="nx">val</span> <span class="o">+=</span> <span class="nx">x</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">Son</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">father</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">Son</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">Father</span><span class="p">.</span><span class="nx">prototype</span><span class="p">);</span> <span class="c1">// here
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">Son</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">constructor</span> <span class="o">=</span> <span class="nx">Son</span><span class="p">;</span>
+</span></span></code></pre></div><h3 id="objectassign">Object.assign()</h3>
 <p>用于将所有可枚举属性的值从一个或多个源对象分配到目标对象。</p>
 <p>语法：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nb">Object</span><span class="p">.</span><span class="nx">assign</span><span class="p">(</span><span class="nx">target</span><span class="p">,</span> <span class="p">...</span><span class="nx">sources</span><span class="p">)</span>
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nb">Object</span><span class="p">.</span><span class="nx">assign</span><span class="p">(</span><span class="nx">target</span><span class="p">,</span> <span class="p">...</span><span class="nx">sources</span><span class="p">)</span>
+</span></span></code></pre></div><ul>
 <li>
 <p><code>target</code></p>
 <p>目标对象。</p>
@@ -166,8 +166,8 @@
 <h3 id="objectdefineproperty">Object.defineProperty()</h3>
 <p>直接在一个对象上定义一个新属性，或者修改一个对象的现有属性，并返回此对象。</p>
 <p>语法：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nb">Object</span><span class="p">.</span><span class="nx">defineProperty</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="nx">prop</span><span class="p">,</span> <span class="nx">descriptor</span><span class="p">)</span>
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nb">Object</span><span class="p">.</span><span class="nx">defineProperty</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="nx">prop</span><span class="p">,</span> <span class="nx">descriptor</span><span class="p">)</span>
+</span></span></code></pre></div><ul>
 <li>
 <p><code>obj</code></p>
 <p>要定义属性的对象。</p>
@@ -183,33 +183,33 @@
 </ul>
 <p>返回：被传递给函数的对象。</p>
 <p>例子：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nb">Object</span><span class="p">.</span><span class="nx">defineProperty</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="s2">&#34;key&#34;</span><span class="p">,</span> <span class="p">{</span>
-  <span class="nx">enumerable</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-  <span class="nx">configurable</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-  <span class="nx">writable</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-  <span class="nx">value</span><span class="o">:</span> <span class="s2">&#34;static&#34;</span>
-<span class="p">});</span>
-</code></pre></div><h3 id="objectdefineproperties">Object.defineProperties()</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nb">Object</span><span class="p">.</span><span class="nx">defineProperty</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="s2">&#34;key&#34;</span><span class="p">,</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">enumerable</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">configurable</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">writable</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">value</span><span class="o">:</span> <span class="s2">&#34;static&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span></code></pre></div><h3 id="objectdefineproperties">Object.defineProperties()</h3>
 <p>语法：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nb">Object</span><span class="p">.</span><span class="nx">defineProperties</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="nx">props</span><span class="p">)</span>
-</code></pre></div><p>返回：传递给函数的对象。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nb">Object</span><span class="p">.</span><span class="nx">defineProperties</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="nx">props</span><span class="p">)</span>
+</span></span></code></pre></div><p>返回：传递给函数的对象。</p>
 <p>例子：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{};</span>
-<span class="nb">Object</span><span class="p">.</span><span class="nx">defineProperties</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="p">{</span>
-  <span class="s1">&#39;property1&#39;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="nx">value</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-    <span class="nx">writable</span><span class="o">:</span> <span class="kc">true</span>
-  <span class="p">},</span>
-  <span class="s1">&#39;property2&#39;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="nx">value</span><span class="o">:</span> <span class="s1">&#39;Hello&#39;</span><span class="p">,</span>
-    <span class="nx">writable</span><span class="o">:</span> <span class="kc">false</span>
-  <span class="p">}</span>
-<span class="p">});</span>
-</code></pre></div><h3 id="objectsetprototypeof">Object.setPrototypeOf()</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{};</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Object</span><span class="p">.</span><span class="nx">defineProperties</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="s1">&#39;property1&#39;</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">value</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">writable</span><span class="o">:</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="s1">&#39;property2&#39;</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">value</span><span class="o">:</span> <span class="s1">&#39;Hello&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">writable</span><span class="o">:</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span></code></pre></div><h3 id="objectsetprototypeof">Object.setPrototypeOf()</h3>
 <p>设置一个指定的对象的原型 ( 即, 内部[[Prototype]]属性）到另一个对象或  <code>null</code>。</p>
 <p>语法：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nb">Object</span><span class="p">.</span><span class="nx">setPrototypeOf</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="nx">prototype</span><span class="p">)</span>
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nb">Object</span><span class="p">.</span><span class="nx">setPrototypeOf</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="nx">prototype</span><span class="p">)</span>
+</span></span></code></pre></div><ul>
 <li>
 <p>obj</p>
 <p>要设置其原型的对象。.</p>
@@ -225,22 +225,22 @@
 <h3 id="objectpreventextensions">Object.preventExtensions()</h3>
 <p>让一个对象变的不可扩展，也就是永远不能再添加新的属性。</p>
 <p>语法：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nb">Object</span><span class="p">.</span><span class="nx">preventExtensions</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span>
-</code></pre></div><p>返回：已经不可扩展的对象。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nb">Object</span><span class="p">.</span><span class="nx">preventExtensions</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span>
+</span></span></code></pre></div><p>返回：已经不可扩展的对象。</p>
 <p>它将永远不会具有它被标记为不可扩展时持有的属性之外的属性。</p>
 <p><strong>注意点</strong>：</p>
 <p>仅阻止添加自身的属性。但其对象类型的原型依然可以添加新的属性。</p>
 <h3 id="objectfreeze">Object.freeze()</h3>
 <p>可以<strong>冻结</strong>一个对象。一个被冻结的对象再也不能被修改；冻结了一个对象则不能向这个对象添加新的属性，不能删除已有属性，不能修改该对象已有属性的可枚举性、可配置性、可写性，以及不能修改已有属性的值。此外，冻结一个对象后该对象的原型也不能被修改。</p>
 <p>语法：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nb">Object</span><span class="p">.</span><span class="nx">freeze</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span>
-</code></pre></div><p>返回：和传入的参数相同的对象。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nb">Object</span><span class="p">.</span><span class="nx">freeze</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span>
+</span></span></code></pre></div><p>返回：和传入的参数相同的对象。</p>
 <p>这个方法返回传递的对象，而不是创建一个被冻结的副本。</p>
 <h3 id="objectseal">Object.seal()</h3>
 <p>封闭一个对象，阻止添加新属性并将所有现有属性标记为不可配置。当前属性的值只要原来是可写的就可以改变。</p>
 <p>语法：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nb">Object</span><span class="p">.</span><span class="nx">seal</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span>
-</code></pre></div><p>返回：被密封的对象。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nb">Object</span><span class="p">.</span><span class="nx">seal</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span>
+</span></span></code></pre></div><p>返回：被密封的对象。</p>
 <h3 id="preventextensionsseal和freeze的差别">preventExtensions、seal和freeze的差别</h3>
 <p>preventExtensions：将对象标记为不可拓展，即不能添加新的属性。</p>
 <p>seal：密封一个对象会让这个对象变的不能添加新属性，且所有已有属性会变的不可配置，属性不可配置的效果就是属性变的不可删除。但属性的值仍然可以修改。</p>
@@ -249,8 +249,8 @@
 <h3 id="objectgetownpropertydescriptor">Object.getOwnPropertyDescriptor()</h3>
 <p>返回指定对象上一个自有属性对应的属性描述符。</p>
 <p>语法：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nb">Object</span><span class="p">.</span><span class="nx">getOwnPropertyDescriptor</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="nx">prop</span><span class="p">)</span>
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nb">Object</span><span class="p">.</span><span class="nx">getOwnPropertyDescriptor</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="nx">prop</span><span class="p">)</span>
+</span></span></code></pre></div><ul>
 <li>
 <p><code>obj</code></p>
 <p>需要查找的目标对象</p>
@@ -262,54 +262,54 @@
 </ul>
 <p>返回：Object，如果指定的属性存在于对象上，则返回其属性描述符对象（property descriptor），否则返回 <code>undefined</code>。</p>
 <p>例子：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span><span class="nx">a</span><span class="o">:</span> <span class="mi">1</span><span class="p">};</span>
-<span class="nb">Object</span><span class="p">.</span><span class="nx">getOwnPropertyDescriptor</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">);</span>
-<span class="c1">// 返回 Object { value: 1, writable: true, enumerable: true, configurable: true }
-</span></code></pre></div><h3 id="objectgetownpropertydescriptors">Object.getOwnPropertyDescriptors()</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span><span class="nx">a</span><span class="o">:</span> <span class="mi">1</span><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Object</span><span class="p">.</span><span class="nx">getOwnPropertyDescriptor</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 返回 Object { value: 1, writable: true, enumerable: true, configurable: true }
+</span></span></span></code></pre></div><h3 id="objectgetownpropertydescriptors">Object.getOwnPropertyDescriptors()</h3>
 <p>获取一个对象的所有自身属性的描述符。</p>
 <p>语法：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nb">Object</span><span class="p">.</span><span class="nx">getOwnPropertyDescriptors</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span>
-</code></pre></div><p>返回：Array，所指定对象的所有自身属性的描述符。如果没有任何自身属性，则返回空对象。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nb">Object</span><span class="p">.</span><span class="nx">getOwnPropertyDescriptors</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span>
+</span></span></code></pre></div><p>返回：Array，所指定对象的所有自身属性的描述符。如果没有任何自身属性，则返回空对象。</p>
 <h3 id="objectgetownpropertynames">Object.getOwnPropertyNames()</h3>
 <p>返回一个由指定对象的所有自身属性的属性名（包括不可枚举属性但不包括Symbol值作为名称的属性）组成的数组。</p>
 <p>语法：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nb">Object</span><span class="p">.</span><span class="nx">getOwnPropertyNames</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span>
-</code></pre></div><p>返回：Array，在给定对象上找到的自身属性对应的字符串数组。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nb">Object</span><span class="p">.</span><span class="nx">getOwnPropertyNames</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span>
+</span></span></code></pre></div><p>返回：Array，在给定对象上找到的自身属性对应的字符串数组。</p>
 <p>例子：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="c1">// 接obj
-</span><span class="c1"></span><span class="nb">Object</span><span class="p">.</span><span class="nx">getOwnPropertyNames</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="c1">// [&#39;a&#39;]
-</span></code></pre></div><h3 id="objectgetownpropertysymbols">Object.getOwnPropertySymbols()</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">// 接obj
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nb">Object</span><span class="p">.</span><span class="nx">getOwnPropertyNames</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="c1">// [&#39;a&#39;]
+</span></span></span></code></pre></div><h3 id="objectgetownpropertysymbols">Object.getOwnPropertySymbols()</h3>
 <p>返回一个给定对象自身的所有 Symbol 属性的数组。</p>
 <p>语法：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nb">Object</span><span class="p">.</span><span class="nx">getOwnPropertySymbols</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span>
-</code></pre></div><p>返回：Array，在给定对象自身上找到的所有 Symbol 属性的数组。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nb">Object</span><span class="p">.</span><span class="nx">getOwnPropertySymbols</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span>
+</span></span></code></pre></div><p>返回：Array，在给定对象自身上找到的所有 Symbol 属性的数组。</p>
 <p>与<code>Object.getOwnPropertyNames()</code>类似。</p>
 <h3 id="objectgetprototypeof">Object.getPrototypeOf()</h3>
 <p>返回指定对象的原型（内部<code>[[Prototype]]</code>属性的值）。</p>
 <p>语法：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nb">Object</span><span class="p">.</span><span class="nx">getPrototypeOf</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span>
-</code></pre></div><p>返回：Object，给定对象的原型。如果没有继承属性，则返回 <code>null</code>。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nb">Object</span><span class="p">.</span><span class="nx">getPrototypeOf</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span>
+</span></span></code></pre></div><p>返回：Object，给定对象的原型。如果没有继承属性，则返回 <code>null</code>。</p>
 <h3 id="iv-判断类型is">IV 判断类型(is)</h3>
 <h3 id="objectis">Object.is()</h3>
 <p>判断两个值是否为同一个值。</p>
 <p>语法：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nb">Object</span><span class="p">.</span><span class="nx">is</span><span class="p">(</span><span class="nx">value1</span><span class="p">,</span> <span class="nx">value2</span><span class="p">);</span>
-</code></pre></div><p>返回：bool</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nb">Object</span><span class="p">.</span><span class="nx">is</span><span class="p">(</span><span class="nx">value1</span><span class="p">,</span> <span class="nx">value2</span><span class="p">);</span>
+</span></span></code></pre></div><p>返回：bool</p>
 <p><strong>注意点</strong>：</p>
 <p>与<code>===</code>  运算也不相同。 <code>===</code> 运算符 (也包括 <code>==</code> 运算符) 将数字 <code>-0</code> 和 <code>+0</code> 视为相等 ，而将<code>Number.NaN</code>与<code>NaN</code>视为不相等.</p>
 <p>polyfill：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">Object</span><span class="p">.</span><span class="nx">is</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nb">Object</span><span class="p">.</span><span class="nx">is</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">x</span> <span class="o">===</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// ===判断
-</span><span class="c1"></span>      <span class="c1">// +0和-0不相同
-</span><span class="c1"></span>      <span class="k">return</span> <span class="nx">x</span> <span class="o">!==</span> <span class="mi">0</span> <span class="o">||</span> <span class="mi">1</span> <span class="o">/</span> <span class="nx">x</span> <span class="o">===</span> <span class="mi">1</span> <span class="o">/</span> <span class="nx">y</span><span class="p">;</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-      <span class="c1">// NaN===NaN
-</span><span class="c1"></span>      <span class="k">return</span> <span class="nx">x</span> <span class="o">!==</span> <span class="nx">x</span> <span class="o">&amp;&amp;</span> <span class="nx">y</span> <span class="o">!==</span> <span class="nx">y</span><span class="p">;</span>
-    <span class="p">}</span>
-  <span class="p">};</span>
-<span class="p">}</span>
-</code></pre></div><h3 id="objectisextensibleobj">Object.isExtensible(obj)</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">Object</span><span class="p">.</span><span class="nx">is</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">Object</span><span class="p">.</span><span class="nx">is</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">x</span> <span class="o">===</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// ===判断
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="c1">// +0和-0不相同
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="k">return</span> <span class="nx">x</span> <span class="o">!==</span> <span class="mi">0</span> <span class="o">||</span> <span class="mi">1</span> <span class="o">/</span> <span class="nx">x</span> <span class="o">===</span> <span class="mi">1</span> <span class="o">/</span> <span class="nx">y</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">// NaN===NaN
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="k">return</span> <span class="nx">x</span> <span class="o">!==</span> <span class="nx">x</span> <span class="o">&amp;&amp;</span> <span class="nx">y</span> <span class="o">!==</span> <span class="nx">y</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="objectisextensibleobj">Object.isExtensible(obj)</h3>
 <p>判断一个对象是否是可扩展的（是否可以在它上面添加新的属性）。</p>
 <h3 id="objectisfrozenobj">Object.isFrozen(obj)</h3>
 <p>判断对象是否已经冻结。</p>
@@ -324,28 +324,28 @@
 <h3 id="objecthasown">Object.hasOwn()</h3>
 <p>查看是否含有指定的属性。</p>
 <p>语法：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nb">Object</span><span class="p">.</span><span class="nx">hasOwn</span><span class="p">(</span><span class="nx">instance</span><span class="p">,</span><span class="nx">prop</span><span class="p">)</span>
-</code></pre></div><p>返回：bool</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nb">Object</span><span class="p">.</span><span class="nx">hasOwn</span><span class="p">(</span><span class="nx">instance</span><span class="p">,</span><span class="nx">prop</span><span class="p">)</span>
+</span></span></code></pre></div><p>返回：bool</p>
 <p>如果这个物体含有此属性则返回true，如果这个属性是继承的或不存在，则返回false。</p>
 <h2 id="原型属性方法">原型属性/方法</h2>
 <h3 id="objectconstructor">Object#constructor</h3>
 <p>返回创建实例对象的 <code>Object</code>构造函数的引用。</p>
 <p>例子：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="p">{};</span>
-<span class="nx">o</span><span class="p">.</span><span class="nx">constructor</span> <span class="o">===</span> <span class="nb">Object</span><span class="p">;</span> <span class="c1">// true
-</span><span class="c1"></span>
-<span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Object</span><span class="p">;</span>
-<span class="nx">o</span><span class="p">.</span><span class="nx">constructor</span> <span class="o">===</span> <span class="nb">Object</span><span class="p">;</span> <span class="c1">// true
-</span><span class="c1"></span>
-<span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="p">[];</span>
-<span class="nx">a</span><span class="p">.</span><span class="nx">constructor</span> <span class="o">===</span> <span class="nb">Array</span><span class="p">;</span> <span class="c1">// true
-</span><span class="c1"></span>
-<span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">;</span>
-<span class="nx">a</span><span class="p">.</span><span class="nx">constructor</span> <span class="o">===</span> <span class="nb">Array</span> <span class="c1">// true
-</span><span class="c1"></span>
-<span class="kd">var</span> <span class="nx">n</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Number</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
-<span class="nx">n</span><span class="p">.</span><span class="nx">constructor</span> <span class="o">===</span> <span class="nb">Number</span><span class="p">;</span> <span class="c1">// true
-</span></code></pre></div><h3 id="objecthasownpropertyobject">Object#hasOwnProperty(object)</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="p">{};</span>
+</span></span><span class="line"><span class="cl"><span class="nx">o</span><span class="p">.</span><span class="nx">constructor</span> <span class="o">===</span> <span class="nb">Object</span><span class="p">;</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Object</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">o</span><span class="p">.</span><span class="nx">constructor</span> <span class="o">===</span> <span class="nb">Object</span><span class="p">;</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="p">[];</span>
+</span></span><span class="line"><span class="cl"><span class="nx">a</span><span class="p">.</span><span class="nx">constructor</span> <span class="o">===</span> <span class="nb">Array</span><span class="p">;</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">a</span><span class="p">.</span><span class="nx">constructor</span> <span class="o">===</span> <span class="nb">Array</span> <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">n</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Number</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">n</span><span class="p">.</span><span class="nx">constructor</span> <span class="o">===</span> <span class="nb">Number</span><span class="p">;</span> <span class="c1">// true
+</span></span></span></code></pre></div><h3 id="objecthasownpropertyobject">Object#hasOwnProperty(object)</h3>
 <p>指示对象自身属性中是否具有指定的属性。</p>
 <p>和<code>in</code>运算符不同，该方法会忽略掉那些从原型链上继承到的属性。</p>
 <h3 id="objectisprototypeofobject">Object#isPrototypeOf(object)</h3>

@@ -112,60 +112,60 @@
 <p>示例：https://echarts.apache.org/examples/zh/index.html</p>
 <p>Ehcarts 是一个非常好用的数据可视化工具。</p>
 <p>安装：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">npm install echarts --save
-</code></pre></div><p>js 中引入及初始化：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="kr">import</span> <span class="o">*</span> <span class="nx">as</span> <span class="nx">echarts</span> <span class="nx">from</span> <span class="s1">&#39;echarts&#39;</span><span class="p">;</span>
-<span class="kd">var</span> <span class="nx">myChart</span> <span class="o">=</span> <span class="nx">echarts</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;main&#39;</span><span class="p">));</span> <span class="c1">// 取某个 dom 作为渲染
-</span><span class="c1"></span><span class="nx">myChart</span><span class="p">.</span><span class="nx">setOption</span><span class="p">({</span>
-  <span class="c1">// 这一部分是 echarts 的核心，决定了数据和图标的类型
-</span><span class="c1"></span>  <span class="nx">title</span><span class="o">:</span> <span class="p">{</span>
-    <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;ECharts 入门示例&#39;</span>
-  <span class="p">},</span>
-  <span class="nx">tooltip</span><span class="o">:</span> <span class="p">{},</span>
-  <span class="nx">xAxis</span><span class="o">:</span> <span class="p">{</span>
-    <span class="nx">data</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;衬衫&#39;</span><span class="p">,</span> <span class="s1">&#39;羊毛衫&#39;</span><span class="p">,</span> <span class="s1">&#39;雪纺衫&#39;</span><span class="p">,</span> <span class="s1">&#39;裤子&#39;</span><span class="p">,</span> <span class="s1">&#39;高跟鞋&#39;</span><span class="p">,</span> <span class="s1">&#39;袜子&#39;</span><span class="p">]</span>
-  <span class="p">},</span>
-  <span class="nx">yAxis</span><span class="o">:</span> <span class="p">{},</span>
-  <span class="nx">series</span><span class="o">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-      <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;销量&#39;</span><span class="p">,</span>
-      <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span>
-      <span class="nx">data</span><span class="o">:</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">]</span>
-    <span class="p">}</span>
-  <span class="p">]</span>
-<span class="p">})</span>
-</code></pre></div><p>有时候需要按需引入：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="c1">// 引入 echarts 核心模块，核心模块提供了 echarts 使用必须要的接口。
-</span><span class="c1"></span><span class="kr">import</span> <span class="o">*</span> <span class="nx">as</span> <span class="nx">echarts</span> <span class="nx">from</span> <span class="s1">&#39;echarts/core&#39;</span><span class="p">;</span>
-<span class="c1">// 引入柱状图图表，图表后缀都为 Chart
-</span><span class="c1"></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">BarChart</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;echarts/charts&#39;</span><span class="p">;</span>
-<span class="c1">// 引入提示框，标题，直角坐标系，数据集，内置数据转换器组件，组件后缀都为 Component
-</span><span class="c1"></span><span class="kr">import</span> <span class="p">{</span>
-  <span class="nx">TitleComponent</span><span class="p">,</span>
-  <span class="nx">TooltipComponent</span><span class="p">,</span>
-  <span class="nx">GridComponent</span><span class="p">,</span>
-  <span class="nx">DatasetComponent</span><span class="p">,</span>
-  <span class="nx">DatasetComponentOption</span><span class="p">,</span>
-  <span class="nx">TransformComponent</span>
-<span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;echarts/components&#39;</span><span class="p">;</span>
-<span class="c1">// 标签自动布局，全局过渡动画等特性
-</span><span class="c1"></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">LabelLayout</span><span class="p">,</span> <span class="nx">UniversalTransition</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;echarts/features&#39;</span><span class="p">;</span>
-<span class="c1">// 引入 Canvas 渲染器，注意引入 CanvasRenderer 或者 SVGRenderer 是必须的一步
-</span><span class="c1"></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">CanvasRenderer</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;echarts/renderers&#39;</span><span class="p">;</span>
-
-<span class="c1">// 注册必须的组件
-</span><span class="c1"></span><span class="nx">echarts</span><span class="p">.</span><span class="nx">use</span><span class="p">([</span>
-  <span class="nx">TitleComponent</span><span class="p">,</span>
-  <span class="nx">TooltipComponent</span><span class="p">,</span>
-  <span class="nx">GridComponent</span><span class="p">,</span>
-  <span class="nx">DatasetComponent</span><span class="p">,</span>
-  <span class="nx">TransformComponent</span><span class="p">,</span>
-  <span class="nx">BarChart</span><span class="p">,</span>
-  <span class="nx">LabelLayout</span><span class="p">,</span>
-  <span class="nx">UniversalTransition</span><span class="p">,</span>
-  <span class="nx">CanvasRenderer</span>
-<span class="p">]);</span>
-</code></pre></div><p>且为了最大程度的减少使用的体积，可以使用<a class="link" href="https://echarts.apache.org/zh/builder.html"  target="_blank" rel="noopener"
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">npm install echarts --save
+</span></span></code></pre></div><p>js 中引入及初始化：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">import</span> <span class="o">*</span> <span class="nx">as</span> <span class="nx">echarts</span> <span class="nx">from</span> <span class="s1">&#39;echarts&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">myChart</span> <span class="o">=</span> <span class="nx">echarts</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;main&#39;</span><span class="p">));</span> <span class="c1">// 取某个 dom 作为渲染
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">myChart</span><span class="p">.</span><span class="nx">setOption</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// 这一部分是 echarts 的核心，决定了数据和图标的类型
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">title</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;ECharts 入门示例&#39;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">tooltip</span><span class="o">:</span> <span class="p">{},</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">xAxis</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">data</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;衬衫&#39;</span><span class="p">,</span> <span class="s1">&#39;羊毛衫&#39;</span><span class="p">,</span> <span class="s1">&#39;雪纺衫&#39;</span><span class="p">,</span> <span class="s1">&#39;裤子&#39;</span><span class="p">,</span> <span class="s1">&#39;高跟鞋&#39;</span><span class="p">,</span> <span class="s1">&#39;袜子&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">yAxis</span><span class="o">:</span> <span class="p">{},</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">series</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;销量&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">data</span><span class="o">:</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">})</span>
+</span></span></code></pre></div><p>有时候需要按需引入：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">// 引入 echarts 核心模块，核心模块提供了 echarts 使用必须要的接口。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">import</span> <span class="o">*</span> <span class="nx">as</span> <span class="nx">echarts</span> <span class="nx">from</span> <span class="s1">&#39;echarts/core&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 引入柱状图图表，图表后缀都为 Chart
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">BarChart</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;echarts/charts&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 引入提示框，标题，直角坐标系，数据集，内置数据转换器组件，组件后缀都为 Component
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">import</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">TitleComponent</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">TooltipComponent</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">GridComponent</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">DatasetComponent</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">DatasetComponentOption</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">TransformComponent</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;echarts/components&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 标签自动布局，全局过渡动画等特性
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">LabelLayout</span><span class="p">,</span> <span class="nx">UniversalTransition</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;echarts/features&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 引入 Canvas 渲染器，注意引入 CanvasRenderer 或者 SVGRenderer 是必须的一步
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">CanvasRenderer</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;echarts/renderers&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 注册必须的组件
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">echarts</span><span class="p">.</span><span class="nx">use</span><span class="p">([</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">TitleComponent</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">TooltipComponent</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">GridComponent</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">DatasetComponent</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">TransformComponent</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">BarChart</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">LabelLayout</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">UniversalTransition</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">CanvasRenderer</span>
+</span></span><span class="line"><span class="cl"><span class="p">]);</span>
+</span></span></code></pre></div><p>且为了最大程度的减少使用的体积，可以使用<a class="link" href="https://echarts.apache.org/zh/builder.html"  target="_blank" rel="noopener"
     >构建工具</a>选择仅需构建的模块。</p>
 <h2 id="组成">组成</h2>
 <h3 id="全局对象echarts-本-chart">全局对象（echarts 本 chart）</h3>
@@ -229,27 +229,27 @@
 <p>以及三维图：</p>
 <p>三维地图 <code>geo3D</code>、mapbox（三维散点图，飞线图，柱状图和地图综合） <code>mapbox3D</code>、三维笛卡尔坐标系图 <code>grid3D</code>。</p>
 <p><strong>配置在 <code>series</code> 中</strong>，通常格式：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="p">[</span>
-    <span class="p">{</span>
-        <span class="nx">type</span><span class="o">:</span> <span class="nx">line</span><span class="p">,</span>
-        <span class="nx">id</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;test1&#39;</span><span class="p">,</span>
-        <span class="p">...</span>
-        <span class="nx">data</span><span class="o">:</span> <span class="p">[</span>
-            <span class="p">...</span>
-        <span class="p">]</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-        <span class="nx">type</span><span class="o">:</span> <span class="nx">bar</span><span class="p">,</span>
-        <span class="nx">id</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-        <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;test2&#39;</span><span class="p">,</span>
-        <span class="p">...</span>
-        <span class="nx">data</span><span class="o">:</span> <span class="p">[</span>
-            <span class="p">...</span>
-        <span class="p">]</span>
-    <span class="p">}</span>
-<span class="p">]</span>
-</code></pre></div><p>使用 type 来界定不同的图样，在 data 中指定该图的数据（数据在后面的数据有介绍），组件 id 用于 option 或 API 中引用组件，name 用于在 tooltip, legend 中的显示用。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">type</span><span class="o">:</span> <span class="nx">line</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">id</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;test1&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="p">...</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">data</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="p">...</span>
+</span></span><span class="line"><span class="cl">        <span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">type</span><span class="o">:</span> <span class="nx">bar</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">id</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;test2&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="p">...</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">data</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="p">...</span>
+</span></span><span class="line"><span class="cl">        <span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">]</span>
+</span></span></code></pre></div><p>使用 type 来界定不同的图样，在 data 中指定该图的数据（数据在后面的数据有介绍），组件 id 用于 option 或 API 中引用组件，name 用于在 tooltip, legend 中的显示用。</p>
 <p>有时候不同的图表可以使用不同的坐标系，如柱状图 <code>bar</code> 和折线图 <code>line</code> 都可以使用直角坐标系 <code>grid</code>，散点图 <code>scatter</code> 使用直角坐标系 <code>grid</code> 、极坐标系 <code>polar</code> 或地理坐标系 <code>geo</code> 都可以。</p>
 <p>这些图表有一个设置为 <code>coordinateSystem</code>，用来设置使用什么坐标系。</p>
 <p>但有些图比较特殊，有专门的坐标系，如地图 <code>map</code>、雷达图 <code>radar</code>等。这些仅有单一的坐标系，因此没有这个选项。</p>
@@ -316,14 +316,14 @@
 <h3 id="数据">数据</h3>
 <h4 id="seriesdata"><code>series.data</code></h4>
 <p>通常为二维数组（<code>bar</code>, <code>line</code> 等），例如：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="p">[</span>
-    <span class="c1">// 前两列是第一、第二个坐标，用来标示位置（如xy值或极坐标的长度和极角）
-</span><span class="c1"></span>    <span class="c1">// 第三列和后续可能的列数是附加的第n维度，可用来区分颜色等。
-</span><span class="c1"></span>    <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> 
-    <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span>
-    <span class="p">...</span>
-<span class="p">]</span>
-</code></pre></div><p>当然也有其他的 data 样式布局，详见各图表类型的配置文档。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 前两列是第一、第二个坐标，用来标示位置（如xy值或极坐标的长度和极角）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// 第三列和后续可能的列数是附加的第n维度，可用来区分颜色等。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> 
+</span></span><span class="line"><span class="cl">    <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="p">...</span>
+</span></span><span class="line"><span class="cl"><span class="p">]</span>
+</span></span></code></pre></div><p>当然也有其他的 data 样式布局，详见各图表类型的配置文档。</p>
 <h4 id="dataset"><code>dataset</code></h4>
 <p>用于单独的数据集声明，从而数据可以单独管理，被多个组件复用，并且可以自由指定数据到视觉的映射。</p>
 <p>总之可以理解为分离出了一个单独存储数据的地方，且可以复用。映射有点复杂，详见配置文档。</p>

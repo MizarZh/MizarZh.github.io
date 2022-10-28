@@ -110,16 +110,16 @@
 可装插件Markdown Preview Enhanced使得preview更好看</p>
 <h2 id="2hexo标签问题">2、hexo标签问题</h2>
 <p>设置了hexo的tags或者是categories，一开始是没有对应的页面的。生成页面的做法：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">hexo n page tags <span class="c1">#或categories等</span>
-</code></pre></div><p>然后在source/tags目录中配置index.md</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">hexo n page tags <span class="c1">#或categories等</span>
+</span></span></code></pre></div><p>然后在source/tags目录中配置index.md</p>
 <!-- raw HTML omitted -->
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-md" data-lang="md">
----
-title: 标签
-date:
-type: &#34;tags&#34; //或者&#34;categories&#34;
----
-</code></pre></div><p>然后hexo g即可</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-md" data-lang="md"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">title: 标签
+</span></span><span class="line"><span class="cl">date:
+</span></span><span class="line"><span class="cl">type: &#34;tags&#34; //或者&#34;categories&#34;
+</span></span><span class="line"><span class="cl">---
+</span></span></code></pre></div><p>然后hexo g即可</p>
 <h2 id="3hexo目录乱序">3、hexo目录乱序</h2>
 <p>需要按顺序一级一级使用#
 如##后应该跟###而不是####</p>
@@ -136,19 +136,19 @@ type: &#34;tags&#34; //或者&#34;categories&#34;
 <li>_config.yml里面的post_asset_folder设为true</li>
 <li>安装插件</li>
 </ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">cnpm install hexo-asset-image --save
-</code></pre></div><ol start="3">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cnpm install hexo-asset-image --save
+</span></span></code></pre></div><ol start="3">
 <li>安装完成后后hexo n &ldquo;xxx&quot;就会生成xxx.md的同时生成一个同名文件夹，图片放在里面即可。</li>
 <li>调用图片的命令为![](xxx/文件名)</li>
 </ol>
 <!-- raw HTML omitted -->
 <h2 id="5hexo启用公式">5、hexo启用公式</h2>
 <p>使用kramed渲染</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">cnpm install hexo-renderer-kramed --save
-</code></pre></div><p>在_config.yml中将mathjax enable，并在每篇文章的head中添加mathjax: true
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cnpm install hexo-renderer-kramed --save
+</span></span></code></pre></div><p>在_config.yml中将mathjax enable，并在每篇文章的head中添加mathjax: true
 有时候遇到pandoc exited with code null的问题，可以直接将pandoc整个卸载：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">npm remove hexo-renderer-pandoc --save
-</code></pre></div><h1 id="git相关">git相关</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">npm remove hexo-renderer-pandoc --save
+</span></span></code></pre></div><h1 id="git相关">git相关</h1>
 <h2 id="1git速度过慢">1、git速度过慢</h2>
 <p>需设置hosts文件，隔一段时间需重新设置</p>
 <h1 id="浏览器配置">浏览器配置</h1>
@@ -176,22 +176,22 @@ network.security.ports.banned.override添加字符串
 xxxx,xxxx,xxxx格式</p>
 <h1 id="ssh传文件">ssh传文件</h1>
 <p>本地-&gt;远程</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">scp local_file remote_username@remote_ip:remote_folder 
-</code></pre></div><p>远程-&gt;本地</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">scp remote_username@remote_ip:remote_folder local_folder
-</code></pre></div><h1 id="ffmpeg">ffmpeg</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">scp local_file remote_username@remote_ip:remote_folder 
+</span></span></code></pre></div><p>远程-&gt;本地</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">scp remote_username@remote_ip:remote_folder local_folder
+</span></span></code></pre></div><h1 id="ffmpeg">ffmpeg</h1>
 <h2 id="叠加图片">叠加图片</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">./ffmpeg -r 一秒帧数 -start_number 起始数字 -i img_%04d.jpg（4位整数） output.mp4
-</code></pre></div><h2 id="剪片">剪片</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">./ffmpeg -r 一秒帧数 -start_number 起始数字 -i img_%04d.jpg（4位整数） output.mp4
+</span></span></code></pre></div><h2 id="剪片">剪片</h2>
 <p>-ss 00:00:00.000 开始时间
 -t 00:00:10.000 持续时间
 -to 00:00:10.000 结束时间</p>
 <h2 id="旋转">旋转</h2>
-<p>顺时针旋转画面90度ffmpeg -i test.mp4 -vf &ldquo;transpose=1&rdquo; out.mp4 
-逆时针旋转画面90度ffmpeg -i test.mp4 -vf &ldquo;transpose=2&rdquo; out.mp4 
-顺时针旋转画面90度再水平翻转ffmpeg -i test.mp4 -vf &ldquo;transpose=3&rdquo; out.mp4 
-逆时针旋转画面90度水平翻转ffmpeg -i test.mp4 -vf &ldquo;transpose=0&rdquo; out.mp4 
-水平翻转视频画面ffmpeg -i test.mp4 -vf hflip out.mp4 
+<p>顺时针旋转画面90度ffmpeg -i test.mp4 -vf &ldquo;transpose=1&rdquo; out.mp4
+逆时针旋转画面90度ffmpeg -i test.mp4 -vf &ldquo;transpose=2&rdquo; out.mp4
+顺时针旋转画面90度再水平翻转ffmpeg -i test.mp4 -vf &ldquo;transpose=3&rdquo; out.mp4
+逆时针旋转画面90度水平翻转ffmpeg -i test.mp4 -vf &ldquo;transpose=0&rdquo; out.mp4
+水平翻转视频画面ffmpeg -i test.mp4 -vf hflip out.mp4
 垂直翻转视频画面ffmpeg -i test.mp4 -vf vflip out.mp4</p>
 
 </section>

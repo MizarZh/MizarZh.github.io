@@ -115,43 +115,43 @@
 <p>目前最完整的版本是 1.1 版。目前SVG 2.0 仍在制定当中。</p>
 <h2 id="根元素和一点入门">根元素和一点入门</h2>
 <p>SVG 是 XML 的一种方言，因此需要绑定命名空间（xmlns 属性）。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">svg</span> <span class="na">version</span><span class="o">=</span><span class="s">&#34;1.1&#34;</span>
-     <span class="na">baseProfile</span><span class="o">=</span><span class="s">&#34;full&#34;</span>
-     <span class="na">width</span><span class="o">=</span><span class="s">&#34;300&#34;</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;200&#34;</span>
-     <span class="na">xmlns</span><span class="o">=</span><span class="s">&#34;http://www.w3.org/2000/svg&#34;</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">rect</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;100%&#34;</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;100%&#34;</span> <span class="na">fill</span><span class="o">=</span><span class="s">&#34;red&#34;</span> <span class="p">/&gt;</span>
-  <span class="p">&lt;</span><span class="nt">circle</span> <span class="na">cx</span><span class="o">=</span><span class="s">&#34;150&#34;</span> <span class="na">cy</span><span class="o">=</span><span class="s">&#34;100&#34;</span> <span class="na">r</span><span class="o">=</span><span class="s">&#34;80&#34;</span> <span class="na">fill</span><span class="o">=</span><span class="s">&#34;green&#34;</span> <span class="p">/&gt;</span>
-  <span class="p">&lt;</span><span class="nt">text</span> <span class="na">x</span><span class="o">=</span><span class="s">&#34;150&#34;</span> <span class="na">y</span><span class="o">=</span><span class="s">&#34;125&#34;</span> <span class="na">font-size</span><span class="o">=</span><span class="s">&#34;60&#34;</span> <span class="na">text-anchor</span><span class="o">=</span><span class="s">&#34;middle&#34;</span> <span class="na">fill</span><span class="o">=</span><span class="s">&#34;white&#34;</span><span class="p">&gt;</span>SVG<span class="p">&lt;/</span><span class="nt">text</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">svg</span><span class="p">&gt;</span>
-</code></pre></div><p><code>rect, circle, text</code> 元素就是用来绘制的，并可以在其上面添加属性以进行设置。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">svg</span> <span class="na">version</span><span class="o">=</span><span class="s">&#34;1.1&#34;</span>
+</span></span><span class="line"><span class="cl">     <span class="na">baseProfile</span><span class="o">=</span><span class="s">&#34;full&#34;</span>
+</span></span><span class="line"><span class="cl">     <span class="na">width</span><span class="o">=</span><span class="s">&#34;300&#34;</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;200&#34;</span>
+</span></span><span class="line"><span class="cl">     <span class="na">xmlns</span><span class="o">=</span><span class="s">&#34;http://www.w3.org/2000/svg&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">rect</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;100%&#34;</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;100%&#34;</span> <span class="na">fill</span><span class="o">=</span><span class="s">&#34;red&#34;</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">circle</span> <span class="na">cx</span><span class="o">=</span><span class="s">&#34;150&#34;</span> <span class="na">cy</span><span class="o">=</span><span class="s">&#34;100&#34;</span> <span class="na">r</span><span class="o">=</span><span class="s">&#34;80&#34;</span> <span class="na">fill</span><span class="o">=</span><span class="s">&#34;green&#34;</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">text</span> <span class="na">x</span><span class="o">=</span><span class="s">&#34;150&#34;</span> <span class="na">y</span><span class="o">=</span><span class="s">&#34;125&#34;</span> <span class="na">font-size</span><span class="o">=</span><span class="s">&#34;60&#34;</span> <span class="na">text-anchor</span><span class="o">=</span><span class="s">&#34;middle&#34;</span> <span class="na">fill</span><span class="o">=</span><span class="s">&#34;white&#34;</span><span class="p">&gt;</span>SVG<span class="p">&lt;/</span><span class="nt">text</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">svg</span><span class="p">&gt;</span>
+</span></span></code></pre></div><p><code>rect, circle, text</code> 元素就是用来绘制的，并可以在其上面添加属性以进行设置。</p>
 <p>SVG文件全局有效的规则是“后来居上”，越后面的元素越可见。</p>
 <h2 id="坐标系统">坐标系统</h2>
 <p>原点在左上角，x 轴向右，y 轴向下。</p>
 <p>SVG 可以设置画布大小，以进行缩放：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">svg</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;200&#34;</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;200&#34;</span> <span class="na">viewBox</span><span class="o">=</span><span class="s">&#34;0 0 100 100&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">svg</span><span class="p">&gt;</span>
-</code></pre></div><p>这个语句说的是画布上可以显示的区域是 (0, 0) 到 (100, 100)。这个 100*100 的区域会被放大到 200*200 的画布上。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">svg</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;200&#34;</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;200&#34;</span> <span class="na">viewBox</span><span class="o">=</span><span class="s">&#34;0 0 100 100&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">svg</span><span class="p">&gt;</span>
+</span></span></code></pre></div><p>这个语句说的是画布上可以显示的区域是 (0, 0) 到 (100, 100)。这个 100*100 的区域会被放大到 200*200 的画布上。</p>
 <p>用户单位和屏幕单位的映射关系被称为<strong>用户坐标系统</strong>。除了缩放之外，坐标系统还可以旋转、倾斜、翻转。默认的用户坐标系统1用户像素等于设备上的1像素。</p>
 <h2 id="基本形状">基本形状</h2>
 <h3 id="矩形">矩形</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">rect</span> <span class="na">x</span><span class="o">=</span><span class="s">&#34;10&#34;</span> <span class="na">y</span><span class="o">=</span><span class="s">&#34;10&#34;</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;30&#34;</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;30&#34;</span><span class="p">/&gt;</span>
-<span class="p">&lt;</span><span class="nt">rect</span> <span class="na">x</span><span class="o">=</span><span class="s">&#34;60&#34;</span> <span class="na">y</span><span class="o">=</span><span class="s">&#34;10&#34;</span> <span class="na">rx</span><span class="o">=</span><span class="s">&#34;10&#34;</span> <span class="na">ry</span><span class="o">=</span><span class="s">&#34;10&#34;</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;30&#34;</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;30&#34;</span><span class="p">/&gt;</span>
-<span class="c">&lt;!-- x, y, width, height 不多解释，rx, ry 为圆角在x, y 方位的半径 --&gt;</span>
-</code></pre></div><h3 id="圆形">圆形</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">circle</span> <span class="na">cx</span><span class="o">=</span><span class="s">&#34;25&#34;</span> <span class="na">cy</span><span class="o">=</span><span class="s">&#34;75&#34;</span> <span class="na">r</span><span class="o">=</span><span class="s">&#34;20&#34;</span><span class="p">/&gt;</span>
-</code></pre></div><h3 id="椭圆">椭圆</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">ellipse</span> <span class="na">cx</span><span class="o">=</span><span class="s">&#34;75&#34;</span> <span class="na">cy</span><span class="o">=</span><span class="s">&#34;75&#34;</span> <span class="na">rx</span><span class="o">=</span><span class="s">&#34;20&#34;</span> <span class="na">ry</span><span class="o">=</span><span class="s">&#34;5&#34;</span><span class="p">/&gt;</span> 
-<span class="c">&lt;!-- rx, ry 分别为椭圆的 x 半径和 y 半径 --&gt;</span>
-</code></pre></div><h3 id="线条">线条</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">line</span> <span class="na">x1</span><span class="o">=</span><span class="s">&#34;10&#34;</span> <span class="na">x2</span><span class="o">=</span><span class="s">&#34;50&#34;</span> <span class="na">y1</span><span class="o">=</span><span class="s">&#34;110&#34;</span> <span class="na">y2</span><span class="o">=</span><span class="s">&#34;150&#34;</span><span class="p">/&gt;</span>
-</code></pre></div><h3 id="折线">折线</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">polyline</span> <span class="na">points</span><span class="o">=</span><span class="s">&#34;60 110, 65 120, 70 115, 75 130, 80 125, 85 140, 90 135, 95 150, 100 145&#34;</span><span class="p">/&gt;</span>
-</code></pre></div><h3 id="多边形">多边形</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">polygon</span> <span class="na">points</span><span class="o">=</span><span class="s">&#34;50 160, 55 180, 70 180, 60 190, 65 205, 50 195, 35 205, 40 190, 30 180, 45 180&#34;</span><span class="p">/&gt;</span>
-</code></pre></div><p>路径绘制完后闭合图形。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">rect</span> <span class="na">x</span><span class="o">=</span><span class="s">&#34;10&#34;</span> <span class="na">y</span><span class="o">=</span><span class="s">&#34;10&#34;</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;30&#34;</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;30&#34;</span><span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">rect</span> <span class="na">x</span><span class="o">=</span><span class="s">&#34;60&#34;</span> <span class="na">y</span><span class="o">=</span><span class="s">&#34;10&#34;</span> <span class="na">rx</span><span class="o">=</span><span class="s">&#34;10&#34;</span> <span class="na">ry</span><span class="o">=</span><span class="s">&#34;10&#34;</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;30&#34;</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;30&#34;</span><span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- x, y, width, height 不多解释，rx, ry 为圆角在x, y 方位的半径 --&gt;</span>
+</span></span></code></pre></div><h3 id="圆形">圆形</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">circle</span> <span class="na">cx</span><span class="o">=</span><span class="s">&#34;25&#34;</span> <span class="na">cy</span><span class="o">=</span><span class="s">&#34;75&#34;</span> <span class="na">r</span><span class="o">=</span><span class="s">&#34;20&#34;</span><span class="p">/&gt;</span>
+</span></span></code></pre></div><h3 id="椭圆">椭圆</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">ellipse</span> <span class="na">cx</span><span class="o">=</span><span class="s">&#34;75&#34;</span> <span class="na">cy</span><span class="o">=</span><span class="s">&#34;75&#34;</span> <span class="na">rx</span><span class="o">=</span><span class="s">&#34;20&#34;</span> <span class="na">ry</span><span class="o">=</span><span class="s">&#34;5&#34;</span><span class="p">/&gt;</span> 
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- rx, ry 分别为椭圆的 x 半径和 y 半径 --&gt;</span>
+</span></span></code></pre></div><h3 id="线条">线条</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">line</span> <span class="na">x1</span><span class="o">=</span><span class="s">&#34;10&#34;</span> <span class="na">x2</span><span class="o">=</span><span class="s">&#34;50&#34;</span> <span class="na">y1</span><span class="o">=</span><span class="s">&#34;110&#34;</span> <span class="na">y2</span><span class="o">=</span><span class="s">&#34;150&#34;</span><span class="p">/&gt;</span>
+</span></span></code></pre></div><h3 id="折线">折线</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">polyline</span> <span class="na">points</span><span class="o">=</span><span class="s">&#34;60 110, 65 120, 70 115, 75 130, 80 125, 85 140, 90 135, 95 150, 100 145&#34;</span><span class="p">/&gt;</span>
+</span></span></code></pre></div><h3 id="多边形">多边形</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">polygon</span> <span class="na">points</span><span class="o">=</span><span class="s">&#34;50 160, 55 180, 70 180, 60 190, 65 205, 50 195, 35 205, 40 190, 30 180, 45 180&#34;</span><span class="p">/&gt;</span>
+</span></span></code></pre></div><p>路径绘制完后闭合图形。</p>
 <h3 id="路径">路径</h3>
 <p>最强的一个元素，可以用来创建线条、曲线、弧形等。是使用指令式方法绘画的。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">path</span> <span class="na">d</span><span class="o">=</span><span class="s">&#34;M 20 230 Q 40 205, 50 230 T 90230&#34;</span><span class="p">/&gt;</span>
-</code></pre></div><p>每一个命令都用一个关键字母来表示。大写表示绝对定位，小写表示相对定位。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">path</span> <span class="na">d</span><span class="o">=</span><span class="s">&#34;M 20 230 Q 40 205, 50 230 T 90230&#34;</span><span class="p">/&gt;</span>
+</span></span></code></pre></div><p>每一个命令都用一个关键字母来表示。大写表示绝对定位，小写表示相对定位。</p>
 <h4 id="直线命令">直线命令</h4>
 <h4 id="m">M</h4>
 <p>Move to（移动）命令。</p>
@@ -324,50 +324,122 @@ a rx ry x-axis-rotation large-arc-flag sweep-flag dx dy
 <h3 id="css">CSS</h3>
 <p>CSS 同样也能使用这些值，只不过不应该使用 <code>background-color</code> 这类的值，应该使用 <code>fill</code> 这种 SVG 专有的属性。</p>
 <h2 id="渐变">渐变</h2>
-<p>为了使得渐变能重复使用，需要定义在 <code>&lt;defs&gt;</code> 标签内部。</p>
+<p><strong>必须</strong>给渐变内容指定一个id属性，否则文档内的其他元素就不能引用它。为了让渐变能重复使用，需要定义在 <code>&lt;defs&gt;</code> 标签内部。</p>
 <h3 id="线性渐变">线性渐变</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">defs</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">linearGradient</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;Gradient2&#34;</span> <span class="na">x1</span><span class="o">=</span><span class="s">&#34;0&#34;</span> <span class="na">x2</span><span class="o">=</span><span class="s">&#34;0&#34;</span> <span class="na">y1</span><span class="o">=</span><span class="s">&#34;0&#34;</span> <span class="na">y2</span><span class="o">=</span><span class="s">&#34;1&#34;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">stop</span> <span class="na">offset</span><span class="o">=</span><span class="s">&#34;0%&#34;</span> <span class="na">stop-color</span><span class="o">=</span><span class="s">&#34;red&#34;</span><span class="p">/&gt;</span>
-        <span class="p">&lt;</span><span class="nt">stop</span> <span class="na">offset</span><span class="o">=</span><span class="s">&#34;50%&#34;</span> <span class="na">stop-color</span><span class="o">=</span><span class="s">&#34;black&#34;</span> <span class="na">stop-opacity</span><span class="o">=</span><span class="s">&#34;0&#34;</span><span class="p">/&gt;</span>
-        <span class="p">&lt;</span><span class="nt">stop</span> <span class="na">offset</span><span class="o">=</span><span class="s">&#34;100%&#34;</span> <span class="na">stop-color</span><span class="o">=</span><span class="s">&#34;blue&#34;</span><span class="p">/&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">linearGradient</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">defs</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">rect</span> <span class="na">fill</span><span class="o">=</span><span class="s">&#34;url(#Gredient2)&#34;</span><span class="p">&gt;</span> <span class="c">&lt;!-- 这样调用 --&gt;</span>
-</code></pre></div><h3 id="径向渐变">径向渐变</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">defs</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">radialGradient</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;RadialGradient2&#34;</span> <span class="na">cx</span><span class="o">=</span><span class="s">&#34;0.25&#34;</span> <span class="na">cy</span><span class="o">=</span><span class="s">&#34;0.25&#34;</span> <span class="na">r</span><span class="o">=</span><span class="s">&#34;0.25&#34;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">stop</span> <span class="na">offset</span><span class="o">=</span><span class="s">&#34;0%&#34;</span> <span class="na">stop-color</span><span class="o">=</span><span class="s">&#34;red&#34;</span><span class="p">/&gt;</span>
-        <span class="p">&lt;</span><span class="nt">stop</span> <span class="na">offset</span><span class="o">=</span><span class="s">&#34;100%&#34;</span> <span class="na">stop-color</span><span class="o">=</span><span class="s">&#34;blue&#34;</span><span class="p">/&gt;</span>
-      <span class="p">&lt;/</span><span class="nt">radialGradient</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">defs</span><span class="p">&gt;</span>
-</code></pre></div><p>第二个点被称为焦点，由fx和fy属性定义。第一个点描述了渐变边缘位置，焦点则描述了渐变的中心。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">defs</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">radialGradient</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;Gradient&#34;</span>
-          <span class="na">cx</span><span class="o">=</span><span class="s">&#34;0.5&#34;</span> <span class="na">cy</span><span class="o">=</span><span class="s">&#34;0.5&#34;</span> <span class="na">r</span><span class="o">=</span><span class="s">&#34;0.5&#34;</span> <span class="na">fx</span><span class="o">=</span><span class="s">&#34;0.25&#34;</span> <span class="na">fy</span><span class="o">=</span><span class="s">&#34;0.25&#34;</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">stop</span> <span class="na">offset</span><span class="o">=</span><span class="s">&#34;0%&#34;</span> <span class="na">stop-color</span><span class="o">=</span><span class="s">&#34;red&#34;</span><span class="p">/&gt;</span>
-        <span class="p">&lt;</span><span class="nt">stop</span> <span class="na">offset</span><span class="o">=</span><span class="s">&#34;100%&#34;</span> <span class="na">stop-color</span><span class="o">=</span><span class="s">&#34;blue&#34;</span><span class="p">/&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">radialGradient</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">defs</span><span class="p">&gt;</span>
-</code></pre></div><p>待续</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">defs</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">linearGradient</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;Gradient2&#34;</span> <span class="na">x1</span><span class="o">=</span><span class="s">&#34;0&#34;</span> <span class="na">x2</span><span class="o">=</span><span class="s">&#34;0&#34;</span> <span class="na">y1</span><span class="o">=</span><span class="s">&#34;0&#34;</span> <span class="na">y2</span><span class="o">=</span><span class="s">&#34;1&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">stop</span> <span class="na">offset</span><span class="o">=</span><span class="s">&#34;0%&#34;</span> <span class="na">stop-color</span><span class="o">=</span><span class="s">&#34;red&#34;</span><span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">stop</span> <span class="na">offset</span><span class="o">=</span><span class="s">&#34;50%&#34;</span> <span class="na">stop-color</span><span class="o">=</span><span class="s">&#34;black&#34;</span> <span class="na">stop-opacity</span><span class="o">=</span><span class="s">&#34;0&#34;</span><span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">stop</span> <span class="na">offset</span><span class="o">=</span><span class="s">&#34;100%&#34;</span> <span class="na">stop-color</span><span class="o">=</span><span class="s">&#34;blue&#34;</span><span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">linearGradient</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">defs</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">rect</span> <span class="na">fill</span><span class="o">=</span><span class="s">&#34;url(#Gredient2)&#34;</span><span class="p">&gt;</span> <span class="c">&lt;!-- 这样调用 --&gt;</span>
+</span></span></code></pre></div><p><code>&lt;linearGradient&gt;</code> 内部的 <code>offset</code> 属性表示的是偏移量，<code>stop-color</code> 表示在这一点上的颜色，<code>stop-opacity</code> 表示半透明度。</p>
+<p>调用方法是在目标元素的 <code>fill</code> 中写上 <code>url(#Gradient)</code>。</p>
+<p>还可以添加渐变方向，由 <code>&lt;linearGradient&gt;</code> 上的 <code>x1, y1, x2, y2</code> 确定。渐变色默认是水平方向的。</p>
+<h3 id="径向渐变">径向渐变</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">defs</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">radialGradient</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;RadialGradient2&#34;</span> <span class="na">cx</span><span class="o">=</span><span class="s">&#34;0.25&#34;</span> <span class="na">cy</span><span class="o">=</span><span class="s">&#34;0.25&#34;</span> <span class="na">r</span><span class="o">=</span><span class="s">&#34;0.25&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">stop</span> <span class="na">offset</span><span class="o">=</span><span class="s">&#34;0%&#34;</span> <span class="na">stop-color</span><span class="o">=</span><span class="s">&#34;red&#34;</span><span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">stop</span> <span class="na">offset</span><span class="o">=</span><span class="s">&#34;100%&#34;</span> <span class="na">stop-color</span><span class="o">=</span><span class="s">&#34;blue&#34;</span><span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;/</span><span class="nt">radialGradient</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">defs</span><span class="p">&gt;</span>
+</span></span></code></pre></div><p>第二个点被称为焦点，由fx和fy属性定义。第一个点描述了渐变边缘位置，焦点则描述了渐变的中心。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">defs</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">radialGradient</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;Gradient&#34;</span>
+</span></span><span class="line"><span class="cl">          <span class="na">cx</span><span class="o">=</span><span class="s">&#34;0.5&#34;</span> <span class="na">cy</span><span class="o">=</span><span class="s">&#34;0.5&#34;</span> <span class="na">r</span><span class="o">=</span><span class="s">&#34;0.5&#34;</span> <span class="na">fx</span><span class="o">=</span><span class="s">&#34;0.25&#34;</span> <span class="na">fy</span><span class="o">=</span><span class="s">&#34;0.25&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">stop</span> <span class="na">offset</span><span class="o">=</span><span class="s">&#34;0%&#34;</span> <span class="na">stop-color</span><span class="o">=</span><span class="s">&#34;red&#34;</span><span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">stop</span> <span class="na">offset</span><span class="o">=</span><span class="s">&#34;100%&#34;</span> <span class="na">stop-color</span><span class="o">=</span><span class="s">&#34;blue&#34;</span><span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">radialGradient</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">defs</span><span class="p">&gt;</span>
+</span></span></code></pre></div><p><figure 
+	
+		class="gallery-image" 
+		style="
+			flex-grow: 99; 
+			flex-basis: 238px"
+	>
+	<a href="/p/2022/02/svg%E7%AC%94%E8%AE%B0/image-20220217192009346.png" data-size="142x143">
+		<img src="/p/2022/02/svg%E7%AC%94%E8%AE%B0/image-20220217192009346.png"
+			width="142"
+			height="143"
+			srcset="/p/2022/02/svg%E7%AC%94%E8%AE%B0/image-20220217192009346_hud87801760819f9fcfe39b79872d6c002_11540_480x0_resize_box_3.png 480w, /p/2022/02/svg%E7%AC%94%E8%AE%B0/image-20220217192009346_hud87801760819f9fcfe39b79872d6c002_11540_1024x0_resize_box_3.png 1024w"
+			loading="lazy"
+			alt="焦点示意图">
+	</a>
+	
+	<figcaption>焦点示意图</figcaption>
+	
+</figure></p>
+<p>额外的一个属性：<code>spreadMethod</code>，该属性控制了当渐变到达终点的行为。可以有三个值：pad reflect repeat。</p>
+<p><figure 
+	
+		class="gallery-image" 
+		style="
+			flex-grow: 106; 
+			flex-basis: 254px"
+	>
+	<a href="/p/2022/02/svg%E7%AC%94%E8%AE%B0/image-20220217192444747.png" data-size="295x278">
+		<img src="/p/2022/02/svg%E7%AC%94%E8%AE%B0/image-20220217192444747.png"
+			width="295"
+			height="278"
+			srcset="/p/2022/02/svg%E7%AC%94%E8%AE%B0/image-20220217192444747_hud76d7a5a7ce3a2c85b9565d609ddbd29_23386_480x0_resize_box_3.png 480w, /p/2022/02/svg%E7%AC%94%E8%AE%B0/image-20220217192444747_hud76d7a5a7ce3a2c85b9565d609ddbd29_23386_1024x0_resize_box_3.png 1024w"
+			loading="lazy"
+			alt="spreadMethod">
+	</a>
+	
+	<figcaption>spreadMethod</figcaption>
+	
+</figure></p>
+<p>两种渐变都有一个叫做gradientUnits（渐变单元）的属性，它描述了用来描述渐变的大小和方向的单元系统。该属性有两个值：userSpaceOnUse 、objectBoundingBox。默认值为 objectBoundingBox。</p>
 <h2 id="图案">图案</h2>
+<p>需要放在 <code>&lt;defs&gt;</code> 内部。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">defs</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">pattern</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;Pattern&#34;</span> <span class="na">x</span><span class="o">=</span><span class="s">&#34;0&#34;</span> <span class="na">y</span><span class="o">=</span><span class="s">&#34;0&#34;</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;.25&#34;</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;.25&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">rect</span> <span class="na">x</span><span class="o">=</span><span class="s">&#34;0&#34;</span> <span class="na">y</span><span class="o">=</span><span class="s">&#34;0&#34;</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;50&#34;</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;50&#34;</span> <span class="na">fill</span><span class="o">=</span><span class="s">&#34;skyblue&#34;</span><span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">rect</span> <span class="na">x</span><span class="o">=</span><span class="s">&#34;0&#34;</span> <span class="na">y</span><span class="o">=</span><span class="s">&#34;0&#34;</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;25&#34;</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;25&#34;</span> <span class="na">fill</span><span class="o">=</span><span class="s">&#34;something&#34;</span><span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">circle</span> <span class="na">cx</span><span class="o">=</span><span class="s">&#34;25&#34;</span> <span class="na">cy</span><span class="o">=</span><span class="s">&#34;25&#34;</span> <span class="na">r</span><span class="o">=</span><span class="s">&#34;20&#34;</span> <span class="na">fill</span><span class="o">=</span><span class="s">&#34;something&#34;</span> <span class="na">fill-opacity</span><span class="o">=</span><span class="s">&#34;0.5&#34;</span><span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">pattern</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">defs</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">rect</span> <span class="na">fill</span><span class="o">=</span><span class="s">&#34;url(#Pattern)&#34;</span> <span class="na">stroke</span><span class="o">=</span><span class="s">&#34;black&#34;</span> <span class="na">x</span><span class="o">=</span><span class="s">&#34;0&#34;</span> <span class="na">y</span><span class="o">=</span><span class="s">&#34;0&#34;</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;200&#34;</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;200&#34;</span><span class="p">/&gt;</span>
+</span></span></code></pre></div><p>在 <code>&lt;pattern&gt;</code> 内部可以包含任何之前包含过的其它基本形状，并且每个形状都可以使用之前学习过的任何样式样式化，包括渐变和半透明。定义的是一个单元系统以及他们的大小。</p>
+<p>类似于 <code>gradientUnits</code>，<code>parttern</code> 也有一个属性 <code>patternUnits</code>。</p>
+<p><code>pattern</code> 还有另外一个属性 <code>patternContentUnits</code>，它描述了<code>pattern</code>元素基于基本形状使用的单元系统，这个属性默认值为<code>userSpaceOnUse</code>。</p>
+<p><figure 
+	
+		class="gallery-image" 
+		style="
+			flex-grow: 200; 
+			flex-basis: 480px"
+	>
+	<a href="/p/2022/02/svg%E7%AC%94%E8%AE%B0/SVG_Pattern_Comparison_of_Units.png" data-size="640x320">
+		<img src="/p/2022/02/svg%E7%AC%94%E8%AE%B0/SVG_Pattern_Comparison_of_Units.png"
+			width="640"
+			height="320"
+			srcset="/p/2022/02/svg%E7%AC%94%E8%AE%B0/SVG_Pattern_Comparison_of_Units_hu91dc22a3973d183ef738824f23bdbabe_56267_480x0_resize_box_3.png 480w, /p/2022/02/svg%E7%AC%94%E8%AE%B0/SVG_Pattern_Comparison_of_Units_hu91dc22a3973d183ef738824f23bdbabe_56267_1024x0_resize_box_3.png 1024w"
+			loading="lazy"
+			alt="patternUnits 和 patternContentUnits的一个示例">
+	</a>
+	
+	<figcaption>patternUnits 和 patternContentUnits的一个示例</figcaption>
+	
+</figure></p>
 <h2 id="文字">文字</h2>
 <h3 id="基本属性">基本属性</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">text</span> <span class="na">x</span><span class="o">=</span><span class="s">&#34;10&#34;</span> <span class="na">y</span><span class="o">=</span><span class="s">&#34;10&#34;</span><span class="p">&gt;</span>Hello World!<span class="p">&lt;/</span><span class="nt">text</span><span class="p">&gt;</span>
-</code></pre></div><p><code>text-anchor</code>：start, middle, end, inherit，允许决定从这一点开始的文本流的方向。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">text</span> <span class="na">x</span><span class="o">=</span><span class="s">&#34;10&#34;</span> <span class="na">y</span><span class="o">=</span><span class="s">&#34;10&#34;</span><span class="p">&gt;</span>Hello World!<span class="p">&lt;/</span><span class="nt">text</span><span class="p">&gt;</span>
+</span></span></code></pre></div><p><code>text-anchor</code>：start, middle, end, inherit，允许决定从这一点开始的文本流的方向。</p>
 <p><code>fill, stroke</code>：用来上色。</p>
 <h3 id="字体属性">字体属性</h3>
 <p><code>font-family</code>、<code>font-style</code>、<code>font-weight</code>、<code>font-variant</code>、<code>font-stretch</code>、<code>font-size</code>、<code>font-size-adjust</code>、<code>kerning</code>、<code>letter-spacing</code>、<code>word-spacing</code>和<code>text-decoration</code>。</p>
 <h3 id="其他属性">其他属性</h3>
 <h4 id="tspan">tspan</h4>
 <p>该元素用来标记大块文本的子部分</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">text</span><span class="p">&gt;</span>
-  xxx
-  <span class="p">&lt;</span><span class="nt">tspan</span> <span class="na">font-weight</span><span class="o">=</span><span class="s">&#34;bold&#34;</span> <span class="na">fill</span><span class="o">=</span><span class="s">&#34;red&#34;</span><span class="p">&gt;</span>This is bold and red<span class="p">&lt;/</span><span class="nt">tspan</span><span class="p">&gt;</span>
-  xxx
-<span class="p">&lt;/</span><span class="nt">text</span><span class="p">&gt;</span>
-
-</code></pre></div><p>属性：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">text</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  xxx
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">tspan</span> <span class="na">font-weight</span><span class="o">=</span><span class="s">&#34;bold&#34;</span> <span class="na">fill</span><span class="o">=</span><span class="s">&#34;red&#34;</span><span class="p">&gt;</span>This is bold and red<span class="p">&lt;/</span><span class="nt">tspan</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  xxx
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">text</span><span class="p">&gt;</span>
+</span></span></code></pre></div><p>属性：</p>
 <p><code>x</code>：为容器设置一个新绝对<code>x</code>坐标。它覆盖了默认的当前的文本位置。这个属性可以包含一个数列，它们将一个一个地应用到<code>tspan</code>元素内的每一个字符上。</p>
 <p><code>dx</code>：从当前位置，用一个水平偏移开始绘制文本。这里，你可以提供一个值数列，可以应用到连续的字体，因此每次累积一个偏移。</p>
 <p>此外还有属性 <code>y</code> 和属性 <code>dy</code> 作垂直转换。</p>
@@ -375,20 +447,20 @@ a rx ry x-axis-rotation large-arc-flag sweep-flag dx dy
 <p><code>textLength</code>：给出字符串的计算长度。它意味着如果它自己的度量文字和长度不满足这个提供的值，则允许渲染引擎精细调整字型的位置。</p>
 <h4 id="tref">tref</h4>
 <p>允许引用已经定义的文本，高效地把它复制到当前位置。并且可以独立地修改它的样式。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">text</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;example&#34;</span><span class="p">&gt;</span>This is an example text.<span class="p">&lt;/</span><span class="nt">text</span><span class="p">&gt;</span>
-
-<span class="p">&lt;</span><span class="nt">text</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">tref</span> <span class="na">xlink:href</span><span class="o">=</span><span class="s">&#34;#example&#34;</span> <span class="p">/&gt;</span>
-<span class="p">&lt;/</span><span class="nt">text</span><span class="p">&gt;</span>
-</code></pre></div><h4 id="textpath">textPath</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">text</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;example&#34;</span><span class="p">&gt;</span>This is an example text.<span class="p">&lt;/</span><span class="nt">text</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">text</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">tref</span> <span class="na">xlink:href</span><span class="o">=</span><span class="s">&#34;#example&#34;</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">text</span><span class="p">&gt;</span>
+</span></span></code></pre></div><h4 id="textpath">textPath</h4>
 <p>该元素利用它的 <code>xlink:href</code> 属性取得一个任意路径，把字符对齐到路径，于是字体会环绕路径、顺着路径走。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">path</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;my_path&#34;</span> <span class="na">d</span><span class="o">=</span><span class="s">&#34;M 20,20 C 40,40 80,40 100,20&#34;</span> <span class="na">fill</span><span class="o">=</span><span class="s">&#34;transparent&#34;</span> <span class="p">/&gt;</span>
-<span class="p">&lt;</span><span class="nt">text</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">textPath</span> <span class="na">xmlns:xlink</span><span class="o">=</span><span class="s">&#34;http://www.w3.org/1999/xlink&#34;</span> <span class="na">xlink:href</span><span class="o">=</span><span class="s">&#34;#my_path&#34;</span><span class="p">&gt;</span>
-    This text follows a curve.
-  <span class="p">&lt;/</span><span class="nt">textPath</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">text</span><span class="p">&gt;</span>
-</code></pre></div><h2 id="变换">变换</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">path</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;my_path&#34;</span> <span class="na">d</span><span class="o">=</span><span class="s">&#34;M 20,20 C 40,40 80,40 100,20&#34;</span> <span class="na">fill</span><span class="o">=</span><span class="s">&#34;transparent&#34;</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">text</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">textPath</span> <span class="na">xmlns:xlink</span><span class="o">=</span><span class="s">&#34;http://www.w3.org/1999/xlink&#34;</span> <span class="na">xlink:href</span><span class="o">=</span><span class="s">&#34;#my_path&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    This text follows a curve.
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">textPath</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">text</span><span class="p">&gt;</span>
+</span></span></code></pre></div><h2 id="变换">变换</h2>
 <p>使用 <code>transform</code> 属性。</p>
 <p>平移：<code>translate(x, y)</code></p>
 <p>旋转：<code>rotate(angle)</code></p>
@@ -409,24 +481,27 @@ $$
 <p>遮罩允许使用透明度和灰度值遮罩计算得的软边缘。</p>
 <h3 id="剪切">剪切</h3>
 <p>同样，定义在 <code>&lt;defs&gt;</code> 中，并使用 <code>clip-path </code> 引用</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">defs</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">clipPath</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;cut-off-bottom&#34;</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">rect</span> <span class="na">x</span><span class="o">=</span><span class="s">&#34;0&#34;</span> <span class="na">y</span><span class="o">=</span><span class="s">&#34;0&#34;</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;200&#34;</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;100&#34;</span> <span class="p">/&gt;</span>
-  <span class="p">&lt;/</span><span class="nt">clipPath</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">defs</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">circle</span> <span class="na">cx</span><span class="o">=</span><span class="s">&#34;100&#34;</span> <span class="na">cy</span><span class="o">=</span><span class="s">&#34;100&#34;</span> <span class="na">r</span><span class="o">=</span><span class="s">&#34;100&#34;</span> <span class="na">clip-path</span><span class="o">=</span><span class="s">&#34;url(#cut-off-bottom)&#34;</span> <span class="p">/&gt;</span>
-</code></pre></div><h3 id="遮罩">遮罩</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">defs</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">linearGradient</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;Gradient&#34;</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">stop</span> <span class="na">offset</span><span class="o">=</span><span class="s">&#34;0&#34;</span> <span class="na">stop-color</span><span class="o">=</span><span class="s">&#34;white&#34;</span> <span class="na">stop-opacity</span><span class="o">=</span><span class="s">&#34;0&#34;</span> <span class="p">/&gt;</span>
-      <span class="p">&lt;</span><span class="nt">stop</span> <span class="na">offset</span><span class="o">=</span><span class="s">&#34;1&#34;</span> <span class="na">stop-color</span><span class="o">=</span><span class="s">&#34;white&#34;</span> <span class="na">stop-opacity</span><span class="o">=</span><span class="s">&#34;1&#34;</span> <span class="p">/&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">linearGradient</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">mask</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;Mask&#34;</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">rect</span> <span class="na">x</span><span class="o">=</span><span class="s">&#34;0&#34;</span> <span class="na">y</span><span class="o">=</span><span class="s">&#34;0&#34;</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;200&#34;</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;200&#34;</span> <span class="na">fill</span><span class="o">=</span><span class="s">&#34;url(#Gradient)&#34;</span> <span class="p">/&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">mask</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">rect</span> <span class="na">x</span><span class="o">=</span><span class="s">&#34;0&#34;</span> <span class="na">y</span><span class="o">=</span><span class="s">&#34;0&#34;</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;200&#34;</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;200&#34;</span> <span class="na">fill</span><span class="o">=</span><span class="s">&#34;red&#34;</span> <span class="na">mask</span><span class="o">=</span><span class="s">&#34;url(#Mask)&#34;</span> <span class="p">/&gt;</span>
-<span class="p">&lt;/</span><span class="nt">defs</span><span class="p">&gt;</span>
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">defs</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">clipPath</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;cut-off-bottom&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">rect</span> <span class="na">x</span><span class="o">=</span><span class="s">&#34;0&#34;</span> <span class="na">y</span><span class="o">=</span><span class="s">&#34;0&#34;</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;200&#34;</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;100&#34;</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">clipPath</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">defs</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">circle</span> <span class="na">cx</span><span class="o">=</span><span class="s">&#34;100&#34;</span> <span class="na">cy</span><span class="o">=</span><span class="s">&#34;100&#34;</span> <span class="na">r</span><span class="o">=</span><span class="s">&#34;100&#34;</span> <span class="na">clip-path</span><span class="o">=</span><span class="s">&#34;url(#cut-off-bottom)&#34;</span> <span class="p">/&gt;</span>
+</span></span></code></pre></div><h3 id="遮罩">遮罩</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">defs</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">linearGradient</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;Gradient&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">stop</span> <span class="na">offset</span><span class="o">=</span><span class="s">&#34;0&#34;</span> <span class="na">stop-color</span><span class="o">=</span><span class="s">&#34;white&#34;</span> <span class="na">stop-opacity</span><span class="o">=</span><span class="s">&#34;0&#34;</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">stop</span> <span class="na">offset</span><span class="o">=</span><span class="s">&#34;1&#34;</span> <span class="na">stop-color</span><span class="o">=</span><span class="s">&#34;white&#34;</span> <span class="na">stop-opacity</span><span class="o">=</span><span class="s">&#34;1&#34;</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">linearGradient</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">mask</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;Mask&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">rect</span> <span class="na">x</span><span class="o">=</span><span class="s">&#34;0&#34;</span> <span class="na">y</span><span class="o">=</span><span class="s">&#34;0&#34;</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;200&#34;</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;200&#34;</span> <span class="na">fill</span><span class="o">=</span><span class="s">&#34;url(#Gradient)&#34;</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">mask</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">rect</span> <span class="na">x</span><span class="o">=</span><span class="s">&#34;0&#34;</span> <span class="na">y</span><span class="o">=</span><span class="s">&#34;0&#34;</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;200&#34;</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;200&#34;</span> <span class="na">fill</span><span class="o">=</span><span class="s">&#34;red&#34;</span> <span class="na">mask</span><span class="o">=</span><span class="s">&#34;url(#Mask)&#34;</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">defs</span><span class="p">&gt;</span>
+</span></span></code></pre></div><h2 id="滤镜">滤镜</h2>
+<p>元素：<code>&lt;filter&gt;</code>，定义在 <code>&lt;defs&gt;</code> 中。</p>
+<p>内部可以添加不同的效果，如 <code>&lt;feGaussianBlur&gt;, &lt;feOffset&gt;</code> 等等。然后在应用的元素上设置属性 <code>filter=&quot;url(#MyFilter)&quot;</code>。</p>
+
 </section>
 
 
@@ -509,6 +584,18 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
                 
                     
 <article class="">
+    <a href="/p/2022/02/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%BD%93%E9%AA%8C1/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">前端工程化体验（1）</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
     <a href="/p/2022/01/%E5%89%8D%E7%AB%AF%E4%B8%8B%E8%BD%BD%E5%8E%9F%E5%A7%8B%E5%AE%9E%E7%8E%B0/">
         
         
@@ -539,18 +626,6 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
 
         <div class="article-details">
             <h2 class="article-title">Object方法</h2>
-        </div>
-    </a>
-</article>
-                
-                    
-<article class="">
-    <a href="/p/2021/11/array%E6%96%B9%E6%B3%95/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">Array方法</h2>
         </div>
     </a>
 </article>
@@ -746,6 +821,7 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
         <li><a href="#遮罩">遮罩</a></li>
       </ol>
     </li>
+    <li><a href="#滤镜">滤镜</a></li>
   </ol>
 </nav>
                 </div>

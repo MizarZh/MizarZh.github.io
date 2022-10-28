@@ -115,140 +115,140 @@
 <h2 id="4事件相关">4、事件相关</h2>
 <p>某同学的一个网页，写一个js脚本，重复点击四（五）个按钮。</p>
 <p>首先找出每个按钮（button）的定位，这里使用document.querySelector()定位</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="nx">str</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
-
-<span class="kd">var</span> <span class="nx">button</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;.call-to-action&#34;</span><span class="p">,</span><span class="s2">&#34;.buyButton&#34;</span><span class="p">,</span>
-<span class="s2">&#34;.ut-button-group:first-child&#34;</span><span class="p">,</span><span class="s2">&#34;ut-navigation-button-control&#34;</span><span class="p">];</span>
-</code></pre></div><p>接下来调试，发现无法使用x.click()点击按钮。使用浏览器查看事件发现使用了mousedown和mouseup确定点击事件
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="nx">str</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">button</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;.call-to-action&#34;</span><span class="p">,</span><span class="s2">&#34;.buyButton&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;.ut-button-group:first-child&#34;</span><span class="p">,</span><span class="s2">&#34;ut-navigation-button-control&#34;</span><span class="p">];</span>
+</span></span></code></pre></div><p>接下来调试，发现无法使用x.click()点击按钮。使用浏览器查看事件发现使用了mousedown和mouseup确定点击事件
 修改代码：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">handler</span><span class="p">(</span><span class="nx">str</span><span class="p">){</span>
-    <span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="nx">str</span><span class="p">);</span>
-    <span class="kd">var</span> <span class="nx">down</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createEvent</span><span class="p">(</span><span class="s2">&#34;MouseEvents&#34;</span><span class="p">);</span>
-    <span class="nx">down</span><span class="p">.</span><span class="nx">initMouseEvent</span><span class="p">(</span><span class="s2">&#34;mousedown&#34;</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="nb">document</span><span class="p">.</span><span class="nx">defaultView</span><span class="p">);</span> 
-    <span class="nx">x</span><span class="p">.</span><span class="nx">dispatchEvent</span><span class="p">(</span><span class="nx">down</span><span class="p">);</span>
-    <span class="kd">var</span> <span class="nx">up</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createEvent</span><span class="p">(</span><span class="s2">&#34;MouseEvents&#34;</span><span class="p">);</span>
-    <span class="nx">up</span><span class="p">.</span><span class="nx">initMouseEvent</span><span class="p">(</span><span class="s2">&#34;mouseup&#34;</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="nb">document</span><span class="p">.</span><span class="nx">defaultView</span><span class="p">);</span> 
-    <span class="nx">x</span><span class="p">.</span><span class="nx">dispatchEvent</span><span class="p">(</span><span class="nx">up</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="kd">var</span> <span class="nx">button</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;.call-to-action&#34;</span><span class="p">,</span><span class="s2">&#34;.buyButton&#34;</span><span class="p">,</span>
-<span class="s2">&#34;.ut-button-group:first-child&#34;</span><span class="p">,</span><span class="s2">&#34;ut-navigation-button-control&#34;</span><span class="p">];</span>
-</code></pre></div><p>再令其每隔一段时间点击一次按钮，则：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="k">while</span><span class="p">(</span><span class="kc">true</span><span class="p">){</span>
-    <span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span><span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">button</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="o">++</span><span class="nx">i</span><span class="p">){</span>
-        <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">handler</span><span class="p">(</span><span class="nx">button</span><span class="p">[</span><span class="nx">i</span><span class="p">]),</span><span class="mi">1000</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div><p>发现setTimeout好像并不是很符合要求（似乎是因为setTimeout并不会真的等待一段时间才执行下一个循环，而是生成四个setTimeout进程）。于是改用了setInterval，并增加了一些东西：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">button</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;.increment-value&#39;</span><span class="p">,</span><span class="s2">&#34;.call-to-action&#34;</span><span class="p">,</span><span class="s2">&#34;.buyButton&#34;</span><span class="p">,</span>
-<span class="s1">&#39;section.Dialog .ut-button-group button&#39;</span><span class="p">,</span><span class="s2">&#34;.ut-navigation-button-control&#34;</span><span class="p">];</span>
-<span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">button</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
-<span class="kd">var</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="kd">var</span> <span class="nx">id</span><span class="p">;</span>
-<span class="kd">function</span> <span class="nx">handler</span><span class="p">(){</span>
-    <span class="nx">loop_i</span><span class="p">();</span>
-    <span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="nx">button</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
-    <span class="kd">var</span> <span class="nx">down</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createEvent</span><span class="p">(</span><span class="s2">&#34;MouseEvents&#34;</span><span class="p">);</span>
-    <span class="nx">down</span><span class="p">.</span><span class="nx">initMouseEvent</span><span class="p">(</span><span class="s2">&#34;mousedown&#34;</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="nb">document</span><span class="p">.</span><span class="nx">defaultView</span><span class="p">);</span> 
-    <span class="nx">x</span><span class="p">.</span><span class="nx">dispatchEvent</span><span class="p">(</span><span class="nx">down</span><span class="p">);</span>
-    <span class="kd">var</span> <span class="nx">up</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createEvent</span><span class="p">(</span><span class="s2">&#34;MouseEvents&#34;</span><span class="p">);</span>
-    <span class="nx">up</span><span class="p">.</span><span class="nx">initMouseEvent</span><span class="p">(</span><span class="s2">&#34;mouseup&#34;</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="nb">document</span><span class="p">.</span><span class="nx">defaultView</span><span class="p">);</span> 
-    <span class="nx">x</span><span class="p">.</span><span class="nx">dispatchEvent</span><span class="p">(</span><span class="nx">up</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="kd">function</span> <span class="nx">loop_i</span><span class="p">(){</span>
-    <span class="o">++</span><span class="nx">count</span><span class="p">;</span>
-    <span class="k">if</span><span class="p">(</span><span class="nx">i</span> <span class="o">===</span> <span class="nx">button</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="k">else</span> <span class="o">++</span><span class="nx">i</span><span class="p">;</span>
-    <span class="k">if</span><span class="p">(</span><span class="nx">count</span> <span class="o">&gt;=</span> <span class="mi">500</span><span class="p">){</span>
-        <span class="nx">clearInterval</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="nx">id</span> <span class="o">=</span> <span class="nx">setInterval</span><span class="p">(</span><span class="nx">handler</span><span class="p">,</span><span class="mi">5000</span><span class="p">);</span>
-</code></pre></div><p>（所有代码，以后可能会增加try catch块）</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">button</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;.increment-value&#39;</span><span class="p">,</span><span class="s2">&#34;.call-to-action&#34;</span><span class="p">,</span><span class="s2">&#34;.buyButton&#34;</span><span class="p">,</span>
-<span class="s1">&#39;section.Dialog .ut-button-group button&#39;</span><span class="p">,</span><span class="s2">&#34;.ut-navigation-button-control&#34;</span><span class="p">];</span>
-<span class="kd">var</span> <span class="nx">input</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;.numericInput&#39;</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">button</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
-<span class="kd">var</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="kd">var</span> <span class="nx">id</span><span class="p">;</span>
-
-<span class="kd">function</span> <span class="nx">doer</span><span class="p">(</span><span class="nx">ci</span> <span class="o">=</span> <span class="nx">i</span><span class="p">){</span>
-    <span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="nx">button</span><span class="p">[</span><span class="nx">ci</span><span class="p">]);</span>
-    <span class="kd">var</span> <span class="nx">down</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createEvent</span><span class="p">(</span><span class="s2">&#34;MouseEvents&#34;</span><span class="p">);</span>
-    <span class="nx">down</span><span class="p">.</span><span class="nx">initMouseEvent</span><span class="p">(</span><span class="s2">&#34;mousedown&#34;</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="nb">document</span><span class="p">.</span><span class="nx">defaultView</span><span class="p">);</span> 
-    <span class="nx">x</span><span class="p">.</span><span class="nx">dispatchEvent</span><span class="p">(</span><span class="nx">down</span><span class="p">);</span>
-    <span class="kd">var</span> <span class="nx">up</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createEvent</span><span class="p">(</span><span class="s2">&#34;MouseEvents&#34;</span><span class="p">);</span>
-    <span class="nx">up</span><span class="p">.</span><span class="nx">initMouseEvent</span><span class="p">(</span><span class="s2">&#34;mouseup&#34;</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="nb">document</span><span class="p">.</span><span class="nx">defaultView</span><span class="p">);</span> 
-    <span class="nx">x</span><span class="p">.</span><span class="nx">dispatchEvent</span><span class="p">(</span><span class="nx">up</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="kd">function</span> <span class="nx">handler</span><span class="p">(){</span>
-    <span class="k">try</span><span class="p">{</span>
-        <span class="nx">loop_i</span><span class="p">();</span>
-        <span class="nx">doer</span><span class="p">();</span>
-    <span class="p">}</span>
-    <span class="k">catch</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span>
-        <span class="k">if</span><span class="p">(</span><span class="nx">e</span> <span class="k">instanceof</span> <span class="nx">TypeError</span><span class="p">){</span>
-            <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">&#34;TypeError&#34;</span><span class="p">);</span>
-            <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-            <span class="nx">doer</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
-        <span class="p">}</span>
-        <span class="k">else</span><span class="p">{</span>
-            <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">&#34;UnknownError&#34;</span><span class="p">);</span>
-            <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-            <span class="nx">doer</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-    
-
-<span class="p">}</span>
-
-<span class="kd">function</span> <span class="nx">loop_i</span><span class="p">(){</span>
-    <span class="o">++</span><span class="nx">count</span><span class="p">;</span>
-    <span class="k">if</span><span class="p">(</span><span class="nx">i</span> <span class="o">===</span> <span class="nx">button</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="k">else</span> <span class="o">++</span><span class="nx">i</span><span class="p">;</span>
-    <span class="k">if</span><span class="p">(</span><span class="nx">count</span> <span class="o">&gt;=</span> <span class="mi">20</span><span class="p">){</span>
-        <span class="nx">input</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-
-<span class="nx">id</span> <span class="o">=</span> <span class="nx">setInterval</span><span class="p">(</span><span class="nx">handler</span><span class="p">,</span><span class="mi">5000</span><span class="p">);</span>
-
-<span class="nx">clearInterval</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span>
-</code></pre></div><p>加入try catch块</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">button</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;.increment-value&#39;</span><span class="p">,</span><span class="s2">&#34;.call-to-action&#34;</span><span class="p">,</span><span class="s2">&#34;.buyButton&#34;</span><span class="p">,</span>
-<span class="s1">&#39;section.Dialog .ut-button-group button&#39;</span><span class="p">,</span><span class="s2">&#34;.ut-navigation-button-control&#34;</span><span class="p">];</span>
-<span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">button</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
-<span class="kd">var</span> <span class="nx">clear</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;.flat.camel-case&#39;</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="kd">var</span> <span class="nx">id</span><span class="p">;</span>
-<span class="kd">function</span> <span class="nx">handler</span><span class="p">(){</span>
-    <span class="nx">loop_i</span><span class="p">();</span>
-    <span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="nx">button</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
-    <span class="kd">var</span> <span class="nx">down</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createEvent</span><span class="p">(</span><span class="s2">&#34;MouseEvents&#34;</span><span class="p">);</span>
-    <span class="nx">down</span><span class="p">.</span><span class="nx">initMouseEvent</span><span class="p">(</span><span class="s2">&#34;mousedown&#34;</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="nb">document</span><span class="p">.</span><span class="nx">defaultView</span><span class="p">);</span> 
-    <span class="nx">x</span><span class="p">.</span><span class="nx">dispatchEvent</span><span class="p">(</span><span class="nx">down</span><span class="p">);</span>
-    <span class="kd">var</span> <span class="nx">up</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createEvent</span><span class="p">(</span><span class="s2">&#34;MouseEvents&#34;</span><span class="p">);</span>
-    <span class="nx">up</span><span class="p">.</span><span class="nx">initMouseEvent</span><span class="p">(</span><span class="s2">&#34;mouseup&#34;</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="nb">document</span><span class="p">.</span><span class="nx">defaultView</span><span class="p">);</span> 
-    <span class="nx">x</span><span class="p">.</span><span class="nx">dispatchEvent</span><span class="p">(</span><span class="nx">up</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="kd">function</span> <span class="nx">loop_i</span><span class="p">(){</span>
-    <span class="o">++</span><span class="nx">count</span><span class="p">;</span>
-    <span class="k">if</span><span class="p">(</span><span class="nx">i</span> <span class="o">===</span> <span class="nx">button</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="k">else</span> <span class="o">++</span><span class="nx">i</span><span class="p">;</span>
-    <span class="k">if</span><span class="p">(</span><span class="nx">count</span> <span class="o">&gt;=</span> <span class="mi">5</span><span class="p">){</span>
-        <span class="kd">var</span> <span class="nx">down</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createEvent</span><span class="p">(</span><span class="s2">&#34;MouseEvents&#34;</span><span class="p">);</span>
-        <span class="nx">down</span><span class="p">.</span><span class="nx">initMouseEvent</span><span class="p">(</span><span class="s2">&#34;mousedown&#34;</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="nb">document</span><span class="p">.</span><span class="nx">defaultView</span><span class="p">);</span> 
-        <span class="nx">clear</span><span class="p">.</span><span class="nx">dispatchEvent</span><span class="p">(</span><span class="nx">down</span><span class="p">);</span>
-        <span class="kd">var</span> <span class="nx">up</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createEvent</span><span class="p">(</span><span class="s2">&#34;MouseEvents&#34;</span><span class="p">);</span>
-        <span class="nx">up</span><span class="p">.</span><span class="nx">initMouseEvent</span><span class="p">(</span><span class="s2">&#34;mouseup&#34;</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="nb">document</span><span class="p">.</span><span class="nx">defaultView</span><span class="p">);</span> 
-        <span class="nx">clear</span><span class="p">.</span><span class="nx">dispatchEvent</span><span class="p">(</span><span class="nx">up</span><span class="p">);</span>
-        <span class="nx">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="nx">id</span> <span class="o">=</span> <span class="nx">setInterval</span><span class="p">(</span><span class="nx">handler</span><span class="p">,</span><span class="mi">5000</span><span class="p">);</span>
-</code></pre></div><p>另一种解法</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">handler</span><span class="p">(</span><span class="nx">str</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="nx">str</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">down</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createEvent</span><span class="p">(</span><span class="s2">&#34;MouseEvents&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">down</span><span class="p">.</span><span class="nx">initMouseEvent</span><span class="p">(</span><span class="s2">&#34;mousedown&#34;</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="nb">document</span><span class="p">.</span><span class="nx">defaultView</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl">    <span class="nx">x</span><span class="p">.</span><span class="nx">dispatchEvent</span><span class="p">(</span><span class="nx">down</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">up</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createEvent</span><span class="p">(</span><span class="s2">&#34;MouseEvents&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">up</span><span class="p">.</span><span class="nx">initMouseEvent</span><span class="p">(</span><span class="s2">&#34;mouseup&#34;</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="nb">document</span><span class="p">.</span><span class="nx">defaultView</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl">    <span class="nx">x</span><span class="p">.</span><span class="nx">dispatchEvent</span><span class="p">(</span><span class="nx">up</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">button</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;.call-to-action&#34;</span><span class="p">,</span><span class="s2">&#34;.buyButton&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;.ut-button-group:first-child&#34;</span><span class="p">,</span><span class="s2">&#34;ut-navigation-button-control&#34;</span><span class="p">];</span>
+</span></span></code></pre></div><p>再令其每隔一段时间点击一次按钮，则：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="k">while</span><span class="p">(</span><span class="kc">true</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span><span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">button</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="o">++</span><span class="nx">i</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">handler</span><span class="p">(</span><span class="nx">button</span><span class="p">[</span><span class="nx">i</span><span class="p">]),</span><span class="mi">1000</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>发现setTimeout好像并不是很符合要求（似乎是因为setTimeout并不会真的等待一段时间才执行下一个循环，而是生成四个setTimeout进程）。于是改用了setInterval，并增加了一些东西：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">button</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;.increment-value&#39;</span><span class="p">,</span><span class="s2">&#34;.call-to-action&#34;</span><span class="p">,</span><span class="s2">&#34;.buyButton&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;section.Dialog .ut-button-group button&#39;</span><span class="p">,</span><span class="s2">&#34;.ut-navigation-button-control&#34;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">button</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">id</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">handler</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">loop_i</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="nx">button</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">down</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createEvent</span><span class="p">(</span><span class="s2">&#34;MouseEvents&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">down</span><span class="p">.</span><span class="nx">initMouseEvent</span><span class="p">(</span><span class="s2">&#34;mousedown&#34;</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="nb">document</span><span class="p">.</span><span class="nx">defaultView</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl">    <span class="nx">x</span><span class="p">.</span><span class="nx">dispatchEvent</span><span class="p">(</span><span class="nx">down</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">up</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createEvent</span><span class="p">(</span><span class="s2">&#34;MouseEvents&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">up</span><span class="p">.</span><span class="nx">initMouseEvent</span><span class="p">(</span><span class="s2">&#34;mouseup&#34;</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="nb">document</span><span class="p">.</span><span class="nx">defaultView</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl">    <span class="nx">x</span><span class="p">.</span><span class="nx">dispatchEvent</span><span class="p">(</span><span class="nx">up</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">loop_i</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">    <span class="o">++</span><span class="nx">count</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="nx">i</span> <span class="o">===</span> <span class="nx">button</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="k">else</span> <span class="o">++</span><span class="nx">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="nx">count</span> <span class="o">&gt;=</span> <span class="mi">500</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">clearInterval</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">id</span> <span class="o">=</span> <span class="nx">setInterval</span><span class="p">(</span><span class="nx">handler</span><span class="p">,</span><span class="mi">5000</span><span class="p">);</span>
+</span></span></code></pre></div><p>（所有代码，以后可能会增加try catch块）</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">button</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;.increment-value&#39;</span><span class="p">,</span><span class="s2">&#34;.call-to-action&#34;</span><span class="p">,</span><span class="s2">&#34;.buyButton&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;section.Dialog .ut-button-group button&#39;</span><span class="p">,</span><span class="s2">&#34;.ut-navigation-button-control&#34;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">input</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;.numericInput&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">button</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">id</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">doer</span><span class="p">(</span><span class="nx">ci</span> <span class="o">=</span> <span class="nx">i</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="nx">button</span><span class="p">[</span><span class="nx">ci</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">down</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createEvent</span><span class="p">(</span><span class="s2">&#34;MouseEvents&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">down</span><span class="p">.</span><span class="nx">initMouseEvent</span><span class="p">(</span><span class="s2">&#34;mousedown&#34;</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="nb">document</span><span class="p">.</span><span class="nx">defaultView</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl">    <span class="nx">x</span><span class="p">.</span><span class="nx">dispatchEvent</span><span class="p">(</span><span class="nx">down</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">up</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createEvent</span><span class="p">(</span><span class="s2">&#34;MouseEvents&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">up</span><span class="p">.</span><span class="nx">initMouseEvent</span><span class="p">(</span><span class="s2">&#34;mouseup&#34;</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="nb">document</span><span class="p">.</span><span class="nx">defaultView</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl">    <span class="nx">x</span><span class="p">.</span><span class="nx">dispatchEvent</span><span class="p">(</span><span class="nx">up</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">handler</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">    <span class="k">try</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">loop_i</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">doer</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">catch</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="nx">e</span> <span class="k">instanceof</span> <span class="nx">TypeError</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">&#34;TypeError&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">doer</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">&#34;UnknownError&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">doer</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">loop_i</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">    <span class="o">++</span><span class="nx">count</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="nx">i</span> <span class="o">===</span> <span class="nx">button</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="k">else</span> <span class="o">++</span><span class="nx">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="nx">count</span> <span class="o">&gt;=</span> <span class="mi">20</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">input</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">id</span> <span class="o">=</span> <span class="nx">setInterval</span><span class="p">(</span><span class="nx">handler</span><span class="p">,</span><span class="mi">5000</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">clearInterval</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span>
+</span></span></code></pre></div><p>加入try catch块</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">button</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;.increment-value&#39;</span><span class="p">,</span><span class="s2">&#34;.call-to-action&#34;</span><span class="p">,</span><span class="s2">&#34;.buyButton&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;section.Dialog .ut-button-group button&#39;</span><span class="p">,</span><span class="s2">&#34;.ut-navigation-button-control&#34;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">button</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">clear</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;.flat.camel-case&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">id</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">handler</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">loop_i</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="nx">button</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">down</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createEvent</span><span class="p">(</span><span class="s2">&#34;MouseEvents&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">down</span><span class="p">.</span><span class="nx">initMouseEvent</span><span class="p">(</span><span class="s2">&#34;mousedown&#34;</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="nb">document</span><span class="p">.</span><span class="nx">defaultView</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl">    <span class="nx">x</span><span class="p">.</span><span class="nx">dispatchEvent</span><span class="p">(</span><span class="nx">down</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">up</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createEvent</span><span class="p">(</span><span class="s2">&#34;MouseEvents&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">up</span><span class="p">.</span><span class="nx">initMouseEvent</span><span class="p">(</span><span class="s2">&#34;mouseup&#34;</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="nb">document</span><span class="p">.</span><span class="nx">defaultView</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl">    <span class="nx">x</span><span class="p">.</span><span class="nx">dispatchEvent</span><span class="p">(</span><span class="nx">up</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">loop_i</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">    <span class="o">++</span><span class="nx">count</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="nx">i</span> <span class="o">===</span> <span class="nx">button</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="k">else</span> <span class="o">++</span><span class="nx">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="nx">count</span> <span class="o">&gt;=</span> <span class="mi">5</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">var</span> <span class="nx">down</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createEvent</span><span class="p">(</span><span class="s2">&#34;MouseEvents&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">down</span><span class="p">.</span><span class="nx">initMouseEvent</span><span class="p">(</span><span class="s2">&#34;mousedown&#34;</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="nb">document</span><span class="p">.</span><span class="nx">defaultView</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl">        <span class="nx">clear</span><span class="p">.</span><span class="nx">dispatchEvent</span><span class="p">(</span><span class="nx">down</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">var</span> <span class="nx">up</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createEvent</span><span class="p">(</span><span class="s2">&#34;MouseEvents&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">up</span><span class="p">.</span><span class="nx">initMouseEvent</span><span class="p">(</span><span class="s2">&#34;mouseup&#34;</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="nb">document</span><span class="p">.</span><span class="nx">defaultView</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl">        <span class="nx">clear</span><span class="p">.</span><span class="nx">dispatchEvent</span><span class="p">(</span><span class="nx">up</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">id</span> <span class="o">=</span> <span class="nx">setInterval</span><span class="p">(</span><span class="nx">handler</span><span class="p">,</span><span class="mi">5000</span><span class="p">);</span>
+</span></span></code></pre></div><p>另一种解法</p>
 
 </section>
 

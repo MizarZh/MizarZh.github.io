@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>html on MizarZ&#39;s Blog</title>
+    <link>https://mizarzh.github.io/tags/html/</link>
+    <description>Recent content in html on MizarZ&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 06 Nov 2021 20:02:15 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/tags/html/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>高级HTML</title>
+      <link>https://mizarzh.github.io/p/2021/11/%E9%AB%98%E7%BA%A7html/</link>
+      <pubDate>Sat, 06 Nov 2021 20:02:15 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2021/11/%E9%AB%98%E7%BA%A7html/</guid>
+      <description>1 &amp;lt;head&amp;gt;中的东西 2 语义化标签 3</description>
+    </item>
+    
+  </channel>
+</rss>

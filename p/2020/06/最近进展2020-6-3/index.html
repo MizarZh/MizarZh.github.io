@@ -109,9 +109,9 @@
 原理是使用服务端的you-get识别下载网址的url从而得到下载地址，但却冒出一堆奇妙的bug。emm</p>
 <p>起初的想法是用户端发送get/post到服务端，然后服务端调用you-get识别URL并将其返回，再由客户端开启下载。</p>
 <p>首先解决要解决的问题是python的运行环境问题。对于我这种python渣渣来说，用了好一会才搞明白python（或者是anaconda吧）除了REPL还有命令行的直接运行环境（就是有一个base前面的）。使用you-get必须激活这个环境。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">conda activate base
-you-get -u URL
-</code></pre></div><p>然后是服务器的routing。用express并不难解决，但是后端功力仍需锻炼。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">conda activate base
+</span></span><span class="line"><span class="cl">you-get -u URL
+</span></span></code></pre></div><p>然后是服务器的routing。用express并不难解决，但是后端功力仍需锻炼。</p>
 <p>最后发现在下载bilibili时遇到了CORS不能跨域的问题（客户端无法调节referer，似乎使用xhr.setRequestHeader也无法设定access-control-allow-origin不过我觉得是我不会用），可能需要改用服务端下载并传输。然后发现无法调用下载的界面emmm，可能需要使用下载.js之类的组件。总之慢慢改善好了。</p>
 <p>&ndash;6/4&ndash;
 access-control-allow-origin是使用在服务端的回应上的，客户端的Referer单纯用js无法伪造，这类的技术叫做防盗链。但是使用服务端可以伪造referer，因为可能需要将下载放在服务端了。
@@ -179,36 +179,36 @@ bootstrap的使用还是比较正常的，就是在使用tab的时候使用flex�
                 
                     
 <article class="">
+    <a href="/p/2022/02/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%BD%93%E9%AA%8C1/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">前端工程化体验（1）</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/2022/01/typescript%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Typescript基本使用</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
     <a href="/p/2022/01/js%E7%9A%84%E6%A8%A1%E5%9D%97%E7%B3%BB%E7%BB%9F%E4%BB%A5%E5%8F%8A%E5%85%B6%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86/">
         
         
 
         <div class="article-details">
             <h2 class="article-title">Js的模块系统以及其零碎知识</h2>
-        </div>
-    </a>
-</article>
-                
-                    
-<article class="">
-    <a href="/p/2022/01/electron%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">Electron基本介绍</h2>
-        </div>
-    </a>
-</article>
-                
-                    
-<article class="">
-    <a href="/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">Matplotlib 速查表</h2>
         </div>
     </a>
 </article>

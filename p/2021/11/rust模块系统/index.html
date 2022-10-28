@@ -110,8 +110,8 @@
 <p>库 crate 和二进制 crate：库 crate 是编译过程中的上游，一般来说是被别人使用的。二进制 crate 则是自己要使用的程序代码。库 crate 一般不包含 <em>Cargo.lock</em> 文件。</p>
 <h2 id="2-新建-package-及文件结构">2 新建 package 及文件结构</h2>
 <p>新建 package:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">cargo new my-project
-</code></pre></div><p>生成了 <em>src</em> 文件夹， <em>src/main.rs</em> 文件， <em>Cargo.toml</em> 配置文件及进行了 git 初始化。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cargo new my-project
+</span></span></code></pre></div><p>生成了 <em>src</em> 文件夹， <em>src/main.rs</em> 文件， <em>Cargo.toml</em> 配置文件及进行了 git 初始化。</p>
 <p><em>src/main.rs</em> 就是一个与包同名的二进制 crate 的 crate 根。如果含有 <em>src/lib.rs</em>， 则包带有与其同名的库 crate，且 <em>src/lib.rs</em> 是 crate 根。crate 根文件将由 Cargo 传递给 <code>rustc</code> 来实际构建库或者二进制项目。</p>
 <p>一个只包含 <em>src/main.rs</em> 的包，意味着它只含有一个名为 <code>my-project</code> 的二进制 crate。如果一个包同时含有 <em>src/main.rs</em> 和 <em>src/lib.rs</em>，则它有两个 crate：一个库和一个二进制项，且名字都与包相同。</p>
 <p>通过将文件放在 <em>src/bin</em> 目录下，一个包可以拥有多个二进制 crate：每个 <em>src/bin</em> 下的文件都会被编译成一个独立的二进制 crate。</p>
@@ -147,17 +147,17 @@
 </code></pre><h2 id="heading"></h2>
 <h2 id="3-关键词私有性">3 关键词；私有性</h2>
 <p>模块的关键词是 <code>mod</code>：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="c1">// src/lib.rs
-</span><span class="c1"></span><span class="k">mod</span> <span class="nn">mod1</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="w">    </span><span class="k">mod</span> <span class="nn">small_mod1</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="w">        </span><span class="k">fn</span> <span class="nf">func_1</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w">
-</span><span class="w">        </span><span class="k">fn</span> <span class="nf">func_2</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w">
-</span><span class="w">    </span><span class="p">}</span><span class="w">
-</span><span class="w">    </span><span class="k">mod</span> <span class="nn">small_mod2</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="w">        </span><span class="k">fn</span> <span class="nf">func_3</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w">
-</span><span class="w">    </span><span class="p">}</span><span class="w">
-</span><span class="w"></span><span class="p">}</span><span class="w">
-</span></code></pre></div><p>建立的结构：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="c1">// src/lib.rs
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">mod</span> <span class="nn">mod1</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">mod</span> <span class="nn">small_mod1</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">fn</span> <span class="nf">func_1</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">fn</span> <span class="nf">func_2</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">mod</span> <span class="nn">small_mod2</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">fn</span> <span class="nf">func_3</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>建立的结构：</p>
 <pre tabindex="0"><code>crate
  └── mod1
      ├── small_mod1
@@ -166,95 +166,95 @@
      └── small_mod2
          └── func_3
 </code></pre><p>默认的属性是私有(private)的，加上 <code>pub</code> 关键字就能使得其被其他模块引用：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="c1">// src/lib.rs
-</span><span class="c1"></span><span class="k">mod</span> <span class="nn">mod1</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">mod</span> <span class="nn">small_mod1</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="w">        </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">func_1</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="c1">// 最底层的也要加上pub
-</span><span class="c1"></span><span class="w">        </span><span class="k">fn</span> <span class="nf">func_2</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="c1">// 这个函数就无法被外部访问
-</span><span class="c1"></span><span class="w">    </span><span class="p">}</span><span class="w">
-</span><span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">mod</span> <span class="nn">small_mod2</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="w">        </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">func_3</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w">
-</span><span class="w">    </span><span class="p">}</span><span class="w">
-</span><span class="w"></span><span class="p">}</span><span class="w">
-</span></code></pre></div><h2 id="4-路径">4 路径</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="c1">// src/lib.rs
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">mod</span> <span class="nn">mod1</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">mod</span> <span class="nn">small_mod1</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">func_1</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="c1">// 最底层的也要加上pub
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">        </span><span class="k">fn</span> <span class="nf">func_2</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="c1">// 这个函数就无法被外部访问
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">mod</span> <span class="nn">small_mod2</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">func_3</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h2 id="4-路径">4 路径</h2>
 <p>要在其他模块中引用库，则需要使用路径指定它所在的地方。用的路径有两种：</p>
 <ul>
 <li><strong>绝对路径</strong>（<em>absolute path</em>）从 crate 根开始，以 crate 名或者字面值 <code>crate</code> 开头。</li>
 <li><strong>相对路径</strong>（<em>relative path</em>）从当前模块开始，以 <code>self</code>、<code>super</code> 或当前模块的标识符开头。</li>
 </ul>
 <p>绝对路径和相对路径都后跟一个或多个由双冒号（<code>::</code>）分割的标识符。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="c1">// src/lib.rs
-</span><span class="c1"></span><span class="k">mod</span> <span class="nn">mod1</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="w">	</span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">func_1</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w">
-</span><span class="w"></span><span class="p">}</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">run</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="w">    </span><span class="k">crate</span>::<span class="n">mod1</span>::<span class="n">func_1</span><span class="p">()</span><span class="w"> </span><span class="c1">// 绝对路径
-</span><span class="c1"></span><span class="w">    </span><span class="n">mod1</span>::<span class="n">func_1</span><span class="p">()</span><span class="w"> </span><span class="c1">// 相对路径
-</span><span class="c1"></span><span class="p">}</span><span class="w">
-</span></code></pre></div><p><code>super</code> 关键字的使用：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="c1">// src/lib.rs
-</span><span class="c1"></span><span class="k">fn</span> <span class="nf">serve_order</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span><span class="k">mod</span> <span class="nn">back_of_house</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="w">    </span><span class="k">fn</span> <span class="nf">fix_incorrect_order</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="w">        </span><span class="n">cook_order</span><span class="p">();</span><span class="w">
-</span><span class="w">        </span><span class="k">super</span>::<span class="n">serve_order</span><span class="p">();</span><span class="w"> </span><span class="c1">// 这里的super即指向本模块的上一级（即crate）
-</span><span class="c1"></span><span class="w">    </span><span class="p">}</span><span class="w">
-</span><span class="w">
-</span><span class="w">    </span><span class="k">fn</span> <span class="nf">cook_order</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w">
-</span><span class="w"></span><span class="p">}</span><span class="w">
-</span></code></pre></div><h2 id="5-use-关键字as-关键字">5 <code>use</code> 关键字；<code>as</code> 关键字</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="c1">// src/lib.rs
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">mod</span> <span class="nn">mod1</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">func_1</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">run</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">crate</span>::<span class="n">mod1</span>::<span class="n">func_1</span><span class="p">()</span><span class="w"> </span><span class="c1">// 绝对路径
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">    </span><span class="n">mod1</span>::<span class="n">func_1</span><span class="p">()</span><span class="w"> </span><span class="c1">// 相对路径
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p><code>super</code> 关键字的使用：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="c1">// src/lib.rs
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">fn</span> <span class="nf">serve_order</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">mod</span> <span class="nn">back_of_house</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">fn</span> <span class="nf">fix_incorrect_order</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">cook_order</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">super</span>::<span class="n">serve_order</span><span class="p">();</span><span class="w"> </span><span class="c1">// 这里的super即指向本模块的上一级（即crate）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">fn</span> <span class="nf">cook_order</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><h2 id="5-use-关键字as-关键字">5 <code>use</code> 关键字；<code>as</code> 关键字</h2>
 <p><code>use</code> 的作用是将指定模块下的东西引入到本作用域中（可以理解为缩写，python 中的 <code>import</code>）。</p>
 <p>可以使用相对路径和绝对路径。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="c1">// src/lib
-</span><span class="c1"></span><span class="k">mod</span> <span class="nn">front_of_house</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">mod</span> <span class="nn">hosting</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="w">        </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">add_to_waitlist</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w">
-</span><span class="w">    </span><span class="p">}</span><span class="w">
-</span><span class="w"></span><span class="p">}</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span><span class="k">use</span><span class="w"> </span><span class="n">front_of_house</span>::<span class="n">hosting</span><span class="p">;</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">eat_at_restaurant</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="w">    </span><span class="n">hosting</span>::<span class="n">add_to_waitlist</span><span class="p">();</span><span class="w">
-</span><span class="w">    </span><span class="n">hosting</span>::<span class="n">add_to_waitlist</span><span class="p">();</span><span class="w">
-</span><span class="w">    </span><span class="n">hosting</span>::<span class="n">add_to_waitlist</span><span class="p">();</span><span class="w">
-</span><span class="w"></span><span class="p">}</span><span class="w">
-</span></code></pre></div><p>不允许引入相同名称的类型到同一作用域中。但可以使用 <code>as</code> 关键字修改引入的名称。还有嵌套语句的使用：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">fmt</span>::<span class="nb">Result</span><span class="p">;</span><span class="w">
-</span><span class="w"></span><span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">io</span>::<span class="nb">Result</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">IoResult</span><span class="p">;</span><span class="w">
-</span><span class="w"></span><span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="p">{</span><span class="n">cmp</span>::<span class="n">Ordering</span><span class="p">,</span><span class="w"> </span><span class="n">io</span><span class="p">};</span><span class="w">
-</span><span class="w"></span><span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">io</span>::<span class="p">{</span><span class="bp">self</span><span class="p">,</span><span class="w"> </span><span class="n">Write</span><span class="p">};</span><span class="w"> </span><span class="c1">// 如果想要引入 std::io 自己，就加上 self
-</span><span class="c1"></span><span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">collections</span>::<span class="o">*</span><span class="p">;</span><span class="w"> </span><span class="c1">// 避免使用
-</span></code></pre></div><p>重导出技巧：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="k">mod</span> <span class="nn">front_of_house</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">mod</span> <span class="nn">hosting</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="w">        </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">add_to_waitlist</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w">
-</span><span class="w">    </span><span class="p">}</span><span class="w">
-</span><span class="w"></span><span class="p">}</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span><span class="k">pub</span><span class="w"> </span><span class="k">use</span><span class="w"> </span><span class="k">crate</span>::<span class="n">front_of_house</span>::<span class="n">hosting</span><span class="p">;</span><span class="w">
-</span></code></pre></div><p>使用外部的包：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="c1">// src/lib
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">mod</span> <span class="nn">front_of_house</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">mod</span> <span class="nn">hosting</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">add_to_waitlist</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">use</span><span class="w"> </span><span class="n">front_of_house</span>::<span class="n">hosting</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">eat_at_restaurant</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">hosting</span>::<span class="n">add_to_waitlist</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">hosting</span>::<span class="n">add_to_waitlist</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">hosting</span>::<span class="n">add_to_waitlist</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>不允许引入相同名称的类型到同一作用域中。但可以使用 <code>as</code> 关键字修改引入的名称。还有嵌套语句的使用：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">fmt</span>::<span class="nb">Result</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">io</span>::<span class="nb">Result</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">IoResult</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="p">{</span><span class="n">cmp</span>::<span class="n">Ordering</span><span class="p">,</span><span class="w"> </span><span class="n">io</span><span class="p">};</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">io</span>::<span class="p">{</span><span class="bp">self</span><span class="p">,</span><span class="w"> </span><span class="n">Write</span><span class="p">};</span><span class="w"> </span><span class="c1">// 如果想要引入 std::io 自己，就加上 self
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">collections</span>::<span class="o">*</span><span class="p">;</span><span class="w"> </span><span class="c1">// 避免使用
+</span></span></span></code></pre></div><p>重导出技巧：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="k">mod</span> <span class="nn">front_of_house</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">mod</span> <span class="nn">hosting</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">add_to_waitlist</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">pub</span><span class="w"> </span><span class="k">use</span><span class="w"> </span><span class="k">crate</span>::<span class="n">front_of_house</span>::<span class="n">hosting</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><p>使用外部的包：</p>
 <p>在 <em>Cargo.toml</em> 中添加：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="p">[</span><span class="nx">dependencies</span><span class="p">]</span>
-<span class="nx">rand</span> <span class="p">=</span> <span class="s2">&#34;0.5.5&#34;</span>
-</code></pre></div><p>然后就引入了 <code>rand</code> 包，接下来可以使用 <code>use</code> 使用其内部的类型了。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="p">[</span><span class="nx">dependencies</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">rand</span> <span class="p">=</span> <span class="s2">&#34;0.5.5&#34;</span>
+</span></span></code></pre></div><p>然后就引入了 <code>rand</code> 包，接下来可以使用 <code>use</code> 使用其内部的类型了。</p>
 <h2 id="6-lib-的文件分割">6 lib 的文件分割</h2>
 <p>假设创建一个新文件： <em>src/math.rs</em></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="c1">// src/math.rs
-</span><span class="c1"></span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">add</span><span class="p">(</span><span class="n">x</span>: <span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="n">y</span>: <span class="kt">i32</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kt">i32</span> <span class="p">{</span><span class="w">
-</span><span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="w">
-</span><span class="w"></span><span class="p">}</span><span class="w">
-</span></code></pre></div><p>直接在 <em>main.rs</em> 文件中使用 <code>use math::add</code> 语句是行不通的，因为 rust 默认以 <em>lib.rs</em> 文件为库的入口。若想使用这个模库，需要在主文件中添加：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="k">mod</span> <span class="nn">math</span><span class="p">;</span><span class="w"> </span><span class="c1">// 相当于将 math 导入到了 main.rs 中
-</span><span class="c1"></span><span class="k">use</span><span class="w"> </span><span class="n">math</span>::<span class="n">add</span><span class="p">;</span><span class="w"> </span><span class="c1">// 导入 add 到此作用域
-</span><span class="c1"></span><span class="w">
-</span><span class="w"></span><span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span><span class="w">
-</span><span class="w">    </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&#34;1 + 2 = {}&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="p">);</span><span class="w">
-</span><span class="w"></span><span class="p">}</span><span class="w">
-</span></code></pre></div><p>Rust 会在与模块同名的文件中查找模块的代码。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="c1">// src/math.rs
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">add</span><span class="p">(</span><span class="n">x</span>: <span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="n">y</span>: <span class="kt">i32</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kt">i32</span> <span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>直接在 <em>main.rs</em> 文件中使用 <code>use math::add</code> 语句是行不通的，因为 rust 默认以 <em>lib.rs</em> 文件为库的入口。若想使用这个模库，需要在主文件中添加：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="k">mod</span> <span class="nn">math</span><span class="p">;</span><span class="w"> </span><span class="c1">// 相当于将 math 导入到了 main.rs 中
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">use</span><span class="w"> </span><span class="n">math</span>::<span class="n">add</span><span class="p">;</span><span class="w"> </span><span class="c1">// 导入 add 到此作用域
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&#34;1 + 2 = {}&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>Rust 会在与模块同名的文件中查找模块的代码。</p>
 <p>如果想要以一个文件夹为单位创建一个库，那么文件夹内部文件 <em>mod.rs</em> 就是描述以文件夹名为模块名的文件。</p>
 <p>例如 <em>math.rs</em> 和 <em>math/mod.rs</em>，如果 <em>math.rs</em> 和 <em>math/mod.rs</em> 中的内容完全一致，那么这两个模块没有什么区别，除了 <em>math/mod.rs</em> 中可以定义更加复杂的结构。</p>
 <p>文件结构：</p>
@@ -264,26 +264,26 @@
         mod.rs
         add.rs
         sub.rs
-</code></pre><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="c1">// mod.rs
-</span><span class="c1"></span><span class="k">mod</span> <span class="nn">add</span><span class="p">;</span><span class="w">
-</span><span class="w"></span><span class="k">mod</span> <span class="nn">sub</span><span class="p">;</span><span class="w"> 
-</span><span class="w"></span><span class="c1">// 只有这两条语句是不够的。这两条语句只将 add 和 sub 引入了 math 模块，但对外是不公开的。
-</span><span class="c1">// 如果写成 pub mod add，那么将会将整个 add 模块导出（即外部调用为 add::add），这与我们的初衷（隐藏 add 和 sub）不符合。
-</span><span class="c1">// 因此还需要重导出需要的函数：
-</span><span class="c1"></span><span class="k">pub</span><span class="w"> </span><span class="k">use</span><span class="w"> </span><span class="n">add</span>::<span class="n">add</span><span class="p">;</span><span class="w">
-</span><span class="w"></span><span class="k">pub</span><span class="w"> </span><span class="k">use</span><span class="w"> </span><span class="n">sub</span>::<span class="n">sub</span><span class="p">;</span><span class="w">
-</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span><span class="c1">// add.rs
-</span><span class="c1"></span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">add</span><span class="p">(</span><span class="n">x</span>: <span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="n">y</span>: <span class="kt">i32</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kt">i32</span> <span class="p">{</span><span class="w">
-</span><span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="w">
-</span><span class="w"></span><span class="p">}</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span><span class="c1">// sub.rs
-</span><span class="c1"></span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">sub</span><span class="p">(</span><span class="n">x</span>: <span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="n">y</span>: <span class="kt">i32</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kt">i32</span> <span class="p">{</span><span class="w">
-</span><span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">y</span><span class="w">
-</span><span class="w"></span><span class="p">}</span><span class="w">
-</span></code></pre></div><p>总之，lib 文件的可能结构是这样的：</p>
+</code></pre><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="c1">// mod.rs
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">mod</span> <span class="nn">add</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">mod</span> <span class="nn">sub</span><span class="p">;</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 只有这两条语句是不够的。这两条语句只将 add 和 sub 引入了 math 模块，但对外是不公开的。
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 如果写成 pub mod add，那么将会将整个 add 模块导出（即外部调用为 add::add），这与我们的初衷（隐藏 add 和 sub）不符合。
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 因此还需要重导出需要的函数：
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">pub</span><span class="w"> </span><span class="k">use</span><span class="w"> </span><span class="n">add</span>::<span class="n">add</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">pub</span><span class="w"> </span><span class="k">use</span><span class="w"> </span><span class="n">sub</span>::<span class="n">sub</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// add.rs
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">add</span><span class="p">(</span><span class="n">x</span>: <span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="n">y</span>: <span class="kt">i32</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kt">i32</span> <span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// sub.rs
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">sub</span><span class="p">(</span><span class="n">x</span>: <span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="n">y</span>: <span class="kt">i32</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kt">i32</span> <span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">y</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>总之，lib 文件的可能结构是这样的：</p>
 <p>总模块文件：<em>lib.rs</em>，rust 会默认使用这个文件。</p>
 <p>普通的模块文件： <em>xxx.rs</em> ，由于 rust 不默认导入这些模块，因此需要使用加入 <code>mod xxx;</code> 语句。</p>
 <p>文件夹模块文件： <em>xxx/mod.rs</em> ，相比上一项的好处是 <em>xxx/</em> 下能定义更多的私有方法。</p>
@@ -363,24 +363,24 @@
                 
                     
 <article class="">
-    <a href="/p/2022/01/js%E7%9A%84%E6%A8%A1%E5%9D%97%E7%B3%BB%E7%BB%9F%E4%BB%A5%E5%8F%8A%E5%85%B6%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86/">
+    <a href="/p/2022/02/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%BD%93%E9%AA%8C1/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">Js的模块系统以及其零碎知识</h2>
+            <h2 class="article-title">前端工程化体验（1）</h2>
         </div>
     </a>
 </article>
                 
                     
 <article class="">
-    <a href="/p/2022/01/electron%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D/">
+    <a href="/p/2022/01/typescript%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">Electron基本介绍</h2>
+            <h2 class="article-title">Typescript基本使用</h2>
         </div>
     </a>
 </article>

@@ -125,18 +125,18 @@ Node.CDATA_SECTION_NODE(4)；
 Node.ENTITY_REFERENCE_NODE(5)；
 Node.ENTITY_NODE(6)；
 Node.PROCESSING_INSTRUCTION_NODE(7)；
-Node.COMMENT_NODE(8)； 
-Node.DOCUMENT_NODE(9)； 
-Node.DOCUMENT_TYPE_NODE(10)； 
-Node.DOCUMENT_FRAGMENT_NODE(11)； 
+Node.COMMENT_NODE(8)；
+Node.DOCUMENT_NODE(9)；
+Node.DOCUMENT_TYPE_NODE(10)；
+Node.DOCUMENT_FRAGMENT_NODE(11)；
 Node.NOTATION_NODE(12)。</p>
 <p><strong>nodeName 和 nodeValue</strong>：对于元素节点，nodeName 中保存的始终都是元素的标签名，而 nodeValue 的值则始终为 null。</p>
 <p>每个节点都有一个 <strong>childNodes</strong> 属性，其中保存着一个 NodeList 对象。
 NodeList 是一种类数组对象（类似但不是Array），用于保存一组有序的节点，可以通过位置来访问这些节点。
 访问NodeList可通过方括号，也可以使用 item()方法
 转化为数组（或者手动循环）：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">arrayOfNodes</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">slice</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">someNode</span><span class="p">.</span><span class="nx">childNodes</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
-</code></pre></div><p>每个节点都有一个 <strong>parentNode</strong> 属性，该属性指向文档树中的父节点。
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">arrayOfNodes</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">slice</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">someNode</span><span class="p">.</span><span class="nx">childNodes</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+</span></span></code></pre></div><p>每个节点都有一个 <strong>parentNode</strong> 属性，该属性指向文档树中的父节点。
 包含在 childNodes 列表中的每个节点相互之间都是同胞节点。通过使用列表中每个节点的 <strong>previousSibling 和 nextSibling</strong> 属性，可以访问同一列表中的其他节点。列表中第一个节点的 previousSibling 属性值为 null，而列表中后一个节点的 nextSibling 属性的值同样也为 null。
 父节点的 firstChild 和 lastChild 属性分别指向其 childNodes 列表中的第一个和后一个节点。</p>
 <p>hasChildNodes()方法</p>
@@ -159,7 +159,7 @@ NodeList 是一种类数组对象（类似但不是Array），用于保存一组
 </ol>
 <p>documentElement 属性，该属性始终指向HTML页面中的<!-- raw HTML omitted -->元素。
 document 对象还有一个 body 属性，直接指向<!-- raw HTML omitted -->元素。
-Document 另一个可能的子节点是 DocumentType。通常将&lt;!DOCTYPE&gt;标签看成一个与文档其他部分不同的实体，可以通过 doctype 属性（在浏览器中是 document.doctype）来访问它的信息。 不同浏览器支持情况不同
+Document 另一个可能的子节点是 DocumentType。通常将<!-- raw HTML omitted -->标签看成一个与文档其他部分不同的实体，可以通过 doctype 属性（在浏览器中是 document.doctype）来访问它的信息。 不同浏览器支持情况不同
 出现在<!-- raw HTML omitted -->元素外部的注释的引用不同浏览器的支持程度不同。</p>
 <p>document.title：通过这个属性可以取得当前页面的标题，也可以修改当前页面的标题并反映在浏览器的标题栏中。修改 title 属性的值不会改变&lt;title&gt;元素
 URL、domain 和 referrer。只有 domain 是可以设置的。但由于安全方面的限制，也并非可以给 domain 设置任何值。</p>
@@ -173,11 +173,11 @@ HTMLCollection 对象还有一个方法，叫做 namedItem()，使用这个方�
 <p>特殊集合：anchors(&lt;a name=&ldquo;xxx&rdquo;&gt;),forms(&lt;form&gt;),images(&lt;img&gt;),links(&lt;a href=&ldquo;xxx&rdquo;&gt;)</p>
 <p>document.implementation 属性为浏览器实现了DOM的哪些部分提供相应信息和功能的对象，其中的方法hasFeature()接受两个参数：要检测的 DOM功能的名称及版本号。若支持返回true。</p>
 <p>write()、writeln()、open()和 close()</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">&#34;&lt;strong&gt;&#34;</span> <span class="o">+</span> <span class="p">(</span><span class="k">new</span> <span class="nb">Date</span><span class="p">()).</span><span class="nx">toString</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&#34;&lt;/strong&gt;&#34;</span><span class="p">);</span>
-<span class="c1">//载入外部脚本
-</span><span class="c1"></span><span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">&#34;&lt;script type=\&#34;text/javascript\&#34; src=\&#34;file.js\&#34;&gt;&#34;</span> <span class="o">+</span>                
-    <span class="s2">&#34;&lt;\/script&gt;&#34;</span><span class="p">);</span>
-</code></pre></div><p>如果在文档加载结束后再调用 document.write()，那么输出的内容将会重写整个页面</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">&#34;&lt;strong&gt;&#34;</span> <span class="o">+</span> <span class="p">(</span><span class="k">new</span> <span class="nb">Date</span><span class="p">()).</span><span class="nx">toString</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&#34;&lt;/strong&gt;&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//载入外部脚本
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">&#34;&lt;script type=\&#34;text/javascript\&#34; src=\&#34;file.js\&#34;&gt;&#34;</span> <span class="o">+</span>                
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&lt;\/script&gt;&#34;</span><span class="p">);</span>
+</span></span></code></pre></div><p>如果在文档加载结束后再调用 document.write()，那么输出的内容将会重写整个页面</p>
 <h3 id="1013-element类型">10.1.3 Element类型</h3>
 <ol>
 <li>nodeType 的值为 1；</li>
@@ -218,12 +218,12 @@ attributes属性一般用于遍历元素属性
 返回属性的顺序不一定相同</p>
 <p>每个特性节点都有一个名为 specified 的属性，这个属性的值如果为 true，则意味着要么是在 HTML中指定了相应特性，要么是通过 setAttribute()方法设置了该特性。</p>
 <p>document.createElement()方法可以创建新元素。这个方法只接受一个参数，即要创建元素的标签名。返回一个 DOM元素的引用</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="o">&lt;</span><span class="nx">ul</span> <span class="nx">id</span><span class="o">=</span><span class="s2">&#34;myList&#34;</span><span class="o">&gt;</span>     
-    <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;</span><span class="nx">Item</span> <span class="mi">1</span><span class="o">&lt;</span><span class="err">/li&gt;     </span>
-    <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;</span><span class="nx">Item</span> <span class="mi">2</span><span class="o">&lt;</span><span class="err">/li&gt;     </span>
-    <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;</span><span class="nx">Item</span> <span class="mi">3</span><span class="o">&lt;</span><span class="err">/li&gt; </span>
-<span class="o">&lt;</span><span class="err">/ul&gt; </span>
-</code></pre></div><p>返回后会有7个元素，包括3个li元素和4个空白符（li之间）
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">ul</span> <span class="nx">id</span><span class="o">=</span><span class="s2">&#34;myList&#34;</span><span class="o">&gt;</span>     
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;</span><span class="nx">Item</span> <span class="mi">1</span><span class="o">&lt;</span><span class="err">/li&gt;     </span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;</span><span class="nx">Item</span> <span class="mi">2</span><span class="o">&lt;</span><span class="err">/li&gt;     </span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="nx">li</span><span class="o">&gt;</span><span class="nx">Item</span> <span class="mi">3</span><span class="o">&lt;</span><span class="err">/li&gt; </span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="err">/ul&gt; </span>
+</span></span></code></pre></div><p>返回后会有7个元素，包括3个li元素和4个空白符（li之间）
 可以通过nodeType的判断消除空白符</p>
 <h3 id="1014-text类型">10.1.4 Text类型</h3>
 <ol>
@@ -246,7 +246,7 @@ attributes属性一般用于遍历元素属性
 </ol>
 <p>document.createTextNode()创建新文本节点</p>
 <p>normalize()
-浏览器在解析文档时永远不会创建相邻的文本节点。这种情况只会作为执行 DOM操作的结果出现。 
+浏览器在解析文档时永远不会创建相邻的文本节点。这种情况只会作为执行 DOM操作的结果出现。
 splitText()。这个方法会将一个文本节点分成两个文本节点，即按照指定的位置分割 nodeValue 值。原来的文本节点将包含从开始到指定位置之前的内容，新文本节点将包含剩下的文本。这个方法会返回一个新文本节点，该节点与原节点的 parentNode 相同。</p>
 <h3 id="1015-comment类型">10.1.5 Comment类型</h3>
 <ol>

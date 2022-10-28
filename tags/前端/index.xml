@@ -26,6 +26,15 @@
     </item>
     
     <item>
+      <title>前端工程化体验（1）</title>
+      <link>https://mizarzh.github.io/p/2022/02/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%BD%93%E9%AA%8C1/</link>
+      <pubDate>Tue, 01 Feb 2022 16:02:01 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2022/02/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%BD%93%E9%AA%8C1/</guid>
+      <description>0 开始 最近想写一个项目，是类似于软件的。但是使用 electron 出师不利（各种模块化问题交织在一起无法处理，对各种新工具也不是很熟悉，debug 艰难……）</description>
+    </item>
+    
+    <item>
       <title>前端下载原始实现</title>
       <link>https://mizarzh.github.io/p/2022/01/%E5%89%8D%E7%AB%AF%E4%B8%8B%E8%BD%BD%E5%8E%9F%E5%A7%8B%E5%AE%9E%E7%8E%B0/</link>
       <pubDate>Mon, 24 Jan 2022 22:07:49 +0800</pubDate>
@@ -77,6 +86,15 @@
       
       <guid>https://mizarzh.github.io/p/2021/11/js%E7%B1%BB%E5%9E%8B/</guid>
       <description>本文章是 You Dont Konw JS 类型部分的一个笔记。 1 js类型 js有七种内置类型： 空值（null） 未定义（undefined） 布尔值（boolean） 数字（</description>
+    </item>
+    
+    <item>
+      <title>高级HTML</title>
+      <link>https://mizarzh.github.io/p/2021/11/%E9%AB%98%E7%BA%A7html/</link>
+      <pubDate>Sat, 06 Nov 2021 20:02:15 +0800</pubDate>
+      
+      <guid>https://mizarzh.github.io/p/2021/11/%E9%AB%98%E7%BA%A7html/</guid>
+      <description>1 &amp;lt;head&amp;gt;中的东西 2 语义化标签 3</description>
     </item>
     
     <item>

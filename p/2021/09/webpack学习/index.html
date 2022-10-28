@@ -121,94 +121,94 @@
 <li>插件(plugins)</li>
 </ul>
 <p>webpack 配置文件：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;path&#39;</span><span class="p">);</span>
-
-<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="nx">entry</span><span class="o">:</span> <span class="s1">&#39;./src/js/index.js&#39;</span><span class="p">,</span>
-  <span class="nx">output</span><span class="o">:</span> <span class="p">{</span>
-    <span class="nx">path</span><span class="o">:</span> <span class="nx">path</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="mi">__</span><span class="nx">dirname</span><span class="p">,</span> <span class="s1">&#39;dist&#39;</span><span class="p">),</span>
-    <span class="nx">filename</span><span class="o">:</span> <span class="s1">&#39;index.bundle.js&#39;</span><span class="p">,</span>
-  <span class="p">},</span>
-  <span class="nx">module</span><span class="o">:</span> <span class="p">{</span>
-    <span class="nx">rules</span><span class="o">:</span> <span class="p">[{</span> <span class="nx">test</span><span class="o">:</span> <span class="sr">/\.txt$/</span><span class="p">,</span> <span class="nx">use</span><span class="o">:</span> <span class="s1">&#39;raw-loader&#39;</span> <span class="p">}],</span>
-  <span class="p">},</span>
-  <span class="nx">plugins</span><span class="o">:</span> <span class="p">[</span><span class="k">new</span> <span class="nx">HtmlWebpackPlugin</span><span class="p">({</span> <span class="nx">template</span><span class="o">:</span> <span class="s1">&#39;./src/index.html&#39;</span> <span class="p">})],</span>
-  <span class="nx">mode</span><span class="o">:</span> <span class="s1">&#39;development&#39;</span><span class="p">,</span>
-<span class="p">};</span>
-</code></pre></div><p>entry 指从指定文件处开始进行打包，output 指定打包后输出的位置及名称。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;path&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">entry</span><span class="o">:</span> <span class="s1">&#39;./src/js/index.js&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">output</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">path</span><span class="o">:</span> <span class="nx">path</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s1">&#39;dist&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">filename</span><span class="o">:</span> <span class="s1">&#39;index.bundle.js&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">module</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">rules</span><span class="o">:</span> <span class="p">[{</span> <span class="nx">test</span><span class="o">:</span> <span class="sr">/\.txt$/</span><span class="p">,</span> <span class="nx">use</span><span class="o">:</span> <span class="s1">&#39;raw-loader&#39;</span> <span class="p">}],</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">plugins</span><span class="o">:</span> <span class="p">[</span><span class="k">new</span> <span class="nx">HtmlWebpackPlugin</span><span class="p">({</span> <span class="nx">template</span><span class="o">:</span> <span class="s1">&#39;./src/index.html&#39;</span> <span class="p">})],</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">mode</span><span class="o">:</span> <span class="s1">&#39;development&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><p>entry 指从指定文件处开始进行打包，output 指定打包后输出的位置及名称。</p>
 <p>module(loader)对于引入的特定文件会有特殊的处理。文件通过正则表达式进行匹配，可选择不同的 loader 从而达成不同的操作效果。</p>
 <p>plugin 相较于 loader 则有着更为强大的功能。</p>
 <p>mode 指定工作模式。development 生成文件易读，production 则会开启代码压缩等等。</p>
 <h2 id="一些应用">一些应用</h2>
 <h2 id="总体配置">总体配置</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;path&#39;</span><span class="p">);</span>
-<span class="kr">const</span> <span class="nx">HtmlWebpackPlugin</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;html-webpack-plugin&#39;</span><span class="p">);</span> <span class="c1">// 导入html插件
-</span><span class="c1"></span>
-<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="nx">mode</span><span class="o">:</span> <span class="s1">&#39;production&#39;</span><span class="p">,</span>
-  <span class="nx">entry</span><span class="o">:</span> <span class="s1">&#39;./src/index.js&#39;</span><span class="p">,</span>
-  <span class="nx">output</span><span class="o">:</span> <span class="p">{</span>
-    <span class="nx">path</span><span class="o">:</span> <span class="nx">path</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="mi">__</span><span class="nx">dirname</span><span class="p">,</span> <span class="s1">&#39;dist&#39;</span><span class="p">),</span>
-    <span class="nx">filename</span><span class="o">:</span> <span class="s1">&#39;index.bundle.js&#39;</span><span class="p">,</span>
-  <span class="p">},</span>
-  <span class="nx">module</span><span class="o">:</span> <span class="p">{</span>
-    <span class="nx">rules</span><span class="o">:</span> <span class="p">[</span>
-      <span class="p">{</span>
-        <span class="nx">test</span><span class="o">:</span> <span class="sr">/\.css$/</span><span class="p">,</span>
-        <span class="nx">use</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;style-loader&#39;</span><span class="p">,</span> <span class="s1">&#39;css-loader&#39;</span><span class="p">],</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="nx">test</span><span class="o">:</span> <span class="sr">/\.sass/</span><span class="p">,</span>
-        <span class="nx">use</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;style-loader&#39;</span><span class="p">,</span> <span class="s1">&#39;css-loader&#39;</span><span class="p">,</span> <span class="s1">&#39;sass-loader&#39;</span><span class="p">],</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="nx">test</span><span class="o">:</span> <span class="sr">/\.(jpg|png|gif)$/</span><span class="p">,</span>
-        <span class="nx">use</span><span class="o">:</span> <span class="p">[</span>
-          <span class="p">{</span>
-            <span class="nx">loader</span><span class="o">:</span> <span class="s1">&#39;file-loader&#39;</span><span class="p">,</span>
-            <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
-              <span class="nx">outputPath</span><span class="o">:</span> <span class="s1">&#39;img&#39;</span><span class="p">,</span>
-              <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;[hash:10].[ext]&#39;</span><span class="p">,</span>
-            <span class="p">},</span>
-          <span class="p">},</span>
-        <span class="p">],</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="nx">test</span><span class="o">:</span> <span class="sr">/\.(csv|txt)$/</span><span class="p">,</span>
-        <span class="nx">use</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;raw-loader&#39;</span><span class="p">],</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="nx">exclude</span><span class="o">:</span> <span class="sr">/\.(html|js|css|jpg|png|gif)$/</span><span class="p">,</span>
-        <span class="nx">use</span><span class="o">:</span> <span class="p">[</span>
-          <span class="p">{</span>
-            <span class="nx">loader</span><span class="o">:</span> <span class="s1">&#39;file-loader&#39;</span><span class="p">,</span>
-            <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
-              <span class="nx">outputPath</span><span class="o">:</span> <span class="s1">&#39;media&#39;</span><span class="p">,</span>
-              <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;[hash:10].[ext]&#39;</span><span class="p">,</span>
-            <span class="p">},</span>
-          <span class="p">},</span>
-        <span class="p">],</span>
-      <span class="p">},</span>
-    <span class="p">],</span>
-  <span class="p">},</span>
-  <span class="nx">plugins</span><span class="o">:</span> <span class="p">[</span>
-    <span class="k">new</span> <span class="nx">HtmlWebpackPlugin</span><span class="p">({</span>
-      <span class="nx">template</span><span class="o">:</span> <span class="s1">&#39;./src/index.html&#39;</span><span class="p">,</span>
-    <span class="p">}),</span>
-  <span class="p">],</span>
-  <span class="nx">devServer</span><span class="o">:</span> <span class="p">{</span>
-    <span class="nx">hot</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-    <span class="nx">compress</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-    <span class="nx">port</span><span class="o">:</span> <span class="mi">9000</span><span class="p">,</span>
-  <span class="p">},</span>
-<span class="p">};</span>
-</code></pre></div><h2 id="学习过程中迷惑的点">学习过程中迷惑的点</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;path&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">HtmlWebpackPlugin</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;html-webpack-plugin&#39;</span><span class="p">);</span> <span class="c1">// 导入html插件
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">mode</span><span class="o">:</span> <span class="s1">&#39;production&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">entry</span><span class="o">:</span> <span class="s1">&#39;./src/index.js&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">output</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">path</span><span class="o">:</span> <span class="nx">path</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s1">&#39;dist&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">filename</span><span class="o">:</span> <span class="s1">&#39;index.bundle.js&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">module</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">rules</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">test</span><span class="o">:</span> <span class="sr">/\.css$/</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">use</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;style-loader&#39;</span><span class="p">,</span> <span class="s1">&#39;css-loader&#39;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">test</span><span class="o">:</span> <span class="sr">/\.sass/</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">use</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;style-loader&#39;</span><span class="p">,</span> <span class="s1">&#39;css-loader&#39;</span><span class="p">,</span> <span class="s1">&#39;sass-loader&#39;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">test</span><span class="o">:</span> <span class="sr">/\.(jpg|png|gif)$/</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">use</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">          <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">loader</span><span class="o">:</span> <span class="s1">&#39;file-loader&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">              <span class="nx">outputPath</span><span class="o">:</span> <span class="s1">&#39;img&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;[hash:10].[ext]&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="p">},</span>
+</span></span><span class="line"><span class="cl">          <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">],</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">test</span><span class="o">:</span> <span class="sr">/\.(csv|txt)$/</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">use</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;raw-loader&#39;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">exclude</span><span class="o">:</span> <span class="sr">/\.(html|js|css|jpg|png|gif)$/</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">use</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">          <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">loader</span><span class="o">:</span> <span class="s1">&#39;file-loader&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">              <span class="nx">outputPath</span><span class="o">:</span> <span class="s1">&#39;media&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;[hash:10].[ext]&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="p">},</span>
+</span></span><span class="line"><span class="cl">          <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">],</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">plugins</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="k">new</span> <span class="nx">HtmlWebpackPlugin</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">template</span><span class="o">:</span> <span class="s1">&#39;./src/index.html&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}),</span>
+</span></span><span class="line"><span class="cl">  <span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">devServer</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">hot</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">compress</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">port</span><span class="o">:</span> <span class="mi">9000</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><h2 id="学习过程中迷惑的点">学习过程中迷惑的点</h2>
 <ol>
 <li>在 js 文件中引入的 html 文件使用<code>HTMlWebpackPlugin</code>不需要在<code>&lt;script&gt;&lt;link&gt;等</code>标签中再引入 js 和 css。</li>
 <li>一种情况：</li>
 </ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="kr">import</span> <span class="nx">someFile</span> <span class="nx">from</span> <span class="s1">&#39;./data/someFile&#39;</span><span class="p">;</span>
-</code></pre></div><p>若使用<code>file-loader</code>，则 someFile 返回的是地址（网址+目录）</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">someFile</span> <span class="nx">from</span> <span class="s1">&#39;./data/someFile&#39;</span><span class="p">;</span>
+</span></span></code></pre></div><p>若使用<code>file-loader</code>，则 someFile 返回的是地址（网址+目录）</p>
 <p>若使用<code>raw-loader</code>，则返回的是纯文本</p>
 
 </section>

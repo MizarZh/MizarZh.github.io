@@ -111,24 +111,24 @@
 但是可以手动上传文件从而达到读取的目的。使用HTML5的新功能。
 首先使用&lt;input type=&ldquo;file&rdquo;&gt; 从而获得文件。</p>
 <p>选择文件后可以通过inputDOM.files获取文件的FileList，再通过数组访问则可以得到文件（但是不能直接显示内容）</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nx">inputDOM</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="nx">input</span><span class="p">[</span><span class="nx">type</span><span class="o">=</span><span class="nx">file</span><span class="p">])</span>
-<span class="nx">inputDOM</span><span class="p">.</span><span class="nx">files</span> <span class="c1">// FileList
-</span><span class="c1"></span><span class="nx">file</span> <span class="o">=</span> <span class="nx">inputDOM</span><span class="p">.</span><span class="nx">files</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="nx">file</span><span class="p">.</span><span class="nx">name</span> <span class="c1">//文件名
-</span><span class="c1"></span><span class="nx">file</span><span class="p">.</span><span class="nx">size</span> <span class="c1">//文件大小
-</span><span class="c1"></span><span class="nx">file</span><span class="p">.</span><span class="nx">webkitRelativePath</span> <span class="c1">//路径
-</span><span class="c1"></span><span class="nx">file</span><span class="p">.</span><span class="nx">type</span> <span class="c1">//文件类型
-</span></code></pre></div><p>使用FileReader来读取文件中的内容。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">fReader</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FileReader</span><span class="p">()</span>
-<span class="nx">fReader</span><span class="p">.</span><span class="nx">readAsText</span><span class="p">(</span><span class="nx">file</span><span class="p">)</span> <span class="c1">//读取文件
-</span><span class="c1"></span><span class="nx">fReader</span><span class="p">.</span><span class="nx">result</span> <span class="c1">//显示文本内容
-</span></code></pre></div><p>FileReader有四种打开方式，我们这里只用到了readAsText。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">inputDOM</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="nx">input</span><span class="p">[</span><span class="nx">type</span><span class="o">=</span><span class="nx">file</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="nx">inputDOM</span><span class="p">.</span><span class="nx">files</span> <span class="c1">// FileList
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">file</span> <span class="o">=</span> <span class="nx">inputDOM</span><span class="p">.</span><span class="nx">files</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nx">file</span><span class="p">.</span><span class="nx">name</span> <span class="c1">//文件名
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">file</span><span class="p">.</span><span class="nx">size</span> <span class="c1">//文件大小
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">file</span><span class="p">.</span><span class="nx">webkitRelativePath</span> <span class="c1">//路径
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">file</span><span class="p">.</span><span class="nx">type</span> <span class="c1">//文件类型
+</span></span></span></code></pre></div><p>使用FileReader来读取文件中的内容。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">fReader</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FileReader</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nx">fReader</span><span class="p">.</span><span class="nx">readAsText</span><span class="p">(</span><span class="nx">file</span><span class="p">)</span> <span class="c1">//读取文件
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">fReader</span><span class="p">.</span><span class="nx">result</span> <span class="c1">//显示文本内容
+</span></span></span></code></pre></div><p>FileReader有四种打开方式，我们这里只用到了readAsText。</p>
 <h2 id="跨网页通信">跨网页通信</h2>
 <p>跨域通信可以直接使用XHR，不在这里的讨论范围。
 使用H5的新功能localStorage：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span><span class="s1">&#39;value&#39;</span><span class="p">)</span> <span class="c1">//设置本地储存值
-</span><span class="c1"></span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">removeItem</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span>      <span class="c1">//移除本地储存值
-</span></code></pre></div><p>这样在两个不同的网页也可以读取相同的本地存储
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span><span class="s1">&#39;value&#39;</span><span class="p">)</span> <span class="c1">//设置本地储存值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">removeItem</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span>      <span class="c1">//移除本地储存值
+</span></span></span></code></pre></div><p>这样在两个不同的网页也可以读取相同的本地存储
 另一种方法（H5之前）是使用Cookie。</p>
 
 </section>

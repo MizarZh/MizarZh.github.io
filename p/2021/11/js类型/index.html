@@ -145,11 +145,11 @@
 <tbody>
 <tr>
 <td>null</td>
-<td>&lsquo;object&rsquo;, 应该是&rsquo;null'</td>
+<td>&lsquo;object&rsquo;, 应该是&rsquo;null&rsquo;</td>
 </tr>
 <tr>
 <td>function</td>
-<td>&lsquo;function&rsquo;, 应该是&rsquo;object'</td>
+<td>&lsquo;function&rsquo;, 应该是&rsquo;object&rsquo;</td>
 </tr>
 <tr>
 <td>未定义变量（undeclared）</td>
@@ -157,7 +157,7 @@
 </tr>
 <tr>
 <td>其他（包括array）</td>
-<td>相对应的类型（array对应的是&rsquo;object'）</td>
+<td>相对应的类型（array对应的是&rsquo;object&rsquo;）</td>
 </tr>
 </tbody>
 </table>
@@ -167,16 +167,16 @@
 <h3 id="数组">数组</h3>
 <p>1、内部可以容纳任何值。</p>
 <p>2、</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="p">[];</span>
-<span class="nx">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-<span class="nx">a</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-<span class="nx">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="c1">// undefined
-</span></code></pre></div><p>但是a[1]的undefined和普通的undefined不同。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="p">[];</span>
+</span></span><span class="line"><span class="cl"><span class="nx">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">a</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="c1">// undefined
+</span></span></span></code></pre></div><p>但是a[1]的undefined和普通的undefined不同。</p>
 <p>3、因为array是对象，因此可以进行对象的操作：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="p">[];</span>
-<span class="nx">a</span><span class="p">[</span><span class="s1">&#39;foobar&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;xxx&#39;</span><span class="p">;</span> <span class="c1">// 合法
-</span><span class="c1"></span><span class="nx">a</span><span class="p">[</span><span class="s1">&#39;13&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;xxx&#39;</span> <span class="c1">// 会被转换成13
-</span></code></pre></div><p>但是并不算入length属性中。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="p">[];</span>
+</span></span><span class="line"><span class="cl"><span class="nx">a</span><span class="p">[</span><span class="s1">&#39;foobar&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;xxx&#39;</span><span class="p">;</span> <span class="c1">// 合法
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">a</span><span class="p">[</span><span class="s1">&#39;13&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;xxx&#39;</span> <span class="c1">// 会被转换成13
+</span></span></span></code></pre></div><p>但是并不算入length属性中。</p>
 <p>4、类数组</p>
 <p>类数组（一组通过数字索引的值）转换成真正的数组的方法：</p>
 <p>indexOf(..)、concat(..)、forEach(..)等方法</p>
@@ -186,13 +186,13 @@
 <p>有很多地方和数组很像</p>
 <p>1、字符串不可变。</p>
 <p>2、可以借用一些数组的函数：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="s1">&#39;xwefqwef&#39;</span>
-<span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">join</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span> <span class="nx">a</span><span class="p">,</span> <span class="s2">&#34;,&#34;</span> <span class="p">);</span>
-<span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">map</span><span class="p">.</span><span class="nx">call</span>
-</code></pre></div><p>Array.prototype.reverse.call无法调用，因为字符串不可变。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="s1">&#39;xwefqwef&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">join</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span> <span class="nx">a</span><span class="p">,</span> <span class="s2">&#34;,&#34;</span> <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">map</span><span class="p">.</span><span class="nx">call</span>
+</span></span></code></pre></div><p>Array.prototype.reverse.call无法调用，因为字符串不可变。</p>
 <p>一个经典的方法：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nx">a</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">).</span><span class="nx">reverse</span><span class="p">().</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">);</span>
-</code></pre></div><p>对Unicode会无效。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">a</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">).</span><span class="nx">reverse</span><span class="p">().</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">);</span>
+</span></span></code></pre></div><p>对Unicode会无效。</p>
 <h3 id="数字">数字</h3>
 <p>js 没有真正意义上的整数。</p>
 <p>Number转换的一些方法（Number.prototype）：</p>
@@ -230,18 +230,18 @@
 </tr>
 </tbody>
 </table>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="mf">42.</span><span class="nx">toFixed</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="c1">// 无效，因为42.被认为是是浮点数
-</span><span class="c1"></span><span class="p">(</span><span class="mi">42</span><span class="p">).</span><span class="nx">toFixed</span><span class="p">(</span> <span class="mi">3</span> <span class="p">);</span> <span class="c1">// &#34;42.000&#34; 
-</span><span class="c1"></span><span class="mf">0.42</span><span class="p">.</span><span class="nx">toFixed</span><span class="p">(</span> <span class="mi">3</span> <span class="p">);</span> <span class="c1">// &#34;0.420&#34;
-</span><span class="c1"></span><span class="mf">42.</span><span class="p">.</span><span class="nx">toFixed</span><span class="p">(</span> <span class="mi">3</span> <span class="p">);</span> <span class="c1">// &#34;42.000&#34;
-</span></code></pre></div><p>各种进制开头：0b 0o 0x</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="mf">42.</span><span class="nx">toFixed</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="c1">// 无效，因为42.被认为是是浮点数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">(</span><span class="mi">42</span><span class="p">).</span><span class="nx">toFixed</span><span class="p">(</span> <span class="mi">3</span> <span class="p">);</span> <span class="c1">// &#34;42.000&#34; 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="mf">0.42</span><span class="p">.</span><span class="nx">toFixed</span><span class="p">(</span> <span class="mi">3</span> <span class="p">);</span> <span class="c1">// &#34;0.420&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="mf">42.</span><span class="p">.</span><span class="nx">toFixed</span><span class="p">(</span> <span class="mi">3</span> <span class="p">);</span> <span class="c1">// &#34;42.000&#34;
+</span></span></span></code></pre></div><p>各种进制开头：0b 0o 0x</p>
 <p>IEEE 754浮点数的问题：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span> <span class="o">===</span> <span class="mf">0.3</span> <span class="c1">// false
-</span></code></pre></div><p>方法是使用机器精度判断（Number.EPSILON，值为2^-52 (2.220446049250313e-16)）：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">numbersCloseEnoughToEqual</span><span class="p">(</span><span class="nx">n1</span><span class="p">,</span><span class="nx">n2</span><span class="p">)</span> <span class="p">{</span> 
-    <span class="k">return</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span> <span class="nx">n1</span> <span class="o">-</span> <span class="nx">n2</span> <span class="p">)</span> <span class="o">&lt;</span> <span class="nb">Number</span><span class="p">.</span><span class="nx">EPSILON</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div><p>Number中各种特殊值：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span> <span class="o">===</span> <span class="mf">0.3</span> <span class="c1">// false
+</span></span></span></code></pre></div><p>方法是使用机器精度判断（Number.EPSILON，值为2^-52 (2.220446049250313e-16)）：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">numbersCloseEnoughToEqual</span><span class="p">(</span><span class="nx">n1</span><span class="p">,</span><span class="nx">n2</span><span class="p">)</span> <span class="p">{</span> 
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span> <span class="nx">n1</span> <span class="o">-</span> <span class="nx">n2</span> <span class="p">)</span> <span class="o">&lt;</span> <span class="nb">Number</span><span class="p">.</span><span class="nx">EPSILON</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>Number中各种特殊值：</p>
 <table>
 <thead>
 <tr>
@@ -331,12 +331,12 @@
 <h3 id="特殊值">特殊值</h3>
 <p>1、void 运算符：没有返回值，即返回结果为undefined。</p>
 <p>2、检测NaN的另一方法：NaN 是 JavaScript 中唯 一一个不等于自身的值。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">Number</span><span class="p">.</span><span class="nb">isNaN</span><span class="p">)</span> <span class="p">{</span> 
-    <span class="nb">Number</span><span class="p">.</span><span class="nb">isNaN</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span> <span class="p">{</span> 
-        <span class="k">return</span> <span class="nx">n</span> <span class="o">!==</span> <span class="nx">n</span><span class="p">;</span>
-	<span class="p">};</span>
-<span class="p">};</span>
-</code></pre></div><p>3、Object.is(..)判断两个值是否绝对相等。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">Number</span><span class="p">.</span><span class="nb">isNaN</span><span class="p">)</span> <span class="p">{</span> 
+</span></span><span class="line"><span class="cl">    <span class="nb">Number</span><span class="p">.</span><span class="nb">isNaN</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span> <span class="p">{</span> 
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nx">n</span> <span class="o">!==</span> <span class="nx">n</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><p>3、Object.is(..)判断两个值是否绝对相等。</p>
 <h2 id="3-值与引用">3 值与引用</h2>
 <p>简单值（即标量基本类型值，scalar primitive）总是通过值复制的方式来赋值 / 传递，包括 null、undefined、字符串、数字、布尔和 ES6 中的 symbol。标量基本类型值是不可更改的（字符串和布尔也是如此）。</p>
 <p>而复合值（compound value）——对象（包括数组和封装对象，参见第 3 章）和函数，则总是通过引用复制的方式来赋值 / 传递。</p>

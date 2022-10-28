@@ -106,92 +106,92 @@
     <section class="article-content">
     <h2 id="基本用法">基本用法</h2>
 <p>html 写法：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">canvas</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;canvas&#34;</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;150&#34;</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;150&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">canvas</span><span class="p">&gt;</span>
-</code></pre></div><p>渲染上下文，可以用来绘制想要的内容。传统意义上说的 canvas 的渲染上下文叫做 <code>2d</code>，而 WebGL 的渲染上下文叫做 <code>webgl</code></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="kd">let</span> <span class="nx">canvas</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;canvas&#39;</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">ctx</span> <span class="o">=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="s1">&#39;2d&#39;</span><span class="p">);</span>
-</code></pre></div><h2 id="绘制图形">绘制图形</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">canvas</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;canvas&#34;</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;150&#34;</span> <span class="na">height</span><span class="o">=</span><span class="s">&#34;150&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">canvas</span><span class="p">&gt;</span>
+</span></span></code></pre></div><p>渲染上下文，可以用来绘制想要的内容。传统意义上说的 canvas 的渲染上下文叫做 <code>2d</code>，而 WebGL 的渲染上下文叫做 <code>webgl</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">canvas</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;canvas&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">ctx</span> <span class="o">=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="s1">&#39;2d&#39;</span><span class="p">);</span>
+</span></span></code></pre></div><h2 id="绘制图形">绘制图形</h2>
 <h3 id="坐标系统">坐标系统</h3>
 <p>左上角为原点，x 轴向右，y 轴向下。</p>
 <h3 id="绘制矩形">绘制矩形</h3>
 <p>canvas 只支持两种形式的图形绘制：矩形和路径。</p>
 <p>矩形的绘制有三种方法：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nx">fillRect</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">width</span><span class="p">,</span> <span class="nx">height</span><span class="p">)</span> <span class="c1">// 绘制一个填充的矩形
-</span><span class="c1"></span><span class="nx">strokeRect</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">width</span><span class="p">,</span> <span class="nx">height</span><span class="p">)</span> <span class="c1">// 绘制一个矩形的边框
-</span><span class="c1"></span><span class="nx">clearRect</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">width</span><span class="p">,</span> <span class="nx">height</span><span class="p">)</span> <span class="c1">// 指定清除矩形的区域
-</span></code></pre></div><h3 id="路径绘制">路径绘制</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">fillRect</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">width</span><span class="p">,</span> <span class="nx">height</span><span class="p">)</span> <span class="c1">// 绘制一个填充的矩形
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">strokeRect</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">width</span><span class="p">,</span> <span class="nx">height</span><span class="p">)</span> <span class="c1">// 绘制一个矩形的边框
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">clearRect</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">width</span><span class="p">,</span> <span class="nx">height</span><span class="p">)</span> <span class="c1">// 指定清除矩形的区域
+</span></span></span></code></pre></div><h3 id="路径绘制">路径绘制</h3>
 <p>步骤：</p>
 <p>1、创建路径起始点</p>
 <p>2、使用画图命令去画出路径</p>
 <p>3、封闭路径</p>
 <p>4、路径生成后，即可用描边或填充路径区域来渲染图形</p>
 <p>路径相关的函数：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nx">beginPath</span><span class="p">()</span> <span class="c1">// 新建一条路径，生成之后，图形绘制命令被指向到路径上生成路径。
-</span><span class="c1"></span><span class="nx">closePath</span><span class="p">()</span> <span class="c1">// 闭合路径之后图形绘制命令又重新指向到上下文中。
-</span><span class="c1">// 并不是必须的，如果最后一个语句回到了起始点，则什么都不做。
-</span><span class="c1"></span><span class="nx">stroke</span><span class="p">()</span> <span class="c1">// 通过线条来绘制图形轮廓。
-</span><span class="c1"></span><span class="nx">fill</span><span class="p">()</span> <span class="c1">// 通过填充路径的内容区域生成实心的图形。
-</span></code></pre></div><p>画图命令：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="c1">// 移动位置
-</span><span class="c1"></span><span class="nx">moveTo</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="c1">// 将绘制的起始点移动到某个位置
-</span><span class="c1"></span>
-<span class="c1">// 画线
-</span><span class="c1"></span><span class="nx">lineTo</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="c1">// 从起始点画出一条线到另一个点，并把起始点移动到这个点。
-</span><span class="c1"></span>
-<span class="c1">// 画弧线
-</span><span class="c1">// 画一个以 x, y 为圆心的弧。其他参数都在函数里。
-</span><span class="c1">// startAngle 的 0 是x 轴正方向。两个角度使用的是弧度而不是角度
-</span><span class="c1"></span><span class="nx">arc</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">radius</span><span class="p">,</span> <span class="nx">startAngle</span><span class="p">,</span> <span class="nx">endAngle</span><span class="p">,</span> <span class="nx">anticlockwise</span><span class="p">)</span>
-<span class="c1">// 根据给定的控制点和半径画一段圆弧，再以直线连接两个控制点。
-</span><span class="c1"></span><span class="nx">arcTo</span><span class="p">(</span><span class="nx">x1</span><span class="p">,</span> <span class="nx">y1</span><span class="p">,</span> <span class="nx">x2</span><span class="p">,</span> <span class="nx">y2</span><span class="p">,</span> <span class="nx">radius</span><span class="p">)</span>
-
-<span class="c1">// 贝塞尔曲线
-</span><span class="c1"></span><span class="nx">quadraticCurveTo</span><span class="p">(</span><span class="nx">cp1x</span><span class="p">,</span> <span class="nx">cp1y</span><span class="p">,</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="c1">// 二次贝塞尔曲线
-</span><span class="c1"></span><span class="nx">bezierCurveTo</span><span class="p">(</span><span class="nx">cp1x</span><span class="p">,</span> <span class="nx">cp1y</span><span class="p">,</span> <span class="nx">cp2x</span><span class="p">,</span> <span class="nx">cp2y</span><span class="p">,</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="c1">// 三次贝塞尔曲线
-</span><span class="c1"></span>
-<span class="c1">// 矩形
-</span><span class="c1"></span><span class="nx">rect</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">width</span><span class="p">,</span> <span class="nx">height</span><span class="p">)</span>
-</code></pre></div><p>例子（三角形）：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nx">ctx</span><span class="p">.</span><span class="nx">beginPath</span><span class="p">();</span>
-<span class="nx">ctx</span><span class="p">.</span><span class="nx">moveTo</span><span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
-<span class="nx">ctx</span><span class="p">.</span><span class="nx">lineTo</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">75</span><span class="p">);</span>
-<span class="nx">ctx</span><span class="p">.</span><span class="nx">lineTo</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">25</span><span class="p">);</span>
-<span class="nx">ctx</span><span class="p">.</span><span class="nx">fill</span><span class="p">();</span>
-</code></pre></div><h3 id="path2d-对象">Path2D 对象</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">beginPath</span><span class="p">()</span> <span class="c1">// 新建一条路径，生成之后，图形绘制命令被指向到路径上生成路径。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">closePath</span><span class="p">()</span> <span class="c1">// 闭合路径之后图形绘制命令又重新指向到上下文中。
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 并不是必须的，如果最后一个语句回到了起始点，则什么都不做。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">stroke</span><span class="p">()</span> <span class="c1">// 通过线条来绘制图形轮廓。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">fill</span><span class="p">()</span> <span class="c1">// 通过填充路径的内容区域生成实心的图形。
+</span></span></span></code></pre></div><p>画图命令：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">// 移动位置
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">moveTo</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="c1">// 将绘制的起始点移动到某个位置
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 画线
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">lineTo</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="c1">// 从起始点画出一条线到另一个点，并把起始点移动到这个点。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 画弧线
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 画一个以 x, y 为圆心的弧。其他参数都在函数里。
+</span></span></span><span class="line"><span class="cl"><span class="c1">// startAngle 的 0 是x 轴正方向。两个角度使用的是弧度而不是角度
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">arc</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">radius</span><span class="p">,</span> <span class="nx">startAngle</span><span class="p">,</span> <span class="nx">endAngle</span><span class="p">,</span> <span class="nx">anticlockwise</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 根据给定的控制点和半径画一段圆弧，再以直线连接两个控制点。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">arcTo</span><span class="p">(</span><span class="nx">x1</span><span class="p">,</span> <span class="nx">y1</span><span class="p">,</span> <span class="nx">x2</span><span class="p">,</span> <span class="nx">y2</span><span class="p">,</span> <span class="nx">radius</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 贝塞尔曲线
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">quadraticCurveTo</span><span class="p">(</span><span class="nx">cp1x</span><span class="p">,</span> <span class="nx">cp1y</span><span class="p">,</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="c1">// 二次贝塞尔曲线
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">bezierCurveTo</span><span class="p">(</span><span class="nx">cp1x</span><span class="p">,</span> <span class="nx">cp1y</span><span class="p">,</span> <span class="nx">cp2x</span><span class="p">,</span> <span class="nx">cp2y</span><span class="p">,</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="c1">// 三次贝塞尔曲线
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 矩形
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">rect</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">width</span><span class="p">,</span> <span class="nx">height</span><span class="p">)</span>
+</span></span></code></pre></div><p>例子（三角形）：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">ctx</span><span class="p">.</span><span class="nx">beginPath</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="nx">ctx</span><span class="p">.</span><span class="nx">moveTo</span><span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">ctx</span><span class="p">.</span><span class="nx">lineTo</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">75</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">ctx</span><span class="p">.</span><span class="nx">lineTo</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">25</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">ctx</span><span class="p">.</span><span class="nx">fill</span><span class="p">();</span>
+</span></span></code></pre></div><h3 id="path2d-对象">Path2D 对象</h3>
 <p>可以用来缓存和记录绘图命令。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="k">new</span> <span class="nx">Path2D</span><span class="p">();</span>     <span class="c1">// 空的Path对象
-</span><span class="c1"></span><span class="k">new</span> <span class="nx">Path2D</span><span class="p">(</span><span class="nx">path</span><span class="p">);</span> <span class="c1">// 克隆Path对象
-</span><span class="c1"></span><span class="k">new</span> <span class="nx">Path2D</span><span class="p">(</span><span class="nx">d</span><span class="p">);</span>    <span class="c1">// 从SVG建立Path对象
-</span><span class="c1"></span><span class="nx">Path2d</span><span class="p">.</span><span class="nx">addPath</span><span class="p">(</span><span class="nx">path</span><span class="p">[,</span> <span class="nx">transform</span><span class="p">])</span> <span class="c1">// 添加了一条路径到当前路径，可能添加了一个矩变换阵
-</span></code></pre></div><p>例子：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">ctx</span> <span class="o">=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="s1">&#39;2d&#39;</span><span class="p">);</span>
-
-<span class="kd">var</span> <span class="nx">rectangle</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Path2D</span><span class="p">();</span>
-<span class="nx">rectangle</span><span class="p">.</span><span class="nx">rect</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
-
-<span class="kd">var</span> <span class="nx">circle</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Path2D</span><span class="p">();</span>
-<span class="nx">circle</span><span class="p">.</span><span class="nx">moveTo</span><span class="p">(</span><span class="mi">125</span><span class="p">,</span> <span class="mi">35</span><span class="p">);</span>
-<span class="nx">circle</span><span class="p">.</span><span class="nx">arc</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="p">);</span>
-
-<span class="nx">ctx</span><span class="p">.</span><span class="nx">stroke</span><span class="p">(</span><span class="nx">rectangle</span><span class="p">);</span>
-<span class="nx">ctx</span><span class="p">.</span><span class="nx">fill</span><span class="p">(</span><span class="nx">circle</span><span class="p">);</span>
-
-<span class="c1">// svg
-</span><span class="c1"></span><span class="kd">var</span> <span class="nx">p</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Path2D</span><span class="p">(</span><span class="s2">&#34;M10 10 h 80 v 80 h -80 Z&#34;</span><span class="p">);</span>
-</code></pre></div><h2 id="样式">样式</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="k">new</span> <span class="nx">Path2D</span><span class="p">();</span>     <span class="c1">// 空的Path对象
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">new</span> <span class="nx">Path2D</span><span class="p">(</span><span class="nx">path</span><span class="p">);</span> <span class="c1">// 克隆Path对象
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">new</span> <span class="nx">Path2D</span><span class="p">(</span><span class="nx">d</span><span class="p">);</span>    <span class="c1">// 从SVG建立Path对象
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">Path2d</span><span class="p">.</span><span class="nx">addPath</span><span class="p">(</span><span class="nx">path</span><span class="p">[,</span> <span class="nx">transform</span><span class="p">])</span> <span class="c1">// 添加了一条路径到当前路径，可能添加了一个矩变换阵
+</span></span></span></code></pre></div><p>例子：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">ctx</span> <span class="o">=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="s1">&#39;2d&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">rectangle</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Path2D</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="nx">rectangle</span><span class="p">.</span><span class="nx">rect</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">circle</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Path2D</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="nx">circle</span><span class="p">.</span><span class="nx">moveTo</span><span class="p">(</span><span class="mi">125</span><span class="p">,</span> <span class="mi">35</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">circle</span><span class="p">.</span><span class="nx">arc</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">ctx</span><span class="p">.</span><span class="nx">stroke</span><span class="p">(</span><span class="nx">rectangle</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">ctx</span><span class="p">.</span><span class="nx">fill</span><span class="p">(</span><span class="nx">circle</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// svg
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">var</span> <span class="nx">p</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Path2D</span><span class="p">(</span><span class="s2">&#34;M10 10 h 80 v 80 h -80 Z&#34;</span><span class="p">);</span>
+</span></span></code></pre></div><h2 id="样式">样式</h2>
 <h3 id="颜色">颜色</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nx">ctx</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="nx">color</span> <span class="c1">// 填充颜色（包括rgba）
-</span><span class="c1"></span><span class="nx">ctx</span><span class="p">.</span><span class="nx">strokeStyle</span> <span class="o">=</span> <span class="nx">color</span> <span class="c1">// 轮廓颜色（包括rgba）
-</span><span class="c1"></span><span class="nx">ctx</span><span class="p">.</span><span class="nx">globalAlpha</span> <span class="o">=</span> <span class="nx">value</span> <span class="c1">// 透明度
-</span></code></pre></div><h3 id="线">线</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nx">ctx</span><span class="p">.</span><span class="nx">lineWidth</span> <span class="o">=</span> <span class="nx">value</span> <span class="c1">// 线粗
-</span><span class="c1"></span><span class="nx">ctx</span><span class="p">.</span><span class="nx">Cap</span> <span class="o">=</span> <span class="nx">type</span> <span class="c1">// butt round squire
-</span><span class="c1"></span><span class="nx">ctx</span><span class="p">.</span><span class="nx">lineJoin</span> <span class="o">=</span> <span class="nx">type</span> <span class="c1">// round bevel miter
-</span><span class="c1"></span><span class="nx">ctx</span><span class="p">.</span><span class="nx">miterLimit</span> <span class="o">=</span> <span class="nx">value</span> <span class="c1">// 数字
-</span><span class="c1"></span><span class="nx">ctx</span><span class="p">.</span><span class="nx">getLineDash</span><span class="p">()</span>
-<span class="nx">ctx</span><span class="p">.</span><span class="nx">setLineDash</span><span class="p">(</span><span class="nx">segments</span><span class="p">)</span>
-<span class="nx">ctx</span><span class="p">.</span><span class="nx">lineDashOffset</span> <span class="o">=</span> <span class="nx">value</span>
-</code></pre></div><p>一些问题:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">ctx</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="nx">color</span> <span class="c1">// 填充颜色（包括rgba）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">ctx</span><span class="p">.</span><span class="nx">strokeStyle</span> <span class="o">=</span> <span class="nx">color</span> <span class="c1">// 轮廓颜色（包括rgba）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">ctx</span><span class="p">.</span><span class="nx">globalAlpha</span> <span class="o">=</span> <span class="nx">value</span> <span class="c1">// 透明度
+</span></span></span></code></pre></div><h3 id="线">线</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">ctx</span><span class="p">.</span><span class="nx">lineWidth</span> <span class="o">=</span> <span class="nx">value</span> <span class="c1">// 线粗
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">ctx</span><span class="p">.</span><span class="nx">Cap</span> <span class="o">=</span> <span class="nx">type</span> <span class="c1">// butt round squire
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">ctx</span><span class="p">.</span><span class="nx">lineJoin</span> <span class="o">=</span> <span class="nx">type</span> <span class="c1">// round bevel miter
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">ctx</span><span class="p">.</span><span class="nx">miterLimit</span> <span class="o">=</span> <span class="nx">value</span> <span class="c1">// 数字
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">ctx</span><span class="p">.</span><span class="nx">getLineDash</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nx">ctx</span><span class="p">.</span><span class="nx">setLineDash</span><span class="p">(</span><span class="nx">segments</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">ctx</span><span class="p">.</span><span class="nx">lineDashOffset</span> <span class="o">=</span> <span class="nx">value</span>
+</span></span></code></pre></div><p>一些问题:</p>
 <p>1、线宽的问题：</p>
 <!-- raw HTML omitted -->
 <p>有时候宽度 1 在渲染的时候会有各自一边是 0.5，不满一像素，这时候就会用更加浅的颜色替代，因此宽度不是完美的 1。有时候需要注意一下这个问题。</p>
@@ -224,31 +224,31 @@ $$
 5、<code>setLineDash</code> 方法和 <code>lineDashOffset </code>属性</p>
 <p><code>setLineDash</code> 方法接受一个数组，来指定线段与间隙的交替；<code>lineDashOffset </code>属性设置起始偏移量</p>
 <h3 id="渐变对象">渐变对象</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nx">ctx</span><span class="p">.</span><span class="nx">createLinearGredient</span><span class="p">(</span><span class="nx">x1</span><span class="p">,</span> <span class="nx">y1</span><span class="p">,</span> <span class="nx">x2</span><span class="p">,</span> <span class="nx">y2</span><span class="p">)</span> <span class="c1">// 渐变的起点 x1, y1 到终点 x2,y2
-</span><span class="c1"></span><span class="nx">ctx</span><span class="p">.</span><span class="nx">createRadialGradient</span><span class="p">(</span><span class="nx">x1</span><span class="p">,</span> <span class="nx">y1</span><span class="p">,</span> <span class="nx">r1</span><span class="p">,</span> <span class="nx">x2</span><span class="p">,</span> <span class="nx">y2</span><span class="p">,</span> <span class="nx">r2</span><span class="p">)</span> <span class="c1">// 前三个点定义 x1, y1 为原点，半径为 r1 的圆，后三个参数同理
-</span><span class="c1"></span><span class="nx">gredient</span><span class="p">.</span><span class="nx">addColorStop</span><span class="p">(</span><span class="nx">position</span><span class="p">,</span> <span class="nx">color</span><span class="p">)</span> <span class="c1">// 添加颜色，position 代表 0-1 之间的数值，color 代表这个位置的颜色。addColorStop 方法可以添加多次，以在不同位置上画出不同的颜色。
-</span></code></pre></div><p>可以将 <code>gredient</code> 对象赋值到 <code>fillStyle, storkeStyle</code> 上以实现渐变的效果。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">ctx</span><span class="p">.</span><span class="nx">createLinearGredient</span><span class="p">(</span><span class="nx">x1</span><span class="p">,</span> <span class="nx">y1</span><span class="p">,</span> <span class="nx">x2</span><span class="p">,</span> <span class="nx">y2</span><span class="p">)</span> <span class="c1">// 渐变的起点 x1, y1 到终点 x2,y2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">ctx</span><span class="p">.</span><span class="nx">createRadialGradient</span><span class="p">(</span><span class="nx">x1</span><span class="p">,</span> <span class="nx">y1</span><span class="p">,</span> <span class="nx">r1</span><span class="p">,</span> <span class="nx">x2</span><span class="p">,</span> <span class="nx">y2</span><span class="p">,</span> <span class="nx">r2</span><span class="p">)</span> <span class="c1">// 前三个点定义 x1, y1 为原点，半径为 r1 的圆，后三个参数同理
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">gredient</span><span class="p">.</span><span class="nx">addColorStop</span><span class="p">(</span><span class="nx">position</span><span class="p">,</span> <span class="nx">color</span><span class="p">)</span> <span class="c1">// 添加颜色，position 代表 0-1 之间的数值，color 代表这个位置的颜色。addColorStop 方法可以添加多次，以在不同位置上画出不同的颜色。
+</span></span></span></code></pre></div><p>可以将 <code>gredient</code> 对象赋值到 <code>fillStyle, storkeStyle</code> 上以实现渐变的效果。</p>
 <h3 id="图案对象">图案对象</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nx">ctx</span><span class="p">.</span><span class="nx">createPattern</span><span class="p">(</span><span class="nx">image</span><span class="p">,</span> <span class="nx">type</span><span class="p">)</span> <span class="c1">// image 可以是 Image 对象，或另一个 canvas 对象。 type 必须是 repeat，repeat-x，repeat-y 和 no-repeat
-</span></code></pre></div><p>同样，也是赋值给 <code>fillStyle, storkeStyle</code> 以实现图片效果。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">ctx</span><span class="p">.</span><span class="nx">createPattern</span><span class="p">(</span><span class="nx">image</span><span class="p">,</span> <span class="nx">type</span><span class="p">)</span> <span class="c1">// image 可以是 Image 对象，或另一个 canvas 对象。 type 必须是 repeat，repeat-x，repeat-y 和 no-repeat
+</span></span></span></code></pre></div><p>同样，也是赋值给 <code>fillStyle, storkeStyle</code> 以实现图片效果。</p>
 <h3 id="阴影">阴影</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nx">ctx</span><span class="p">.</span><span class="nx">shadowOffsetX</span> <span class="o">=</span> <span class="kr">float</span>
-<span class="nx">ctx</span><span class="p">.</span><span class="nx">shadowOffsetY</span> <span class="o">=</span> <span class="kr">float</span>
-<span class="nx">ctx</span><span class="p">.</span><span class="nx">shadowBlur</span> <span class="o">=</span> <span class="kr">float</span>
-<span class="nx">ctx</span><span class="p">.</span><span class="nx">shadowColor</span> <span class="o">=</span> <span class="nx">color</span>
-</code></pre></div><h3 id="填充规则">填充规则</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nx">ctx</span><span class="p">.</span><span class="nx">fill</span><span class="p">(</span><span class="s1">&#39;nonzero&#39;</span><span class="p">)</span> <span class="c1">// 或者 &#39;evenodd&#39;
-</span></code></pre></div><h2 id="绘制文本">绘制文本</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nx">ctx</span><span class="p">.</span><span class="nx">fillText</span><span class="p">(</span><span class="nx">text</span><span class="p">,</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="p">[,</span> <span class="nx">maxWidth</span><span class="p">])</span> <span class="c1">// 在 x, y 处填充指定的文本。绘制最大宽度可选。
-</span><span class="c1"></span><span class="nx">ctx</span><span class="p">.</span><span class="nx">strokeText</span><span class="p">(</span><span class="nx">text</span><span class="p">,</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="p">[,</span> <span class="nx">maxWidth</span><span class="p">])</span> <span class="c1">// 绘制文本边框
-</span></code></pre></div><h3 id="文本样式">文本样式</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nx">ctx</span><span class="p">.</span><span class="nx">font</span> <span class="o">=</span> <span class="nx">value</span>
-<span class="nx">ctx</span><span class="p">.</span><span class="nx">textAlign</span> <span class="o">=</span> <span class="nx">value</span> <span class="c1">// start end left right center
-</span><span class="c1"></span><span class="nx">ctx</span><span class="p">.</span><span class="nx">textBaseline</span> <span class="o">=</span> <span class="nx">value</span> <span class="c1">//  top hanging middle alphabetic ideographic bottom
-</span><span class="c1"></span><span class="nx">ctx</span><span class="p">.</span><span class="nx">direction</span> <span class="o">=</span> <span class="nx">value</span> <span class="c1">// ltr rtl inherit
-</span></code></pre></div><h3 id="预测量文本宽度">预测量文本宽度</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nx">ctx</span><span class="p">.</span><span class="nx">measureText</span><span class="p">(</span><span class="s1">&#39;...&#39;</span><span class="p">)</span> <span class="c1">// 测量 ... 文本的宽度、所在像素等属性，返回 TextMetrics 对象
-</span></code></pre></div><h2 id="图像">图像</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">ctx</span><span class="p">.</span><span class="nx">shadowOffsetX</span> <span class="o">=</span> <span class="kr">float</span>
+</span></span><span class="line"><span class="cl"><span class="nx">ctx</span><span class="p">.</span><span class="nx">shadowOffsetY</span> <span class="o">=</span> <span class="kr">float</span>
+</span></span><span class="line"><span class="cl"><span class="nx">ctx</span><span class="p">.</span><span class="nx">shadowBlur</span> <span class="o">=</span> <span class="kr">float</span>
+</span></span><span class="line"><span class="cl"><span class="nx">ctx</span><span class="p">.</span><span class="nx">shadowColor</span> <span class="o">=</span> <span class="nx">color</span>
+</span></span></code></pre></div><h3 id="填充规则">填充规则</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">ctx</span><span class="p">.</span><span class="nx">fill</span><span class="p">(</span><span class="s1">&#39;nonzero&#39;</span><span class="p">)</span> <span class="c1">// 或者 &#39;evenodd&#39;
+</span></span></span></code></pre></div><h2 id="绘制文本">绘制文本</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">ctx</span><span class="p">.</span><span class="nx">fillText</span><span class="p">(</span><span class="nx">text</span><span class="p">,</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="p">[,</span> <span class="nx">maxWidth</span><span class="p">])</span> <span class="c1">// 在 x, y 处填充指定的文本。绘制最大宽度可选。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">ctx</span><span class="p">.</span><span class="nx">strokeText</span><span class="p">(</span><span class="nx">text</span><span class="p">,</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="p">[,</span> <span class="nx">maxWidth</span><span class="p">])</span> <span class="c1">// 绘制文本边框
+</span></span></span></code></pre></div><h3 id="文本样式">文本样式</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">ctx</span><span class="p">.</span><span class="nx">font</span> <span class="o">=</span> <span class="nx">value</span>
+</span></span><span class="line"><span class="cl"><span class="nx">ctx</span><span class="p">.</span><span class="nx">textAlign</span> <span class="o">=</span> <span class="nx">value</span> <span class="c1">// start end left right center
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">ctx</span><span class="p">.</span><span class="nx">textBaseline</span> <span class="o">=</span> <span class="nx">value</span> <span class="c1">//  top hanging middle alphabetic ideographic bottom
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">ctx</span><span class="p">.</span><span class="nx">direction</span> <span class="o">=</span> <span class="nx">value</span> <span class="c1">// ltr rtl inherit
+</span></span></span></code></pre></div><h3 id="预测量文本宽度">预测量文本宽度</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">ctx</span><span class="p">.</span><span class="nx">measureText</span><span class="p">(</span><span class="s1">&#39;...&#39;</span><span class="p">)</span> <span class="c1">// 测量 ... 文本的宽度、所在像素等属性，返回 TextMetrics 对象
+</span></span></span></code></pre></div><h2 id="图像">图像</h2>
 <h3 id="引入图像">引入图像</h3>
 <p>引入图像的步骤：</p>
 <p>1、获得一个指向 <code>HTMLImageElement</code> 的对象或者另一个 canvas 元素作为源。</p>
@@ -259,18 +259,17 @@ $$
 <p>3、从另一个 <code>&lt;canvas&gt;</code> 获得的 <code>HTMLCanvasElemnt</code>。</p>
 <p>4、<code>ImageBitmap</code> 对象。</p>
 <p>从头开始构建一个图像：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="kd">let</span> <span class="nx">img</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Image</span><span class="p">();</span>
-<span class="nx">img</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
-    <span class="c1">// drawImage
-</span><span class="c1"></span><span class="p">}</span>
-<span class="nx">img</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s1">&#39;test.png&#39;</span><span class="p">;</span>
-<span class="nx">img</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s1">&#39;data:imge/gif;base64,....&#39;</span> <span class="c1">// data: url 方法。
-</span><span class="c1"></span>
-</code></pre></div><h3 id="绘制图像">绘制图像</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nx">drawImage</span><span class="p">(</span><span class="nx">image</span><span class="p">,</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="c1">// image 是图像对象，x, y 是其在 canvas 中的起始位置
-</span><span class="c1"></span><span class="nx">drawImage</span><span class="p">(</span><span class="nx">image</span><span class="p">,</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">width</span><span class="p">,</span> <span class="nx">height</span><span class="p">)</span> <span class="c1">// 多出来的 width height 是将图像缩放至这个大小
-</span><span class="c1"></span><span class="nx">drawImage</span><span class="p">(</span><span class="nx">image</span><span class="p">,</span> <span class="nx">sx</span><span class="p">,</span> <span class="nx">sy</span><span class="p">,</span> <span class="nx">sWidth</span><span class="p">,</span> <span class="nx">sHeight</span><span class="p">,</span> <span class="nx">dx</span><span class="p">,</span> <span class="nx">dy</span><span class="p">,</span> <span class="nx">dWidth</span><span class="p">,</span> <span class="nx">dHeihgt</span><span class="p">)</span> <span class="c1">// 切片功能，详见下图
-</span></code></pre></div><p><figure 
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">img</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Image</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="nx">img</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// drawImage
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">img</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s1">&#39;test.png&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">img</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s1">&#39;data:imge/gif;base64,....&#39;</span> <span class="c1">// data: url 方法。
+</span></span></span></code></pre></div><h3 id="绘制图像">绘制图像</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">drawImage</span><span class="p">(</span><span class="nx">image</span><span class="p">,</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="c1">// image 是图像对象，x, y 是其在 canvas 中的起始位置
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">drawImage</span><span class="p">(</span><span class="nx">image</span><span class="p">,</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">width</span><span class="p">,</span> <span class="nx">height</span><span class="p">)</span> <span class="c1">// 多出来的 width height 是将图像缩放至这个大小
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">drawImage</span><span class="p">(</span><span class="nx">image</span><span class="p">,</span> <span class="nx">sx</span><span class="p">,</span> <span class="nx">sy</span><span class="p">,</span> <span class="nx">sWidth</span><span class="p">,</span> <span class="nx">sHeight</span><span class="p">,</span> <span class="nx">dx</span><span class="p">,</span> <span class="nx">dy</span><span class="p">,</span> <span class="nx">dWidth</span><span class="p">,</span> <span class="nx">dHeihgt</span><span class="p">)</span> <span class="c1">// 切片功能，详见下图
+</span></span></span></code></pre></div><p><figure 
 	
 		class="gallery-image" 
 		style="
@@ -291,16 +290,16 @@ $$
 <p>可以通过调整 <code>imageSmoothingEnabled</code> 属性选择是否在缩放图像时使用平滑算法。默认值为 true。</p>
 <h2 id="变形画布">变形（画布）</h2>
 <h3 id="状态保存和恢复">状态保存和恢复</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nx">ctx</span><span class="p">.</span><span class="nx">save</span><span class="p">()</span>
-<span class="nx">ctx</span><span class="p">.</span><span class="nx">resotre</span><span class="p">()</span>
-</code></pre></div><h3 id="移动">移动</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nx">ctx</span><span class="p">.</span><span class="nx">translate</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="c1">// 将原点移动到 x, y 的位置
-</span><span class="c1"></span><span class="nx">ctx</span><span class="p">.</span><span class="nx">rotate</span><span class="p">(</span><span class="nx">angle</span><span class="p">)</span> <span class="c1">// 以原点为中心点顺时针旋转 angle 弧度的角
-</span><span class="c1"></span><span class="nx">ctx</span><span class="p">.</span><span class="nx">scale</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="c1">// x, y 取值从 -1 到 1，代表缩放的程度。
-</span><span class="c1"></span><span class="nx">ctx</span><span class="p">.</span><span class="nx">transform</span><span class="p">(</span><span class="nx">a</span> <span class="p">,</span><span class="nx">b</span><span class="p">,</span> <span class="nx">c</span><span class="p">,</span> <span class="nx">d</span><span class="p">,</span> <span class="nx">e</span> <span class="p">,</span><span class="nx">f</span><span class="p">)</span> <span class="c1">// 旋转矩阵
-</span><span class="c1"></span><span class="nx">ctx</span><span class="p">.</span><span class="nx">setTransform</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">c</span><span class="p">,</span> <span class="nx">d</span><span class="p">,</span> <span class="nx">e</span><span class="p">,</span> <span class="nx">f</span><span class="p">)</span> <span class="c1">// 将当前的变形矩阵重置为单位矩阵，然后用相同的参数调用 transform 方法。
-</span><span class="c1"></span><span class="nx">ctx</span><span class="p">.</span><span class="nx">resetTransform</span><span class="p">()</span> <span class="c1">// 重置当前变形为单位矩阵
-</span></code></pre></div><p>旋转矩阵：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">ctx</span><span class="p">.</span><span class="nx">save</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nx">ctx</span><span class="p">.</span><span class="nx">resotre</span><span class="p">()</span>
+</span></span></code></pre></div><h3 id="移动">移动</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">ctx</span><span class="p">.</span><span class="nx">translate</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="c1">// 将原点移动到 x, y 的位置
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">ctx</span><span class="p">.</span><span class="nx">rotate</span><span class="p">(</span><span class="nx">angle</span><span class="p">)</span> <span class="c1">// 以原点为中心点顺时针旋转 angle 弧度的角
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">ctx</span><span class="p">.</span><span class="nx">scale</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="c1">// x, y 取值从 -1 到 1，代表缩放的程度。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">ctx</span><span class="p">.</span><span class="nx">transform</span><span class="p">(</span><span class="nx">a</span> <span class="p">,</span><span class="nx">b</span><span class="p">,</span> <span class="nx">c</span><span class="p">,</span> <span class="nx">d</span><span class="p">,</span> <span class="nx">e</span> <span class="p">,</span><span class="nx">f</span><span class="p">)</span> <span class="c1">// 旋转矩阵
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">ctx</span><span class="p">.</span><span class="nx">setTransform</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">c</span><span class="p">,</span> <span class="nx">d</span><span class="p">,</span> <span class="nx">e</span><span class="p">,</span> <span class="nx">f</span><span class="p">)</span> <span class="c1">// 将当前的变形矩阵重置为单位矩阵，然后用相同的参数调用 transform 方法。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">ctx</span><span class="p">.</span><span class="nx">resetTransform</span><span class="p">()</span> <span class="c1">// 重置当前变形为单位矩阵
+</span></span></span></code></pre></div><p>旋转矩阵：</p>
 <p>$$
 \begin{bmatrix}
 a &amp;&amp; c &amp;&amp; e \newline
@@ -310,8 +309,8 @@ b &amp;&amp; d &amp;&amp; f \newline
 $$</p>
 <h2 id="组合">组合</h2>
 <h3 id="globalcompositeoperation">globalCompositeOperation</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nx">ctx</span><span class="p">.</span><span class="nx">globalCompositeOperation</span> <span class="o">=</span> <span class="nx">type</span> <span class="c1">// 图形互相遮盖时的策略，详见下方
-</span></code></pre></div><p><figure 
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">ctx</span><span class="p">.</span><span class="nx">globalCompositeOperation</span> <span class="o">=</span> <span class="nx">type</span> <span class="c1">// 图形互相遮盖时的策略，详见下方
+</span></span></span></code></pre></div><p><figure 
 	
 		class="gallery-image" 
 		style="
@@ -331,8 +330,8 @@ $$</p>
 	
 </figure></p>
 <h3 id="裁剪路径">裁剪路径</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nx">ctx</span><span class="p">.</span><span class="nx">clip</span><span class="p">()</span> <span class="c1">// 将当前正在构建的路径转换为当前的裁剪路径。即最后是 endPath 就是绘制，clip 就是裁剪。
-</span></code></pre></div><h2 id="像素操作">像素操作</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">ctx</span><span class="p">.</span><span class="nx">clip</span><span class="p">()</span> <span class="c1">// 将当前正在构建的路径转换为当前的裁剪路径。即最后是 endPath 就是绘制，clip 就是裁剪。
+</span></span></span></code></pre></div><h2 id="像素操作">像素操作</h2>
 <h3 id="imagedata"><code>ImageData</code></h3>
 <p>我们可以直接通过 <code>ImageData</code> 对象操纵像素数据。</p>
 <p><code>ImageData</code> 对象的属性：</p>
@@ -340,24 +339,24 @@ $$</p>
 <p>2、height 高度</p>
 <p>3、data：<code>Uint8ClampedArray</code>类型的一维数组，包含着RGBA格式的整型数据，范围在0至255之间（包括255）。包含高度 × 宽度 × 4 bytes数据，索引值从 0 到 (高度×宽度×4)-1</p>
 <p>创建 / 获取一个 <code>ImageData</code> 对象：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nx">ctx</span><span class="p">.</span><span class="nx">createImageData</span><span class="p">(</span><span class="nx">width</span><span class="p">,</span> <span class="nx">height</span><span class="p">)</span> <span class="c1">// 所有像素被预设为透明黑。
-</span><span class="c1"></span><span class="nx">ctx</span><span class="p">.</span><span class="nx">createImageData</span><span class="p">(</span><span class="nx">anotherImageData</span><span class="p">)</span> <span class="c1">// 创建一个与 anotherImageData 像素相同的对象，同样是全黑。
-</span><span class="c1"></span>
-<span class="nx">ctx</span><span class="p">.</span><span class="nx">getImageData</span><span class="p">(</span><span class="nx">left</span><span class="p">,</span> <span class="nx">top</span><span class="p">,</span> <span class="nx">width</span><span class="p">,</span> <span class="nx">height</span><span class="p">)</span>
-</code></pre></div><h3 id="保存图片">保存图片</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nx">canvas</span><span class="p">.</span><span class="nx">toDataURL</span><span class="p">(</span><span class="s1">&#39;image/png&#39;</span><span class="p">)</span>
-<span class="nx">canvas</span><span class="p">.</span><span class="nx">toDataURL</span><span class="p">(</span><span class="s1">&#39;image/jpeg&#39;</span><span class="p">,</span> <span class="nx">quality</span><span class="p">)</span> <span class="c1">// 可以选择 quality
-</span><span class="c1"></span><span class="nx">canvas</span><span class="p">.</span><span class="nx">toBlob</span><span class="p">(</span><span class="nx">callback</span><span class="p">,</span> <span class="nx">type</span><span class="p">,</span> <span class="nx">encoderOptions</span><span class="p">)</span> <span class="c1">// 创建一个 Blob 对象
-</span></code></pre></div><h2 id="动画">动画</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">ctx</span><span class="p">.</span><span class="nx">createImageData</span><span class="p">(</span><span class="nx">width</span><span class="p">,</span> <span class="nx">height</span><span class="p">)</span> <span class="c1">// 所有像素被预设为透明黑。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">ctx</span><span class="p">.</span><span class="nx">createImageData</span><span class="p">(</span><span class="nx">anotherImageData</span><span class="p">)</span> <span class="c1">// 创建一个与 anotherImageData 像素相同的对象，同样是全黑。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nx">ctx</span><span class="p">.</span><span class="nx">getImageData</span><span class="p">(</span><span class="nx">left</span><span class="p">,</span> <span class="nx">top</span><span class="p">,</span> <span class="nx">width</span><span class="p">,</span> <span class="nx">height</span><span class="p">)</span>
+</span></span></code></pre></div><h3 id="保存图片">保存图片</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">canvas</span><span class="p">.</span><span class="nx">toDataURL</span><span class="p">(</span><span class="s1">&#39;image/png&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">canvas</span><span class="p">.</span><span class="nx">toDataURL</span><span class="p">(</span><span class="s1">&#39;image/jpeg&#39;</span><span class="p">,</span> <span class="nx">quality</span><span class="p">)</span> <span class="c1">// 可以选择 quality
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">canvas</span><span class="p">.</span><span class="nx">toBlob</span><span class="p">(</span><span class="nx">callback</span><span class="p">,</span> <span class="nx">type</span><span class="p">,</span> <span class="nx">encoderOptions</span><span class="p">)</span> <span class="c1">// 创建一个 Blob 对象
+</span></span></span></code></pre></div><h2 id="动画">动画</h2>
 <p>步骤：</p>
 <p>1、清空 canvas</p>
 <p>2、保存 canvas 状态</p>
 <p>3、绘制动画图形（绘制动画帧）</p>
 <p>4、恢复 canvas 状态。</p>
 <p>可以使用的方法：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nx">setInterval</span><span class="p">(</span><span class="nx">callback</span><span class="p">,</span> <span class="nx">delay</span><span class="p">)</span>
-<span class="nx">requrestAnimationFrame</span><span class="p">(</span><span class="nx">callback</span><span class="p">)</span>
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">setInterval</span><span class="p">(</span><span class="nx">callback</span><span class="p">,</span> <span class="nx">delay</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">requrestAnimationFrame</span><span class="p">(</span><span class="nx">callback</span><span class="p">)</span>
+</span></span></code></pre></div>
 </section>
 
 

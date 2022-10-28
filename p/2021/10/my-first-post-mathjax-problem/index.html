@@ -290,17 +290,17 @@ $$</p>
 <p>本来是想要留个纪念（转hugo了），但是一上来就出现了大问题：hugo的运作机制和hexo大为不同，是没有mathjax的插件的，需要自己手动添加代码。</p>
 <p>目测有两种方法：一是在theme中插入mathjax代码从而渲染，二是安装hugo默认markdown渲染引擎goldmark的mathjax插件，或者使用pandoc之类的支持mathjax的渲染引擎。</p>
 <p>因为第一种方法较简单就直接使用第一种。解决方法：在<code>themes/some-theme/layouts/partials/footer/footer.html</code>的<code>&lt;footer&gt;</code>中添加语句：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html">{{ if .Params.mathjax}} <span class="c">&lt;!-- 判断文件中是否设置mathjax: true --&gt;</span>
-	<span class="c">&lt;!-- 引入mathjax3 --&gt;</span>
-    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://polyfill.io/v3/polyfill.min.js?features=es6&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;MathJax-script&#34;</span> <span class="na">async</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-{{ end }}
-</code></pre></div><p>文件头开启mathjax：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="nx">title</span><span class="err">:</span> <span class="s2">&#34;balabala&#34;</span>
-<span class="p">...</span>
-<span class="nx">mathjax</span><span class="err">:</span> <span class="kc">true</span>
-<span class="p">...</span>
-</code></pre></div><p>​</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">{{ if .Params.mathjax}} <span class="c">&lt;!-- 判断文件中是否设置mathjax: true --&gt;</span>
+</span></span><span class="line"><span class="cl">	<span class="c">&lt;!-- 引入mathjax3 --&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://polyfill.io/v3/polyfill.min.js?features=es6&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;MathJax-script&#34;</span> <span class="na">async</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">{{ end }}
+</span></span></code></pre></div><p>文件头开启mathjax：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="nx">title</span><span class="err">:</span> <span class="s2">&#34;balabala&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">...</span>
+</span></span><span class="line"><span class="cl"><span class="nx">mathjax</span><span class="err">:</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl"><span class="p">...</span>
+</span></span></code></pre></div><p>​</p>
 <p>不得不说，hugo和hexo的运转机制十分不同，hugo的速度快，自由度也高许多，期望以后会有更好的使用体验。</p>
 
 </section>

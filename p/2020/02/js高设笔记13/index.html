@@ -119,20 +119,20 @@
 <p>而响应某个事件的函数就叫做事件处理程序（或事件侦听器）。事件处理程序的名字以&quot;on&quot;开头</p>
 <h3 id="1321html事件处理程序">13.2.1HTML事件处理程序</h3>
 <p>属性onclick=&ldquo;javascript代码&rdquo;</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="c1">//前面定义了showMessage()
-</span><span class="c1"></span><span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&#34;button&#34;</span> <span class="nx">value</span><span class="o">=</span><span class="s2">&#34;ClickMe&#34;</span> <span class="nx">onclick</span><span class="o">=</span><span class="s2">&#34;showMessage()&#34;</span><span class="o">/&gt;</span>
-</code></pre></div><p>事件处理程序中的代码在执行时，有权访问全局作用域中的任何代码。
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">//前面定义了showMessage()
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&#34;button&#34;</span> <span class="nx">value</span><span class="o">=</span><span class="s2">&#34;ClickMe&#34;</span> <span class="nx">onclick</span><span class="o">=</span><span class="s2">&#34;showMessage()&#34;</span><span class="o">/&gt;</span>
+</span></span></code></pre></div><p>事件处理程序中的代码在执行时，有权访问全局作用域中的任何代码。
 这样会创建一个封装着元素属性值的函数。这个函数中有一个局部变量event，也就是事件对象
 在这个函数内部，this值等于事件的目标元素
 在这个函数内部，可以像访问局部变量一样访问document及该元素本身的成员。</p>
 <p>很多HTML事件处理程序都会被封装在一个try-catch块中，以便错误不会浮出水面</p>
 <h3 id="1322dom0级事件处理程序">13.2.2DOM0级事件处理程序</h3>
 <p>每个元素（包括window和document）都有自己的事件处理程序属性，这些属性通常全部小写，例如onclick。将这种属性的值设置为一个函数，就可以指定事件处理程序。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nx">varbtn</span><span class="o">=</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&#34;myBtn&#34;</span><span class="p">);</span>
-<span class="nx">btn</span><span class="p">.</span><span class="nx">onclick</span><span class="o">=</span><span class="kd">function</span><span class="p">(){</span>
-<span class="nx">alert</span><span class="p">(</span><span class="s2">&#34;Clicked&#34;</span><span class="p">);</span>
-<span class="p">};</span>
-</code></pre></div><p>使用DOM0级方法指定的事件处理程序被认为是元素的方法。因此，这时候的事件处理程序是在元素的作用域中运行
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">varbtn</span><span class="o">=</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&#34;myBtn&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">btn</span><span class="p">.</span><span class="nx">onclick</span><span class="o">=</span><span class="kd">function</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl"><span class="nx">alert</span><span class="p">(</span><span class="s2">&#34;Clicked&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><p>使用DOM0级方法指定的事件处理程序被认为是元素的方法。因此，这时候的事件处理程序是在元素的作用域中运行
 也可以删除通过DOM0级方法指定的事件处理程序，将onclick属性设为null即可。</p>
 <h3 id="1323dom2级事件处理程序">13.2.3DOM2级事件处理程序</h3>
 <p><strong>addEventListener()和removeEventListener()</strong>。所有DOM节点中都包含这两个方法。
@@ -199,12 +199,12 @@ Firefox支持一个名为 DOMMouseScroll 的类似事件，也是在鼠标滚轮
 </ol>
 <h3 id="1344-键盘与文本事件">13.4.4 键盘与文本事件</h3>
 <p>keydown,keypress,keyup
-前两者如果按住不放的话，会重复触发此事件。 
+前两者如果按住不放的话，会重复触发此事件。
 只有一个文本事件：textInput。这个事件是对 keypress 的补充，用意是在将文本显示给用户之前更容易拦截文本。</p>
 <p>在发生 keydown 和 keyup 事件时，event 对象的 keyCode 属性中会包含一个代码，与键盘上一个特定的键对应。对数字字母字符键，keyCode 属性的值与 ASCII 码中对应小写字母或数字的编码相同。
 表见P380</p>
 <p>IE9、Firefox、Chrome 和 Safari的 event 对象都支持一个 charCode 属性，这个属性只有在发生 keypress 事件时才包含值，而且这个值是按下的那个键所代表字符的 ASCII 编码。此时的 keyCode 通常等于0或者也可能等于所按键的键码</p>
-<p>DOM3级变化：不再包含 charCode 属性，而是包含两个新属性：key 和 char。 key 属性是为了取代 keyCode 而新增的，它的值是一个字符串。在按下某个字符键时，key 的值就是相应的文本字符（如“k”或“M”）；在按下非字符键时， key 的值是相应键的名（如“Shift” 或“Down”）。而 char 属性在按下字符键时的行为与 key 相同，但在按下非字符键时值为 null。 
+<p>DOM3级变化：不再包含 charCode 属性，而是包含两个新属性：key 和 char。 key 属性是为了取代 keyCode 而新增的，它的值是一个字符串。在按下某个字符键时，key 的值就是相应的文本字符（如“k”或“M”）；在按下非字符键时， key 的值是相应键的名（如“Shift” 或“Down”）。而 char 属性在按下字符键时的行为与 key 相同，但在按下非字符键时值为 null。
 不同浏览器有不同实现</p>
 <p>DOM3级事件还添加了一个名为 location 的属性，这是一个数值，表示按下了什么位置上的键： 0表示默认键盘，1表示左侧位置（例如左位的 Alt键），2表示右侧位置（例如右侧的 Shift键），3表示 数字小键盘，4表示移动设备键盘（也就是虚拟键盘），5表示手柄（如任天堂 Wii控制器）。</p>
 <p>后是给 event 对象添加了 getModifierState()方法。这个方法接收一个参数，即等于 Shift、Control、AltGraph 或 Meta 的字符串，表示要检测的修改键。</p>
@@ -242,27 +242,27 @@ DOMSubtreeModified,DOMNodeInserted,DOMNodeRemoved,DOMNodeInsertedIntoDocument,DO
 <p>在 JavaScript中，添加到页面上的事件处理程序数量将直接关系到页面的整体运行性能。</p>
 <h3 id="1351-事件委托">13.5.1 事件委托</h3>
 <p>事件委托利用了事件冒泡，只指定一个事件处理程序，就可以管理某一类型的所有事件。例如，click 事件会一直冒泡到 document 层次。也就是说，我们可以为整个页面指定一个 onclick 事件处理程序，而不必给每个可单击的元素分别添加事件处理程序。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">list</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&#34;myLinks&#34;</span><span class="p">);</span> 
-<span class="nx">EventUtil</span><span class="p">.</span><span class="nx">addHandler</span><span class="p">(</span><span class="nx">list</span><span class="p">,</span> <span class="s2">&#34;click&#34;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">){</span>     
-    <span class="nx">event</span> <span class="o">=</span> <span class="nx">EventUtil</span><span class="p">.</span><span class="nx">getEvent</span><span class="p">(</span><span class="nx">event</span><span class="p">);</span>     
-    <span class="kd">var</span> <span class="nx">target</span> <span class="o">=</span> <span class="nx">EventUtil</span><span class="p">.</span><span class="nx">getTarget</span><span class="p">(</span><span class="nx">event</span><span class="p">);</span> 
-    <span class="k">switch</span><span class="p">(</span><span class="nx">target</span><span class="p">.</span><span class="nx">id</span><span class="p">){</span>         
-        <span class="k">case</span> <span class="s2">&#34;doSomething&#34;</span><span class="o">:</span>             
-            <span class="nb">document</span><span class="p">.</span><span class="nx">title</span> <span class="o">=</span> <span class="s2">&#34;I changed the document&#39;s title&#34;</span><span class="p">;</span>             
-            <span class="k">break</span><span class="p">;</span> 
-        <span class="k">case</span> <span class="s2">&#34;goSomewhere&#34;</span><span class="o">:</span>             
-            <span class="nx">location</span><span class="p">.</span><span class="nx">href</span> <span class="o">=</span> <span class="s2">&#34;http://www.wrox.com&#34;</span><span class="p">;</span>             
-            <span class="k">break</span><span class="p">;</span> 
-        <span class="k">case</span> <span class="s2">&#34;sayHi&#34;</span><span class="o">:</span>             
-            <span class="nx">alert</span><span class="p">(</span><span class="s2">&#34;hi&#34;</span><span class="p">);</span>             
-            <span class="k">break</span><span class="p">;</span>     
-    <span class="p">}</span> 
-<span class="p">});</span> 
-<span class="c1">//而不是三个对象分别设置不同的方法
-</span></code></pre></div><p>这种技术需要占用的内存更少。所有用到按钮的事件（多数鼠标事件和键盘事件）都适合采用事件委托技术。
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">list</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&#34;myLinks&#34;</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl"><span class="nx">EventUtil</span><span class="p">.</span><span class="nx">addHandler</span><span class="p">(</span><span class="nx">list</span><span class="p">,</span> <span class="s2">&#34;click&#34;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">){</span>     
+</span></span><span class="line"><span class="cl">    <span class="nx">event</span> <span class="o">=</span> <span class="nx">EventUtil</span><span class="p">.</span><span class="nx">getEvent</span><span class="p">(</span><span class="nx">event</span><span class="p">);</span>     
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">target</span> <span class="o">=</span> <span class="nx">EventUtil</span><span class="p">.</span><span class="nx">getTarget</span><span class="p">(</span><span class="nx">event</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl">    <span class="k">switch</span><span class="p">(</span><span class="nx">target</span><span class="p">.</span><span class="nx">id</span><span class="p">){</span>         
+</span></span><span class="line"><span class="cl">        <span class="k">case</span> <span class="s2">&#34;doSomething&#34;</span><span class="o">:</span>             
+</span></span><span class="line"><span class="cl">            <span class="nb">document</span><span class="p">.</span><span class="nx">title</span> <span class="o">=</span> <span class="s2">&#34;I changed the document&#39;s title&#34;</span><span class="p">;</span>             
+</span></span><span class="line"><span class="cl">            <span class="k">break</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl">        <span class="k">case</span> <span class="s2">&#34;goSomewhere&#34;</span><span class="o">:</span>             
+</span></span><span class="line"><span class="cl">            <span class="nx">location</span><span class="p">.</span><span class="nx">href</span> <span class="o">=</span> <span class="s2">&#34;http://www.wrox.com&#34;</span><span class="p">;</span>             
+</span></span><span class="line"><span class="cl">            <span class="k">break</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl">        <span class="k">case</span> <span class="s2">&#34;sayHi&#34;</span><span class="o">:</span>             
+</span></span><span class="line"><span class="cl">            <span class="nx">alert</span><span class="p">(</span><span class="s2">&#34;hi&#34;</span><span class="p">);</span>             
+</span></span><span class="line"><span class="cl">            <span class="k">break</span><span class="p">;</span>     
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> 
+</span></span><span class="line"><span class="cl"><span class="p">});</span> 
+</span></span><span class="line"><span class="cl"><span class="c1">//而不是三个对象分别设置不同的方法
+</span></span></span></code></pre></div><p>这种技术需要占用的内存更少。所有用到按钮的事件（多数鼠标事件和键盘事件）都适合采用事件委托技术。
 适合采用事件委托技术的事件包括click、mousedown、mouseup、keydown、keyup 和keypress</p>
 <h3 id="1352-移除事件处理程序">13.5.2 移除事件处理程序</h3>
-<p>内存中留有那些过时不用的“空事件处理程序”（dangling event handler），也是造成 Web 应用程序内存与性能问题的主要原因。 
+<p>内存中留有那些过时不用的“空事件处理程序”（dangling event handler），也是造成 Web 应用程序内存与性能问题的主要原因。
 直接移除元素（removeChild())
 好的做法是在页面卸载之前，先通过 onunload 事件处理程序移除所有事件处理程序。</p>
 <h2 id="136-模拟事件">13.6 模拟事件</h2>

@@ -110,10 +110,10 @@
 <p>通过命令行查看图片的原理是通过 Linux 系统内置的 X11 forwarding 功能传输图片，而平常无法做到的问题是 windows 和 mac 不存在这个东西。解决方法就是在 windows 和 mac 上安装有 X11 forwarding 功能的辅助软件即可。</p>
 <p>解决方法：</p>
 <p>1、确定服务器 Linux 是否开启了 X11 forwarding 功能。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo vi /etc/ssh/sshd_config
-<span class="c1"># X11Forwarding Yes 其中的这一行改成这样子</span>
-sudo service sshd restart
-</code></pre></div><p>2、客户端系统，windows 安装 <a class="link" href="https://sourceforge.net/projects/xming/"  target="_blank" rel="noopener"
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo vi /etc/ssh/sshd_config
+</span></span><span class="line"><span class="cl"><span class="c1"># X11Forwarding Yes 其中的这一行改成这样子</span>
+</span></span><span class="line"><span class="cl">sudo service sshd restart
+</span></span></code></pre></div><p>2、客户端系统，windows 安装 <a class="link" href="https://sourceforge.net/projects/xming/"  target="_blank" rel="noopener"
     >Xming</a> ，mac 安装 <a class="link" href="https://www.xquartz.org/"  target="_blank" rel="noopener"
     >XQuartz</a>， Linux 像上面一样打开即可。</p>
 <p>以 windows 为例：</p>
@@ -159,15 +159,15 @@ sudo service sshd restart
 <p>（记得勾上 No Access Control）</p>
 <p>并确保其在右下角后台运行。</p>
 <p>3、ssh 连接时开启 X11 连接。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">ssh -Y xxx@xxx.xxx
-</code></pre></div><p>接下来使用任何带 GUI 功能都会弹出一个窗口了。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ssh -Y xxx@xxx.xxx
+</span></span></code></pre></div><p>接下来使用任何带 GUI 功能都会弹出一个窗口了。</p>
 <p>4、测试：使用</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo apt install x11-apps
-
-xclock
-xeyes
-...
-</code></pre></div><p>如果不出问题，输入测试样例之后就能弹出图形化窗口。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt install x11-apps
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">xclock
+</span></span><span class="line"><span class="cl">xeyes
+</span></span><span class="line"><span class="cl">...
+</span></span></code></pre></div><p>如果不出问题，输入测试样例之后就能弹出图形化窗口。</p>
 <h2 id="x11介绍">X11介绍</h2>
 <h3 id="x">X</h3>
 <p>X 就是 X WIndows System，是为 Linux 系统提供 GUI 功能（Linux 内核是没有 GUI 的）。</p>
@@ -179,16 +179,16 @@ xeyes
 <p>当然，找到这么一个解决方案，那当然是要试试 python 画图啦，但是却有错误（python 未配置 tkinter）。</p>
 <p>原因是需要设置 matplotlib 的画图环境：</p>
 <p>合法的画图环境：</p>
-<pre tabindex="0"><code>ValueError: '' is not a valid value for backend; supported values are ['GTK3Agg', 'GTK3Cairo', 'MacOSX', 'nbAgg', 'Qt4Agg', 'Qt4Cairo', 'Qt5Agg', 'Qt5Cairo', 'TkAgg', 'TkCairo', 'WebAgg', 'WX', 'WXAgg', 'WXCairo', 'agg', 'cairo', 'pdf', 'pgf', 'ps', 'svg', 'template']
+<pre tabindex="0"><code>ValueError: &#39;&#39; is not a valid value for backend; supported values are [&#39;GTK3Agg&#39;, &#39;GTK3Cairo&#39;, &#39;MacOSX&#39;, &#39;nbAgg&#39;, &#39;Qt4Agg&#39;, &#39;Qt4Cairo&#39;, &#39;Qt5Agg&#39;, &#39;Qt5Cairo&#39;, &#39;TkAgg&#39;, &#39;TkCairo&#39;, &#39;WebAgg&#39;, &#39;WX&#39;, &#39;WXAgg&#39;, &#39;WXCairo&#39;, &#39;agg&#39;, &#39;cairo&#39;, &#39;pdf&#39;, &#39;pgf&#39;, &#39;ps&#39;, &#39;svg&#39;, &#39;template&#39;]
 </code></pre><p>若要使用 tkinter，需要输入以下命令：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo apt-get install python3-tk
-</code></pre></div><p>测试代码：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">matplotlib</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="n">matplotlib</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;tkinker&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</code></pre></div><p>测试结果：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt-get install python3-tk
+</span></span></code></pre></div><p>测试代码：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">matplotlib</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</span></span><span class="line"><span class="cl"><span class="n">matplotlib</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;tkinker&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span></span></code></pre></div><p>测试结果：</p>
 <p><figure 
 	
 		class="gallery-image" 
@@ -211,9 +211,9 @@ xeyes
 <h2 id="feh命令">feh命令</h2>
 <p>在 Linux 中查看图片的命令有很多，如 <code>eog, display, gimp</code> 等等。这里使用 <code>feh</code> 是因为其有一定的图片编辑能力且轻量级。</p>
 <p>安装及测试：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo apt install feh
-feh somePicture
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt install feh
+</span></span><span class="line"><span class="cl">feh somePicture
+</span></span></code></pre></div>
 </section>
 
 
@@ -286,6 +286,18 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
                 
                     
 <article class="">
+    <a href="/p/2022/02/docker%E4%BB%8B%E7%BB%8D/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Docker介绍</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
     <a href="/p/2022/01/http%E5%A4%B4%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%E7%82%B9corscsp/">
         
         
@@ -328,18 +340,6 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
 
         <div class="article-details">
             <h2 class="article-title">Cron基本用法</h2>
-        </div>
-    </a>
-</article>
-                
-                    
-<article class="">
-    <a href="/p/2021/10/%E5%90%84%E7%B1%BBtex/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">各类“TeX”</h2>
         </div>
     </a>
 </article>

@@ -108,31 +108,31 @@
 <!-- raw HTML omitted -->
 <h2 id="python下载">python下载</h2>
 <p>这里使用anaconda</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">wget https://repo.anaconda.com/archive/Anaconda3-2020.02-Linux-x86_64.sh
-./Anaconda3-2020.02-Linux-x86_64.sh
-</code></pre></div><p>并一直yes，安装anaconda</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">wget https://repo.anaconda.com/archive/Anaconda3-2020.02-Linux-x86_64.sh
+</span></span><span class="line"><span class="cl">./Anaconda3-2020.02-Linux-x86_64.sh
+</span></span></code></pre></div><p>并一直yes，安装anaconda</p>
 <h2 id="jupyter-notebook配置">jupyter notebook配置</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">conda jupyter notebook <span class="c1">#anaconda安装jupyter notebook</span>
-jupyter notebook --generate-config <span class="c1">#生成配置文件</span>
-</code></pre></div><p>配置文件为.jupyter/jupyter_notebook_config.py</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">conda jupyter notebook <span class="c1">#anaconda安装jupyter notebook</span>
+</span></span><span class="line"><span class="cl">jupyter notebook --generate-config <span class="c1">#生成配置文件</span>
+</span></span></code></pre></div><p>配置文件为.jupyter/jupyter_notebook_config.py</p>
 <p>打开IPython，产生密码：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="kn">from</span> <span class="nn">notebook.auth</span> <span class="kn">import</span> <span class="n">passwd</span>
-<span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="n">passwd</span><span class="p">()</span>
-</code></pre></div><p>接下来就会让你输入密码，输入密码后就会生成一个&rsquo;sha1:xxx&rsquo;的东西，复制它。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">vim .jupyter/jupyter_notebook_config.py
-</code></pre></div><p>修改以下选项（可以使用vim &lsquo;/&lsquo;的搜索功能）：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="n">c</span><span class="o">.</span><span class="n">NotebookApp</span><span class="o">.</span><span class="n">ip</span><span class="o">=</span><span class="s1">&#39;*&#39;</span> <span class="c1">#可以由所有ip访问jupyter notebook</span>
-<span class="n">c</span><span class="o">.</span><span class="n">NotebookApp</span><span class="o">.</span><span class="n">password</span> <span class="o">=</span> <span class="s1">&#39;sha:xx&#39;</span> <span class="c1">#刚刚复制的东西</span>
-<span class="n">c</span><span class="o">.</span><span class="n">NotebookApp</span><span class="o">.</span><span class="n">open_browser</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1">#启动不打开浏览器</span>
-<span class="n">c</span><span class="o">.</span><span class="n">NotebookApp</span><span class="o">.</span><span class="n">port</span> <span class="o">=</span><span class="mi">8888</span> <span class="c1">#使用的端口</span>
-</code></pre></div><p>启动：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">jupyter notebook
-</code></pre></div><p>或者后台一直启动：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">nohup jupyter notebook<span class="p">&amp;</span>
-</code></pre></div><h2 id="使用插件">使用插件</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">conda install -c conda-forge jupyter_contrib_nbextensions
-jupyter contrib nbextension install --user
-</code></pre></div><p>然后在header处就能见到多一个nbextensions选项卡，进入里面选择所需的插件即可</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="kn">from</span> <span class="nn">notebook.auth</span> <span class="kn">import</span> <span class="n">passwd</span>
+</span></span><span class="line"><span class="cl"><span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="n">passwd</span><span class="p">()</span>
+</span></span></code></pre></div><p>接下来就会让你输入密码，输入密码后就会生成一个&rsquo;sha1:xxx&rsquo;的东西，复制它。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">vim .jupyter/jupyter_notebook_config.py
+</span></span></code></pre></div><p>修改以下选项（可以使用vim &lsquo;/&lsquo;的搜索功能）：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">c</span><span class="o">.</span><span class="n">NotebookApp</span><span class="o">.</span><span class="n">ip</span><span class="o">=</span><span class="s1">&#39;*&#39;</span> <span class="c1">#可以由所有ip访问jupyter notebook</span>
+</span></span><span class="line"><span class="cl"><span class="n">c</span><span class="o">.</span><span class="n">NotebookApp</span><span class="o">.</span><span class="n">password</span> <span class="o">=</span> <span class="s1">&#39;sha:xx&#39;</span> <span class="c1">#刚刚复制的东西</span>
+</span></span><span class="line"><span class="cl"><span class="n">c</span><span class="o">.</span><span class="n">NotebookApp</span><span class="o">.</span><span class="n">open_browser</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1">#启动不打开浏览器</span>
+</span></span><span class="line"><span class="cl"><span class="n">c</span><span class="o">.</span><span class="n">NotebookApp</span><span class="o">.</span><span class="n">port</span> <span class="o">=</span><span class="mi">8888</span> <span class="c1">#使用的端口</span>
+</span></span></code></pre></div><p>启动：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">jupyter notebook
+</span></span></code></pre></div><p>或者后台一直启动：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nohup jupyter notebook<span class="p">&amp;</span>
+</span></span></code></pre></div><h2 id="使用插件">使用插件</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">conda install -c conda-forge jupyter_contrib_nbextensions
+</span></span><span class="line"><span class="cl">jupyter contrib nbextension install --user
+</span></span></code></pre></div><p>然后在header处就能见到多一个nbextensions选项卡，进入里面选择所需的插件即可</p>
 
 </section>
 
@@ -223,12 +223,12 @@ jupyter contrib nbextension install --user
                 
                     
 <article class="">
-    <a href="/p/2022/01/js%E7%9A%84%E6%A8%A1%E5%9D%97%E7%B3%BB%E7%BB%9F%E4%BB%A5%E5%8F%8A%E5%85%B6%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86/">
+    <a href="/p/2022/02/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%BD%93%E9%AA%8C1/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">Js的模块系统以及其零碎知识</h2>
+            <h2 class="article-title">前端工程化体验（1）</h2>
         </div>
     </a>
 </article>

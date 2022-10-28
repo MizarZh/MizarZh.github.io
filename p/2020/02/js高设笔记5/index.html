@@ -110,49 +110,49 @@
 <p>创造实例的两种方法：
 1、new+构造函数
 2、对象字面量</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Object</span><span class="p">();</span>
-<span class="nx">person</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="s2">&#34;Nicholas&#34;</span><span class="p">;</span>
-<span class="nx">person</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="mi">29</span><span class="p">;</span>
-
-<span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="nx">name</span> <span class="o">:</span> <span class="s2">&#34;Nicholas&#34;</span><span class="p">,</span>
-    <span class="nx">age</span> <span class="o">:</span> <span class="mi">29</span>
-<span class="p">};</span>
-
-<span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span> <span class="p">{};</span> <span class="c1">//相当于new Object()
-</span></code></pre></div><!-- raw HTML omitted -->
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Object</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="nx">person</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="s2">&#34;Nicholas&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">person</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="mi">29</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">name</span> <span class="o">:</span> <span class="s2">&#34;Nicholas&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">age</span> <span class="o">:</span> <span class="mi">29</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span> <span class="p">{};</span> <span class="c1">//相当于new Object()
+</span></span></span></code></pre></div><!-- raw HTML omitted -->
 <p>属性名可以使用字符串（包括字符串数字）。
 使用对象字面量定义对象不会调用Object()构造函数</p>
 <p>访问方法：person[&ldquo;name&rdquo;]或person.name
 除非必须通过方括号法表示，否则用点表示法</p>
 <h2 id="52-array">5.2 Array</h2>
 <p>每一项可保存不同的数据类型</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">//构造函数法
-</span><span class="c1"></span><span class="kd">var</span> <span class="nx">colors</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">();</span>
-<span class="kd">var</span> <span class="nx">colors</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span><span class="c1">// len=20
-</span><span class="c1"></span><span class="kd">var</span> <span class="nx">colors</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="s2">&#34;blue&#34;</span><span class="p">,</span><span class="s2">&#34;green&#34;</span><span class="p">);</span>
-<span class="c1">//字面量法
-</span><span class="c1"></span><span class="kd">var</span> <span class="nx">colors</span> <span class="o">=</span> <span class="p">[];</span>
-<span class="kd">var</span> <span class="nx">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;blue&#34;</span><span class="p">,</span><span class="s2">&#34;green&#34;</span><span class="p">];</span>
-</code></pre></div><p><strong>length属性</strong>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="c1">//构造函数法
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">var</span> <span class="nx">colors</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">colors</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span><span class="c1">// len=20
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">var</span> <span class="nx">colors</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="s2">&#34;blue&#34;</span><span class="p">,</span><span class="s2">&#34;green&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//字面量法
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">var</span> <span class="nx">colors</span> <span class="o">=</span> <span class="p">[];</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;blue&#34;</span><span class="p">,</span><span class="s2">&#34;green&#34;</span><span class="p">];</span>
+</span></span></code></pre></div><p><strong>length属性</strong>
 设定length，短了切除，长了用undefined填充。在超远的距离填充（如colors[99] = &ldquo;xx&rdquo;，那么2-98都为undefined。
 套路：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">colors</span><span class="p">[</span><span class="nx">colors</span><span class="p">.</span><span class="nx">length</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&#34;xx&#34;</span><span class="p">;</span><span class="c1">//在最后一项添加
-</span></code></pre></div><h3 id="521-检测数组">5.2.1 检测数组</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="nx">colors</span><span class="p">[</span><span class="nx">colors</span><span class="p">.</span><span class="nx">length</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&#34;xx&#34;</span><span class="p">;</span><span class="c1">//在最后一项添加
+</span></span></span></code></pre></div><h3 id="521-检测数组">5.2.1 检测数组</h3>
 <p>instanceof（假定只有一个全局环境）
 **Array.isArray()**方法（不管有多少个环境）</p>
 <h3 id="522-转换方法">5.2.2 转换方法</h3>
 <p><strong>toLocaleString(),toString(),valueOf()</strong>
 调用数组的 toString()方法会返回由数组中每个值的字符串形式拼接而成的一个以逗号分隔的字符串。而调用 valueOf()返回的还是数组。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="nx">toLocaleString</span> <span class="o">:</span> <span class="kd">function</span><span class="p">{</span>
-        <span class="p">...</span>
-    <span class="p">}</span>
-    <span class="nx">toStirng</span> <span class="o">:</span> <span class="kd">function</span><span class="p">{</span>
-        <span class="p">...</span>
-    <span class="p">}</span>
-<span class="p">};</span><span class="c1">//这样改变方法
-</span></code></pre></div><p>**join()**方法只接收一个参数，即用作分隔符的字符串，然后返回包含所有数组项的字符串（不传入值或undefined就用逗号）。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">toLocaleString</span> <span class="o">:</span> <span class="kd">function</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="p">...</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">toStirng</span> <span class="o">:</span> <span class="kd">function</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="p">...</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span><span class="c1">//这样改变方法
+</span></span></span></code></pre></div><p>**join()**方法只接收一个参数，即用作分隔符的字符串，然后返回包含所有数组项的字符串（不传入值或undefined就用逗号）。</p>
 <h3 id="523-栈方法">5.2.3 栈方法</h3>
 <p><strong>LIFO:push() pop()</strong>
 push()方法可以接收任意数量的参数，把它们逐个添加到数组末尾，并返回修改后数组的长度。
@@ -166,17 +166,17 @@ push()方法可以接收任意数量的参数，把它们逐个添加到数组�
 sort()方法会调用每个数组项的toString()转型方法，然后比较得到的字符串，以确定如何排序。即使数组中的每一项都是数值，sort()方法比较的也是字符串。
 传入比较function判断排序。
 如：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">compare</span><span class="p">(</span><span class="nx">value1</span><span class="p">,</span> <span class="nx">value2</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">value1</span> <span class="o">&lt;</span> <span class="nx">value2</span><span class="p">)</span> <span class="p">{</span>         
-        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>     
-    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">value1</span> <span class="o">&gt;</span> <span class="nx">value2</span><span class="p">)</span> <span class="p">{</span>         
-        <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>     
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>         
-        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>    
-    <span class="p">}</span>
-<span class="p">}</span>
-<span class="nx">values</span><span class="p">.</span><span class="nx">sort</span><span class="p">(</span><span class="nx">compare</span><span class="p">);</span> 
-</code></pre></div><h3 id="526-操作方法">5.2.6 操作方法</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">compare</span><span class="p">(</span><span class="nx">value1</span><span class="p">,</span> <span class="nx">value2</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">value1</span> <span class="o">&lt;</span> <span class="nx">value2</span><span class="p">)</span> <span class="p">{</span>         
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>     
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">value1</span> <span class="o">&gt;</span> <span class="nx">value2</span><span class="p">)</span> <span class="p">{</span>         
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>     
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>         
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>    
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">values</span><span class="p">.</span><span class="nx">sort</span><span class="p">(</span><span class="nx">compare</span><span class="p">);</span> 
+</span></span></code></pre></div><h3 id="526-操作方法">5.2.6 操作方法</h3>
 <p><strong>concat()</strong> 方法可以基于当前数组中的所有项创建一个新数组。
 这个方法会先创建当前数组一个副本，然后将接收到的参数添加到这个副本的末尾，后返回新构建的数组。</p>
 <p><strong>slice()</strong> 能够基于当前数组中的一或多个项创建一个新数组。
@@ -193,17 +193,17 @@ splice()方法始终都会返回一个数组，该数组中包含从原始数组
 比较使用===</p>
 <h3 id="528-迭代方法">5.2.8 迭代方法</h3>
 <p> every()：对数组中的每一项运行给定函数，如果该函数对每一项都返回 true，则返回 true。
- filter()：对数组中的每一项运行给定函数，返回该函数会返回 true 的项组成的数组。 
- forEach()：对数组中的每一项运行给定函数。这个方法没有返回值。 
- map()：对数组中的每一项运行给定函数，返回每次函数调用的结果组成的数组。 
+ filter()：对数组中的每一项运行给定函数，返回该函数会返回 true 的项组成的数组。
+ forEach()：对数组中的每一项运行给定函数。这个方法没有返回值。
+ map()：对数组中的每一项运行给定函数，返回每次函数调用的结果组成的数组。
  some()：对数组中的每一项运行给定函数，如果该函数对任一项返回 true，则返回 true。</p>
 <h3 id="529-归并方法">5.2.9 归并方法</h3>
 <p>reduce()和 reduceRight()。这两个方法都会迭代数组的所有项，然后构建一个终返回的值。
 这两个方法都接收两个参数：一个在每一项上调用的函数和（可选的）作为归并基础的初始值。
 给 reduce()和 reduceRight()的函数接收 4 个参数：前一个值、当前值、项的索引和数组对象。这个函数返回的任何值都会作为第一个参数自动传给下一项。</p>
 <h2 id="53-date类型">5.3 Date类型</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">d</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span><span class="c1">//括号中填入毫秒数
-</span></code></pre></div><p>表示自 UTC（Coordinated Universal Time，国际协调时间）1970年 1月 1日午夜（零时）开始经过的毫秒数来保存日期。
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">d</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span><span class="c1">//括号中填入毫秒数
+</span></span></span></code></pre></div><p>表示自 UTC（Coordinated Universal Time，国际协调时间）1970年 1月 1日午夜（零时）开始经过的毫秒数来保存日期。
 parse():不固定具体格式，转化为该日期的毫秒数
 UTC()：按照年、月、日、时、分、秒、毫秒顺序填入。其中月和时从0开始，转化为该日期的毫秒数。
 toString()/toLocaleString()：转化为日期表示。
@@ -219,14 +219,14 @@ now()：返回现在时间的毫秒数</p>
     >RegExp</a></p>
 <h2 id="55-function类型">5.5 Function类型</h2>
 <p>函数实际上是对象，每个函数都是 Function 类型的实例，而且都与其他引用类型一样具有属性和方法。函数名实际上也是一个指向函数对象的指针，不会与某个函数绑定。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">sum</span> <span class="p">(</span><span class="nx">num1</span><span class="p">,</span> <span class="nx">num2</span><span class="p">)</span> <span class="p">{</span>     
-    <span class="k">return</span> <span class="nx">num1</span> <span class="o">+</span> <span class="nx">num2</span><span class="p">;</span> 
-<span class="p">}</span>
-<span class="kd">var</span> <span class="nx">sum</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">sum1</span><span class="p">,</span> <span class="nx">sum2</span><span class="p">){</span>
-    <span class="k">return</span> <span class="nx">num1</span> <span class="o">+</span> <span class="nx">num2</span><span class="p">;</span>
-<span class="p">};</span>
-<span class="kd">var</span> <span class="nx">sum</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Function</span><span class="p">(</span><span class="s2">&#34;sum1&#34;</span><span class="p">,</span><span class="s2">&#34;sum2&#34;</span><span class="p">,</span><span class="s2">&#34;return num1 + num2&#34;</span><span class="p">)</span><span class="c1">//不推荐
-</span></code></pre></div><p>不推荐的那种会导致解析两次代码（第一次是解析常规ECMAScript代码，第二次是解析传入构造函数中的字符串），从而影响性能。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">sum</span> <span class="p">(</span><span class="nx">num1</span><span class="p">,</span> <span class="nx">num2</span><span class="p">)</span> <span class="p">{</span>     
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">num1</span> <span class="o">+</span> <span class="nx">num2</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">sum</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">sum1</span><span class="p">,</span> <span class="nx">sum2</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">num1</span> <span class="o">+</span> <span class="nx">num2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">sum</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Function</span><span class="p">(</span><span class="s2">&#34;sum1&#34;</span><span class="p">,</span><span class="s2">&#34;sum2&#34;</span><span class="p">,</span><span class="s2">&#34;return num1 + num2&#34;</span><span class="p">)</span><span class="c1">//不推荐
+</span></span></span></code></pre></div><p>不推荐的那种会导致解析两次代码（第一次是解析常规ECMAScript代码，第二次是解析传入构造函数中的字符串），从而影响性能。</p>
 <h3 id="551-没有重载">5.5.1 没有重载</h3>
 <p>函数名为指针，如果定义了另外一个函数则会指向另外一个函数。</p>
 <h3 id="552-函数声明与函数表达式">5.5.2 函数声明与函数表达式</h3>
@@ -237,18 +237,18 @@ now()：返回现在时间的毫秒数</p>
 函数的return可返回一个函数</p>
 <h3 id="554-函数内部属性">5.5.4 函数内部属性</h3>
 <p>arguments和this。
-arguments的callee属性：该属性是一个指针，指向拥有这个 arguments 对象的函数。 
+arguments的callee属性：该属性是一个指针，指向拥有这个 arguments 对象的函数。
 如：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">factorial</span><span class="p">(</span><span class="nx">num</span><span class="p">){</span>     
-    <span class="k">if</span> <span class="p">(</span><span class="nx">num</span> <span class="o">&lt;=</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>         
-        <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>     
-        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>         
-            <span class="k">return</span> <span class="nx">num</span> <span class="o">*</span> <span class="nx">arguments</span><span class="p">.</span><span class="nx">callee</span><span class="p">(</span><span class="nx">num</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-            <span class="c1">//不是factorial，消除了与这个名字的耦合   
-</span><span class="c1"></span>        <span class="p">}</span> 
-    <span class="p">}</span>  
-<span class="kd">var</span> <span class="nx">trueFactorial</span> <span class="o">=</span> <span class="nx">factorial</span><span class="p">;</span> <span class="c1">//可正常调用，factorial则不行
-</span></code></pre></div><p>this 引用的是函数据以执行的环境对象——或者也可以说是 this 值（当在网页的全局作用域中调用函数时， this 对象引用的就是 window）</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">factorial</span><span class="p">(</span><span class="nx">num</span><span class="p">){</span>     
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">num</span> <span class="o">&lt;=</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>         
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>     
+</span></span><span class="line"><span class="cl">        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>         
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="nx">num</span> <span class="o">*</span> <span class="nx">arguments</span><span class="p">.</span><span class="nx">callee</span><span class="p">(</span><span class="nx">num</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">//不是factorial，消除了与这个名字的耦合   
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="p">}</span> 
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>  
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">trueFactorial</span> <span class="o">=</span> <span class="nx">factorial</span><span class="p">;</span> <span class="c1">//可正常调用，factorial则不行
+</span></span></span></code></pre></div><p>this 引用的是函数据以执行的环境对象——或者也可以说是 this 值（当在网页的全局作用域中调用函数时， this 对象引用的就是 window）</p>
 <p>ECMAScript 5也规范化了另一个函数对象的属性：caller。除了 Opera的早期版本不支持，其他浏览器都支持这个 ECMAScript 3并没有定义的属性。这个属性中保存着调用当前函数的函数的引用，如果是在全局作用域中调用当前函数，它的值为 null。</p>
 <p>ECMAScript 5 还定义了 arguments.caller 属性，但在严格模式下访问它也会导致错误，而在非严格模式下这个属性始终是 undefined。定义这个属性是为了分清 arguments.caller 和函数的 caller 属性。</p>
 <h3 id="555-函数属性和方法">5.5.5 函数属性和方法</h3>
@@ -257,16 +257,16 @@ arguments的callee属性：该属性是一个指针，指向拥有这个 argumen
 <p><strong>apply()和call()</strong>。这两个方法的用途都是在特定的作用域中调用函数，实际上等于设置函数体内 this 对象的值。首先，apply()方法接收两个参数：一个是在其中运行函数的作用域，另一个是参数数组。其中，第二个参数可以是 Array 的实例，也可以是 arguments 对象。</p>
 <p>call() 方法而言，第一个参数是 this 值没有变化，变化的是其余参数都直接传递给函数。</p>
 <p>它们真正强大的地方是能够扩充函数 赖以运行的作用域。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="nb">window</span><span class="p">.</span><span class="nx">color</span> <span class="o">=</span> <span class="s2">&#34;red&#34;</span><span class="p">;</span> 
-<span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">color</span><span class="o">:</span> <span class="s2">&#34;blue&#34;</span> <span class="p">};</span>  
-<span class="kd">function</span> <span class="nx">sayColor</span><span class="p">(){</span>     
-    <span class="nx">alert</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">color</span><span class="p">);</span> 
-<span class="p">}</span> 
-<span class="nx">sayColor</span><span class="p">();</span>                <span class="c1">//red 
-</span><span class="c1"></span><span class="nx">sayColor</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>       <span class="c1">//red 
-</span><span class="c1"></span><span class="nx">sayColor</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nb">window</span><span class="p">);</span>     <span class="c1">//red 
-</span><span class="c1"></span><span class="nx">sayColor</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">o</span><span class="p">);</span>          <span class="c1">//blue
-</span></code></pre></div><p><strong>bind()</strong>。这个方法会创建一个函数的实例，其 this 值会被绑定到传给bind()函数的值。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nb">window</span><span class="p">.</span><span class="nx">color</span> <span class="o">=</span> <span class="s2">&#34;red&#34;</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">color</span><span class="o">:</span> <span class="s2">&#34;blue&#34;</span> <span class="p">};</span>  
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">sayColor</span><span class="p">(){</span>     
+</span></span><span class="line"><span class="cl">    <span class="nx">alert</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">color</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span><span class="line"><span class="cl"><span class="nx">sayColor</span><span class="p">();</span>                <span class="c1">//red 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">sayColor</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>       <span class="c1">//red 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">sayColor</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nb">window</span><span class="p">);</span>     <span class="c1">//red 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">sayColor</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">o</span><span class="p">);</span>          <span class="c1">//blue
+</span></span></span></code></pre></div><p><strong>bind()</strong>。这个方法会创建一个函数的实例，其 this 值会被绑定到传给bind()函数的值。</p>
 <p>(待续)</p>
 
 </section>

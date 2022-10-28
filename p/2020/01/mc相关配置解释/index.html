@@ -127,16 +127,16 @@ java版可自行下载，基岩版必须购买</p>
     >mc_server</a>
 ubuntu需要使用wget获得服务器
 再安装jdk：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo apt install openjdk-11-jre-headless
-</code></pre></div><p>安装完成后再在bash输入：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo java -Xms512m -Xmx1024m -jar /path/to/server.jar nogui
-</code></pre></div><p>就可生成文件
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt install openjdk-11-jre-headless
+</span></span></code></pre></div><p>安装完成后再在bash输入：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo java -Xms512m -Xmx1024m -jar /path/to/server.jar nogui
+</span></span></code></pre></div><p>就可生成文件
 使用文本编辑器在生成的eula.txt文件中修改为true，在server.properties文件中修改online-mode=false
 制作启动脚本：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/sh
-</span><span class="cp"></span>
-java -Xms512m -Xmx1024m -jar /path/to/server.jar nogui<span class="p">;</span>
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/sh
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl">java -Xms512m -Xmx1024m -jar /path/to/server.jar nogui<span class="p">;</span>
+</span></span></code></pre></div>
 </section>
 
 
