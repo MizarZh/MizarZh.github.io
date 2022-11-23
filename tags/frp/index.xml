@@ -1,20 +1,45 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>frp on MizarZ&#39;s Blog</title>
-    <link>https://mizarzh.github.io/tags/frp/</link>
-    <description>Recent content in frp on MizarZ&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
-    <lastBuildDate>Tue, 19 May 2020 23:36:19 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/tags/frp/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>瞎折腾之frp</title>
-      <link>https://mizarzh.github.io/p/2020/05/%E7%9E%8E%E6%8A%98%E8%85%BE%E4%B9%8Bfrp/</link>
-      <pubDate>Tue, 19 May 2020 23:36:19 +0800</pubDate>
-      
-      <guid>https://mizarzh.github.io/p/2020/05/%E7%9E%8E%E6%8A%98%E8%85%BE%E4%B9%8Bfrp/</guid>
-      <description>众所周之frp是一款内网穿透工具，可以用来干很多神奇的事情。我使用frp也有很多种目的，接下来就慢慢细说。 MC服务器 在某个ddl成堆的晚上，</description>
-    </item>
-    
-  </channel>
+    <channel>
+        <title>frp on MizarZ&#39;s Blog</title>
+        <link>https://mizarzh.github.io/tags/frp/</link>
+        <description>Recent content in frp on MizarZ&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <lastBuildDate>Tue, 19 May 2020 23:36:19 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/tags/frp/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>瞎折腾之frp</title>
+        <link>https://mizarzh.github.io/p/2020/05/%E7%9E%8E%E6%8A%98%E8%85%BE%E4%B9%8Bfrp/</link>
+        <pubDate>Tue, 19 May 2020 23:36:19 +0800</pubDate>
+        
+        <guid>https://mizarzh.github.io/p/2020/05/%E7%9E%8E%E6%8A%98%E8%85%BE%E4%B9%8Bfrp/</guid>
+        <description>&lt;p&gt;众所周之frp是一款内网穿透工具，可以用来干很多神奇的事情。我使用frp也有很多种目的，接下来就慢慢细说。&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;h2 id=&#34;mc服务器&#34;&gt;MC服务器&lt;/h2&gt;
+&lt;p&gt;在某个ddl成堆的晚上，某损友找上了我说要帮他整个MC服务器，并向我吹嘘它家的电脑多么强劲。我想着回头再帮他看看吧，最终碍于爱搞事情的本性愉快的放弃了一堆没做的东西开始折腾起怎么搭建mc服务器的事情。&lt;/p&gt;
+&lt;p&gt;其实搭建mc服务器本身并不难，在有一台云主机（没有公网ip也想整frp就别想了→_→）的情况下，第一反应就是在云主机上搭建mc服务器。我在之前的blog中已经写过mc服务器应该如何搭建了，但是这孱弱的性能怕撑不起这么多人，加上他吹嘘他家的电脑，我决定使用本地主机搭建服务器+内网穿透的方法搭建多人mc服务器。&lt;/p&gt;
+&lt;p&gt;首先先下载&lt;a class=&#34;link&#34; href=&#34;https://github.com/fatedier/frp/releases&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;frp&lt;/a&gt;。
+frps是frp的服务器，应放置在有公网ip的服务器上（这里指的是孱弱服务器）。
+使用scp传文件到服务器上
+frpc是frp的客户端，应放置在要暴露服务的机器上（这里指的是损友电脑）。&lt;/p&gt;
+&lt;p&gt;接下来在服务端配置frps.ini：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;common&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;bind_port&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// 其他机器访问的端口
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;客户端frpc.ini的配置:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;common&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;server_addr&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// 服务器的地址
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;server_port&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// frps.ini中的bind_port
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;minecraft&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;type&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;tcp&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;local_ip&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;127.0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;0.1&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// 本地
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;local_port&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;25565&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// mc开启的端口
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;remote_port&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;25565&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;都配置好之后就在命令行中分别运行&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;./frps
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;./frpc
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;同时开启mc服务器，在其他机器上输入连接frpc.ini中的server_addr:server_port即可开始游戏。&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
 </rss>

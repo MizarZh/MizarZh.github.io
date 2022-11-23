@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>github on MizarZ&#39;s Blog</title>
+        <link>https://mizarzh.github.io/tags/github/</link>
+        <description>Recent content in github on MizarZ&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <lastBuildDate>Sat, 29 Oct 2022 00:58:11 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/tags/github/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Github Token的配置方法</title>
+        <link>https://mizarzh.github.io/p/2022/10/github-token%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95/</link>
+        <pubDate>Sat, 29 Oct 2022 00:58:11 +0800</pubDate>
+        
+        <guid>https://mizarzh.github.io/p/2022/10/github-token%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95/</guid>
+        <description>&lt;p&gt;虽然 github 关闭密码验证已经是很久之前的事情了：&lt;a class=&#34;link&#34; href=&#34;https://github.blog/changelog/2021-08-12-git-password-authentication-is-shutting-down/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Git password authentication is shutting down | GitHub Changelog&lt;/a&gt;，但是作为一个懒人，我在昨天才开始配置 token……&lt;/p&gt;
+&lt;p&gt;简单记录一下更换 token 的步骤（因为确实很长，且分散在不同的文档中），以免以后忘记。&lt;/p&gt;
+&lt;h2 id=&#34;1-添加-ssh-key&#34;&gt;1 添加 SSH key&lt;/h2&gt;
+&lt;p&gt;生成 SSH key：&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Generating a new SSH key and adding it to the ssh-agent - GitHub Docs&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;添加 SSH key 到账号中：&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Adding a new SSH key to your GitHub account - GitHub Docs&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;简单来说就是在本地生成一个 SSH key（相当于凭证），然后保存在 github 自己的账号上，这样本机就可以通过这个凭证进行操作了。&lt;/p&gt;
+&lt;p&gt;大概步骤：&lt;/p&gt;
+&lt;p&gt;1、本地生成一个以自己邮箱为 label 的 SSH key：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ssh-keygen -t ed25519 -C &lt;span class=&#34;s2&#34;&gt;&amp;#34;your_email@example.com&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;2、输入储存的位置（回车则存储在默认位置）&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt; Enter a file in which to save the key &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;/c/Users/YOU/.ssh/id_ALGORITHM&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;:&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;Press enter&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;输入 passphrase （相当于保护 SSH key 密码一样的东西），也可以不设置直接回车。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt; Enter passphrase &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;empty &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; no passphrase&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;: &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;Type a passphrase&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt; Enter same passphrase again: &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;Type passphrase again&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;3、查看生成的 SSH key&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cat ~/.ssh/id_ed25519.pub
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后复制&lt;/p&gt;
+&lt;p&gt;4、Github 配置&lt;/p&gt;
+&lt;p&gt;Settings -&amp;gt; Access / SSH and GPG keys -&amp;gt; new SSH key -&amp;gt; 起个名字，粘贴刚刚赋值的 key -&amp;gt; Add SSH key&lt;/p&gt;
+&lt;h2 id=&#34;2-生成-token&#34;&gt;2 生成 token&lt;/h2&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Creating a personal access token - GitHub Docs&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;真正的凭证应该是 token，有了 token 才能在命令行中与 remote 服务器交流。&lt;/p&gt;
+&lt;p&gt;一共有两种 token：classic 和 fine-grained 。最大区别在于 classic 只能应用到所有仓库上，fine-grained 可以更加细致的分配到什么仓库、什么权限上。&lt;/p&gt;
+&lt;p&gt;配置位置：Settings -&amp;gt; Developer settings -&amp;gt; Personal access tokens&lt;/p&gt;
+&lt;p&gt;配置详细见文档，应该也不是很难操作。&lt;/p&gt;
+&lt;h2 id=&#34;3-remote-最速解决方法&#34;&gt;3 remote 最速解决方法&lt;/h2&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.github.com/en/get-started/getting-started-with-git/managing-remote-repositories&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Managing remote repositories - GitHub Docs&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;git push, pull 等等应该是最常用的操作。带有 token 的 push 我倒是没在 github docs 上看到有相关的写法，导致一直在用修改前的 origin。&lt;/p&gt;
+&lt;p&gt;现在不能直接 push 到 &lt;code&gt;https://github.com/name/repository.git&lt;/code&gt;，而是要在 &lt;code&gt;github.com&lt;/code&gt; 前面加上 &lt;code&gt;token@&lt;/code&gt;：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git push https://&amp;lt;GITHUB_ACCESS_TOKEN&amp;gt;@github.com/&amp;lt;GITHUB_USERNAME&amp;gt;/&amp;lt;REPOSITORY_NAME&amp;gt;.git
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;有可能需要修改一下以前的 remote 配置了：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git remote set-url origin https://&amp;lt;GITHUB_ACCESS_TOKEN&amp;gt;@github.com/&amp;lt;GITHUB_USERNAME&amp;gt;/&amp;lt;REPOSITORY_NAME&amp;gt;.git
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;一些相关的讨论：&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://stackoverflow.com/questions/18935539/authenticate-with-github-using-a-token&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Authenticate with GitHub using a token - Stack Overflow&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

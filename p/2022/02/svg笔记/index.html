@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='简介 SVG 是一种 XML 语言，可以用来绘制矢量图形。 一些注意的点： SVG的元素和属性必须按标准格式书写，因为XML是区分大小写的（这一点和HTML不同'><title>Svg笔记</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='简介 SVG 是一种 XML 语言，可以用来绘制矢量图形。 一些注意的点： SVG的元素和属性必须按标准格式书写，因为XML是区分大小写的（这一点和HTML不同'>
+<title>Svg笔记</title>
 
 <link rel='canonical' href='https://mizarzh.github.io/p/2022/02/svg%E7%AC%94%E8%AE%B0/'>
 
-<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='Svg笔记'>
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='Svg笔记'>
 <meta property='og:description' content='简介 SVG 是一种 XML 语言，可以用来绘制矢量图形。 一些注意的点： SVG的元素和属性必须按标准格式书写，因为XML是区分大小写的（这一点和HTML不同'>
 <meta property='og:url' content='https://mizarzh.github.io/p/2022/02/svg%E7%AC%94%E8%AE%B0/'>
 <meta property='og:site_name' content='MizarZ&#39;s Blog'>
@@ -16,8 +17,8 @@
 
     </head>
     <body class="
-    article-page has-toc
-">
+    article-page
+    ">
     <script>
         (function() {
             const colorSchemeKey = 'StackColorScheme';
@@ -40,26 +41,288 @@
         }
     })();
 </script>
-<div class="container main-container flex 
-    
-        extended
-    
-">
-    
-        <div id="article-toolbar">
-            <a href="/" class="back-home">
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <polyline points="15 6 9 12 15 18" />
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu06d6ebd0fb0ddfbf4635527d9aae802d_36938_300x0_resize_q75_box.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">MizarZ&#39;s Blog</a></h1>
+            <h2 class="site-description">半吊子物理系学生/啥都不会程序员/喜爱泛理科内容</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/MizarZh'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
 </svg>
 
 
 
-                <span>返回</span>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
             </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/academics/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>Academic</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/project/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Projects</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>暗色模式</span>
+                </li>
+            
         </div>
-    
-<main class="main full-width">
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#简介">简介</a></li>
+    <li><a href="#根元素和一点入门">根元素和一点入门</a></li>
+    <li><a href="#坐标系统">坐标系统</a></li>
+    <li><a href="#基本形状">基本形状</a>
+      <ol>
+        <li><a href="#矩形">矩形</a></li>
+        <li><a href="#圆形">圆形</a></li>
+        <li><a href="#椭圆">椭圆</a></li>
+        <li><a href="#线条">线条</a></li>
+        <li><a href="#折线">折线</a></li>
+        <li><a href="#多边形">多边形</a></li>
+        <li><a href="#路径">路径</a>
+          <ol>
+            <li><a href="#直线命令">直线命令</a></li>
+            <li><a href="#m">M</a></li>
+            <li><a href="#l">L</a></li>
+            <li><a href="#hv">H、V</a></li>
+            <li><a href="#z">Z</a></li>
+            <li><a href="#曲线命令">曲线命令</a></li>
+            <li><a href="#c">C</a></li>
+            <li><a href="#s">S</a></li>
+            <li><a href="#q">Q</a></li>
+            <li><a href="#t">T</a></li>
+            <li><a href="#弧形">弧形</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#填充与边框">填充与边框</a>
+      <ol>
+        <li><a href="#颜色">颜色</a></li>
+        <li><a href="#描边">描边</a></li>
+        <li><a href="#css">CSS</a></li>
+      </ol>
+    </li>
+    <li><a href="#渐变">渐变</a>
+      <ol>
+        <li><a href="#线性渐变">线性渐变</a></li>
+        <li><a href="#径向渐变">径向渐变</a></li>
+      </ol>
+    </li>
+    <li><a href="#图案">图案</a></li>
+    <li><a href="#文字">文字</a>
+      <ol>
+        <li><a href="#基本属性">基本属性</a></li>
+        <li><a href="#字体属性">字体属性</a></li>
+        <li><a href="#其他属性">其他属性</a>
+          <ol>
+            <li><a href="#tspan">tspan</a></li>
+            <li><a href="#tref">tref</a></li>
+            <li><a href="#textpath">textPath</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#变换">变换</a></li>
+    <li><a href="#剪切和遮罩">剪切和遮罩</a>
+      <ol>
+        <li><a href="#剪切">剪切</a></li>
+        <li><a href="#遮罩">遮罩</a></li>
+      </ol>
+    </li>
+    <li><a href="#滤镜">滤镜</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
     <article class="main-article">
     <header class="article-header">
 
@@ -74,12 +337,17 @@
     </header>
     
 
-    <h2 class="article-title">
-        <a href="/p/2022/02/svg%E7%AC%94%E8%AE%B0/">Svg笔记</a>
-    </h2>
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/2022/02/svg%E7%AC%94%E8%AE%B0/">Svg笔记</a>
+        </h2>
+    
+        
+    </div>
 
     
-
+    
+    
     
     <footer class="article-time">
         
@@ -100,10 +368,15 @@
         
     </footer>
     
+
+    
 </div>
+
 </header>
 
     <section class="article-content">
+    
+    
     <h2 id="简介">简介</h2>
 <p>SVG 是一种 XML 语言，可以用来绘制矢量图形。</p>
 <p>一些注意的点：</p>
@@ -170,111 +443,86 @@
 <p>语法：</p>
 <pre tabindex="0"><code> C x1 y1, x2 y2, x y (or c dx1 dy1, dx2 dy2, dx dy)
 </code></pre><p>x, y 是曲线的重点，前两个点是控制点。</p>
-<p><figure 
+<p><img src="/p/2022/02/svg%E7%AC%94%E8%AE%B0/Cubic_Bezier_Curves.png"
+	width="190"
+	height="160"
+	srcset="/p/2022/02/svg%E7%AC%94%E8%AE%B0/Cubic_Bezier_Curves_hu7a6e7472c5dc909f65446b597ba098e9_6837_480x0_resize_box_3.png 480w, /p/2022/02/svg%E7%AC%94%E8%AE%B0/Cubic_Bezier_Curves_hu7a6e7472c5dc909f65446b597ba098e9_6837_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
 	
 		class="gallery-image" 
-		style="
-			flex-grow: 118; 
-			flex-basis: 285px"
-	>
-	<a href="/p/2022/02/svg%E7%AC%94%E8%AE%B0/Cubic_Bezier_Curves.png" data-size="190x160">
-		<img src="/p/2022/02/svg%E7%AC%94%E8%AE%B0/Cubic_Bezier_Curves.png"
-			width="190"
-			height="160"
-			srcset="/p/2022/02/svg%E7%AC%94%E8%AE%B0/Cubic_Bezier_Curves_hu7a6e7472c5dc909f65446b597ba098e9_6837_480x0_resize_box_3.png 480w, /p/2022/02/svg%E7%AC%94%E8%AE%B0/Cubic_Bezier_Curves_hu7a6e7472c5dc909f65446b597ba098e9_6837_1024x0_resize_box_3.png 1024w"
-			loading="lazy"
-			>
-	</a>
+		data-flex-grow="118"
+		data-flex-basis="285px"
 	
-</figure></p>
+></p>
 <h4 id="s">S</h4>
 <p>连续的贝塞尔曲线</p>
 <p>语法：</p>
 <pre tabindex="0"><code>S x2 y2, x y (or s dx2 dy2, dx dy)
 </code></pre><p>如果 S 命令跟在一个 C 或 S 命令后面，则它的第一个控制点会被假设成前一个命令曲线的第二个控制点的中心对称点（反向）。</p>
-<p><figure 
+<p><img src="/p/2022/02/svg%E7%AC%94%E8%AE%B0/ShortCut_Cubic_Bezier.png"
+	width="190"
+	height="160"
+	srcset="/p/2022/02/svg%E7%AC%94%E8%AE%B0/ShortCut_Cubic_Bezier_hu248af7cecd44cc81209ab1a73afe847b_6804_480x0_resize_box_3.png 480w, /p/2022/02/svg%E7%AC%94%E8%AE%B0/ShortCut_Cubic_Bezier_hu248af7cecd44cc81209ab1a73afe847b_6804_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
 	
 		class="gallery-image" 
-		style="
-			flex-grow: 118; 
-			flex-basis: 285px"
-	>
-	<a href="/p/2022/02/svg%E7%AC%94%E8%AE%B0/ShortCut_Cubic_Bezier.png" data-size="190x160">
-		<img src="/p/2022/02/svg%E7%AC%94%E8%AE%B0/ShortCut_Cubic_Bezier.png"
-			width="190"
-			height="160"
-			srcset="/p/2022/02/svg%E7%AC%94%E8%AE%B0/ShortCut_Cubic_Bezier_hu248af7cecd44cc81209ab1a73afe847b_6804_480x0_resize_box_3.png 480w, /p/2022/02/svg%E7%AC%94%E8%AE%B0/ShortCut_Cubic_Bezier_hu248af7cecd44cc81209ab1a73afe847b_6804_1024x0_resize_box_3.png 1024w"
-			loading="lazy"
-			>
-	</a>
+		data-flex-grow="118"
+		data-flex-basis="285px"
 	
-</figure></p>
+></p>
 <p>如果 S 命令单独使用，前面没有 C 或 S 命令，那当前点将作为第一个控制点。</p>
 <h4 id="q">Q</h4>
 <p>二次贝塞尔曲线</p>
 <p>语法：</p>
 <pre tabindex="0"><code>Q x1 y1, x y (or q dx1 dy1, dx dy)
-</code></pre><p><figure 
+</code></pre><p><img src="/p/2022/02/svg%E7%AC%94%E8%AE%B0/Quadratic_Bezier.png"
+	width="190"
+	height="160"
+	srcset="/p/2022/02/svg%E7%AC%94%E8%AE%B0/Quadratic_Bezier_hu9dfe87982063621c1a454f2dc94420da_4544_480x0_resize_box_3.png 480w, /p/2022/02/svg%E7%AC%94%E8%AE%B0/Quadratic_Bezier_hu9dfe87982063621c1a454f2dc94420da_4544_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
 	
 		class="gallery-image" 
-		style="
-			flex-grow: 118; 
-			flex-basis: 285px"
-	>
-	<a href="/p/2022/02/svg%E7%AC%94%E8%AE%B0/Quadratic_Bezier.png" data-size="190x160">
-		<img src="/p/2022/02/svg%E7%AC%94%E8%AE%B0/Quadratic_Bezier.png"
-			width="190"
-			height="160"
-			srcset="/p/2022/02/svg%E7%AC%94%E8%AE%B0/Quadratic_Bezier_hu9dfe87982063621c1a454f2dc94420da_4544_480x0_resize_box_3.png 480w, /p/2022/02/svg%E7%AC%94%E8%AE%B0/Quadratic_Bezier_hu9dfe87982063621c1a454f2dc94420da_4544_1024x0_resize_box_3.png 1024w"
-			loading="lazy"
-			>
-	</a>
+		data-flex-grow="118"
+		data-flex-basis="285px"
 	
-</figure></p>
+></p>
 <h4 id="t">T</h4>
 <p>二次贝塞尔曲线版本的 S</p>
 <p>语法：</p>
 <pre tabindex="0"><code>T x y (or t dx dy)
-</code></pre><p><figure 
+</code></pre><p><img src="/p/2022/02/svg%E7%AC%94%E8%AE%B0/Shortcut_Quadratic_Bezier.png"
+	width="190"
+	height="160"
+	srcset="/p/2022/02/svg%E7%AC%94%E8%AE%B0/Shortcut_Quadratic_Bezier_hu10cf9faa5551533ed3bdefc5300e95db_5966_480x0_resize_box_3.png 480w, /p/2022/02/svg%E7%AC%94%E8%AE%B0/Shortcut_Quadratic_Bezier_hu10cf9faa5551533ed3bdefc5300e95db_5966_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
 	
 		class="gallery-image" 
-		style="
-			flex-grow: 118; 
-			flex-basis: 285px"
-	>
-	<a href="/p/2022/02/svg%E7%AC%94%E8%AE%B0/Shortcut_Quadratic_Bezier.png" data-size="190x160">
-		<img src="/p/2022/02/svg%E7%AC%94%E8%AE%B0/Shortcut_Quadratic_Bezier.png"
-			width="190"
-			height="160"
-			srcset="/p/2022/02/svg%E7%AC%94%E8%AE%B0/Shortcut_Quadratic_Bezier_hu10cf9faa5551533ed3bdefc5300e95db_5966_480x0_resize_box_3.png 480w, /p/2022/02/svg%E7%AC%94%E8%AE%B0/Shortcut_Quadratic_Bezier_hu10cf9faa5551533ed3bdefc5300e95db_5966_1024x0_resize_box_3.png 1024w"
-			loading="lazy"
-			>
-	</a>
+		data-flex-grow="118"
+		data-flex-basis="285px"
 	
-</figure></p>
+></p>
 <p>如果前面使用的不是 Q 命令或 T 命令，那么控制点被认为和终点是同一个点，那么画出来的就是一条直线。</p>
 <h4 id="弧形">弧形</h4>
 <p>语法：</p>
 <pre tabindex="0"><code>A rx ry x-axis-rotation large-arc-flag sweep-flag x y
 a rx ry x-axis-rotation large-arc-flag sweep-flag dx dy
 </code></pre><p>rx, ry 指的是 x 轴半径和 y 轴半径。x-axis-rotation 是旋转角度。large-arc-flag 和 sweep-flag 分别用来描述不同情况下的弧。</p>
-<p><figure 
+<p><img src="/p/2022/02/svg%E7%AC%94%E8%AE%B0/SVGArcs_Flags.png"
+	width="325"
+	height="325"
+	srcset="/p/2022/02/svg%E7%AC%94%E8%AE%B0/SVGArcs_Flags_hubf46fc1bc8f9ba5e67e416732134b348_22296_480x0_resize_box_3.png 480w, /p/2022/02/svg%E7%AC%94%E8%AE%B0/SVGArcs_Flags_hubf46fc1bc8f9ba5e67e416732134b348_22296_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
 	
 		class="gallery-image" 
-		style="
-			flex-grow: 100; 
-			flex-basis: 240px"
-	>
-	<a href="/p/2022/02/svg%E7%AC%94%E8%AE%B0/SVGArcs_Flags.png" data-size="325x325">
-		<img src="/p/2022/02/svg%E7%AC%94%E8%AE%B0/SVGArcs_Flags.png"
-			width="325"
-			height="325"
-			srcset="/p/2022/02/svg%E7%AC%94%E8%AE%B0/SVGArcs_Flags_hubf46fc1bc8f9ba5e67e416732134b348_22296_480x0_resize_box_3.png 480w, /p/2022/02/svg%E7%AC%94%E8%AE%B0/SVGArcs_Flags_hubf46fc1bc8f9ba5e67e416732134b348_22296_1024x0_resize_box_3.png 1024w"
-			loading="lazy"
-			>
-	</a>
+		data-flex-grow="100"
+		data-flex-basis="240px"
 	
-</figure></p>
+></p>
 <p>最后两个参数指定弧形的终点。</p>
 <h2 id="填充与边框">填充与边框</h2>
 <p>SVG 可以使用多种方法着色：内联 CSS、内嵌 CSS、外部 CSS。</p>
@@ -284,41 +532,31 @@ a rx ry x-axis-rotation large-arc-flag sweep-flag dx dy
 <h3 id="描边">描边</h3>
 <p><code>stroke-width</code>属性定义了描边的宽度。</p>
 <p><code>stroke-linecap</code>属性控制边框终点的形状。可以使用 butt, squire, round 三个值。</p>
-<p><figure 
+<p><img src="/p/2022/02/svg%E7%AC%94%E8%AE%B0/SVG_Stroke_Linecap_Example.png"
+	width="160"
+	height="140"
+	srcset="/p/2022/02/svg%E7%AC%94%E8%AE%B0/SVG_Stroke_Linecap_Example_huff3c08438517f3a0bff29b857f5f8f41_4319_480x0_resize_box_3.png 480w, /p/2022/02/svg%E7%AC%94%E8%AE%B0/SVG_Stroke_Linecap_Example_huff3c08438517f3a0bff29b857f5f8f41_4319_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
 	
 		class="gallery-image" 
-		style="
-			flex-grow: 114; 
-			flex-basis: 274px"
-	>
-	<a href="/p/2022/02/svg%E7%AC%94%E8%AE%B0/SVG_Stroke_Linecap_Example.png" data-size="160x140">
-		<img src="/p/2022/02/svg%E7%AC%94%E8%AE%B0/SVG_Stroke_Linecap_Example.png"
-			width="160"
-			height="140"
-			srcset="/p/2022/02/svg%E7%AC%94%E8%AE%B0/SVG_Stroke_Linecap_Example_huff3c08438517f3a0bff29b857f5f8f41_4319_480x0_resize_box_3.png 480w, /p/2022/02/svg%E7%AC%94%E8%AE%B0/SVG_Stroke_Linecap_Example_huff3c08438517f3a0bff29b857f5f8f41_4319_1024x0_resize_box_3.png 1024w"
-			loading="lazy"
-			>
-	</a>
+		data-flex-grow="114"
+		data-flex-basis="274px"
 	
-</figure></p>
+></p>
 <p><code>stroke-linejoin</code>属性用来控制两条描边线段之间用什么方式连接。</p>
-<p><figure 
+<p><img src="/p/2022/02/svg%E7%AC%94%E8%AE%B0/SVG_Stroke_Linejoin_Example.png"
+	width="160"
+	height="280"
+	srcset="/p/2022/02/svg%E7%AC%94%E8%AE%B0/SVG_Stroke_Linejoin_Example_huc0c460b78e24486cc1ea71fe6f70c71e_6249_480x0_resize_box_3.png 480w, /p/2022/02/svg%E7%AC%94%E8%AE%B0/SVG_Stroke_Linejoin_Example_huc0c460b78e24486cc1ea71fe6f70c71e_6249_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
 	
 		class="gallery-image" 
-		style="
-			flex-grow: 57; 
-			flex-basis: 137px"
-	>
-	<a href="/p/2022/02/svg%E7%AC%94%E8%AE%B0/SVG_Stroke_Linejoin_Example.png" data-size="160x280">
-		<img src="/p/2022/02/svg%E7%AC%94%E8%AE%B0/SVG_Stroke_Linejoin_Example.png"
-			width="160"
-			height="280"
-			srcset="/p/2022/02/svg%E7%AC%94%E8%AE%B0/SVG_Stroke_Linejoin_Example_huc0c460b78e24486cc1ea71fe6f70c71e_6249_480x0_resize_box_3.png 480w, /p/2022/02/svg%E7%AC%94%E8%AE%B0/SVG_Stroke_Linejoin_Example_huc0c460b78e24486cc1ea71fe6f70c71e_6249_1024x0_resize_box_3.png 1024w"
-			loading="lazy"
-			>
-	</a>
+		data-flex-grow="57"
+		data-flex-basis="137px"
 	
-</figure></p>
+></p>
 <p><code>stroke-dasharray</code>属性将虚线类型应用在描边上。</p>
 <p><code>fill-rule</code>，用于定义如何给图形重叠的区域上色；<code>stroke-miterlimit</code>，定义什么情况下绘制或不绘制边框连接的<code>miter</code>效果；还有<code>stroke-dashoffset</code>，定义虚线开始的位置。</p>
 <h3 id="css">CSS</h3>
@@ -352,45 +590,35 @@ a rx ry x-axis-rotation large-arc-flag sweep-flag dx dy
 </span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">stop</span> <span class="na">offset</span><span class="o">=</span><span class="s">&#34;100%&#34;</span> <span class="na">stop-color</span><span class="o">=</span><span class="s">&#34;blue&#34;</span><span class="p">/&gt;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">radialGradient</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">defs</span><span class="p">&gt;</span>
-</span></span></code></pre></div><p><figure 
+</span></span></code></pre></div><p><img src="/p/2022/02/svg%E7%AC%94%E8%AE%B0/image-20220217192009346.png"
+	width="142"
+	height="143"
+	srcset="/p/2022/02/svg%E7%AC%94%E8%AE%B0/image-20220217192009346_hud87801760819f9fcfe39b79872d6c002_11540_480x0_resize_box_3.png 480w, /p/2022/02/svg%E7%AC%94%E8%AE%B0/image-20220217192009346_hud87801760819f9fcfe39b79872d6c002_11540_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="焦点示意图"
+	
 	
 		class="gallery-image" 
-		style="
-			flex-grow: 99; 
-			flex-basis: 238px"
-	>
-	<a href="/p/2022/02/svg%E7%AC%94%E8%AE%B0/image-20220217192009346.png" data-size="142x143">
-		<img src="/p/2022/02/svg%E7%AC%94%E8%AE%B0/image-20220217192009346.png"
-			width="142"
-			height="143"
-			srcset="/p/2022/02/svg%E7%AC%94%E8%AE%B0/image-20220217192009346_hud87801760819f9fcfe39b79872d6c002_11540_480x0_resize_box_3.png 480w, /p/2022/02/svg%E7%AC%94%E8%AE%B0/image-20220217192009346_hud87801760819f9fcfe39b79872d6c002_11540_1024x0_resize_box_3.png 1024w"
-			loading="lazy"
-			alt="焦点示意图">
-	</a>
+		data-flex-grow="99"
+		data-flex-basis="238px"
 	
-	<figcaption>焦点示意图</figcaption>
-	
-</figure></p>
+></p>
 <p>额外的一个属性：<code>spreadMethod</code>，该属性控制了当渐变到达终点的行为。可以有三个值：pad reflect repeat。</p>
-<p><figure 
+<p><img src="/p/2022/02/svg%E7%AC%94%E8%AE%B0/image-20220217192444747.png"
+	width="295"
+	height="278"
+	srcset="/p/2022/02/svg%E7%AC%94%E8%AE%B0/image-20220217192444747_hud76d7a5a7ce3a2c85b9565d609ddbd29_23386_480x0_resize_box_3.png 480w, /p/2022/02/svg%E7%AC%94%E8%AE%B0/image-20220217192444747_hud76d7a5a7ce3a2c85b9565d609ddbd29_23386_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="spreadMethod"
+	
 	
 		class="gallery-image" 
-		style="
-			flex-grow: 106; 
-			flex-basis: 254px"
-	>
-	<a href="/p/2022/02/svg%E7%AC%94%E8%AE%B0/image-20220217192444747.png" data-size="295x278">
-		<img src="/p/2022/02/svg%E7%AC%94%E8%AE%B0/image-20220217192444747.png"
-			width="295"
-			height="278"
-			srcset="/p/2022/02/svg%E7%AC%94%E8%AE%B0/image-20220217192444747_hud76d7a5a7ce3a2c85b9565d609ddbd29_23386_480x0_resize_box_3.png 480w, /p/2022/02/svg%E7%AC%94%E8%AE%B0/image-20220217192444747_hud76d7a5a7ce3a2c85b9565d609ddbd29_23386_1024x0_resize_box_3.png 1024w"
-			loading="lazy"
-			alt="spreadMethod">
-	</a>
+		data-flex-grow="106"
+		data-flex-basis="254px"
 	
-	<figcaption>spreadMethod</figcaption>
-	
-</figure></p>
+></p>
 <p>两种渐变都有一个叫做gradientUnits（渐变单元）的属性，它描述了用来描述渐变的大小和方向的单元系统。该属性有两个值：userSpaceOnUse 、objectBoundingBox。默认值为 objectBoundingBox。</p>
 <h2 id="图案">图案</h2>
 <p>需要放在 <code>&lt;defs&gt;</code> 内部。</p>
@@ -405,25 +633,20 @@ a rx ry x-axis-rotation large-arc-flag sweep-flag dx dy
 </span></span></code></pre></div><p>在 <code>&lt;pattern&gt;</code> 内部可以包含任何之前包含过的其它基本形状，并且每个形状都可以使用之前学习过的任何样式样式化，包括渐变和半透明。定义的是一个单元系统以及他们的大小。</p>
 <p>类似于 <code>gradientUnits</code>，<code>parttern</code> 也有一个属性 <code>patternUnits</code>。</p>
 <p><code>pattern</code> 还有另外一个属性 <code>patternContentUnits</code>，它描述了<code>pattern</code>元素基于基本形状使用的单元系统，这个属性默认值为<code>userSpaceOnUse</code>。</p>
-<p><figure 
+<p><img src="/p/2022/02/svg%E7%AC%94%E8%AE%B0/SVG_Pattern_Comparison_of_Units.png"
+	width="640"
+	height="320"
+	srcset="/p/2022/02/svg%E7%AC%94%E8%AE%B0/SVG_Pattern_Comparison_of_Units_hu91dc22a3973d183ef738824f23bdbabe_56267_480x0_resize_box_3.png 480w, /p/2022/02/svg%E7%AC%94%E8%AE%B0/SVG_Pattern_Comparison_of_Units_hu91dc22a3973d183ef738824f23bdbabe_56267_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="patternUnits 和 patternContentUnits的一个示例"
+	
 	
 		class="gallery-image" 
-		style="
-			flex-grow: 200; 
-			flex-basis: 480px"
-	>
-	<a href="/p/2022/02/svg%E7%AC%94%E8%AE%B0/SVG_Pattern_Comparison_of_Units.png" data-size="640x320">
-		<img src="/p/2022/02/svg%E7%AC%94%E8%AE%B0/SVG_Pattern_Comparison_of_Units.png"
-			width="640"
-			height="320"
-			srcset="/p/2022/02/svg%E7%AC%94%E8%AE%B0/SVG_Pattern_Comparison_of_Units_hu91dc22a3973d183ef738824f23bdbabe_56267_480x0_resize_box_3.png 480w, /p/2022/02/svg%E7%AC%94%E8%AE%B0/SVG_Pattern_Comparison_of_Units_hu91dc22a3973d183ef738824f23bdbabe_56267_1024x0_resize_box_3.png 1024w"
-			loading="lazy"
-			alt="patternUnits 和 patternContentUnits的一个示例">
-	</a>
+		data-flex-grow="200"
+		data-flex-basis="480px"
 	
-	<figcaption>patternUnits 和 patternContentUnits的一个示例</figcaption>
-	
-</figure></p>
+></p>
 <h2 id="文字">文字</h2>
 <h3 id="基本属性">基本属性</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">text</span> <span class="na">x</span><span class="o">=</span><span class="s">&#34;10&#34;</span> <span class="na">y</span><span class="o">=</span><span class="s">&#34;10&#34;</span><span class="p">&gt;</span>Hello World!<span class="p">&lt;/</span><span class="nt">text</span><span class="p">&gt;</span>
@@ -534,91 +757,39 @@ $$
     
         <link 
                 rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css"integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn"crossorigin="anonymous"
+                href="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.css"integrity="sha256-J&#43;iAE0sgH8QSz9hpcDxXIftnj65JEZgNhGcgReTTK9s="crossorigin="anonymous"
             ><script 
-                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js"integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8"crossorigin="anonymous"
-                defer="true"
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.js"integrity="sha256-InsNdER1b2xUewP&#43;pKCUJpkhiqwHgqiPXDlIk7GzBu4="crossorigin="anonymous"
+                defer
                 >
             </script><script 
-                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js"integrity="sha384-vZTG03m&#43;2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl"crossorigin="anonymous"
-                defer="true"
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/contrib/auto-render.min.js"integrity="sha256-y39Mpg7V3D4lhBX4x6O0bUqTV4pSrfgwEfGKfxkOdgI="crossorigin="anonymous"
+                defer
                 >
-            </script>
-<script>
-MathJax = {
-    tex: {
-        inlineMath: [['$', '$'], ['\\(', '\\)']],
-        displayMath: [['$$', '$$'], ['\\[', '\\]']],
-        processEscapes: true,
-        processEnvironments: true
-    },
-    options: {
-        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
-    }
-};
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });})
 </script>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script id="MathJax-script" async
-src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
     
 </article>
 
-    <aside class="related-contents--wrapper">
     
+
     
-        <h2 class="section-title">相关文章</h2>
-        <div class="related-contents">
-            <div class="flex article-list--tile">
-                
-                    
-<article class="">
-    <a href="/p/2022/02/canvas%E7%AC%94%E8%AE%B0/">
-        
-        
 
-        <div class="article-details">
-            <h2 class="article-title">Canvas笔记</h2>
-        </div>
-    </a>
-</article>
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
                 
-                    
-<article class="">
-    <a href="/p/2022/02/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%BD%93%E9%AA%8C1/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">前端工程化体验（1）</h2>
-        </div>
-    </a>
-</article>
-                
-                    
-<article class="">
-    <a href="/p/2022/01/%E5%89%8D%E7%AB%AF%E4%B8%8B%E8%BD%BD%E5%8E%9F%E5%A7%8B%E5%AE%9E%E7%8E%B0/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">前端下载原始实现</h2>
-        </div>
-    </a>
-</article>
-                
-                    
-<article class="">
-    <a href="/p/2022/01/date%E6%96%B9%E6%B3%95/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">Date方法</h2>
-        </div>
-    </a>
-</article>
-                
-                    
 <article class="">
     <a href="/p/2021/11/object%E6%96%B9%E6%B3%95/">
         
@@ -629,10 +800,62 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
         </div>
     </a>
 </article>
+
+            
                 
-            </div>
+<article class="">
+    <a href="/p/2021/09/webpack%E5%AD%A6%E4%B9%A0/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">webpack学习</h2>
         </div>
-    
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/2022/11/mathematica-%E6%80%BB%E7%BB%93/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Mathematica 总结</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/2022/02/canvas%E7%AC%94%E8%AE%B0/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Canvas笔记</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/2022/01/js%E7%9A%84%E6%A8%A1%E5%9D%97%E7%B3%BB%E7%BB%9F%E4%BB%A5%E5%8F%8A%E5%85%B6%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Js的模块系统以及其零碎知识</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
 </aside>
 
      
@@ -642,23 +865,19 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
 
     <footer class="site-footer">
     <section class="copyright">
-        &copy;
+        &copy; 
         
-        2021 -
+            2021 - 
         
         2022 MizarZ&#39;s Blog
     </section>
-
+    
     <section class="powerby">
         Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
-        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener"
-                data-version="3.4.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
-
-        
-
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
     </section>
-
 </footer>
+
 
     
 <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
@@ -724,115 +943,25 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
 
 </div><script 
                 src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
-                defer="true"
+                defer
                 >
             </script><script 
                 src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
-                defer="true"
+                defer
                 >
             </script><link 
                 rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
             ><link 
                 rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
             >
 
             </main>
-    
-        <aside class="sidebar right-sidebar sticky">
-            <section class="widget archives">
-                <div class="widget-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <line x1="5" y1="9" x2="19" y2="9" />
-  <line x1="5" y1="15" x2="19" y2="15" />
-  <line x1="11" y1="4" x2="7" y2="20" />
-  <line x1="17" y1="4" x2="13" y2="20" />
-</svg>
-
-
-
-                </div>
-                <h2 class="widget-title section-title">目录</h2>
-                
-                <div class="widget--toc">
-                    <nav id="TableOfContents">
-  <ol>
-    <li><a href="#简介">简介</a></li>
-    <li><a href="#根元素和一点入门">根元素和一点入门</a></li>
-    <li><a href="#坐标系统">坐标系统</a></li>
-    <li><a href="#基本形状">基本形状</a>
-      <ol>
-        <li><a href="#矩形">矩形</a></li>
-        <li><a href="#圆形">圆形</a></li>
-        <li><a href="#椭圆">椭圆</a></li>
-        <li><a href="#线条">线条</a></li>
-        <li><a href="#折线">折线</a></li>
-        <li><a href="#多边形">多边形</a></li>
-        <li><a href="#路径">路径</a>
-          <ol>
-            <li><a href="#直线命令">直线命令</a></li>
-            <li><a href="#m">M</a></li>
-            <li><a href="#l">L</a></li>
-            <li><a href="#hv">H、V</a></li>
-            <li><a href="#z">Z</a></li>
-            <li><a href="#曲线命令">曲线命令</a></li>
-            <li><a href="#c">C</a></li>
-            <li><a href="#s">S</a></li>
-            <li><a href="#q">Q</a></li>
-            <li><a href="#t">T</a></li>
-            <li><a href="#弧形">弧形</a></li>
-          </ol>
-        </li>
-      </ol>
-    </li>
-    <li><a href="#填充与边框">填充与边框</a>
-      <ol>
-        <li><a href="#颜色">颜色</a></li>
-        <li><a href="#描边">描边</a></li>
-        <li><a href="#css">CSS</a></li>
-      </ol>
-    </li>
-    <li><a href="#渐变">渐变</a>
-      <ol>
-        <li><a href="#线性渐变">线性渐变</a></li>
-        <li><a href="#径向渐变">径向渐变</a></li>
-      </ol>
-    </li>
-    <li><a href="#图案">图案</a></li>
-    <li><a href="#文字">文字</a>
-      <ol>
-        <li><a href="#基本属性">基本属性</a></li>
-        <li><a href="#字体属性">字体属性</a></li>
-        <li><a href="#其他属性">其他属性</a>
-          <ol>
-            <li><a href="#tspan">tspan</a></li>
-            <li><a href="#tref">tref</a></li>
-            <li><a href="#textpath">textPath</a></li>
-          </ol>
-        </li>
-      </ol>
-    </li>
-    <li><a href="#变换">变换</a></li>
-    <li><a href="#剪切和遮罩">剪切和遮罩</a>
-      <ol>
-        <li><a href="#剪切">剪切</a></li>
-        <li><a href="#遮罩">遮罩</a></li>
-      </ol>
-    </li>
-    <li><a href="#滤镜">滤镜</a></li>
-  </ol>
-</nav>
-                </div>
-            </section>
-        </aside>
-    
-
         </div>
         <script 
-                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
-                defer="false"
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
                 >
             </script><script type="text/javascript" src="/ts/main.js" defer></script>
 <script>

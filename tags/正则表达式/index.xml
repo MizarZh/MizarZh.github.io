@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>正则表达式 on MizarZ&#39;s Blog</title>
+        <link>https://mizarzh.github.io/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</link>
+        <description>Recent content in 正则表达式 on MizarZ&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <lastBuildDate>Wed, 05 Feb 2020 00:57:40 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Regexp相关</title>
+        <link>https://mizarzh.github.io/p/2020/02/regexp%E7%9B%B8%E5%85%B3/</link>
+        <pubDate>Wed, 05 Feb 2020 00:57:40 +0800</pubDate>
+        
+        <guid>https://mizarzh.github.io/p/2020/02/regexp%E7%9B%B8%E5%85%B3/</guid>
+        <description>&lt;h1 id=&#34;正则表达式的表示方法&#34;&gt;正则表达式的表示方法&lt;/h1&gt;
+&lt;p&gt;来自：&lt;a class=&#34;link&#34; href=&#34;http://www.regexlab.com/zh/regref.htm&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;regexlab&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;1直接写内容&#34;&gt;1、直接写内容&lt;/h2&gt;
+&lt;p&gt;直接匹配内容&lt;/p&gt;
+&lt;h2 id=&#34;2转义字符&#34;&gt;2、转义字符&lt;/h2&gt;
+&lt;h3 id=&#34;1&#34;&gt;1&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;字符&lt;/th&gt;
+&lt;th&gt;含义&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;\n \r&lt;/td&gt;
+&lt;td&gt;换行符&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;\t&lt;/td&gt;
+&lt;td&gt;制表符&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;\\&lt;/td&gt;
+&lt;td&gt;\的字符&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;\$&lt;/td&gt;
+&lt;td&gt;$的字符&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;\^&lt;/td&gt;
+&lt;td&gt;^的字符&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;\.&lt;/td&gt;
+&lt;td&gt;.的字符&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;h3 id=&#34;2&#34;&gt;2&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;字符&lt;/th&gt;
+&lt;th&gt;含义&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;\d&lt;/td&gt;
+&lt;td&gt;任意数字&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;\w&lt;/td&gt;
+&lt;td&gt;任意数字、字母及下划线_&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;\s&lt;/td&gt;
+&lt;td&gt;空白或制表符或换页符&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;.&lt;/td&gt;
+&lt;td&gt;任意字符（除换行符）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;3方括号&#34;&gt;3、方括号&lt;/h2&gt;
+&lt;p&gt;使用方括号 [ ] 包含一系列字符，能够匹配其中任意一个字符。用 [^ ] 包含一系列字符，则能够匹配其中字符之外的任意一个字符。
+如：[abc] (a,b,c中任意一个)、[^ f-k] (不是f-k的任意一个字母)、[A-F0-9] (A-F和0-9中任意一个)&lt;/p&gt;
+&lt;h2 id=&#34;4数量匹配&#34;&gt;4、数量匹配&lt;/h2&gt;
+&lt;p&gt;{n}重复n次
+{m,n}重复至少m次至多n次
+{m,}至少重复m次
+? 相当于 {0,1}
++ 相当于 {1,}
+* 相当于 {0,}&lt;/p&gt;
+&lt;h2 id=&#34;5位置匹配&#34;&gt;5、位置匹配？&lt;/h2&gt;
+&lt;p&gt;^ 与字符串开始的地方匹配，不匹配任何字符（若匹配到的字符不是开始则错误）
+$ 与字符串结束的地方匹配，不匹配任何字符
+\b 匹配一个单词边界，也就是单词和空格之间的位置，不匹配任何字符&lt;/p&gt;
+&lt;h2 id=&#34;6其他&#34;&gt;6、其他&lt;/h2&gt;
+&lt;p&gt;|  	左右两边表达式之间 &amp;ldquo;或&amp;rdquo; 关系，匹配左边或者右边
+( )
+(1). 在被修饰匹配次数的时候，括号中的表达式可以作为整体被修饰
+(2). 取匹配结果的时候，括号中的表达式匹配到的内容可以被单独得到&lt;/p&gt;
+&lt;h2 id=&#34;7高级技巧&#34;&gt;7、高级技巧&lt;/h2&gt;
+&lt;h3 id=&#34;贪婪与非贪婪&#34;&gt;贪婪与非贪婪&lt;/h3&gt;
+&lt;p&gt;默认是贪婪（匹配得越多越好）
+在数量符号后面加上?（如w+?）则为非贪婪模式，匹配越少越好&lt;/p&gt;
+&lt;h3 id=&#34;引用&#34;&gt;引用&lt;/h3&gt;
+&lt;p&gt;\1、\2等符号获取在( )中匹配的字符&lt;/p&gt;
+&lt;h3 id=&#34;预搜索不匹配反向预搜索不匹配&#34;&gt;预搜索，不匹配；反向预搜索，不匹配&lt;/h3&gt;
+&lt;p&gt;(?=xxxx)&lt;/p&gt;
+&lt;h2 id=&#34;8其他&#34;&gt;8、其他&lt;/h2&gt;
+&lt;p&gt;\xXX  \uXXXX 表示字符（编码相关？）
+\S \D \W \B 代表相反意义（非数字等）&lt;/p&gt;
+&lt;h2 id=&#34;注意事项&#34;&gt;注意事项&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;表达式不要匹配空字符串。否则会一直得到匹配成功，而结果什么都没有匹配到。&lt;/li&gt;
+&lt;li&gt;能匹配空字符串的子匹配不要循环无限次。如果括号内的子表达式中的每一部分都可以匹配 0 次，而这个括号整体又可以匹配无限次，那么情况可能比上一条所说的更严重，匹配过程中可能死循环。&lt;/li&gt;
+&lt;li&gt;需注意贪婪与非贪婪模式&lt;/li&gt;
+&lt;li&gt;或 &amp;ldquo;|&amp;rdquo; 的左右两边，对某个字符最好只有一边可以匹配，这样，不会因为 &amp;ldquo;|&amp;rdquo; 两边的表达式因为交换位置而有所不同。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;js里面的正则表达式形式&#34;&gt;js里面的正则表达式形式：&lt;/h1&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;var&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;exp&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;sr&#34;&gt;/ pattern /&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;flags&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;//字面量类型
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;var&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;exp2&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;RegExp&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;[bc]at&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;i&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;//构造函数
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;模式（pattern）为表达式。
+flags:
+g表示全局（global）模式，即模式将被应用于所有字符串，而非在发现第一个匹配项时立即停止；
+i：表示不区分大小写（case-insensitive）模式，即在确定匹配项时忽略模式与字符串的大小写
+m：表示多行（multiline）模式，即在到达一行文本末尾时还会继续查找下一行中是否存在与模式匹配的项。
+传入构造函数的字符串需双重转义
+如匹配\：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;字符串&lt;/th&gt;
+&lt;th&gt;字面量&lt;/th&gt;
+&lt;th&gt;匹配&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;\\\\|\\|\&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;（嗯其实这里打的markdown已经是四重转义了）&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;实例的属性&#34;&gt;实例的属性&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;global：布尔值，表示是否设置了 g 标志。&lt;/li&gt;
+&lt;li&gt;ignoreCase：布尔值，表示是否设置了 i 标志。&lt;/li&gt;
+&lt;li&gt;lastIndex：整数，表示开始搜索下一个匹配项的字符位置，从0算起。&lt;/li&gt;
+&lt;li&gt;multiline：布尔值，表示是否设置了 m 标志。&lt;/li&gt;
+&lt;li&gt;source：正则表达式的字符串表示，按照字面量形式而非传入构造函数中的字符串模式返回。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;实例的方法&#34;&gt;实例的方法&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;exec()&lt;/strong&gt;：接受一个参数，即要应用模式的字符串，然后返回包含第一个匹配项信息的数组；或者在没有匹配项的情况下返回 null。&lt;/p&gt;
+&lt;p&gt;返回的数组虽然是 Array 的实例，但包含两个额外的属性：index 和 input。其中，index表示匹配项在字符串中的位置，而 input 表示应用正则表达式的字符串。&lt;/p&gt;
+&lt;p&gt;在数组中，第一项是与整个模式匹配 的字符串，其他项是与模式中的捕获组匹配的字符串（如果模式中没有捕获组，则该数组只包含一项）。&lt;/p&gt;
+&lt;p&gt;对于exec()方法而言，即使在模式中设置了全局标志（g），它每次也只会返回一个匹配项。在不设置全局标志的情况下，在同一个字符串上多次调用exec()将始终返回第一个匹配项的信息。而在设置全局标志的情况下，每次调用exec()则都会在字符串中继续查找新匹配项，常与for函数一起使用用于找出所有匹配项。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;test()&lt;/strong&gt;:它接受一个字符串参数。在模式与该参数匹配的情况下返回 true；否则，返回 false。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;toLocaleString()和toString()&lt;/strong&gt; 方法都会返回正则表达式的字面量。
+valueOf()方法返回正则表达式本身。&lt;/p&gt;
+&lt;h2 id=&#34;regexp构造函数属性&#34;&gt;RegExp构造函数属性&lt;/h2&gt;
+&lt;h1 id=&#34;原理nfa&#34;&gt;原理（NFA）&lt;/h1&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

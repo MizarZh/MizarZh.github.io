@@ -1,23 +1,24 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='天文光度学 几个重要参数和概念 衡量光的强度使用的是能量$E$，衡量光单位时间内的强度用的是功率$P$。由于光不断在运动，恒星不断在产能，因此使'><title>天文光度学</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='天文光度学 几个重要参数和概念 衡量光的强度使用的是能量$E$，衡量光单位时间内的强度用的是功率$P$。由于光不断在运动，恒星不断在产能，因此使'>
+<title>天文光度学</title>
 
 <link rel='canonical' href='https://mizarzh.github.io/p/2021/09/%E5%A4%A9%E6%96%87%E5%85%89%E5%BA%A6%E5%AD%A6/'>
 
-<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='天文光度学'>
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='天文光度学'>
 <meta property='og:description' content='天文光度学 几个重要参数和概念 衡量光的强度使用的是能量$E$，衡量光单位时间内的强度用的是功率$P$。由于光不断在运动，恒星不断在产能，因此使'>
 <meta property='og:url' content='https://mizarzh.github.io/p/2021/09/%E5%A4%A9%E6%96%87%E5%85%89%E5%BA%A6%E5%AD%A6/'>
 <meta property='og:site_name' content='MizarZ&#39;s Blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='天文' /><meta property='article:published_time' content='2021-09-11T15:34:01&#43;08:00'/><meta property='article:modified_time' content='2021-09-11T15:34:01&#43;08:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='业余天文' /><meta property='article:tag' content='光度学' /><meta property='article:tag' content='教程' /><meta property='article:published_time' content='2021-09-11T15:34:01&#43;08:00'/><meta property='article:modified_time' content='2021-09-11T15:34:01&#43;08:00'/>
 <meta name="twitter:title" content="天文光度学">
 <meta name="twitter:description" content="天文光度学 几个重要参数和概念 衡量光的强度使用的是能量$E$，衡量光单位时间内的强度用的是功率$P$。由于光不断在运动，恒星不断在产能，因此使">
     <link rel="shortcut icon" href="img/favicon-32x32.png" />
 
     </head>
     <body class="
-    article-page has-toc
-">
+    article-page
+    ">
     <script>
         (function() {
             const colorSchemeKey = 'StackColorScheme';
@@ -40,26 +41,241 @@
         }
     })();
 </script>
-<div class="container main-container flex 
-    
-        extended
-    
-">
-    
-        <div id="article-toolbar">
-            <a href="/" class="back-home">
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <polyline points="15 6 9 12 15 18" />
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu06d6ebd0fb0ddfbf4635527d9aae802d_36938_300x0_resize_q75_box.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">MizarZ&#39;s Blog</a></h1>
+            <h2 class="site-description">半吊子物理系学生/啥都不会程序员/喜爱泛理科内容</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/MizarZh'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
 </svg>
 
 
 
-                <span>返回</span>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
             </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/academics/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>Academic</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/project/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Projects</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>暗色模式</span>
+                </li>
+            
         </div>
-    
-<main class="main full-width">
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#几个重要参数和概念">几个重要参数和概念</a></li>
+    <li><a href="#导出参数及关系">导出参数及关系</a></li>
+    <li><a href="#星等">星等</a>
+      <ol>
+        <li><a href="#历史">历史</a></li>
+        <li><a href="#原理及推导">原理及推导</a></li>
+        <li><a href="#星等系统">星等系统</a></li>
+        <li><a href="#绝对星等">绝对星等</a></li>
+      </ol>
+    </li>
+    <li><a href="#消光extinction和光深optical-thickness">消光(extinction)和光深(optical thickness)</a>
+      <ol>
+        <li><a href="#色余color-excess">色余(color excess)</a></li>
+        <li><a href="#大气消光">大气消光</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
     <article class="main-article">
     <header class="article-header">
 
@@ -67,19 +283,24 @@
     
     <header class="article-category">
         
-            <a href="/categories/%E5%A4%A9%E6%96%87/" style="background-color: #71b7f2; color: ;">
-                天文
+            <a href="/categories/%E5%85%B4%E8%B6%A3/" style="background-color: #71b7f2; color: ;">
+                兴趣
             </a>
         
     </header>
     
 
-    <h2 class="article-title">
-        <a href="/p/2021/09/%E5%A4%A9%E6%96%87%E5%85%89%E5%BA%A6%E5%AD%A6/">天文光度学</a>
-    </h2>
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/2021/09/%E5%A4%A9%E6%96%87%E5%85%89%E5%BA%A6%E5%AD%A6/">天文光度学</a>
+        </h2>
+    
+        
+    </div>
 
     
-
+    
+    
     
     <footer class="article-time">
         
@@ -100,10 +321,15 @@
         
     </footer>
     
+
+    
 </div>
+
 </header>
 
     <section class="article-content">
+    
+    
     <h1 id="天文光度学">天文光度学</h1>
 <h2 id="几个重要参数和概念">几个重要参数和概念</h2>
 <p>衡量光的强度使用的是能量$E$，衡量光单位时间内的强度用的是功率$P$。由于光不断在运动，恒星不断在产能，因此使用后者是较为合理的。</p>
@@ -119,23 +345,18 @@ $$
 L=4\pi r^2 F
 $$
 即众所周知的平方反比定律：</p>
-<p><figure 
+<p><img src="/p/2021/09/%E5%A4%A9%E6%96%87%E5%85%89%E5%BA%A6%E5%AD%A6/%E5%B9%B3%E6%96%B9%E5%8F%8D%E6%AF%94.jpg"
+	width="463"
+	height="466"
+	srcset="/p/2021/09/%E5%A4%A9%E6%96%87%E5%85%89%E5%BA%A6%E5%AD%A6/%E5%B9%B3%E6%96%B9%E5%8F%8D%E6%AF%94_hucf4cf77bcc4e5b281c7552cc7a5a7ef3_24129_480x0_resize_q75_box.jpg 480w, /p/2021/09/%E5%A4%A9%E6%96%87%E5%85%89%E5%BA%A6%E5%AD%A6/%E5%B9%B3%E6%96%B9%E5%8F%8D%E6%AF%94_hucf4cf77bcc4e5b281c7552cc7a5a7ef3_24129_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
 	
 		class="gallery-image" 
-		style="
-			flex-grow: 99; 
-			flex-basis: 238px"
-	>
-	<a href="/p/2021/09/%E5%A4%A9%E6%96%87%E5%85%89%E5%BA%A6%E5%AD%A6/%E5%B9%B3%E6%96%B9%E5%8F%8D%E6%AF%94.jpg" data-size="463x466">
-		<img src="/p/2021/09/%E5%A4%A9%E6%96%87%E5%85%89%E5%BA%A6%E5%AD%A6/%E5%B9%B3%E6%96%B9%E5%8F%8D%E6%AF%94.jpg"
-			width="463"
-			height="466"
-			srcset="/p/2021/09/%E5%A4%A9%E6%96%87%E5%85%89%E5%BA%A6%E5%AD%A6/%E5%B9%B3%E6%96%B9%E5%8F%8D%E6%AF%94_hucf4cf77bcc4e5b281c7552cc7a5a7ef3_24129_480x0_resize_q75_box.jpg 480w, /p/2021/09/%E5%A4%A9%E6%96%87%E5%85%89%E5%BA%A6%E5%AD%A6/%E5%B9%B3%E6%96%B9%E5%8F%8D%E6%AF%94_hucf4cf77bcc4e5b281c7552cc7a5a7ef3_24129_1024x0_resize_q75_box.jpg 1024w"
-			loading="lazy"
-			>
-	</a>
+		data-flex-grow="99"
+		data-flex-basis="238px"
 	
-</figure></p>
+></p>
 <h2 id="星等">星等</h2>
 <h3 id="历史">历史</h3>
 <p>公元前二世纪，Hipparchos定义了一套星等系统：将天上所有可见的星分为六等，最明亮的为一等星，勉强可见的最暗星为六等星。</p>
@@ -162,40 +383,30 @@ m_{\text{bol}}=m_{V}-\text{BC}
 $$
 当然也有可能是正号，看具体情况。</p>
 <p>$m_V$，$m_{\text{pg}}$定义的星等并不准确，因此在1950年早期Harold L. Johnson 和 William W. Morgan定义了一套星等系统叫做UBV系统，即加入不同波段的透镜让望远镜接收不同波段的光从而判断颜色。后续发展出了UBVRI和ubvy系统：</p>
-<p><figure 
+<p><img src="/p/2021/09/%E5%A4%A9%E6%96%87%E5%85%89%E5%BA%A6%E5%AD%A6/UBVRI.jpg"
+	width="485"
+	height="358"
+	srcset="/p/2021/09/%E5%A4%A9%E6%96%87%E5%85%89%E5%BA%A6%E5%AD%A6/UBVRI_hu6027c585670245f4ffb3e0a61a685ff0_35147_480x0_resize_q75_box.jpg 480w, /p/2021/09/%E5%A4%A9%E6%96%87%E5%85%89%E5%BA%A6%E5%AD%A6/UBVRI_hu6027c585670245f4ffb3e0a61a685ff0_35147_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
 	
 		class="gallery-image" 
-		style="
-			flex-grow: 135; 
-			flex-basis: 325px"
-	>
-	<a href="/p/2021/09/%E5%A4%A9%E6%96%87%E5%85%89%E5%BA%A6%E5%AD%A6/UBVRI.jpg" data-size="485x358">
-		<img src="/p/2021/09/%E5%A4%A9%E6%96%87%E5%85%89%E5%BA%A6%E5%AD%A6/UBVRI.jpg"
-			width="485"
-			height="358"
-			srcset="/p/2021/09/%E5%A4%A9%E6%96%87%E5%85%89%E5%BA%A6%E5%AD%A6/UBVRI_hu6027c585670245f4ffb3e0a61a685ff0_35147_480x0_resize_q75_box.jpg 480w, /p/2021/09/%E5%A4%A9%E6%96%87%E5%85%89%E5%BA%A6%E5%AD%A6/UBVRI_hu6027c585670245f4ffb3e0a61a685ff0_35147_1024x0_resize_q75_box.jpg 1024w"
-			loading="lazy"
-			>
-	</a>
+		data-flex-grow="135"
+		data-flex-basis="325px"
 	
-</figure></p>
-<p><figure 
+></p>
+<p><img src="/p/2021/09/%E5%A4%A9%E6%96%87%E5%85%89%E5%BA%A6%E5%AD%A6/UBVRI_diagram.jpg"
+	width="457"
+	height="241"
+	srcset="/p/2021/09/%E5%A4%A9%E6%96%87%E5%85%89%E5%BA%A6%E5%AD%A6/UBVRI_diagram_hu960a1430c9ace0d40a4d8bcf0302ec71_20523_480x0_resize_q75_box.jpg 480w, /p/2021/09/%E5%A4%A9%E6%96%87%E5%85%89%E5%BA%A6%E5%AD%A6/UBVRI_diagram_hu960a1430c9ace0d40a4d8bcf0302ec71_20523_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
 	
 		class="gallery-image" 
-		style="
-			flex-grow: 189; 
-			flex-basis: 455px"
-	>
-	<a href="/p/2021/09/%E5%A4%A9%E6%96%87%E5%85%89%E5%BA%A6%E5%AD%A6/UBVRI_diagram.jpg" data-size="457x241">
-		<img src="/p/2021/09/%E5%A4%A9%E6%96%87%E5%85%89%E5%BA%A6%E5%AD%A6/UBVRI_diagram.jpg"
-			width="457"
-			height="241"
-			srcset="/p/2021/09/%E5%A4%A9%E6%96%87%E5%85%89%E5%BA%A6%E5%AD%A6/UBVRI_diagram_hu960a1430c9ace0d40a4d8bcf0302ec71_20523_480x0_resize_q75_box.jpg 480w, /p/2021/09/%E5%A4%A9%E6%96%87%E5%85%89%E5%BA%A6%E5%AD%A6/UBVRI_diagram_hu960a1430c9ace0d40a4d8bcf0302ec71_20523_1024x0_resize_q75_box.jpg 1024w"
-			loading="lazy"
-			>
-	</a>
+		data-flex-grow="189"
+		data-flex-basis="455px"
 	
-</figure></p>
+></p>
 <p>我们常用色指数(color index)这个参数来判断星的颜色，常用的如$U-B,B-V$，对于A0型星，这两个指数都为0。</p>
 <h3 id="绝对星等">绝对星等</h3>
 <p>之前的星等都是一个相对的概念，为了绝对地衡量一颗星的亮度，需要使用绝对星等。</p>
@@ -243,23 +454,18 @@ R=\frac{A_V}{E_{B-V}}\approx 3.0
 $$
 几乎一致。这个现象被称为星际红化。</p>
 <h3 id="大气消光">大气消光</h3>
-<p><figure 
+<p><img src="/p/2021/09/%E5%A4%A9%E6%96%87%E5%85%89%E5%BA%A6%E5%AD%A6/%E5%A4%A7%E6%B0%94%E6%B6%88%E5%85%89.jpg"
+	width="470"
+	height="318"
+	srcset="/p/2021/09/%E5%A4%A9%E6%96%87%E5%85%89%E5%BA%A6%E5%AD%A6/%E5%A4%A7%E6%B0%94%E6%B6%88%E5%85%89_hu99cb7caaa45b8fb92db590f81a1e9f14_16621_480x0_resize_q75_box.jpg 480w, /p/2021/09/%E5%A4%A9%E6%96%87%E5%85%89%E5%BA%A6%E5%AD%A6/%E5%A4%A7%E6%B0%94%E6%B6%88%E5%85%89_hu99cb7caaa45b8fb92db590f81a1e9f14_16621_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
 	
 		class="gallery-image" 
-		style="
-			flex-grow: 147; 
-			flex-basis: 354px"
-	>
-	<a href="/p/2021/09/%E5%A4%A9%E6%96%87%E5%85%89%E5%BA%A6%E5%AD%A6/%E5%A4%A7%E6%B0%94%E6%B6%88%E5%85%89.jpg" data-size="470x318">
-		<img src="/p/2021/09/%E5%A4%A9%E6%96%87%E5%85%89%E5%BA%A6%E5%AD%A6/%E5%A4%A7%E6%B0%94%E6%B6%88%E5%85%89.jpg"
-			width="470"
-			height="318"
-			srcset="/p/2021/09/%E5%A4%A9%E6%96%87%E5%85%89%E5%BA%A6%E5%AD%A6/%E5%A4%A7%E6%B0%94%E6%B6%88%E5%85%89_hu99cb7caaa45b8fb92db590f81a1e9f14_16621_480x0_resize_q75_box.jpg 480w, /p/2021/09/%E5%A4%A9%E6%96%87%E5%85%89%E5%BA%A6%E5%AD%A6/%E5%A4%A7%E6%B0%94%E6%B6%88%E5%85%89_hu99cb7caaa45b8fb92db590f81a1e9f14_16621_1024x0_resize_q75_box.jpg 1024w"
-			loading="lazy"
-			>
-	</a>
+		data-flex-grow="147"
+		data-flex-basis="354px"
 	
-</figure>
+>
 $$
 X=\sec z \
 m=m_0+kX
@@ -273,7 +479,11 @@ $X$被称为空气质量(air mass)，$k$被称为消光系数。</p>
     
     <section class="article-tags">
         
-            <a href="/tags/%E5%A4%A9%E6%96%87/">天文</a>
+            <a href="/tags/%E4%B8%9A%E4%BD%99%E5%A4%A9%E6%96%87/">业余天文</a>
+        
+            <a href="/tags/%E5%85%89%E5%BA%A6%E5%AD%A6/">光度学</a>
+        
+            <a href="/tags/%E6%95%99%E7%A8%8B/">教程</a>
         
     </section>
 
@@ -296,43 +506,39 @@ $X$被称为空气质量(air mass)，$k$被称为消光系数。</p>
     
         <link 
                 rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css"integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn"crossorigin="anonymous"
+                href="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.css"integrity="sha256-J&#43;iAE0sgH8QSz9hpcDxXIftnj65JEZgNhGcgReTTK9s="crossorigin="anonymous"
             ><script 
-                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js"integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8"crossorigin="anonymous"
-                defer="true"
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.js"integrity="sha256-InsNdER1b2xUewP&#43;pKCUJpkhiqwHgqiPXDlIk7GzBu4="crossorigin="anonymous"
+                defer
                 >
             </script><script 
-                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js"integrity="sha384-vZTG03m&#43;2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl"crossorigin="anonymous"
-                defer="true"
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/contrib/auto-render.min.js"integrity="sha256-y39Mpg7V3D4lhBX4x6O0bUqTV4pSrfgwEfGKfxkOdgI="crossorigin="anonymous"
+                defer
                 >
-            </script>
-<script>
-MathJax = {
-    tex: {
-        inlineMath: [['$', '$'], ['\\(', '\\)']],
-        displayMath: [['$$', '$$'], ['\\[', '\\]']],
-        processEscapes: true,
-        processEnvironments: true
-    },
-    options: {
-        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
-    }
-};
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });})
 </script>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script id="MathJax-script" async
-src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
     
 </article>
 
-    <aside class="related-contents--wrapper">
     
+
     
-        <h2 class="section-title">相关文章</h2>
-        <div class="related-contents">
-            <div class="flex article-list--tile">
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
                 
-                    
 <article class="">
     <a href="/p/2021/09/%E5%A4%A9%E6%96%87%E6%9C%9B%E8%BF%9C%E9%95%9C%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
         
@@ -343,34 +549,10 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
         </div>
     </a>
 </article>
-                
-                    
-<article class="">
-    <a href="/p/2021/09/%E6%9C%80%E8%BF%91%E8%BF%9B%E5%B1%952021-9-4-moon3d/">
-        
-        
 
-        <div class="article-details">
-            <h2 class="article-title">最近进展2021-9-4 moon3d</h2>
+            
         </div>
-    </a>
-</article>
-                
-                    
-<article class="">
-    <a href="/p/2020/02/%E5%B7%A5%E4%BD%9C%E6%97%A5%E5%BF%97c-2019-y4-comet/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">工作日志(C 2019 Y4 comet)</h2>
-        </div>
-    </a>
-</article>
-                
-            </div>
-        </div>
-    
+    </div>
 </aside>
 
      
@@ -380,23 +562,19 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
 
     <footer class="site-footer">
     <section class="copyright">
-        &copy;
+        &copy; 
         
-        2021 -
+            2021 - 
         
         2022 MizarZ&#39;s Blog
     </section>
-
+    
     <section class="powerby">
         Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
-        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener"
-                data-version="3.4.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
-
-        
-
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
     </section>
-
 </footer>
+
 
     
 <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
@@ -462,68 +640,25 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
 
 </div><script 
                 src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
-                defer="true"
+                defer
                 >
             </script><script 
                 src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
-                defer="true"
+                defer
                 >
             </script><link 
                 rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
             ><link 
                 rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
             >
 
             </main>
-    
-        <aside class="sidebar right-sidebar sticky">
-            <section class="widget archives">
-                <div class="widget-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <line x1="5" y1="9" x2="19" y2="9" />
-  <line x1="5" y1="15" x2="19" y2="15" />
-  <line x1="11" y1="4" x2="7" y2="20" />
-  <line x1="17" y1="4" x2="13" y2="20" />
-</svg>
-
-
-
-                </div>
-                <h2 class="widget-title section-title">目录</h2>
-                
-                <div class="widget--toc">
-                    <nav id="TableOfContents">
-  <ol>
-    <li><a href="#几个重要参数和概念">几个重要参数和概念</a></li>
-    <li><a href="#导出参数及关系">导出参数及关系</a></li>
-    <li><a href="#星等">星等</a>
-      <ol>
-        <li><a href="#历史">历史</a></li>
-        <li><a href="#原理及推导">原理及推导</a></li>
-        <li><a href="#星等系统">星等系统</a></li>
-        <li><a href="#绝对星等">绝对星等</a></li>
-      </ol>
-    </li>
-    <li><a href="#消光extinction和光深optical-thickness">消光(extinction)和光深(optical thickness)</a>
-      <ol>
-        <li><a href="#色余color-excess">色余(color excess)</a></li>
-        <li><a href="#大气消光">大气消光</a></li>
-      </ol>
-    </li>
-  </ol>
-</nav>
-                </div>
-            </section>
-        </aside>
-    
-
         </div>
         <script 
-                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
-                defer="false"
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
                 >
             </script><script type="text/javascript" src="/ts/main.js" defer></script>
 <script>

@@ -1,20 +1,109 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>matplotlib on MizarZ&#39;s Blog</title>
-    <link>https://mizarzh.github.io/tags/matplotlib/</link>
-    <description>Recent content in matplotlib on MizarZ&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
-    <lastBuildDate>Wed, 26 Jan 2022 19:56:47 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/tags/matplotlib/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Matplotlib 速查表</title>
-      <link>https://mizarzh.github.io/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/</link>
-      <pubDate>Wed, 26 Jan 2022 19:56:47 +0800</pubDate>
-      
-      <guid>https://mizarzh.github.io/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/</guid>
-      <description>官方速查 GitHub - matplotlib/cheatsheets: Official Matplotlib cheat sheets cheatsheet1 cheatsheet2 操作指南： handout1 handout2 handout3 风格速查 风格 待补充……</description>
-    </item>
-    
-  </channel>
+    <channel>
+        <title>matplotlib on MizarZ&#39;s Blog</title>
+        <link>https://mizarzh.github.io/tags/matplotlib/</link>
+        <description>Recent content in matplotlib on MizarZ&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <lastBuildDate>Wed, 26 Jan 2022 19:56:47 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/tags/matplotlib/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Matplotlib 速查表</title>
+        <link>https://mizarzh.github.io/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/</link>
+        <pubDate>Wed, 26 Jan 2022 19:56:47 +0800</pubDate>
+        
+        <guid>https://mizarzh.github.io/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/</guid>
+        <description>&lt;h2 id=&#34;官方速查&#34;&gt;官方速查&lt;/h2&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/matplotlib/cheatsheets&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;GitHub - matplotlib/cheatsheets: Official Matplotlib cheat sheets&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://mizarzh.github.io/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/cheatsheet1.png&#34;
+	width=&#34;1754&#34;
+	height=&#34;1240&#34;
+	srcset=&#34;https://mizarzh.github.io/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/cheatsheet1_hu836356118c12b6842b50af95c4f1ace2_424598_480x0_resize_box_3.png 480w, https://mizarzh.github.io/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/cheatsheet1_hu836356118c12b6842b50af95c4f1ace2_424598_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;cheatsheet1&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;141&#34;
+		data-flex-basis=&#34;339px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://mizarzh.github.io/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/cheatsheet2.png&#34;
+	width=&#34;1754&#34;
+	height=&#34;1240&#34;
+	srcset=&#34;https://mizarzh.github.io/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/cheatsheet2_hu836356118c12b6842b50af95c4f1ace2_428109_480x0_resize_box_3.png 480w, https://mizarzh.github.io/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/cheatsheet2_hu836356118c12b6842b50af95c4f1ace2_428109_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;cheatsheet2&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;141&#34;
+		data-flex-basis=&#34;339px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;操作指南：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://mizarzh.github.io/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/handout1.png&#34;
+	width=&#34;1754&#34;
+	height=&#34;1240&#34;
+	srcset=&#34;https://mizarzh.github.io/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/handout1_hu836356118c12b6842b50af95c4f1ace2_230256_480x0_resize_box_3.png 480w, https://mizarzh.github.io/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/handout1_hu836356118c12b6842b50af95c4f1ace2_230256_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;handout1&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;141&#34;
+		data-flex-basis=&#34;339px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://mizarzh.github.io/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/handout2.png&#34;
+	width=&#34;1754&#34;
+	height=&#34;1240&#34;
+	srcset=&#34;https://mizarzh.github.io/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/handout2_hu836356118c12b6842b50af95c4f1ace2_260038_480x0_resize_box_3.png 480w, https://mizarzh.github.io/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/handout2_hu836356118c12b6842b50af95c4f1ace2_260038_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;handout2&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;141&#34;
+		data-flex-basis=&#34;339px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://mizarzh.github.io/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/handout3.png&#34;
+	width=&#34;1754&#34;
+	height=&#34;1240&#34;
+	srcset=&#34;https://mizarzh.github.io/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/handout3_hu836356118c12b6842b50af95c4f1ace2_206600_480x0_resize_box_3.png 480w, https://mizarzh.github.io/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/handout3_hu836356118c12b6842b50af95c4f1ace2_206600_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;handout3&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;141&#34;
+		data-flex-basis=&#34;339px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;风格速查&#34;&gt;风格速查&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://mizarzh.github.io/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/matplotlib-cheatsheet.png&#34;
+	width=&#34;4960&#34;
+	height=&#34;3507&#34;
+	srcset=&#34;https://mizarzh.github.io/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/matplotlib-cheatsheet_hu2684437d2f30aaac6b819e7acf86423a_2790488_480x0_resize_box_3.png 480w, https://mizarzh.github.io/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/matplotlib-cheatsheet_hu2684437d2f30aaac6b819e7acf86423a_2790488_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;风格&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;141&#34;
+		data-flex-basis=&#34;339px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;待补充……&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
 </rss>

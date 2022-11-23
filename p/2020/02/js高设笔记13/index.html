@@ -1,23 +1,24 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='13事件 js与HTML之间的交互是通过事件实现的 可以使用侦听器（或处理程序）来预订事件 13.1事件流 13.1.1事件冒泡 即事件开始时由具体的'><title>js高设笔记13</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='13事件 js与HTML之间的交互是通过事件实现的 可以使用侦听器（或处理程序）来预订事件 13.1事件流 13.1.1事件冒泡 即事件开始时由具体的'>
+<title>js高设笔记13</title>
 
 <link rel='canonical' href='https://mizarzh.github.io/p/2020/02/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B013/'>
 
-<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='js高设笔记13'>
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='js高设笔记13'>
 <meta property='og:description' content='13事件 js与HTML之间的交互是通过事件实现的 可以使用侦听器（或处理程序）来预订事件 13.1事件流 13.1.1事件冒泡 即事件开始时由具体的'>
 <meta property='og:url' content='https://mizarzh.github.io/p/2020/02/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B013/'>
 <meta property='og:site_name' content='MizarZ&#39;s Blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='javascript' /><meta property='article:published_time' content='2020-02-12T18:28:18&#43;08:00'/><meta property='article:modified_time' content='2020-02-12T18:28:18&#43;08:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='js' /><meta property='article:tag' content='笔记' /><meta property='article:published_time' content='2020-02-12T18:28:18&#43;08:00'/><meta property='article:modified_time' content='2020-02-12T18:28:18&#43;08:00'/>
 <meta name="twitter:title" content="js高设笔记13">
 <meta name="twitter:description" content="13事件 js与HTML之间的交互是通过事件实现的 可以使用侦听器（或处理程序）来预订事件 13.1事件流 13.1.1事件冒泡 即事件开始时由具体的">
     <link rel="shortcut icon" href="img/favicon-32x32.png" />
 
     </head>
     <body class="
-    article-page has-toc
-">
+    article-page
+    ">
     <script>
         (function() {
             const colorSchemeKey = 'StackColorScheme';
@@ -40,26 +41,273 @@
         }
     })();
 </script>
-<div class="container main-container flex 
-    
-        extended
-    
-">
-    
-        <div id="article-toolbar">
-            <a href="/" class="back-home">
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <polyline points="15 6 9 12 15 18" />
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu06d6ebd0fb0ddfbf4635527d9aae802d_36938_300x0_resize_q75_box.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">MizarZ&#39;s Blog</a></h1>
+            <h2 class="site-description">半吊子物理系学生/啥都不会程序员/喜爱泛理科内容</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/MizarZh'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
 </svg>
 
 
 
-                <span>返回</span>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
             </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/academics/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>Academic</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/project/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Projects</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>暗色模式</span>
+                </li>
+            
         </div>
-    
-<main class="main full-width">
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#13事件">13事件</a></li>
+    <li><a href="#131事件流">13.1事件流</a>
+      <ol>
+        <li><a href="#1311事件冒泡">13.1.1事件冒泡</a></li>
+        <li><a href="#1312事件捕获">13.1.2事件捕获</a></li>
+        <li><a href="#1313dom事件流">13.1.3DOM事件流</a></li>
+      </ol>
+    </li>
+    <li><a href="#132事件处理程序">13.2事件处理程序</a>
+      <ol>
+        <li><a href="#1321html事件处理程序">13.2.1HTML事件处理程序</a></li>
+        <li><a href="#1322dom0级事件处理程序">13.2.2DOM0级事件处理程序</a></li>
+        <li><a href="#1323dom2级事件处理程序">13.2.3DOM2级事件处理程序</a></li>
+        <li><a href="#1324ie事件处理程序">13.2.4IE事件处理程序</a></li>
+        <li><a href="#1325跨浏览器的事件处理程序">13.2.5跨浏览器的事件处理程序</a></li>
+      </ol>
+    </li>
+    <li><a href="#133事件对象">13.3事件对象</a>
+      <ol>
+        <li><a href="#1331dom中的事件对象">13.3.1DOM中的事件对象</a></li>
+        <li><a href="#1332ie中的事件对象">13.3.2IE中的事件对象</a></li>
+        <li><a href="#1333跨浏览器的事件对象">13.3.3跨浏览器的事件对象</a></li>
+      </ol>
+    </li>
+    <li><a href="#134事件类型">13.4事件类型</a>
+      <ol>
+        <li><a href="#1341ui事件">13.4.1UI事件</a></li>
+        <li><a href="#1342焦点事件">13.4.2焦点事件</a></li>
+        <li><a href="#1343鼠标与滚轮事件">13.4.3鼠标与滚轮事件</a></li>
+        <li><a href="#1344-键盘与文本事件">13.4.4 键盘与文本事件</a></li>
+        <li><a href="#1345-复合事件">13.4.5 复合事件</a></li>
+        <li><a href="#1346-变动事件">13.4.6 变动事件</a></li>
+        <li><a href="#1347-html5事件">13.4.7 HTML5事件</a></li>
+        <li><a href="#1348-设备事件">13.4.8 设备事件</a></li>
+        <li><a href="#1349-触摸与手势事件">13.4.9 触摸与手势事件</a></li>
+      </ol>
+    </li>
+    <li><a href="#135-内存和性能">13.5 内存和性能</a>
+      <ol>
+        <li><a href="#1351-事件委托">13.5.1 事件委托</a></li>
+        <li><a href="#1352-移除事件处理程序">13.5.2 移除事件处理程序</a></li>
+      </ol>
+    </li>
+    <li><a href="#136-模拟事件">13.6 模拟事件</a>
+      <ol>
+        <li><a href="#1361-dom中的事件模拟">13.6.1 DOM中的事件模拟</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
     <article class="main-article">
     <header class="article-header">
 
@@ -74,12 +322,17 @@
     </header>
     
 
-    <h2 class="article-title">
-        <a href="/p/2020/02/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B013/">js高设笔记13</a>
-    </h2>
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/2020/02/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B013/">js高设笔记13</a>
+        </h2>
+    
+        
+    </div>
 
     
-
+    
+    
     
     <footer class="article-time">
         
@@ -100,10 +353,15 @@
         
     </footer>
     
+
+    
 </div>
+
 </header>
 
     <section class="article-content">
+    
+    
     <h2 id="13事件">13事件</h2>
 <p>js与HTML之间的交互是通过事件实现的
 可以使用侦听器（或处理程序）来预订事件</p>
@@ -284,7 +542,9 @@ DOMSubtreeModified,DOMNodeInserted,DOMNodeRemoved,DOMNodeInsertedIntoDocument,DO
     
     <section class="article-tags">
         
-            <a href="/tags/javascript/">javascript</a>
+            <a href="/tags/js/">js</a>
+        
+            <a href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a>
         
     </section>
 
@@ -307,76 +567,82 @@ DOMSubtreeModified,DOMNodeInserted,DOMNodeRemoved,DOMNodeInsertedIntoDocument,DO
     
 </article>
 
-    <aside class="related-contents--wrapper">
     
+
     
-        <h2 class="section-title">相关文章</h2>
-        <div class="related-contents">
-            <div class="flex article-list--tile">
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
                 
-                    
 <article class="">
-    <a href="/p/2020/04/js%E7%9A%84%E8%AF%BB%E5%8F%96%E6%96%87%E6%9C%AC%E4%B8%8E%E8%B7%A8%E7%BD%91%E9%A1%B5/">
+    <a href="/p/2022/02/canvas%E7%AC%94%E8%AE%B0/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">js的读取文本与跨网页</h2>
+            <h2 class="article-title">Canvas笔记</h2>
         </div>
     </a>
 </article>
+
+            
                 
-                    
 <article class="">
-    <a href="/p/2020/04/%E6%9C%80%E8%BF%91%E8%BF%9B%E5%B1%952020-4-2/">
+    <a href="/p/2022/01/js%E7%9A%84%E6%A8%A1%E5%9D%97%E7%B3%BB%E7%BB%9F%E4%BB%A5%E5%8F%8A%E5%85%B6%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">最近进展2020-4-2</h2>
+            <h2 class="article-title">Js的模块系统以及其零碎知识</h2>
         </div>
     </a>
 </article>
+
+            
                 
-                    
 <article class="">
-    <a href="/p/2020/02/%E6%9C%80%E8%BF%91%E8%BF%9B%E5%B1%952020-2-19/">
+    <a href="/p/2022/01/echarts%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">最近进展2020-2-19</h2>
+            <h2 class="article-title">Echarts基本使用</h2>
         </div>
     </a>
 </article>
+
+            
                 
-                    
 <article class="">
-    <a href="/p/2020/02/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B010/">
+    <a href="/p/2022/01/%E5%89%8D%E7%AB%AF%E4%B8%8B%E8%BD%BD%E5%8E%9F%E5%A7%8B%E5%AE%9E%E7%8E%B0/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">js高设笔记10</h2>
+            <h2 class="article-title">前端下载原始实现</h2>
         </div>
     </a>
 </article>
+
+            
                 
-                    
 <article class="">
-    <a href="/p/2020/02/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B08/">
+    <a href="/p/2022/01/date%E6%96%B9%E6%B3%95/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">js高设笔记8</h2>
+            <h2 class="article-title">Date方法</h2>
         </div>
     </a>
 </article>
-                
-            </div>
+
+            
         </div>
-    
+    </div>
 </aside>
 
      
@@ -386,23 +652,19 @@ DOMSubtreeModified,DOMNodeInserted,DOMNodeRemoved,DOMNodeInsertedIntoDocument,DO
 
     <footer class="site-footer">
     <section class="copyright">
-        &copy;
+        &copy; 
         
-        2021 -
+            2021 - 
         
         2022 MizarZ&#39;s Blog
     </section>
-
+    
     <section class="powerby">
         Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
-        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener"
-                data-version="3.4.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
-
-        
-
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
     </section>
-
 </footer>
+
 
     
 <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
@@ -468,100 +730,25 @@ DOMSubtreeModified,DOMNodeInserted,DOMNodeRemoved,DOMNodeInsertedIntoDocument,DO
 
 </div><script 
                 src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
-                defer="true"
+                defer
                 >
             </script><script 
                 src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
-                defer="true"
+                defer
                 >
             </script><link 
                 rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
             ><link 
                 rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
             >
 
             </main>
-    
-        <aside class="sidebar right-sidebar sticky">
-            <section class="widget archives">
-                <div class="widget-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <line x1="5" y1="9" x2="19" y2="9" />
-  <line x1="5" y1="15" x2="19" y2="15" />
-  <line x1="11" y1="4" x2="7" y2="20" />
-  <line x1="17" y1="4" x2="13" y2="20" />
-</svg>
-
-
-
-                </div>
-                <h2 class="widget-title section-title">目录</h2>
-                
-                <div class="widget--toc">
-                    <nav id="TableOfContents">
-  <ol>
-    <li><a href="#13事件">13事件</a></li>
-    <li><a href="#131事件流">13.1事件流</a>
-      <ol>
-        <li><a href="#1311事件冒泡">13.1.1事件冒泡</a></li>
-        <li><a href="#1312事件捕获">13.1.2事件捕获</a></li>
-        <li><a href="#1313dom事件流">13.1.3DOM事件流</a></li>
-      </ol>
-    </li>
-    <li><a href="#132事件处理程序">13.2事件处理程序</a>
-      <ol>
-        <li><a href="#1321html事件处理程序">13.2.1HTML事件处理程序</a></li>
-        <li><a href="#1322dom0级事件处理程序">13.2.2DOM0级事件处理程序</a></li>
-        <li><a href="#1323dom2级事件处理程序">13.2.3DOM2级事件处理程序</a></li>
-        <li><a href="#1324ie事件处理程序">13.2.4IE事件处理程序</a></li>
-        <li><a href="#1325跨浏览器的事件处理程序">13.2.5跨浏览器的事件处理程序</a></li>
-      </ol>
-    </li>
-    <li><a href="#133事件对象">13.3事件对象</a>
-      <ol>
-        <li><a href="#1331dom中的事件对象">13.3.1DOM中的事件对象</a></li>
-        <li><a href="#1332ie中的事件对象">13.3.2IE中的事件对象</a></li>
-        <li><a href="#1333跨浏览器的事件对象">13.3.3跨浏览器的事件对象</a></li>
-      </ol>
-    </li>
-    <li><a href="#134事件类型">13.4事件类型</a>
-      <ol>
-        <li><a href="#1341ui事件">13.4.1UI事件</a></li>
-        <li><a href="#1342焦点事件">13.4.2焦点事件</a></li>
-        <li><a href="#1343鼠标与滚轮事件">13.4.3鼠标与滚轮事件</a></li>
-        <li><a href="#1344-键盘与文本事件">13.4.4 键盘与文本事件</a></li>
-        <li><a href="#1345-复合事件">13.4.5 复合事件</a></li>
-        <li><a href="#1346-变动事件">13.4.6 变动事件</a></li>
-        <li><a href="#1347-html5事件">13.4.7 HTML5事件</a></li>
-        <li><a href="#1348-设备事件">13.4.8 设备事件</a></li>
-        <li><a href="#1349-触摸与手势事件">13.4.9 触摸与手势事件</a></li>
-      </ol>
-    </li>
-    <li><a href="#135-内存和性能">13.5 内存和性能</a>
-      <ol>
-        <li><a href="#1351-事件委托">13.5.1 事件委托</a></li>
-        <li><a href="#1352-移除事件处理程序">13.5.2 移除事件处理程序</a></li>
-      </ol>
-    </li>
-    <li><a href="#136-模拟事件">13.6 模拟事件</a>
-      <ol>
-        <li><a href="#1361-dom中的事件模拟">13.6.1 DOM中的事件模拟</a></li>
-      </ol>
-    </li>
-  </ol>
-</nav>
-                </div>
-            </section>
-        </aside>
-    
-
         </div>
         <script 
-                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
-                defer="false"
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
                 >
             </script><script type="text/javascript" src="/ts/main.js" defer></script>
 <script>

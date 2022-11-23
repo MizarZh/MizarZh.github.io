@@ -1,23 +1,24 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='6 面向对象的程序设计 （注意：js中的面向对象实现与C&#43;&#43;中不同） 6.1 理解对象 var person = new Object(); person.name = &amp;#34;Nicholas&amp;#34;; person.age = 29; person.job = &amp;#34;Software Engineer&amp;#34;; person.sayName = function(){ alert(this.name); }; var person = { name: &amp;#34;Nicholas&amp;#34;, age: 29, job: &amp;#34;Software Engineer&amp;#34;, sayName: function(){'><title>js高设笔记6</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='6 面向对象的程序设计 （注意：js中的面向对象实现与C&#43;&#43;中不同） 6.1 理解对象 var person = new Object(); person.name = &amp;#34;Nicholas&amp;#34;; person.age = 29; person.job = &amp;#34;Software Engineer&amp;#34;; person.sayName = function(){ alert(this.name); }; var person = { name: &amp;#34;Nicholas&amp;#34;, age: 29, job: &amp;#34;Software Engineer&amp;#34;, sayName: function(){'>
+<title>js高设笔记6</title>
 
 <link rel='canonical' href='https://mizarzh.github.io/p/2020/02/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B06/'>
 
-<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='js高设笔记6'>
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='js高设笔记6'>
 <meta property='og:description' content='6 面向对象的程序设计 （注意：js中的面向对象实现与C&#43;&#43;中不同） 6.1 理解对象 var person = new Object(); person.name = &amp;#34;Nicholas&amp;#34;; person.age = 29; person.job = &amp;#34;Software Engineer&amp;#34;; person.sayName = function(){ alert(this.name); }; var person = { name: &amp;#34;Nicholas&amp;#34;, age: 29, job: &amp;#34;Software Engineer&amp;#34;, sayName: function(){'>
 <meta property='og:url' content='https://mizarzh.github.io/p/2020/02/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B06/'>
 <meta property='og:site_name' content='MizarZ&#39;s Blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='javascript' /><meta property='article:published_time' content='2020-02-07T18:14:42&#43;08:00'/><meta property='article:modified_time' content='2020-02-07T18:14:42&#43;08:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='js' /><meta property='article:tag' content='笔记' /><meta property='article:published_time' content='2020-02-07T18:14:42&#43;08:00'/><meta property='article:modified_time' content='2020-02-07T18:14:42&#43;08:00'/>
 <meta name="twitter:title" content="js高设笔记6">
 <meta name="twitter:description" content="6 面向对象的程序设计 （注意：js中的面向对象实现与C&#43;&#43;中不同） 6.1 理解对象 var person = new Object(); person.name = &amp;#34;Nicholas&amp;#34;; person.age = 29; person.job = &amp;#34;Software Engineer&amp;#34;; person.sayName = function(){ alert(this.name); }; var person = { name: &amp;#34;Nicholas&amp;#34;, age: 29, job: &amp;#34;Software Engineer&amp;#34;, sayName: function(){">
     <link rel="shortcut icon" href="img/favicon-32x32.png" />
 
     </head>
     <body class="
-    article-page has-toc
-">
+    article-page
+    ">
     <script>
         (function() {
             const colorSchemeKey = 'StackColorScheme';
@@ -40,26 +41,255 @@
         }
     })();
 </script>
-<div class="container main-container flex 
-    
-        extended
-    
-">
-    
-        <div id="article-toolbar">
-            <a href="/" class="back-home">
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <polyline points="15 6 9 12 15 18" />
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu06d6ebd0fb0ddfbf4635527d9aae802d_36938_300x0_resize_q75_box.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">MizarZ&#39;s Blog</a></h1>
+            <h2 class="site-description">半吊子物理系学生/啥都不会程序员/喜爱泛理科内容</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/MizarZh'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
 </svg>
 
 
 
-                <span>返回</span>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
             </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/academics/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>Academic</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/project/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Projects</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>暗色模式</span>
+                </li>
+            
         </div>
-    
-<main class="main full-width">
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#6-面向对象的程序设计">6 面向对象的程序设计</a></li>
+    <li><a href="#61-理解对象">6.1 理解对象</a>
+      <ol>
+        <li><a href="#611-属性类型">6.1.1 属性类型</a></li>
+        <li><a href="#612-多个属性">6.1.2 多个属性</a></li>
+        <li><a href="#613-读取属性的特性">6.1.3 读取属性的特性</a></li>
+      </ol>
+    </li>
+    <li><a href="#62-创建对象">6.2 创建对象</a>
+      <ol>
+        <li><a href="#621-工厂模式">6.2.1 工厂模式</a></li>
+        <li><a href="#622-构造函数模式">6.2.2 构造函数模式</a></li>
+        <li><a href="#623-原型模式">6.2.3 原型模式</a></li>
+        <li><a href="#624-组合使用构造函数模式和原型模式">6.2.4 组合使用构造函数模式和原型模式</a></li>
+        <li><a href="#625-动态原型模式理解">6.2.5 动态原型模式(理解？)</a></li>
+        <li><a href="#626-寄生构造函数模式">6.2.6 寄生构造函数模式</a></li>
+        <li><a href="#627-稳妥构造函数模式">6.2.7 稳妥构造函数模式</a></li>
+      </ol>
+    </li>
+    <li><a href="#63-继承">6.3 继承</a>
+      <ol>
+        <li><a href="#631-原型链">6.3.1 原型链</a></li>
+        <li><a href="#632-借用构造函数">6.3.2 借用构造函数</a></li>
+        <li><a href="#633-组合继承">6.3.3 组合继承</a></li>
+        <li><a href="#634-原型式继承">6.3.4 原型式继承</a></li>
+        <li><a href="#635-寄生式继承">6.3.5 寄生式继承</a></li>
+        <li><a href="#636-寄生组合式继承">6.3.6 寄生组合式继承</a></li>
+      </ol>
+    </li>
+    <li><a href="#总结">总结</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
     <article class="main-article">
     <header class="article-header">
 
@@ -74,12 +304,17 @@
     </header>
     
 
-    <h2 class="article-title">
-        <a href="/p/2020/02/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B06/">js高设笔记6</a>
-    </h2>
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/2020/02/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B06/">js高设笔记6</a>
+        </h2>
+    
+        
+    </div>
 
     
-
+    
+    
     
     <footer class="article-time">
         
@@ -100,10 +335,15 @@
         
     </footer>
     
+
+    
 </div>
+
 </header>
 
     <section class="article-content">
+    
+    
     <h2 id="6-面向对象的程序设计">6 面向对象的程序设计</h2>
 <p>（注意：js中的面向对象实现与C++中不同）</p>
 <h2 id="61-理解对象">6.1 理解对象</h2>
@@ -248,25 +488,20 @@ prototype 就是通过调用构造函数而创建的那个对象实例的原型�
 </span></span><span class="line"><span class="cl"><span class="p">};</span> 
 </span></span></code></pre></div><p>在此，我们将 sayName()方法和所有属性直接添加到了 Person 的 prototype 属性中，构造函数变成了空函数。即使如此，也仍然可以通过调用构造函数来创建新对象，而且新对象还会具有相同的属性和方法。但与构造函数模式不同的是，新对象的这些属性和方法是由所有实例共享的。</p>
 <p>原型对象的理解：只要创建了一个新函数，就会根据一组特定的规则为该函数创建一个 prototype 属性，这个属性指向函数的原型对象。所有原型对象都会自动获得一个 constructor（构造函数）属性，这个属性包含一个指向 prototype 属性所在函数的指针。当调用构造函数创建一个新实例后，该实例的内部将包含一个指针（内部属性），指向构造函数的原型对象。ECMA-262第5版中管这个指针叫[[Prototype]]。</p>
-<p><figure 
+<p><img src="/p/2020/02/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B06/prototype1.jpg"
+	width="848"
+	height="360"
+	srcset="/p/2020/02/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B06/prototype1_hu98233ca4b998eb9df3b9f8954a41fc26_43053_480x0_resize_q75_box.jpg 480w, /p/2020/02/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B06/prototype1_hu98233ca4b998eb9df3b9f8954a41fc26_43053_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+		alt="prototype1"
+	
 	
 		class="gallery-image" 
-		style="
-			flex-grow: 235; 
-			flex-basis: 565px"
-	>
-	<a href="/p/2020/02/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B06/prototype1.jpg" data-size="848x360">
-		<img src="/p/2020/02/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B06/prototype1.jpg"
-			width="848"
-			height="360"
-			srcset="/p/2020/02/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B06/prototype1_hu98233ca4b998eb9df3b9f8954a41fc26_43053_480x0_resize_q75_box.jpg 480w, /p/2020/02/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B06/prototype1_hu98233ca4b998eb9df3b9f8954a41fc26_43053_1024x0_resize_q75_box.jpg 1024w"
-			loading="lazy"
-			alt="prototype1">
-	</a>
+		data-flex-grow="235"
+		data-flex-basis="565px"
 	
-	<figcaption>prototype1</figcaption>
-	
-</figure>
+>
 Person 的每个实例—— person1 和 person2 都包含一个内部属性，该属性仅仅指向了 Person.prototype；换句话说，它们与构造函数没有直接的关系。
 所有实现中都无法访问到[[Prototype]]，但可以通过 isPrototypeOf()方法来确定对象之间是否存在这种关系。
 ECMAScript 5增加了一个新方法，叫 Object.getPrototypeOf()，在所有支持的实现中，这个方法返回[[Prototype]]的值。</p>
@@ -296,25 +531,20 @@ ECMAScript 5增加了一个新方法，叫 Object.getPrototypeOf()，在所有�
 如果是重写整个原型对象，实例中的指针仅指向原来的原型，而不指向构造函数。
 调用构造函数时会为实例添加一个指向初原型的[[Prototype]]指针，而把原型修改为另外一个对象就等于切断了构造函数与初原型之间的联系。
 总结：先定义原型再创建实例，不然实例指向的是原prototype
-<figure 
+<img src="/p/2020/02/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B06/prototype2.jpg"
+	width="873"
+	height="669"
+	srcset="/p/2020/02/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B06/prototype2_hu74bd5609e3a6f26a45e486cb7acd986a_77997_480x0_resize_q75_box.jpg 480w, /p/2020/02/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B06/prototype2_hu74bd5609e3a6f26a45e486cb7acd986a_77997_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+		alt="prototype2"
+	
 	
 		class="gallery-image" 
-		style="
-			flex-grow: 130; 
-			flex-basis: 313px"
-	>
-	<a href="/p/2020/02/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B06/prototype2.jpg" data-size="873x669">
-		<img src="/p/2020/02/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B06/prototype2.jpg"
-			width="873"
-			height="669"
-			srcset="/p/2020/02/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B06/prototype2_hu74bd5609e3a6f26a45e486cb7acd986a_77997_480x0_resize_q75_box.jpg 480w, /p/2020/02/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B06/prototype2_hu74bd5609e3a6f26a45e486cb7acd986a_77997_1024x0_resize_q75_box.jpg 1024w"
-			loading="lazy"
-			alt="prototype2">
-	</a>
+		data-flex-grow="130"
+		data-flex-basis="313px"
 	
-	<figcaption>prototype2</figcaption>
-	
-</figure></p>
+></p>
 <p><strong>问题</strong>
 它省略了为构造函数传递初始化参数这一环节，结果所有实例在默认情况下都将取得相同的属性值。
 共享，有时候需要分离的属性
@@ -398,25 +628,20 @@ ECMAScript 5增加了一个新方法，叫 Object.getPrototypeOf()，在所有�
 </span></span><span class="line"><span class="cl"><span class="p">};</span> 
 </span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">instance</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SubType</span><span class="p">();</span> 
 </span></span><span class="line"><span class="cl"><span class="nx">alert</span><span class="p">(</span><span class="nx">instance</span><span class="p">.</span><span class="nx">getSuperValue</span><span class="p">());</span>      <span class="c1">//true  
-</span></span></span></code></pre></div><p><figure 
+</span></span></span></code></pre></div><p><img src="/p/2020/02/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B06/prototype_chain.png"
+	width="1568"
+	height="780"
+	srcset="/p/2020/02/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B06/prototype_chain_hu0b2c25ab46449d4a6937c3b60757748a_135611_480x0_resize_box_3.png 480w, /p/2020/02/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B06/prototype_chain_hu0b2c25ab46449d4a6937c3b60757748a_135611_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="prototype_chain"
+	
 	
 		class="gallery-image" 
-		style="
-			flex-grow: 201; 
-			flex-basis: 482px"
-	>
-	<a href="/p/2020/02/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B06/prototype_chain.png" data-size="1568x780">
-		<img src="/p/2020/02/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B06/prototype_chain.png"
-			width="1568"
-			height="780"
-			srcset="/p/2020/02/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B06/prototype_chain_hu0b2c25ab46449d4a6937c3b60757748a_135611_480x0_resize_box_3.png 480w, /p/2020/02/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B06/prototype_chain_hu0b2c25ab46449d4a6937c3b60757748a_135611_1024x0_resize_box_3.png 1024w"
-			loading="lazy"
-			alt="prototype_chain">
-	</a>
+		data-flex-grow="201"
+		data-flex-basis="482px"
 	
-	<figcaption>prototype_chain</figcaption>
-	
-</figure></p>
+></p>
 <p>instance.getSuperValue()会经历三个搜索步骤：1）搜索实例；2）搜索 SubType.prototype；3）搜索 SuperType.prototype，后一步才会找到该方法。</p>
 <p>最上层的原型链继承自Object，因此也可以使用Object的方法。</p>
 <p>使用instanceof/isPrototypeof()对原型链上的对象进行比较都会返回true</p>
@@ -499,7 +724,9 @@ constructor实例所有，指向构造函数</p>
     
     <section class="article-tags">
         
-            <a href="/tags/javascript/">javascript</a>
+            <a href="/tags/js/">js</a>
+        
+            <a href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a>
         
     </section>
 
@@ -522,76 +749,82 @@ constructor实例所有，指向构造函数</p>
     
 </article>
 
-    <aside class="related-contents--wrapper">
     
+
     
-        <h2 class="section-title">相关文章</h2>
-        <div class="related-contents">
-            <div class="flex article-list--tile">
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
                 
-                    
 <article class="">
-    <a href="/p/2020/04/js%E7%9A%84%E8%AF%BB%E5%8F%96%E6%96%87%E6%9C%AC%E4%B8%8E%E8%B7%A8%E7%BD%91%E9%A1%B5/">
+    <a href="/p/2022/02/canvas%E7%AC%94%E8%AE%B0/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">js的读取文本与跨网页</h2>
+            <h2 class="article-title">Canvas笔记</h2>
         </div>
     </a>
 </article>
+
+            
                 
-                    
 <article class="">
-    <a href="/p/2020/04/%E6%9C%80%E8%BF%91%E8%BF%9B%E5%B1%952020-4-2/">
+    <a href="/p/2022/01/js%E7%9A%84%E6%A8%A1%E5%9D%97%E7%B3%BB%E7%BB%9F%E4%BB%A5%E5%8F%8A%E5%85%B6%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">最近进展2020-4-2</h2>
+            <h2 class="article-title">Js的模块系统以及其零碎知识</h2>
         </div>
     </a>
 </article>
+
+            
                 
-                    
 <article class="">
-    <a href="/p/2020/02/%E6%9C%80%E8%BF%91%E8%BF%9B%E5%B1%952020-2-19/">
+    <a href="/p/2022/01/echarts%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">最近进展2020-2-19</h2>
+            <h2 class="article-title">Echarts基本使用</h2>
         </div>
     </a>
 </article>
+
+            
                 
-                    
 <article class="">
-    <a href="/p/2020/02/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B013/">
+    <a href="/p/2022/01/%E5%89%8D%E7%AB%AF%E4%B8%8B%E8%BD%BD%E5%8E%9F%E5%A7%8B%E5%AE%9E%E7%8E%B0/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">js高设笔记13</h2>
+            <h2 class="article-title">前端下载原始实现</h2>
         </div>
     </a>
 </article>
+
+            
                 
-                    
 <article class="">
-    <a href="/p/2020/02/js%E9%AB%98%E8%AE%BE%E7%AC%94%E8%AE%B010/">
+    <a href="/p/2022/01/date%E6%96%B9%E6%B3%95/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">js高设笔记10</h2>
+            <h2 class="article-title">Date方法</h2>
         </div>
     </a>
 </article>
-                
-            </div>
+
+            
         </div>
-    
+    </div>
 </aside>
 
      
@@ -601,23 +834,19 @@ constructor实例所有，指向构造函数</p>
 
     <footer class="site-footer">
     <section class="copyright">
-        &copy;
+        &copy; 
         
-        2021 -
+            2021 - 
         
         2022 MizarZ&#39;s Blog
     </section>
-
+    
     <section class="powerby">
         Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
-        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener"
-                data-version="3.4.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
-
-        
-
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
     </section>
-
 </footer>
+
 
     
 <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
@@ -683,82 +912,25 @@ constructor实例所有，指向构造函数</p>
 
 </div><script 
                 src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
-                defer="true"
+                defer
                 >
             </script><script 
                 src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
-                defer="true"
+                defer
                 >
             </script><link 
                 rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
             ><link 
                 rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
             >
 
             </main>
-    
-        <aside class="sidebar right-sidebar sticky">
-            <section class="widget archives">
-                <div class="widget-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <line x1="5" y1="9" x2="19" y2="9" />
-  <line x1="5" y1="15" x2="19" y2="15" />
-  <line x1="11" y1="4" x2="7" y2="20" />
-  <line x1="17" y1="4" x2="13" y2="20" />
-</svg>
-
-
-
-                </div>
-                <h2 class="widget-title section-title">目录</h2>
-                
-                <div class="widget--toc">
-                    <nav id="TableOfContents">
-  <ol>
-    <li><a href="#6-面向对象的程序设计">6 面向对象的程序设计</a></li>
-    <li><a href="#61-理解对象">6.1 理解对象</a>
-      <ol>
-        <li><a href="#611-属性类型">6.1.1 属性类型</a></li>
-        <li><a href="#612-多个属性">6.1.2 多个属性</a></li>
-        <li><a href="#613-读取属性的特性">6.1.3 读取属性的特性</a></li>
-      </ol>
-    </li>
-    <li><a href="#62-创建对象">6.2 创建对象</a>
-      <ol>
-        <li><a href="#621-工厂模式">6.2.1 工厂模式</a></li>
-        <li><a href="#622-构造函数模式">6.2.2 构造函数模式</a></li>
-        <li><a href="#623-原型模式">6.2.3 原型模式</a></li>
-        <li><a href="#624-组合使用构造函数模式和原型模式">6.2.4 组合使用构造函数模式和原型模式</a></li>
-        <li><a href="#625-动态原型模式理解">6.2.5 动态原型模式(理解？)</a></li>
-        <li><a href="#626-寄生构造函数模式">6.2.6 寄生构造函数模式</a></li>
-        <li><a href="#627-稳妥构造函数模式">6.2.7 稳妥构造函数模式</a></li>
-      </ol>
-    </li>
-    <li><a href="#63-继承">6.3 继承</a>
-      <ol>
-        <li><a href="#631-原型链">6.3.1 原型链</a></li>
-        <li><a href="#632-借用构造函数">6.3.2 借用构造函数</a></li>
-        <li><a href="#633-组合继承">6.3.3 组合继承</a></li>
-        <li><a href="#634-原型式继承">6.3.4 原型式继承</a></li>
-        <li><a href="#635-寄生式继承">6.3.5 寄生式继承</a></li>
-        <li><a href="#636-寄生组合式继承">6.3.6 寄生组合式继承</a></li>
-      </ol>
-    </li>
-    <li><a href="#总结">总结</a></li>
-  </ol>
-</nav>
-                </div>
-            </section>
-        </aside>
-    
-
         </div>
         <script 
-                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
-                defer="false"
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
                 >
             </script><script type="text/javascript" src="/ts/main.js" defer></script>
 <script>

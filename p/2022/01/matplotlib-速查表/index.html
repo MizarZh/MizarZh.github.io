@@ -1,23 +1,24 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='官方速查 GitHub - matplotlib/cheatsheets: Official Matplotlib cheat sheets cheatsheet1 cheatsheet2 操作指南： handout1 handout2 handout3 风格速查 风格 待补充……'><title>Matplotlib 速查表</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='官方速查 GitHub - matplotlib/cheatsheets: Official Matplotlib cheat sheets 操作指南： 风格速查 待补充……'>
+<title>Matplotlib 速查表</title>
 
 <link rel='canonical' href='https://mizarzh.github.io/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/'>
 
-<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='Matplotlib 速查表'>
-<meta property='og:description' content='官方速查 GitHub - matplotlib/cheatsheets: Official Matplotlib cheat sheets cheatsheet1 cheatsheet2 操作指南： handout1 handout2 handout3 风格速查 风格 待补充……'>
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='Matplotlib 速查表'>
+<meta property='og:description' content='官方速查 GitHub - matplotlib/cheatsheets: Official Matplotlib cheat sheets 操作指南： 风格速查 待补充……'>
 <meta property='og:url' content='https://mizarzh.github.io/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/'>
 <meta property='og:site_name' content='MizarZ&#39;s Blog'>
 <meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='python' /><meta property='article:tag' content='matplotlib' /><meta property='article:published_time' content='2022-01-26T19:56:47&#43;08:00'/><meta property='article:modified_time' content='2022-01-26T19:56:47&#43;08:00'/>
 <meta name="twitter:title" content="Matplotlib 速查表">
-<meta name="twitter:description" content="官方速查 GitHub - matplotlib/cheatsheets: Official Matplotlib cheat sheets cheatsheet1 cheatsheet2 操作指南： handout1 handout2 handout3 风格速查 风格 待补充……">
+<meta name="twitter:description" content="官方速查 GitHub - matplotlib/cheatsheets: Official Matplotlib cheat sheets 操作指南： 风格速查 待补充……">
     <link rel="shortcut icon" href="img/favicon-32x32.png" />
 
     </head>
     <body class="
-    article-page has-toc
-">
+    article-page
+    ">
     <script>
         (function() {
             const colorSchemeKey = 'StackColorScheme';
@@ -40,26 +41,227 @@
         }
     })();
 </script>
-<div class="container main-container flex 
-    
-        extended
-    
-">
-    
-        <div id="article-toolbar">
-            <a href="/" class="back-home">
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <polyline points="15 6 9 12 15 18" />
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu06d6ebd0fb0ddfbf4635527d9aae802d_36938_300x0_resize_q75_box.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">MizarZ&#39;s Blog</a></h1>
+            <h2 class="site-description">半吊子物理系学生/啥都不会程序员/喜爱泛理科内容</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/MizarZh'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
 </svg>
 
 
 
-                <span>返回</span>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
             </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/academics/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>Academic</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/project/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Projects</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>暗色模式</span>
+                </li>
+            
         </div>
-    
-<main class="main full-width">
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#官方速查">官方速查</a></li>
+    <li><a href="#风格速查">风格速查</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
     <article class="main-article">
     <header class="article-header">
 
@@ -74,12 +276,17 @@
     </header>
     
 
-    <h2 class="article-title">
-        <a href="/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/">Matplotlib 速查表</a>
-    </h2>
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/">Matplotlib 速查表</a>
+        </h2>
+    
+        
+    </div>
 
     
-
+    
+    
     
     <footer class="article-time">
         
@@ -100,129 +307,104 @@
         
     </footer>
     
+
+    
 </div>
+
 </header>
 
     <section class="article-content">
+    
+    
     <h2 id="官方速查">官方速查</h2>
 <p><a class="link" href="https://github.com/matplotlib/cheatsheets"  target="_blank" rel="noopener"
     >GitHub - matplotlib/cheatsheets: Official Matplotlib cheat sheets</a></p>
-<p><figure 
+<p><img src="/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/cheatsheet1.png"
+	width="1754"
+	height="1240"
+	srcset="/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/cheatsheet1_hu836356118c12b6842b50af95c4f1ace2_424598_480x0_resize_box_3.png 480w, /p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/cheatsheet1_hu836356118c12b6842b50af95c4f1ace2_424598_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="cheatsheet1"
+	
 	
 		class="gallery-image" 
-		style="
-			flex-grow: 141; 
-			flex-basis: 339px"
-	>
-	<a href="/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/cheatsheet1.png" data-size="1754x1240">
-		<img src="/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/cheatsheet1.png"
-			width="1754"
-			height="1240"
-			srcset="/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/cheatsheet1_hu836356118c12b6842b50af95c4f1ace2_424598_480x0_resize_box_3.png 480w, /p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/cheatsheet1_hu836356118c12b6842b50af95c4f1ace2_424598_1024x0_resize_box_3.png 1024w"
-			loading="lazy"
-			alt="cheatsheet1">
-	</a>
+		data-flex-grow="141"
+		data-flex-basis="339px"
 	
-	<figcaption>cheatsheet1</figcaption>
+></p>
+<p><img src="/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/cheatsheet2.png"
+	width="1754"
+	height="1240"
+	srcset="/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/cheatsheet2_hu836356118c12b6842b50af95c4f1ace2_428109_480x0_resize_box_3.png 480w, /p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/cheatsheet2_hu836356118c12b6842b50af95c4f1ace2_428109_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
 	
-</figure></p>
-<p><figure 
+		alt="cheatsheet2"
+	
 	
 		class="gallery-image" 
-		style="
-			flex-grow: 141; 
-			flex-basis: 339px"
-	>
-	<a href="/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/cheatsheet2.png" data-size="1754x1240">
-		<img src="/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/cheatsheet2.png"
-			width="1754"
-			height="1240"
-			srcset="/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/cheatsheet2_hu836356118c12b6842b50af95c4f1ace2_428109_480x0_resize_box_3.png 480w, /p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/cheatsheet2_hu836356118c12b6842b50af95c4f1ace2_428109_1024x0_resize_box_3.png 1024w"
-			loading="lazy"
-			alt="cheatsheet2">
-	</a>
+		data-flex-grow="141"
+		data-flex-basis="339px"
 	
-	<figcaption>cheatsheet2</figcaption>
-	
-</figure></p>
+></p>
 <p>操作指南：</p>
-<p><figure 
+<p><img src="/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/handout1.png"
+	width="1754"
+	height="1240"
+	srcset="/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/handout1_hu836356118c12b6842b50af95c4f1ace2_230256_480x0_resize_box_3.png 480w, /p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/handout1_hu836356118c12b6842b50af95c4f1ace2_230256_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="handout1"
+	
 	
 		class="gallery-image" 
-		style="
-			flex-grow: 141; 
-			flex-basis: 339px"
-	>
-	<a href="/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/handout1.png" data-size="1754x1240">
-		<img src="/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/handout1.png"
-			width="1754"
-			height="1240"
-			srcset="/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/handout1_hu836356118c12b6842b50af95c4f1ace2_230256_480x0_resize_box_3.png 480w, /p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/handout1_hu836356118c12b6842b50af95c4f1ace2_230256_1024x0_resize_box_3.png 1024w"
-			loading="lazy"
-			alt="handout1">
-	</a>
+		data-flex-grow="141"
+		data-flex-basis="339px"
 	
-	<figcaption>handout1</figcaption>
+></p>
+<p><img src="/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/handout2.png"
+	width="1754"
+	height="1240"
+	srcset="/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/handout2_hu836356118c12b6842b50af95c4f1ace2_260038_480x0_resize_box_3.png 480w, /p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/handout2_hu836356118c12b6842b50af95c4f1ace2_260038_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
 	
-</figure></p>
-<p><figure 
+		alt="handout2"
+	
 	
 		class="gallery-image" 
-		style="
-			flex-grow: 141; 
-			flex-basis: 339px"
-	>
-	<a href="/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/handout2.png" data-size="1754x1240">
-		<img src="/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/handout2.png"
-			width="1754"
-			height="1240"
-			srcset="/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/handout2_hu836356118c12b6842b50af95c4f1ace2_260038_480x0_resize_box_3.png 480w, /p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/handout2_hu836356118c12b6842b50af95c4f1ace2_260038_1024x0_resize_box_3.png 1024w"
-			loading="lazy"
-			alt="handout2">
-	</a>
+		data-flex-grow="141"
+		data-flex-basis="339px"
 	
-	<figcaption>handout2</figcaption>
+></p>
+<p><img src="/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/handout3.png"
+	width="1754"
+	height="1240"
+	srcset="/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/handout3_hu836356118c12b6842b50af95c4f1ace2_206600_480x0_resize_box_3.png 480w, /p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/handout3_hu836356118c12b6842b50af95c4f1ace2_206600_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
 	
-</figure></p>
-<p><figure 
+		alt="handout3"
+	
 	
 		class="gallery-image" 
-		style="
-			flex-grow: 141; 
-			flex-basis: 339px"
-	>
-	<a href="/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/handout3.png" data-size="1754x1240">
-		<img src="/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/handout3.png"
-			width="1754"
-			height="1240"
-			srcset="/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/handout3_hu836356118c12b6842b50af95c4f1ace2_206600_480x0_resize_box_3.png 480w, /p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/handout3_hu836356118c12b6842b50af95c4f1ace2_206600_1024x0_resize_box_3.png 1024w"
-			loading="lazy"
-			alt="handout3">
-	</a>
+		data-flex-grow="141"
+		data-flex-basis="339px"
 	
-	<figcaption>handout3</figcaption>
-	
-</figure></p>
+></p>
 <h2 id="风格速查">风格速查</h2>
-<p><figure 
+<p><img src="/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/matplotlib-cheatsheet.png"
+	width="4960"
+	height="3507"
+	srcset="/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/matplotlib-cheatsheet_hu2684437d2f30aaac6b819e7acf86423a_2790488_480x0_resize_box_3.png 480w, /p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/matplotlib-cheatsheet_hu2684437d2f30aaac6b819e7acf86423a_2790488_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="风格"
+	
 	
 		class="gallery-image" 
-		style="
-			flex-grow: 141; 
-			flex-basis: 339px"
-	>
-	<a href="/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/matplotlib-cheatsheet.png" data-size="4960x3507">
-		<img src="/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/matplotlib-cheatsheet.png"
-			width="4960"
-			height="3507"
-			srcset="/p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/matplotlib-cheatsheet_hu2684437d2f30aaac6b819e7acf86423a_2790488_480x0_resize_box_3.png 480w, /p/2022/01/matplotlib-%E9%80%9F%E6%9F%A5%E8%A1%A8/matplotlib-cheatsheet_hu2684437d2f30aaac6b819e7acf86423a_2790488_1024x0_resize_box_3.png 1024w"
-			loading="lazy"
-			alt="风格">
-	</a>
+		data-flex-grow="141"
+		data-flex-basis="339px"
 	
-	<figcaption>风格</figcaption>
-	
-</figure></p>
+></p>
 <p>待补充……</p>
 
 </section>
@@ -257,43 +439,39 @@
     
         <link 
                 rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css"integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn"crossorigin="anonymous"
+                href="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.css"integrity="sha256-J&#43;iAE0sgH8QSz9hpcDxXIftnj65JEZgNhGcgReTTK9s="crossorigin="anonymous"
             ><script 
-                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js"integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8"crossorigin="anonymous"
-                defer="true"
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.js"integrity="sha256-InsNdER1b2xUewP&#43;pKCUJpkhiqwHgqiPXDlIk7GzBu4="crossorigin="anonymous"
+                defer
                 >
             </script><script 
-                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js"integrity="sha384-vZTG03m&#43;2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl"crossorigin="anonymous"
-                defer="true"
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/contrib/auto-render.min.js"integrity="sha256-y39Mpg7V3D4lhBX4x6O0bUqTV4pSrfgwEfGKfxkOdgI="crossorigin="anonymous"
+                defer
                 >
-            </script>
-<script>
-MathJax = {
-    tex: {
-        inlineMath: [['$', '$'], ['\\(', '\\)']],
-        displayMath: [['$$', '$$'], ['\\[', '\\]']],
-        processEscapes: true,
-        processEnvironments: true
-    },
-    options: {
-        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
-    }
-};
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });})
 </script>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script id="MathJax-script" async
-src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
     
 </article>
 
-    <aside class="related-contents--wrapper">
     
+
     
-        <h2 class="section-title">相关文章</h2>
-        <div class="related-contents">
-            <div class="flex article-list--tile">
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
                 
-                    
 <article class="">
     <a href="/p/2020/07/%E5%8D%8E%E5%B7%A5%E8%87%AA%E5%8A%A8%E6%8A%A5%E5%B9%B3%E5%AE%89%E8%84%9A%E6%9C%AC/">
         
@@ -304,8 +482,35 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
         </div>
     </a>
 </article>
+
+            
                 
-                    
+<article class="">
+    <a href="/p/2020/05/%E6%9C%80%E8%BF%91%E8%BF%9B%E5%B1%952020-5-10/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">最近进展2020-5-10</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/2020/04/%E6%9C%80%E8%BF%91%E8%BF%9B%E5%B1%952020-4-9/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">最近进展2020-4-9</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
 <article class="">
     <a href="/p/2020/03/jupyter-notebook%E9%85%8D%E7%BD%AE/">
         
@@ -316,46 +521,23 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
         </div>
     </a>
 </article>
+
+            
                 
-                    
 <article class="">
-    <a href="/p/2022/02/svg%E7%AC%94%E8%AE%B0/">
+    <a href="/p/2022/11/mathematica-%E6%80%BB%E7%BB%93/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">Svg笔记</h2>
+            <h2 class="article-title">Mathematica 总结</h2>
         </div>
     </a>
 </article>
-                
-                    
-<article class="">
-    <a href="/p/2022/02/canvas%E7%AC%94%E8%AE%B0/">
-        
-        
 
-        <div class="article-details">
-            <h2 class="article-title">Canvas笔记</h2>
+            
         </div>
-    </a>
-</article>
-                
-                    
-<article class="">
-    <a href="/p/2022/02/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E4%BD%93%E9%AA%8C1/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">前端工程化体验（1）</h2>
-        </div>
-    </a>
-</article>
-                
-            </div>
-        </div>
-    
+    </div>
 </aside>
 
      
@@ -365,23 +547,19 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
 
     <footer class="site-footer">
     <section class="copyright">
-        &copy;
+        &copy; 
         
-        2021 -
+            2021 - 
         
         2022 MizarZ&#39;s Blog
     </section>
-
+    
     <section class="powerby">
         Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
-        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener"
-                data-version="3.4.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
-
-        
-
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
     </section>
-
 </footer>
+
 
     
 <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
@@ -447,54 +625,25 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
 
 </div><script 
                 src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
-                defer="true"
+                defer
                 >
             </script><script 
                 src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
-                defer="true"
+                defer
                 >
             </script><link 
                 rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
             ><link 
                 rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
             >
 
             </main>
-    
-        <aside class="sidebar right-sidebar sticky">
-            <section class="widget archives">
-                <div class="widget-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <line x1="5" y1="9" x2="19" y2="9" />
-  <line x1="5" y1="15" x2="19" y2="15" />
-  <line x1="11" y1="4" x2="7" y2="20" />
-  <line x1="17" y1="4" x2="13" y2="20" />
-</svg>
-
-
-
-                </div>
-                <h2 class="widget-title section-title">目录</h2>
-                
-                <div class="widget--toc">
-                    <nav id="TableOfContents">
-  <ol>
-    <li><a href="#官方速查">官方速查</a></li>
-    <li><a href="#风格速查">风格速查</a></li>
-  </ol>
-</nav>
-                </div>
-            </section>
-        </aside>
-    
-
         </div>
         <script 
-                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
-                defer="false"
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
                 >
             </script><script type="text/javascript" src="/ts/main.js" defer></script>
 <script>

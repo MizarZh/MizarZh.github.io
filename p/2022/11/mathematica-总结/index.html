@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='搞清楚 mathematica 与主流语言的区别，并总结其特征'>
+<title>Mathematica 总结</title>
+
+<link rel='canonical' href='https://mizarzh.github.io/p/2022/11/mathematica-%E6%80%BB%E7%BB%93/'>
+
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='Mathematica 总结'>
+<meta property='og:description' content='搞清楚 mathematica 与主流语言的区别，并总结其特征'>
+<meta property='og:url' content='https://mizarzh.github.io/p/2022/11/mathematica-%E6%80%BB%E7%BB%93/'>
+<meta property='og:site_name' content='MizarZ&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='mathematica' /><meta property='article:tag' content='笔记' /><meta property='article:published_time' content='2022-11-23T21:12:13&#43;08:00'/><meta property='article:modified_time' content='2022-11-23T21:12:13&#43;08:00'/>
+<meta name="twitter:title" content="Mathematica 总结">
+<meta name="twitter:description" content="搞清楚 mathematica 与主流语言的区别，并总结其特征">
+    <link rel="shortcut icon" href="img/favicon-32x32.png" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu06d6ebd0fb0ddfbf4635527d9aae802d_36938_300x0_resize_q75_box.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">MizarZ&#39;s Blog</a></h1>
+            <h2 class="site-description">半吊子物理系学生/啥都不会程序员/喜爱泛理科内容</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/MizarZh'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/academics/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>Academic</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/project/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Projects</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>暗色模式</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E7%BC%96%E7%A8%8B/" style="background-color: #0177b8; color: ;">
+                编程
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/2022/11/mathematica-%E6%80%BB%E7%BB%93/">Mathematica 总结</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            搞清楚 mathematica 与主流语言的区别，并总结其特征
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2022-11-23</time>
+            </div>
+        
+
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>学完了 mma 的基本语法，来总结一下一些最显著的特征吧。</p>
+<h2 id="mma-难学的地方">mma 难学的地方</h2>
+<h3 id="函数式语言">函数式语言</h3>
+<p>mma 是一门函数式语言，不能用命令式语言的思想来使用 mma（我以前就是犯了这个错误导致根本不会用）。</p>
+<p>然而很多人都没有函数式编程的经验，导致 mma 中的一些操作显得格外难以理解。</p>
+<p>函数式编程的核心是函数以及它的输入输出，因此主要涵盖的内容就是数据结构、函数本身及模式匹配。</p>
+<h3 id="魔咒">魔咒</h3>
+<p>mma 里面用到了特别多乱七八糟的符号：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-mathematica" data-lang="mathematica"><span class="line"><span class="cl"><span class="o">@</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="o">@@</span><span class="w"> </span><span class="nv">#</span><span class="w"> </span><span class="o">/@</span><span class="w"> </span><span class="nv">_</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="o">&lt;||&gt;</span><span class="w"> </span><span class="o">:=</span><span class="w">
+</span></span></span></code></pre></div><p>这些符号对于初学者来说完全不知所云，而且 mma 使用这些符号的频率非常高，导致入门的时候无从下手。就像 vim 初学的时候不会关闭编辑器一样，不学过 mma 都不知道怎么定义函数。</p>
+<p>mma 中的常用符号也代表了不同的意思：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-mathematica" data-lang="mathematica"><span class="line"><span class="cl"><span class="p">[]</span><span class="w"> </span><span class="p">[[]]</span><span class="w"> </span><span class="p">{}</span><span class="w"> 
+</span></span></span></code></pre></div><p>前两个是数组、嵌套数组？第三个是块作用域？都不对！</p>
+<p>下面主要聚焦于和普通语言的<strong>差别</strong>，因为内置的 8000 个函数可太多了。常用函数有时间再补上吧。</p>
+<h2 id="函数式语言-1">函数式语言</h2>
+<p>我们平常一般接触的 python、C 之类都是命令式语言，意思就是每一句话都在命令程序做一些东西。</p>
+<p>但函数式语言不同，它的基本思想就是几个值<strong>输入</strong>到一个<strong>函数</strong>中，然后得到一个<strong>输出</strong>。著名的函数式编程语言有 Lisp、Haskell 和这里说的 mathematica 了。</p>
+<p>要说有什么最显著的区别，可以看看 mathematica 是怎么处理条件的：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-mathematica" data-lang="mathematica"><span class="line"><span class="cl"><span class="n">If</span><span class="p">[</span><span class="n">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">]</span><span class="w"> </span><span class="c">(*如果 a&gt;b 就返回 a，否则返回 b*)</span><span class="w">
+</span></span></span></code></pre></div><p>和命令式语言差别写法并不一致。只要理解了这一点，使用 mathematica 其实就并不困难了。</p>
+<h2 id="函数">函数</h2>
+<h3 id="调用函数">调用函数</h3>
+<p>使用方括号调用函数（这一点和其他语言基本都不同）</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-mathematica" data-lang="mathematica"><span class="line"><span class="cl"><span class="n">RandomReal</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span><span class="w"> </span><span class="c">(*这个函数的作用是返回一定范围内的*)</span><span class="w">
+</span></span></span></code></pre></div><p>也可以使用别的符号调用函数：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-mathematica" data-lang="mathematica"><span class="line"><span class="cl"><span class="n">f</span><span class="o">@</span><span class="n">g</span><span class="w"> </span><span class="c">(*f[g]*)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">g</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="c">(*f[g]*)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">f</span><span class="o">@</span><span class="n">g</span><span class="o">@</span><span class="n">x</span><span class="w"> </span><span class="c">(*可以套娃*)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">(*这里还牵涉到和mma底层储存相关的东西，有时间再写*)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">f</span><span class="w"> </span><span class="o">@@</span><span class="w"> </span><span class="p">{</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">}</span><span class="w"> </span><span class="c">(*f[x,y,z]*)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">f</span><span class="w"> </span><span class="o">@@@</span><span class="w"> </span><span class="p">{{</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">d</span><span class="p">}}</span><span class="w"> </span><span class="c">(*{f[a, b, c], f[b, c, d]}*)</span><span class="w">
+</span></span></span></code></pre></div><h3 id="纯匿名函数pure-anonymous-function">纯匿名函数（Pure Anonymous Function）</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-mathematica" data-lang="mathematica"><span class="line"><span class="cl"><span class="c">(*基本形式*)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">f</span><span class="p">[</span><span class="nv">#</span><span class="p">]</span><span class="o">&amp;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">(*例子*)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nv">#</span><span class="o">^</span><span class="mi">2</span><span class="w"> </span><span class="o">&amp;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">N</span><span class="p">[</span><span class="nv">#</span><span class="p">]</span><span class="w"> </span><span class="o">&amp;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">(*调用*)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">f</span><span class="p">[</span><span class="nv">#</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">]</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">f</span><span class="p">[</span><span class="nv">#</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">]</span><span class="w"> </span><span class="o">&amp;@</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="c">(*在只填入一个参数的情况下*)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">f</span><span class="p">[</span><span class="nv">#1</span><span class="p">,</span><span class="w"> </span><span class="nv">#2</span><span class="p">]</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">f</span><span class="p">[</span><span class="nv">#</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="nv">#</span><span class="n">c</span><span class="p">]</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="p">[</span><span class="o">&lt;|</span><span class="s">&#34;a&#34;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;c&#34;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">2</span><span class="o">|&gt;</span><span class="p">]</span><span class="w"> </span><span class="c">(*可以用字母填充，但需要使用 association*)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">f</span><span class="p">[</span><span class="nv">#</span><span class="p">[</span><span class="s">&#34;apples&#34;</span><span class="p">],</span><span class="w"> </span><span class="nv">#</span><span class="p">[</span><span class="s">&#34;oranges&#34;</span><span class="p">]]</span><span class="w"> </span><span class="o">&amp;</span><span class="p">[</span><span class="o">&lt;|</span><span class="s">&#34;apples&#34;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;oranges&#34;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;pears&#34;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">4</span><span class="o">|&gt;</span><span class="p">]</span><span class="w"> </span><span class="c">(*其实是这个的简写*)</span><span class="w">
+</span></span></span></code></pre></div><h3 id="map">Map</h3>
+<p>顾名思义，一个函数作用到 List 上。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-mathematica" data-lang="mathematica"><span class="line"><span class="cl"><span class="n">Map</span><span class="p">[</span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">f</span><span class="w"> </span><span class="o">/@</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">}</span><span class="w"> </span><span class="c">(*{f[1], f[2], f[3]}*)</span><span class="w">
+</span></span></span></code></pre></div><h2 id="数据结构">数据结构</h2>
+<p>当然，第一步要了解的还是数据结构。</p>
+<p>mma 内置的数据结构有很多，比如数字、字符串，甚至颜色、图像。不得不承认，mma 在这方面上做得非常不错。</p>
+<h3 id="常用内置数据结构">常用内置数据结构</h3>
+<p>待补充</p>
+<h3 id="结构类型">结构类型</h3>
+<p>mma 最值得学习的还是它的结构类型，这也是和普通语言最不同的地方。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-mathematica" data-lang="mathematica"><span class="line"><span class="cl"><span class="c">(* List *)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">}[[</span><span class="mi">2</span><span class="p">]]</span><span class="w"> </span><span class="c">(* 2 *)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">}[[</span><span class="mi">2</span><span class="o">;;</span><span class="mi">3</span><span class="p">]]</span><span class="w"> </span><span class="c">(* {2,3} 范围取值 *)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">{{</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="n">d</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">}}[[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">]]</span><span class="w"> </span><span class="c">(* b 多维数组取值 *)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">{{</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="n">d</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">}}[[</span><span class="n">All</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">]]</span><span class="w"> </span><span class="c">(* {a,d,g} *)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">(* Rule *)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">a</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">(* Association *)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">&lt;|</span><span class="n">a</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">2</span><span class="o">|&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">&lt;|</span><span class="n">a</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">2</span><span class="o">|&gt;</span><span class="p">[</span><span class="s">&#34;a&#34;</span><span class="p">]</span><span class="w"> </span><span class="c">(* 1 *)</span><span class="w">
+</span></span></span></code></pre></div><p>一言以蔽之，<code>List</code> 承担了包含数组、矩阵、元组等等的工作。取出里面的数要使用<strong>双括号</strong>，下标从一开始。</p>
+<p><code>Association</code> 类似于 python 字典 / js 对象 / C++ Map。使用单括号索引。</p>
+<p><code>Rule</code> 用于一些特殊的场合中，通常作为参数出现。</p>
+<h3 id="赋值">赋值</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-mathematica" data-lang="mathematica"><span class="line"><span class="cl"><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RandomReal</span><span class="p">[]</span><span class="w"> </span><span class="c">(* 马上给 a 赋值 *)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">b</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">RandomReal</span><span class="p">[]</span><span class="w"> </span><span class="c">(* 等用到 b 再赋值，即延迟赋值*)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">{</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">}</span><span class="w"> </span><span class="c">(*{7.75203, 9.77809, 4.27623}*)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">a</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="c">(*立即作用的 Rule*)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">a</span><span class="w"> </span><span class="o">:&gt;</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="c">(*延迟作用的 Rule*)</span><span class="w">
+</span></span></span></code></pre></div><p>=  是马上赋值， <code>:=</code> 是延迟赋值。</p>
+<h2 id="模式匹配">模式匹配</h2>
+<p>模式匹配在函数式编程语言中也非常常用，下面快速了解一些模式匹配的魔咒：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-mathematica" data-lang="mathematica"><span class="line"><span class="cl"><span class="n">Cases</span><span class="p">[{{</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">}},</span><span class="w"> </span><span class="p">{</span><span class="nv">_</span><span class="p">,</span><span class="w"> </span><span class="nv">_</span><span class="p">}]</span><span class="w"> </span><span class="c">(*_ 代表匹配任意字符*)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Cases</span><span class="p">[{{</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">}},</span><span class="w"> </span><span class="p">{</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="nv">_</span><span class="p">}]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">(*__ 代表匹配任意结构，即有一个或多个元素*)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Cases</span><span class="p">[{{</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">}},</span><span class="w"> </span><span class="p">{</span><span class="nv">__</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">}]</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Cases</span><span class="p">[{{</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">}},</span><span class="w"> </span><span class="p">{</span><span class="n">a</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="nv">_</span><span class="p">}]</span><span class="w"> </span><span class="c">(* | 代表或*)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Cases</span><span class="p">[{</span><span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="n">g</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">],</span><span class="w"> </span><span class="p">{</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">},</span><span class="w"> </span><span class="n">f</span><span class="p">[</span><span class="n">x</span><span class="p">],</span><span class="w"> </span><span class="n">f</span><span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">]},</span><span class="w"> </span><span class="n">f</span><span class="p">[</span><span class="nv">_</span><span class="p">]]</span><span class="w"> </span><span class="c">(*可以匹配函数参数*)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">(* /. 运算符，将其中的元素作用到模式匹配上*)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">{{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">}}</span><span class="w"> </span><span class="o">/.</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">_</span><span class="p">}</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Red</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">(* 命名函数匹配，意味着要相同的元素才能通过匹配 *)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Cases</span><span class="p">[{{</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="n">c</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="n">a</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="n">b</span><span class="p">}},</span><span class="w"> </span><span class="p">{</span><span class="nv">x_</span><span class="p">,</span><span class="w"> </span><span class="nv">x_</span><span class="p">}]</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Cases</span><span class="p">[{</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">},</span><span class="w"> </span><span class="nv">_Integer</span><span class="p">]</span><span class="w"> </span><span class="c">(* 匹配类型，理论上其实是匹配 Head *)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Cases</span><span class="p">[{</span><span class="mi">99</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">,</span><span class="w"> </span><span class="mi">101</span><span class="p">,</span><span class="w"> </span><span class="mi">102</span><span class="p">},</span><span class="w"> </span><span class="nv">n_Integer</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">}]</span><span class="w"> </span><span class="c">(* 综合 *)</span><span class="w">
+</span></span></span></code></pre></div><h2 id="声明函数">声明函数</h2>
+<p>为什么在 mma 里面声明一个函数这么麻烦呢……因为模式匹配的缘故吧。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-mathematica" data-lang="mathematica"><span class="line"><span class="cl"><span class="c">(*翻译一下就是，对函数中 n 这个值进行匹配，并放到函数中进行运算*)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">pinks</span><span class="p">[</span><span class="nv">n_</span><span class="p">]</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">Table</span><span class="p">[</span><span class="n">Pink</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">]</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">(* /; 表示复合的匹配。例如这里意思就是匹配 n，且 n 同时满足是整数和 &gt;0 的条件*)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">pdigitback</span><span class="p">[</span><span class="nv">n_Integer</span><span class="w"> </span><span class="o">/;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">Framed</span><span class="p">[</span><span class="n">Reverse</span><span class="p">[</span><span class="n">IntegerDigits</span><span class="p">[</span><span class="n">n</span><span class="p">]]]</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">(* 用到这种指定条件的模式匹配，就可以用一个函数定义多种条件了，例如这里就是 &gt; 输出红色，&lt;= 输出绿色 *)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">(* 这也是函数式编程语言的一个特点 *)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">check</span><span class="p">[</span><span class="nv">x_</span><span class="p">,</span><span class="w"> </span><span class="nv">y_</span><span class="p">]</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">Red</span><span class="w"> </span><span class="o">/;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">y</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">check</span><span class="p">[</span><span class="nv">x_</span><span class="p">,</span><span class="w"> </span><span class="nv">y_</span><span class="p">]</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">Green</span><span class="w"> </span><span class="o">/;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">y</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">(* ___（三个下划线）代表零个或多个元素 *)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">blackwhite</span><span class="p">[{</span><span class="nv">___</span><span class="p">,</span><span class="w"> </span><span class="n">Black</span><span class="p">,</span><span class="w"> </span><span class="nv">m___</span><span class="p">,</span><span class="w"> </span><span class="n">White</span><span class="p">,</span><span class="w"> </span><span class="nv">___</span><span class="p">}]</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">}</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">(* Longest 函数代表匹配最长的序列 *)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">blackwhitex</span><span class="p">[{</span><span class="nv">___</span><span class="p">,</span><span class="w"> </span><span class="n">Black</span><span class="p">,</span><span class="w"> </span><span class="n">Longest</span><span class="p">[</span><span class="nv">m___</span><span class="p">],</span><span class="w"> </span><span class="n">White</span><span class="p">,</span><span class="w"> </span><span class="nv">___</span><span class="p">}]</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">}</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">(* .. 代表重复前面的匹配多次，这里的意思就是匹配最长的多次出现的白色或黑色*)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">bwcut</span><span class="p">[{</span><span class="nv">a___</span><span class="p">,</span><span class="w"> </span><span class="n">Longest</span><span class="p">[(</span><span class="n">Black</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">White</span><span class="p">)</span><span class="w"> </span><span class="err">..</span><span class="p">],</span><span class="w"> </span><span class="nv">b___</span><span class="p">}]</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="p">{{</span><span class="n">a</span><span class="p">},</span><span class="w"> </span><span class="n">Red</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="n">b</span><span class="p">}}</span><span class="w"> 
+</span></span></span></code></pre></div><p>魔咒到这里基本就写完啦。</p>
+<h2 id="常用函数">常用函数</h2>
+<p>待补充</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/mathematica/">mathematica</a>
+        
+            <a href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/2022/02/canvas%E7%AC%94%E8%AE%B0/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Canvas笔记</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/2022/01/js%E7%9A%84%E6%A8%A1%E5%9D%97%E7%B3%BB%E7%BB%9F%E4%BB%A5%E5%8F%8A%E5%85%B6%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Js的模块系统以及其零碎知识</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/2022/01/electron%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Electron基本介绍</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/2022/01/echarts%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Echarts基本使用</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/2022/01/%E5%89%8D%E7%AB%AF%E4%B8%8B%E8%BD%BD%E5%8E%9F%E5%A7%8B%E5%AE%9E%E7%8E%B0/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">前端下载原始实现</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2021 - 
+        
+        2022 MizarZ&#39;s Blog
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

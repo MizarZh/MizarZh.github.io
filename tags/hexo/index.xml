@@ -1,20 +1,167 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>hexo on MizarZ&#39;s Blog</title>
-    <link>https://mizarzh.github.io/tags/hexo/</link>
-    <description>Recent content in hexo on MizarZ&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
-    <lastBuildDate>Mon, 27 Jan 2020 22:46:41 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/tags/hexo/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>hexo win10配置方法，并使用github作为博客地址</title>
-      <link>https://mizarzh.github.io/p/2020/01/hexo-win10%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95%E5%B9%B6%E4%BD%BF%E7%94%A8github%E4%BD%9C%E4%B8%BA%E5%8D%9A%E5%AE%A2%E5%9C%B0%E5%9D%80/</link>
-      <pubDate>Mon, 27 Jan 2020 22:46:41 +0800</pubDate>
-      
-      <guid>https://mizarzh.github.io/p/2020/01/hexo-win10%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95%E5%B9%B6%E4%BD%BF%E7%94%A8github%E4%BD%9C%E4%B8%BA%E5%8D%9A%E5%AE%A2%E5%9C%B0%E5%9D%80/</guid>
-      <description>0、准备： node.js官网下载node并安装 安装git for windows，以后将使用git bash作为命令行操4作 配置git账号信息： git config --global</description>
-    </item>
-    
-  </channel>
+    <channel>
+        <title>hexo on MizarZ&#39;s Blog</title>
+        <link>https://mizarzh.github.io/tags/hexo/</link>
+        <description>Recent content in hexo on MizarZ&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <lastBuildDate>Tue, 28 Jan 2020 11:38:56 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/tags/hexo/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>杂项问题</title>
+        <link>https://mizarzh.github.io/p/2020/01/%E6%9D%82%E9%A1%B9%E9%97%AE%E9%A2%98/</link>
+        <pubDate>Tue, 28 Jan 2020 11:38:56 +0800</pubDate>
+        
+        <guid>https://mizarzh.github.io/p/2020/01/%E6%9D%82%E9%A1%B9%E9%97%AE%E9%A2%98/</guid>
+        <description>&lt;h1 id=&#34;hexo相关&#34;&gt;hexo相关&lt;/h1&gt;
+&lt;h2 id=&#34;1-vscode使用markdown相关&#34;&gt;1. vscode使用markdown相关&lt;/h2&gt;
+&lt;p&gt;preview：右上角点击preview即可
+可装插件Markdown Preview Enhanced使得preview更好看&lt;/p&gt;
+&lt;h2 id=&#34;2hexo标签问题&#34;&gt;2、hexo标签问题&lt;/h2&gt;
+&lt;p&gt;设置了hexo的tags或者是categories，一开始是没有对应的页面的。生成页面的做法：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hexo n page tags &lt;span class=&#34;c1&#34;&gt;#或categories等&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后在source/tags目录中配置index.md&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-md&#34; data-lang=&#34;md&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;---
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;title: 标签
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;date:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;type: &amp;#34;tags&amp;#34; //或者&amp;#34;categories&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;---
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后hexo g即可&lt;/p&gt;
+&lt;h2 id=&#34;3hexo目录乱序&#34;&gt;3、hexo目录乱序&lt;/h2&gt;
+&lt;p&gt;需要按顺序一级一级使用#
+如##后应该跟###而不是####&lt;/p&gt;
+&lt;h2 id=&#34;4hexo插入图片&#34;&gt;4、hexo插入图片&lt;/h2&gt;
+&lt;p&gt;摸索出来的新方法：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;手动在_post文件夹建立与md相同名字的文件夹（不含.md)，往里面放入图片&lt;/li&gt;
+&lt;li&gt;直接使用![](xxx/文件名)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;后面这种网上常见方法在我这里不适用/会出bug
+例如我使用了之后就会使得地址处多了一个/.io/，无法连接到正确图片上&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;ol&gt;
+&lt;li&gt;_config.yml里面的post_asset_folder设为true&lt;/li&gt;
+&lt;li&gt;安装插件&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cnpm install hexo-asset-image --save
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;安装完成后后hexo n &amp;ldquo;xxx&amp;quot;就会生成xxx.md的同时生成一个同名文件夹，图片放在里面即可。&lt;/li&gt;
+&lt;li&gt;调用图片的命令为![](xxx/文件名)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;h2 id=&#34;5hexo启用公式&#34;&gt;5、hexo启用公式&lt;/h2&gt;
+&lt;p&gt;使用kramed渲染&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cnpm install hexo-renderer-kramed --save
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在_config.yml中将mathjax enable，并在每篇文章的head中添加mathjax: true
+有时候遇到pandoc exited with code null的问题，可以直接将pandoc整个卸载：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;npm remove hexo-renderer-pandoc --save
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;git相关&#34;&gt;git相关&lt;/h1&gt;
+&lt;h2 id=&#34;1git速度过慢&#34;&gt;1、git速度过慢&lt;/h2&gt;
+&lt;p&gt;需设置hosts文件，隔一段时间需重新设置&lt;/p&gt;
+&lt;h1 id=&#34;浏览器配置&#34;&gt;浏览器配置&lt;/h1&gt;
+&lt;p&gt;使用firefox&lt;/p&gt;
+&lt;h2 id=&#34;标签设置&#34;&gt;标签设置&lt;/h2&gt;
+&lt;p&gt;about:config
+收藏栏打开使用新标签
+browser.tabs.loadBookmarksInTabs设为true
+新标签在当前标签右侧打开
+browser.tabs.insertAfterCurrent设为true&lt;/p&gt;
+&lt;p&gt;拓展安装
+tabliss：
+主要看重其中的TODO（懒= =）
+Simple Tab Groups：&lt;/p&gt;
+&lt;p&gt;Tab Center Redux:&lt;/p&gt;
+&lt;h2 id=&#34;使用的拓展&#34;&gt;使用的拓展&lt;/h2&gt;
+&lt;p&gt;Dark Reader:&lt;/p&gt;
+&lt;p&gt;IDM:&lt;/p&gt;
+&lt;p&gt;uBlock Origin:&lt;/p&gt;
+&lt;p&gt;Video DownloadHelper:&lt;/p&gt;
+&lt;p&gt;To Google Translate:&lt;/p&gt;
+&lt;h2 id=&#34;打开被禁用端口&#34;&gt;打开被禁用端口&lt;/h2&gt;
+&lt;p&gt;config:about
+network.security.ports.banned.override添加字符串
+xxxx,xxxx,xxxx格式&lt;/p&gt;
+&lt;h1 id=&#34;ssh传文件&#34;&gt;ssh传文件&lt;/h1&gt;
+&lt;p&gt;本地-&amp;gt;远程&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;scp local_file remote_username@remote_ip:remote_folder 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;远程-&amp;gt;本地&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;scp remote_username@remote_ip:remote_folder local_folder
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;ffmpeg&#34;&gt;ffmpeg&lt;/h1&gt;
+&lt;h2 id=&#34;叠加图片&#34;&gt;叠加图片&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;./ffmpeg -r 一秒帧数 -start_number 起始数字 -i img_%04d.jpg（4位整数） output.mp4
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;剪片&#34;&gt;剪片&lt;/h2&gt;
+&lt;p&gt;-ss 00:00:00.000 开始时间
+-t 00:00:10.000 持续时间
+-to 00:00:10.000 结束时间&lt;/p&gt;
+&lt;h2 id=&#34;旋转&#34;&gt;旋转&lt;/h2&gt;
+&lt;p&gt;顺时针旋转画面90度ffmpeg -i test.mp4 -vf &amp;ldquo;transpose=1&amp;rdquo; out.mp4
+逆时针旋转画面90度ffmpeg -i test.mp4 -vf &amp;ldquo;transpose=2&amp;rdquo; out.mp4
+顺时针旋转画面90度再水平翻转ffmpeg -i test.mp4 -vf &amp;ldquo;transpose=3&amp;rdquo; out.mp4
+逆时针旋转画面90度水平翻转ffmpeg -i test.mp4 -vf &amp;ldquo;transpose=0&amp;rdquo; out.mp4
+水平翻转视频画面ffmpeg -i test.mp4 -vf hflip out.mp4
+垂直翻转视频画面ffmpeg -i test.mp4 -vf vflip out.mp4&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>hexo win10配置方法，并使用github作为博客地址</title>
+        <link>https://mizarzh.github.io/p/2020/01/hexo-win10%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95%E5%B9%B6%E4%BD%BF%E7%94%A8github%E4%BD%9C%E4%B8%BA%E5%8D%9A%E5%AE%A2%E5%9C%B0%E5%9D%80/</link>
+        <pubDate>Mon, 27 Jan 2020 22:46:41 +0800</pubDate>
+        
+        <guid>https://mizarzh.github.io/p/2020/01/hexo-win10%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95%E5%B9%B6%E4%BD%BF%E7%94%A8github%E4%BD%9C%E4%B8%BA%E5%8D%9A%E5%AE%A2%E5%9C%B0%E5%9D%80/</guid>
+        <description>&lt;h2 id=&#34;0准备&#34;&gt;0、准备：&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://nodejs.org/en/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;node.js&lt;/a&gt;官网下载node并安装&lt;/li&gt;
+&lt;li&gt;安装&lt;a class=&#34;link&#34; href=&#34;https://git-scm.com/download/win&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;git for windows&lt;/a&gt;，以后将使用git bash作为命令行操4作
+配置git账号信息：
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git config --global user.name &lt;span class=&#34;s2&#34;&gt;&amp;#34;Firstname Lastname&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git config --global user.email &lt;span class=&#34;s2&#34;&gt;&amp;#34;your-email@youremail.com&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;github新建repository的地址需命名为&lt;em&gt;your-github-name.github.io&lt;/em&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;1使用cnpm&#34;&gt;1、使用cnpm&lt;/h2&gt;
+&lt;p&gt;npm命令在国内较慢，需要安装cnpm(淘宝镜像)&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;npm install -g cnpm --registry&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;https://registry.npm.taobao.org
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;!-- raw HTML omitted --&gt;
+&lt;h2 id=&#34;2安装hexo&#34;&gt;2、安装hexo&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cnpm install -g hexo-cli
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;3新建文件夹&#34;&gt;3、新建文件夹&lt;/h2&gt;
+&lt;p&gt;新建一个文件夹，里面将存储blog所需文件&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;mkdir my_blog
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; my_blog
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;4初始化hexo&#34;&gt;4、初始化hexo&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hexo init
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;5安装hexo部署至github的工具&#34;&gt;5、安装hexo部署至github的工具&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cnpm install --save hexo-deployer-git
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;（若出现ERROR Deployer not found: git错误，则是这个工具未安装）&lt;/p&gt;
+&lt;h2 id=&#34;6其他配置&#34;&gt;6、其他配置&lt;/h2&gt;
+&lt;p&gt;其中文件_config.yml是配置文件
+部署到github上需要配置deploy部分&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-makefile&#34; data-lang=&#34;makefile&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;type&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &amp;#39;&lt;span class=&#34;n&#34;&gt;git&lt;/span&gt;&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;添加两行：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-makefile&#34; data-lang=&#34;makefile&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;repo&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;_path&lt;/span&gt;-&lt;span class=&#34;n&#34;&gt;to&lt;/span&gt;-&lt;span class=&#34;n&#34;&gt;github&lt;/span&gt;-&lt;span class=&#34;n&#34;&gt;blog_&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;branch&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;master&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;可在theme中更换主题&lt;/p&gt;
+&lt;h3 id=&#34;本地临时服务器&#34;&gt;本地临时服务器：&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hexo s 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;s 代表 start
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;默认地址为localhost:4000&lt;/p&gt;
+&lt;h3 id=&#34;新建文档&#34;&gt;新建文档：&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hexo n &lt;span class=&#34;s2&#34;&gt;&amp;#34;name&amp;#34;&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;n 代表 new
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;文档存放在/source/_post/中&lt;/p&gt;
+&lt;h3 id=&#34;生成文档&#34;&gt;生成文档：&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hexo g 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;g 代表 generate
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;部署文档到github上：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hexo d 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;d 代表 deploy
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;第一次配置可能需要输入github的账号密码
+若是git bash内提示账号相关的错误，返回第零步进行账号的配置&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
 </rss>

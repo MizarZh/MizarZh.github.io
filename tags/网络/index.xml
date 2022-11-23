@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>网络 on MizarZ&#39;s Blog</title>
+        <link>https://mizarzh.github.io/tags/%E7%BD%91%E7%BB%9C/</link>
+        <description>Recent content in 网络 on MizarZ&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <lastBuildDate>Tue, 25 Jan 2022 20:25:37 +0800</lastBuildDate><atom:link href="https://mizarzh.github.io/tags/%E7%BD%91%E7%BB%9C/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>HTTP头的一些知识点（Cache）</title>
+        <link>https://mizarzh.github.io/p/2022/01/http%E5%A4%B4%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%E7%82%B9cache/</link>
+        <pubDate>Tue, 25 Jan 2022 20:25:37 +0800</pubDate>
+        
+        <guid>https://mizarzh.github.io/p/2022/01/http%E5%A4%B4%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%E7%82%B9cache/</guid>
+        <description>&lt;h1 id=&#34;缓存&#34;&gt;缓存&lt;/h1&gt;
+&lt;h2 id=&#34;概述&#34;&gt;概述&lt;/h2&gt;
+&lt;p&gt;整体概述见 &lt;a class=&#34;link&#34; href=&#34;https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Caching&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;MDN-Cache&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;缓存是一种保存资源副本并在下次请求时直接使用该副本的技术。当 web 缓存发现请求的资源已经被存储，它会拦截请求，返回该资源的拷贝，而不会去源服务器重新下载。&lt;/p&gt;
+&lt;p&gt;缓存分两种：私有与共享缓存。共享缓存存储的响应能够被多个用户使用。私有缓存只能用于单独用户。&lt;/p&gt;
+&lt;p&gt;通常缓存的内容是：GET 请求，永久重定向 301，错误响应 404，不完全的响应 206，一个被定义的 cache 键名的响应。&lt;/p&gt;
+&lt;p&gt;判断是否过期的一些方法：&lt;/p&gt;
+&lt;p&gt;1、约定时间&lt;/p&gt;
+&lt;p&gt;2、在URL后面（通常是文件名后面）会加上版本号。&lt;/p&gt;
+&lt;p&gt;3、缓存验证：当缓存的文档过期后，需要进行缓存验证或者重新获取资源。只有在服务器返回强校验器或者弱校验器时才会进行验证。&lt;/p&gt;
+&lt;p&gt;Vary 请求头：当缓存服务器收到一个请求，只有当前的请求和原始（缓存）的请求头跟缓存的响应头里的Vary都匹配，才能使用缓存的响应。&lt;/p&gt;
+&lt;h2 id=&#34;cache-control&#34;&gt;Cache-Control&lt;/h2&gt;
+&lt;p&gt;文档来自 &lt;a class=&#34;link&#34; href=&#34;https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Cache-Control&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;MDN&lt;/a&gt;，规范链接 &lt;a class=&#34;link&#34; href=&#34;https://datatracker.ietf.org/doc/html/rfc7234&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;RFC7234&lt;/a&gt;。&lt;/p&gt;
+&lt;h3 id=&#34;简介&#34;&gt;简介&lt;/h3&gt;
+&lt;p&gt;通用消息头字段，被用于在http请求和响应中，通过指定指令来实现缓存机制。&lt;/p&gt;
+&lt;p&gt;缓存指令是单向的，这意味着在请求中设置的指令，不一定被包含在响应中。&lt;/p&gt;
+&lt;h3 id=&#34;指令&#34;&gt;指令&lt;/h3&gt;
+&lt;p&gt;请求指令：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-http&#34; data-lang=&#34;http&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;Cache-Control: max-age=&amp;lt;seconds&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;Cache-Control: max-stale[=&amp;lt;seconds&amp;gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;Cache-Control: min-fresh=&amp;lt;seconds&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;Cache-control: no-cache
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;Cache-control: no-store
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;Cache-control: no-transform
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;Cache-control: only-if-cached
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;响应指令：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-http&#34; data-lang=&#34;http&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;Cache-control: must-revalidate
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;Cache-control: no-cache
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;Cache-control: no-store
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;Cache-control: no-transform
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;Cache-control: public
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;Cache-control: private
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;Cache-control: proxy-revalidate
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;Cache-Control: max-age=&amp;lt;seconds&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;Cache-control: s-maxage=&amp;lt;seconds&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;拓展指令（不是标准文档的一部分，注意兼容性）：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-http&#34; data-lang=&#34;http&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;Cache-control: immutable
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;Cache-control: stale-while-revalidate=&amp;lt;seconds&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;Cache-control: stale-if-error=&amp;lt;seconds&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;详细解释&#34;&gt;详细解释&lt;/h3&gt;
+&lt;h4 id=&#34;可缓存性&#34;&gt;可缓存性&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;public&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;可以被任何对象缓存（包括发送请求的客户端，代理服务器，等等）。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;private&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;能被单个用户缓存，不能作为共享缓存（即代理服务器不能缓存它）。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;no-cache&lt;/code&gt;：验证缓存&lt;/p&gt;
+&lt;p&gt;在发布缓存副本之前，强制要求缓存把请求提交给原始服务器进行验证(协商缓存验证)。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;no-store&lt;/code&gt;：不缓存&lt;/p&gt;
+&lt;p&gt;不使用任何缓存。（这个才是真的）&lt;/p&gt;
+&lt;h4 id=&#34;到期&#34;&gt;到期&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;max-age=&amp;lt;seconds&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;设置缓存存储的最大周期，超过这个时间缓存被认为过期(单位秒)。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;s-maxage=&amp;lt;seconds&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;覆盖&lt;code&gt;max-age&lt;/code&gt;或者&lt;code&gt;Expires&lt;/code&gt;头，但是仅适用于共享缓存(比如各个代理)，私有缓存会忽略它。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;max-stale[=&amp;lt;seconds&amp;gt;]&lt;/code&gt;：接受旧响应&lt;/p&gt;
+&lt;p&gt;表明客户端愿意接收一个已经过期的资源。&lt;/p&gt;
+&lt;p&gt;可以设置一个可选的秒数，表示响应不能已经过时超过该给定的时间。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;min-fresh=&amp;lt;seconds&amp;gt;&lt;/code&gt;：指定秒数内保持最新&lt;/p&gt;
+&lt;p&gt;表示客户端希望获取一个能在指定的秒数内保持其最新状态的响应。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;stale-while-revalidate=&amp;lt;seconds&amp;gt;&lt;/code&gt; 实验：接受旧响应+验证&lt;/p&gt;
+&lt;p&gt;表明客户端愿意接受陈旧的响应，同时在后台异步检查新的响应。&lt;/p&gt;
+&lt;p&gt;秒值指示客户愿意接受陈旧响应的时间长度。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;stale-if-error=&amp;lt;seconds&amp;gt;&lt;/code&gt; 实验：检查失败接受旧响应&lt;/p&gt;
+&lt;p&gt;表示如果新的检查失败，则客户愿意接受陈旧的响应。&lt;/p&gt;
+&lt;p&gt;秒数值表示客户在初始到期后愿意接受陈旧响应的时间。&lt;/p&gt;
+&lt;h4 id=&#34;重新验证和重新加载&#34;&gt;重新验证和重新加载&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;must-revalidate&lt;/code&gt;：过期不能使用&lt;/p&gt;
+&lt;p&gt;一旦资源过期，在成功向原始服务器验证之前，缓存不能用该资源响应后续请求。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;proxy-revalidate&lt;/code&gt;：过期不能使用 proxy 版&lt;/p&gt;
+&lt;p&gt;与 &lt;code&gt;must-revalidate&lt;/code&gt; 作用相同，但它仅适用于共享缓存（例如代理），并被私有缓存忽略。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;immutable&lt;/code&gt; 实验&lt;/p&gt;
+&lt;p&gt;表示响应正文不会随时间而改变。资源（如果未过期）在服务器上不发生改变，因此客户端不应发送重新验证请求头（例如&lt;code&gt;If-None-Match&lt;/code&gt;或I&lt;code&gt;f-Modified-Since&lt;/code&gt;）来检查更新，即使用户显式地刷新页面。&lt;/p&gt;
+&lt;h4 id=&#34;其他&#34;&gt;其他&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;no-transform&lt;/code&gt;：不能变&lt;/p&gt;
+&lt;p&gt;不得对资源进行转换或转变。&lt;code&gt;Content-Encoding&lt;/code&gt;、&lt;code&gt;Content-Range&lt;/code&gt;、&lt;code&gt;Content-Type&lt;/code&gt;等HTTP头不能由代理修改。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;only-if-cached&lt;/code&gt;：只接受缓存&lt;/p&gt;
+&lt;p&gt;表明客户端只接受已缓存的响应，并且不要向原始服务器检查是否有更新的拷贝。&lt;/p&gt;
+&lt;h3 id=&#34;一些常用的技巧&#34;&gt;一些常用的技巧&lt;/h3&gt;
+&lt;p&gt;设置 &lt;code&gt;no-cache&lt;/code&gt; 或 &lt;code&gt;max-age=0, must-revalidate&lt;/code&gt; 表示客户端可以缓存资源，每次使用缓存资源前都必须重新验证其有效性。&lt;/p&gt;
+&lt;h2 id=&#34;expires&#34;&gt;Expires&lt;/h2&gt;
+&lt;p&gt;包含日期/时间， 即在此时候之后，响应过期。如果设置无效的日期，比如 0, 代表着过去的日期，即该资源已经过期。&lt;/p&gt;
+&lt;p&gt;如果在 &lt;code&gt;Cache-Control &lt;/code&gt;响应头设置了 &amp;ldquo;max-age&amp;rdquo; 或者 &amp;ldquo;s-max-age&amp;rdquo; 指令，那么 &lt;code&gt;Expires&lt;/code&gt; 头会被忽略。&lt;/p&gt;
+&lt;p&gt;和 max-age 区别：max-age 指定的是时间长度，Expires 指定的是日期&lt;/p&gt;
+&lt;p&gt;语法：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-http&#34; data-lang=&#34;http&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;Expires: &amp;lt;http-date&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;例子：
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;Expires: Wed, 21 Oct 2015 07:28:00 GMT
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;pragma&#34;&gt;Pragma&lt;/h2&gt;
+&lt;p&gt;是一个在 HTTP/1.0 中规定的通用首部，这个首部的效果依赖于不同的实现，所以在“请求-响应”链中可能会有不同的效果。它用来向后兼容只支持 HTTP/1.0 协议的缓存服务器，那时候 HTTP/1.1 协议中的 Cache-Control 还没有出来。（兼容用）&lt;/p&gt;
+&lt;h2 id=&#34;etag&#34;&gt;ETag&lt;/h2&gt;
+&lt;p&gt;是资源的特定版本的标识符。&lt;/p&gt;
+&lt;p&gt;如果内容发生了变化，使用ETag有助于防止资源的同时更新相互覆盖（“空中碰撞”）。如果给定URL中的资源更改，则一定要生成新的Etag值。&lt;/p&gt;
+&lt;p&gt;语法：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-http&#34; data-lang=&#34;http&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;ETag: W/&amp;#34;&amp;lt;etag_value&amp;gt;&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;ETag: &amp;#34;&amp;lt;etag_value&amp;gt;&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;例子
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;ETag: W/&amp;#34;0815&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;ETag: &amp;#34;33a64df551425fcc55e4d42a148795d9f25f89d4&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;W/&lt;/code&gt; 可选&lt;/p&gt;
+&lt;p&gt;表示使用弱验证器。弱验证器很容易生成，但不利于比较。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;&amp;quot;&amp;lt;etag_value&amp;gt;&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;实体标签唯一地表示所请求的资源。 它们是位于双引号之间的ASCII字符串（如“675af34563dc-tr34”）。 没有明确指定生成ETag值的方法。 通常，使用内容的散列，最后修改时间戳的哈希值，或简单地使用版本号。&lt;/p&gt;
+&lt;p&gt;与 &lt;code&gt;If-Match&lt;/code&gt; 和 &lt;code&gt;If-None_Match&lt;/code&gt; 头部匹配。表示的是是否匹配/是否不匹配。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;If-Match&lt;/code&gt;  代表不相同代表不是最新。&lt;/p&gt;
+&lt;p&gt;如果客户端没有 &lt;code&gt;ETag&lt;/code&gt;，显示过期了，客服端旧发送&lt;code&gt;If-None_Match&lt;/code&gt; 。如果匹配就说明 304（未修改）。&lt;/p&gt;
+&lt;p&gt;例如：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-http&#34; data-lang=&#34;http&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;If-Match: &amp;#34;33a64df551425fcc55e4d42a148795d9f25f89d4&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;If-None-Match: &amp;#34;33a64df551425fcc55e4d42a148795d9f25f89d4&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;vary&#34;&gt;Vary&lt;/h2&gt;
+&lt;p&gt;它决定了对于未来的一个请求头，应该用一个缓存的回复(response)还是向源服务器请求一个新的回复。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-http&#34; data-lang=&#34;http&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;Vary: *
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;Vary: &amp;lt;header-name&amp;gt;, &amp;lt;header-name&amp;gt;, ...
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;*&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;所有的请求都被视为唯一并且非缓存的，使&lt;code&gt;Cache-Control: no-store&lt;/code&gt;来实现则更适用，这样用于说明不存储该对象更加清晰。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;&amp;lt;header-name&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;逗号分隔的一系列http头部名称，用于确定缓存是否可用。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-http&#34; data-lang=&#34;http&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;Vary: User-Agent
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这句话是对 UA 头部信息进行判别的。提供给移动端的内容是不同的，可用防止你客户端误使用了用于桌面端的缓存。&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>HTTP头的一些知识点（CORS、CSP）</title>
+        <link>https://mizarzh.github.io/p/2022/01/http%E5%A4%B4%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%E7%82%B9corscsp/</link>
+        <pubDate>Tue, 25 Jan 2022 20:25:37 +0800</pubDate>
+        
+        <guid>https://mizarzh.github.io/p/2022/01/http%E5%A4%B4%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%E7%82%B9corscsp/</guid>
+        <description>&lt;h1 id=&#34;跨域问题&#34;&gt;跨域问题&lt;/h1&gt;
+&lt;p&gt;整体概述见 &lt;a class=&#34;link&#34; href=&#34;https://developer.mozilla.org/zh-CN/docs/Web/HTTP/CORS&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;MDN-CORS&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;简介&#34;&gt;简介&lt;/h2&gt;
+&lt;p&gt;一个重要的概念是跨源资源共享（CORS），意为除了本服务器以外的其他来源（origin）访问自己的资源。首部字段 &lt;code&gt;Access-Control-Allow-Origin&lt;/code&gt; 用来控制什么域可以访问。&lt;/p&gt;
+&lt;p&gt;有时候我们需要检查 CORS 请求是否是真实的。跨源资源共享还通过一种机制来检查服务器是否会允许要发送的真实请求，该机制通过浏览器发起一个到服务器托管的跨源资源的&amp;quot;预检&amp;quot;请求。首部字段如 &lt;code&gt;Access-Control-Max-Age, Access-Control-Allow-Credentials, Access-Control-Allow-Methods, Access-Control-Allow-Headers&lt;/code&gt; 是用于预检请求的。&lt;/p&gt;
+&lt;p&gt;对那些可能对服务器数据产生副作用的 HTTP 请求方法，浏览器必须首先使用 &lt;code&gt;OPTIONS&lt;/code&gt; 方法发起一个预检请求（preflight request），从而获知服务端是否允许该跨源请求。服务器确认允许之后，才发起实际的 HTTP 请求。在预检请求的返回中，服务器端也可以通知客户端，是否需要携带身份凭证。身份凭证通常为 &lt;code&gt;Cookie&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;满足所有下述条件&lt;/strong&gt;不会触发 CORS 预检请求：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;1、使用下列方法之一：
+
+    GET
+    HEAD
+    POST
+
+2、除了被用户代理自动设置的首部字段（例如 Connection，User-Agent）和在 Fetch 规范中定义为 禁用首部名称 的其他首部，允许人为设置的字段为 Fetch 规范定义的 对 CORS 安全的首部字段集合。该集合为：
+
+    Accept
+    Accept-Language
+    Content-Language
+    Content-Type （需要注意额外的限制）
+
+3、Content-Type 的值仅限于下列三者之一：
+
+    text/plain
+    multipart/form-data
+    application/x-www-form-urlencoded
+
+4、请求中的任意 XMLHttpRequest 对象均没有注册任何事件监听器；XMLHttpRequest 对象可以使用 XMLHttpRequest.upload 属性访问。
+
+5、请求中没有使用 ReadableStream 对象。
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;预检请求的过程（以下省略 &lt;code&gt;Access-Control&lt;/code&gt;，因为太长了）：&lt;/p&gt;
+&lt;p&gt;OPTIONS 发起（携带 &lt;code&gt;Request-Method&lt;/code&gt; 和 &lt;code&gt;Request-Headers&lt;/code&gt;） -&amp;gt;&lt;/p&gt;
+&lt;p&gt;[验证 &lt;code&gt;Allow-Credentials: true&lt;/code&gt; + 身份凭证（通常为 Cookie）-&amp;gt;  ]&lt;/p&gt;
+&lt;p&gt;返回 &lt;code&gt;Max-Age&lt;/code&gt; 头表示允许的最长时间， &lt;code&gt;Allow-Methods&lt;/code&gt; 表示允许操作的方法，&lt;code&gt;Allow-Headers&lt;/code&gt; 表示允许的首部字段。或者返回 CORS 错误。&lt;/p&gt;
+&lt;h2 id=&#34;响应&#34;&gt;响应&lt;/h2&gt;
+&lt;h3 id=&#34;access-control-allow-origin&#34;&gt;Access-Control-Allow-Origin&lt;/h3&gt;
+&lt;p&gt;指定了该响应的资源是否被允许与给定的 origin 共享。&lt;/p&gt;
+&lt;p&gt;语法：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-http&#34; data-lang=&#34;http&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;Access-Control-Allow-Origin: *
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;Access-Control-Allow-Origin: &amp;lt;origin&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;*&lt;/code&gt;：不需要凭证。（即允许所有网站都能访问）&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;&amp;lt;origin&amp;gt;&lt;/code&gt;：指定一个可以访问资源的 URI。（指定某些网站能访问）&lt;/p&gt;
+&lt;p&gt;为了对不同的域有不同的缓存，我们可以加上 &lt;code&gt;Vary: Origin&lt;/code&gt; 的头。&lt;/p&gt;
+&lt;h3 id=&#34;access-control-expose-headers&#34;&gt;Access-Control-Expose-Headers&lt;/h3&gt;
+&lt;p&gt;列出了哪些首部可以作为响应的一部分暴露给外部。&lt;/p&gt;
+&lt;p&gt;通常有七种简单响应首部：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Cache-Control
+Content-Language
+Content-Length
+Content-Type
+Expires
+Last-Modified
+Pragma
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;设定 &lt;code&gt;Access-Control-Expose-Headers &lt;/code&gt; 可以暴露其中的一部分。&lt;/p&gt;
+&lt;h3 id=&#34;access-control-max-age&#34;&gt;Access-Control-Max-Age&lt;/h3&gt;
+&lt;p&gt;表示预检请求的返回结果可以被缓存多久（即&lt;code&gt;Access-Control-Allow-Methods, Access-Control-Allow-Headers&lt;/code&gt;）。&lt;/p&gt;
+&lt;p&gt;语法：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-http&#34; data-lang=&#34;http&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;Access-Control-Max-Age: &amp;lt;delta-seconds&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;浏览器一般有限制的最大值。&lt;/p&gt;
+&lt;p&gt;如果值为 &lt;strong&gt;-1&lt;/strong&gt;，表示禁用缓存，则每次请求前都需要使用 OPTIONS 预检请求。&lt;/p&gt;
+&lt;h3 id=&#34;access-control-allow-credentials&#34;&gt;Access-Control-Allow-Credentials&lt;/h3&gt;
+&lt;p&gt;表示是否可以将对请求的响应暴露给页面。返回true则可以，其他值均不可以。&lt;/p&gt;
+&lt;p&gt;Credentials可以是 cookies, authorization headers 或 TLS client certificates。&lt;/p&gt;
+&lt;p&gt;与 &lt;code&gt;XMLHttpRequest.withCredentials&lt;/code&gt; 或Fetch API中的 &lt;code&gt;Request()&lt;/code&gt; 构造器中的 credentials 选项结合使用。&lt;/p&gt;
+&lt;h3 id=&#34;access-control-allow-methods&#34;&gt;Access-Control-Allow-Methods&lt;/h3&gt;
+&lt;p&gt;语法：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-http&#34; data-lang=&#34;http&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;Access-Control-Allow-Methods: &amp;lt;method&amp;gt;, &amp;lt;method&amp;gt;, ...
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;access-control-allow-headers&#34;&gt;Access-Control-Allow-Headers&lt;/h3&gt;
+&lt;p&gt;语法：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-http&#34; data-lang=&#34;http&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;Access-Control-Allow-Headers: &amp;lt;field-name&amp;gt;[, &amp;lt;field-name&amp;gt;]*
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;Access-Control-Allow-Headers: *
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;请求&#34;&gt;请求&lt;/h2&gt;
+&lt;h3 id=&#34;origin&#34;&gt;Origin&lt;/h3&gt;
+&lt;p&gt;请求首部字段 &lt;code&gt;Origin&lt;/code&gt; 指示了请求来自于哪个站点。该字段仅指示服务器名称，并不包含任何路径信息。&lt;/p&gt;
+&lt;p&gt;语法：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-http&#34; data-lang=&#34;http&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;Origin: &amp;#34;&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;Origin: &amp;lt;scheme&amp;gt; &amp;#34;://&amp;#34; &amp;lt;host&amp;gt; [ &amp;#34;:&amp;#34; &amp;lt;port&amp;gt; ]
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;access-control-request-method&#34;&gt;Access-Control-Request-Method&lt;/h3&gt;
+&lt;p&gt;用于预检请求。其作用是，将实际请求所使用的 HTTP 方法告诉服务器。&lt;/p&gt;
+&lt;p&gt;语法：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-http&#34; data-lang=&#34;http&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;Access-Control-Allow-Methods: &amp;lt;method&amp;gt;, &amp;lt;method&amp;gt;, ...
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;access-control-request-headers&#34;&gt;Access-Control-Request-Headers&lt;/h3&gt;
+&lt;p&gt;用于预检请求。其作用是，将实际请求所携带的首部字段告诉服务器。&lt;/p&gt;
+&lt;p&gt;语法：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-http&#34; data-lang=&#34;http&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;Access-Control-Allow-Headers: &amp;lt;header-name&amp;gt;[, &amp;lt;header-name&amp;gt;]*
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;Access-Control-Allow-Headers: *
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;跨域策略&#34;&gt;跨域策略&lt;/h1&gt;
+&lt;p&gt;详细资料见 &lt;a class=&#34;link&#34; href=&#34;https://developer.mozilla.org/en-US/docs/Web/HTTP/Cross-Origin_Resource_Policy_%28CORP%29&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;MDN-CORP &lt;/a&gt;和 &lt;a class=&#34;link&#34; href=&#34;https://web.dev/why-coop-coep/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;为何需要“跨源隔离”才能获得强大的功能&lt;/a&gt;。&lt;/p&gt;
+&lt;h2 id=&#34;简介-1&#34;&gt;简介&lt;/h2&gt;
+&lt;p&gt;CORS 出现后，确实能加载跨域资源了，但是基于 CORS 网络攻击也随之而来。如 Spectre，跨域脚本注入攻击等。因此需要引入另外的策略以确保安全。&lt;/p&gt;
+&lt;p&gt;CORP 是默认同源策略上的一层保护。&lt;/p&gt;
+&lt;h2 id=&#34;cross-origin-resource-policy-corp&#34;&gt;Cross-Origin-Resource-Policy (CORP)&lt;/h2&gt;
+&lt;p&gt;会指示浏览器阻止对指定资源的无源跨域/跨站点请求。&lt;/p&gt;
+&lt;p&gt;语法：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-http&#34; data-lang=&#34;http&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;Cross-Origin-Resource-Policy: same-site | same-origin | cross-origin
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;cross-origin-opener-policy-coop&#34;&gt;Cross-Origin-Opener-Policy (COOP)&lt;/h2&gt;
+&lt;p&gt;允许通过将其他文档放在不同的浏览器上下文组中，确保将其与其他文档隔离开，这样它们就不能直接与顶层窗口进行交互。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-http&#34; data-lang=&#34;http&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;Cross-Origin-Opener-Policy: unsafe-none | same-origin-allow-popups | same-origin
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;unsafe-none&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;​    默认值，允许设置浏览器上下文组，除非 opener 本身的 COOP 为 &lt;code&gt;same-origin&lt;/code&gt; 或 &lt;code&gt;same-origin-allow-popups&lt;/code&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;same-origin-allow-popups&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;​    带有 &lt;code&gt;same-origin-allow-popups&lt;/code&gt; 的顶级文档保留了对未设置 COOP 或通过把 COOP 设置为 &lt;code&gt;unsafe-none&lt;/code&gt; 而选择退出隔离的任何弹出窗口的引用。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://mizarzh.github.io/p/2022/01/http%E5%A4%B4%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%E7%82%B9corscsp/coop3.png&#34;
+	width=&#34;800&#34;
+	height=&#34;537&#34;
+	srcset=&#34;https://mizarzh.github.io/p/2022/01/http%E5%A4%B4%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%E7%82%B9corscsp/coop3_hu768711903f085caee47ac7be37afed2b_21514_480x0_resize_box_3.png 480w, https://mizarzh.github.io/p/2022/01/http%E5%A4%B4%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%E7%82%B9corscsp/coop3_hu768711903f085caee47ac7be37afed2b_21514_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;COOP&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;148&#34;
+		data-flex-basis=&#34;357px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;same-origin&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;​    标有 &lt;code&gt;same-origin&lt;/code&gt; 的文档可以与标有 &lt;code&gt;same-origin&lt;/code&gt; 的同源文件共享相同的浏览上下文组。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://mizarzh.github.io/p/2022/01/http%E5%A4%B4%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%E7%82%B9corscsp/coop2.png&#34;
+	width=&#34;800&#34;
+	height=&#34;507&#34;
+	srcset=&#34;https://mizarzh.github.io/p/2022/01/http%E5%A4%B4%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%E7%82%B9corscsp/coop2_huf2e1fa64086281a1c8bedc1c47a49ca2_24491_480x0_resize_box_3.png 480w, https://mizarzh.github.io/p/2022/01/http%E5%A4%B4%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%E7%82%B9corscsp/coop2_huf2e1fa64086281a1c8bedc1c47a49ca2_24491_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;COOP2&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;157&#34;
+		data-flex-basis=&#34;378px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;cross-origin-embedder-policy-coep&#34;&gt;Cross-Origin-Embedder-Policy (COEP)&lt;/h2&gt;
+&lt;p&gt;可防止文档加载未明确授予文档权限(通过 CORP 或者 CORS)的任何跨域资源 。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://mizarzh.github.io/p/2022/01/http%E5%A4%B4%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%E7%82%B9corscsp/coep.png&#34;
+	width=&#34;800&#34;
+	height=&#34;410&#34;
+	srcset=&#34;https://mizarzh.github.io/p/2022/01/http%E5%A4%B4%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%E7%82%B9corscsp/coep_huc0ac7001fa60d37fe55a5bb05ff9b1bc_21404_480x0_resize_box_3.png 480w, https://mizarzh.github.io/p/2022/01/http%E5%A4%B4%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%E7%82%B9corscsp/coep_huc0ac7001fa60d37fe55a5bb05ff9b1bc_21404_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;COEP 的工作原理&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;195&#34;
+		data-flex-basis=&#34;468px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-http&#34; data-lang=&#34;http&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;Cross-Origin-Embedder-Policy: unsafe-none | require-corp
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;unsafe-none&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;这是默认值. 允许文档获取跨源资源，而无需通过CORS协议或 &lt;code&gt;Cross-Origin-Resource-Policy&lt;/code&gt;头。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;require-corp&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;文档只能从相同的源加载资源，或显式标记为可从另一个源加载的资源。&lt;/p&gt;
+&lt;p&gt;如果跨源资源支持CORS，则 &lt;code&gt;crossorigin&lt;/code&gt; 属性或 &lt;code&gt;Cross-Origin-Resource-Policy&lt;/code&gt;头必须使用它来加载资源，而不会被COEP阻止。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;内容安全策略csp&#34;&gt;内容安全策略（CSP）&lt;/h1&gt;
+&lt;p&gt;详细介绍见 &lt;a class=&#34;link&#34; href=&#34;https://developer.mozilla.org/zh-CN/docs/Web/HTTP/CSP&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;MDN-CSP&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;是一个额外的安全层，用于检测并削弱某些特定类型的攻击，包括跨站脚本 (XSS) 和数据注入攻击等。&lt;/p&gt;
+&lt;h2 id=&#34;content-security-policy&#34;&gt;Content-Security-Policy&lt;/h2&gt;
+&lt;p&gt;语法：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-http&#34; data-lang=&#34;http&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;Content-Security-Policy: &amp;lt;policy-directive&amp;gt;; &amp;lt;policy-directive&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;格式：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-http&#34; data-lang=&#34;http&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;Content-Security-Policy: default-src &amp;#39;self&amp;#39;; img-src *; media-src media1.com media2.com;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;&#39;self&#39;&lt;/code&gt; 指的是站点的同一个源。&lt;/p&gt;
+&lt;p&gt;通常使用的获取指令（fetch directives）：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;child-src&lt;/code&gt;
+为 web workers 和其他内嵌浏览器内容（例如用 &lt;code&gt;&amp;lt;frame&amp;gt;&lt;/code&gt; 和 &lt;code&gt;&amp;lt;iframe&amp;gt;&lt;/code&gt; 加载到页面的内容）定义合法的源地址。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;connect-src&lt;/code&gt;
+限制能通过脚本接口加载的URL。
+&lt;code&gt;default-src&lt;/code&gt;
+为其他取指令提供备用服务fetch directives。
+&lt;code&gt;font-src&lt;/code&gt;
+font-src：设置允许通过@font-face加载的字体源地址。
+&lt;code&gt;frame-src&lt;/code&gt;
+设置允许通过类似 &lt;code&gt;&amp;lt;frame&amp;gt;&lt;/code&gt; 和 &lt;code&gt;&amp;lt;iframe&amp;gt;&lt;/code&gt; 标签加载的内嵌内容的源地址。
+&lt;code&gt;img-src&lt;/code&gt;
+限制图片和图标的源地址
+&lt;code&gt;manifest-src&lt;/code&gt;
+限制应用声明文件的源地址。
+&lt;code&gt;media-src&lt;/code&gt;
+限制通过 &lt;code&gt;&amp;lt;audio&amp;gt;&lt;/code&gt;、&lt;code&gt;&amp;lt;video&amp;gt;&lt;/code&gt; 或 &lt;code&gt;&amp;lt;track&amp;gt;&lt;/code&gt; 标签加载的媒体文件的源地址。
+&lt;code&gt;object-src&lt;/code&gt;
+限制 &lt;code&gt;&amp;lt;object&amp;gt;&lt;/code&gt;、&lt;code&gt;&amp;lt;embed&amp;gt;&lt;/code&gt;、&lt;code&gt;&amp;lt;applet&amp;gt;&lt;/code&gt; 标签的源地址。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;prefetch-src&lt;/code&gt;
+指定预加载或预渲染的允许源地址。
+&lt;code&gt;script-src&lt;/code&gt;
+限制 JavaScript 的源地址。
+&lt;code&gt;style-src&lt;/code&gt;
+限制层叠样式表文件源。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;worker-src&lt;/code&gt;
+限制Worker、SharedWorker或者ServiceWorker脚本源。&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
