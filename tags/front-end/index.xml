@@ -1,11 +1,9 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
   <channel>
-    <title>MizarZ&#39;s blog</title>
-    <link>http://localhost:1313/</link>
-    <description>半吊子物理系学生/啥都不会程序员/喜爱泛理科内容</description>
-    <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 16 Apr 2024 09:58:59 &#43;0200</lastBuildDate>
-      <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
-    <item>
+    <title>front-end - 标签 - MizarZ&#39;s blog</title>
+    <link>http://localhost:1313/tags/front-end/</link>
+    <description>front-end - 标签 | MizarZ&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 16 Apr 2024 09:58:59 &#43;0200</lastBuildDate><atom:link href="http://localhost:1313/tags/front-end/" rel="self" type="application/rss+xml" /><item>
   <title>监测一个元素是否 resize （ResizeObserver） 以及与 resize 事件的比较</title>
   <link>http://localhost:1313/posts/%E7%9B%91%E6%B5%8B%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0%E6%98%AF%E5%90%A6-resize-resizeobserver-%E4%BB%A5%E5%8F%8A%E4%B8%8E-resize-%E4%BA%8B%E4%BB%B6%E7%9A%84%E6%AF%94%E8%BE%83/</link>
   <pubDate>Tue, 16 Apr 2024 09:58:59 &#43;0200</pubDate>
@@ -28,22 +26,6 @@
   <author>MizarZ</author>
   <guid>http://localhost:1313/posts/npm-package-%E5%BC%BA%E5%88%B6%E4%BD%BF%E7%94%A8%E7%89%B9%E5%AE%9A%E7%89%88%E6%9C%AC/</guid>
   <description><![CDATA[起因在写 obsidian-mdx-dictoinary 插件时，我在其中加入了一个 express 后端，结果旧遇到了问题： 1 require_streams(...) is not a function 查了很久，最后问题终结在这个 issue 上：Not working with Karma and Webpack 4。 问题出在一个]]></description>
-</item>
-<item>
-  <title>Obsidian 插件的 github action 设置</title>
-  <link>http://localhost:1313/posts/obsidian-%E6%8F%92%E4%BB%B6%E7%9A%84-github-action-%E8%AE%BE%E7%BD%AE/</link>
-  <pubDate>Sat, 17 Feb 2024 00:03:17 &#43;0100</pubDate>
-  <author>MizarZ</author>
-  <guid>http://localhost:1313/posts/obsidian-%E6%8F%92%E4%BB%B6%E7%9A%84-github-action-%E8%AE%BE%E7%BD%AE/</guid>
-  <description><![CDATA[来源 obsidian-tracker 代码 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 name: Release # action 的名字 on: push: tags: - &#34;*&#34; # 在 push tags 后触发 action jobs: build: permissions: contents: write # 给 action 写的权限 runs-on: ubuntu-latest]]></description>
-</item>
-<item>
-  <title>新博客的第一篇博客</title>
-  <link>http://localhost:1313/posts/%E6%96%B0%E5%8D%9A%E5%AE%A2%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</link>
-  <pubDate>Sat, 06 Jan 2024 20:42:43 &#43;0100</pubDate>
-  <author>MizarZ</author>
-  <guid>http://localhost:1313/posts/%E6%96%B0%E5%8D%9A%E5%AE%A2%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</guid>
-  <description><![CDATA[很久没有写博客了。恰逢迷茫之时，且之前一股脑将所有东西都扔到博客上面导致难以管理，决定重开博客，记录一下接下来时间遇到的问题和各种事情。]]></description>
 </item>
 </channel>
 </rss>

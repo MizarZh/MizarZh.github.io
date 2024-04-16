@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>npm - 标签 - MizarZ&#39;s blog</title>
+    <link>http://localhost:1313/tags/npm/</link>
+    <description>npm - 标签 | MizarZ&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 16 Apr 2024 09:26:40 &#43;0200</lastBuildDate><atom:link href="http://localhost:1313/tags/npm/" rel="self" type="application/rss+xml" /><item>
+  <title>npm package 强制使用特定版本</title>
+  <link>http://localhost:1313/posts/npm-package-%E5%BC%BA%E5%88%B6%E4%BD%BF%E7%94%A8%E7%89%B9%E5%AE%9A%E7%89%88%E6%9C%AC/</link>
+  <pubDate>Tue, 16 Apr 2024 09:26:40 &#43;0200</pubDate>
+  <author>MizarZ</author>
+  <guid>http://localhost:1313/posts/npm-package-%E5%BC%BA%E5%88%B6%E4%BD%BF%E7%94%A8%E7%89%B9%E5%AE%9A%E7%89%88%E6%9C%AC/</guid>
+  <description><![CDATA[起因在写 obsidian-mdx-dictoinary 插件时，我在其中加入了一个 express 后端，结果旧遇到了问题： 1 require_streams(...) is not a function 查了很久，最后问题终结在这个 issue 上：Not working with Karma and Webpack 4。 问题出在一个]]></description>
+</item>
+</channel>
+</rss>
