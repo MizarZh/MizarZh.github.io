@@ -1,11 +1,9 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
   <channel>
-    <title>MizarZ&#39;s blog</title>
-    <link>http://localhost:1313/</link>
-    <description>半吊子物理系学生/啥都不会程序员/喜爱泛理科内容</description>
-    <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 17 Feb 2024 00:03:17 &#43;0100</lastBuildDate>
-      <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
-    <item>
+    <title>所有文章 - MizarZ&#39;s blog</title>
+    <link>http://localhost:1313/posts/</link>
+    <description>所有文章 | MizarZ&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 17 Feb 2024 00:03:17 &#43;0100</lastBuildDate><atom:link href="http://localhost:1313/posts/" rel="self" type="application/rss+xml" /><item>
   <title>Obsidian 插件的 github action 设置</title>
   <link>http://localhost:1313/posts/obsidian-%E6%8F%92%E4%BB%B6%E7%9A%84-github-action-%E8%AE%BE%E7%BD%AE/</link>
   <pubDate>Sat, 17 Feb 2024 00:03:17 &#43;0100</pubDate>
