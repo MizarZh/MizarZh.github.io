@@ -45,6 +45,8 @@ jobs:
 - `git push origin x.x.x` （仅 push 一个版本） 或 `git push --tags` （push 所有版本）
 
 ## 注意事项
+如果出现 403 错误，可能是没有给 workflow 写入的权限。可以在 settings - Actions - General - workflow permissions 中进行修改，修改为 Read and write permissions。
+
 构建的过程是这样的（以推送 0.0.1 版本为例）：
 - 推送到云端后，生成了一个 0.0.1 的分支。
 - 接下来 actions 会根据这个 0.0.1 的分支构建。
