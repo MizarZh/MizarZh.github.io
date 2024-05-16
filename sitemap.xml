@@ -2,16 +2,23 @@
   xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml"
   ><url>
-      <loc>http://localhost:1313/categories/</loc><lastmod>2024-05-10T00:16:00&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+      <loc>http://localhost:1313/categories/</loc><lastmod>2024-05-16T18:10:50&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+      <loc>http://localhost:1313/</loc><lastmod>2024-05-16T18:10:50&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+      <loc>http://localhost:1313/posts/</loc><lastmod>2024-05-16T18:10:50&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+      <loc>http://localhost:1313/tags/profiling/</loc><lastmod>2024-05-16T18:10:50&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+      <loc>http://localhost:1313/tags/python/</loc><lastmod>2024-05-16T18:10:50&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+      <loc>http://localhost:1313/posts/python-profiling/</loc><lastmod>2024-05-16T18:10:50&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+      <loc>http://localhost:1313/tags/</loc><lastmod>2024-05-16T18:10:50&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+      <loc>http://localhost:1313/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/</loc><lastmod>2024-05-16T18:10:50&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+      <loc>http://localhost:1313/tags/diesel/</loc><lastmod>2024-05-15T13:17:02&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+      <loc>http://localhost:1313/tags/rust/</loc><lastmod>2024-05-15T13:17:02&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+      <loc>http://localhost:1313/posts/rust-diesel-sqlite3-lnk1181-%E9%94%99%E8%AF%AF/</loc><lastmod>2024-05-15T13:17:02&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+      <loc>http://localhost:1313/tags/sqlite3/</loc><lastmod>2024-05-15T13:17:02&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
       <loc>http://localhost:1313/tags/front-end/</loc><lastmod>2024-04-16T09:58:59&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
       <loc>http://localhost:1313/tags/how-to/</loc><lastmod>2024-05-10T00:16:00&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
       <loc>http://localhost:1313/tags/js/</loc><lastmod>2024-04-16T09:58:59&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
-      <loc>http://localhost:1313/</loc><lastmod>2024-05-10T00:16:00&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-      <loc>http://localhost:1313/posts/</loc><lastmod>2024-05-10T00:16:00&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
       <loc>http://localhost:1313/tags/resize/</loc><lastmod>2024-04-16T09:58:59&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
       <loc>http://localhost:1313/tags/snippit/</loc><lastmod>2024-05-10T00:16:00&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-      <loc>http://localhost:1313/tags/</loc><lastmod>2024-05-10T00:16:00&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-      <loc>http://localhost:1313/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/</loc><lastmod>2024-05-10T00:16:00&#43;01:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
       <loc>http://localhost:1313/posts/%E7%9B%91%E6%B5%8B%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0%E6%98%AF%E5%90%A6-resize-resizeobserver-%E4%BB%A5%E5%8F%8A%E4%B8%8E-resize-%E4%BA%8B%E4%BB%B6%E7%9A%84%E6%AF%94%E8%BE%83/</loc><lastmod>2024-04-16T09:58:59&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
       <loc>http://localhost:1313/tags/dom/</loc><lastmod>2024-04-16T09:51:52&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
       <loc>http://localhost:1313/posts/js-%E8%A7%A3%E6%9E%90%E4%BB%A5%E5%8F%8A%E6%96%87%E6%9C%AC%E5%8C%96-dom-%E5%85%83%E7%B4%A0%E7%9A%84%E5%81%9A%E6%B3%95/</loc><lastmod>2024-04-16T09:51:52&#43;02:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>

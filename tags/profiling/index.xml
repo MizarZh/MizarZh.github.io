@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>Profiling - 标签 - MizarZ&#39;s blog</title>
+    <link>http://localhost:1313/tags/profiling/</link>
+    <description>Profiling - 标签 | MizarZ&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Thu, 16 May 2024 18:10:50 &#43;0200</lastBuildDate><atom:link href="http://localhost:1313/tags/profiling/" rel="self" type="application/rss+xml" /><item>
+  <title>Python profiling</title>
+  <link>http://localhost:1313/posts/python-profiling/</link>
+  <pubDate>Thu, 16 May 2024 18:10:50 &#43;0200</pubDate>
+  <author>MizarZ</author>
+  <guid>http://localhost:1313/posts/python-profiling/</guid>
+  <description><![CDATA[Python 性能分析最简单的方法：datetime 1 2 3 4 5 import datetime start = datetime.datetime.now() # do something end = datetime.datetime.now() print(start - end) 但是每个地方都要自己加确实有点麻烦。于是选择自动定位并测试函数]]></description>
+</item>
+</channel>
+</rss>

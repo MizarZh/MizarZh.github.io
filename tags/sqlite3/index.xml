@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>sqlite3 - 标签 - MizarZ&#39;s blog</title>
+    <link>http://localhost:1313/tags/sqlite3/</link>
+    <description>sqlite3 - 标签 | MizarZ&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 15 May 2024 13:17:02 &#43;0200</lastBuildDate><atom:link href="http://localhost:1313/tags/sqlite3/" rel="self" type="application/rss+xml" /><item>
+  <title>rust diesel sqlite3 错误</title>
+  <link>http://localhost:1313/posts/rust-diesel-sqlite3-lnk1181-%E9%94%99%E8%AF%AF/</link>
+  <pubDate>Wed, 15 May 2024 13:17:02 &#43;0200</pubDate>
+  <author>MizarZ</author>
+  <guid>http://localhost:1313/posts/rust-diesel-sqlite3-lnk1181-%E9%94%99%E8%AF%AF/</guid>
+  <description><![CDATA[错误一大团 lib 的错误，然后说 LNK1181 错误 有可能是 msvc 安装上的问题。不过大部分应该都是正常的 是否编译了 sqlite3.lib 文件。 解决方法 从 https://www.sqlite.org/download.html 下载 dll 包（内含 dll 文件和 exp 文件）]]></description>
+</item>
+</channel>
+</rss>

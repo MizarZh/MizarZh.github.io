@@ -3,9 +3,25 @@
     <title>MizarZ&#39;s blog</title>
     <link>http://localhost:1313/</link>
     <description>半吊子物理系学生/啥都不会程序员/喜爱泛理科内容</description>
-    <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 16 Apr 2024 09:58:59 &#43;0200</lastBuildDate>
+    <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Thu, 16 May 2024 18:10:50 &#43;0200</lastBuildDate>
       <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
+  <title>Python profiling</title>
+  <link>http://localhost:1313/posts/python-profiling/</link>
+  <pubDate>Thu, 16 May 2024 18:10:50 &#43;0200</pubDate>
+  <author>MizarZ</author>
+  <guid>http://localhost:1313/posts/python-profiling/</guid>
+  <description><![CDATA[Python 性能分析最简单的方法：datetime 1 2 3 4 5 import datetime start = datetime.datetime.now() # do something end = datetime.datetime.now() print(start - end) 但是每个地方都要自己加确实有点麻烦。于是选择自动定位并测试函数]]></description>
+</item>
+<item>
+  <title>rust diesel sqlite3 错误</title>
+  <link>http://localhost:1313/posts/rust-diesel-sqlite3-lnk1181-%E9%94%99%E8%AF%AF/</link>
+  <pubDate>Wed, 15 May 2024 13:17:02 &#43;0200</pubDate>
+  <author>MizarZ</author>
+  <guid>http://localhost:1313/posts/rust-diesel-sqlite3-lnk1181-%E9%94%99%E8%AF%AF/</guid>
+  <description><![CDATA[错误一大团 lib 的错误，然后说 LNK1181 错误 有可能是 msvc 安装上的问题。不过大部分应该都是正常的 是否编译了 sqlite3.lib 文件。 解决方法 从 https://www.sqlite.org/download.html 下载 dll 包（内含 dll 文件和 exp 文件）]]></description>
+</item>
+<item>
   <title>监测一个元素是否 resize （ResizeObserver） 以及与 resize 事件的比较</title>
   <link>http://localhost:1313/posts/%E7%9B%91%E6%B5%8B%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0%E6%98%AF%E5%90%A6-resize-resizeobserver-%E4%BB%A5%E5%8F%8A%E4%B8%8E-resize-%E4%BA%8B%E4%BB%B6%E7%9A%84%E6%AF%94%E8%BE%83/</link>
   <pubDate>Tue, 16 Apr 2024 09:58:59 &#43;0200</pubDate>

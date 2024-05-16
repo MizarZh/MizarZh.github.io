@@ -5,37 +5,37 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
     <meta name="robots" content="noodp" />
-    <title>监测一个元素是否 resize （ResizeObserver） 以及与 resize 事件的比较 - MizarZ&#39;s blog</title><meta name="author" content="MizarZ">
+    <title>rust diesel sqlite3 错误 - MizarZ&#39;s blog</title><meta name="author" content="MizarZ">
 <meta name="author-link" content="">
-<meta name="description" content="ResizeObserver监测元素的 resize 需要使用 ResizeObserver 类： 1 2 3 4 5 6 7 8 new ResizeObserver((entries) =&gt; { for (const x of iframe) { x.resize() } for(const entry of entries) { abc.size = entry.borderBoxSize } }).observe(root) 其中 ResizeObserver callback 中的参数 entries 指的是这" /><meta name="keywords" content='resize, js, Snippit, How-to, front-end' /><meta itemprop="name" content="监测一个元素是否 resize （ResizeObserver） 以及与 resize 事件的比较">
-<meta itemprop="description" content="ResizeObserver监测元素的 resize 需要使用 ResizeObserver 类： 1 2 3 4 5 6 7 8 new ResizeObserver((entries) =&gt; { for (const x of iframe) { x.resize() } for(const entry of entries) { abc.size = entry.borderBoxSize } }).observe(root) 其中 ResizeObserver callback 中的参数 entries 指的是这"><meta itemprop="datePublished" content="2024-04-16T09:58:59+02:00" />
-<meta itemprop="dateModified" content="2024-04-16T09:58:59+02:00" />
-<meta itemprop="wordCount" content="188">
-<meta itemprop="keywords" content="resize,js,Snippit,How-to,front-end," /><meta property="og:title" content="监测一个元素是否 resize （ResizeObserver） 以及与 resize 事件的比较" />
-<meta property="og:description" content="ResizeObserver监测元素的 resize 需要使用 ResizeObserver 类： 1 2 3 4 5 6 7 8 new ResizeObserver((entries) =&gt; { for (const x of iframe) { x.resize() } for(const entry of entries) { abc.size = entry.borderBoxSize } }).observe(root) 其中 ResizeObserver callback 中的参数 entries 指的是这" />
+<meta name="description" content="错误一大团 lib 的错误，然后说 LNK1181 错误 有可能是 msvc 安装上的问题。不过大部分应该都是正常的 是否编译了 sqlite3.lib 文件。 解决方法 从 https://www.sqlite.org/download.html 下载 dll 包（内含 dll 文件和 exp 文件）" /><meta name="keywords" content='rust, diesel, sqlite3' /><meta itemprop="name" content="rust diesel sqlite3 错误">
+<meta itemprop="description" content="错误一大团 lib 的错误，然后说 LNK1181 错误 有可能是 msvc 安装上的问题。不过大部分应该都是正常的 是否编译了 sqlite3.lib 文件。 解决方法 从 https://www.sqlite.org/download.html 下载 dll 包（内含 dll 文件和 exp 文件）"><meta itemprop="datePublished" content="2024-05-15T13:17:02+02:00" />
+<meta itemprop="dateModified" content="2024-05-15T13:17:02+02:00" />
+<meta itemprop="wordCount" content="232">
+<meta itemprop="keywords" content="rust,diesel,sqlite3," /><meta property="og:title" content="rust diesel sqlite3 错误" />
+<meta property="og:description" content="错误一大团 lib 的错误，然后说 LNK1181 错误 有可能是 msvc 安装上的问题。不过大部分应该都是正常的 是否编译了 sqlite3.lib 文件。 解决方法 从 https://www.sqlite.org/download.html 下载 dll 包（内含 dll 文件和 exp 文件）" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://localhost:1313/posts/%E7%9B%91%E6%B5%8B%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0%E6%98%AF%E5%90%A6-resize-resizeobserver-%E4%BB%A5%E5%8F%8A%E4%B8%8E-resize-%E4%BA%8B%E4%BB%B6%E7%9A%84%E6%AF%94%E8%BE%83/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2024-04-16T09:58:59+02:00" />
-<meta property="article:modified_time" content="2024-04-16T09:58:59+02:00" />
+<meta property="og:url" content="http://localhost:1313/posts/rust-diesel-sqlite3-lnk1181-%E9%94%99%E8%AF%AF/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-05-15T13:17:02+02:00" />
+<meta property="article:modified_time" content="2024-05-15T13:17:02+02:00" />
 
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="监测一个元素是否 resize （ResizeObserver） 以及与 resize 事件的比较"/>
-<meta name="twitter:description" content="ResizeObserver监测元素的 resize 需要使用 ResizeObserver 类： 1 2 3 4 5 6 7 8 new ResizeObserver((entries) =&gt; { for (const x of iframe) { x.resize() } for(const entry of entries) { abc.size = entry.borderBoxSize } }).observe(root) 其中 ResizeObserver callback 中的参数 entries 指的是这"/>
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="rust diesel sqlite3 错误"/>
+<meta name="twitter:description" content="错误一大团 lib 的错误，然后说 LNK1181 错误 有可能是 msvc 安装上的问题。不过大部分应该都是正常的 是否编译了 sqlite3.lib 文件。 解决方法 从 https://www.sqlite.org/download.html 下载 dll 包（内含 dll 文件和 exp 文件）"/>
 <meta name="application-name" content="FixIt">
 <meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" href="http://localhost:1313/posts/%E7%9B%91%E6%B5%8B%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0%E6%98%AF%E5%90%A6-resize-resizeobserver-%E4%BB%A5%E5%8F%8A%E4%B8%8E-resize-%E4%BA%8B%E4%BB%B6%E7%9A%84%E6%AF%94%E8%BE%83/" /><link rel="prev" href="http://localhost:1313/posts/js-%E8%A7%A3%E6%9E%90%E4%BB%A5%E5%8F%8A%E6%96%87%E6%9C%AC%E5%8C%96-dom-%E5%85%83%E7%B4%A0%E7%9A%84%E5%81%9A%E6%B3%95/" /><link rel="next" href="http://localhost:1313/posts/rust-diesel-sqlite3-lnk1181-%E9%94%99%E8%AF%AF/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" href="http://localhost:1313/posts/rust-diesel-sqlite3-lnk1181-%E9%94%99%E8%AF%AF/" /><link rel="prev" href="http://localhost:1313/posts/%E7%9B%91%E6%B5%8B%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0%E6%98%AF%E5%90%A6-resize-resizeobserver-%E4%BB%A5%E5%8F%8A%E4%B8%8E-resize-%E4%BA%8B%E4%BB%B6%E7%9A%84%E6%AF%94%E8%BE%83/" /><link rel="next" href="http://localhost:1313/posts/python-profiling/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
   {
     "@context": "http://schema.org",
     "@type": "BlogPosting",
-    "headline": "监测一个元素是否 resize （ResizeObserver） 以及与 resize 事件的比较",
+    "headline": "rust diesel sqlite3 错误",
     "inLanguage": "zh-CN",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "http:\/\/localhost:1313\/posts\/%E7%9B%91%E6%B5%8B%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0%E6%98%AF%E5%90%A6-resize-resizeobserver-%E4%BB%A5%E5%8F%8A%E4%B8%8E-resize-%E4%BA%8B%E4%BB%B6%E7%9A%84%E6%AF%94%E8%BE%83\/"
-    },"genre": "posts","keywords": "resize, js, Snippit, How-to, front-end","wordcount":  188 ,
-    "url": "http:\/\/localhost:1313\/posts\/%E7%9B%91%E6%B5%8B%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0%E6%98%AF%E5%90%A6-resize-resizeobserver-%E4%BB%A5%E5%8F%8A%E4%B8%8E-resize-%E4%BA%8B%E4%BB%B6%E7%9A%84%E6%AF%94%E8%BE%83\/","datePublished": "2024-04-16T09:58:59+02:00","dateModified": "2024-04-16T09:58:59+02:00","publisher": {
+      "@id": "http:\/\/localhost:1313\/posts\/rust-diesel-sqlite3-lnk1181-%E9%94%99%E8%AF%AF\/"
+    },"genre": "posts","keywords": "rust, diesel, sqlite3","wordcount":  232 ,
+    "url": "http:\/\/localhost:1313\/posts\/rust-diesel-sqlite3-lnk1181-%E9%94%99%E8%AF%AF\/","datePublished": "2024-05-15T13:17:02+02:00","dateModified": "2024-05-15T13:17:02+02:00","publisher": {
       "@type": "Organization",
       "name": ""},"author": {
         "@type": "Person",
@@ -155,10 +155,10 @@
   </div><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label="合集"></aside>
 
   <article class="page single">
-    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>监测一个元素是否 resize （ResizeObserver） 以及与 resize 事件的比较</span>
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>rust diesel sqlite3 错误</span>
       </h1></div><div class="post-meta">
       <div class="post-meta-line"><span class="post-author"><span class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
-      MizarZ</span></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category" title="分类 - 计算机"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> 计算机</a></span></div><div class="post-meta-line"><span title="发布于 2024-04-16 09:58:59"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2024-04-16">2024-04-16</time></span>&nbsp;<span title="188 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 200 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 1 分钟</span>&nbsp;</div>
+      MizarZ</span></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category" title="分类 - 计算机"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> 计算机</a></span></div><div class="post-meta-line"><span title="发布于 2024-05-15 13:17:02"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2024-05-15">2024-05-15</time></span>&nbsp;<span title="232 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 300 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 1 分钟</span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
         <div class="details-summary toc-title">
           <span>目录</span>
@@ -166,71 +166,58 @@
         </div>
         <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#resizeobserver">ResizeObserver</a></li>
-    <li><a href="#与-resize-事件的比较">与 resize 事件的比较</a></li>
+    <li><a href="#错误">错误</a></li>
+    <li><a href="#解决方法">解决方法</a></li>
+    <li><a href="#参考资料">参考资料</a></li>
   </ul>
 </nav></div>
-      </div><div class="content" id="content"><h2 id="resizeobserver" class="heading-element">
-  <a href="#resizeobserver" class="heading-mark"></a>ResizeObserver</h2><p>监测元素的 resize 需要使用 <a href="https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver"target="_blank" rel="external nofollow noopener noreferrer"><code>ResizeObserver</code></a> 类：</p>
-<div class="highlight" id="id-1"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="k">new</span> <span class="nx">ResizeObserver</span><span class="p">((</span><span class="nx">entries</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kr">const</span> <span class="nx">x</span> <span class="k">of</span> <span class="nx">iframe</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">x</span><span class="p">.</span><span class="nx">resize</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">  <span class="p">}</span>
-</span></span><span class="line"><span class="cl">  <span class="k">for</span><span class="p">(</span><span class="kr">const</span> <span class="nx">entry</span> <span class="k">of</span> <span class="nx">entries</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">abc</span><span class="p">.</span><span class="nx">size</span> <span class="o">=</span> <span class="nx">entry</span><span class="p">.</span><span class="nx">borderBoxSize</span>
-</span></span><span class="line"><span class="cl">  <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}).</span><span class="nx">observe</span><span class="p">(</span><span class="nx">root</span><span class="p">)</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>其中 <code>ResizeObserver</code> callback 中的参数 <code>entries</code> 指的是这个 observer 正在观察元素的数组。</p>
-<h2 id="与-resize-事件的比较" class="heading-element">
-  <a href="#%e4%b8%8e-resize-%e4%ba%8b%e4%bb%b6%e7%9a%84%e6%af%94%e8%be%83" class="heading-mark"></a>与 resize 事件的比较</h2><p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/resize_event"target="_blank" rel="external nofollow noopener noreferrer">resize event</a></p>
-<p>文档视图（窗口）调整大小时会触发 <strong><code>resize</code></strong> 事件。现在 <code>resize</code> 事件只针对窗口（window）触发。</p>
-<div class="highlight" id="id-2"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nb">window</span><span class="p">.</span><span class="nx">onresize</span> <span class="o">=</span> <span class="p">(</span><span class="nx">xxx</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span><span class="nx">xxx</span><span class="p">}</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>即 <code>resize</code> 事件仅作用在窗口上，观测的是窗口大小的改变。而 <code>ResizeObserver</code> 作用在元素上，观测的是元素大小的改变。</p>
+      </div><div class="content" id="content"><h2 id="错误" class="heading-element">
+  <a href="#%e9%94%99%e8%af%af" class="heading-mark"></a>错误</h2><p>一大团 lib 的错误，然后说 LNK1181 错误</p>
+<ol>
+<li>有可能是 msvc 安装上的问题。不过大部分应该都是正常的</li>
+<li><strong>是否编译了 <code>sqlite3.lib</code> 文件</strong>。</li>
+</ol>
+<h2 id="解决方法" class="heading-element">
+  <a href="#%e8%a7%a3%e5%86%b3%e6%96%b9%e6%b3%95" class="heading-mark"></a>解决方法</h2><ol>
+<li>从 <a href="https://www.sqlite.org/download.html"target="_blank" rel="external nofollow noopener noreferrer">https://www.sqlite.org/download.html</a> 下载 dll 包（内含 dll 文件和 exp 文件）和 tools 包（加入 PATH）。</li>
+<li>cd 至 dll 包的文件夹。</li>
+<li>64位操作系统输入： <code>lib /DEF:sqlite3.def /OUT:sqlite3.lib /MACHINE:x64</code>；32位操作系统输入：<code>lib /DEF:sqlite3.def /OUT:sqlite3.lib /MACHINE:x86</code>，完成编译。</li>
+<li>找到输出的 <code>sqlite3</code> 文件，
+<ol>
+<li>放到 rust 使用的 msvc lib 的位置。</li>
+<li>或者放到要使用这个文件的 cargo 中。</li>
+<li>或者加入 PATH 变量。</li>
+</ol>
+</li>
+</ol>
+<h2 id="参考资料" class="heading-element">
+  <a href="#%e5%8f%82%e8%80%83%e8%b5%84%e6%96%99" class="heading-mark"></a>参考资料</h2><p><a href="https://blog.itdevwu.com/post/915/"target="_blank" rel="external nofollow noopener noreferrer">https://blog.itdevwu.com/post/915/</a></p>
 </div><div class="post-footer" id="post-footer">
   <div class="post-info">
     <div class="post-info-line">
       <div class="post-info-mod">
-        <span title="更新于 2024-04-16 09:58:59">更新于 2024-04-16&nbsp;</span>
+        <span title="更新于 2024-05-15 13:17:02">更新于 2024-05-15&nbsp;</span>
       </div><div class="post-info-license">
             <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
           </div></div><div class="post-info-line">
-        <div class="post-info-md"><span><a href="/posts/%E7%9B%91%E6%B5%8B%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0%E6%98%AF%E5%90%A6-resize-resizeobserver-%E4%BB%A5%E5%8F%8A%E4%B8%8E-resize-%E4%BA%8B%E4%BB%B6%E7%9A%84%E6%AF%94%E8%BE%83/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span></div>
+        <div class="post-info-md"><span><a href="/posts/rust-diesel-sqlite3-lnk1181-%E9%94%99%E8%AF%AF/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span></div>
         <div class="post-info-share">
-          <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="http://localhost:1313/posts/%E7%9B%91%E6%B5%8B%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0%E6%98%AF%E5%90%A6-resize-resizeobserver-%E4%BB%A5%E5%8F%8A%E4%B8%8E-resize-%E4%BA%8B%E4%BB%B6%E7%9A%84%E6%AF%94%E8%BE%83/" data-title="监测一个元素是否 resize （ResizeObserver） 以及与 resize 事件的比较" data-hashtags="resize,js,Snippit,How-to,front-end"><i class="fa-brands fa-twitter fa-fw" aria-hidden="true"></i></a>
-  <a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://localhost:1313/posts/%E7%9B%91%E6%B5%8B%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0%E6%98%AF%E5%90%A6-resize-resizeobserver-%E4%BB%A5%E5%8F%8A%E4%B8%8E-resize-%E4%BA%8B%E4%BB%B6%E7%9A%84%E6%AF%94%E8%BE%83/" data-hashtag="resize"><i class="fa-brands fa-facebook-square fa-fw" aria-hidden="true"></i></a>
-  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://localhost:1313/posts/%E7%9B%91%E6%B5%8B%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0%E6%98%AF%E5%90%A6-resize-resizeobserver-%E4%BB%A5%E5%8F%8A%E4%B8%8E-resize-%E4%BA%8B%E4%BB%B6%E7%9A%84%E6%AF%94%E8%BE%83/" data-title="监测一个元素是否 resize （ResizeObserver） 以及与 resize 事件的比较"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
+          <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="http://localhost:1313/posts/rust-diesel-sqlite3-lnk1181-%E9%94%99%E8%AF%AF/" data-title="rust diesel sqlite3 错误" data-hashtags="rust,diesel,sqlite3"><i class="fa-brands fa-twitter fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://localhost:1313/posts/rust-diesel-sqlite3-lnk1181-%E9%94%99%E8%AF%AF/" data-hashtag="rust"><i class="fa-brands fa-facebook-square fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://localhost:1313/posts/rust-diesel-sqlite3-lnk1181-%E9%94%99%E8%AF%AF/" data-title="rust diesel sqlite3 错误"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
   </span>
         </div>
       </div></div>
 
   <div class="post-info-more">
-    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href="/tags/resize/" class="post-tag" title="标签 - resize">resize</a><a href="/tags/js/" class="post-tag" title="标签 - js">js</a><a href="/tags/snippit/" class="post-tag" title="标签 - Snippit">Snippit</a><a href="/tags/how-to/" class="post-tag" title="标签 - How-to">How-to</a><a href="/tags/front-end/" class="post-tag" title="标签 - front-end">front-end</a></section>
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href="/tags/rust/" class="post-tag" title="标签 - rust">rust</a><a href="/tags/diesel/" class="post-tag" title="标签 - diesel">diesel</a><a href="/tags/sqlite3/" class="post-tag" title="标签 - sqlite3">sqlite3</a></section>
     <section>
       <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
     </section>
   </div>
 
-  <div class="post-nav"><a href="/posts/js-%E8%A7%A3%E6%9E%90%E4%BB%A5%E5%8F%8A%E6%96%87%E6%9C%AC%E5%8C%96-dom-%E5%85%83%E7%B4%A0%E7%9A%84%E5%81%9A%E6%B3%95/" class="post-nav-item" rel="prev" title="js 解析以及文本化 DOM 元素的做法"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>js 解析以及文本化 DOM 元素的做法</a>
-      <a href="/posts/rust-diesel-sqlite3-lnk1181-%E9%94%99%E8%AF%AF/" class="post-nav-item" rel="next" title="rust diesel sqlite3 错误">rust diesel sqlite3 错误<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+  <div class="post-nav"><a href="/posts/%E7%9B%91%E6%B5%8B%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0%E6%98%AF%E5%90%A6-resize-resizeobserver-%E4%BB%A5%E5%8F%8A%E4%B8%8E-resize-%E4%BA%8B%E4%BB%B6%E7%9A%84%E6%AF%94%E8%BE%83/" class="post-nav-item" rel="prev" title="监测一个元素是否 resize （ResizeObserver） 以及与 resize 事件的比较"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>监测一个元素是否 resize （ResizeObserver） 以及与 resize 事件的比较</a>
+      <a href="/posts/python-profiling/" class="post-nav-item" rel="next" title="Python profiling">Python profiling<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 </article>
 

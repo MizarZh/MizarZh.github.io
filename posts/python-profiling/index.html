@@ -5,37 +5,37 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
     <meta name="robots" content="noodp" />
-    <title>监测一个元素是否 resize （ResizeObserver） 以及与 resize 事件的比较 - MizarZ&#39;s blog</title><meta name="author" content="MizarZ">
+    <title>Python profiling - MizarZ&#39;s blog</title><meta name="author" content="MizarZ">
 <meta name="author-link" content="">
-<meta name="description" content="ResizeObserver监测元素的 resize 需要使用 ResizeObserver 类： 1 2 3 4 5 6 7 8 new ResizeObserver((entries) =&gt; { for (const x of iframe) { x.resize() } for(const entry of entries) { abc.size = entry.borderBoxSize } }).observe(root) 其中 ResizeObserver callback 中的参数 entries 指的是这" /><meta name="keywords" content='resize, js, Snippit, How-to, front-end' /><meta itemprop="name" content="监测一个元素是否 resize （ResizeObserver） 以及与 resize 事件的比较">
-<meta itemprop="description" content="ResizeObserver监测元素的 resize 需要使用 ResizeObserver 类： 1 2 3 4 5 6 7 8 new ResizeObserver((entries) =&gt; { for (const x of iframe) { x.resize() } for(const entry of entries) { abc.size = entry.borderBoxSize } }).observe(root) 其中 ResizeObserver callback 中的参数 entries 指的是这"><meta itemprop="datePublished" content="2024-04-16T09:58:59+02:00" />
-<meta itemprop="dateModified" content="2024-04-16T09:58:59+02:00" />
-<meta itemprop="wordCount" content="188">
-<meta itemprop="keywords" content="resize,js,Snippit,How-to,front-end," /><meta property="og:title" content="监测一个元素是否 resize （ResizeObserver） 以及与 resize 事件的比较" />
-<meta property="og:description" content="ResizeObserver监测元素的 resize 需要使用 ResizeObserver 类： 1 2 3 4 5 6 7 8 new ResizeObserver((entries) =&gt; { for (const x of iframe) { x.resize() } for(const entry of entries) { abc.size = entry.borderBoxSize } }).observe(root) 其中 ResizeObserver callback 中的参数 entries 指的是这" />
+<meta name="description" content="Python 性能分析最简单的方法：datetime 1 2 3 4 5 import datetime start = datetime.datetime.now() # do something end = datetime.datetime.now() print(start - end) 但是每个地方都要自己加确实有点麻烦。于是选择自动定位并测试函数" /><meta name="keywords" content='Python, Profiling' /><meta itemprop="name" content="Python profiling">
+<meta itemprop="description" content="Python 性能分析最简单的方法：datetime 1 2 3 4 5 import datetime start = datetime.datetime.now() # do something end = datetime.datetime.now() print(start - end) 但是每个地方都要自己加确实有点麻烦。于是选择自动定位并测试函数"><meta itemprop="datePublished" content="2024-05-16T18:10:50+02:00" />
+<meta itemprop="dateModified" content="2024-05-16T18:10:50+02:00" />
+<meta itemprop="wordCount" content="211">
+<meta itemprop="keywords" content="Python,Profiling," /><meta property="og:title" content="Python profiling" />
+<meta property="og:description" content="Python 性能分析最简单的方法：datetime 1 2 3 4 5 import datetime start = datetime.datetime.now() # do something end = datetime.datetime.now() print(start - end) 但是每个地方都要自己加确实有点麻烦。于是选择自动定位并测试函数" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://localhost:1313/posts/%E7%9B%91%E6%B5%8B%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0%E6%98%AF%E5%90%A6-resize-resizeobserver-%E4%BB%A5%E5%8F%8A%E4%B8%8E-resize-%E4%BA%8B%E4%BB%B6%E7%9A%84%E6%AF%94%E8%BE%83/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2024-04-16T09:58:59+02:00" />
-<meta property="article:modified_time" content="2024-04-16T09:58:59+02:00" />
+<meta property="og:url" content="http://localhost:1313/posts/python-profiling/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-05-16T18:10:50+02:00" />
+<meta property="article:modified_time" content="2024-05-16T18:10:50+02:00" />
 
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="监测一个元素是否 resize （ResizeObserver） 以及与 resize 事件的比较"/>
-<meta name="twitter:description" content="ResizeObserver监测元素的 resize 需要使用 ResizeObserver 类： 1 2 3 4 5 6 7 8 new ResizeObserver((entries) =&gt; { for (const x of iframe) { x.resize() } for(const entry of entries) { abc.size = entry.borderBoxSize } }).observe(root) 其中 ResizeObserver callback 中的参数 entries 指的是这"/>
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Python profiling"/>
+<meta name="twitter:description" content="Python 性能分析最简单的方法：datetime 1 2 3 4 5 import datetime start = datetime.datetime.now() # do something end = datetime.datetime.now() print(start - end) 但是每个地方都要自己加确实有点麻烦。于是选择自动定位并测试函数"/>
 <meta name="application-name" content="FixIt">
 <meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" href="http://localhost:1313/posts/%E7%9B%91%E6%B5%8B%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0%E6%98%AF%E5%90%A6-resize-resizeobserver-%E4%BB%A5%E5%8F%8A%E4%B8%8E-resize-%E4%BA%8B%E4%BB%B6%E7%9A%84%E6%AF%94%E8%BE%83/" /><link rel="prev" href="http://localhost:1313/posts/js-%E8%A7%A3%E6%9E%90%E4%BB%A5%E5%8F%8A%E6%96%87%E6%9C%AC%E5%8C%96-dom-%E5%85%83%E7%B4%A0%E7%9A%84%E5%81%9A%E6%B3%95/" /><link rel="next" href="http://localhost:1313/posts/rust-diesel-sqlite3-lnk1181-%E9%94%99%E8%AF%AF/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" href="http://localhost:1313/posts/python-profiling/" /><link rel="prev" href="http://localhost:1313/posts/rust-diesel-sqlite3-lnk1181-%E9%94%99%E8%AF%AF/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
   {
     "@context": "http://schema.org",
     "@type": "BlogPosting",
-    "headline": "监测一个元素是否 resize （ResizeObserver） 以及与 resize 事件的比较",
+    "headline": "Python profiling",
     "inLanguage": "zh-CN",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "http:\/\/localhost:1313\/posts\/%E7%9B%91%E6%B5%8B%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0%E6%98%AF%E5%90%A6-resize-resizeobserver-%E4%BB%A5%E5%8F%8A%E4%B8%8E-resize-%E4%BA%8B%E4%BB%B6%E7%9A%84%E6%AF%94%E8%BE%83\/"
-    },"genre": "posts","keywords": "resize, js, Snippit, How-to, front-end","wordcount":  188 ,
-    "url": "http:\/\/localhost:1313\/posts\/%E7%9B%91%E6%B5%8B%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0%E6%98%AF%E5%90%A6-resize-resizeobserver-%E4%BB%A5%E5%8F%8A%E4%B8%8E-resize-%E4%BA%8B%E4%BB%B6%E7%9A%84%E6%AF%94%E8%BE%83\/","datePublished": "2024-04-16T09:58:59+02:00","dateModified": "2024-04-16T09:58:59+02:00","publisher": {
+      "@id": "http:\/\/localhost:1313\/posts\/python-profiling\/"
+    },"genre": "posts","keywords": "Python, Profiling","wordcount":  211 ,
+    "url": "http:\/\/localhost:1313\/posts\/python-profiling\/","datePublished": "2024-05-16T18:10:50+02:00","dateModified": "2024-05-16T18:10:50+02:00","publisher": {
       "@type": "Organization",
       "name": ""},"author": {
         "@type": "Person",
@@ -155,10 +155,10 @@
   </div><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label="合集"></aside>
 
   <article class="page single">
-    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>监测一个元素是否 resize （ResizeObserver） 以及与 resize 事件的比较</span>
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>Python profiling</span>
       </h1></div><div class="post-meta">
       <div class="post-meta-line"><span class="post-author"><span class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
-      MizarZ</span></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category" title="分类 - 计算机"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> 计算机</a></span></div><div class="post-meta-line"><span title="发布于 2024-04-16 09:58:59"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2024-04-16">2024-04-16</time></span>&nbsp;<span title="188 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 200 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 1 分钟</span>&nbsp;</div>
+      MizarZ</span></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category" title="分类 - 计算机"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> 计算机</a></span></div><div class="post-meta-line"><span title="发布于 2024-05-16 18:10:50"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2024-05-16">2024-05-16</time></span>&nbsp;<span title="211 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 300 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 1 分钟</span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
         <div class="details-summary toc-title">
           <span>目录</span>
@@ -166,12 +166,11 @@
         </div>
         <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#resizeobserver">ResizeObserver</a></li>
-    <li><a href="#与-resize-事件的比较">与 resize 事件的比较</a></li>
+    <li><a href="#python-性能分析">Python 性能分析</a></li>
   </ul>
 </nav></div>
-      </div><div class="content" id="content"><h2 id="resizeobserver" class="heading-element">
-  <a href="#resizeobserver" class="heading-mark"></a>ResizeObserver</h2><p>监测元素的 resize 需要使用 <a href="https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver"target="_blank" rel="external nofollow noopener noreferrer"><code>ResizeObserver</code></a> 类：</p>
+      </div><div class="content" id="content"><h2 id="python-性能分析" class="heading-element">
+  <a href="#python-%e6%80%a7%e8%83%bd%e5%88%86%e6%9e%90" class="heading-mark"></a>Python 性能分析</h2><p>最简单的方法：datetime</p>
 <div class="highlight" id="id-1"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -179,58 +178,83 @@
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="k">new</span> <span class="nx">ResizeObserver</span><span class="p">((</span><span class="nx">entries</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kr">const</span> <span class="nx">x</span> <span class="k">of</span> <span class="nx">iframe</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">x</span><span class="p">.</span><span class="nx">resize</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">  <span class="p">}</span>
-</span></span><span class="line"><span class="cl">  <span class="k">for</span><span class="p">(</span><span class="kr">const</span> <span class="nx">entry</span> <span class="k">of</span> <span class="nx">entries</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">abc</span><span class="p">.</span><span class="nx">size</span> <span class="o">=</span> <span class="nx">entry</span><span class="p">.</span><span class="nx">borderBoxSize</span>
-</span></span><span class="line"><span class="cl">  <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}).</span><span class="nx">observe</span><span class="p">(</span><span class="nx">root</span><span class="p">)</span></span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">datetime</span>
+</span></span><span class="line"><span class="cl"><span class="n">start</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># do something</span>
+</span></span><span class="line"><span class="cl"><span class="n">end</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">start</span> <span class="o">-</span> <span class="n">end</span><span class="p">)</span></span></span></code></pre></td></tr></table>
 </div>
-</div><p>其中 <code>ResizeObserver</code> callback 中的参数 <code>entries</code> 指的是这个 observer 正在观察元素的数组。</p>
-<h2 id="与-resize-事件的比较" class="heading-element">
-  <a href="#%e4%b8%8e-resize-%e4%ba%8b%e4%bb%b6%e7%9a%84%e6%af%94%e8%be%83" class="heading-mark"></a>与 resize 事件的比较</h2><p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/resize_event"target="_blank" rel="external nofollow noopener noreferrer">resize event</a></p>
-<p>文档视图（窗口）调整大小时会触发 <strong><code>resize</code></strong> 事件。现在 <code>resize</code> 事件只针对窗口（window）触发。</p>
+</div><p>但是每个地方都要自己加确实有点麻烦。于是选择自动定位并测试函数的工具 <code>cProfile</code></p>
 <div class="highlight" id="id-2"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nb">window</span><span class="p">.</span><span class="nx">onresize</span> <span class="o">=</span> <span class="p">(</span><span class="nx">xxx</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span><span class="nx">xxx</span><span class="p">}</span></span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">cProfile</span>
+</span></span><span class="line"><span class="cl"><span class="n">cProfile</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s1">&#39;xxx&#39;</span><span class="p">)</span></span></span></code></pre></td></tr></table>
 </div>
-</div><p>即 <code>resize</code> 事件仅作用在窗口上，观测的是窗口大小的改变。而 <code>ResizeObserver</code> 作用在元素上，观测的是元素大小的改变。</p>
+</div><p>然后你就会得到一个表格，其中记录了哪个部分用时多少。</p>
+<p>但是这个包输出的表格不太好读，因此我们再转向另一个包：<code>pyinstrument</code>：</p>
+<div class="highlight" id="id-3"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">pyinstrument</span> <span class="kn">import</span> <span class="n">Profiler</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">profiler</span> <span class="o">=</span> <span class="n">Profiler</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">profiler</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">HTML</span><span class="p">(</span><span class="n">ani</span><span class="o">.</span><span class="n">to_html5_video</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">profiler</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># profiler.output_text() # 输出 文本</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># profiler.output_html() # 输出 html</span>
+</span></span><span class="line"><span class="cl"><span class="n">profiler</span><span class="o">.</span><span class="n">open_in_browser</span><span class="p">()</span> <span class="c1"># 在浏览器中打开 html</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>这个包可以更加详细的分析各个部分的占比。</p>
 </div><div class="post-footer" id="post-footer">
   <div class="post-info">
     <div class="post-info-line">
       <div class="post-info-mod">
-        <span title="更新于 2024-04-16 09:58:59">更新于 2024-04-16&nbsp;</span>
+        <span title="更新于 2024-05-16 18:10:50">更新于 2024-05-16&nbsp;</span>
       </div><div class="post-info-license">
             <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
           </div></div><div class="post-info-line">
-        <div class="post-info-md"><span><a href="/posts/%E7%9B%91%E6%B5%8B%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0%E6%98%AF%E5%90%A6-resize-resizeobserver-%E4%BB%A5%E5%8F%8A%E4%B8%8E-resize-%E4%BA%8B%E4%BB%B6%E7%9A%84%E6%AF%94%E8%BE%83/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span></div>
+        <div class="post-info-md"><span><a href="/posts/python-profiling/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span></div>
         <div class="post-info-share">
-          <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="http://localhost:1313/posts/%E7%9B%91%E6%B5%8B%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0%E6%98%AF%E5%90%A6-resize-resizeobserver-%E4%BB%A5%E5%8F%8A%E4%B8%8E-resize-%E4%BA%8B%E4%BB%B6%E7%9A%84%E6%AF%94%E8%BE%83/" data-title="监测一个元素是否 resize （ResizeObserver） 以及与 resize 事件的比较" data-hashtags="resize,js,Snippit,How-to,front-end"><i class="fa-brands fa-twitter fa-fw" aria-hidden="true"></i></a>
-  <a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://localhost:1313/posts/%E7%9B%91%E6%B5%8B%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0%E6%98%AF%E5%90%A6-resize-resizeobserver-%E4%BB%A5%E5%8F%8A%E4%B8%8E-resize-%E4%BA%8B%E4%BB%B6%E7%9A%84%E6%AF%94%E8%BE%83/" data-hashtag="resize"><i class="fa-brands fa-facebook-square fa-fw" aria-hidden="true"></i></a>
-  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://localhost:1313/posts/%E7%9B%91%E6%B5%8B%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0%E6%98%AF%E5%90%A6-resize-resizeobserver-%E4%BB%A5%E5%8F%8A%E4%B8%8E-resize-%E4%BA%8B%E4%BB%B6%E7%9A%84%E6%AF%94%E8%BE%83/" data-title="监测一个元素是否 resize （ResizeObserver） 以及与 resize 事件的比较"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
+          <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="http://localhost:1313/posts/python-profiling/" data-title="Python profiling" data-hashtags="Python,Profiling"><i class="fa-brands fa-twitter fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://localhost:1313/posts/python-profiling/" data-hashtag="Python"><i class="fa-brands fa-facebook-square fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://localhost:1313/posts/python-profiling/" data-title="Python profiling"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
   </span>
         </div>
       </div></div>
 
   <div class="post-info-more">
-    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href="/tags/resize/" class="post-tag" title="标签 - resize">resize</a><a href="/tags/js/" class="post-tag" title="标签 - js">js</a><a href="/tags/snippit/" class="post-tag" title="标签 - Snippit">Snippit</a><a href="/tags/how-to/" class="post-tag" title="标签 - How-to">How-to</a><a href="/tags/front-end/" class="post-tag" title="标签 - front-end">front-end</a></section>
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href="/tags/python/" class="post-tag" title="标签 - Python">Python</a><a href="/tags/profiling/" class="post-tag" title="标签 - Profiling">Profiling</a></section>
     <section>
       <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
     </section>
   </div>
 
-  <div class="post-nav"><a href="/posts/js-%E8%A7%A3%E6%9E%90%E4%BB%A5%E5%8F%8A%E6%96%87%E6%9C%AC%E5%8C%96-dom-%E5%85%83%E7%B4%A0%E7%9A%84%E5%81%9A%E6%B3%95/" class="post-nav-item" rel="prev" title="js 解析以及文本化 DOM 元素的做法"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>js 解析以及文本化 DOM 元素的做法</a>
-      <a href="/posts/rust-diesel-sqlite3-lnk1181-%E9%94%99%E8%AF%AF/" class="post-nav-item" rel="next" title="rust diesel sqlite3 错误">rust diesel sqlite3 错误<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+  <div class="post-nav"><a href="/posts/rust-diesel-sqlite3-lnk1181-%E9%94%99%E8%AF%AF/" class="post-nav-item" rel="prev" title="rust diesel sqlite3 错误"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>rust diesel sqlite3 错误</a></div>
 </div>
 </article>
 
