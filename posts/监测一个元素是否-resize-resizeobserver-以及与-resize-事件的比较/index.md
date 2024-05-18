@@ -26,6 +26,7 @@ window.onresize = (xxx) =&gt; {xxx}
 
 即 `resize` 事件仅作用在窗口上，观测的是窗口大小的改变。而 `ResizeObserver` 作用在元素上，观测的是元素大小的改变。
 
+
 ---
 
 > 作者: MizarZ  
