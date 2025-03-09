@@ -3,9 +3,57 @@
     <title>MizarZ 的博客</title>
     <link>http://localhost:1313/</link>
     <description>半吊子物理系学生/啥都不会程序员/喜爱泛理科内容</description>
-    <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Thu, 16 May 2024 18:10:50 &#43;0200</lastBuildDate>
+    <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sun, 09 Mar 2025 15:40:51 &#43;0100</lastBuildDate>
       <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
+  <title>Windhawk 折腾（半失败：改变任务栏的背景颜色）</title>
+  <link>http://localhost:1313/posts/windhawk-%E6%8A%98%E8%85%BE%E5%8D%8A%E5%A4%B1%E8%B4%A5%E6%94%B9%E5%8F%98%E4%BB%BB%E5%8A%A1%E6%A0%8F%E7%9A%84%E8%83%8C%E6%99%AF%E9%A2%9C%E8%89%B2/</link>
+  <pubDate>Sun, 09 Mar 2025 15:40:51 &#43;0100</pubDate>
+  <author>MizarZ</author>
+  <guid>http://localhost:1313/posts/windhawk-%E6%8A%98%E8%85%BE%E5%8D%8A%E5%A4%B1%E8%B4%A5%E6%94%B9%E5%8F%98%E4%BB%BB%E5%8A%A1%E6%A0%8F%E7%9A%84%E8%83%8C%E6%99%AF%E9%A2%9C%E8%89%B2/</guid>
+  <description><![CDATA[在使用 windows 11 的时候，我发现它总是默认折叠同一程序。我对此很不适应，因为我通常会打开多个 obsidian 和 vscode 的窗口，在它们之间切换十分麻烦。 经过一番摸索，发现]]></description>
+</item>
+<item>
+  <title>Deep work 笔记</title>
+  <link>http://localhost:1313/posts/deep-work-cal-newport-%E7%AC%94%E8%AE%B0/</link>
+  <pubDate>Sun, 05 Jan 2025 06:02:52 &#43;0100</pubDate>
+  <author>MizarZ</author>
+  <guid>http://localhost:1313/posts/deep-work-cal-newport-%E7%AC%94%E8%AE%B0/</guid>
+  <description><![CDATA[核心思想高质量成果 = 集中时间 x 集中的强度 集中时间是有限的（每天最多 4 小时），因此为了提高成果的质量只能提升集中的强度。 只有在全身心投入工作的]]></description>
+</item>
+<item>
+  <title>《万历十五年》读后感想&amp;笔记</title>
+  <link>http://localhost:1313/posts/%E4%B8%87%E5%8E%86%E5%8D%81%E4%BA%94%E5%B9%B4%E8%AF%BB%E5%90%8E%E6%84%9F%E6%83%B3%E7%AC%94%E8%AE%B0/</link>
+  <pubDate>Sun, 05 Jan 2025 04:48:31 &#43;0100</pubDate>
+  <author>MizarZ</author>
+  <guid>http://localhost:1313/posts/%E4%B8%87%E5%8E%86%E5%8D%81%E4%BA%94%E5%B9%B4%E8%AF%BB%E5%90%8E%E6%84%9F%E6%83%B3%E7%AC%94%E8%AE%B0/</guid>
+  <description><![CDATA[感受&amp;笔记这本书从一个没有什么大事发生的年份（公元1587年，明万历十五年）说起，引出了 6 个人物：皇帝万历，改革者张居正，和稀泥的申]]></description>
+</item>
+<item>
+  <title>Raspberry pi VNC</title>
+  <link>http://localhost:1313/posts/raspberry-pi-vnc/</link>
+  <pubDate>Sat, 29 Jun 2024 14:21:09 &#43;0800</pubDate>
+  <author>MizarZ</author>
+  <guid>http://localhost:1313/posts/raspberry-pi-vnc/</guid>
+  <description><![CDATA[VNC 的问题上次用 VNC 的时候还是在上次，回来之后发现 VNC 已经变成收费的模样了。这可不行，要用就必须用免费的 VNC。 使用 tightvncTightvnc 是免费且开源的 VNC，在树莓]]></description>
+</item>
+<item>
+  <title>oh-my-posh powershell 配置方法</title>
+  <link>http://localhost:1313/posts/oh-my-posh-powershell-%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95/</link>
+  <pubDate>Wed, 29 May 2024 13:19:46 &#43;0200</pubDate>
+  <author>MizarZ</author>
+  <guid>http://localhost:1313/posts/oh-my-posh-powershell-%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95/</guid>
+  <description><![CDATA[介绍oh-my-posh 是一个命令行美化工具。 安装和启动 安装脚本。见 https://ohmyposh.dev/docs/installation/windows 安装字体。oh-my-posh 基于 Nerds Font 字体，因此我们需要安装它，否则就]]></description>
+</item>
+<item>
+  <title>如何将求和矢量化（以多摆的公式为例）</title>
+  <link>http://localhost:1313/posts/%E5%A6%82%E4%BD%95%E5%B0%86%E6%B1%82%E5%92%8C%E7%9F%A2%E9%87%8F%E5%8C%96%E4%BB%A5%E5%A4%9A%E6%91%86%E7%9A%84%E5%85%AC%E5%BC%8F%E4%B8%BA%E4%BE%8B/</link>
+  <pubDate>Sat, 18 May 2024 01:33:18 &#43;0200</pubDate>
+  <author>MizarZ</author>
+  <guid>http://localhost:1313/posts/%E5%A6%82%E4%BD%95%E5%B0%86%E6%B1%82%E5%92%8C%E7%9F%A2%E9%87%8F%E5%8C%96%E4%BB%A5%E5%A4%9A%E6%91%86%E7%9A%84%E5%85%AC%E5%BC%8F%E4%B8%BA%E4%BE%8B/</guid>
+  <description><![CDATA[起因闲来无事，尝试去写一个多摆的模拟程序。为了效率，我尝试去矢量化计算二次导数。但是网上查到的资料只有拉格朗日方程代入坐标后算出的原式，没有]]></description>
+</item>
+<item>
   <title>Python profiling</title>
   <link>http://localhost:1313/posts/python-profiling/</link>
   <pubDate>Thu, 16 May 2024 18:10:50 &#43;0200</pubDate>
@@ -36,30 +84,6 @@
   <author>MizarZ</author>
   <guid>http://localhost:1313/posts/js-%E8%A7%A3%E6%9E%90%E4%BB%A5%E5%8F%8A%E6%96%87%E6%9C%AC%E5%8C%96-dom-%E5%85%83%E7%B4%A0%E7%9A%84%E5%81%9A%E6%B3%95/</guid>
   <description><![CDATA[解析 DOM 文本使用 DOMParser： 1 2 3 4 5 6 7 const parser = new DOMParser(); const xmlString = &#34;&lt;warning&gt;Beware of the tiger&lt;/warning&gt;&#34;; const doc1 = parser.parseFromString(xmlString, &#34;application/xml&#34;); const htmlString = &#34;&lt;strong&gt;Beware of the leopard&lt;/strong&gt;&#34;; const doc2 = parser.parseFromString(htmlString, &#34;text/html&#34;); parser.parseFromString 返回类型为 Document，这种]]></description>
-</item>
-<item>
-  <title>npm package 强制使用特定版本</title>
-  <link>http://localhost:1313/posts/npm-package-%E5%BC%BA%E5%88%B6%E4%BD%BF%E7%94%A8%E7%89%B9%E5%AE%9A%E7%89%88%E6%9C%AC/</link>
-  <pubDate>Tue, 16 Apr 2024 09:26:40 &#43;0200</pubDate>
-  <author>MizarZ</author>
-  <guid>http://localhost:1313/posts/npm-package-%E5%BC%BA%E5%88%B6%E4%BD%BF%E7%94%A8%E7%89%B9%E5%AE%9A%E7%89%88%E6%9C%AC/</guid>
-  <description><![CDATA[起因在写 obsidian-mdx-dictoinary 插件时，我在其中加入了一个 express 后端，结果旧遇到了问题： 1 require_streams(...) is not a function 查了很久，最后问题终结在这个 issue 上：Not working with Karma and Webpack 4。 问题出在一个]]></description>
-</item>
-<item>
-  <title>Obsidian 插件的 github action 设置</title>
-  <link>http://localhost:1313/posts/obsidian-%E6%8F%92%E4%BB%B6%E7%9A%84-github-action-%E8%AE%BE%E7%BD%AE/</link>
-  <pubDate>Sat, 17 Feb 2024 00:03:17 &#43;0100</pubDate>
-  <author>MizarZ</author>
-  <guid>http://localhost:1313/posts/obsidian-%E6%8F%92%E4%BB%B6%E7%9A%84-github-action-%E8%AE%BE%E7%BD%AE/</guid>
-  <description><![CDATA[来源 obsidian-tracker 代码 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 name: Release # action 的名字 on: push: tags: - &#34;*&#34; # 在 push tags 后触发 action jobs: build: permissions: contents: write # 给 action 写的权限 runs-on: ubuntu-latest]]></description>
-</item>
-<item>
-  <title>新博客的第一篇博客</title>
-  <link>http://localhost:1313/posts/%E6%96%B0%E5%8D%9A%E5%AE%A2%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</link>
-  <pubDate>Sat, 06 Jan 2024 20:42:43 &#43;0100</pubDate>
-  <author>MizarZ</author>
-  <guid>http://localhost:1313/posts/%E6%96%B0%E5%8D%9A%E5%AE%A2%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</guid>
-  <description><![CDATA[很久没有写博客了。恰逢迷茫之时，且之前一股脑将所有东西都扔到博客上面导致难以管理，决定重开博客，记录一下接下来时间遇到的问题和各种事情。]]></description>
 </item>
 </channel>
 </rss>

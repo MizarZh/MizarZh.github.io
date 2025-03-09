@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>线性代数 - 标签 - MizarZ 的博客</title>
+    <link>http://localhost:1313/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/</link>
+    <description>线性代数 - 标签 | MizarZ 的博客</description>
+    <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 18 May 2024 01:33:18 &#43;0200</lastBuildDate><atom:link href="http://localhost:1313/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/" rel="self" type="application/rss+xml" /><item>
+  <title>如何将求和矢量化（以多摆的公式为例）</title>
+  <link>http://localhost:1313/posts/%E5%A6%82%E4%BD%95%E5%B0%86%E6%B1%82%E5%92%8C%E7%9F%A2%E9%87%8F%E5%8C%96%E4%BB%A5%E5%A4%9A%E6%91%86%E7%9A%84%E5%85%AC%E5%BC%8F%E4%B8%BA%E4%BE%8B/</link>
+  <pubDate>Sat, 18 May 2024 01:33:18 &#43;0200</pubDate>
+  <author>MizarZ</author>
+  <guid>http://localhost:1313/posts/%E5%A6%82%E4%BD%95%E5%B0%86%E6%B1%82%E5%92%8C%E7%9F%A2%E9%87%8F%E5%8C%96%E4%BB%A5%E5%A4%9A%E6%91%86%E7%9A%84%E5%85%AC%E5%BC%8F%E4%B8%BA%E4%BE%8B/</guid>
+  <description><![CDATA[起因闲来无事，尝试去写一个多摆的模拟程序。为了效率，我尝试去矢量化计算二次导数。但是网上查到的资料只有拉格朗日方程代入坐标后算出的原式，没有]]></description>
+</item>
+</channel>
+</rss>

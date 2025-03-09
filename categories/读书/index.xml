@@ -1,0 +1,23 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>读书 - 分类 - MizarZ 的博客</title>
+    <link>http://localhost:1313/categories/%E8%AF%BB%E4%B9%A6/</link>
+    <description>读书 - 分类 | MizarZ 的博客</description>
+    <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sun, 05 Jan 2025 06:02:52 &#43;0100</lastBuildDate><atom:link href="http://localhost:1313/categories/%E8%AF%BB%E4%B9%A6/" rel="self" type="application/rss+xml" /><item>
+  <title>Deep work 笔记</title>
+  <link>http://localhost:1313/posts/deep-work-cal-newport-%E7%AC%94%E8%AE%B0/</link>
+  <pubDate>Sun, 05 Jan 2025 06:02:52 &#43;0100</pubDate>
+  <author>MizarZ</author>
+  <guid>http://localhost:1313/posts/deep-work-cal-newport-%E7%AC%94%E8%AE%B0/</guid>
+  <description><![CDATA[核心思想高质量成果 = 集中时间 x 集中的强度 集中时间是有限的（每天最多 4 小时），因此为了提高成果的质量只能提升集中的强度。 只有在全身心投入工作的]]></description>
+</item>
+<item>
+  <title>《万历十五年》读后感想&amp;笔记</title>
+  <link>http://localhost:1313/posts/%E4%B8%87%E5%8E%86%E5%8D%81%E4%BA%94%E5%B9%B4%E8%AF%BB%E5%90%8E%E6%84%9F%E6%83%B3%E7%AC%94%E8%AE%B0/</link>
+  <pubDate>Sun, 05 Jan 2025 04:48:31 &#43;0100</pubDate>
+  <author>MizarZ</author>
+  <guid>http://localhost:1313/posts/%E4%B8%87%E5%8E%86%E5%8D%81%E4%BA%94%E5%B9%B4%E8%AF%BB%E5%90%8E%E6%84%9F%E6%83%B3%E7%AC%94%E8%AE%B0/</guid>
+  <description><![CDATA[感受&amp;笔记这本书从一个没有什么大事发生的年份（公元1587年，明万历十五年）说起，引出了 6 个人物：皇帝万历，改革者张居正，和稀泥的申]]></description>
+</item>
+</channel>
+</rss>

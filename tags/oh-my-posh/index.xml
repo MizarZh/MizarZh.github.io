@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>oh-my-posh - 标签 - MizarZ 的博客</title>
+    <link>http://localhost:1313/tags/oh-my-posh/</link>
+    <description>oh-my-posh - 标签 | MizarZ 的博客</description>
+    <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 29 May 2024 13:19:46 &#43;0200</lastBuildDate><atom:link href="http://localhost:1313/tags/oh-my-posh/" rel="self" type="application/rss+xml" /><item>
+  <title>oh-my-posh powershell 配置方法</title>
+  <link>http://localhost:1313/posts/oh-my-posh-powershell-%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95/</link>
+  <pubDate>Wed, 29 May 2024 13:19:46 &#43;0200</pubDate>
+  <author>MizarZ</author>
+  <guid>http://localhost:1313/posts/oh-my-posh-powershell-%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95/</guid>
+  <description><![CDATA[介绍oh-my-posh 是一个命令行美化工具。 安装和启动 安装脚本。见 https://ohmyposh.dev/docs/installation/windows 安装字体。oh-my-posh 基于 Nerds Font 字体，因此我们需要安装它，否则就]]></description>
+</item>
+</channel>
+</rss>

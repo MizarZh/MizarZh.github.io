@@ -3,7 +3,31 @@
     <title>计算机 - 分类 - MizarZ 的博客</title>
     <link>http://localhost:1313/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/</link>
     <description>计算机 - 分类 | MizarZ 的博客</description>
-    <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Thu, 16 May 2024 18:10:50 &#43;0200</lastBuildDate><atom:link href="http://localhost:1313/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" rel="self" type="application/rss+xml" /><item>
+    <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sun, 09 Mar 2025 15:40:51 &#43;0100</lastBuildDate><atom:link href="http://localhost:1313/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" rel="self" type="application/rss+xml" /><item>
+  <title>Windhawk 折腾（半失败：改变任务栏的背景颜色）</title>
+  <link>http://localhost:1313/posts/windhawk-%E6%8A%98%E8%85%BE%E5%8D%8A%E5%A4%B1%E8%B4%A5%E6%94%B9%E5%8F%98%E4%BB%BB%E5%8A%A1%E6%A0%8F%E7%9A%84%E8%83%8C%E6%99%AF%E9%A2%9C%E8%89%B2/</link>
+  <pubDate>Sun, 09 Mar 2025 15:40:51 &#43;0100</pubDate>
+  <author>MizarZ</author>
+  <guid>http://localhost:1313/posts/windhawk-%E6%8A%98%E8%85%BE%E5%8D%8A%E5%A4%B1%E8%B4%A5%E6%94%B9%E5%8F%98%E4%BB%BB%E5%8A%A1%E6%A0%8F%E7%9A%84%E8%83%8C%E6%99%AF%E9%A2%9C%E8%89%B2/</guid>
+  <description><![CDATA[在使用 windows 11 的时候，我发现它总是默认折叠同一程序。我对此很不适应，因为我通常会打开多个 obsidian 和 vscode 的窗口，在它们之间切换十分麻烦。 经过一番摸索，发现]]></description>
+</item>
+<item>
+  <title>Raspberry pi VNC</title>
+  <link>http://localhost:1313/posts/raspberry-pi-vnc/</link>
+  <pubDate>Sat, 29 Jun 2024 14:21:09 &#43;0800</pubDate>
+  <author>MizarZ</author>
+  <guid>http://localhost:1313/posts/raspberry-pi-vnc/</guid>
+  <description><![CDATA[VNC 的问题上次用 VNC 的时候还是在上次，回来之后发现 VNC 已经变成收费的模样了。这可不行，要用就必须用免费的 VNC。 使用 tightvncTightvnc 是免费且开源的 VNC，在树莓]]></description>
+</item>
+<item>
+  <title>oh-my-posh powershell 配置方法</title>
+  <link>http://localhost:1313/posts/oh-my-posh-powershell-%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95/</link>
+  <pubDate>Wed, 29 May 2024 13:19:46 &#43;0200</pubDate>
+  <author>MizarZ</author>
+  <guid>http://localhost:1313/posts/oh-my-posh-powershell-%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95/</guid>
+  <description><![CDATA[介绍oh-my-posh 是一个命令行美化工具。 安装和启动 安装脚本。见 https://ohmyposh.dev/docs/installation/windows 安装字体。oh-my-posh 基于 Nerds Font 字体，因此我们需要安装它，否则就]]></description>
+</item>
+<item>
   <title>Python profiling</title>
   <link>http://localhost:1313/posts/python-profiling/</link>
   <pubDate>Thu, 16 May 2024 18:10:50 &#43;0200</pubDate>

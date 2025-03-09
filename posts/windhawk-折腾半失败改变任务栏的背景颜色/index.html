@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>Windhawk 折腾（半失败：改变任务栏的背景颜色） - MizarZ 的博客</title><meta name="author" content="MizarZ">
+<meta name="author-link" content="">
+<meta name="description" content="在使用 windows 11 的时候，我发现它总是默认折叠同一程序。我对此很不适应，因为我通常会打开多个 obsidian 和 vscode 的窗口，在它们之间切换十分麻烦。 经过一番摸索，发现" /><meta name="keywords" content='windows, 折腾, windhawk' /><meta itemprop="name" content="Windhawk 折腾（半失败：改变任务栏的背景颜色）">
+<meta itemprop="description" content="在使用 windows 11 的时候，我发现它总是默认折叠同一程序。我对此很不适应，因为我通常会打开多个 obsidian 和 vscode 的窗口，在它们之间切换十分麻烦。 经过一番摸索，发现"><meta itemprop="datePublished" content="2025-03-09T15:40:51+01:00" />
+<meta itemprop="dateModified" content="2025-03-09T15:40:51+01:00" />
+<meta itemprop="wordCount" content="577">
+<meta itemprop="keywords" content="windows,折腾,windhawk," /><meta property="og:title" content="Windhawk 折腾（半失败：改变任务栏的背景颜色）" />
+<meta property="og:description" content="在使用 windows 11 的时候，我发现它总是默认折叠同一程序。我对此很不适应，因为我通常会打开多个 obsidian 和 vscode 的窗口，在它们之间切换十分麻烦。 经过一番摸索，发现" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/posts/windhawk-%E6%8A%98%E8%85%BE%E5%8D%8A%E5%A4%B1%E8%B4%A5%E6%94%B9%E5%8F%98%E4%BB%BB%E5%8A%A1%E6%A0%8F%E7%9A%84%E8%83%8C%E6%99%AF%E9%A2%9C%E8%89%B2/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2025-03-09T15:40:51+01:00" />
+<meta property="article:modified_time" content="2025-03-09T15:40:51+01:00" />
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Windhawk 折腾（半失败：改变任务栏的背景颜色）"/>
+<meta name="twitter:description" content="在使用 windows 11 的时候，我发现它总是默认折叠同一程序。我对此很不适应，因为我通常会打开多个 obsidian 和 vscode 的窗口，在它们之间切换十分麻烦。 经过一番摸索，发现"/>
+<meta name="application-name" content="FixIt">
+<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" href="http://localhost:1313/posts/windhawk-%E6%8A%98%E8%85%BE%E5%8D%8A%E5%A4%B1%E8%B4%A5%E6%94%B9%E5%8F%98%E4%BB%BB%E5%8A%A1%E6%A0%8F%E7%9A%84%E8%83%8C%E6%99%AF%E9%A2%9C%E8%89%B2/" /><link rel="prev" href="http://localhost:1313/posts/deep-work-cal-newport-%E7%AC%94%E8%AE%B0/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Windhawk 折腾（半失败：改变任务栏的背景颜色）",
+    "inLanguage": "zh-CN",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "http:\/\/localhost:1313\/posts\/windhawk-%E6%8A%98%E8%85%BE%E5%8D%8A%E5%A4%B1%E8%B4%A5%E6%94%B9%E5%8F%98%E4%BB%BB%E5%8A%A1%E6%A0%8F%E7%9A%84%E8%83%8C%E6%99%AF%E9%A2%9C%E8%89%B2\/"
+    },"genre": "posts","keywords": "windows, 折腾, windhawk","wordcount":  577 ,
+    "url": "http:\/\/localhost:1313\/posts\/windhawk-%E6%8A%98%E8%85%BE%E5%8D%8A%E5%A4%B1%E8%B4%A5%E6%94%B9%E5%8F%98%E4%BB%BB%E5%8A%A1%E6%A0%8F%E7%9A%84%E8%83%8C%E6%99%AF%E9%A2%9C%E8%89%B2\/","datePublished": "2025-03-09T15:40:51+01:00","dateModified": "2025-03-09T15:40:51+01:00","publisher": {
+      "@type": "Organization",
+      "name": ""},"author": {
+        "@type": "Person",
+        "name": "MizarZ"
+      },"description": ""
+  }
+  </script></head>
+  <body data-header-desktop="sticky" data-header-mobile="auto"><script>(window.localStorage?.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('data-theme', 'dark');</script><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="MizarZ 的博客"><span class="header-title-text">MizarZ 的博客</span></a><span class="header-subtitle"></span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/posts/"
+                
+                
+              >文章</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/tags/"
+                
+                
+              >标签</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/categories/"
+                
+                
+              >分类</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+            <input type="text" placeholder="搜索文章标题或内容……" id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+              <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+              <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+            </span>
+          </li><li class="menu-item theme-switch" title="切换主题">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li><li class="menu-item language-switch">
+            <span role="button" aria-label="选择语言" title="选择语言"><i class="fa-solid fa-language fa-fw" aria-hidden="true"></i></span>
+            <ul class="sub-menu"><li class="menu-item">没有更多翻译</li></ul>
+          </li></ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="MizarZ 的博客"><span class="header-title-text">MizarZ 的博客</span></a><span class="header-subtitle"></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
+            <div class="search mobile" id="search-mobile">
+              <input type="text" placeholder="搜索文章标题或内容……" id="search-input-mobile">
+              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+              </a>
+              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+              </a>
+              <span class="search-button search-loading" id="search-loading-mobile">
+                <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+              </span>
+            </div>
+            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+              取消
+            </a>
+          </li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/posts/"
+                  
+                  
+                >文章</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/tags/"
+                  
+                  
+                >标签</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/categories/"
+                  
+                  
+                >分类</a></li><li class="menu-item menu-system">
+          <span class="menu-system-item theme-switch" title="切换主题"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></span><span class="menu-system-item language-switch">
+              <span role="button" aria-label="选择语言" title="选择语言">简体中文<i class="dropdown-icon fa-solid fa-chevron-down" aria-hidden="true"></i></span>
+              <select class="language-select" onchange="location = this.value;"><option disabled>没有更多翻译</option></select>
+            </span></li>
+      </ul>
+    </nav>
+  </div>
+</header><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+  </div>
+  <div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+  </div><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label="合集"></aside>
+
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>Windhawk 折腾（半失败：改变任务栏的背景颜色）</span>
+      </h1></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><span class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
+      MizarZ</span></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category" title="分类 - 计算机"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> 计算机</a></span></div><div class="post-meta-line"><span title="发布于 2025-03-09 15:40:51"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-03-09">2025-03-09</time></span>&nbsp;<span title="577 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 600 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 2 分钟</span>&nbsp;</div>
+    </div><div class="content" id="content"><p>在使用 windows 11 的时候，我发现它总是默认折叠同一程序。我对此很不适应，因为我通常会打开多个 obsidian 和 vscode 的窗口，在它们之间切换十分麻烦。</p>
+<p>经过一番摸索，发现 windows 11 有自带的不折叠选项，但是各任务栏的长度竟然是不一样的！
+<figure><img src="/images/Pasted%20image%2020250309154518.png"/><figcaption>
+            <h4>Pasted image 20250309154518.png</h4>
+        </figcaption>
+</figure>
+</p>
+<p>这让我十分不爽，想要回到 windows 10 的不折叠选项（保持相同长度）。
+<figure><img src="/images/Pasted%20image%2020250309154657.png"/><figcaption>
+            <h4>Pasted image 20250309154657.png</h4>
+        </figcaption>
+</figure>
+</p>
+<p>而我又很喜欢 windows 11 的任务栏风格。所以我开始四处寻找解决方法，最后找到了 Windhawk。</p>
+<p><a href="https://windhawk.net/"target="_blank" rel="external nofollow noopener noreferrer">Windhawk</a> 是一个修改 windows 外观的工具。其中的一个插件 <a href="https://windhawk.net/mods/taskbar-labels"target="_blank" rel="external nofollow noopener noreferrer">Taskbar Labels for Windows 11 - Windhawk</a> 可以设置任务栏不合并 + 相同长度的任务栏标签长度，且保留 windows 11 的风格。至此我十分满意，总算是找到一个可行的方案了。</p>
+<p>接下来我又有了一个想法：因为 windows 11 的单个图标风格比显示标签会更加好看，我能否定制某一个程序使用不同的颜色呢？</p>
+<p>既然是自定义样式，我就转向了另一个插件 <a href="https://windhawk.net/mods/windows-11-taskbar-styler"target="_blank" rel="external nofollow noopener noreferrer">Windows 11 Taskbar Styler - Windhawk</a>。这个插件主要是用来调整整个任务栏的样式风格的，但是我尝试用它自定义单个程序使用的不同颜色。</p>
+<p>自定义guide： <a href="https://github.com/ramensoftware/windows-11-taskbar-styling-guide/blob/main/README.md"target="_blank" rel="external nofollow noopener noreferrer">ramensoftware/windows-11-taskbar-styling-guide</a></p>
+<p>查看样式代码：<a href="https://ramensoftware.com/uwpspy"target="_blank" rel="external nofollow noopener noreferrer">UWPSpy - Ramen Software</a></p>
+<p>通过这两个教程，我找到了定制某一个程序背景颜色的方法（半成功）：</p>
+<div class="highlight" id="id-1"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="c">/* Target */</span>
+</span></span><span class="line"><span class="cl"><span class="nt">Taskbar</span><span class="p">.</span><span class="nc">TaskListButton</span><span class="o">[</span><span class="nt">AutomationProperties</span><span class="p">.</span><span class="nc">Name</span><span class="o">=</span><span class="nt">Anki</span> <span class="nt">-</span> <span class="nt">1</span> <span class="nt">个运行窗口</span><span class="o">]</span> <span class="o">&gt;</span> <span class="nt">Taskbar</span><span class="p">.</span><span class="nc">TaskListLabeledButtonPanel</span> <span class="o">&gt;</span> <span class="nt">Border</span><span class="p">#</span><span class="nn">BackgroundElement</span>
+</span></span><span class="line"><span class="cl"><span class="c">/* Styles */</span>
+</span></span><span class="line"><span class="cl"><span class="nt">Background</span><span class="o">=</span><span class="p">#</span><span class="nn">000000</span>
+</span></span><span class="line"><span class="cl"><span class="nt">CornerRadius</span><span class="o">=</span><span class="nt">5</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>即：选择窗口名为 <code>Anki - 1 个运行窗口</code> 的程序，找到 <code>background</code> 所对应的元素，设置颜色为 <code>#000000</code>。</p>
+<p>这种方法的缺点在于只要程序名字一变就无法进行设置了。Windhawk 也没有提供 css <code>[x~=x]</code> 的 selector，因此只能暂时搁置。</p>
+</div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title="更新于 2025-03-09 15:40:51">更新于 2025-03-09&nbsp;</span>
+      </div><div class="post-info-license">
+            <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
+          </div></div><div class="post-info-line">
+        <div class="post-info-md"><span><a href="/posts/windhawk-%E6%8A%98%E8%85%BE%E5%8D%8A%E5%A4%B1%E8%B4%A5%E6%94%B9%E5%8F%98%E4%BB%BB%E5%8A%A1%E6%A0%8F%E7%9A%84%E8%83%8C%E6%99%AF%E9%A2%9C%E8%89%B2/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span></div>
+        <div class="post-info-share">
+          <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="http://localhost:1313/posts/windhawk-%E6%8A%98%E8%85%BE%E5%8D%8A%E5%A4%B1%E8%B4%A5%E6%94%B9%E5%8F%98%E4%BB%BB%E5%8A%A1%E6%A0%8F%E7%9A%84%E8%83%8C%E6%99%AF%E9%A2%9C%E8%89%B2/" data-title="Windhawk 折腾（半失败：改变任务栏的背景颜色）" data-hashtags="windows,折腾,windhawk"><i class="fa-brands fa-twitter fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://localhost:1313/posts/windhawk-%E6%8A%98%E8%85%BE%E5%8D%8A%E5%A4%B1%E8%B4%A5%E6%94%B9%E5%8F%98%E4%BB%BB%E5%8A%A1%E6%A0%8F%E7%9A%84%E8%83%8C%E6%99%AF%E9%A2%9C%E8%89%B2/" data-hashtag="windows"><i class="fa-brands fa-facebook-square fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://localhost:1313/posts/windhawk-%E6%8A%98%E8%85%BE%E5%8D%8A%E5%A4%B1%E8%B4%A5%E6%94%B9%E5%8F%98%E4%BB%BB%E5%8A%A1%E6%A0%8F%E7%9A%84%E8%83%8C%E6%99%AF%E9%A2%9C%E8%89%B2/" data-title="Windhawk 折腾（半失败：改变任务栏的背景颜色）"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
+  </span>
+        </div>
+      </div></div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href="/tags/windows/" class="post-tag" title="标签 - windows">windows</a><a href="/tags/%E6%8A%98%E8%85%BE/" class="post-tag" title="标签 - 折腾">折腾</a><a href="/tags/windhawk/" class="post-tag" title="标签 - windhawk">windhawk</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+    </section>
+  </div>
+
+  <div class="post-nav"><a href="/posts/deep-work-cal-newport-%E7%AC%94%E8%AE%B0/" class="post-nav-item" rel="prev" title="Deep work 笔记"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>Deep work 笔记</a></div>
+</div>
+</article>
+
+  <aside class="toc" id="toc-auto" aria-label="目录"></aside></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.121.1"><img class="hugo-icon" src="/images/hugo.min.svg" alt="Hugo logo" /> Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.3.0"><img class="fixit-icon" src="/images/fixit.min.svg" alt="FixIt logo" /> FixIt</a>
+        </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2025</span><span class="author" itemprop="copyrightHolder">
+              <a href="/">MizarZ</a></span></div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="回到顶部"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
+        </div></div><div id="mask"></div><noscript>
+    <div class="noscript-warning">FixIt 主题在启用 JavaScript 的情况下效果最佳。</div>
+  </noscript>
+</div><link rel="preload" href="/lib/katex/katex.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/katex/katex.min.css"></noscript><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/fuse/fuse.min.js" defer></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/katex/katex.min.js" defer></script><script src="/lib/katex/auto-render.min.js" defer></script><script src="/lib/katex/copy-tex.min.js" defer></script><script src="/lib/katex/mhchem.min.js" defer></script><script src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script src="/lib/pangu/pangu.min.js" defer></script><script>window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":40},"comment":{"enable":false},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验。"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"pangu":{"enable":true,"selector":"article"},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/index.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":false,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"没有找到结果","snippetLength":30,"threshold":0.3,"type":"fuse","useExtendedSearch":false}};</script><script src="/js/theme.min.js" defer></script></body>
+</html>

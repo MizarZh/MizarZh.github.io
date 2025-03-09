@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>Raspberry pi - 标签 - MizarZ 的博客</title>
+    <link>http://localhost:1313/tags/raspberry-pi/</link>
+    <description>Raspberry pi - 标签 | MizarZ 的博客</description>
+    <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 29 Jun 2024 14:21:09 &#43;0800</lastBuildDate><atom:link href="http://localhost:1313/tags/raspberry-pi/" rel="self" type="application/rss+xml" /><item>
+  <title>Raspberry pi VNC</title>
+  <link>http://localhost:1313/posts/raspberry-pi-vnc/</link>
+  <pubDate>Sat, 29 Jun 2024 14:21:09 &#43;0800</pubDate>
+  <author>MizarZ</author>
+  <guid>http://localhost:1313/posts/raspberry-pi-vnc/</guid>
+  <description><![CDATA[VNC 的问题上次用 VNC 的时候还是在上次，回来之后发现 VNC 已经变成收费的模样了。这可不行，要用就必须用免费的 VNC。 使用 tightvncTightvnc 是免费且开源的 VNC，在树莓]]></description>
+</item>
+</channel>
+</rss>

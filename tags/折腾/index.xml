@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>折腾 - 标签 - MizarZ 的博客</title>
+    <link>http://localhost:1313/tags/%E6%8A%98%E8%85%BE/</link>
+    <description>折腾 - 标签 | MizarZ 的博客</description>
+    <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sun, 09 Mar 2025 15:40:51 &#43;0100</lastBuildDate><atom:link href="http://localhost:1313/tags/%E6%8A%98%E8%85%BE/" rel="self" type="application/rss+xml" /><item>
+  <title>Windhawk 折腾（半失败：改变任务栏的背景颜色）</title>
+  <link>http://localhost:1313/posts/windhawk-%E6%8A%98%E8%85%BE%E5%8D%8A%E5%A4%B1%E8%B4%A5%E6%94%B9%E5%8F%98%E4%BB%BB%E5%8A%A1%E6%A0%8F%E7%9A%84%E8%83%8C%E6%99%AF%E9%A2%9C%E8%89%B2/</link>
+  <pubDate>Sun, 09 Mar 2025 15:40:51 &#43;0100</pubDate>
+  <author>MizarZ</author>
+  <guid>http://localhost:1313/posts/windhawk-%E6%8A%98%E8%85%BE%E5%8D%8A%E5%A4%B1%E8%B4%A5%E6%94%B9%E5%8F%98%E4%BB%BB%E5%8A%A1%E6%A0%8F%E7%9A%84%E8%83%8C%E6%99%AF%E9%A2%9C%E8%89%B2/</guid>
+  <description><![CDATA[在使用 windows 11 的时候，我发现它总是默认折叠同一程序。我对此很不适应，因为我通常会打开多个 obsidian 和 vscode 的窗口，在它们之间切换十分麻烦。 经过一番摸索，发现]]></description>
+</item>
+</channel>
+</rss>
