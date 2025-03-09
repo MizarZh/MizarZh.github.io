@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
   <channel>
-    <title>DOM - 标签 - MizarZ&#39;s blog</title>
+    <title>DOM - 标签 - MizarZ 的博客</title>
     <link>http://localhost:1313/tags/dom/</link>
-    <description>DOM - 标签 | MizarZ&#39;s blog</description>
+    <description>DOM - 标签 | MizarZ 的博客</description>
     <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 16 Apr 2024 09:51:52 &#43;0200</lastBuildDate><atom:link href="http://localhost:1313/tags/dom/" rel="self" type="application/rss+xml" /><item>
   <title>js 解析以及文本化 DOM 元素的做法</title>
   <link>http://localhost:1313/posts/js-%E8%A7%A3%E6%9E%90%E4%BB%A5%E5%8F%8A%E6%96%87%E6%9C%AC%E5%8C%96-dom-%E5%85%83%E7%B4%A0%E7%9A%84%E5%81%9A%E6%B3%95/</link>

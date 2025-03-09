@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
   <channel>
-    <title>front-end - 标签 - MizarZ&#39;s blog</title>
+    <title>front-end - 标签 - MizarZ 的博客</title>
     <link>http://localhost:1313/tags/front-end/</link>
-    <description>front-end - 标签 | MizarZ&#39;s blog</description>
+    <description>front-end - 标签 | MizarZ 的博客</description>
     <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 16 Apr 2024 09:58:59 &#43;0200</lastBuildDate><atom:link href="http://localhost:1313/tags/front-end/" rel="self" type="application/rss+xml" /><item>
   <title>监测一个元素是否 resize （ResizeObserver） 以及与 resize 事件的比较</title>
   <link>http://localhost:1313/posts/%E7%9B%91%E6%B5%8B%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0%E6%98%AF%E5%90%A6-resize-resizeobserver-%E4%BB%A5%E5%8F%8A%E4%B8%8E-resize-%E4%BA%8B%E4%BB%B6%E7%9A%84%E6%AF%94%E8%BE%83/</link>

@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
   <channel>
-    <title>其他 - 分类 - MizarZ&#39;s blog</title>
+    <title>其他 - 分类 - MizarZ 的博客</title>
     <link>http://localhost:1313/categories/%E5%85%B6%E4%BB%96/</link>
-    <description>其他 - 分类 | MizarZ&#39;s blog</description>
+    <description>其他 - 分类 | MizarZ 的博客</description>
     <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 06 Jan 2024 20:42:43 &#43;0100</lastBuildDate><atom:link href="http://localhost:1313/categories/%E5%85%B6%E4%BB%96/" rel="self" type="application/rss+xml" /><item>
   <title>新博客的第一篇博客</title>
   <link>http://localhost:1313/posts/%E6%96%B0%E5%8D%9A%E5%AE%A2%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</link>

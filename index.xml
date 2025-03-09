@@ -1,6 +1,6 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
   <channel>
-    <title>MizarZ&#39;s blog</title>
+    <title>MizarZ 的博客</title>
     <link>http://localhost:1313/</link>
     <description>半吊子物理系学生/啥都不会程序员/喜爱泛理科内容</description>
     <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Thu, 16 May 2024 18:10:50 &#43;0200</lastBuildDate>
