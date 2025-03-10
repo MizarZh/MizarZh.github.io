@@ -1,4 +1,4 @@
-# 监测一个元素是否 resize （ResizeObserver） 以及与 resize 事件的比较
+# 监测一个元素是否 Resize （ResizeObserver） 以及与 Resize 事件的比较
 
 ## ResizeObserver
 监测元素的 resize 需要使用 [`ResizeObserver`](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver) 类：

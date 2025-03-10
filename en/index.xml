@@ -1,9 +1,12 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>MizarZ&#39;s blog</title>
     <link>http://localhost:1313/en/</link>
     <description>半吊子物理系学生/啥都不会程序员/喜爱泛理科内容</description>
-    <generator>Hugo -- gohugo.io</generator><language>en</language>
-      <atom:link href="http://localhost:1313/en/index.xml" rel="self" type="application/rss+xml" />
-    </channel>
+    <generator>Hugo 0.145.0 &amp; FixIt v0.3.16</generator>
+    <language>en</language>
+    <lastBuildDate></lastBuildDate>
+    <atom:link href="http://localhost:1313/en/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
 </rss>

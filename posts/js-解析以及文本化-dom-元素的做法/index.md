@@ -1,4 +1,4 @@
-# js 解析以及文本化 DOM 元素的做法
+# Js 解析以及文本化 DOM 元素的做法
 
 ## 解析 DOM 文本
 使用 [DOMParser](https://developer.mozilla.org/en-US/docs/Web/API/DOMParser)：

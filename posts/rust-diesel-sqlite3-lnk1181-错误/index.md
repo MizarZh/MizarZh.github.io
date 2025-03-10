@@ -1,4 +1,4 @@
-# rust diesel sqlite3 错误
+# Rust Diesel Sqlite3 错误
 
 ## 错误
 一大团 lib 的错误，然后说 LNK1181 错误

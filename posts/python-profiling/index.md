@@ -1,4 +1,4 @@
-# Python profiling
+# Python Profiling
 
 ## Python 性能分析
 最简单的方法：datetime

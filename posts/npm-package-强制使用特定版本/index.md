@@ -1,4 +1,4 @@
-# npm package 强制使用特定版本
+# Npm Package 强制使用特定版本
 
 ## 起因
 在写 [obsidian-mdx-dictoinary](https://github.com/MizarZh/obsidian-mdx-dictionary) 插件时，我在其中加入了一个 `express` 后端，结果旧遇到了问题：

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Test - 合集 - MizarZ 的博客</title>
+    <link>http://localhost:1313/collections/test/</link>
+    <description>半吊子物理系学生/啥都不会程序员/喜爱泛理科内容</description>
+    <generator>Hugo 0.145.0 &amp; FixIt v0.3.16</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 22 Feb 2023 20:14:22 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/collections/test/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hugo test</title>
+      <link>http://localhost:1313/posts/hugo-test/</link>
+      <pubDate>Mon, 20 Feb 2023 20:14:22 +0800</pubDate>
+      <guid>http://localhost:1313/posts/hugo-test/</guid>
+      <description>&lt;p&gt;qwfojwqieof&lt;/p&gt;&#xA;&lt;p&gt;abcd&lt;/p&gt;&#xA;&lt;figure&gt;&lt;img src=&#34;http://localhost:1313/images/Omega_Lambda.png&#34;&gt;&lt;figcaption&gt;&#xA;      &lt;h4&gt;jifaejif&lt;/h4&gt;&#xA;    &lt;/figcaption&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;asdf&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;&#34;&gt;test-blog2&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;df&lt;/p&gt;&#xA;&lt;p&gt;__tags&lt;/p&gt;&#xA;&lt;div class=&#34;fi-row&#34;&gt;&#xA;$$&#xA;test&#xA;$$&#xA;&lt;/div&gt;</description>
+    </item>
+  </channel>
+</rss>

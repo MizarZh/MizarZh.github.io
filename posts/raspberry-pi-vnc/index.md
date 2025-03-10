@@ -1,4 +1,4 @@
-# Raspberry pi VNC
+# Raspberry Pi VNC
 
 ## VNC 的问题
 上次用 VNC 的时候还是在上次，回来之后发现 VNC 已经变成收费的模样了。这可不行，要用就必须用免费的 VNC。

@@ -1,4 +1,4 @@
-# oh-my-posh powershell 配置方法
+# Oh-My-Posh Powershell 配置方法
 
 
 ## 介绍

@@ -3,10 +3,10 @@
 在使用 windows 11 的时候，我发现它总是默认折叠同一程序。我对此很不适应，因为我通常会打开多个 obsidian 和 vscode 的窗口，在它们之间切换十分麻烦。
 
 经过一番摸索，发现 windows 11 有自带的不折叠选项，但是各任务栏的长度竟然是不一样的！
-{{&lt;figure src=&#34;/images/Pasted image 20250309154518.png&#34; title=&#34;Pasted image 20250309154518.png&#34;&gt;}}
+{{&lt;figure src=&#34;/images/Pasted image 20250309154518.png&#34; title=&#34;win11 的不折叠选项，可以看到任务栏根据标签的长度而变化&#34;&gt;}}
 
 这让我十分不爽，想要回到 windows 10 的不折叠选项（保持相同长度）。
-{{&lt;figure src=&#34;/images/Pasted image 20250309154657.png&#34; title=&#34;Pasted image 20250309154657.png&#34;&gt;}}
+{{&lt;figure src=&#34;/images/Pasted image 20250309154657.png&#34; title=&#34;win10 的不折叠，各任务栏标签长度相同&#34;&gt;}}
 
 而我又很喜欢 windows 11 的任务栏风格。所以我开始四处寻找解决方法，最后找到了 Windhawk。
 

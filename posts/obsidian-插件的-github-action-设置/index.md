@@ -1,4 +1,4 @@
-# Obsidian 插件的 github action 设置
+# Obsidian 插件的 Github Action 设置
 
 来源 [obsidian-tracker](https://github.com/pyrochlore/obsidian-tracker/blob/master/.github/workflows/releases.yml)
 
