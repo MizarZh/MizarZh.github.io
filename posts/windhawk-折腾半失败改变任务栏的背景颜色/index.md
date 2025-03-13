@@ -27,7 +27,7 @@
 Taskbar.TaskListButton[AutomationProperties.Name=Anki - 1 个运行窗口] &gt; Taskbar.TaskListLabeledButtonPanel &gt; Border#BackgroundElement
 /* Styles */
 Background=#000000
-CornerRadius=5
+CornerRadius=5q
 ```
 
 即：选择窗口名为 `Anki - 1 个运行窗口` 的程序，找到 `background` 所对应的元素，设置颜色为 `#000000`。
