@@ -10,7 +10,7 @@
 使用一个指标，选择合适的材料（比如说能读懂/听懂90%），在学习中使用词典或者用脑去理解剩下部分（10%）的内容。
 
 ### 资源
-Lingq: https://www.lingq.com/en/
+- Lingq: https://www.lingq.com/en/
 
 ## 沉浸（Immersion）
 ### 概念
@@ -32,9 +32,9 @@ Lingq: https://www.lingq.com/en/
 &lt;!-- Lingva Latina 补充 --&gt;
 
 ### 参考
-https://www.wikiwand.com/en/articles/Language_immersion
-https://zhuanlan.zhihu.com/p/563595807
-https://zhuanlan.zhihu.com/p/564167912
+- https://www.wikipedia.com/en/articles/Language_immersion
+- https://zhuanlan.zhihu.com/p/563595807
+- https://zhuanlan.zhihu.com/p/564167912
 
 ## 高频词（High frequency word）
 ### 概念
@@ -53,13 +53,13 @@ https://zhuanlan.zhihu.com/p/564167912
 可以看到前 1000 频率的词汇的重要性比接下来 2000 个单词（1000-3000）的重要性高不少（80% 和 10% 的差距）。学习高频词是入门一门语言较好的方法。
 
 ### 参考
-表格来源： https://files.eric.ed.gov/fulltext/EJ887873.pdf
-Reddit相关讨论： https://www.reddit.com/r/languagelearning/comments/jfhscg/if_i_know_x_many_words_how_much_do_i_actually/
-Coverage 计算器： https://www.lextutor.ca/cover/
+- 表格来源： https://files.eric.ed.gov/fulltext/EJ887873.pdf
+- Reddit相关讨论： https://www.reddit.com/r/languagelearning/comments/jfhscg/if_i_know_x_many_words_how_much_do_i_actually/
+- Coverage 计算器： https://www.lextutor.ca/cover/
 
 ### 资源
-多种语言最常见 1000 词的网站： https://travelwithlanguages.com/blog/most-common-spanish-words.html （西班牙语，可以切换语言）
-英语前 5000 词的频率： https://frequencylist.com/
+- 多种语言最常见 1000 词的网站： https://travelwithlanguages.com/blog/most-common-spanish-words.html （西班牙语，可以切换语言）
+- 英语前 5000 词的频率： https://frequencylist.com/
 
 ## 间隔重复（Spaced repetition）
 ### 概念
@@ -70,13 +70,14 @@ Coverage 计算器： https://www.lextutor.ca/cover/
 - 在可理解性输入/沉浸学习中遇到不懂的词，查单词后放入 anki 进行加强记忆
 
 ### 资源
-anki: https://apps.ankiweb.net/
-anki 分享资源库: https://ankiweb.net/shared/decks
+- anki: https://apps.ankiweb.net/
+- anki 分享资源库: https://ankiweb.net/shared/decks
 
 ## Language transfer
 TBF
 ## shadowing
 TBF
+## ALG（automatic language learning）
 
 
 
