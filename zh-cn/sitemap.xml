@@ -1,8 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://localhost:1313/posts/%E8%8D%92%E8%AF%9E%E5%8C%BB%E5%AD%A6%E5%8F%B2%E8%AF%BB%E5%90%8E%E6%84%9F%E6%83%B3%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2025-04-05T00:42:30+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/posts/%E8%8D%92%E8%AF%9E%E5%8C%BB%E5%AD%A6%E5%8F%B2%E8%8D%92%E8%AF%9E%E5%8C%BB%E5%AD%A6%E5%8F%B2/</loc>
+    <lastmod>2025-04-05T00:42:30+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2025-03-29T00:16:04+01:00</lastmod>
+    <lastmod>2025-04-05T00:42:30+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="en" href="http://localhost:1313/en/categories/"/>
@@ -10,7 +22,7 @@
   </url>
   <url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2025-03-29T00:16:04+01:00</lastmod>
+    <lastmod>2025-04-05T00:42:30+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="en" href="http://localhost:1313/en/"/>
@@ -18,17 +30,35 @@
   </url>
   <url>
     <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2025-03-29T00:16:04+01:00</lastmod>
+    <lastmod>2025-04-05T00:42:30+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2025-03-29T00:16:04+01:00</lastmod>
+    <lastmod>2025-04-05T00:42:30+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="en" href="http://localhost:1313/en/tags/"/>
     <xhtml:link rel="alternate" hreflang="zh-CN" href="http://localhost:1313/tags/"/>
+  </url>
+  <url>
+    <loc>http://localhost:1313/categories/%E8%AF%BB%E4%B9%A6/</loc>
+    <lastmod>2025-04-05T00:42:30+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/tags/%E5%8E%86%E5%8F%B2/</loc>
+    <lastmod>2025-04-05T00:42:30+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/tags/%E5%8C%BB%E5%AD%A6/</loc>
+    <lastmod>2025-04-05T00:42:30+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>http://localhost:1313/posts/%E5%8A%A8%E7%89%A9%E4%BA%95%E7%9A%84%E5%A5%87%E5%A6%99%E4%B8%96%E7%95%8C/</loc>
@@ -110,12 +140,6 @@
   </url>
   <url>
     <loc>http://localhost:1313/posts/deep-work-cal-newport-%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2025-01-05T06:02:52+01:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>http://localhost:1313/categories/%E8%AF%BB%E4%B9%A6/</loc>
     <lastmod>2025-01-05T06:02:52+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
