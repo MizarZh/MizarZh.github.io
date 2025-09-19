@@ -1,6 +1,8 @@
 # 股票指数月度涨跌幅分布（截至2025-06）
 
 ## 标普 500
+测试
+
 {{&lt;figure src=&#34;/images/Pasted image 20250709030341.png&#34; title=&#34;Pasted image 20250709030341.png&#34;&gt;}}
 
 ```
