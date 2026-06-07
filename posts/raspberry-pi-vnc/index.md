@@ -20,7 +20,7 @@ vncserver :1
 # vncserver :2 # 启动第二个
 ```
 
-默认端口是 5900 &#43; 窗口。例如 `vncserver :1` 的端口就是 5901。
+默认端口是 5900 + 窗口。例如 `vncserver :1` 的端口就是 5901。
 
 ## 访问
 Windows: 从 [Tightvnc](https://www.tightvnc.com/) 下载 viewer，然后连接访问即可。

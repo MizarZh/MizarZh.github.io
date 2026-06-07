@@ -3,14 +3,14 @@
 在使用 windows 11 的时候，我发现它总是默认折叠同一程序。我对此很不适应，因为我通常会打开多个 obsidian 和 vscode 的窗口，在它们之间切换十分麻烦。
 
 经过一番摸索，发现 windows 11 有自带的不折叠选项，但是各任务栏的长度竟然是不一样的！
-{{&lt;figure src=&#34;/images/Pasted image 20250309154518.png&#34; title=&#34;win11 的不折叠选项，可以看到任务栏根据标签的长度而变化&#34;&gt;}}
+{{<figure src="/images/Pasted image 20250309154518.png" title="win11 的不折叠选项，可以看到任务栏根据标签的长度而变化">}}
 
 这让我十分不爽，想要回到 windows 10 的不折叠选项（保持相同长度）。
-{{&lt;figure src=&#34;/images/Pasted image 20250309154657.png&#34; title=&#34;win10 的不折叠，各任务栏标签长度相同&#34;&gt;}}
+{{<figure src="/images/Pasted image 20250309154657.png" title="win10 的不折叠，各任务栏标签长度相同">}}
 
 而我又很喜欢 windows 11 的任务栏风格。所以我开始四处寻找解决方法，最后找到了 Windhawk。
 
-[Windhawk](https://windhawk.net/) 是一个修改 windows 外观的工具。其中的一个插件 [Taskbar Labels for Windows 11 - Windhawk](https://windhawk.net/mods/taskbar-labels) 可以设置任务栏不合并 &#43; 相同长度的任务栏标签长度，且保留 windows 11 的风格。至此我十分满意，总算是找到一个可行的方案了。
+[Windhawk](https://windhawk.net/) 是一个修改 windows 外观的工具。其中的一个插件 [Taskbar Labels for Windows 11 - Windhawk](https://windhawk.net/mods/taskbar-labels) 可以设置任务栏不合并 + 相同长度的任务栏标签长度，且保留 windows 11 的风格。至此我十分满意，总算是找到一个可行的方案了。
 
 接下来我又有了一个想法：因为 windows 11 的单个图标风格比显示标签会更加好看，我能否定制某一个程序使用不同的颜色呢？
 
@@ -24,7 +24,7 @@
 
 ```css
 /* Target */
-Taskbar.TaskListButton[AutomationProperties.Name=Anki - 1 个运行窗口] &gt; Taskbar.TaskListLabeledButtonPanel &gt; Border#BackgroundElement
+Taskbar.TaskListButton[AutomationProperties.Name=Anki - 1 个运行窗口] > Taskbar.TaskListLabeledButtonPanel > Border#BackgroundElement
 /* Styles */
 Background=#000000
 CornerRadius=5q

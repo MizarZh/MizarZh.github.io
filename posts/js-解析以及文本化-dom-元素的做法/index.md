@@ -5,14 +5,14 @@
 ```js
 const parser = new DOMParser();
 
-const xmlString = &#34;&lt;warning&gt;Beware of the tiger&lt;/warning&gt;&#34;;
-const doc1 = parser.parseFromString(xmlString, &#34;application/xml&#34;);
+const xmlString = "<warning>Beware of the tiger</warning>";
+const doc1 = parser.parseFromString(xmlString, "application/xml");
 
-const htmlString = &#34;&lt;strong&gt;Beware of the leopard&lt;/strong&gt;&#34;;
-const doc2 = parser.parseFromString(htmlString, &#34;text/html&#34;);
+const htmlString = "<strong>Beware of the leopard</strong>";
+const doc2 = parser.parseFromString(htmlString, "text/html");
 ```
 
-`parser.parseFromString` 返回类型为 `Document`，这种格式含有完整的 `&lt;head&gt;&lt;body&gt;` 元素，也无法直接打印，也没有 `toString` 方法，总之就是无法直接转换成文本。
+`parser.parseFromString` 返回类型为 `Document`，这种格式含有完整的 `<head><body>` 元素，也无法直接打印，也没有 `toString` 方法，总之就是无法直接转换成文本。
 
 ## 文本化 DOM 元素
 我翻了半天都没找到将 DOM 元素变成文本的函数。最后问了 chatgpt 才知道原来精髓就在类型本身：

@@ -3,7 +3,7 @@
 ## ResizeObserver
 监测元素的 resize 需要使用 [`ResizeObserver`](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver) 类：
 ```js
-new ResizeObserver((entries) =&gt; {
+new ResizeObserver((entries) => {
   for (const x of iframe) {
     x.resize()
   }
@@ -21,7 +21,7 @@ new ResizeObserver((entries) =&gt; {
 文档视图（窗口）调整大小时会触发 **`resize`** 事件。现在 `resize` 事件只针对窗口（window）触发。
 
 ```js
-window.onresize = (xxx) =&gt; {xxx}
+window.onresize = (xxx) => {xxx}
 ```
 
 即 `resize` 事件仅作用在窗口上，观测的是窗口大小的改变。而 `ResizeObserver` 作用在元素上，观测的是元素大小的改变。

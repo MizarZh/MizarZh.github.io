@@ -17,9 +17,9 @@
 - graph: 书写
 
 例子：
-- Homonym：意思不同，Homo&#43;nym（相同词）其余词部分相同（不同意思&#43;相同拼写&#43;相同读音）
-- Homophone：意思不同，Homo&#43;phone（相同读音）只有读音相同（不同意思&#43;相同读音）
-- Heterograph：意思不同，Hetero&#43;graph （不同写法），隐含了读音相同
+- Homonym：意思不同，Homo+nym（相同词）其余词部分相同（不同意思+相同拼写+相同读音）
+- Homophone：意思不同，Homo+phone（相同读音）只有读音相同（不同意思+相同读音）
+- Heterograph：意思不同，Hetero+graph （不同写法），隐含了读音相同
 - Synonym：syn：意思相同，nym：词。意思相同的词。
 
 因此组合出了这些概念（其中着实有点难以分辨谁是谁，因为这个词只指定了某个部分是否相同）：
@@ -41,9 +41,9 @@
 
 ## 图表
 
-{{&lt;figure src=&#34;/images/Homograph_homophone_venn_diagram.svg.png&#34; title=&#34;Homograph_homophone_venn_diagram.svg.png&#34;&gt;}}
+{{<figure src="/images/Homograph_homophone_venn_diagram.svg.png" title="Homograph_homophone_venn_diagram.svg.png">}}
 
-{{&lt;figure src=&#34;/images/Homograph_homophone_venn_diagram.png&#34; title=&#34;Homograph_homophone_venn_diagram.png&#34;&gt;}}
+{{<figure src="/images/Homograph_homophone_venn_diagram.png" title="Homograph_homophone_venn_diagram.png">}}
 
 ## Reference
 https://en.wikipedia.org/wiki/Homonym

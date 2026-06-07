@@ -1,36 +1,36 @@
 <!DOCTYPE html>
 <html itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
   <head>
-    
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
     <meta name="robots" content="noodp" />
     <title>Oh-My-Posh Powershell 配置方法 - MizarZ 的博客</title><meta name="author" content="MizarZ">
-<meta name="description" content="介绍oh-my-posh 是一个命令行美化工具。
-"><meta name="keywords" content='配置'>
+<meta name="description" content="介绍 oh-my-posh 是一个命令行美化工具。
+"><meta name="keywords" content='oh-my-posh, powershell'>
   <meta itemprop="name" content="oh-my-posh powershell 配置方法">
-  <meta itemprop="description" content="介绍oh-my-posh 是一个命令行美化工具。">
+  <meta itemprop="description" content="介绍 oh-my-posh 是一个命令行美化工具。">
   <meta itemprop="datePublished" content="2024-05-29T13:19:46+02:00">
   <meta itemprop="dateModified" content="2024-05-29T13:19:46+02:00">
   <meta itemprop="wordCount" content="157">
-  <meta itemprop="keywords" content="配置"><meta property="og:url" content="http://localhost:1313/posts/oh-my-posh-powershell-%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95/">
+  <meta itemprop="keywords" content="Oh-My-Posh,Powershell"><meta property="og:url" content="http://localhost:1313/posts/oh-my-posh-powershell-%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95/">
   <meta property="og:site_name" content="MizarZ 的博客">
   <meta property="og:title" content="oh-my-posh powershell 配置方法">
-  <meta property="og:description" content="介绍oh-my-posh 是一个命令行美化工具。">
+  <meta property="og:description" content="介绍 oh-my-posh 是一个命令行美化工具。">
   <meta property="og:locale" content="zh_CN">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2024-05-29T13:19:46+02:00">
     <meta property="article:modified_time" content="2024-05-29T13:19:46+02:00">
-    <meta property="article:tag" content="配置">
+    <meta property="article:tag" content="Oh-My-Posh">
+    <meta property="article:tag" content="Powershell">
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="oh-my-posh powershell 配置方法">
-  <meta name="twitter:description" content="介绍oh-my-posh 是一个命令行美化工具。">
+  <meta name="twitter:description" content="介绍 oh-my-posh 是一个命令行美化工具。">
 <meta name="application-name" content="FixIt">
 <meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" type="text/html" href="http://localhost:1313/posts/oh-my-posh-powershell-%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95/" title="oh-my-posh powershell 配置方法 - MizarZ 的博客" /><link rel="prev" type="text/html" href="http://localhost:1313/posts/%E5%A6%82%E4%BD%95%E5%B0%86%E6%B1%82%E5%92%8C%E7%9F%A2%E9%87%8F%E5%8C%96%E4%BB%A5%E5%A4%9A%E6%91%86%E7%9A%84%E5%85%AC%E5%BC%8F%E4%B8%BA%E4%BE%8B/" title="如何将求和矢量化（以多摆的公式为例）" /><link rel="next" type="text/html" href="http://localhost:1313/posts/raspberry-pi-vnc/" title="Raspberry pi VNC" /><link rel="alternate" type="text/markdown" href="http://localhost:1313/posts/oh-my-posh-powershell-%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95/index.md" title="oh-my-posh powershell 配置方法 - MizarZ 的博客"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" type="text/html" href="http://localhost:1313/posts/oh-my-posh-powershell-%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95/" title="oh-my-posh powershell 配置方法 - MizarZ 的博客" /><link rel="prev" type="text/html" href="http://localhost:1313/posts/%E5%A6%82%E4%BD%95%E5%B0%86%E6%B1%82%E5%92%8C%E7%9F%A2%E9%87%8F%E5%8C%96%E4%BB%A5%E5%A4%9A%E6%91%86%E7%9A%84%E5%85%AC%E5%BC%8F%E4%B8%BA%E4%BE%8B/" title="如何将求和矢量化（以多摆的公式为例）" /><link rel="next" type="text/html" href="http://localhost:1313/posts/raspberry-pi-vnc/" title="Raspberry pi VNC" /><link rel="alternate" type="text/markdown" href="http://localhost:1313/posts/oh-my-posh-powershell-%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95/index.md" title="oh-my-posh powershell 配置方法 - MizarZ 的博客"><link rel="stylesheet" href="/css/config.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
   {
@@ -41,7 +41,7 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "http:\/\/localhost:1313\/posts\/oh-my-posh-powershell-%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95\/"
-    },"genre": "posts","keywords": "配置","wordcount":  157 ,
+    },"genre": "posts","keywords": "oh-my-posh, powershell","wordcount":  157 ,
     "url": "http:\/\/localhost:1313\/posts\/oh-my-posh-powershell-%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95\/","datePublished": "2024-05-29T13:19:46+02:00","dateModified": "2024-05-29T13:19:46+02:00","publisher": {
       "@type": "Organization",
       "name": ""},"author": {
@@ -50,7 +50,7 @@
       },"description": ""
   }
   </script><script src="/js/head/color-scheme.min.js"></script></head>
-  <body data-header-desktop="sticky" data-header-mobile="auto"><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
+  <body data-instant-intensity="viewport" data-header-desktop="sticky" data-header-mobile="auto"><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
   <div class="header-wrapper">
     <div class="header-title">
       <a href="/" title="MizarZ 的博客"><span class="header-title-text">MizarZ 的博客</span></a><span class="header-subtitle"></span></div>
@@ -61,18 +61,16 @@
               <a class="menu-link" href="/categories/">分类</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
             <input type="text" placeholder="搜索文章标题或内容……" id="search-input-desktop">
             <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
-              <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+              <i class="fa-solid fa-search" aria-hidden="true"></i>
             </a>
             <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
-              <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+              <i class="fa-solid fa-times-circle" aria-hidden="true"></i>
             </a>
             <span class="search-button search-loading" id="search-loading-desktop">
-              <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+              <i class="fa-solid fa-spinner fa-spin" aria-hidden="true"></i>
             </span>
-          </li><li class="menu-item theme-switch" title="切换主题">
-          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
-        </li><li class="menu-item language-switch">
-            <span role="button" aria-label="选择语言" title="选择语言"><i class="fa-solid fa-language fa-fw" aria-hidden="true"></i></span>
+          </li><li class="menu-item theme-switch" role="button" aria-label="切换主题" title="切换主题"><i class="fa-solid fa-adjust" aria-hidden="true"></i></li><li class="menu-item language-switch">
+            <span role="button" aria-label="选择语言" title="选择语言"><i class="fa-solid fa-language" aria-hidden="true"></i></span>
             <ul class="sub-menu"><li class="menu-item">没有更多翻译</li></ul>
           </li></ul>
     </nav>
@@ -82,7 +80,8 @@
     <div class="header-wrapper">
       <div class="header-title">
         <a href="/" title="MizarZ 的博客"><span class="header-title-text">MizarZ 的博客</span></a><span class="header-subtitle"></span></div>
-      <div class="menu-toggle" id="menu-toggle-mobile">
+      <div class="theme-switch" role="button" aria-label="切换主题"><i class="fa-solid fa-adjust" aria-hidden="true"></i></div>
+      <div class="menu-toggle" id="menu-toggle-mobile" role="button" aria-labelledby="menu-mobile">
         <span></span><span></span><span></span>
       </div>
     </div>
@@ -91,22 +90,21 @@
             <div class="search mobile" id="search-mobile">
               <input type="text" placeholder="搜索文章标题或内容……" id="search-input-mobile">
               <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
-                <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+                <i class="fa-solid fa-search" aria-hidden="true"></i>
               </a>
               <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
-                <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+                <i class="fa-solid fa-times-circle" aria-hidden="true"></i>
               </a>
               <span class="search-button search-loading" id="search-loading-mobile">
-                <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                <i class="fa-solid fa-spinner fa-spin" aria-hidden="true"></i>
               </span>
             </div>
             <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
               取消
             </a>
-          </li><li class="menu-item"><a class="menu-link" href="/posts/">文章</a></li><li class="menu-item"><a class="menu-link" href="/tags/">标签</a></li><li class="menu-item"><a class="menu-link" href="/categories/">分类</a></li><li class="menu-item menu-system">
-          <span class="menu-system-item theme-switch" title="切换主题"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></span><span class="menu-system-item language-switch">
+          </li><li class="menu-item"><a class="menu-link" href="/posts/">文章</a></li><li class="menu-item"><a class="menu-link" href="/tags/">标签</a></li><li class="menu-item"><a class="menu-link" href="/categories/">分类</a></li><li class="menu-item menu-system"><span class="menu-system-item language-switch">
               <span role="button" aria-label="选择语言" title="选择语言">简体中文<i class="dropdown-icon fa-solid fa-chevron-down" aria-hidden="true"></i></span>
-              <select class="language-select" onchange="location = this.value;"><option disabled>没有更多翻译</option></select>
+              <select id="language-select" class="language-select" onchange="location = this.value;"><option disabled>没有更多翻译</option></select>
             </span></li>
       </ul>
     </nav>
@@ -116,13 +114,13 @@
   </div>
   <div class="search-dropdown mobile">
     <div id="search-dropdown-mobile"></div>
-  </div><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label="合集"></aside>
+  </div><main class="fi-container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label="合集"></aside>
 
   <article class="page single">
     <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>Oh-My-Posh Powershell 配置方法</span>
       </h1></div><div class="post-meta">
       <div class="post-meta-line"><span class="post-author"><span class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
-      MizarZ</span></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category" title="分类 - 计算机"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> 计算机</a></span></div><div class="post-meta-line"><span title="发布于 2024-05-29 13:19:46"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2024-05-29">2024-05-29</time></span>&nbsp;<span title="157 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 200 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 1 分钟</span>&nbsp;</div>
+      MizarZ</span></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="post-category" title="分类 - 计算机"><i class="fa-regular fa-folder" aria-hidden="true"></i> 计算机</a></span></div><div class="post-meta-line"><span title="发布于 2024-05-29 13:19:46"><i class="fa-solid fa-calendar-days me-1" aria-hidden="true"></i><time datetime="2024-05-29">2024-05-29</time></span>&nbsp;<span title="157 字"><i class="fa-solid fa-pencil-alt me-1" aria-hidden="true"></i>约 200 字</span>&nbsp;<span><i class="fa-regular fa-clock me-1" aria-hidden="true"></i>预计阅读 1 分钟</span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
         <div class="details-summary toc-title">
           <span>目录</span>
@@ -134,57 +132,63 @@
     <li><a href="#安装和启动">安装和启动</a></li>
   </ul>
 </nav></div>
-      </div><div class="content" id="content"><h2 id="介绍" class="heading-element"><span>介绍</span>
+      </div><div class="content" id="content"><h2 class="heading-element" id="介绍"><span>介绍</span>
   <a href="#%e4%bb%8b%e7%bb%8d" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
-</h2><p><a href="https://ohmyposh.dev/"target="_blank" rel="external nofollow noopener noreferrer">oh-my-posh</a> 是一个命令行美化工具。</p>
-<h2 id="安装和启动" class="heading-element"><span>安装和启动</span>
+</h2><p><a href="https://ohmyposh.dev/" target="_blank" rel="external nofollow noopener noreferrer">oh-my-posh</a> 是一个命令行美化工具。</p>
+<h2 class="heading-element" id="安装和启动"><span>安装和启动</span>
   <a href="#%e5%ae%89%e8%a3%85%e5%92%8c%e5%90%af%e5%8a%a8" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
 </h2><ol>
-<li>安装脚本。见 <a href="https://ohmyposh.dev/docs/installation/windows"target="_blank" rel="external nofollow noopener noreferrer">https://ohmyposh.dev/docs/installation/windows</a></li>
-<li>安装字体。oh-my-posh 基于 <a href="https://www.nerdfonts.com/"target="_blank" rel="external nofollow noopener noreferrer">Nerds Font</a> 字体，因此我们需要安装它，否则就会出现奇怪的 ? 字符。安装方法见 <a href="https://ohmyposh.dev/docs/installation/fonts"target="_blank" rel="external nofollow noopener noreferrer">https://ohmyposh.dev/docs/installation/fonts</a></li>
-<li>设置启动。启动命令 <code>oh-my-posh init pwsh | Invoke-Expression</code>，如果要打开启动则需要将其写入一个。详情见 <a href="https://ohmyposh.dev/docs/installation/prompt"target="_blank" rel="external nofollow noopener noreferrer">https://ohmyposh.dev/docs/installation/prompt</a></li>
-<li>选择一个主题。见 <a href="https://ohmyposh.dev/docs/themes"target="_blank" rel="external nofollow noopener noreferrer">https://ohmyposh.dev/docs/themes</a> 和 <a href="https://ohmyposh.dev/docs/installation/customize"target="_blank" rel="external nofollow noopener noreferrer">https://ohmyposh.dev/docs/installation/customize</a> 。<code>oh-my-posh init pwsh --config 'C:/Users/Posh/jandedobbeleer.omp.json' | Invoke-Expression</code></li>
+<li>安装脚本。见 <a href="https://ohmyposh.dev/docs/installation/windows" target="_blank" rel="external nofollow noopener noreferrer">https://ohmyposh.dev/docs/installation/windows</a></li>
+<li>安装字体。oh-my-posh 基于 <a href="https://www.nerdfonts.com/" target="_blank" rel="external nofollow noopener noreferrer">Nerds Font</a> 字体，因此我们需要安装它，否则就会出现奇怪的 ? 字符。安装方法见 <a href="https://ohmyposh.dev/docs/installation/fonts" target="_blank" rel="external nofollow noopener noreferrer">https://ohmyposh.dev/docs/installation/fonts</a></li>
+<li>设置启动。启动命令 <code>oh-my-posh init pwsh | Invoke-Expression</code>，如果要打开启动则需要将其写入一个。详情见 <a href="https://ohmyposh.dev/docs/installation/prompt" target="_blank" rel="external nofollow noopener noreferrer">https://ohmyposh.dev/docs/installation/prompt</a></li>
+<li>选择一个主题。见 <a href="https://ohmyposh.dev/docs/themes" target="_blank" rel="external nofollow noopener noreferrer">https://ohmyposh.dev/docs/themes</a> 和 <a href="https://ohmyposh.dev/docs/installation/customize" target="_blank" rel="external nofollow noopener noreferrer">https://ohmyposh.dev/docs/installation/customize</a> 。<code>oh-my-posh init pwsh --config 'C:/Users/Posh/jandedobbeleer.omp.json' | Invoke-Expression</code></li>
 </ol>
 </div><div class="post-footer" id="post-footer">
   <div class="post-info">
     <div class="post-info-line">
-      <div class="post-info-mod">
-        <span title="更新于 2024-05-29 13:19:46">更新于 2024-05-29&nbsp;</span>
+      <div class="post-info-mod"><span title="更新于 2024-05-29 13:19:46">更新于 2024-05-29&nbsp;</span>
       </div><div class="post-info-license">
             <span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
           </div></div><div class="post-info-line">
         <div class="post-info-md"><span><a href="/posts/oh-my-posh-powershell-%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span></div>
         <div class="post-info-share">
-          <span><a href="javascript:void(0);" title="分享到 X" data-sharer="twitter" data-url="http://localhost:1313/posts/oh-my-posh-powershell-%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95/" data-title="Oh-My-Posh Powershell 配置方法" data-hashtags="配置"><i class="fa-brands fa-x-twitter fa-fw" aria-hidden="true"></i></a>
-  <a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://localhost:1313/posts/oh-my-posh-powershell-%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95/" data-hashtag="配置"><i class="fa-brands fa-facebook-square fa-fw" aria-hidden="true"></i></a>
-  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://localhost:1313/posts/oh-my-posh-powershell-%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95/" data-title="Oh-My-Posh Powershell 配置方法"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
+          <span><a href="javascript:void(0);" title="分享到 X" data-sharer="twitter" data-url="http://localhost:1313/posts/oh-my-posh-powershell-%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95/" data-title="Oh-My-Posh Powershell 配置方法" data-hashtags="oh-my-posh,powershell"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://localhost:1313/posts/oh-my-posh-powershell-%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95/" data-hashtag="oh-my-posh"><i class="fa-brands fa-facebook-square" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://localhost:1313/posts/oh-my-posh-powershell-%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95/" data-title="Oh-My-Posh Powershell 配置方法"><i class="fa-brands fa-weibo" aria-hidden="true"></i></a>
   </span>
         </div>
       </div></div>
 
   <div class="post-info-more">
-    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href="/tags/%E9%85%8D%E7%BD%AE/" class="post-tag" title="标签 - 配置">配置</a></section>
-    <section>
-      <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+    <section class="post-tags"><i class="fa-solid fa-tags me-1" aria-hidden="true"></i><a href="/tags/oh-my-posh/" class="post-tag" title="标签 - Oh-My-Posh">Oh-My-Posh</a><a href="/tags/powershell/" class="post-tag" title="标签 - Powershell">Powershell</a></section>
+    <section><span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
     </section>
-  </div><div class="post-nav"><a href="/posts/%E5%A6%82%E4%BD%95%E5%B0%86%E6%B1%82%E5%92%8C%E7%9F%A2%E9%87%8F%E5%8C%96%E4%BB%A5%E5%A4%9A%E6%91%86%E7%9A%84%E5%85%AC%E5%BC%8F%E4%B8%BA%E4%BE%8B/" class="post-nav-item" rel="prev" title="如何将求和矢量化（以多摆的公式为例）"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>如何将求和矢量化（以多摆的公式为例）</a><a href="/posts/raspberry-pi-vnc/" class="post-nav-item" rel="next" title="Raspberry Pi VNC">Raspberry Pi VNC<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+  </div><div class="post-nav"><a href="/posts/%E5%A6%82%E4%BD%95%E5%B0%86%E6%B1%82%E5%92%8C%E7%9F%A2%E9%87%8F%E5%8C%96%E4%BB%A5%E5%A4%9A%E6%91%86%E7%9A%84%E5%85%AC%E5%BC%8F%E4%B8%BA%E4%BE%8B/" class="post-nav-item" rel="prev" title="如何将求和矢量化（以多摆的公式为例）"><i class="fa-solid fa-angle-left" aria-hidden="true"></i>如何将求和矢量化（以多摆的公式为例）</a><a href="/posts/raspberry-pi-vnc/" class="post-nav-item" rel="next" title="Raspberry Pi VNC">Raspberry Pi VNC<i class="fa-solid fa-angle-right" aria-hidden="true"></i></a></div>
 </div>
 </article>
 
-  <aside class="toc" id="toc-auto" aria-label="目录"><h2 class="toc-title">目录&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
-      <div class="toc-content" id="toc-content-auto"></div></aside></main><footer class="footer">
-    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.142.0"><img class="hugo-icon" src="/images/hugo.min.svg" alt="Hugo logo" /> Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.3.16"><img class="fixit-icon" src="/images/fixit.min.svg" alt="FixIt logo" /> FixIt</a>
-        </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
-            <span itemprop="copyrightYear">2025</span><span class="author" itemprop="copyrightHolder">
+  <aside class="toc" id="toc-auto" aria-label="目录"><h2 class="toc-title">目录&nbsp;<i class="toc-icon fa-solid fa-angle-down" aria-hidden="true"></i></h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside><dialog id="toc-dialog" aria-labelledby="toc-dialog-title" role="dialog">
+      <div class="toc">
+        <h2 class="toc-title">目录</h2>
+        <div class="toc-content" id="toc-content-drawer"><nav >
+  <ul>
+    <li><a href="#介绍">介绍</a></li>
+    <li><a href="#安装和启动">安装和启动</a></li>
+  </ul>
+</nav></div>
+      </div>
+    </dialog></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.159.0"><img class="hugo-icon" src="/images/hugo.min.svg" alt="Hugo logo" /> Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.4.5"><img class="fixit-icon" src="/images/fixit.min.svg" alt="FixIt logo" /> FixIt</a>
+        </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2026</span><span class="author" itemprop="copyrightHolder">
               <a href="/">MizarZ</a></span></div></div>
-  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="回到顶部"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
-        </div></div><div id="mask"></div><noscript>
+  </footer></div><div class="widgets"><div class="fixed-buttons"><div class="fixed-button back-to-top animate__faster d-none" role="button" aria-label="回到顶部"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i></div><div id="toc-drawer-button" class="fixed-button toc-drawer-button d-none" role="button" aria-label="目录"><i class="fa-solid fa-bars" aria-hidden="true"></i></div></div><div id="mask"></div><noscript>
     <div class="noscript-warning">该网站在启用 JavaScript 的情况下效果最佳。</div>
   </noscript>
-</div><link rel="preload" href="/lib/katex/katex.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="/lib/katex/katex.min.css"></noscript><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/fuse/fuse.min.js" defer></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/katex/katex.min.js" defer></script><script src="/lib/katex/auto-render.min.js" defer></script><script src="/lib/katex/copy-tex.min.js" defer></script><script src="/lib/katex/mhchem.min.js" defer></script><script src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script src="/lib/pangu/pangu.min.js" defer></script><script>window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":40},"comment":{"enable":false},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验。"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"pangu":{"enable":true,"selector":"article"},"search":{"distance":100,"findAllMatches":false,"highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":false,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"没有找到结果","snippetLength":30,"threshold":0.3,"useExtendedSearch":false},"version":"v0.3.16"};</script><script src="/js/theme.min.js" defer></script></body>
+</div><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/fuse/fuse.min.js" defer></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script src="/lib/pangu/pangu.min.js" defer></script><script src="/lib/cell-tooltip/cell-tooltip.umd.js" defer></script><script src="/js/config/eca674f2543e85f7672ed65d726928de.js" defer></script><script src="/js/theme.min.js" defer></script></body>
 </html>

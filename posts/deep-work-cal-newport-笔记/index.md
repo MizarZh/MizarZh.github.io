@@ -21,17 +21,17 @@
 - 建立问责节奏。在记录的基础上反思什么做对了，什么做错了。
 
 ### 浅工作以及休息
-浅工作可以换一些更有意义的事情做。例如：刷视频 -&gt; 看书。
+浅工作可以换一些更有意义的事情做。例如：刷视频 -> 看书。
 
 休息很重要，不要在一天中超负荷工作，一天四小时的深度工作即可。
 
-### 时间&amp;项目的管理
+### 时间&项目的管理
 使用时间块去计划一天的时间。同时使用时间压力逼迫自己去做事情。
 
 项目要思考是否值得做，先做优先级最高的项目和任务。
 
 ### 仪式感
-在开始和结束深度工作时，可以设定一些动作，快速进度集中模式。这一点和 *Atomic Habit* 里面的思想有点相似。
+在开始和结束深度工作时，可以设定一些动作，快速进度集中模式。这一点和 *Atomic Habit*里面的思想有点相似。
 
 ## 减少干扰因素
 - 断网、黑名单网站或不去访问他们。网络是当代第一干扰因素。
@@ -39,7 +39,7 @@
 - 清理工作环境中的干扰因素。
 
 ## 其他一些有意思的点
-&gt; In a post-Enlightenment world we have tasked _ourselves_ to identify what’s meaningful and what’s not, an exercise that can seem arbitrary and induce a creeping nihilism.
+> In a post-Enlightenment world we have tasked _ourselves_ to identify what’s meaningful and what’s not, an exercise that can seem arbitrary and induce a creeping nihilism.
 
 在曾经，我们可以有宗教等指导我们的思想，让我们知道朝什么方向做什么事。但是在科学兴起后，人们开始需要自己去选择目标和方向，从而导致虚无主义的出现。
 

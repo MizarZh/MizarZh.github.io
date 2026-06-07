@@ -13,7 +13,7 @@ print(start - end)
 但是每个地方都要自己加确实有点麻烦。于是选择自动定位并测试函数的工具 `cProfile`
 ```python
 import cProfile
-cProfile.run(&#39;xxx&#39;)
+cProfile.run('xxx')
 ```
 
 然后你就会得到一个表格，其中记录了哪个部分用时多少。

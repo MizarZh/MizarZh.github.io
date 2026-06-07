@@ -1,9 +1,7 @@
 # 股票指数月度涨跌幅分布（截至2025-06）
 
 ## 标普 500
-测试
-
-{{&lt;figure src=&#34;/images/Pasted image 20250709030341.png&#34; title=&#34;Pasted image 20250709030341.png&#34;&gt;}}
+{{<figure src="/images/Pasted image 20250709030341.png" title="Pasted image 20250709030341.png">}}
 
 ```
 Month  Avg%   Std%   Min%    Max%    Count  Win%  
@@ -57,7 +55,7 @@ Dec     0.6   4.1   -9.2      6.5       15  66.7
 5. 六月：胜率68.8%（平均：0.85%）
 
 ## 纳斯达克
-{{&lt;figure src=&#34;/images/Pasted image 20250709030506.png&#34; title=&#34;Pasted image 20250709030506.png&#34;&gt;}}
+{{<figure src="/images/Pasted image 20250709030506.png" title="Pasted image 20250709030506.png">}}
 
 ```
 Month  Avg%   Std%   Min%    Max%    Count  Win%
@@ -113,7 +111,7 @@ Dec      0.1   4.4   -9.1     5.5       15  60.0
 7、11 是好月份。果然是美股，每月稳定赚钱。
 
 ## 沪深 300
-{{&lt;figure src=&#34;/images/Pasted image 20250709030634.png&#34; title=&#34;Pasted image 20250709030634.png&#34;&gt;}}
+{{<figure src="/images/Pasted image 20250709030634.png" title="Pasted image 20250709030634.png">}}
 
 ```
 Month  Avg%   Std%   Min%    Max%    Count  Win%
@@ -169,7 +167,7 @@ Dec      2.6   9.0   -7.0    25.8       15  60.0
 不愧是A股，这个回报率分布简直是垃圾。极度不稳定、不相上下的损失与回报。
 
 ## 中证 2000
-{{&lt;figure src=&#34;/images/Pasted image 20250709030716.png&#34; title=&#34;Pasted image 20250709030716.png&#34;&gt;}}
+{{<figure src="/images/Pasted image 20250709030716.png" title="Pasted image 20250709030716.png">}}
 
 ```
 Month  Avg%   Std%   Min%    Max%    Count  Win%

@@ -42,13 +42,13 @@ export interface posts {
 }
 
 // src/shared/schema.ts
-import { sqliteTable, text, integer, real } from &#39;drizzle-orm/sqlite-core&#39;
+import { sqliteTable, text, integer, real } from 'drizzle-orm/sqlite-core'
 
-export const books = sqliteTable(&#39;posts&#39;, {
-  id: text(&#39;id&#39;).primaryKey(),
-  title: text(&#39;title&#39;).notNull(),
-  author: text(&#39;author&#39;),
-  content: text(&#39;content&#39;).notNull(),
+export const books = sqliteTable('posts', {
+  id: text('id').primaryKey(),
+  title: text('title').notNull(),
+  author: text('author'),
+  content: text('content').notNull(),
 })
 ```
 
@@ -63,7 +63,7 @@ export class StorageService {
 		if (this.db) return this.db
 		const db = createClient({ url: ... })
 		this.db = drizzle(db)
-		await migrate(this.db, { migrationsFolder: &#39;./drizzle&#39; })
+		await migrate(this.db, { migrationsFolder: './drizzle' })
 		return this.db
 	}
 	// 具体的数据库操作方法
@@ -81,10 +81,10 @@ export class StorageService {
 ```ts
 // src/main/index.ts
 
-app.whenReady().then(() =&gt; {
+app.whenReady().then(() => {
 	...
 
-	ipcMain.handle(&#39;storage:getPosts&#39;, async () =&gt; {
+	ipcMain.handle('storage:getPosts', async () => {
 	    return await StorageService.getPosts()
     })
 
@@ -98,17 +98,17 @@ app.whenReady().then(() =&gt; {
 // src/preload/index.ts
 const api= {
 	storage: {
-		getPosts: () =&gt; ipcRenderer.invoke(&#39;storage:getPosts&#39;),
+		getPosts: () => ipcRenderer.invoke('storage:getPosts'),
 		...
 	}
 }
 
 // 将 api 放到 renderer 的 window 中
-contextBridge.exposeInMainWorld(&#39;api&#39;, api)
+contextBridge.exposeInMainWorld('api', api)
 
 // src/preload/index.d.ts
-import { ElectronAPI } from &#39;@electron-toolkit/preload&#39;
-import { api } from &#39;./index&#39;
+import { ElectronAPI } from '@electron-toolkit/preload'
+import { api } from './index'
 
 declare global {
   interface Window {
@@ -123,11 +123,11 @@ declare global {
 ## 如何快捷访问 `shared`
 如果不用绝对路径访问 `shared` 文件夹，则会导致很多跨越多个部分的相对路径导入。为了实现绝对路径引入，需要修改 `tsconfig.json, tsconfig.node.json, tsconfig.web.json` 文件（后两个即为主进程和渲染进程的 `tsconfig`）。
 
-首先需要给 `tsconfig.node.json, tsconfig.web.json` 文件中的 `&#34;include&#34;` 属性都加上 `&#34;src/shared/*.ts&#34;`。其次需要给它们两个添加 `compilerOptions`：
+首先需要给 `tsconfig.node.json, tsconfig.web.json` 文件中的 `"include"` 属性都加上 `"src/shared/*.ts"`。其次需要给它们两个添加 `compilerOptions`：
 ```json
-  &#34;compilerOptions&#34;: {
-    &#34;paths&#34;: {
-      &#34;@shared/*&#34;: [&#34;src/shared/*&#34;]
+  "compilerOptions": {
+    "paths": {
+      "@shared/*": ["src/shared/*"]
     }
   }
 ```
@@ -135,10 +135,10 @@ declare global {
 这样就可以通过引用 `@shared/types` 来直接引用 `shared` 文件夹中的属性了。实际上许多高级项目中使用的 `@/xxx` 也是这么实现的。例如我想在 `renderer` 中也实现类似的效果：
 
 ```json
-  &#34;compilerOptions&#34;: {
-    &#34;paths&#34;: {
-      &#34;@/*&#34;: [&#34;src/renderer/src/*&#34;],
-      &#34;@shared/*&#34;: [&#34;src/shared/*&#34;]
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["src/renderer/src/*"],
+      "@shared/*": ["src/shared/*"]
     }
   }
 ```

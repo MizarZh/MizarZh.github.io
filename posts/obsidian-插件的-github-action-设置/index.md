@@ -9,7 +9,7 @@ name: Release # action 的名字
 on:
   push:
     tags:
-      - &#34;*&#34; # 在 push tags 后触发 action
+      - "*" # 在 push tags 后触发 action
   
 jobs:
   build:
@@ -21,9 +21,9 @@ jobs:
     - name: Use Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: &#39;20.x&#39;
+        node-version: '20.x'
     - name: Build
-      run: | # 这两句是核心，安装包&amp;构建程序
+      run: | # 这两句是核心，安装包&构建程序
         yarn
         yarn run build
     - name: Release with Notes

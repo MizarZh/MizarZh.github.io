@@ -1,13 +1,13 @@
-# &#34;-&#34;(U&#43;002D) 和 &#34;−&#34;(U&#43;2212) 的区别
+# "-"(U+002D) 和 "−"(U+2212) 的区别
 
-在处理数据时，本想 `split(&#39;-&#39;)` 将相应的参数分离出来，结果竟然发现这个 string 中竟然用了 `-` 和 `−` 两种不同的符号。它们的区别是什么？
+在处理数据时，本想 `split('-')` 将相应的参数分离出来，结果竟然发现这个 string 中竟然用了 `-` 和 `−` 两种不同的符号。它们的区别是什么？
 
 ## python 转换成 hex 表示
 ```python
 # ord 返回这个字符的 unicode 数字表示
 # hex 将数字转换成 16 进制
-hex(ord(&#34;-&#34;)) # 0x2d
-hex(ord(&#34;−&#34;)) # 0x2212
+hex(ord("-")) # 0x2d
+hex(ord("−")) # 0x2212
 ```
 
 ## 区别是什么
@@ -17,8 +17,8 @@ hex(ord(&#34;−&#34;)) # 0x2212
 
 ## 其他的减号
 - the hyphen-minus (-, ASCII 45, next to the zero key)
-- the en-dash (–, Unicode 2013, Alt&#43;0151 on Windows)
-- the em-dash (—, Unicode 2014, Alt&#43;0150 on Windows)
+- the en-dash (–, Unicode 2013, Alt+0151 on Windows)
+- the em-dash (—, Unicode 2014, Alt+0150 on Windows)
 - the true minus (−, Unicode 2212)
 
 https://benjaminwolfe.github.io/signs/

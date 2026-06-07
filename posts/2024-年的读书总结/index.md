@@ -7,18 +7,18 @@
 日本史（2）：宛如梦幻，现代日本史
 欧洲史（20）：希腊人的故事（3），罗马人的故事（15），俄罗斯史，极简欧洲史
 
-### 文学 &amp; 科幻（6）
+### 文学 & 科幻（6）
 文学：一只特立独行的猪，长安的荔枝，临高启明（从 0 追到连载最新，虽然是网文但我觉得也能算书了）
-科幻：计算中的上帝，献给阿尔吉侬的花束，Ender&#39;s game， Xeelee 系列（太长了，现在还在读）
+科幻：计算中的上帝，献给阿尔吉侬的花束，Ender's game， Xeelee 系列（太长了，现在还在读）
 
 ### 科技（4）
 Chip war， Elon musk， What is life， 天气预报
 
 ### Self-help（7）
-Deep work， MAKE: Bootstrapper&#39;s Handbook， Atomic habits， Why we sleep， 老实人启蒙， The Psychology of Money, So good they cannot ignore you
+Deep work， MAKE: Bootstrapper's Handbook， Atomic habits， Why we sleep， 老实人启蒙， The Psychology of Money, So good they cannot ignore you
 
 ### 其他（3）
-文心，The art of styling sentences， One Man&#39;s View of the World
+文心，The art of styling sentences， One Man's View of the World
 
 ## 感想
 现在是 2025 年 4 月，为什么突然想写 2024 年的总结了呢，是因为最近想要煅炼一下写作的能力，又找不到话题，于是只能将以前的冷饭重新拿出来炒。
